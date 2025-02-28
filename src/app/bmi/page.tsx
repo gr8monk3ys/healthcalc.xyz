@@ -3,12 +3,16 @@
 import React, { useState } from 'react';
 import { calculateBMI, getBMICategory, calculateHealthyWeightRange, estimateBMIPercentile, getBMIPercentileCategory } from '@/app/api/bmi';
 import { BMIResult } from '@/types/bmi';
-import { HeightUnit, WeightUnit } from '@/types/common';
+import { Gender, HeightUnit, WeightUnit } from '@/types/common';
+import CalculatorForm from '@/components/calculators/CalculatorForm';
+import BMIResultDisplay from '@/components/calculators/bmi/BMIResult';
+import BMIInfo from '@/components/calculators/bmi/BMIInfo';
+import BMIUnderstanding from '@/components/calculators/bmi/BMIUnderstanding';
 
 export default function BMICalculator() {
   // State for form inputs
   const [age, setAge] = useState<number | ''>('');
-  const [gender, setGender] = useState<'male' | 'female'>('male');
+  const [gender, setGender] = useState<Gender>('male');
   const [height, setHeight] = useState<number | ''>('');
   const [heightUnit, setHeightUnit] = useState<HeightUnit>('cm');
   const [weight, setWeight] = useState<number | ''>('');
@@ -174,6 +178,54 @@ export default function BMICalculator() {
     setResult(null);
     setShowResult(false);
   };
+
+  // Form fields for the CalculatorForm component
+  const formFields = [
+    {
+      name: 'age',
+      label: 'Age',
+      type: 'number' as const,
+      value: age,
+      onChange: setAge,
+      error: errors.age,
+      placeholder: 'Years'
+    },
+    {
+      name: 'gender',
+      label: 'Gender',
+      type: 'radio' as const,
+      value: gender,
+      onChange: setGender,
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' }
+      ]
+    },
+    {
+      name: 'height',
+      label: 'Height',
+      type: 'number' as const,
+      value: height,
+      onChange: setHeight,
+      error: errors.height,
+      placeholder: heightUnit === 'cm' ? 'Centimeters' : 'Feet',
+      unit: heightUnit === 'cm' ? 'cm' : 'ft',
+      unitToggle: toggleHeightUnit,
+      step: '0.1'
+    },
+    {
+      name: 'weight',
+      label: 'Weight',
+      type: 'number' as const,
+      value: weight,
+      onChange: setWeight,
+      error: errors.weight,
+      placeholder: weightUnit === 'kg' ? 'Kilograms' : 'Pounds',
+      unit: weightUnit === 'kg' ? 'kg' : 'lb',
+      unitToggle: toggleWeightUnit,
+      step: '0.1'
+    }
+  ];
   
   return (
     <div className="max-w-4xl mx-auto">
@@ -184,295 +236,28 @@ export default function BMICalculator() {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-1">
-          <div className="neumorph p-6 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Enter Your Details</h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="age" className="block text-sm font-medium mb-1">
-                  Age
-                </label>
-                <input
-                  type="number"
-                  id="age"
-                  value={age}
-                  onChange={(e) => setAge(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
-                    errors.age ? 'border border-red-500' : ''
-                  }`}
-                  placeholder="Years"
-                />
-                {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-1">Gender</label>
-                <div className="flex space-x-4">
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      checked={gender === 'male'}
-                      onChange={() => setGender('male')}
-                      className="mr-2"
-                    />
-                    <span>Male</span>
-                  </label>
-                  <label className="flex items-center">
-                    <input
-                      type="radio"
-                      checked={gender === 'female'}
-                      onChange={() => setGender('female')}
-                      className="mr-2"
-                    />
-                    <span>Female</span>
-                  </label>
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="height" className="block text-sm font-medium mb-1">
-                  Height
-                </label>
-                <div className="flex">
-                  <input
-                    type="number"
-                    id="height"
-                    value={height}
-                    onChange={(e) => setHeight(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                    className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
-                      errors.height ? 'border border-red-500' : ''
-                    }`}
-                    placeholder={heightUnit === 'cm' ? 'Centimeters' : 'Feet'}
-                    step="0.1"
-                  />
-                  <button
-                    type="button"
-                    onClick={toggleHeightUnit}
-                    className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
-                  >
-                    {heightUnit === 'cm' ? 'cm' : 'ft'}
-                  </button>
-                </div>
-                {errors.height && <p className="text-red-500 text-sm mt-1">{errors.height}</p>}
-              </div>
-              
-              <div>
-                <label htmlFor="weight" className="block text-sm font-medium mb-1">
-                  Weight
-                </label>
-                <div className="flex">
-                  <input
-                    type="number"
-                    id="weight"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                    className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
-                      errors.weight ? 'border border-red-500' : ''
-                    }`}
-                    placeholder={weightUnit === 'kg' ? 'Kilograms' : 'Pounds'}
-                    step="0.1"
-                  />
-                  <button
-                    type="button"
-                    onClick={toggleWeightUnit}
-                    className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
-                  >
-                    {weightUnit === 'kg' ? 'kg' : 'lb'}
-                  </button>
-                </div>
-                {errors.weight && <p className="text-red-500 text-sm mt-1">{errors.weight}</p>}
-              </div>
-              
-              <div className="flex space-x-4 pt-2">
-                <button
-                  type="submit"
-                  className="flex-1 py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all"
-                >
-                  Calculate
-                </button>
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="py-3 px-4 neumorph text-gray-500 font-medium rounded-lg hover:shadow-neumorph-inset transition-all"
-                >
-                  Reset
-                </button>
-              </div>
-            </form>
-          </div>
+          <CalculatorForm
+            title="Enter Your Details"
+            fields={formFields}
+            onSubmit={handleSubmit}
+            onReset={handleReset}
+          />
         </div>
         
         <div className="md:col-span-2">
           {showResult && result ? (
-            <div 
-              id="bmi-result" 
-              className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-            >
-              <h2 className="text-xl font-semibold mb-4">Your BMI Results</h2>
-              
-              <div className="mb-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium">BMI Value</span>
-                  <span className="text-2xl font-bold">{result.bmi.toFixed(1)}</span>
-                </div>
-                
-                <div className="relative h-6 neumorph-inset rounded-full overflow-hidden">
-                  <div className="absolute inset-0 flex">
-                    <div className="h-full bg-blue-200" style={{ width: '20%' }}></div>
-                    <div className="h-full bg-green-200" style={{ width: '15%' }}></div>
-                    <div className="h-full bg-yellow-200" style={{ width: '15%' }}></div>
-                    <div className="h-full bg-orange-200" style={{ width: '15%' }}></div>
-                    <div className="h-full bg-red-200" style={{ width: '35%' }}></div>
-                  </div>
-                  
-                  <div 
-                    className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2 transition-all duration-500"
-                    style={{ 
-                      left: `${Math.min(Math.max((result.bmi - 10) / 30 * 100, 0), 100)}%`,
-                    }}
-                  ></div>
-                </div>
-                
-                <div className="flex justify-between text-xs mt-1">
-                  <span>Underweight</span>
-                  <span>Normal</span>
-                  <span>Overweight</span>
-                  <span>Obese</span>
-                </div>
-              </div>
-              
-              <div className="mb-6">
-                <h3 className="font-medium mb-2">
-                  {isChild ? 'BMI Percentile Classification' : 'BMI Classification'}
-                </h3>
-                <div className="neumorph-inset p-4 rounded-lg">
-                  <p className="font-medium text-lg">
-                    {isChild && result.percentile !== undefined
-                      ? `${result.percentile}th Percentile - ${result.category}`
-                      : result.category
-                    }
-                  </p>
-                </div>
-              </div>
-              
-              <div className="mb-6">
-                <h3 className="font-medium mb-2">Healthy Weight Range for Your Height</h3>
-                <div className="neumorph-inset p-4 rounded-lg">
-                  <p className="font-medium text-lg">
-                    {result.healthyWeightRange.min.toFixed(1)} - {result.healthyWeightRange.max.toFixed(1)} {weightUnit}
-                  </p>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="font-medium mb-2">What This Means</h3>
-                <p className="mb-2">
-                  {isChild && result.percentile !== undefined ? (
-                    <>
-                      Your child's BMI is at the {result.percentile}th percentile for their age and sex. 
-                      {result.percentile < 5 
-                        ? ' This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.'
-                        : result.percentile >= 5 && result.percentile < 85
-                          ? ' This is within the healthy weight range.'
-                          : result.percentile >= 85 && result.percentile < 95
-                            ? ' This is considered overweight. Consider discussing healthy lifestyle habits with a healthcare provider.'
-                            : ' This is considered obese. It is recommended to consult with a healthcare provider about healthy weight management strategies.'
-                      }
-                    </>
-                  ) : (
-                    <>
-                      {result.bmi < 18.5 
-                        ? 'Being underweight can be associated with certain health risks including nutrient deficiencies and immune system issues. Consider consulting with a healthcare provider.'
-                        : result.bmi >= 18.5 && result.bmi < 25
-                          ? 'Your BMI is within the healthy range. Maintaining a healthy weight can lower your risk of developing serious health problems.'
-                          : result.bmi >= 25 && result.bmi < 30
-                            ? 'Being overweight increases your risk of developing health problems such as heart disease, high blood pressure, and type 2 diabetes.'
-                            : 'Obesity is associated with higher risks for serious health conditions including heart disease, stroke, type 2 diabetes, and certain cancers.'
-                      }
-                    </>
-                  )}
-                </p>
-                <p className="text-sm text-gray-600">
-                  Note: BMI is a screening tool but does not diagnose body fatness or health. Athletes may have a high BMI due to muscle mass. Consult a healthcare provider for a complete health assessment.
-                </p>
-              </div>
-            </div>
+            <BMIResultDisplay
+              result={result}
+              isChild={isChild}
+              weightUnit={weightUnit}
+            />
           ) : (
-            <div className="neumorph p-6 rounded-lg h-full">
-              <h2 className="text-xl font-semibold mb-4">About BMI</h2>
-              
-              <div className="space-y-4">
-                <p>
-                  Body Mass Index (BMI) is a simple calculation using a person's height and weight. The formula is BMI = kg/m² where kg is a person's weight in kilograms and m² is their height in meters squared.
-                </p>
-                
-                <h3 className="font-medium">BMI Categories for Adults:</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Underweight:</strong> BMI less than 18.5</li>
-                  <li><strong>Normal weight:</strong> BMI 18.5 to 24.9</li>
-                  <li><strong>Overweight:</strong> BMI 25 to 29.9</li>
-                  <li><strong>Obesity:</strong> BMI 30 or greater</li>
-                </ul>
-                
-                <h3 className="font-medium">For Children and Teens (2-19 years):</h3>
-                <p>
-                  BMI is calculated the same way, but the interpretation is different. Results are compared to typical values for other children of the same age and sex, using percentiles:
-                </p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Underweight:</strong> Less than the 5th percentile</li>
-                  <li><strong>Healthy weight:</strong> 5th to 84th percentile</li>
-                  <li><strong>Overweight:</strong> 85th to 94th percentile</li>
-                  <li><strong>Obesity:</strong> 95th percentile or greater</li>
-                </ul>
-                
-                <h3 className="font-medium">Limitations of BMI:</h3>
-                <p>
-                  BMI is a useful screening tool, but it has limitations. It doesn't distinguish between muscle and fat, nor does it account for factors like age, sex, ethnicity, or muscle mass. Athletes and muscular individuals may have a high BMI without excess fat.
-                </p>
-              </div>
-            </div>
+            <BMIInfo />
           )}
         </div>
       </div>
       
-      <div className="mt-12 neumorph p-6 rounded-lg">
-        <h2 className="text-xl font-semibold mb-4">Understanding Your BMI</h2>
-        
-        <div className="space-y-4">
-          <p>
-            BMI provides a simple numeric measure of your weight relative to height. It was developed in the 19th century by Belgian mathematician Adolphe Quetelet and is widely used as a screening tool to categorize weight status.
-          </p>
-          
-          <h3 className="font-medium">Why BMI Matters</h3>
-          <p>
-            Research has shown that BMI correlates with direct measures of body fat and with various health risks. Higher BMIs are associated with increased risk for conditions like:
-          </p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Heart disease and stroke</li>
-            <li>Type 2 diabetes</li>
-            <li>High blood pressure</li>
-            <li>Certain types of cancer</li>
-            <li>Sleep apnea and breathing problems</li>
-            <li>Osteoarthritis</li>
-          </ul>
-          
-          <h3 className="font-medium">Beyond BMI</h3>
-          <p>
-            While BMI is useful for population studies and general screening, it doesn't tell the complete story about your health. Other factors to consider include:
-          </p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><strong>Body composition:</strong> The ratio of fat to muscle in your body</li>
-            <li><strong>Fat distribution:</strong> Where fat is stored on your body (abdominal fat carries higher health risks)</li>
-            <li><strong>Waist circumference:</strong> A measurement of abdominal fat</li>
-            <li><strong>Lifestyle factors:</strong> Diet quality, physical activity, sleep, and stress</li>
-            <li><strong>Family history:</strong> Genetic predisposition to certain conditions</li>
-          </ul>
-          
-          <p>
-            For a more comprehensive assessment of your health status, consider using our other calculators like the <a href="/body-fat" className="text-accent hover:underline">Body Fat Calculator</a> or <a href="/absi" className="text-accent hover:underline">ABSI Calculator</a>, and consult with healthcare professionals.
-          </p>
-        </div>
-      </div>
+      <BMIUnderstanding />
     </div>
   );
 }
