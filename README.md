@@ -2,7 +2,7 @@
 
 HealthCheck is a comprehensive health and fitness calculator web application built with Next.js, TypeScript, and TailwindCSS. It features a modern neumorphic design and provides a variety of calculators to help users track and understand their health metrics.
 
-![HealthCheck Screenshot](public/screenshots/home-screen.png)
+![HealthCheck Screenshot](public/images/dashboard.png)
 
 ## Features
 
