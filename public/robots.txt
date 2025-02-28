@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.healthcheck.com/sitemap.xml
+
+# Disallow crawling of admin or development areas
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /api/
+
+# Allow crawling of all calculator pages
+Allow: /bmi
+Allow: /body-fat
+Allow: /tdee
+Allow: /calorie-deficit
+Allow: /weight-management
+Allow: /maximum-fat-loss
+Allow: /absi
+Allow: /whr
+Allow: /conversions
+
+# Allow crawling of blog pages
+Allow: /blog/
+
+# Allow crawling of informational pages
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /disclaimer
