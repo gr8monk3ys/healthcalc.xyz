@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
+import GlobalStructuredData from '@/components/GlobalStructuredData';
+import Preconnect from '@/components/Preconnect';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
@@ -70,10 +72,21 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <meta name="theme-color" content="#4f46e5" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        
+        {/* Preconnect to external domains for better performance */}
+        <Preconnect 
+          domains={[
+            'https://www.googletagmanager.com',
+            'https://www.google.com',
+            'https://stats.g.doubleclick.net'
+          ]} 
+        />
         
         {/* Google Analytics Script - Replace with your actual GA4 measurement ID */}
         {process.env.NODE_ENV === 'production' && (
@@ -103,6 +116,9 @@ export default function RootLayout({
         
         {/* Analytics component for tracking */}
         <Analytics />
+        
+        {/* Global structured data for organization and website */}
+        <GlobalStructuredData />
       </body>
     </html>
   );
