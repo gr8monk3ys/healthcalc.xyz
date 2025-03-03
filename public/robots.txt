@@ -1,17 +1,22 @@
+# HealthCheck Robots.txt
+# Last updated: 2025-03-03
+
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://www.healthcheck.com/sitemap.xml
+# Sitemaps
+Sitemap: https://www.healthcheck.com/sitemap-index.xml
 
-# Disallow crawling of admin or development areas
+# Disallow crawling of API and development areas
+Disallow: /api/
 Disallow: /admin/
 Disallow: /dev/
-Disallow: /api/
+Disallow: /_next/
 
-# Allow crawling of all calculator pages
+# Allow crawling of all calculator pages (high priority)
 Allow: /bmi
 Allow: /body-fat
+Allow: /body-fat-burn
 Allow: /tdee
 Allow: /calorie-deficit
 Allow: /weight-management
@@ -20,7 +25,7 @@ Allow: /absi
 Allow: /whr
 Allow: /conversions
 
-# Allow crawling of blog pages
+# Allow crawling of blog pages (high priority)
 Allow: /blog/
 
 # Allow crawling of informational pages
@@ -29,3 +34,17 @@ Allow: /contact
 Allow: /privacy
 Allow: /terms
 Allow: /disclaimer
+
+# Crawl delay for specific bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Allow Google Image crawler to index images
+User-agent: Googlebot-Image
+Allow: /images/

@@ -1,210 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Home Page -->
+  <!-- Home Page Images -->
   <url>
     <loc>https://www.healthcheck.com/</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/og-image.jpg</image:loc>
+      <image:title>HealthCheck - Health and Fitness Calculators</image:title>
+      <image:caption>Free health and fitness calculators for body fat, BMI, TDEE, and more</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/dashboard.png</image:loc>
+      <image:title>HealthCheck Dashboard</image:title>
+      <image:caption>Dashboard of health and fitness calculators</image:caption>
+    </image:image>
   </url>
   
-  <!-- Calculator Pages -->
+  <!-- Calculator Page Images -->
   <url>
     <loc>https://www.healthcheck.com/bmi</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/bmi-calculator.jpg</image:loc>
       <image:title>BMI Calculator</image:title>
+      <image:caption>Calculate your Body Mass Index (BMI)</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/body-fat</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/body-fat-calculator.jpg</image:loc>
       <image:title>Body Fat Calculator</image:title>
+      <image:caption>Calculate your body fat percentage using various methods</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/body-fat-burn</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/body-fat-burn-calculator.jpg</image:loc>
       <image:title>Body Fat Burn Calculator</image:title>
+      <image:caption>Calculate calories burned during physical activities</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/tdee</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/tdee-calculator.jpg</image:loc>
       <image:title>TDEE Calculator</image:title>
+      <image:caption>Calculate your Total Daily Energy Expenditure</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/calorie-deficit</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/calorie-deficit-calculator.jpg</image:loc>
       <image:title>Calorie Deficit Calculator</image:title>
+      <image:caption>Calculate how long it will take to reach your weight loss goals</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/weight-management</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/weight-management-calculator.jpg</image:loc>
       <image:title>Weight Management Calculator</image:title>
+      <image:caption>Plan your weight loss with a target date</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/maximum-fat-loss</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/maximum-fat-loss-calculator.jpg</image:loc>
       <image:title>Maximum Fat Loss Calculator</image:title>
+      <image:caption>Find the optimal calorie intake for maximum fat loss</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/absi</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/absi-calculator.jpg</image:loc>
       <image:title>ABSI Calculator</image:title>
+      <image:caption>Calculate your A Body Shape Index</image:caption>
     </image:image>
   </url>
+  
   <url>
     <loc>https://www.healthcheck.com/whr</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/calculators/whr-calculator.jpg</image:loc>
       <image:title>Waist-to-Hip Ratio Calculator</image:title>
+      <image:caption>Calculate your Waist-to-Hip Ratio</image:caption>
     </image:image>
   </url>
-  <url>
-    <loc>https://www.healthcheck.com/conversions</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
   
-  <!-- Blog Pages -->
-  <url>
-    <loc>https://www.healthcheck.com/blog</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Blog Page Images -->
   <url>
     <loc>https://www.healthcheck.com/blog/calorie-deficit-myths</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.healthcheck.com/images/blog/calorie-deficit-myths.jpg</image:loc>
       <image:title>5 Myths About Calorie Deficits Debunked</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.healthcheck.com/blog/tdee-explained</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://www.healthcheck.com/images/blog/tdee-explained.jpg</image:loc>
-      <image:title>TDEE Explained: How Many Calories Do You Really Need?</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.healthcheck.com/blog/measuring-body-fat</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://www.healthcheck.com/images/blog/measuring-body-fat.jpg</image:loc>
-      <image:title>The Pros and Cons of Different Body Fat Measurement Methods</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.healthcheck.com/blog/understanding-absi</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://www.healthcheck.com/images/blog/understanding-absi.jpg</image:loc>
-      <image:title>Understanding ABSI: A Better Measure of Body Shape</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.healthcheck.com/blog/understanding-body-fat-percentage</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://www.healthcheck.com/images/blog/understanding-body-fat-percentage.jpg</image:loc>
-      <image:title>Understanding Body Fat Percentage: What the Numbers Really Mean</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://www.healthcheck.com/blog/waist-to-hip-ratio-guide</loc>
-    <lastmod>2025-02-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://www.healthcheck.com/images/blog/waist-to-hip-ratio-guide.jpg</image:loc>
-      <image:title>Waist-to-Hip Ratio Guide: What It Means for Your Health</image:title>
+      <image:caption>Discover the truth behind common misconceptions about calorie deficits</image:caption>
     </image:image>
   </url>
   
-  <!-- Informational Pages -->
   <url>
-    <loc>https://www.healthcheck.com/about</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.healthcheck.com/blog/tdee-explained</loc>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/blog/tdee-explained.jpg</image:loc>
+      <image:title>TDEE Explained: How Many Calories Do You Really Need?</image:title>
+      <image:caption>Understanding the components of Total Daily Energy Expenditure</image:caption>
+    </image:image>
   </url>
+  
   <url>
-    <loc>https://www.healthcheck.com/contact</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.healthcheck.com/blog/measuring-body-fat</loc>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/blog/measuring-body-fat.jpg</image:loc>
+      <image:title>The Pros and Cons of Different Body Fat Measurement Methods</image:title>
+      <image:caption>Compare various body fat assessment techniques</image:caption>
+    </image:image>
   </url>
+  
   <url>
-    <loc>https://www.healthcheck.com/privacy</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://www.healthcheck.com/blog/understanding-absi</loc>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/blog/understanding-absi.jpg</image:loc>
+      <image:title>Understanding ABSI: A Better Measure of Body Shape</image:title>
+      <image:caption>Learn about A Body Shape Index and its significance</image:caption>
+    </image:image>
   </url>
+  
   <url>
-    <loc>https://www.healthcheck.com/terms</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://www.healthcheck.com/blog/understanding-body-fat-percentage</loc>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/blog/understanding-body-fat-percentage.jpg</image:loc>
+      <image:title>Understanding Body Fat Percentage: What the Numbers Really Mean</image:title>
+      <image:caption>Learn how to interpret body fat percentage measurements</image:caption>
+    </image:image>
   </url>
+  
   <url>
-    <loc>https://www.healthcheck.com/disclaimer</loc>
-    <lastmod>2025-03-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://www.healthcheck.com/blog/waist-to-hip-ratio-guide</loc>
+    <image:image>
+      <image:loc>https://www.healthcheck.com/images/blog/waist-to-hip-ratio-guide.jpg</image:loc>
+      <image:title>Waist-to-Hip Ratio Guide: What It Means for Your Health</image:title>
+      <image:caption>Understanding waist-to-hip ratio and its health implications</image:caption>
+    </image:image>
   </url>
 </urlset>
