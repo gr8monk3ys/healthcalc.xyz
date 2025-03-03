@@ -144,6 +144,13 @@ export default function Home() {
           />
           
           <CalculatorCard
+            title="Body Fat Burn Calculator"
+            description="Calculate calories burned during physical activities and estimate weight loss timeline."
+            path="/body-fat-burn"
+            icon={icons.calorieBurn}
+          />
+          
+          <CalculatorCard
             title="Calorie Deficit Calculator"
             description="Discover how long it will take to reach your goal weight with different calorie deficits."
             path="/calorie-deficit"
@@ -198,6 +205,63 @@ export default function Home() {
             path="/conversions"
             icon={icons.conversions}
           />
+        </div>
+      </section>
+      
+      {/* Blog Section */}
+      <section className="mb-12">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-4">Health & Fitness Blog</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Evidence-based articles to help you understand health, fitness, and nutrition.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <Link 
+            href="/blog/calorie-deficit-myths" 
+            className="neumorph p-5 rounded-lg hover:shadow-neumorph-inset transition-all"
+          >
+            <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
+              Weight Management
+            </span>
+            <h3 className="font-bold mb-2">5 Myths About Calorie Deficits Debunked</h3>
+            <p className="text-sm text-gray-600 mb-2">Discover the truth behind common misconceptions about calorie deficits and weight loss.</p>
+            <p className="text-xs text-gray-500">February 25, 2025 • 8 min read</p>
+          </Link>
+          
+          <Link 
+            href="/blog/tdee-explained" 
+            className="neumorph p-5 rounded-lg hover:shadow-neumorph-inset transition-all"
+          >
+            <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
+              Energy Expenditure
+            </span>
+            <h3 className="font-bold mb-2">TDEE Explained: How Many Calories Do You Really Need?</h3>
+            <p className="text-sm text-gray-600 mb-2">Understand the components of TDEE and why it's crucial for weight management.</p>
+            <p className="text-xs text-gray-500">February 20, 2025 • 10 min read</p>
+          </Link>
+          
+          <Link 
+            href="/blog/measuring-body-fat" 
+            className="neumorph p-5 rounded-lg hover:shadow-neumorph-inset transition-all"
+          >
+            <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
+              Measurement Methods
+            </span>
+            <h3 className="font-bold mb-2">The Pros and Cons of Different Body Fat Measurement Methods</h3>
+            <p className="text-sm text-gray-600 mb-2">Compare accuracy and practicality of various body fat assessment techniques.</p>
+            <p className="text-xs text-gray-500">February 15, 2025 • 12 min read</p>
+          </Link>
+        </div>
+        
+        <div className="text-center">
+          <Link 
+            href="/blog" 
+            className="inline-block px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition-all"
+          >
+            View All Articles
+          </Link>
         </div>
       </section>
       

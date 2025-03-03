@@ -96,6 +96,18 @@
   }
 }
 
+/* Blur Out Animation */
+@keyframes blurOut {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
 /* Slide In Left Animation */
 @keyframes slideInLeft {
   from {
@@ -157,6 +169,10 @@
 
 .animate-fade-out {
   animation: fadeOut 0.5s ease-in-out;
+}
+
+.animate-blur-out {
+  animation: blurOut 0.5s ease-out forwards;
 }
 
 .animate-slide-left {

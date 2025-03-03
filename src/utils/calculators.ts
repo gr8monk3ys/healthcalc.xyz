@@ -3,6 +3,36 @@
  */
 
 /**
+ * Converts height between metric and imperial systems
+ */
+export function convertHeight(height: number, from: 'imperial' | 'metric', to: 'imperial' | 'metric'): number {
+  if (from === to) return height;
+  
+  if (from === 'imperial' && to === 'metric') {
+    // Convert inches to cm
+    return height * 2.54;
+  } else {
+    // Convert cm to inches
+    return height / 2.54;
+  }
+}
+
+/**
+ * Converts weight between metric and imperial systems
+ */
+export function convertWeight(weight: number, from: 'imperial' | 'metric', to: 'imperial' | 'metric'): number {
+  if (from === to) return weight;
+  
+  if (from === 'imperial' && to === 'metric') {
+    // Convert pounds to kg
+    return weight * 0.45359237;
+  } else {
+    // Convert kg to pounds
+    return weight / 0.45359237;
+  }
+}
+
+/**
  * Converts height from feet and inches to centimeters
  */
 export function heightFtInToCm(feet: number, inches: number): number {

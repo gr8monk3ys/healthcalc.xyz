@@ -22,6 +22,11 @@ const menuItems: MenuItem[] = [
     description: 'Calculate your body fat percentage using various methods' 
   },
   { 
+    name: 'Body Fat Burn Calculator', 
+    path: '/body-fat-burn', 
+    description: 'Calculate calories burned during activities and weight loss timeline' 
+  },
+  { 
     name: 'Calorie Deficit Calculator', 
     path: '/calorie-deficit', 
     description: 'Discover how long to reach your goal weight' 
@@ -60,6 +65,11 @@ const menuItems: MenuItem[] = [
     name: 'Measurement Conversions', 
     path: '/conversions', 
     description: 'Convert between different units of measurement' 
+  },
+  { 
+    name: 'Blog', 
+    path: '/blog', 
+    description: 'Articles about health, fitness, and nutrition' 
   },
 ];
 
