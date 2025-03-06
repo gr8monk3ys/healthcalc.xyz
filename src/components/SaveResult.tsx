@@ -1,14 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-
-interface SavedResult {
-  id: string;
-  calculatorType: string;
-  calculatorName: string;
-  date: string;
-  data: Record<string, any>;
-}
+import React from 'react';
+import { useSavedResultsManager } from '@/hooks/useSavedResultsManager';
 
 interface SaveResultProps {
   calculatorType: string;
@@ -27,114 +20,33 @@ export default function SaveResult({
   data,
   className = '',
 }: SaveResultProps) {
-  const [saved, setSaved] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
-  const [message, setMessage] = useState('');
+  // Rule: Move localStorage logic to dedicated hooks/utilities
+  const { 
+    saveResult, 
+    removeResultByData, 
+    isResultSaved, 
+    message, 
+    showMessage 
+  } = useSavedResultsManager();
 
   // Check if this result is already saved
-  useEffect(() => {
-    const savedResults = getSavedResults();
-    const resultId = generateResultId(calculatorType, data);
-    
-    const isAlreadySaved = savedResults.some(result => result.id === resultId);
-    setSaved(isAlreadySaved);
-  }, [calculatorType, data]);
+  const isSaved = isResultSaved(calculatorType, data);
 
-  // Generate a unique ID for the result
-  const generateResultId = (type: string, resultData: Record<string, any>): string => {
-    // Create a string representation of the data
-    const dataString = JSON.stringify(resultData);
-    
-    // Simple hash function
-    let hash = 0;
-    for (let i = 0; i < dataString.length; i++) {
-      const char = dataString.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash; // Convert to 32bit integer
-    }
-    
-    return `${type}-${hash}`;
+  // Save result handler
+  const handleSaveResult = (): void => {
+    saveResult(calculatorType, calculatorName, data);
   };
 
-  // Get saved results from localStorage
-  const getSavedResults = (): SavedResult[] => {
-    if (typeof window === 'undefined') return [];
-    
-    const savedResults = localStorage.getItem('healthcheck-saved-results');
-    return savedResults ? JSON.parse(savedResults) : [];
-  };
-
-  // Save result to localStorage
-  const saveResult = () => {
-    if (typeof window === 'undefined') return;
-    
-    try {
-      const savedResults = getSavedResults();
-      const resultId = generateResultId(calculatorType, data);
-      
-      // Check if already saved
-      if (savedResults.some(result => result.id === resultId)) {
-        setMessage('This result is already saved');
-        setShowMessage(true);
-        setTimeout(() => setShowMessage(false), 3000);
-        return;
-      }
-      
-      // Add new result
-      const newResult: SavedResult = {
-        id: resultId,
-        calculatorType,
-        calculatorName,
-        date: new Date().toISOString(),
-        data,
-      };
-      
-      // Limit to 20 saved results (remove oldest if needed)
-      const updatedResults = [newResult, ...savedResults].slice(0, 20);
-      
-      localStorage.setItem('healthcheck-saved-results', JSON.stringify(updatedResults));
-      
-      setSaved(true);
-      setMessage('Result saved successfully');
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
-    } catch (error) {
-      console.error('Error saving result:', error);
-      setMessage('Error saving result');
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
-    }
-  };
-
-  // Remove saved result
-  const removeResult = () => {
-    if (typeof window === 'undefined') return;
-    
-    try {
-      const savedResults = getSavedResults();
-      const resultId = generateResultId(calculatorType, data);
-      
-      const updatedResults = savedResults.filter(result => result.id !== resultId);
-      
-      localStorage.setItem('healthcheck-saved-results', JSON.stringify(updatedResults));
-      
-      setSaved(false);
-      setMessage('Result removed');
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
-    } catch (error) {
-      console.error('Error removing result:', error);
-      setMessage('Error removing result');
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 3000);
-    }
+  // Remove saved result handler
+  const handleRemoveResult = (): void => {
+    removeResultByData(calculatorType, data);
   };
 
   return (
     <div className={`${className}`}>
-      {saved ? (
+      {isSaved ? (
         <button
-          onClick={removeResult}
+          onClick={handleRemoveResult}
           className="flex items-center px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
           aria-label="Remove saved result"
         >
@@ -150,7 +62,7 @@ export default function SaveResult({
         </button>
       ) : (
         <button
-          onClick={saveResult}
+          onClick={handleSaveResult}
           className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors"
           aria-label="Save result"
         >
@@ -188,60 +100,13 @@ export default function SaveResult({
  * SavedResultsList component for displaying saved results
  */
 export function SavedResultsList({ className = '' }: { className?: string }) {
-  const [savedResults, setSavedResults] = useState<SavedResult[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Load saved results from localStorage
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    try {
-      const results = localStorage.getItem('healthcheck-saved-results');
-      setSavedResults(results ? JSON.parse(results) : []);
-    } catch (error) {
-      console.error('Error loading saved results:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  // Format date
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
-  };
-
-  // Clear all saved results
-  const clearAllResults = () => {
-    if (typeof window === 'undefined') return;
-    
-    if (window.confirm('Are you sure you want to clear all saved results?')) {
-      localStorage.removeItem('healthcheck-saved-results');
-      setSavedResults([]);
-    }
-  };
-
-  // Delete a specific result
-  const deleteResult = (id: string) => {
-    if (typeof window === 'undefined') return;
-    
-    const updatedResults = savedResults.filter(result => result.id !== id);
-    localStorage.setItem('healthcheck-saved-results', JSON.stringify(updatedResults));
-    setSavedResults(updatedResults);
-  };
-
-  if (loading) {
-    return (
-      <div className={`neumorph p-6 rounded-lg ${className}`}>
-        <h2 className="text-xl font-bold mb-4">Saved Results</h2>
-        <p>Loading saved results...</p>
-      </div>
-    );
-  }
+  // Rule: Move localStorage logic to dedicated hooks/utilities
+  const { 
+    savedResults, 
+    clearAllResults, 
+    removeResult, 
+    formatDate 
+  } = useSavedResultsManager();
 
   if (savedResults.length === 0) {
     return (
@@ -276,7 +141,7 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
                 <p className="text-sm text-gray-500">{formatDate(result.date)}</p>
               </div>
               <button
-                onClick={() => deleteResult(result.id)}
+                onClick={() => removeResult(result.id)}
                 className="text-gray-400 hover:text-red-600"
                 aria-label="Delete result"
               >
