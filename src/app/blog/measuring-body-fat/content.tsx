@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import StructuredData, { createArticleSchema } from '@/components/StructuredData';
+import StructuredData from '@/components/StructuredData';
+import { createArticleSchema } from '@/utils/schema';
 import CanonicalUrl from '@/components/CanonicalUrl';
 import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
