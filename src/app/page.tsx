@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Free, accurate calculators for body fat percentage, BMI, TDEE, calorie deficit, and more. Evidence-based tools to help you achieve your health goals.',
   keywords: 'body fat calculator, BMI calculator, TDEE calculator, calorie deficit calculator, weight loss calculator, fitness calculators, health calculators, waist-to-hip ratio, ABSI calculator',
   alternates: {
-    canonical: 'https://www.heathcheck.info/',
+    canonical: '/',
   },
   openGraph: {
     title: 'HeathCheck - Free Body Fat, BMI, TDEE Calculators',
@@ -280,7 +280,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section>
+      <section className="mb-12">
         <div className="neumorph p-6">
           <h2 className="text-2xl font-bold mb-4">Common Misconceptions About Fat Loss</h2>
           <div className="space-y-4">
@@ -291,6 +291,11 @@ export default function Home() {
                 the reality is more complex. Your body adapts to calorie restriction over time, and 
                 weight loss isn't linear. Our calculators use advanced models that account for these adaptations.
               </p>
+              <p className="mt-2">
+                Research shows that factors like metabolic adaptation, hormone fluctuations, and individual genetics 
+                all affect how your body processes a calorie deficit. This is why some people may see rapid initial 
+                weight loss followed by a plateau, even while maintaining the same caloric intake.
+              </p>
             </div>
             
             <div>
@@ -299,6 +304,12 @@ export default function Home() {
                 You can't target fat loss from specific areas through exercise. Fat reduction occurs 
                 throughout the body based on genetics, hormones, and overall calorie deficit. Focus on 
                 total body fat percentage rather than "problem areas."
+              </p>
+              <p className="mt-2">
+                When your body mobilizes fat stores for energy, it does so from all adipose tissue sites 
+                simultaneously, though the proportion may differ based on your genetic predisposition. This explains 
+                why some people may notice fat loss in certain areas before others, despite performing exercises 
+                that target different muscle groups.
               </p>
             </div>
             
@@ -309,8 +320,60 @@ export default function Home() {
                 weight regain. Our calculators promote sustainable approaches that preserve muscle mass 
                 and metabolic health.
               </p>
+              <p className="mt-2">
+                Studies have consistently shown that rapid weight loss through severe caloric restriction often 
+                results in a higher percentage of lean muscle loss compared to more moderate approaches. Additionally, 
+                the body responds to extreme restriction by lowering basal metabolic rate—a protective mechanism that 
+                makes maintaining weight loss even more challenging once normal eating patterns resume.
+              </p>
             </div>
           </div>
+        </div>
+      </section>
+      
+      <section className="mb-12">
+        <div className="neumorph p-6">
+          <h2 className="text-2xl font-bold mb-4">The Science Behind Our Calculators</h2>
+          <p className="mb-3">
+            At HealthCheck, we believe in evidence-based approaches to health and fitness. Our calculators incorporate 
+            peer-reviewed scientific research and validated formulas to provide you with accurate information about your body 
+            composition and energy needs.
+          </p>
+          <p className="mb-3">
+            For example, our Body Fat Calculator uses multiple methods including the Navy formula, which has been validated 
+            against gold standard DEXA scans. Our TDEE Calculator considers not only your basic metrics but also factors 
+            in the Thermic Effect of Food (TEF) and Non-Exercise Activity Thermogenesis (NEAT) for more precise estimations.
+          </p>
+          <p>
+            We regularly review emerging research in nutrition and exercise science to ensure our calculators reflect the 
+            most current understanding of human physiology. While these tools provide excellent estimates, remember that 
+            individual variations exist, and results should be used as guidance rather than absolute values.
+          </p>
+        </div>
+      </section>
+      
+      <section className="mb-12">
+        <div className="neumorph p-6">
+          <h2 className="text-2xl font-bold mb-4">Understanding Weight Management</h2>
+          <p className="mb-3">
+            Sustainable weight management goes beyond simple calorie counting. It involves understanding your body's 
+            unique needs, setting realistic goals, and developing consistent habits that support your long-term health.
+          </p>
+          <p className="mb-3">
+            Protein intake plays a crucial role in preserving lean muscle mass during weight loss. Research suggests 
+            that consuming between 1.6-2.2g of protein per kilogram of body weight helps maintain muscle while in a 
+            calorie deficit. Our calculators factor this research into their recommendations.
+          </p>
+          <p className="mb-3">
+            Adequate hydration is another often overlooked aspect of weight management. Proper fluid intake supports 
+            metabolic processes, helps regulate hunger signals, and enhances physical performance. A general guideline 
+            is to consume 30-40ml of water per kilogram of body weight daily, adjusted for activity level and climate.
+          </p>
+          <p>
+            Remember that weight fluctuations due to water retention, hormonal changes, and glycogen storage are normal 
+            and don't necessarily reflect changes in body fat. Focus on longer-term trends rather than daily fluctuations 
+            for a more accurate picture of your progress.
+          </p>
         </div>
       </section>
     </div>

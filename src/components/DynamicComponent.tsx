@@ -1,89 +1,93 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import dynamic from 'next/dynamic';
+import { useDynamicImport } from '@/hooks/useDynamicImport';
 
 interface DynamicComponentProps {
-  componentPath: string;
+  importFn: () => Promise<{ default: React.ComponentType<any> }>;
+  loading?: React.ReactNode;
   fallback?: React.ReactNode;
+  loadOnMount?: boolean;
+  loadOnVisible?: boolean;
   props?: Record<string, any>;
 }
 
 /**
- * DynamicComponent wrapper for lazy loading components
- * @param componentPath - Path to the component to load dynamically
- * @param fallback - Fallback component to show while loading
- * @param props - Props to pass to the component
+ * Component for dynamically loading other components
+ * Helps improve initial page load performance by code splitting
+ * 
+ * @example
+ * // Basic usage
+ * <DynamicComponent 
+ *   importFn={() => import('@/components/HeavyComponent')}
+ *   loading={<LoadingSpinner />}
+ *   props={{ someValue: 123 }}
+ * />
+ * 
+ * @example
+ * // Only load when scrolled into view
+ * <DynamicComponent 
+ *   importFn={() => import('@/components/LowPriorityWidget')}
+ *   loadOnMount={false}
+ *   loadOnVisible={true}
+ * />
  */
 export default function DynamicComponent({
-  componentPath,
-  fallback = <DefaultLoadingFallback />,
+  importFn,
+  loading = <div className="animate-pulse h-32 w-full bg-gray-100 rounded-lg"></div>,
+  fallback = <div className="p-4 border border-red-200 bg-red-50 text-red-500 rounded-lg">Failed to load component</div>,
+  loadOnMount = true,
+  loadOnVisible = true,
   props = {},
-}: DynamicComponentProps): React.JSX.Element {
-  // Dynamically import the component
-  const DynamicComponent = dynamic(() => import(componentPath), {
-    loading: () => <>{fallback}</>,
-    ssr: false, // Disable server-side rendering for calculator components
+}: DynamicComponentProps) {
+  const { Component, isLoading, error, ref } = useDynamicImport(importFn, {
+    loadOnMount,
+    loadOnVisible,
   });
 
   return (
-    <Suspense fallback={fallback}>
-      <DynamicComponent {...props} />
-    </Suspense>
-  );
-}
-
-/**
- * Default loading fallback component
- */
-export function DefaultLoadingFallback(): React.JSX.Element {
-  return (
-    <div className="w-full p-8 rounded-lg neumorph animate-pulse">
-      <div className="h-8 bg-gray-200 rounded w-3/4 mb-6"></div>
-      <div className="h-4 bg-gray-200 rounded w-full mb-4"></div>
-      <div className="h-4 bg-gray-200 rounded w-5/6 mb-4"></div>
-      <div className="h-4 bg-gray-200 rounded w-4/6 mb-8"></div>
-      <div className="h-10 bg-gray-200 rounded w-full mb-6"></div>
-      <div className="h-10 bg-gray-200 rounded w-full mb-6"></div>
-      <div className="h-10 bg-gray-200 rounded w-full"></div>
+    <div ref={ref}>
+      {isLoading && loading}
+      {error && fallback}
+      {Component && <Component {...props} />}
     </div>
   );
 }
 
 /**
- * Calculator loading fallback component
+ * Utility to create a lazy loaded component with Suspense
+ * Use this for components that should be code-split but render immediately
+ * 
+ * @example
+ * const LazyHeavyComponent = createLazyComponent(() => import('@/components/HeavyComponent'));
+ * 
+ * // Then in your JSX
+ * <LazyHeavyComponent prop1="value" />
  */
-export function CalculatorLoadingFallback(): React.JSX.Element {
-  return (
-    <div className="w-full p-8 rounded-lg neumorph animate-pulse">
-      <div className="h-8 bg-gray-200 rounded w-3/4 mb-6"></div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="h-12 bg-gray-200 rounded"></div>
-        <div className="h-12 bg-gray-200 rounded"></div>
-        <div className="h-12 bg-gray-200 rounded"></div>
-        <div className="h-12 bg-gray-200 rounded"></div>
-      </div>
-      <div className="h-12 bg-gray-200 rounded w-full mb-8"></div>
-      <div className="h-20 bg-gray-200 rounded w-full"></div>
-    </div>
-  );
-}
+export function createLazyComponent<T extends Record<string, any> = any>(
+  importFn: () => Promise<{ default: React.ComponentType<T> }>,
+  fallback: React.ReactNode = <div className="animate-pulse h-20 w-full bg-gray-100 rounded-lg"></div>
+) {
+  const LazyComponent = React.lazy(async () => {
+    try {
+      return await importFn();
+    } catch (error) {
+      console.error('Failed to load component:', error);
+      return {
+        default: () => (
+          <div className="p-4 border border-red-200 bg-red-50 text-red-500 rounded-lg">
+            Failed to load component
+          </div>
+        ),
+      };
+    }
+  });
 
-/**
- * Blog content loading fallback component
- */
-export function BlogLoadingFallback(): React.JSX.Element {
-  return (
-    <div className="w-full max-w-4xl mx-auto p-4 animate-pulse">
-      <div className="h-10 bg-gray-200 rounded w-3/4 mb-4"></div>
-      <div className="h-6 bg-gray-200 rounded w-1/2 mb-8"></div>
-      <div className="h-4 bg-gray-200 rounded w-full mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded w-full mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded w-5/6 mb-6"></div>
-      <div className="h-64 bg-gray-200 rounded w-full mb-6"></div>
-      <div className="h-4 bg-gray-200 rounded w-full mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded w-full mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded w-4/5 mb-6"></div>
-    </div>
-  );
+  return function WrappedLazyComponent(props: T & React.JSX.IntrinsicAttributes) {
+    return (
+      <Suspense fallback={fallback}>
+        <LazyComponent {...props} />
+      </Suspense>
+    );
+  };
 }

@@ -22,9 +22,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://www.heathcheck.info'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: 'HealthCheck - Health and Fitness Calculators',
     description: 'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
@@ -72,6 +69,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Core Web Vitals optimizations */}
+        <link rel="preconnect" href="https://www.heathcheck.info" />
+        <link rel="dns-prefetch" href="https://www.heathcheck.info" />
+        
+        {/* Preload critical assets - LCP improvements */}
+        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Add font-display: swap to improve LCP */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            @font-face {
+              font-family: 'Inter';
+              src: url('/fonts/inter-var.woff2') format('woff2');
+              font-weight: 100 900;
+              font-style: normal;
+              font-display: swap;
+            }
+          `
+        }} />
+        
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
