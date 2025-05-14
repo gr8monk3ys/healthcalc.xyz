@@ -1,0 +1,413 @@
+'use client';
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import Breadcrumb from '@/components/Breadcrumb';
+import FAQSection from '@/components/FAQSection';
+import NewsletterSignup from '@/components/NewsletterSignup';
+import RelatedArticles from '@/components/RelatedArticles';
+import SocialShare from '@/components/SocialShare';
+import StructuredData, {
+  createCalculatorSchema,
+  createFAQSchema,
+} from '@/components/StructuredData';
+import RelatedCalculators from '@/components/RelatedCalculators';
+import EmbedCalculator from '@/components/calculators/EmbedCalculator';
+import AdBlock from '@/components/AdBlock';
+import RelatedGuides from '@/components/RelatedGuides';
+import Accordion from '@/components/ui/Accordion';
+import { ResultsEmailCapture } from '@/components/ResultsEmailCapture';
+import { toAbsoluteUrl } from '@/lib/site';
+import { ResultsShareBar, ResultsShareProvider } from '@/components/ResultsShare';
+import { useLocale } from '@/context/LocaleContext';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
+import { useChainState } from '@/hooks/useChainState';
+import { getChainById, getChainsForCalculator } from '@/constants/calculatorChains';
+import ChainProgressBar from '@/components/chains/ChainProgressBar';
+import ChainContinueButton from '@/components/chains/ChainContinueButton';
+import { buildSharedResultToken, type ShareResultContext } from '@/utils/resultSharing';
+
+function formatTemplate(template: string, vars: Record<string, string>): string {
+  let out = template;
+  for (const [key, value] of Object.entries(vars)) {
+    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+  }
+  return out;
+}
+
+const EMPTY_HASHTAGS: string[] = [];
+
+function readIsEmbedFromLocation(): boolean {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+  return new URLSearchParams(window.location.search).get('embed') === '1';
+}
+
+/**
+ * Represents a FAQ item with question and answer
+ */
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+/**
+ * Represents a related article for cross-linking
+ */
+interface RelatedArticle {
+  title: string;
+  description: string;
+  slug: string;
+  category: string;
+  date: string;
+  readTime: string;
+}
+
+/**
+ * Props for the CalculatorPageLayout component
+ */
+interface CalculatorPageLayoutProps {
+  /** Page title displayed as h1 heading */
+  title: string;
+  /** Page description displayed below the title */
+  description: string;
+  /** URL slug for the calculator (used for social sharing and structured data) */
+  calculatorSlug: string;
+  /** Social sharing title for meta tags */
+  shareTitle?: string;
+  /** Social sharing description for meta tags */
+  shareDescription?: string;
+  /** Hashtags for social media sharing */
+  shareHashtags?: string[];
+  /** Array of FAQ items for the FAQ section */
+  faqs: FAQ[];
+  /** Title for the FAQ section */
+  faqTitle?: string;
+  /** Array of related articles for cross-linking */
+  relatedArticles: RelatedArticle[];
+  /** Structured data for SEO (Schema.org JSON-LD) */
+  structuredData: Record<string, unknown>;
+  /** Optional understanding section component (varies per calculator) */
+  understandingSection?: React.ReactNode;
+  /** Whether to show the results email capture component (true when results are displayed) */
+  showResultsCapture?: boolean;
+  /** Newsletter signup title */
+  newsletterTitle?: string;
+  /** Newsletter signup description */
+  newsletterDescription?: string;
+  /** Data to pass to the next chain step (age, weight, etc.) */
+  chainResultData?: Record<string, string | number>;
+  /** Optional result payload used to generate shareable prefilled URLs */
+  shareResultContext?: ShareResultContext;
+  /** Server-rendered header (h1 + description). When provided, replaces the client-rendered title/description in normal mode. */
+  serverHeader?: React.ReactNode;
+  /** The main content (calculator form and result display) */
+  children: React.ReactNode;
+}
+
+function SupplementalDisclosure({
+  summary,
+  children,
+  className = '',
+}: {
+  summary: string;
+  children: React.ReactNode;
+  className?: string;
+}): React.ReactElement {
+  return (
+    <details className={`glass-panel rounded-2xl ${className}`}>
+      <summary className="cursor-pointer list-none px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden dark:text-white">
+        {summary}
+      </summary>
+      <div className="px-5 pb-5">{children}</div>
+    </details>
+  );
+}
+
+/**
+ * Reusable layout component for calculator pages.
+ *
+ * This component provides a consistent structure for all calculator pages,
+ * including:
+ * - Error boundary wrapper for graceful error handling
+ * - Breadcrumb navigation
+ * - Title and description section
+ * - Social sharing buttons
+ * - Main content grid for calculator form and results
+ * - FAQ section with structured data
+ * - Understanding/educational section (optional, varies per calculator)
+ * - Related articles for cross-linking
+ * - Newsletter signup
+ * - Structured data for SEO
+ *
+ * Performance optimizations:
+ * - Dynamic imports for below-the-fold components (FAQSection, NewsletterSignup, RelatedArticles)
+ * - Suspense boundaries with skeleton loading states
+ */
+function CalculatorPageLayoutContent({
+  title,
+  description,
+  calculatorSlug,
+  shareTitle,
+  shareDescription,
+  shareHashtags = EMPTY_HASHTAGS,
+  faqs,
+  faqTitle,
+  relatedArticles,
+  structuredData,
+  understandingSection,
+  showResultsCapture = false,
+  newsletterTitle,
+  newsletterDescription,
+  chainResultData,
+  shareResultContext,
+  serverHeader,
+  children,
+}: CalculatorPageLayoutProps): React.ReactElement {
+  const socialTitle = shareTitle || title;
+  const socialDescription = shareDescription || description;
+  const { localizePath, t } = useLocale();
+  const { trackEvent } = useFunnelTracking();
+  const { chainState, isInChain, exitChain } = useChainState();
+  const [isEmbed, setIsEmbed] = useState(false);
+  const hasTrackedResultRef = useRef(false);
+
+  // Determine if this calculator is the current chain step
+  const chainDef = chainState ? getChainById(chainState.chainId) : undefined;
+  const isCurrentChainStep =
+    isInChain &&
+    chainState !== null &&
+    chainDef !== undefined &&
+    chainDef.steps[chainState.currentStepIndex]?.slug === calculatorSlug;
+
+  const availableChains = !isInChain ? getChainsForCalculator(calculatorSlug) : [];
+  const shareToken = useMemo(() => {
+    if (!shareResultContext) return undefined;
+    return buildSharedResultToken(shareResultContext);
+  }, [shareResultContext]);
+
+  useEffect(() => {
+    const syncEmbedFlag = () => {
+      setIsEmbed(readIsEmbedFromLocation());
+    };
+
+    syncEmbedFlag();
+    window.addEventListener('popstate', syncEmbedFlag);
+    return () => {
+      window.removeEventListener('popstate', syncEmbedFlag);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isEmbed) return;
+
+    if (showResultsCapture && !hasTrackedResultRef.current) {
+      trackEvent('calculator_complete', {
+        calculator: calculatorSlug,
+      });
+      hasTrackedResultRef.current = true;
+      return;
+    }
+
+    if (!showResultsCapture) {
+      hasTrackedResultRef.current = false;
+    }
+  }, [calculatorSlug, isEmbed, showResultsCapture, trackEvent]);
+
+  if (isEmbed) {
+    const poweredByTemplate = t('calculator.embed.poweredBy');
+    const token = '{brand}';
+    const brandLink = (
+      <Link href={localizePath(`/${calculatorSlug}`)} className="text-accent hover:underline">
+        HealthCheck
+      </Link>
+    );
+    let poweredByContent: React.ReactNode;
+    if (poweredByTemplate.includes(token)) {
+      const [before, after] = poweredByTemplate.split(token);
+      poweredByContent = (
+        <>
+          {before}
+          {brandLink}
+          {after ?? ''}
+        </>
+      );
+    } else {
+      poweredByContent = (
+        <>
+          {poweredByTemplate} {brandLink}
+        </>
+      );
+    }
+
+    return (
+      <ErrorBoundary>
+        <ResultsShareProvider>
+          <div className="max-w-4xl mx-auto px-4 py-6">
+            <h1 className="text-2xl font-bold mb-2">{title}</h1>
+            <p className="text-sm text-gray-600 mb-6 dark:text-gray-400">{description}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">{children}</div>
+            <div className="mt-4 text-xs text-gray-500 dark:text-gray-400">{poweredByContent}</div>
+          </div>
+        </ResultsShareProvider>
+      </ErrorBoundary>
+    );
+  }
+
+  return (
+    <ErrorBoundary>
+      <ResultsShareProvider>
+        <div className="max-w-4xl mx-auto">
+          {isCurrentChainStep && chainState && (
+            <ChainProgressBar chainState={chainState} onExit={exitChain} />
+          )}
+          <Breadcrumb />
+
+          {serverHeader ?? (
+            <>
+              <h1 className="text-3xl font-bold mb-2">{title}</h1>
+              <p className="text-gray-600 mb-6 dark:text-gray-400">{description}</p>
+            </>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">{children}</div>
+
+          {showResultsCapture && <div id="results" className="sr-only" aria-hidden="true" />}
+          {showResultsCapture && (
+            <ResultsShareBar
+              calculatorSlug={calculatorSlug}
+              title={socialTitle}
+              shareToken={shareToken}
+              className="mb-8"
+            />
+          )}
+
+          {showResultsCapture && isCurrentChainStep && chainResultData && (
+            <ChainContinueButton calculatorSlug={calculatorSlug} resultData={chainResultData} />
+          )}
+
+          {showResultsCapture && (
+            <ResultsEmailCapture
+              source={`calculator-${calculatorSlug}`}
+              className="mb-8 animate-fade-in"
+            />
+          )}
+
+          <div className="perf-defer-section">
+            <AdBlock slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULT} format="rectangle" />
+          </div>
+
+          <div className="perf-defer-section mb-6">
+            <SocialShare
+              url={localizePath(`/${calculatorSlug}`)}
+              title={socialTitle}
+              description={socialDescription}
+              hashtags={shareHashtags}
+            />
+          </div>
+
+          <div className="perf-defer-section">
+            <Accordion title={t('calculator.embed.title')} defaultOpen={false}>
+              <EmbedCalculator calculatorSlug={calculatorSlug} title={title} />
+            </Accordion>
+          </div>
+
+          <div className="perf-defer-section">
+            <RelatedCalculators
+              currentSlug={calculatorSlug}
+              title={t('calculator.relatedCalculators.title')}
+            />
+          </div>
+
+          {availableChains.length > 0 && (
+            <div className="perf-defer-section my-8">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide opacity-60">
+                Guided Workflows
+              </h3>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {availableChains.map(chain => (
+                  <Link
+                    key={chain.id}
+                    href={`/chains?start=${chain.id}`}
+                    className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+                  >
+                    <p className="font-medium text-sm">{chain.name}</p>
+                    <p className="mt-1 text-xs opacity-60">{chain.description}</p>
+                    <p className="mt-2 text-xs text-[var(--accent)] font-medium">
+                      {chain.steps.length} steps &middot; Start workflow &rarr;
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="perf-defer-section">
+            <RelatedGuides title={t('calculator.relatedGuides.title')} />
+          </div>
+
+          <FAQSection
+            faqs={faqs}
+            title={
+              faqTitle ||
+              formatTemplate(t('calculator.faq.titleTemplate'), {
+                topic: title.replace(' Calculator', ''),
+              })
+            }
+            className="perf-defer-section mb-8"
+          />
+
+          {understandingSection ? (
+            <SupplementalDisclosure
+              summary={`Learn more about ${title.replace(' Calculator', '')}`}
+              className="perf-defer-section my-8"
+            >
+              {understandingSection}
+            </SupplementalDisclosure>
+          ) : null}
+
+          <SupplementalDisclosure
+            summary={t('calculator.relatedArticles.title')}
+            className="perf-defer-section my-8"
+          >
+            <RelatedArticles
+              currentSlug=""
+              articles={relatedArticles}
+              title={t('calculator.relatedArticles.title')}
+              className="my-0"
+            />
+          </SupplementalDisclosure>
+
+          <SupplementalDisclosure
+            summary={newsletterTitle ?? 'Newsletter'}
+            className="perf-defer-section my-8"
+          >
+            <NewsletterSignup
+              title={newsletterTitle}
+              description={newsletterDescription}
+              className="my-0"
+            />
+          </SupplementalDisclosure>
+
+          <StructuredData data={structuredData} />
+          <StructuredData
+            data={createCalculatorSchema({
+              name: title,
+              description,
+              url: toAbsoluteUrl(localizePath(`/${calculatorSlug}`)),
+            })}
+          />
+          <StructuredData data={createFAQSchema(faqs)} />
+        </div>
+      </ResultsShareProvider>
+    </ErrorBoundary>
+  );
+}
+
+function CalculatorPageLayout(props: CalculatorPageLayoutProps): React.ReactElement {
+  return <CalculatorPageLayoutContent {...props} />;
+}
+
+export default CalculatorPageLayout;
