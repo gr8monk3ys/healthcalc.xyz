@@ -1,0 +1,445 @@
+'use client';
+
+import React, { useState } from 'react';
+import { Gender, ActivityLevel } from '@/types/common';
+import { WeightManagementResult, DietType, GoalType } from '@/types/weightManagement';
+import { calculateWeightManagement } from '@/app/api/weightManagement';
+import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
+import { DIET_TYPES } from '@/constants/weightManagement';
+import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
+import { convertWeight } from '@/utils/conversions';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
+import CalculatorForm from '@/components/calculators/CalculatorForm';
+import WeightManagementResultDisplay from '@/components/calculators/weight-management/WeightManagementResult';
+import WeightManagementInfo from '@/components/calculators/weight-management/WeightManagementInfo';
+import WeightManagementUnderstanding from '@/components/calculators/weight-management/WeightManagementUnderstanding';
+import SaveResult from '@/components/SaveResult';
+import {
+  useHeight,
+  useWeight,
+  createHeightField,
+  createWeightField,
+} from '@/hooks/useCalculatorUnits';
+import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// FAQ data for the calculator
+const faqs = [
+  {
+    question:
+      'How does the Weight Management Calculator differ from the Calorie Deficit Calculator?',
+    answer:
+      "While the Calorie Deficit Calculator focuses on how long it will take to reach a goal weight, the Weight Management Calculator provides a complete plan with a specific target date. It includes detailed macro breakdowns (protein, carbs, fats) tailored to your chosen diet type, weekly progress milestones, and adaptive calorie adjustments. It's designed for those who want a comprehensive roadmap with a deadline.",
+  },
+  {
+    question: 'Why does the calculator suggest different macros for different diet types?',
+    answer:
+      'Different diet types optimize macronutrient ratios for specific goals and preferences. Balanced diets (40/30/30) work well for general weight management, high-protein diets (40/30/30) support muscle retention during weight loss, low-carb diets (20/40/40) may help with insulin sensitivity and satiety, and keto diets (5/30/65) promote ketosis for fat burning. The calculator adjusts macros to match your chosen approach while maintaining appropriate calorie targets.',
+  },
+  {
+    question: 'What if my target date is too aggressive or not challenging enough?',
+    answer:
+      "The calculator will warn you if your target date results in unsafe weight loss or gain rates (more than 1kg/2.2lb per week for loss, or 0.5kg/1.1lb per week for gain). If your timeline is too aggressive, it will adjust your calorie target to the minimum safe level and show a realistic completion date. If it's not challenging enough, consider setting a more ambitious date or adjusting your goal weight.",
+  },
+  {
+    question: 'How should I adjust my plan if I miss a week or plateau?',
+    answer:
+      "Weight loss and gain aren't always linear. If you miss a week or plateau, first review your tracking accuracy and ensure you're consistent with your calorie target. If you plateau for 2-3 weeks despite accurate tracking, recalculate using your current weight as a starting point and adjust your target date accordingly. The calculator provides weekly milestones to help you monitor progress and make timely adjustments.",
+  },
+  {
+    question: 'Can I use this calculator for muscle gain?',
+    answer:
+      'Yes! If your goal weight is higher than your current weight, the calculator automatically switches to a muscle gain plan. It will recommend a moderate calorie surplus (typically 250-500 calories above TDEE) and suggest higher protein intake to support muscle growth. For optimal muscle gain, combine this plan with progressive resistance training and ensure adequate sleep and recovery.',
+  },
+];
+
+// Blog article data for related articles
+const blogArticles = [
+  {
+    title: '5 Myths About Calorie Deficits Debunked',
+    description:
+      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+    slug: 'calorie-deficit-myths',
+    date: 'February 25, 2025',
+    readTime: '8 min read',
+    category: 'Weight Management',
+  },
+  {
+    title: 'TDEE Explained: How Many Calories Do You Really Need?',
+    description:
+      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+    slug: 'tdee-explained',
+    date: 'February 20, 2025',
+    readTime: '10 min read',
+    category: 'Energy Expenditure',
+  },
+  {
+    title: 'The Pros and Cons of Different Body Fat Measurement Methods',
+    description:
+      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+    slug: 'measuring-body-fat',
+    date: 'February 15, 2025',
+    readTime: '12 min read',
+    category: 'Measurement Methods',
+  },
+];
+
+function useWeightManagementCalculatorState() {
+  const [activityLevel, setActivityLevel] = useState<ActivityLevel>('sedentary');
+  const [goalWeight, setGoalWeight] = useState<number | ''>('');
+  const [targetDate, setTargetDate] = useState<string>('');
+  const [dietType, setDietType] = useState<DietType>('balanced');
+
+  return {
+    activityLevel,
+    setActivityLevel,
+    goalWeight,
+    setGoalWeight,
+    targetDate,
+    setTargetDate,
+    dietType,
+    setDietType,
+  };
+}
+export default function WeightManagementCalculator({
+  serverHeader,
+}: {
+  serverHeader?: React.ReactNode;
+}) {
+  // State for form inputs
+  const [gender, setGender] = useState<Gender>('male');
+  const [age, setAge] = useState<number | ''>('');
+  const height = useHeight();
+  const weight = useWeight();
+  const {
+    activityLevel,
+    setActivityLevel,
+    goalWeight,
+    setGoalWeight,
+    targetDate,
+    setTargetDate,
+    dietType,
+    setDietType,
+  } = useWeightManagementCalculatorState();
+
+  const { result, showResult, errors, setErrors, handleSubmit, handleReset } =
+    useCalculatorForm<WeightManagementResult>({
+      validate: () => {
+        const newErrors: Record<string, string> = {};
+
+        // Validate age
+        if (isEmpty(age)) {
+          newErrors.age = 'Age is required';
+        } else {
+          const ageValidation = validateAge(age);
+          if (!ageValidation.isValid) {
+            newErrors.age = ageValidation.error;
+          }
+        }
+
+        // Validate height (feet for imperial, cm for metric)
+        if (isEmpty(height.value)) {
+          newErrors.height = 'Height is required';
+        } else {
+          const unitSystem = height.unit === 'cm' ? 'metric' : 'imperial';
+          const heightValidation = validateHeight(height.value, unitSystem);
+          if (!heightValidation.isValid) {
+            newErrors.height = heightValidation.error;
+          }
+        }
+
+        // Validate weight
+        if (isEmpty(weight.value)) {
+          newErrors.weight = 'Weight is required';
+        } else {
+          const unitSystem = weight.unit === 'kg' ? 'metric' : 'imperial';
+          const weightValidation = validateWeight(weight.value, unitSystem);
+          if (!weightValidation.isValid) {
+            newErrors.weight = weightValidation.error;
+          }
+        }
+
+        // Validate goal weight
+        if (isEmpty(goalWeight)) {
+          newErrors.goalWeight = 'Goal weight is required';
+        } else if (typeof goalWeight === 'number' && typeof weight.value === 'number') {
+          if (goalWeight === weight.value) {
+            newErrors.goalWeight = 'Goal weight must be different from current weight';
+          } else if (goalWeight < 40 && weight.unit === 'kg') {
+            newErrors.goalWeight = 'Goal weight seems too low for safety';
+          } else if (goalWeight < 88 && weight.unit === 'lb') {
+            newErrors.goalWeight = 'Goal weight seems too low for safety';
+          }
+        }
+
+        // Validate target date
+        if (!targetDate) {
+          newErrors.targetDate = 'Target date is required';
+        } else {
+          const selectedDate = new Date(targetDate);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          if (selectedDate <= today) {
+            newErrors.targetDate = 'Target date must be in the future';
+          }
+        }
+
+        return newErrors;
+      },
+      calculate: () => {
+        const heightCm = height.toCm() as number;
+        const weightKg = weight.toKg() as number;
+
+        // Convert goal weight to kg if needed
+        const goalWeightKg =
+          weight.unit === 'kg'
+            ? (goalWeight as number)
+            : convertWeight(goalWeight as number, 'lb', 'kg');
+
+        // Determine goal type
+        const goalType: GoalType =
+          goalWeightKg < weightKg ? 'lose' : goalWeightKg > weightKg ? 'gain' : 'maintain';
+
+        try {
+          const weightManagementResult = calculateWeightManagement({
+            gender,
+            age: age as number,
+            heightCm,
+            weightKg,
+            activityLevel,
+            goalWeightKg,
+            goalType,
+            targetDate: new Date(targetDate),
+            dietType,
+          });
+
+          // Scroll to result with smooth animation
+          setTimeout(() => {
+            const resultElement = document.getElementById('weight-management-result');
+            if (resultElement) {
+              resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+
+          return weightManagementResult;
+        } catch (error) {
+          if (error instanceof Error) {
+            setErrors(prev => ({ ...prev, goalWeight: error.message }));
+          }
+          throw error;
+        }
+      },
+    });
+
+  // Calculate minimum date (tomorrow)
+  const getMinDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
+  // Wrap the weight toggle to also convert goalWeight
+  const toggleWeightUnitWithGoal = () => {
+    if (typeof goalWeight === 'number') {
+      if (weight.unit === 'kg') {
+        setGoalWeight(parseFloat(convertWeight(goalWeight, 'kg', 'lb').toFixed(1)));
+      } else {
+        setGoalWeight(parseFloat(convertWeight(goalWeight, 'lb', 'kg').toFixed(1)));
+      }
+    }
+    weight.toggle();
+  };
+
+  const onReset = () => {
+    handleReset(() => {
+      setGender('male');
+      setAge('');
+      height.setValue('');
+      weight.setValue('');
+      setActivityLevel('sedentary');
+      setGoalWeight('');
+      setTargetDate('');
+      setDietType('balanced');
+    });
+  };
+
+  // Form fields for the CalculatorForm component
+  const formFields: React.ComponentProps<typeof CalculatorForm>['fields'] = [
+    {
+      name: 'gender',
+      label: 'Gender',
+      type: 'radio' as const,
+      value: gender,
+      onChange: (value: string) => setGender(value as Gender),
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' },
+      ],
+    },
+    {
+      name: 'age',
+      label: 'Age',
+      type: 'number' as const,
+      value: age,
+      onChange: setAge,
+      error: errors.age,
+      placeholder: 'Years',
+    },
+    createHeightField(height, errors.height),
+    {
+      ...createWeightField(weight, errors.weight),
+      label: 'Current Weight',
+      unitToggle: toggleWeightUnitWithGoal,
+    },
+    {
+      name: 'goalWeight',
+      label: 'Goal Weight',
+      type: 'number' as const,
+      value: goalWeight,
+      onChange: setGoalWeight,
+      error: errors.goalWeight,
+      placeholder: weight.placeholder,
+      unit: weight.unit,
+      step: '0.1',
+    },
+    {
+      name: 'targetDate',
+      label: 'Target Date',
+      type: 'date' as const,
+      value: targetDate,
+      onChange: setTargetDate,
+      error: errors.targetDate,
+      min: getMinDate(),
+    },
+    {
+      name: 'activity',
+      label: 'Activity Level',
+      type: 'select' as const,
+      value: activityLevel,
+      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
+      options: ACTIVITY_MULTIPLIERS.map(level => ({
+        value: level.level,
+        label: level.label,
+        description: level.description,
+      })),
+    },
+    {
+      name: 'dietType',
+      label: 'Diet Type',
+      type: 'select' as const,
+      value: dietType,
+      onChange: (value: string) => setDietType(value as DietType),
+      options: DIET_TYPES.map(diet => ({
+        value: diet.type,
+        label: diet.label,
+        description: diet.description,
+      })),
+    },
+  ];
+
+  return renderWeightManagementCalculatorView({
+    serverHeader,
+    formFields,
+    goalWeight,
+    handleSubmit,
+    onReset,
+    result,
+    showResult,
+    targetDate,
+    weight,
+  });
+}
+
+type WeightManagementCalculatorViewProps = {
+  serverHeader?: React.ReactNode;
+  formFields: React.ComponentProps<typeof CalculatorForm>['fields'];
+  goalWeight: number | '';
+  handleSubmit: React.FormEventHandler<Element>;
+  onReset: () => void;
+  result: WeightManagementResult | null;
+  showResult: boolean;
+  targetDate: string;
+  weight: ReturnType<typeof useWeight>;
+};
+
+function renderWeightManagementCalculatorView({
+  serverHeader,
+  formFields,
+  goalWeight,
+  handleSubmit,
+  onReset,
+  result,
+  showResult,
+  targetDate,
+  weight,
+}: WeightManagementCalculatorViewProps) {
+  return (
+    <CalculatorPageLayout
+      serverHeader={serverHeader}
+      title="Weight Management Calculator"
+      description="Plan your weight management journey with a target date and get personalized calorie and macro recommendations"
+      calculatorSlug="weight-management"
+      shareTitle="Weight Management Calculator | Complete Macro & Calorie Plan"
+      shareDescription="Plan your weight management journey with a target date and get personalized calorie and macro recommendations. Complete roadmap for weight loss or muscle gain."
+      shareHashtags={['weightmanagement', 'weightloss', 'musclegain', 'macros']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About Weight Management"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Weight Management Calculator',
+        description:
+          'Plan your weight management journey with a target date and get personalized calorie and macro recommendations. Complete roadmap for weight loss or muscle gain.',
+        url: 'https://www.healthcalc.xyz/weight-management',
+      }}
+      understandingSection={<WeightManagementUnderstanding />}
+      newsletterTitle="Get Weight Management Tips & Updates"
+      newsletterDescription="Subscribe to receive the latest nutrition and fitness tips, calculator updates, and exclusive content to help you achieve your weight management goals."
+      showResultsCapture={showResult}
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={onReset}
+        />
+      </div>
+
+      <div className="md:col-span-2" id="weight-management-result">
+        {showResult && result ? (
+          <>
+            <WeightManagementResultDisplay result={result} weightUnit={weight.unit} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="weight-management"
+                calculatorName="Weight Management Calculator"
+                data={{
+                  tdee: result.tdee,
+                  dailyCalorieTarget: result.dailyCalorieTarget,
+                  proteinGrams: result.macros.proteinGrams,
+                  carbsGrams: result.macros.carbsGrams,
+                  fatGrams: result.macros.fatGrams,
+                  targetDate: targetDate,
+                  weightToChange: `${Math.abs(typeof weight.value === 'number' && typeof goalWeight === 'number' ? weight.value - goalWeight : 0).toFixed(1)} ${weight.unit}`,
+                }}
+              />
+
+              <button
+                onClick={onReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <WeightManagementInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
+  );
+}
