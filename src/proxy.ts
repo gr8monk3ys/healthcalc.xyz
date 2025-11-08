@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// This function runs on every request
-export function middleware(request: NextRequest) {
+// This function runs on every request (renamed from middleware to proxy for Next.js 16)
+export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const { pathname, search, hostname } = url;
   let shouldRedirect = false;
   let redirectTo = '';
-  
+
   // Helper for constructing canonical URLs
   const getCanonicalURL = (path: string): string => {
     // Remove trailing slash unless it's the homepage
@@ -18,7 +18,11 @@ export function middleware(request: NextRequest) {
   };
 
   // Handle www vs non-www redirection (prefer www)
-  if (!hostname.startsWith('www.') && !hostname.includes('localhost') && !hostname.includes('127.0.0.1')) {
+  if (
+    !hostname.startsWith('www.') &&
+    !hostname.includes('localhost') &&
+    !hostname.includes('127.0.0.1')
+  ) {
     shouldRedirect = true;
     const wwwHostname = `www.${hostname}`;
     redirectTo = `https://${wwwHostname}${pathname}${search}`;
@@ -45,10 +49,10 @@ export function middleware(request: NextRequest) {
   // For requests that don't need redirection, add canonical link HTTP header
   // This provides additional SEO benefit alongside the HTML canonical links
   const response = NextResponse.next();
-  
+
   // Add rel="canonical" HTTP header for HTML responses
   const canonicalURL = getCanonicalURL(pathname);
   response.headers.set('Link', `<${canonicalURL}>; rel="canonical"`);
-  
+
   return response;
 }
