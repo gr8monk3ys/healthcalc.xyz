@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.heathcheck.info/sitemap-index.xml
+Sitemap: https://www.heathcheck.info/sitemap.xml
 
 # Disallow crawling of API and development areas
 Disallow: /api/
