@@ -2,6 +2,26 @@
  * Performance utility functions for optimizing Core Web Vitals
  */
 
+// Type definitions for browser APIs
+interface PerformanceEventTiming extends PerformanceEntry {
+  processingStart: number;
+  startTime: number;
+}
+
+interface LayoutShiftEntry extends PerformanceEntry {
+  hadRecentInput: boolean;
+  value: number;
+}
+
+interface NetworkInformation {
+  saveData: boolean;
+  effectiveType: string;
+}
+
+interface NavigatorWithConnection extends Navigator {
+  connection?: NetworkInformation;
+}
+
 /**
  * Defers loading of non-critical resources
  * @param callback - The callback to execute after the main thread is idle
@@ -80,21 +100,23 @@ export function measureCoreWebVitals(): void {
 
   try {
     // Measure LCP (Largest Contentful Paint)
-    const lcpObserver = new PerformanceObserver((entryList) => {
+    const lcpObserver = new PerformanceObserver(entryList => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
+      // eslint-disable-next-line no-console
       console.log('LCP:', lastEntry.startTime);
       // In production, you'd send this to your analytics
     });
     lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
 
     // Measure FID (First Input Delay)
-    const fidObserver = new PerformanceObserver((entryList) => {
+    const fidObserver = new PerformanceObserver(entryList => {
       const entries = entryList.getEntries();
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         // Use type assertion for PerformanceEventTiming
-        const fidEntry = entry as any;
+        const fidEntry = entry as PerformanceEventTiming;
         const delay = fidEntry.processingStart - fidEntry.startTime;
+        // eslint-disable-next-line no-console
         console.log('FID:', delay);
         // In production, you'd send this to your analytics
       });
@@ -103,18 +125,19 @@ export function measureCoreWebVitals(): void {
 
     // Measure CLS (Cumulative Layout Shift)
     let cumulativeLayoutShift = 0;
-    const clsObserver = new PerformanceObserver((entryList) => {
+    const clsObserver = new PerformanceObserver(entryList => {
       for (const entry of entryList.getEntries()) {
         // Only count layout shifts without recent user input
-        if (!(entry as any).hadRecentInput) {
-          cumulativeLayoutShift += (entry as any).value;
+        const layoutShiftEntry = entry as LayoutShiftEntry;
+        if (!layoutShiftEntry.hadRecentInput) {
+          cumulativeLayoutShift += layoutShiftEntry.value;
         }
       }
+      // eslint-disable-next-line no-console
       console.log('CLS:', cumulativeLayoutShift);
       // In production, you'd send this to your analytics
     });
     clsObserver.observe({ type: 'layout-shift', buffered: true });
-
   } catch (e) {
     console.error('Error measuring Core Web Vitals:', e);
   }
@@ -136,15 +159,16 @@ export function optimizeImageLoading(
   // Check if the browser supports IntersectionObserver
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             // Check connection speed
-            const connection = (navigator as any).connection;
-            const isSlowConnection = connection && 
-              (connection.saveData || 
-               connection.effectiveType.includes('2g') || 
-               connection.effectiveType.includes('slow-2g'));
+            const connection = (navigator as NavigatorWithConnection).connection;
+            const isSlowConnection =
+              connection &&
+              (connection.saveData ||
+                connection.effectiveType.includes('2g') ||
+                connection.effectiveType.includes('slow-2g'));
 
             // Load appropriate image based on connection
             if (isSlowConnection && lowQualitySrc) {

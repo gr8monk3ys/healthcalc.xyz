@@ -6,7 +6,7 @@ import { useSavedResultsManager } from '@/hooks/useSavedResultsManager';
 interface SaveResultProps {
   calculatorType: string;
   calculatorName: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
   className?: string;
 }
 
@@ -21,13 +21,8 @@ export default function SaveResult({
   className = '',
 }: SaveResultProps) {
   // Rule: Move localStorage logic to dedicated hooks/utilities
-  const { 
-    saveResult, 
-    removeResultByData, 
-    isResultSaved, 
-    message, 
-    showMessage 
-  } = useSavedResultsManager();
+  const { saveResult, removeResultByData, isResultSaved, message, showMessage } =
+    useSavedResultsManager();
 
   // Check if this result is already saved
   const isSaved = isResultSaved(calculatorType, data);
@@ -83,12 +78,9 @@ export default function SaveResult({
           Save Result
         </button>
       )}
-      
+
       {showMessage && (
-        <div
-          className="mt-2 p-2 bg-gray-100 text-gray-800 text-sm rounded-lg"
-          role="alert"
-        >
+        <div className="mt-2 p-2 bg-gray-100 text-gray-800 text-sm rounded-lg" role="alert">
           {message}
         </div>
       )}
@@ -101,12 +93,7 @@ export default function SaveResult({
  */
 export function SavedResultsList({ className = '' }: { className?: string }) {
   // Rule: Move localStorage logic to dedicated hooks/utilities
-  const { 
-    savedResults, 
-    clearAllResults, 
-    removeResult, 
-    formatDate 
-  } = useSavedResultsManager();
+  const { savedResults, clearAllResults, removeResult, formatDate } = useSavedResultsManager();
 
   if (savedResults.length === 0) {
     return (
@@ -121,20 +108,14 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
     <div className={`neumorph p-6 rounded-lg ${className}`}>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">Saved Results</h2>
-        <button
-          onClick={clearAllResults}
-          className="text-sm text-red-600 hover:text-red-800"
-        >
+        <button onClick={clearAllResults} className="text-sm text-red-600 hover:text-red-800">
           Clear All
         </button>
       </div>
-      
+
       <div className="space-y-4">
-        {savedResults.map((result) => (
-          <div
-            key={result.id}
-            className="neumorph p-4 rounded-lg"
-          >
+        {savedResults.map(result => (
+          <div key={result.id} className="neumorph p-4 rounded-lg">
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="font-medium">{result.calculatorName}</h3>
@@ -161,21 +142,25 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
                 </svg>
               </button>
             </div>
-            
+
             <div className="mt-2 text-sm">
               {Object.entries(result.data).map(([key, value]) => (
-                <div key={key} className="flex justify-between py-1 border-b border-gray-100 last:border-0">
-                  <span className="text-gray-600">{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</span>
-                  <span className="font-medium">{typeof value === 'object' ? JSON.stringify(value) : value}</span>
+                <div
+                  key={key}
+                  className="flex justify-between py-1 border-b border-gray-100 last:border-0"
+                >
+                  <span className="text-gray-600">
+                    {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                  </span>
+                  <span className="font-medium">
+                    {typeof value === 'object' ? JSON.stringify(value) : String(value)}
+                  </span>
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-3">
-              <a
-                href={`/${result.calculatorType}`}
-                className="text-accent text-sm hover:underline"
-              >
+              <a href={`/${result.calculatorType}`} className="text-accent text-sm hover:underline">
                 Go to calculator →
               </a>
             </div>

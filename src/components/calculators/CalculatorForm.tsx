@@ -1,23 +1,80 @@
 'use client';
 
 import React from 'react';
-import { Gender, HeightUnit, WeightUnit } from '@/types/common';
 
-interface FormField {
+// Discriminated union for type-safe form fields
+type NumberFieldValue = number | '';
+
+interface BaseFormField {
   name: string;
   label: string;
-  type: 'number' | 'radio' | 'select';
-  placeholder?: string;
-  value: any;
-  onChange: (value: any) => void;
   error?: string;
-  options?: Array<{ value: string; label: string; description?: string }>;
+}
+
+interface NumberFormField extends BaseFormField {
+  type: 'number';
+  placeholder?: string;
+  value: NumberFieldValue;
+  /**
+   * onChange handler that accepts React.Dispatch<React.SetStateAction<NumberFieldValue>>
+   * Uses `any` to support function bivariance needed for React state setters.
+   * At call sites, full type safety is maintained with specific types.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange: (value: any) => void;
   unit?: string;
   unitToggle?: () => void;
   min?: number;
   max?: number;
   step?: string;
 }
+
+interface RadioFormField extends BaseFormField {
+  type: 'radio';
+  value: string;
+  /**
+   * onChange handler that accepts React.Dispatch<React.SetStateAction<T>> for any string subtype T
+   * (e.g., Gender, ActivityLevel, etc.). Uses `any` to support function bivariance.
+   * At call sites, full type safety is maintained with specific types.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange: (value: any) => void;
+  options: Array<{ value: string; label: string; description?: string }>;
+}
+
+interface SelectFormField extends BaseFormField {
+  type: 'select';
+  value: string;
+  /**
+   * onChange handler that accepts React.Dispatch<React.SetStateAction<T>> for any string subtype T
+   * (e.g., Gender, ActivityLevel, BodyFatMethod, etc.). Uses `any` to support function bivariance.
+   * At call sites, full type safety is maintained with specific types.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange: (value: any) => void;
+  options: Array<{ value: string; label: string; description?: string }>;
+}
+
+interface DateFormField extends BaseFormField {
+  type: 'date';
+  value: string;
+  /**
+   * onChange handler that accepts React.Dispatch<React.SetStateAction<string>>
+   * Uses `any` to support function bivariance needed for React state setters.
+   * At call sites, full type safety is maintained.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange: (value: any) => void;
+  min?: string;
+  max?: string;
+}
+
+// Union type for all form field types
+type FormField =
+  | NumberFormField
+  | RadioFormField
+  | SelectFormField
+  | DateFormField;
 
 interface CalculatorFormProps {
   title: string;
@@ -50,12 +107,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
                   type="number"
                   id={field.name}
                   value={field.value}
-                  onChange={(e) => field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                  onChange={e =>
+                    field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
+                  }
                   className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
                     field.error ? 'border border-red-500' : ''
                   }`}
                   placeholder={field.placeholder}
-                  step={field.step || "0.1"}
+                  step={field.step || '0.1'}
                   min={field.min}
                   max={field.max}
                 />
@@ -72,12 +131,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
                 type="number"
                 id={field.name}
                 value={field.value}
-                onChange={(e) => field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))}
+                onChange={e =>
+                  field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
+                }
                 className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
                   field.error ? 'border border-red-500' : ''
                 }`}
                 placeholder={field.placeholder}
-                step={field.step || "0.1"}
+                step={field.step || '0.1'}
                 min={field.min}
                 max={field.max}
               />
@@ -85,13 +146,13 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             {field.error && <p className="text-red-500 text-sm mt-1">{field.error}</p>}
           </div>
         );
-      
+
       case 'radio':
         return (
           <div key={field.name}>
             <label className="block text-sm font-medium mb-1">{field.label}</label>
             <div className="flex space-x-4">
-              {field.options?.map((option) => (
+              {field.options?.map(option => (
                 <label key={option.value} className="flex items-center">
                   <input
                     type="radio"
@@ -105,7 +166,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             </div>
           </div>
         );
-      
+
       case 'select':
         return (
           <div key={field.name}>
@@ -115,10 +176,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             <select
               id={field.name}
               value={field.value}
-              onChange={(e) => field.onChange(e.target.value)}
+              onChange={e => field.onChange(e.target.value)}
               className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
             >
-              {field.options?.map((option) => (
+              {field.options?.map(option => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -131,7 +192,28 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
             )}
           </div>
         );
-      
+
+      case 'date':
+        return (
+          <div key={field.name}>
+            <label htmlFor={field.name} className="block text-sm font-medium mb-1">
+              {field.label}
+            </label>
+            <input
+              type="date"
+              id={field.name}
+              value={field.value}
+              onChange={e => field.onChange(e.target.value)}
+              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                field.error ? 'border border-red-500' : ''
+              }`}
+              min={field.min as string}
+              max={field.max as string}
+            />
+            {field.error && <p className="text-red-500 text-sm mt-1">{field.error}</p>}
+          </div>
+        );
+
       default:
         return null;
     }
@@ -140,10 +222,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
   return (
     <div className="neumorph p-6 rounded-lg">
       <h2 className="text-xl font-semibold mb-4">{title}</h2>
-      
+
       <form onSubmit={onSubmit} className="space-y-4">
         {fields.map(renderField)}
-        
+
         <div className="flex space-x-4 pt-2">
           <button
             type="submit"

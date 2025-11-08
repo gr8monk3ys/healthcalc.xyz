@@ -11,11 +11,11 @@ export const {
   createBreadcrumbSchema,
   createFAQSchema,
   createArticleSchema,
-  createCalculatorSchema
+  createCalculatorSchema,
 } = schemaUtils;
 
 interface StructuredDataProps {
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 /**
@@ -27,11 +27,9 @@ export default function StructuredData({ data }: StructuredDataProps) {
     // Only add structured data on the client side
     if (typeof window !== 'undefined') {
       // Remove any existing structured data with the same @type to avoid duplicates
-      const existingScripts = document.querySelectorAll(
-        `script[type="application/ld+json"]`
-      );
-      
-      existingScripts.forEach((script) => {
+      const existingScripts = document.querySelectorAll(`script[type="application/ld+json"]`);
+
+      existingScripts.forEach(script => {
         try {
           const scriptData = JSON.parse(script.textContent || '{}');
           if (scriptData['@type'] === data['@type']) {
@@ -46,9 +44,6 @@ export default function StructuredData({ data }: StructuredDataProps) {
   }, [data]);
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
   );
 }

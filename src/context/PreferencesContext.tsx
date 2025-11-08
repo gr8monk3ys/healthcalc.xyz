@@ -50,17 +50,17 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     'user-preferences',
     defaultPreferences
   );
-  
+
   // Track system dark mode preference
   const [isSystemDarkMode, setIsSystemDarkMode] = useState(false);
-  
+
   // Initialize preferences from localStorage
   const [preferences, setPreferences] = useState<UserPreferences>(storedPreferences);
-  
+
   // Update localStorage when preferences change
   useEffect(() => {
     setStoredPreferences(preferences);
-    
+
     // Apply dark mode to document
     if (preferences.darkMode) {
       document.documentElement.classList.add('dark');
@@ -68,40 +68,40 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
       document.documentElement.classList.remove('dark');
     }
   }, [preferences, setStoredPreferences]);
-  
+
   // Detect system dark mode preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
+
     // Set initial value
     setIsSystemDarkMode(mediaQuery.matches);
-    
+
     // Listen for changes
     const handler = (e: MediaQueryListEvent) => {
       setIsSystemDarkMode(e.matches);
     };
-    
+
     mediaQuery.addEventListener('change', handler);
-    
+
     return () => {
       mediaQuery.removeEventListener('change', handler);
     };
   }, []);
-  
+
   // Preference setters
   const setDarkMode = (enabled: boolean) => {
     setPreferences(prev => ({ ...prev, darkMode: enabled }));
   };
-  
+
   const toggleDarkMode = () => {
     setPreferences(prev => ({ ...prev, darkMode: !prev.darkMode }));
   };
-  
+
   const setUnitSystem = (system: 'metric' | 'imperial') => {
     setPreferences(prev => {
       // Update all units based on system
       const newPrefs = { ...prev, unitSystem: system };
-      
+
       if (system === 'metric') {
         newPrefs.heightUnit = 'cm';
         newPrefs.weightUnit = 'kg';
@@ -109,41 +109,41 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
         newPrefs.heightUnit = 'ft';
         newPrefs.weightUnit = 'lb';
       }
-      
+
       return newPrefs;
     });
   };
-  
+
   const setHeightUnit = (unit: 'cm' | 'ft') => {
     setPreferences(prev => ({ ...prev, heightUnit: unit }));
   };
-  
+
   const setWeightUnit = (unit: 'kg' | 'lb') => {
     setPreferences(prev => ({ ...prev, weightUnit: unit }));
   };
-  
+
   const setEnergyUnit = (unit: 'kcal' | 'kj') => {
     setPreferences(prev => ({ ...prev, energyUnit: unit }));
   };
-  
+
   const setSaveHistory = (enabled: boolean) => {
     setPreferences(prev => ({ ...prev, saveHistory: enabled }));
   };
-  
+
   const setNotificationsEnabled = (enabled: boolean) => {
     setPreferences(prev => ({ ...prev, notificationsEnabled: enabled }));
-    
+
     // Request notification permission if enabled
     if (enabled && 'Notification' in window) {
       Notification.requestPermission();
     }
   };
-  
+
   // Reset to defaults
   const resetPreferences = () => {
     setPreferences(defaultPreferences);
   };
-  
+
   // Context value
   const contextValue: PreferencesContextType = {
     preferences,
@@ -158,21 +158,17 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     resetPreferences,
     isSystemDarkMode,
   };
-  
-  return (
-    <PreferencesContext.Provider value={contextValue}>
-      {children}
-    </PreferencesContext.Provider>
-  );
+
+  return <PreferencesContext.Provider value={contextValue}>{children}</PreferencesContext.Provider>;
 }
 
 // Custom hook to use the preferences context
 export function usePreferences(): PreferencesContextType {
   const context = useContext(PreferencesContext);
-  
+
   if (context === undefined) {
     throw new Error('usePreferences must be used within a PreferencesProvider');
   }
-  
+
   return context;
 }

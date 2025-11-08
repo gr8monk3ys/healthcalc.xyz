@@ -24,23 +24,21 @@ export default function Radio({
   ...props
 }: RadioProps) {
   const radioGroupId = `radio-group-${name}`;
-  
+
   return (
     <div className="mb-4">
-      {label && (
-        <div className="block text-sm font-medium mb-2">
-          {label}
-        </div>
-      )}
-      
-      <div 
+      {label && <div className="block text-sm font-medium mb-2">{label}</div>}
+
+      <div
         className={`${inline ? 'flex gap-4' : 'space-y-2'}`}
         role="radiogroup"
         aria-labelledby={label ? radioGroupId : undefined}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-describedby={error ? `${radioGroupId}-error` : undefined}
       >
-        {options.map((option) => {
+        {options.map(option => {
           const optionId = `${name}-${option.value}`;
-          
+
           return (
             <div key={option.value} className={`flex items-center ${className}`}>
               <div className="relative">
@@ -50,7 +48,6 @@ export default function Radio({
                   name={name}
                   value={option.value}
                   className="sr-only"
-                  aria-invalid={error ? 'true' : 'false'}
                   {...props}
                 />
                 <div className="neumorph w-5 h-5 rounded-full cursor-pointer">
@@ -60,25 +57,18 @@ export default function Radio({
                 </div>
                 {/* Custom styles applied via classes instead of styled-jsx */}
               </div>
-              <label 
-                htmlFor={optionId} 
-                className="ml-2 text-sm cursor-pointer"
-              >
+              <label htmlFor={optionId} className="ml-2 text-sm cursor-pointer">
                 {option.label}
               </label>
             </div>
           );
         })}
       </div>
-      
-      {helperText && (
-        <p className="mt-1 text-xs text-gray-500">
-          {helperText}
-        </p>
-      )}
-      
+
+      {helperText && <p className="mt-1 text-xs text-gray-500">{helperText}</p>}
+
       {error && (
-        <p className="mt-1 text-xs text-red-500">
+        <p id={`${radioGroupId}-error`} className="mt-1 text-xs text-red-500">
           {error}
         </p>
       )}

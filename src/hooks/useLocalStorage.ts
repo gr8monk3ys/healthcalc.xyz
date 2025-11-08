@@ -1,6 +1,6 @@
 // Rule: Move localStorage logic to dedicated hooks/utilities for better separation of concerns
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /**
  * Custom hook for managing localStorage values with type safety
@@ -29,28 +29,19 @@ export function useLocalStorage<T>(
 
   const [storedValue, setStoredValue] = useState<T>(getStoredValue);
 
-  // Update localStorage when the stored value changes
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    try {
-      window.localStorage.setItem(key, JSON.stringify(storedValue));
-    } catch (error) {
-      console.error(`Error writing to localStorage key "${key}":`, error);
-    }
-  }, [key, storedValue]);
-
   // Return a wrapped version of useState's setter function that
   // persists the new value to localStorage
   const setValue = (value: T | ((val: T) => T)): void => {
     try {
       // Allow value to be a function so we have the same API as useState
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
-      
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+
       setStoredValue(valueToStore);
+
+      // Persist to localStorage
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      }
     } catch (error) {
       console.error(`Error setting localStorage key "${key}":`, error);
     }
@@ -59,7 +50,9 @@ export function useLocalStorage<T>(
   // Function to remove the item from localStorage
   const removeValue = (): void => {
     try {
-      window.localStorage.removeItem(key);
+      if (typeof window !== 'undefined') {
+        window.localStorage.removeItem(key);
+      }
       setStoredValue(initialValue);
     } catch (error) {
       console.error(`Error removing localStorage key "${key}":`, error);

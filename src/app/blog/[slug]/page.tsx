@@ -6,7 +6,7 @@ import { BlogLoadingFallback } from '@/components/DynamicComponent';
 import dynamic from 'next/dynamic';
 
 // Map of blog post slugs to their dynamic components
-const BLOG_POSTS: Record<string, React.ComponentType<any>> = {
+const BLOG_POSTS: Record<string, React.ComponentType<Record<string, never>>> = {
   'measuring-body-fat': dynamic(() => import('@/app/blog/measuring-body-fat/content'), {
     loading: () => <BlogLoadingFallback />,
   }),
@@ -16,9 +16,12 @@ const BLOG_POSTS: Record<string, React.ComponentType<any>> = {
   'understanding-absi': dynamic(() => import('@/app/blog/understanding-absi/content'), {
     loading: () => <BlogLoadingFallback />,
   }),
-  'understanding-body-fat-percentage': dynamic(() => import('@/app/blog/understanding-body-fat-percentage/content'), {
-    loading: () => <BlogLoadingFallback />,
-  }),
+  'understanding-body-fat-percentage': dynamic(
+    () => import('@/app/blog/understanding-body-fat-percentage/content'),
+    {
+      loading: () => <BlogLoadingFallback />,
+    }
+  ),
   'waist-to-hip-ratio-guide': dynamic(() => import('@/app/blog/waist-to-hip-ratio-guide/content'), {
     loading: () => <BlogLoadingFallback />,
   }),
@@ -33,7 +36,7 @@ const BLOG_POSTS: Record<string, React.ComponentType<any>> = {
 export default function BlogPost(): React.JSX.Element {
   const params = useParams<{ slug: string }>();
   const slug = params.slug as string;
-  
+
   // Get the dynamic component for this slug
   const PostContent = BLOG_POSTS[slug];
 

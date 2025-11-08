@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 
 const metadata: Metadata = {
   title: 'Waist-to-Hip Ratio Calculator | WHR Calculator',
-  description: 'Calculate your Waist-to-Hip Ratio (WHR) to assess your body fat distribution and health risks. Learn about apple vs. pear body shapes and their health implications.',
+  description:
+    'Calculate your Waist-to-Hip Ratio (WHR) to assess your body fat distribution and health risks. Learn about apple vs. pear body shapes and their health implications.',
   keywords: [
     'waist-to-hip ratio',
     'whr calculator',
@@ -13,11 +14,12 @@ const metadata: Metadata = {
     'fat distribution',
     'waist circumference',
     'hip circumference',
-    'health risk calculator'
+    'health risk calculator',
   ].join(', '),
   openGraph: {
     title: 'Waist-to-Hip Ratio Calculator | WHR Calculator',
-    description: 'Calculate your Waist-to-Hip Ratio (WHR) to assess your body fat distribution and health risks. Learn about apple vs. pear body shapes and their health implications.',
+    description:
+      'Calculate your Waist-to-Hip Ratio (WHR) to assess your body fat distribution and health risks. Learn about apple vs. pear body shapes and their health implications.',
     url: 'https://www.heathcheck.info/whr',
     siteName: 'HealthCheck',
     locale: 'en_US',
@@ -26,7 +28,8 @@ const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Waist-to-Hip Ratio Calculator | WHR Calculator',
-    description: 'Calculate your Waist-to-Hip Ratio (WHR) to assess your body fat distribution and health risks. Learn about apple vs. pear body shapes and their health implications.',
+    description:
+      'Calculate your Waist-to-Hip Ratio (WHR) to assess your body fat distribution and health risks. Learn about apple vs. pear body shapes and their health implications.',
   },
   alternates: {
     canonical: 'https://www.heathcheck.info/whr',

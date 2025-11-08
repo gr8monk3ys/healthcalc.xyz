@@ -27,45 +27,45 @@ export default function Breadcrumb({
   className = '',
 }: BreadcrumbProps) {
   const pathname = usePathname();
-  
+
   // Generate breadcrumb items based on the current path
   const generateBreadcrumbItems = (): BreadcrumbItem[] => {
     // If custom items are provided, use those
     if (customItems) {
       return [{ name: homeLabel, path: '/' }, ...customItems];
     }
-    
+
     // Otherwise, generate from the pathname
     const pathSegments = pathname.split('/').filter(Boolean);
-    
+
     // Start with home
     const items: BreadcrumbItem[] = [{ name: homeLabel, path: '/' }];
-    
+
     // Add each path segment
     let currentPath = '';
-    pathSegments.forEach((segment) => {
+    pathSegments.forEach(segment => {
       currentPath += `/${segment}`;
-      
+
       // Format the segment name (convert-to-readable)
       const name = segment
         .split('-')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
-      
+
       items.push({ name, path: currentPath });
     });
-    
+
     return items;
   };
-  
+
   const breadcrumbItems = generateBreadcrumbItems();
-  
+
   // Create schema items for structured data
-  const schemaItems = breadcrumbItems.map((item) => ({
+  const schemaItems = breadcrumbItems.map(item => ({
     name: item.name,
     url: `https://www.heathcheck.info${item.path}`,
   }));
-  
+
   return (
     <>
       <nav aria-label="Breadcrumb" className={`text-sm mb-4 ${className}`}>
@@ -77,16 +77,13 @@ export default function Breadcrumb({
                   /
                 </span>
               )}
-              
+
               {index === breadcrumbItems.length - 1 ? (
                 <span className="text-gray-600" aria-current="page">
                   {item.name}
                 </span>
               ) : (
-                <Link
-                  href={item.path}
-                  className="text-accent hover:underline"
-                >
+                <Link href={item.path} className="text-accent hover:underline">
                   {item.name}
                 </Link>
               )}
@@ -94,7 +91,7 @@ export default function Breadcrumb({
           ))}
         </ol>
       </nav>
-      
+
       {/* Add structured data for breadcrumbs */}
       <StructuredData data={createBreadcrumbSchema(schemaItems)} />
     </>

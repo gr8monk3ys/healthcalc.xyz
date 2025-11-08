@@ -1,22 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 /**
  * Hook for dynamically importing components only when needed
  * This helps reduce the initial bundle size and improve FCP times
- * 
+ *
  * @param importFn Function that returns a dynamic import (e.g., () => import('@/components/HeavyComponent'))
  * @param loadOnMount Whether to load the component immediately on mount
  * @param loadOnVisible Whether to load the component when it becomes visible in viewport
  * @returns Object containing the dynamically loaded component and loading state
  */
-export function useDynamicImport<T = any>(
+export function useDynamicImport<T = Record<string, unknown>>(
   importFn: () => Promise<{ default: React.ComponentType<T> }>,
-  {
-    loadOnMount = false,
-    loadOnVisible = true,
-  } = {}
+  { loadOnMount = false, loadOnVisible = true } = {}
 ) {
   const [Component, setComponent] = useState<React.ComponentType<T> | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -24,28 +21,29 @@ export function useDynamicImport<T = any>(
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
   // Function to load the component
-  const loadComponent = async () => {
+  const loadComponent = useCallback(async () => {
     if (Component || isLoading) return;
-    
+
     setIsLoading(true);
-    
+
     try {
-      const module = await importFn();
-      setComponent(() => module.default);
+      const loadedModule = await importFn();
+      setComponent(() => loadedModule.default);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.error('Failed to dynamically load component', err);
       setError(err instanceof Error ? err : new Error(String(err)));
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [Component, isLoading, importFn]);
 
   // Load on mount if specified
   useEffect(() => {
     if (loadOnMount) {
       loadComponent();
     }
-  }, [loadOnMount]);
+  }, [loadOnMount, loadComponent]);
 
   // Load when visible if specified
   useEffect(() => {
@@ -66,7 +64,7 @@ export function useDynamicImport<T = any>(
     return () => {
       observer.disconnect();
     };
-  }, [ref, loadOnVisible, Component]);
+  }, [ref, loadOnVisible, Component, loadComponent]);
 
   return {
     Component,

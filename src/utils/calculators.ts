@@ -1,13 +1,34 @@
 /**
  * Utility functions for calculator pages
+ * Note: Basic conversion functions are re-exported from @/utils/conversions for better organization
  */
 
+import {
+  heightFtInToCm as heightFtInToCmBase,
+  heightCmToFtIn as heightCmToFtInBase,
+  weightLbToKg as weightLbToKgBase,
+  weightKgToLb as weightKgToLbBase,
+  formatNumber as formatNumberBase,
+} from '@/utils/conversions';
+
+// Re-export conversion functions from conversions.ts
+export { heightFtInToCmBase as heightFtInToCm };
+export { heightCmToFtInBase as heightCmToFtIn };
+export { weightLbToKgBase as weightLbToKg };
+export { weightKgToLbBase as weightKgToLb };
+export { formatNumberBase as formatNumber };
+
 /**
- * Converts height between metric and imperial systems
+ * Converts height between metric (cm) and imperial (inches) systems
+ * This is a system-level converter that wraps the unit-specific converters
  */
-export function convertHeight(height: number, from: 'imperial' | 'metric', to: 'imperial' | 'metric'): number {
+export function convertHeight(
+  height: number,
+  from: 'imperial' | 'metric',
+  to: 'imperial' | 'metric'
+): number {
   if (from === to) return height;
-  
+
   if (from === 'imperial' && to === 'metric') {
     // Convert inches to cm
     return height * 2.54;
@@ -18,49 +39,23 @@ export function convertHeight(height: number, from: 'imperial' | 'metric', to: '
 }
 
 /**
- * Converts weight between metric and imperial systems
+ * Converts weight between metric (kg) and imperial (lb) systems
+ * This is a system-level converter that wraps the unit-specific converters
  */
-export function convertWeight(weight: number, from: 'imperial' | 'metric', to: 'imperial' | 'metric'): number {
+export function convertWeight(
+  weight: number,
+  from: 'imperial' | 'metric',
+  to: 'imperial' | 'metric'
+): number {
   if (from === to) return weight;
-  
+
   if (from === 'imperial' && to === 'metric') {
-    // Convert pounds to kg
-    return weight * 0.45359237;
+    // Convert pounds to kg using the more accurate conversion from conversions.ts
+    return weightLbToKgBase(weight);
   } else {
-    // Convert kg to pounds
-    return weight / 0.45359237;
+    // Convert kg to pounds using the more accurate conversion from conversions.ts
+    return weightKgToLbBase(weight);
   }
-}
-
-/**
- * Converts height from feet and inches to centimeters
- */
-export function heightFtInToCm(feet: number, inches: number): number {
-  return (feet * 30.48) + (inches * 2.54);
-}
-
-/**
- * Converts height from centimeters to feet and inches
- */
-export function heightCmToFtIn(cm: number): { feet: number; inches: number } {
-  const totalInches = cm / 2.54;
-  const feet = Math.floor(totalInches / 12);
-  const inches = Math.round(totalInches % 12);
-  return { feet, inches };
-}
-
-/**
- * Converts weight from pounds to kilograms
- */
-export function weightLbToKg(lb: number): number {
-  return lb * 0.45359237;
-}
-
-/**
- * Converts weight from kilograms to pounds
- */
-export function weightKgToLb(kg: number): number {
-  return kg / 0.45359237;
 }
 
 /**
@@ -99,16 +94,11 @@ export function getBMICategory(bmi: number): {
  * @param age Age in years
  * @param isMale Boolean indicating if the person is male
  */
-export function calculateBMR(
-  weight: number,
-  height: number,
-  age: number,
-  isMale: boolean
-): number {
+export function calculateBMR(weight: number, height: number, age: number, isMale: boolean): number {
   if (isMale) {
-    return (10 * weight) + (6.25 * height) - (5 * age) + 5;
+    return 10 * weight + 6.25 * height - 5 * age + 5;
   } else {
-    return (10 * weight) + (6.25 * height) - (5 * age) - 161;
+    return 10 * weight + 6.25 * height - 5 * age - 161;
   }
 }
 
@@ -125,11 +115,31 @@ export function calculateTDEE(bmr: number, activityLevel: number): number {
  * Activity level multipliers for TDEE calculation
  */
 export const activityLevels = [
-  { value: 1.2, label: 'Sedentary (little or no exercise)', description: 'Office job, mostly sitting' },
-  { value: 1.375, label: 'Lightly active (light exercise 1-3 days/week)', description: 'Light walking, yoga, or similar' },
-  { value: 1.55, label: 'Moderately active (moderate exercise 3-5 days/week)', description: 'Jogging, cycling, or similar' },
-  { value: 1.725, label: 'Very active (hard exercise 6-7 days/week)', description: 'Intense workouts most days' },
-  { value: 1.9, label: 'Extremely active (very hard exercise & physical job)', description: 'Athletes, construction workers' },
+  {
+    value: 1.2,
+    label: 'Sedentary (little or no exercise)',
+    description: 'Office job, mostly sitting',
+  },
+  {
+    value: 1.375,
+    label: 'Lightly active (light exercise 1-3 days/week)',
+    description: 'Light walking, yoga, or similar',
+  },
+  {
+    value: 1.55,
+    label: 'Moderately active (moderate exercise 3-5 days/week)',
+    description: 'Jogging, cycling, or similar',
+  },
+  {
+    value: 1.725,
+    label: 'Very active (hard exercise 6-7 days/week)',
+    description: 'Intense workouts most days',
+  },
+  {
+    value: 1.9,
+    label: 'Extremely active (very hard exercise & physical job)',
+    description: 'Athletes, construction workers',
+  },
 ];
 
 /**
@@ -153,14 +163,19 @@ export function calculateNavyBodyFat(
     if (hip === null) {
       throw new Error('Hip measurement is required for females');
     }
-    return 495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.22100 * Math.log10(height)) - 450;
+    return (
+      495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.221 * Math.log10(height)) - 450
+    );
   }
 }
 
 /**
  * Gets body fat category based on percentage and gender
  */
-export function getBodyFatCategory(bodyFatPercentage: number, isMale: boolean): {
+export function getBodyFatCategory(
+  bodyFatPercentage: number,
+  isMale: boolean
+): {
   category: string;
   color: string;
 } {
@@ -201,7 +216,10 @@ export function calculateWHR(waist: number, hip: number): number {
 /**
  * Gets WHR category based on ratio and gender
  */
-export function getWHRCategory(whr: number, isMale: boolean): {
+export function getWHRCategory(
+  whr: number,
+  isMale: boolean
+): {
   category: string;
   risk: string;
   color: string;
@@ -234,17 +252,7 @@ export function getWHRCategory(whr: number, isMale: boolean): {
 export function calculateABSI(waist: number, weight: number, height: number): number {
   const bmi = calculateBMI(weight, height);
   const heightInMeters = height / 100;
-  
-  // ABSI = WC / (BMI^(2/3) * Height^(1/2))
-  return waist / (Math.pow(bmi, 2/3) * Math.pow(heightInMeters, 1/2));
-}
 
-/**
- * Formats a number with commas for thousands
- */
-export function formatNumber(num: number, decimals: number = 1): string {
-  return num.toLocaleString('en-US', {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  });
+  // ABSI = WC / (BMI^(2/3) * Height^(1/2))
+  return waist / (Math.pow(bmi, 2 / 3) * Math.pow(heightInMeters, 1 / 2));
 }

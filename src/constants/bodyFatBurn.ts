@@ -10,8 +10,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 2.0,
       max: 4.5,
-      step: 0.1
-    }
+      step: 0.1,
+    },
   },
   {
     id: 'running',
@@ -21,8 +21,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 5.0,
       max: 10.0,
-      step: 0.1
-    }
+      step: 0.1,
+    },
   },
   {
     id: 'cycling',
@@ -32,8 +32,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 10.0,
       max: 20.0,
-      step: 0.5
-    }
+      step: 0.5,
+    },
   },
   {
     id: 'swimming',
@@ -43,8 +43,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 1.0,
       max: 3.0,
-      step: 0.1
-    }
+      step: 0.1,
+    },
   },
   {
     id: 'elliptical',
@@ -54,8 +54,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 1,
       max: 10,
-      step: 1
-    }
+      step: 1,
+    },
   },
   {
     id: 'stairMaster',
@@ -65,8 +65,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 1,
       max: 10,
-      step: 1
-    }
+      step: 1,
+    },
   },
   {
     id: 'rowing',
@@ -76,8 +76,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 1,
       max: 10,
-      step: 1
-    }
+      step: 1,
+    },
   },
   {
     id: 'hiking',
@@ -87,8 +87,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 0,
       max: 15,
-      step: 1
-    }
+      step: 1,
+    },
   },
   {
     id: 'weightTraining',
@@ -98,8 +98,8 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 1,
       max: 10,
-      step: 1
-    }
+      step: 1,
+    },
   },
   {
     id: 'yoga',
@@ -109,30 +109,30 @@ export const ACTIVITIES: ActivityOption[] = [
     speedRange: {
       min: 1,
       max: 5,
-      step: 1
-    }
-  }
+      step: 1,
+    },
+  },
 ];
 
 // Duration range in minutes
 export const DURATION_RANGE = {
   min: 5,
   max: 120,
-  step: 5
+  step: 5,
 };
 
 // Frequency range in times per week
 export const FREQUENCY_RANGE = {
   min: 1,
   max: 7,
-  step: 1
+  step: 1,
 };
 
 // Burn goal range in pounds
 export const BURN_GOAL_RANGE = {
   min: 1,
   max: 50,
-  step: 1
+  step: 1,
 };
 
 // Mifflin-St Jeor formula constants
@@ -141,14 +141,14 @@ export const MIFFLIN_ST_JEOR = {
     CONSTANT: 5,
     WEIGHT_MULTIPLIER: 10,
     HEIGHT_MULTIPLIER: 6.25,
-    AGE_MULTIPLIER: 5
+    AGE_MULTIPLIER: 5,
   },
   FEMALE: {
     CONSTANT: -161,
     WEIGHT_MULTIPLIER: 10,
     HEIGHT_MULTIPLIER: 6.25,
-    AGE_MULTIPLIER: 5
-  }
+    AGE_MULTIPLIER: 5,
+  },
 };
 
 // Calories per pound of fat
@@ -165,5 +165,5 @@ export const SPEED_ADJUSTMENT_FACTORS = {
   rowing: 0.7, // MET increases by 0.7 per intensity
   hiking: 0.3, // MET increases by 0.3 per grade %
   weightTraining: 0.4, // MET increases by 0.4 per intensity
-  yoga: 0.5 // MET increases by 0.5 per intensity
+  yoga: 0.5, // MET increases by 0.5 per intensity
 };

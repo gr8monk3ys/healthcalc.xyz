@@ -25,7 +25,7 @@ export default function Preconnect({ domains = [] }: PreconnectProps) {
 
   return (
     <Head>
-      {allDomains.map((domain) => (
+      {allDomains.map(domain => (
         <React.Fragment key={domain}>
           <link rel="preconnect" href={domain} />
           <link rel="dns-prefetch" href={domain} />

@@ -9,12 +9,13 @@ HealthCheck is a comprehensive health and fitness calculator web application bui
 - **Multiple Health Calculators:**
   - BMI Calculator (for adults and children)
   - Body Fat Calculator
+  - Body Fat Burn Calculator
   - TDEE (Total Daily Energy Expenditure) Calculator
   - Calorie Deficit Calculator
   - Weight Management Planner
   - Maximum Fat Loss Calculator
   - ABSI (A Body Shape Index) Calculator
-  - Waist-to-Hip Ratio Calculator
+  - Waist-to-Hip Ratio (WHR) Calculator
   - Measurement Conversions
 
 - **Modern UI/UX:**
@@ -54,8 +55,8 @@ HealthCheck is a comprehensive health and fitness calculator web application bui
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/healthcheck.git
-   cd healthcheck
+   git clone https://github.com/gr8monk3ys/heathcheck.info.git
+   cd heathcheck.info
    ```
 
 2. Install dependencies:
@@ -88,6 +89,34 @@ To start the production server:
 npm run start
 # or
 yarn start
+```
+
+## Available Scripts
+
+In addition to the standard Next.js scripts, this project includes several helpful commands:
+
+### Development
+- `npm run dev` - Start development server on [http://localhost:3000](http://localhost:3000)
+- `npm run build` - Build production-ready application
+- `npm run start` - Start production server
+
+### Code Quality
+- `npm run lint` - Run ESLint to check for code issues
+- `npm run lint:fix` - Automatically fix ESLint errors where possible
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check if code is properly formatted
+- `npm run type-check` - Run TypeScript compiler to check for type errors
+- `npm run validate` - Run all checks (format, lint, type-check) - **recommended before commits**
+
+### Maintenance
+- `npm run clean` - Remove build artifacts (.next, out, cache)
+- `npm run audit:fix` - Automatically fix security vulnerabilities
+- `npm run update` - Update caniuse-lite and browserslist databases
+
+### Recommended Workflow
+Before committing changes:
+```bash
+npm run validate  # Ensures code passes all checks
 ```
 
 ## Project Structure
@@ -126,6 +155,9 @@ Calculate your Body Mass Index (BMI) and find your healthy weight range based on
 ### Body Fat Calculator
 Estimate your body fat percentage using various methods including Navy method, skinfold measurements, and more.
 
+### Body Fat Burn Calculator
+Calculate how much body fat you can burn through various physical activities based on your personal metrics, activity type, duration, and frequency.
+
 ### TDEE Calculator
 Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs based on your activity level.
 
@@ -149,7 +181,7 @@ Convert between different units of measurement for weight, height, volume, and m
 
 ## Contributing
 
-This is a private repository. Please contact the repository owner for contribution guidelines.
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, and contribute to the project.
 
 ## License
 

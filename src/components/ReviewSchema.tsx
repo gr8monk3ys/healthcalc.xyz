@@ -53,69 +53,77 @@ export default function ReviewSchema({
 }: ReviewSchemaProps) {
   // Base URL for absolute URLs
   const baseUrl = 'https://www.heathcheck.info';
-  
+
   // Ensure image URL is absolute
-  const imageUrl = image ? (image.startsWith('http') ? image : `${baseUrl}${image.startsWith('/') ? '' : '/'}${image}`) : '';
-  
+  const imageUrl = image
+    ? image.startsWith('http')
+      ? image
+      : `${baseUrl}${image.startsWith('/') ? '' : '/'}${image}`
+    : '';
+
   // Ensure product URL is absolute
-  const productUrl = url ? (url.startsWith('http') ? url : `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`) : '';
-  
+  const productUrl = url
+    ? url.startsWith('http')
+      ? url
+      : `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`
+    : '';
+
   // Generate aggregate rating schema
   const aggregateRating = {
     '@type': 'AggregateRating',
-    'ratingValue': ratingValue,
-    'reviewCount': reviewCount,
-    'bestRating': bestRating,
-    'worstRating': worstRating,
+    ratingValue: ratingValue,
+    reviewCount: reviewCount,
+    bestRating: bestRating,
+    worstRating: worstRating,
   };
-  
+
   // Generate review schema for individual reviews
-  const reviewsSchema = reviews.map((review) => ({
+  const reviewsSchema = reviews.map(review => ({
     '@type': 'Review',
-    'author': {
+    author: {
       '@type': 'Person',
-      'name': review.author,
+      name: review.author,
     },
-    'datePublished': review.datePublished,
-    'reviewBody': review.reviewBody,
-    'reviewRating': {
+    datePublished: review.datePublished,
+    reviewBody: review.reviewBody,
+    reviewRating: {
       '@type': 'Rating',
-      'ratingValue': review.ratingValue,
-      'bestRating': bestRating,
-      'worstRating': worstRating,
+      ratingValue: review.ratingValue,
+      bestRating: bestRating,
+      worstRating: worstRating,
     },
   }));
-  
+
   // Generate offers schema if price is provided
   const offers = price
     ? {
         '@type': 'Offer',
-        'price': price,
-        'priceCurrency': priceCurrency,
-        'availability': `https://schema.org/${availability}`,
-        'url': productUrl || baseUrl,
+        price: price,
+        priceCurrency: priceCurrency,
+        availability: `https://schema.org/${availability}`,
+        url: productUrl || baseUrl,
       }
     : undefined;
-  
+
   // Generate complete product schema
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    'name': productName,
-    'description': description,
-    'image': imageUrl,
-    'aggregateRating': aggregateRating,
-    'review': reviewsSchema.length > 0 ? reviewsSchema : undefined,
-    'brand': brand ? { '@type': 'Brand', 'name': brand } : undefined,
-    'sku': sku || undefined,
-    'mpn': mpn || undefined,
-    'gtin': gtin || undefined,
-    'category': category || undefined,
-    'offers': offers,
+    name: productName,
+    description: description,
+    image: imageUrl,
+    aggregateRating: aggregateRating,
+    review: reviewsSchema.length > 0 ? reviewsSchema : undefined,
+    brand: brand ? { '@type': 'Brand', name: brand } : undefined,
+    sku: sku || undefined,
+    mpn: mpn || undefined,
+    gtin: gtin || undefined,
+    category: category || undefined,
+    offers: offers,
   };
-  
+
   // Remove undefined properties
   const cleanSchema = JSON.parse(JSON.stringify(productSchema));
-  
+
   return <StructuredData data={cleanSchema} />;
 }

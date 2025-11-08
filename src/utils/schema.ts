@@ -68,7 +68,7 @@ export function createFAQSchema(questions: { question: string; answer: string }[
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: questions.map((q) => ({
+    mainEntity: questions.map(q => ({
       '@type': 'Question',
       name: q.question,
       acceptedAnswer: {

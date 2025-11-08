@@ -1,13 +1,12 @@
 // Rule: Move calculation logic from /app/api to /utils/calculators for better organization
 
-import { BMIFormValues, BMIResult } from '@/types/bmi';
 import {
   calculateBMI,
   getBMICategory,
   getBMIPercentileCategory,
   calculateHealthyWeightRange,
   estimateBMIPercentile,
-  processBMICalculation
+  processBMICalculation,
 } from '@/utils/calculators/bmi';
 
 // Re-export the functions from the calculator utility
@@ -17,5 +16,5 @@ export {
   getBMIPercentileCategory,
   calculateHealthyWeightRange,
   estimateBMIPercentile,
-  processBMICalculation
+  processBMICalculation,
 };

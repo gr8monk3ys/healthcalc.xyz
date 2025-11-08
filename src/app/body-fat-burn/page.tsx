@@ -1,11 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Gender, HeightUnit, WeightUnit, UnitSystem } from '@/types/common';
 import { BodyFatBurnResult as BodyFatBurnResultType } from '@/types/bodyFatBurn';
 import { calculateBodyFatBurn } from '@/app/api/bodyFatBurn';
-import { ACTIVITIES, DURATION_RANGE, FREQUENCY_RANGE, BURN_GOAL_RANGE } from '@/constants/bodyFatBurn';
+import {
+  ACTIVITIES,
+  DURATION_RANGE,
+  FREQUENCY_RANGE,
+  BURN_GOAL_RANGE,
+} from '@/constants/bodyFatBurn';
+import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatBurnResultDisplay from '@/components/calculators/bodyFatBurn/BodyFatBurnResult';
 import BodyFatBurnInfo from '@/components/calculators/bodyFatBurn/BodyFatBurnInfo';
@@ -21,53 +27,61 @@ import RelatedArticles from '@/components/RelatedArticles';
 // FAQ data for the calculator
 const faqs = [
   {
-    question: "How accurate is the Body Fat Burn Calculator?",
-    answer: "The Body Fat Burn Calculator provides estimates based on established metabolic formulas and activity-specific calorie burn rates. While it offers a good approximation, individual results may vary based on factors like metabolism, fitness level, and exercise intensity. For the most accurate tracking, consider using a heart rate monitor during activities."
+    question: 'How accurate is the Body Fat Burn Calculator?',
+    answer:
+      'The Body Fat Burn Calculator provides estimates based on established metabolic formulas and activity-specific calorie burn rates. While it offers a good approximation, individual results may vary based on factors like metabolism, fitness level, and exercise intensity. For the most accurate tracking, consider using a heart rate monitor during activities.',
   },
   {
-    question: "Can I lose weight faster by increasing exercise intensity?",
-    answer: "Yes, increasing exercise intensity typically burns more calories in the same amount of time. However, it's important to balance intensity with sustainability. Very high-intensity workouts may be difficult to maintain regularly and could increase injury risk. A combination of moderate and high-intensity exercise often provides the best long-term results."
+    question: 'Can I lose weight faster by increasing exercise intensity?',
+    answer:
+      "Yes, increasing exercise intensity typically burns more calories in the same amount of time. However, it's important to balance intensity with sustainability. Very high-intensity workouts may be difficult to maintain regularly and could increase injury risk. A combination of moderate and high-intensity exercise often provides the best long-term results.",
   },
   {
-    question: "Why does the calculator ask for my gender and age?",
-    answer: "Gender and age affect your basal metabolic rate (BMR), which is the number of calories your body burns at rest. Men typically have higher BMRs than women due to greater muscle mass. BMR also tends to decrease with age. These factors influence how many calories you burn during both rest and activity."
+    question: 'Why does the calculator ask for my gender and age?',
+    answer:
+      'Gender and age affect your basal metabolic rate (BMR), which is the number of calories your body burns at rest. Men typically have higher BMRs than women due to greater muscle mass. BMR also tends to decrease with age. These factors influence how many calories you burn during both rest and activity.',
   },
   {
-    question: "How does the calculator estimate time to reach my weight loss goal?",
-    answer: "The calculator estimates time to reach your goal by dividing your weight loss goal (in calories) by your weekly calorie deficit from exercise. It assumes that 1 pound (0.45 kg) of fat equals approximately 3,500 calories. The estimate assumes consistent exercise and doesn't account for dietary changes or metabolic adaptations that may occur during weight loss."
+    question: 'How does the calculator estimate time to reach my weight loss goal?',
+    answer:
+      "The calculator estimates time to reach your goal by dividing your weight loss goal (in calories) by your weekly calorie deficit from exercise. It assumes that 1 pound (0.45 kg) of fat equals approximately 3,500 calories. The estimate assumes consistent exercise and doesn't account for dietary changes or metabolic adaptations that may occur during weight loss.",
   },
   {
-    question: "Should I rely solely on exercise for weight loss?",
-    answer: "For optimal weight loss results, combining exercise with dietary modifications is recommended. While exercise burns calories and improves fitness, nutrition plays a crucial role in creating a calorie deficit. Research suggests that a combined approach of diet and exercise leads to more sustainable weight loss than either strategy alone."
-  }
+    question: 'Should I rely solely on exercise for weight loss?',
+    answer:
+      'For optimal weight loss results, combining exercise with dietary modifications is recommended. While exercise burns calories and improves fitness, nutrition plays a crucial role in creating a calorie deficit. Research suggests that a combined approach of diet and exercise leads to more sustainable weight loss than either strategy alone.',
+  },
 ];
 
 // Blog article data for related articles
 const blogArticles = [
   {
-    title: "TDEE Explained: How Many Calories Do You Really Need?",
-    description: "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
-    slug: "tdee-explained",
-    date: "February 20, 2025",
-    readTime: "10 min read",
-    category: "Energy Expenditure"
+    title: 'TDEE Explained: How Many Calories Do You Really Need?',
+    description:
+      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+    slug: 'tdee-explained',
+    date: 'February 20, 2025',
+    readTime: '10 min read',
+    category: 'Energy Expenditure',
   },
   {
-    title: "5 Myths About Calorie Deficits Debunked",
-    description: "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
-    slug: "calorie-deficit-myths",
-    date: "February 25, 2025",
-    readTime: "8 min read",
-    category: "Weight Management"
+    title: '5 Myths About Calorie Deficits Debunked',
+    description:
+      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+    slug: 'calorie-deficit-myths',
+    date: 'February 25, 2025',
+    readTime: '8 min read',
+    category: 'Weight Management',
   },
   {
-    title: "The Pros and Cons of Different Body Fat Measurement Methods",
-    description: "Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.",
-    slug: "measuring-body-fat",
-    date: "February 15, 2025",
-    readTime: "12 min read",
-    category: "Measurement Methods"
-  }
+    title: 'The Pros and Cons of Different Body Fat Measurement Methods',
+    description:
+      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+    slug: 'measuring-body-fat',
+    date: 'February 15, 2025',
+    readTime: '12 min read',
+    category: 'Measurement Methods',
+  },
 ];
 
 export default function BodyFatBurnCalculator() {
@@ -83,69 +97,78 @@ export default function BodyFatBurnCalculator() {
   const [duration, setDuration] = useState<number>(30);
   const [frequency, setFrequency] = useState<number>(3);
   const [burnGoal, setBurnGoal] = useState<number>(10);
-  
+
   // State for form validation
   const [errors, setErrors] = useState<{
     age?: string;
     height?: string;
     weight?: string;
   }>({});
-  
+
   // State for calculation result
   const [result, setResult] = useState<BodyFatBurnResultType | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
-  
+
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate form
     const newErrors: {
       age?: string;
       height?: string;
       weight?: string;
     } = {};
-    
-    if (age === '') {
+
+    // Validate age
+    if (isEmpty(age)) {
       newErrors.age = 'Age is required';
-    } else if (typeof age === 'number' && (age < 18 || age > 100)) {
-      newErrors.age = 'Age must be between 18 and 100';
+    } else {
+      const ageValidation = validateAge(age);
+      if (!ageValidation.isValid) {
+        newErrors.age = ageValidation.error;
+      }
     }
-    
-    if (height === '') {
+
+    // Validate height
+    if (isEmpty(height)) {
       newErrors.height = 'Height is required';
-    } else if (typeof height === 'number') {
-      if (heightUnit === 'cm' && (height < 130 || height > 230)) {
-        newErrors.height = 'Height must be between 130 and 230 cm';
-      } else if (heightUnit === 'ft' && (height < 4 || height > 7.5)) {
-        newErrors.height = 'Height must be between 4 and 7.5 feet';
+    } else {
+      // Convert height to inches if in feet for validation
+      const heightForValidation = heightUnit === 'ft' ? (typeof height === 'number' ? height * 12 : height) : height;
+      const unitSystem = heightUnit === 'cm' ? 'metric' : 'imperial';
+      const heightValidation = validateHeight(heightForValidation, unitSystem);
+      if (!heightValidation.isValid) {
+        newErrors.height = heightValidation.error;
       }
     }
-    
-    if (weight === '') {
+
+    // Validate weight
+    if (isEmpty(weight)) {
       newErrors.weight = 'Weight is required';
-    } else if (typeof weight === 'number') {
-      if (weightUnit === 'kg' && (weight < 40 || weight > 200)) {
-        newErrors.weight = 'Weight must be between 40 and 200 kg';
-      } else if (weightUnit === 'lb' && (weight < 88 || weight > 440)) {
-        newErrors.weight = 'Weight must be between 88 and 440 lb';
+    } else {
+      const unitSystem = weightUnit === 'kg' ? 'metric' : 'imperial';
+      const weightValidation = validateWeight(weight, unitSystem);
+      if (!weightValidation.isValid) {
+        newErrors.weight = weightValidation.error;
       }
     }
-    
+
     setErrors(newErrors);
-    
+
     // If no errors, calculate body fat burn
-    if (Object.keys(newErrors).length === 0 && 
-        typeof age === 'number' && 
-        typeof height === 'number' && 
-        typeof weight === 'number') {
-      
+    if (
+      Object.keys(newErrors).length === 0 &&
+      typeof age === 'number' &&
+      typeof height === 'number' &&
+      typeof weight === 'number'
+    ) {
       // Convert height to cm if needed
       const heightCm = heightUnit === 'cm' ? height : height * 30.48;
-      
+
       // Convert weight to kg if needed
       const weightKg = weightUnit === 'kg' ? weight : weight / 2.20462;
-      
+
       try {
         // Prepare form data
         const formData = {
@@ -153,20 +176,20 @@ export default function BodyFatBurnCalculator() {
           age,
           height: heightCm,
           weight: weightKg,
-          unitSystem: weightUnit === 'kg' ? 'metric' as UnitSystem : 'imperial' as UnitSystem,
+          unitSystem: weightUnit === 'kg' ? ('metric' as UnitSystem) : ('imperial' as UnitSystem),
           activity,
           speed,
           duration,
           frequency,
-          burnGoal
+          burnGoal,
         };
-        
+
         // Calculate body fat burn
         const bodyFatBurnResult = calculateBodyFatBurn(formData);
-        
+
         setResult(bodyFatBurnResult);
         setShowResult(true);
-        
+
         // Scroll to result with smooth animation
         setTimeout(() => {
           const resultElement = document.getElementById('body-fat-burn-result');
@@ -180,7 +203,7 @@ export default function BodyFatBurnCalculator() {
       }
     }
   };
-  
+
   // Handle unit toggle
   const toggleHeightUnit = () => {
     if (heightUnit === 'cm' && typeof height === 'number') {
@@ -193,7 +216,7 @@ export default function BodyFatBurnCalculator() {
       setHeightUnit(heightUnit === 'cm' ? 'ft' : 'cm');
     }
   };
-  
+
   const toggleWeightUnit = () => {
     if (weightUnit === 'kg' && typeof weight === 'number') {
       setWeight(parseFloat((weight * 2.20462).toFixed(1)));
@@ -205,7 +228,7 @@ export default function BodyFatBurnCalculator() {
       setWeightUnit(weightUnit === 'kg' ? 'lb' : 'kg');
     }
   };
-  
+
   // Reset form
   const handleReset = () => {
     setGender('male');
@@ -223,10 +246,10 @@ export default function BodyFatBurnCalculator() {
     setResult(null);
     setShowResult(false);
   };
-  
+
   // Get the selected activity
   const selectedActivity = ACTIVITIES.find(a => a.id === activity);
-  
+
   // Form fields for the CalculatorForm component
   const formFields = [
     {
@@ -237,8 +260,8 @@ export default function BodyFatBurnCalculator() {
       onChange: setGender,
       options: [
         { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' }
-      ]
+        { value: 'female', label: 'Female' },
+      ],
     },
     {
       name: 'age',
@@ -247,7 +270,7 @@ export default function BodyFatBurnCalculator() {
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years'
+      placeholder: 'Years',
     },
     {
       name: 'height',
@@ -259,7 +282,7 @@ export default function BodyFatBurnCalculator() {
       placeholder: heightUnit === 'cm' ? 'Centimeters' : 'Feet',
       unit: heightUnit === 'cm' ? 'cm' : 'ft',
       unitToggle: toggleHeightUnit,
-      step: '0.1'
+      step: '0.1',
     },
     {
       name: 'weight',
@@ -271,7 +294,7 @@ export default function BodyFatBurnCalculator() {
       placeholder: weightUnit === 'kg' ? 'Kilograms' : 'Pounds',
       unit: weightUnit === 'kg' ? 'kg' : 'lb',
       unitToggle: toggleWeightUnit,
-      step: '0.1'
+      step: '0.1',
     },
     {
       name: 'activity',
@@ -281,8 +304,8 @@ export default function BodyFatBurnCalculator() {
       onChange: setActivity,
       options: ACTIVITIES.map(activity => ({
         value: activity.id,
-        label: activity.name
-      }))
+        label: activity.name,
+      })),
     },
     {
       name: 'speed',
@@ -292,7 +315,7 @@ export default function BodyFatBurnCalculator() {
       onChange: setSpeed,
       min: selectedActivity?.speedRange.min || 0,
       max: selectedActivity?.speedRange.max || 10,
-      step: selectedActivity?.speedRange.step.toString() || '0.1'
+      step: selectedActivity?.speedRange.step.toString() || '0.1',
     },
     {
       name: 'duration',
@@ -302,7 +325,7 @@ export default function BodyFatBurnCalculator() {
       onChange: setDuration,
       min: DURATION_RANGE.min,
       max: DURATION_RANGE.max,
-      step: DURATION_RANGE.step.toString()
+      step: DURATION_RANGE.step.toString(),
     },
     {
       name: 'frequency',
@@ -312,7 +335,7 @@ export default function BodyFatBurnCalculator() {
       onChange: setFrequency,
       min: FREQUENCY_RANGE.min,
       max: FREQUENCY_RANGE.max,
-      step: FREQUENCY_RANGE.step.toString()
+      step: FREQUENCY_RANGE.step.toString(),
     },
     {
       name: 'burnGoal',
@@ -322,30 +345,32 @@ export default function BodyFatBurnCalculator() {
       onChange: setBurnGoal,
       min: BURN_GOAL_RANGE.min,
       max: BURN_GOAL_RANGE.max,
-      step: BURN_GOAL_RANGE.step.toString()
-    }
+      step: BURN_GOAL_RANGE.step.toString(),
+    },
   ];
-  
+
   return (
-    <div className="max-w-4xl mx-auto">
-      {/* Breadcrumb navigation */}
-      <Breadcrumb />
-      
+    <ErrorBoundary>
+      <div className="max-w-4xl mx-auto">
+        {/* Breadcrumb navigation */}
+        <Breadcrumb />
+
       <h1 className="text-3xl font-bold mb-2">Body Fat Burn Calculator</h1>
       <p className="text-gray-600 mb-6">
-        Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals.
+        Calculate calories burned during physical activities and estimate how long it will take to
+        reach your weight loss goals.
       </p>
-      
+
       {/* Social sharing buttons */}
       <div className="mb-6">
-        <SocialShare 
-          url="/body-fat-burn" 
-          title="Body Fat Burn Calculator | Activity & Weight Loss Planner" 
+        <SocialShare
+          url="/body-fat-burn"
+          title="Body Fat Burn Calculator | Activity & Weight Loss Planner"
           description="Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals through exercise."
           hashtags={['fitness', 'weightloss', 'calorieburn', 'exercise']}
         />
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div className="md:col-span-1">
           <CalculatorForm
@@ -355,21 +380,22 @@ export default function BodyFatBurnCalculator() {
             onReset={handleReset}
           />
         </div>
-        
+
         <div className="md:col-span-2" id="body-fat-burn-result">
           {showResult && result ? (
             <>
-              <BodyFatBurnResultDisplay 
-                result={result} 
+              <BodyFatBurnResultDisplay
+                result={result}
                 formData={{
                   activity,
                   duration,
                   frequency,
                   burnGoal,
-                  unitSystem: weightUnit === 'kg' ? 'metric' as UnitSystem : 'imperial' as UnitSystem
+                  unitSystem:
+                    weightUnit === 'kg' ? ('metric' as UnitSystem) : ('imperial' as UnitSystem),
                 }}
               />
-              
+
               {/* Save result functionality */}
               <div className="mt-6 flex justify-between items-center">
                 <SaveResult
@@ -382,10 +408,10 @@ export default function BodyFatBurnCalculator() {
                     activity: selectedActivity?.name || activity,
                     duration,
                     frequency,
-                    burnGoal: `${burnGoal} ${weightUnit}`
+                    burnGoal: `${burnGoal} ${weightUnit}`,
                   }}
                 />
-                
+
                 <button
                   onClick={handleReset}
                   className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
@@ -399,16 +425,16 @@ export default function BodyFatBurnCalculator() {
           )}
         </div>
       </div>
-      
+
       {/* FAQ Section with structured data */}
-      <FAQSection 
+      <FAQSection
         faqs={faqs}
         title="Frequently Asked Questions About Body Fat Burn"
         className="mb-8"
       />
-      
+
       <BodyFatBurnUnderstanding />
-      
+
       {/* Related Articles Section */}
       <RelatedArticles
         currentSlug=""
@@ -416,31 +442,33 @@ export default function BodyFatBurnCalculator() {
         title="Related Articles"
         className="my-8"
       />
-      
+
       {/* Newsletter Signup */}
-      <NewsletterSignup 
+      <NewsletterSignup
         title="Get Fitness Tips & Updates"
         description="Subscribe to receive the latest health and fitness tips, calculator updates, and exclusive content to help you achieve your goals."
         className="my-8"
       />
-      
+
       {/* Structured data for the calculator */}
-      <StructuredData 
+      <StructuredData
         data={{
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": "Body Fat Burn Calculator",
-          "applicationCategory": "HealthApplication",
-          "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'Body Fat Burn Calculator',
+          applicationCategory: 'HealthApplication',
+          operatingSystem: 'Web',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
           },
-          "description": "Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals through exercise.",
-          "url": "https://www.heathcheck.info/body-fat-burn"
-        }} 
+          description:
+            'Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals through exercise.',
+          url: 'https://www.heathcheck.info/body-fat-burn',
+        }}
       />
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }

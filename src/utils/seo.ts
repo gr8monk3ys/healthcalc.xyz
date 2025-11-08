@@ -21,13 +21,13 @@ export function getCanonicalUrl(path: string): string {
  */
 export function truncateText(text: string, maxLength: number = 160): string {
   if (text.length <= maxLength) return text;
-  
+
   // Find the last space before the maxLength
   const lastSpace = text.substring(0, maxLength).lastIndexOf(' ');
-  
+
   // If no space found, just cut at maxLength
   if (lastSpace === -1) return `${text.substring(0, maxLength)}...`;
-  
+
   // Otherwise, cut at the last space and add ellipsis
   return `${text.substring(0, lastSpace)}...`;
 }
@@ -41,10 +41,10 @@ export function truncateText(text: string, maxLength: number = 160): string {
 export function generateMetaDescription(content: string, maxLength: number = 160): string {
   // Remove HTML tags
   const textContent = content.replace(/<[^>]*>/g, ' ');
-  
+
   // Remove extra whitespace
   const cleanText = textContent.replace(/\s+/g, ' ').trim();
-  
+
   // Truncate to maxLength
   return truncateText(cleanText, maxLength);
 }
@@ -62,39 +62,118 @@ export function generateKeywords(
   maxKeywords: number = 10
 ): string {
   // Remove HTML tags and extra whitespace
-  const textContent = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  
+  const textContent = content
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
   // Common words to exclude
   const stopWords = new Set([
-    'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'with',
-    'by', 'about', 'as', 'into', 'like', 'through', 'after', 'before', 'between',
-    'from', 'up', 'down', 'of', 'off', 'over', 'under', 'again', 'further', 'then',
-    'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both',
-    'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not',
-    'only', 'own', 'same', 'so', 'than', 'too', 'very', 'can', 'will', 'just', 'should',
-    'now', 'if', 'this', 'that', 'these', 'those', 'is', 'are', 'was', 'were', 'be',
-    'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing',
+    'a',
+    'an',
+    'the',
+    'and',
+    'or',
+    'but',
+    'in',
+    'on',
+    'at',
+    'to',
+    'for',
+    'with',
+    'by',
+    'about',
+    'as',
+    'into',
+    'like',
+    'through',
+    'after',
+    'before',
+    'between',
+    'from',
+    'up',
+    'down',
+    'of',
+    'off',
+    'over',
+    'under',
+    'again',
+    'further',
+    'then',
+    'once',
+    'here',
+    'there',
+    'when',
+    'where',
+    'why',
+    'how',
+    'all',
+    'any',
+    'both',
+    'each',
+    'few',
+    'more',
+    'most',
+    'other',
+    'some',
+    'such',
+    'no',
+    'nor',
+    'not',
+    'only',
+    'own',
+    'same',
+    'so',
+    'than',
+    'too',
+    'very',
+    'can',
+    'will',
+    'just',
+    'should',
+    'now',
+    'if',
+    'this',
+    'that',
+    'these',
+    'those',
+    'is',
+    'are',
+    'was',
+    'were',
+    'be',
+    'been',
+    'being',
+    'have',
+    'has',
+    'had',
+    'having',
+    'do',
+    'does',
+    'did',
+    'doing',
   ]);
-  
+
   // Split into words, filter out stop words, and count occurrences
-  const words = textContent.toLowerCase().split(/\W+/).filter(word => 
-    word.length > 3 && !stopWords.has(word)
-  );
-  
+  const words = textContent
+    .toLowerCase()
+    .split(/\W+/)
+    .filter(word => word.length > 3 && !stopWords.has(word));
+
   const wordCounts: Record<string, number> = {};
   words.forEach(word => {
     wordCounts[word] = (wordCounts[word] || 0) + 1;
   });
-  
+
   // Sort by frequency
   const sortedWords = Object.entries(wordCounts)
     .sort((a, b) => b[1] - a[1])
     .map(([word]) => word);
-  
+
   // Combine with additional keywords and limit to maxKeywords
   const allKeywords = Array.from(new Set([...additionalKeywords, ...sortedWords]));
   const finalKeywords = allKeywords.slice(0, maxKeywords);
-  
+
   return finalKeywords.join(', ');
 }
 
@@ -154,15 +233,17 @@ export function generateImageMetadata(
  * @param items - The breadcrumb items
  * @returns The structured data object
  */
-export function generateBreadcrumbData(items: { name: string; url: string }[]): Record<string, any> {
+export function generateBreadcrumbData(
+  items: { name: string; url: string }[]
+): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    'itemListElement': items.map((item, index) => ({
+    itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
-      'position': index + 1,
-      'name': item.name,
-      'item': item.url,
+      position: index + 1,
+      name: item.name,
+      item: item.url,
     })),
   };
 }
@@ -180,28 +261,28 @@ export function generateArticleData(article: {
   datePublished: string;
   dateModified?: string;
   authorName: string;
-}): Record<string, any> {
+}): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    'headline': article.title,
-    'description': article.description,
-    'image': article.imageUrl || 'https://www.heathcheck.info/images/og-image.jpg',
-    'datePublished': article.datePublished,
-    'dateModified': article.dateModified || article.datePublished,
-    'author': {
+    headline: article.title,
+    description: article.description,
+    image: article.imageUrl || 'https://www.heathcheck.info/images/og-image.jpg',
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    author: {
       '@type': 'Person',
-      'name': article.authorName,
+      name: article.authorName,
     },
-    'publisher': {
+    publisher: {
       '@type': 'Organization',
-      'name': 'HealthCheck',
-      'logo': {
+      name: 'HealthCheck',
+      logo: {
         '@type': 'ImageObject',
-        'url': 'https://www.heathcheck.info/icons/icon-512x512.png',
+        url: 'https://www.heathcheck.info/icons/icon-512x512.png',
       },
     },
-    'mainEntityOfPage': {
+    mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': article.url,
     },
@@ -213,16 +294,16 @@ export function generateArticleData(article: {
  * @param faqs - The FAQs
  * @returns The structured data object
  */
-export function generateFaqData(faqs: { question: string; answer: string }[]): Record<string, any> {
+export function generateFaqData(faqs: { question: string; answer: string }[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    'mainEntity': faqs.map(faq => ({
+    mainEntity: faqs.map(faq => ({
       '@type': 'Question',
-      'name': faq.question,
-      'acceptedAnswer': {
+      name: faq.question,
+      acceptedAnswer: {
         '@type': 'Answer',
-        'text': faq.answer,
+        text: faq.answer,
       },
     })),
   };
@@ -237,19 +318,19 @@ export function generateCalculatorData(calculator: {
   name: string;
   description: string;
   url: string;
-}): Record<string, any> {
+}): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    'name': calculator.name,
-    'description': calculator.description,
-    'applicationCategory': 'HealthApplication',
-    'operatingSystem': 'Web',
-    'offers': {
+    name: calculator.name,
+    description: calculator.description,
+    applicationCategory: 'HealthApplication',
+    operatingSystem: 'Web',
+    offers: {
       '@type': 'Offer',
-      'price': '0',
-      'priceCurrency': 'USD',
+      price: '0',
+      priceCurrency: 'USD',
     },
-    'url': calculator.url,
+    url: calculator.url,
   };
 }

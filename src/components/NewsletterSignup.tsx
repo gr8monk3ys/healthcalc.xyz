@@ -27,16 +27,16 @@ export default function NewsletterSignup({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic email validation
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMessage({ text: 'Please enter a valid email address', type: 'error' });
       return;
     }
-    
+
     setLoading(true);
     setMessage(null);
-    
+
     try {
       // If onSubmit prop is provided, use it
       if (onSubmit) {
@@ -54,7 +54,7 @@ export default function NewsletterSignup({
         });
         setEmail('');
       }
-    } catch (error) {
+    } catch {
       setMessage({
         text: 'An error occurred. Please try again later.',
         type: 'error',
@@ -68,7 +68,7 @@ export default function NewsletterSignup({
     <div className={`neumorph p-6 rounded-lg ${className}`}>
       <h2 className="text-xl font-bold mb-2">{title}</h2>
       <p className="text-gray-600 mb-4">{description}</p>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="sr-only">
@@ -79,14 +79,14 @@ export default function NewsletterSignup({
             type="email"
             placeholder="Your email address"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
             disabled={loading}
             required
             aria-required="true"
           />
         </div>
-        
+
         <button
           type="submit"
           className={`w-full px-4 py-2 bg-accent text-white rounded-lg font-medium transition-colors ${
@@ -97,7 +97,7 @@ export default function NewsletterSignup({
           {loading ? 'Subscribing...' : buttonText}
         </button>
       </form>
-      
+
       {message && (
         <div
           className={`mt-4 p-3 rounded-lg ${
@@ -108,7 +108,7 @@ export default function NewsletterSignup({
           {message.text}
         </div>
       )}
-      
+
       <p className="text-xs text-gray-500 mt-4">
         By subscribing, you agree to our{' '}
         <a href="/privacy" className="text-accent hover:underline">

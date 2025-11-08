@@ -12,10 +12,10 @@ export const trackEvent = (
   if (process.env.NODE_ENV !== 'production') return;
 
   // This is where you would integrate with your analytics provider
-  
+
   // Example for Google Analytics (GA4)
   if (typeof window !== 'undefined' && 'gtag' in window) {
-    // @ts-ignore - gtag is not typed
+    // @ts-expect-error - gtag is not typed
     window.gtag('event', eventName, eventParams);
   }
 };
@@ -31,20 +31,21 @@ function AnalyticsTracker() {
     if (process.env.NODE_ENV !== 'production') return;
 
     const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
-    
+
     // Track page view
     trackPageView(url);
   }, [pathname, searchParams]);
 
   // Function to track page views
   const trackPageView = (url: string) => {
-    // This is where you would integrate with your analytics provider
-    // For example, Google Analytics, Plausible, Fathom, etc.
-    
-    // Example for Google Analytics (GA4)
+    // Only track if GA is configured
+    const gaId = process.env.NEXT_PUBLIC_GA_ID;
+    if (!gaId) return;
+
+    // Track with Google Analytics (GA4)
     if (typeof window !== 'undefined' && 'gtag' in window) {
-      // @ts-ignore - gtag is not typed
-      window.gtag('config', 'G-MEASUREMENT_ID', {
+      // @ts-expect-error - gtag is not typed
+      window.gtag('config', gaId, {
         page_path: url,
       });
     }

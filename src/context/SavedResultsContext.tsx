@@ -9,13 +9,13 @@ export interface SavedResult {
   calculatorType: string;
   calculatorName: string;
   date: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 // Rule: Use discriminated unions for complex state types
 interface SavedResultsContextState {
   savedResults: SavedResult[];
-  saveResult: (calculatorType: string, calculatorName: string, data: Record<string, any>) => void;
+  saveResult: (calculatorType: string, calculatorName: string, data: Record<string, unknown>) => void;
   removeResult: (id: string) => void;
   clearAllResults: () => void;
   isResultSaved: (id: string) => boolean;
@@ -37,30 +37,34 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
   );
 
   // Generate a unique ID for the result
-  function generateResultId(type: string, resultData: Record<string, any>): string {
+  function generateResultId(type: string, resultData: Record<string, unknown>): string {
     // Create a string representation of the data
     const dataString = JSON.stringify(resultData);
-    
+
     // Simple hash function
     let hash = 0;
     for (let i = 0; i < dataString.length; i++) {
       const char = dataString.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
+      hash = (hash << 5) - hash + char;
       hash = hash & hash; // Convert to 32bit integer
     }
-    
+
     return `${type}-${hash}`;
   }
 
   // Rule: Use explicit return types for all functions
-  function saveResult(calculatorType: string, calculatorName: string, data: Record<string, any>): void {
+  function saveResult(
+    calculatorType: string,
+    calculatorName: string,
+    data: Record<string, unknown>
+  ): void {
     const resultId = generateResultId(calculatorType, data);
-    
+
     // Check if already saved
     if (savedResults.some(result => result.id === resultId)) {
       return; // Already saved
     }
-    
+
     // Add new result
     const newResult: SavedResult = {
       id: resultId,
@@ -69,7 +73,7 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
       date: new Date().toISOString(),
       data,
     };
-    
+
     // Limit to 20 saved results (remove oldest if needed)
     setSavedResults([newResult, ...savedResults].slice(0, 20));
   }
@@ -94,11 +98,7 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
     isResultSaved,
   };
 
-  return (
-    <SavedResultsContext.Provider value={value}>
-      {children}
-    </SavedResultsContext.Provider>
-  );
+  return <SavedResultsContext.Provider value={value}>{children}</SavedResultsContext.Provider>;
 }
 
 // Custom hook for using saved results context

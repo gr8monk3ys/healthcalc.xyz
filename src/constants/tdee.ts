@@ -62,18 +62,24 @@ export const TDEE_FORMULAS: TDEEFormula[] = [
     id: 'katch_mcardle',
     name: 'Katch-McArdle',
     description: 'Best when body fat percentage is known',
-    calculate: (gender: Gender, age: number, weightKg: number, heightCm: number, bodyFatPercentage?: number) => {
+    calculate: (
+      gender: Gender,
+      age: number,
+      weightKg: number,
+      heightCm: number,
+      bodyFatPercentage?: number
+    ) => {
       // If body fat percentage is not provided, estimate it
       if (bodyFatPercentage === undefined) {
         // Use a simple estimation based on gender
         bodyFatPercentage = gender === 'male' ? 15 : 25;
       }
-      
+
       // Calculate lean body mass
       const leanBodyMass = weightKg * (1 - bodyFatPercentage / 100);
-      
+
       // Katch-McArdle formula
-      return 370 + (21.6 * leanBodyMass);
+      return 370 + 21.6 * leanBodyMass;
     },
   },
 ];
@@ -102,10 +108,10 @@ export const DEFAULT_TDEE_VALUES = {
 
 // Calorie adjustments for weight goals
 export const WEIGHT_GOAL_ADJUSTMENTS = {
-  mildLoss: -250,      // 0.5 lb per week
-  moderateLoss: -500,  // 1 lb per week
-  extremeLoss: -1000,  // 2 lb per week
-  mildGain: 250,       // 0.5 lb per week
-  moderateGain: 500,   // 1 lb per week
-  extremeGain: 1000,   // 2 lb per week
+  mildLoss: -250, // 0.5 lb per week
+  moderateLoss: -500, // 1 lb per week
+  extremeLoss: -1000, // 2 lb per week
+  mildGain: 250, // 0.5 lb per week
+  moderateGain: 500, // 1 lb per week
+  extremeGain: 1000, // 2 lb per week
 };

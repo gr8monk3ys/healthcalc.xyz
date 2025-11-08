@@ -2,12 +2,12 @@ import React from 'react';
 import { Metadata } from 'next';
 import { SearchPage } from '@/components/Search';
 import StructuredData from '@/components/StructuredData';
-import CanonicalUrl from '@/components/CanonicalUrl';
 
 // Metadata for the search page
 export const metadata: Metadata = {
   title: 'Search | HealthCheck',
-  description: 'Search for health and fitness calculators, articles, and information on HealthCheck.',
+  description:
+    'Search for health and fitness calculators, articles, and information on HealthCheck.',
   robots: {
     index: true,
     follow: true,
@@ -21,46 +21,44 @@ export const metadata: Metadata = {
 export default function Search() {
   return (
     <>
-      <CanonicalUrl path="/search" />
-      
       <SearchPage />
-      
+
       {/* Structured data for breadcrumb */}
       <StructuredData
         data={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          'itemListElement': [
+          itemListElement: [
             {
               '@type': 'ListItem',
-              'position': 1,
-              'name': 'Home',
-              'item': 'https://www.heathcheck.info/'
+              position: 1,
+              name: 'Home',
+              item: 'https://www.heathcheck.info/',
             },
             {
               '@type': 'ListItem',
-              'position': 2,
-              'name': 'Search',
-              'item': 'https://www.heathcheck.info/search'
-            }
-          ]
+              position: 2,
+              name: 'Search',
+              item: 'https://www.heathcheck.info/search',
+            },
+          ],
         }}
       />
-      
+
       {/* Structured data for search action */}
       <StructuredData
         data={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          'url': 'https://www.heathcheck.info/',
-          'potentialAction': {
+          url: 'https://www.heathcheck.info/',
+          potentialAction: {
             '@type': 'SearchAction',
-            'target': {
+            target: {
               '@type': 'EntryPoint',
-              'urlTemplate': 'https://www.heathcheck.info/search?q={search_term_string}'
+              urlTemplate: 'https://www.heathcheck.info/search?q={search_term_string}',
             },
-            'query-input': 'required name=search_term_string'
-          }
+            'query-input': 'required name=search_term_string',
+          },
         }}
       />
     </>

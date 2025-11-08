@@ -3,7 +3,7 @@
 // Rule: Move localStorage logic to dedicated hooks/utilities for better separation of concerns
 
 import { usePreferences } from '@/context/PreferencesContext';
-import { HeightUnit, WeightUnit, EnergyUnit, UnitSystem } from '@/types/common';
+import { HeightUnit, WeightUnit, EnergyUnit } from '@/types/common';
 import { convertHeight, convertWeight, convertEnergy } from '@/utils/conversions';
 
 /**
@@ -11,8 +11,9 @@ import { convertHeight, convertWeight, convertEnergy } from '@/utils/conversions
  * Provides functions to convert values based on user preferences
  */
 export function useUnitPreferences() {
-  const { preferences, setUnitSystem, setHeightUnit, setWeightUnit, setEnergyUnit } = usePreferences();
-  
+  const { preferences, setUnitSystem, setHeightUnit, setWeightUnit, setEnergyUnit } =
+    usePreferences();
+
   /**
    * Converts a height value to the user's preferred unit
    * @param value Height value
@@ -22,7 +23,7 @@ export function useUnitPreferences() {
   function convertHeightToPreferred(value: number, fromUnit: HeightUnit): number {
     return convertHeight(value, fromUnit, preferences.heightUnit);
   }
-  
+
   /**
    * Converts a height value from the user's preferred unit
    * @param value Height value in user's preferred unit
@@ -32,7 +33,7 @@ export function useUnitPreferences() {
   function convertHeightFromPreferred(value: number, toUnit: HeightUnit): number {
     return convertHeight(value, preferences.heightUnit, toUnit);
   }
-  
+
   /**
    * Converts a weight value to the user's preferred unit
    * @param value Weight value
@@ -42,7 +43,7 @@ export function useUnitPreferences() {
   function convertWeightToPreferred(value: number, fromUnit: WeightUnit): number {
     return convertWeight(value, fromUnit, preferences.weightUnit);
   }
-  
+
   /**
    * Converts a weight value from the user's preferred unit
    * @param value Weight value in user's preferred unit
@@ -52,7 +53,7 @@ export function useUnitPreferences() {
   function convertWeightFromPreferred(value: number, toUnit: WeightUnit): number {
     return convertWeight(value, preferences.weightUnit, toUnit);
   }
-  
+
   /**
    * Converts an energy value to the user's preferred unit
    * @param value Energy value
@@ -62,7 +63,7 @@ export function useUnitPreferences() {
   function convertEnergyToPreferred(value: number, fromUnit: EnergyUnit): number {
     return convertEnergy(value, fromUnit, preferences.energyUnit);
   }
-  
+
   /**
    * Converts an energy value from the user's preferred unit
    * @param value Energy value in user's preferred unit
@@ -72,7 +73,7 @@ export function useUnitPreferences() {
   function convertEnergyFromPreferred(value: number, toUnit: EnergyUnit): number {
     return convertEnergy(value, preferences.energyUnit, toUnit);
   }
-  
+
   /**
    * Gets the appropriate unit label for height based on user preferences
    * @returns Height unit label
@@ -80,7 +81,7 @@ export function useUnitPreferences() {
   function getHeightUnitLabel(): string {
     return preferences.heightUnit === 'cm' ? 'cm' : 'ft';
   }
-  
+
   /**
    * Gets the appropriate unit label for weight based on user preferences
    * @returns Weight unit label
@@ -88,7 +89,7 @@ export function useUnitPreferences() {
   function getWeightUnitLabel(): string {
     return preferences.weightUnit === 'kg' ? 'kg' : 'lb';
   }
-  
+
   /**
    * Gets the appropriate unit label for energy based on user preferences
    * @returns Energy unit label
@@ -96,7 +97,7 @@ export function useUnitPreferences() {
   function getEnergyUnitLabel(): string {
     return preferences.energyUnit === 'kcal' ? 'kcal' : 'kj';
   }
-  
+
   return {
     // Current preferences
     unitSystem: preferences.unitSystem,
@@ -104,13 +105,13 @@ export function useUnitPreferences() {
     weightUnit: preferences.weightUnit,
     energyUnit: preferences.energyUnit,
     darkMode: preferences.darkMode,
-    
+
     // Setters
     setUnitSystem,
     setHeightUnit,
     setWeightUnit,
     setEnergyUnit,
-    
+
     // Conversion functions
     convertHeightToPreferred,
     convertHeightFromPreferred,
@@ -118,7 +119,7 @@ export function useUnitPreferences() {
     convertWeightFromPreferred,
     convertEnergyToPreferred,
     convertEnergyFromPreferred,
-    
+
     // Unit labels
     getHeightUnitLabel,
     getWeightUnitLabel,

@@ -1,7 +1,10 @@
 'use client';
 
 import React from 'react';
-import StructuredData, { createOrganizationSchema, createWebsiteSchema } from '@/components/StructuredData';
+import StructuredData, {
+  createOrganizationSchema,
+  createWebsiteSchema,
+} from '@/components/StructuredData';
 
 /**
  * GlobalStructuredData component for adding organization and website structured data

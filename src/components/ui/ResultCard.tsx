@@ -30,28 +30,18 @@ export default function ResultCard({
   return (
     <Card className={`${className}`}>
       <div className="flex items-start">
-        {icon && (
-          <div className={`mr-4 ${statusColors[status]}`}>
-            {icon}
-          </div>
-        )}
-        
+        {icon && <div className={`mr-4 ${statusColors[status]}`}>{icon}</div>}
+
         <div className="flex-1">
           <h3 className="text-sm font-medium text-gray-600 mb-1">{title}</h3>
-          
+
           <div className="flex items-baseline">
-            <span className={`text-2xl font-bold ${statusColors[status]}`}>
-              {value}
-            </span>
-            
-            {unit && (
-              <span className="ml-1 text-gray-600">{unit}</span>
-            )}
+            <span className={`text-2xl font-bold ${statusColors[status]}`}>{value}</span>
+
+            {unit && <span className="ml-1 text-gray-600">{unit}</span>}
           </div>
-          
-          {description && (
-            <p className="mt-2 text-sm text-gray-600">{description}</p>
-          )}
+
+          {description && <p className="mt-2 text-sm text-gray-600">{description}</p>}
         </div>
       </div>
     </Card>

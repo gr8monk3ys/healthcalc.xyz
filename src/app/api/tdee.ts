@@ -8,7 +8,7 @@ import {
   estimateWeightChange,
   getActivityMultiplier,
   processTDEECalculation,
-  calculateTimeToTargetWeight
+  calculateTimeToTargetWeight,
 } from '@/utils/calculators/tdee';
 
 // Re-export all functions
@@ -19,5 +19,5 @@ export {
   estimateWeightChange,
   getActivityMultiplier,
   processTDEECalculation,
-  calculateTimeToTargetWeight
+  calculateTimeToTargetWeight,
 };

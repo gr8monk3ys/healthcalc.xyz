@@ -34,7 +34,7 @@ export default function RelatedArticles({
 }: RelatedArticlesProps) {
   // Filter out the current article and limit to maxArticles
   const relatedArticles = articles
-    .filter((article) => article.slug !== currentSlug)
+    .filter(article => article.slug !== currentSlug)
     .slice(0, maxArticles);
 
   if (relatedArticles.length === 0) {
@@ -44,9 +44,9 @@ export default function RelatedArticles({
   return (
     <div className={`neumorph p-6 rounded-lg my-8 ${className}`}>
       <h2 className="text-2xl font-bold mb-6">{title}</h2>
-      
+
       <div className="space-y-6">
-        {relatedArticles.map((article) => (
+        {relatedArticles.map(article => (
           <Link
             key={article.slug}
             href={`/blog/${article.slug}`}
@@ -65,12 +65,9 @@ export default function RelatedArticles({
           </Link>
         ))}
       </div>
-      
+
       <div className="mt-4 text-center">
-        <Link
-          href="/blog"
-          className="inline-block text-accent hover:underline"
-        >
+        <Link href="/blog" className="inline-block text-accent hover:underline">
           View all articles →
         </Link>
       </div>
@@ -87,18 +84,18 @@ export function getRelatedArticlesByCategory(
 ): Article[] {
   // First try to find articles in the same category
   const sameCategory = articles.filter(
-    (article) => article.slug !== currentSlug && article.category === currentCategory
+    article => article.slug !== currentSlug && article.category === currentCategory
   );
-  
+
   // If we have enough articles in the same category, return those
   if (sameCategory.length >= maxArticles) {
     return sameCategory.slice(0, maxArticles);
   }
-  
+
   // Otherwise, add other articles to fill up to maxArticles
   const otherArticles = articles.filter(
-    (article) => article.slug !== currentSlug && article.category !== currentCategory
+    article => article.slug !== currentSlug && article.category !== currentCategory
   );
-  
+
   return [...sameCategory, ...otherArticles].slice(0, maxArticles);
 }

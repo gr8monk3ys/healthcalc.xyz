@@ -23,7 +23,7 @@ export type Gender = 'male' | 'female';
 
 export type AgeCategory = 'adult' | 'child';
 
-export type ActivityLevel = 
+export type ActivityLevel =
   | 'sedentary'
   | 'lightly_active'
   | 'moderately_active'
