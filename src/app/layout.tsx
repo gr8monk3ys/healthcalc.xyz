@@ -7,11 +7,13 @@ import Preconnect from '@/components/Preconnect';
 import { ReactNode } from 'react';
 import { PreferencesProvider } from '@/context/PreferencesContext';
 import { SavedResultsProvider } from '@/context/SavedResultsContext';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from '@vercel/analytics/react';
+import PWAInit from '@/components/PWAInit';
 
 export const metadata: Metadata = {
   title: 'HealthCheck - Health and Fitness Calculators',
-  description: 'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+  description:
+    'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
   keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
   authors: [{ name: 'HealthCheck Team' }],
   creator: 'HealthCheck',
@@ -24,7 +26,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.heathcheck.info'),
   openGraph: {
     title: 'HealthCheck - Health and Fitness Calculators',
-    description: 'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+    description:
+      'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
     url: 'https://www.heathcheck.info',
     siteName: 'HealthCheck',
     images: [
@@ -41,7 +44,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HealthCheck - Health and Fitness Calculators',
-    description: 'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+    description:
+      'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -56,78 +60,63 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code', // Replace with actual verification code when available
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   category: 'health',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         {/* Core Web Vitals optimizations */}
         <link rel="preconnect" href="https://www.heathcheck.info" />
         <link rel="dns-prefetch" href="https://www.heathcheck.info" />
-        
-        {/* Preload critical assets - LCP improvements */}
-        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        
-        {/* Add font-display: swap to improve LCP */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            @font-face {
-              font-family: 'Inter';
-              src: url('/fonts/inter-var.woff2') format('woff2');
-              font-weight: 100 900;
-              font-style: normal;
-              font-display: swap;
-            }
-          `
-        }} />
-        
+
+        {/* PWA and app settings */}
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
         <meta name="theme-color" content="#4f46e5" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+        {/* Mobile web app settings - updated for modern standards */}
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        
+        <meta name="apple-mobile-web-app-title" content="HealthCheck" />
+
         {/* Preconnect to external domains for better performance */}
-        <Preconnect 
+        <Preconnect
           domains={[
             'https://www.googletagmanager.com',
             'https://www.google.com',
-            'https://stats.g.doubleclick.net'
-          ]} 
+            'https://stats.g.doubleclick.net',
+          ]}
         />
-        
-        {/* Google Analytics Script - Replace with your actual GA4 measurement ID */}
-        {process.env.NODE_ENV === 'production' && (
+
+        {/* Google Analytics Script */}
+        {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID`} />
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
             <script
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', 'G-MEASUREMENT_ID');
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
                 `,
               }}
             />
           </>
         )}
-        
+
         {/* Google AdSense Script */}
         {process.env.NODE_ENV === 'production' && (
-          <script 
-            async 
+          <script
+            async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4505962980988232"
             crossOrigin="anonymous"
           />
@@ -139,15 +128,16 @@ export default function RootLayout({
           <SavedResultsProvider>
             <div className="min-h-screen flex flex-col">
               <Header />
-              <main className="flex-grow container mx-auto px-4 py-8">
-                {children}
-              </main>
+              <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
               <Footer />
             </div>
-            
+
             {/* Analytics component for tracking */}
             <Analytics />
-            
+
+            {/* PWA initialization and service worker registration */}
+            <PWAInit />
+
             {/* Global structured data for organization and website */}
             <GlobalStructuredData />
           </SavedResultsProvider>
