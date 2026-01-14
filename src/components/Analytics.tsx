@@ -20,6 +20,21 @@ export const trackEvent = (
   }
 };
 
+// Function to track page views
+const trackPageView = (url: string) => {
+  // Only track if GA is configured
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  if (!gaId) return;
+
+  // Track with Google Analytics (GA4)
+  if (typeof window !== 'undefined' && 'gtag' in window) {
+    // @ts-expect-error - gtag is not typed
+    window.gtag('config', gaId, {
+      page_path: url,
+    });
+  }
+};
+
 // Client component that uses useSearchParams
 function AnalyticsTracker() {
   const pathname = usePathname();
@@ -35,21 +50,6 @@ function AnalyticsTracker() {
     // Track page view
     trackPageView(url);
   }, [pathname, searchParams]);
-
-  // Function to track page views
-  const trackPageView = (url: string) => {
-    // Only track if GA is configured
-    const gaId = process.env.NEXT_PUBLIC_GA_ID;
-    if (!gaId) return;
-
-    // Track with Google Analytics (GA4)
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      // @ts-expect-error - gtag is not typed
-      window.gtag('config', gaId, {
-        page_path: url,
-      });
-    }
-  };
 
   // This component doesn't render anything
   return null;

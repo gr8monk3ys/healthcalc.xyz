@@ -423,18 +423,15 @@ export default function Search({
  * SearchPage component for displaying search results page
  */
 export function SearchPage() {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<SearchResult[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Get query from URL
-  useEffect(() => {
+  const [query, _setQuery] = useState(() => {
     if (typeof window !== 'undefined') {
       const searchParams = new URLSearchParams(window.location.search);
-      const q = searchParams.get('q') || '';
-      setQuery(q);
+      return searchParams.get('q') || '';
     }
-  }, []);
+    return '';
+  });
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Handle search results
   const handleSearchResults = (searchQuery: string, searchResults: SearchResult[]) => {
