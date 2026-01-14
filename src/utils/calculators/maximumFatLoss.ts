@@ -15,33 +15,31 @@ import {
   PROJECTION_WEEKS,
   CALORIES_PER_KG_FAT,
 } from '@/constants/maximumFatLoss';
-import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
+import {
+  calculateBMR as calculateBMRFromTDEE,
+  calculateTDEE as calculateTDEEFromBMR,
+  getActivityMultiplier,
+} from './tdee';
 
 /**
- * Calculate BMR using Mifflin-St Jeor equation
+ * Calculate BMR using Mifflin-St Jeor equation (wrapper for tdee.ts function)
  */
 function calculateBMR(gender: Gender, age: number, weightKg: number, heightCm: number): number {
-  if (gender === 'male') {
-    return 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
-  } else {
-    return 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
-  }
+  return calculateBMRFromTDEE(gender, age, weightKg, heightCm);
 }
 
 /**
- * Calculate TDEE from BMR and activity level
+ * Calculate TDEE from BMR and activity level (wrapper for tdee.ts function)
  */
 function calculateTDEE(bmr: number, activityLevel: ActivityLevel): number {
-  const multiplier = ACTIVITY_MULTIPLIERS.find(a => a.level === activityLevel);
-  return Math.round(bmr * (multiplier?.value || 1.2));
+  const multiplier = getActivityMultiplier(activityLevel);
+  return Math.round(calculateTDEEFromBMR(bmr, multiplier));
 }
 
 /**
  * Main maximum fat loss calculation
  */
-export function calculateMaximumFatLoss(
-  formData: MaximumFatLossFormData
-): MaximumFatLossResult {
+export function calculateMaximumFatLoss(formData: MaximumFatLossFormData): MaximumFatLossResult {
   const { gender, age, heightCm, weightKg, activityLevel, bodyFatPercentage } = formData;
 
   // Calculate current TDEE
@@ -103,7 +101,9 @@ export function calculateMaximumFatLoss(
   const optimalProtein = Math.round(leanMassKg * PROTEIN_RECOMMENDATIONS.optimal);
 
   // Calculate water recommendation
-  const waterLiters = Number((WATER_INTAKE.base + weightKg * WATER_INTAKE.perKgBodyWeight).toFixed(1));
+  const waterLiters = Number(
+    (WATER_INTAKE.base + weightKg * WATER_INTAKE.perKgBodyWeight).toFixed(1)
+  );
 
   // Generate projections
   const projections = [];
@@ -130,7 +130,7 @@ export function calculateMaximumFatLoss(
     const biWeeklyDeficit = safeDeficit * 14;
     const fatLostKg = biWeeklyDeficit / CALORIES_PER_KG_FAT;
     currentWeight -= fatLostKg;
-    currentBodyFat = ((currentWeight * currentBodyFat) / 100 - fatLostKg) / currentWeight * 100;
+    currentBodyFat = (((currentWeight * currentBodyFat) / 100 - fatLostKg) / currentWeight) * 100;
 
     // Ensure body fat doesn't go below minimum
     if (currentBodyFat < minBodyFat) {

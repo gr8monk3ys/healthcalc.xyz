@@ -24,25 +24,25 @@ import {
   ADAPTATION_PARAMS,
   RECOMMENDATION_PARAMS,
 } from '@/constants/weightManagement';
-import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
+import {
+  calculateBMR as calculateBMRFromTDEE,
+  calculateTDEE as calculateTDEEFromBMR,
+  getActivityMultiplier,
+} from './tdee';
 
 /**
- * Calculate BMR using Mifflin-St Jeor equation
+ * Calculate BMR using Mifflin-St Jeor equation (wrapper for tdee.ts function)
  */
 function calculateBMR(gender: Gender, age: number, weightKg: number, heightCm: number): number {
-  if (gender === 'male') {
-    return 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
-  } else {
-    return 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
-  }
+  return calculateBMRFromTDEE(gender, age, weightKg, heightCm);
 }
 
 /**
- * Calculate TDEE from BMR and activity level
+ * Calculate TDEE from BMR and activity level (wrapper for tdee.ts function)
  */
 function calculateTDEE(bmr: number, activityLevel: ActivityLevel): number {
-  const multiplier = ACTIVITY_MULTIPLIERS.find(a => a.level === activityLevel);
-  return Math.round(bmr * (multiplier?.value || 1.2));
+  const multiplier = getActivityMultiplier(activityLevel);
+  return Math.round(calculateTDEEFromBMR(bmr, multiplier));
 }
 
 /**
@@ -237,7 +237,10 @@ export function calculateWeightManagement(
 
   // Generate recommendations
   const waterLiters = Number(
-    (RECOMMENDATION_PARAMS.baseWaterLiters + weightKg * RECOMMENDATION_PARAMS.waterPerKgBodyWeight).toFixed(1)
+    (
+      RECOMMENDATION_PARAMS.baseWaterLiters +
+      weightKg * RECOMMENDATION_PARAMS.waterPerKgBodyWeight
+    ).toFixed(1)
   );
 
   const exerciseDaysMap = RECOMMENDATION_PARAMS.exerciseDaysPerWeek as Record<string, number>;
@@ -284,14 +287,20 @@ export function calculateWeightManagement(
 
   // Additional warnings
   if (goalType === 'lose' && goalWeightKg < 45 && gender === 'female') {
-    warnings.push('Your goal weight may be too low. Consult a healthcare provider before pursuing extreme weight loss.');
+    warnings.push(
+      'Your goal weight may be too low. Consult a healthcare provider before pursuing extreme weight loss.'
+    );
   }
   if (goalType === 'lose' && goalWeightKg < 55 && gender === 'male') {
-    warnings.push('Your goal weight may be too low. Consult a healthcare provider before pursuing extreme weight loss.');
+    warnings.push(
+      'Your goal weight may be too low. Consult a healthcare provider before pursuing extreme weight loss.'
+    );
   }
 
   if (dietType === 'keto') {
-    warnings.push('Ketogenic diets require careful planning. Consider consulting a dietitian for proper implementation.');
+    warnings.push(
+      'Ketogenic diets require careful planning. Consider consulting a dietitian for proper implementation.'
+    );
   }
 
   return {

@@ -261,7 +261,8 @@ describe('calculateMaximumFatLoss', () => {
 
       // More lean mass = more protein needed
       const leanProteinPerKg = leanResult.proteinRecommendation / leanResult.currentWeightKg;
-      const averageProteinPerKg = averageResult.proteinRecommendation / averageResult.currentWeightKg;
+      const averageProteinPerKg =
+        averageResult.proteinRecommendation / averageResult.currentWeightKg;
 
       expect(leanProteinPerKg).toBeGreaterThan(averageProteinPerKg);
     });

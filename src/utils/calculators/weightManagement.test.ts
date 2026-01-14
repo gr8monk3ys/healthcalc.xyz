@@ -3,11 +3,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import {
-  calculateWeightManagement,
-  getDietTypeConfig,
-  formatDate,
-} from './weightManagement';
+import { calculateWeightManagement, getDietTypeConfig, formatDate } from './weightManagement';
 import type { WeightManagementFormData } from '@/types/weightManagement';
 import { MIN_CALORIES, SAFE_WEIGHT_LOSS_MAX } from '@/constants/weightManagement';
 
@@ -164,7 +160,11 @@ describe('calculateWeightManagement', () => {
       const result = calculateWeightManagement(aggressiveGainData);
 
       expect(result.warnings.length).toBeGreaterThan(0);
-      expect(result.warnings.some(w => w.includes('exceeds the safe maximum') || w.includes('more fat gain'))).toBe(true);
+      expect(
+        result.warnings.some(
+          w => w.includes('exceeds the safe maximum') || w.includes('more fat gain')
+        )
+      ).toBe(true);
     });
   });
 
@@ -192,7 +192,10 @@ describe('calculateWeightManagement', () => {
       expect(result.macros.fatPercentage).toBe(30);
 
       // Verify math: protein + carbs + fat percentages = 100
-      const total = result.macros.proteinPercentage + result.macros.carbsPercentage + result.macros.fatPercentage;
+      const total =
+        result.macros.proteinPercentage +
+        result.macros.carbsPercentage +
+        result.macros.fatPercentage;
       expect(total).toBe(100);
     });
 
@@ -296,7 +299,9 @@ describe('calculateWeightManagement', () => {
       const veryActiveResult = calculateWeightManagement(veryActiveData);
 
       expect(veryActiveResult.tdee).toBeGreaterThan(sedentaryResult.tdee);
-      expect(veryActiveResult.dailyCalorieTarget).toBeGreaterThan(sedentaryResult.dailyCalorieTarget);
+      expect(veryActiveResult.dailyCalorieTarget).toBeGreaterThan(
+        sedentaryResult.dailyCalorieTarget
+      );
     });
   });
 
@@ -440,8 +445,8 @@ describe('formatDate', () => {
 
   it('should handle different months', () => {
     const dates = [
-      new Date(2024, 0, 15),  // January
-      new Date(2024, 5, 1),   // June
+      new Date(2024, 0, 15), // January
+      new Date(2024, 5, 1), // June
       new Date(2024, 11, 31), // December
     ];
 
