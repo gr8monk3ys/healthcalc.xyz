@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { calculateBMR, calculateTDEE, getActivityMultiplier } from '@/utils/calculators/tdee';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
@@ -122,7 +122,7 @@ export default function TDEECalculator() {
   const [showResult, setShowResult] = useState<boolean>(false);
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate form
@@ -214,10 +214,10 @@ export default function TDEECalculator() {
         }
       }, 100);
     }
-  };
+  }, [age, gender, height, weight, activityLevel]);
 
   // Reset form
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setAge('');
     setGender('male');
     height.setValue('');
@@ -226,45 +226,48 @@ export default function TDEECalculator() {
     setErrors({});
     setResult(null);
     setShowResult(false);
-  };
+  }, [height, weight]);
 
   // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: setGender,
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    createHeightField(height, errors.height),
-    createWeightField(weight, errors.weight),
-    {
-      name: 'activity',
-      label: 'Activity Level',
-      type: 'select' as const,
-      value: activityLevel,
-      onChange: setActivityLevel,
-      options: ACTIVITY_MULTIPLIERS.map(level => ({
-        value: level.level,
-        label: level.label,
-        description: level.description,
-      })),
-    },
-  ];
+  const formFields = useMemo(
+    () => [
+      {
+        name: 'age',
+        label: 'Age',
+        type: 'number' as const,
+        value: age,
+        onChange: setAge,
+        error: errors.age,
+        placeholder: 'Years',
+      },
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'radio' as const,
+        value: gender,
+        onChange: setGender,
+        options: [
+          { value: 'male', label: 'Male' },
+          { value: 'female', label: 'Female' },
+        ],
+      },
+      createHeightField(height, errors.height),
+      createWeightField(weight, errors.weight),
+      {
+        name: 'activity',
+        label: 'Activity Level',
+        type: 'select' as const,
+        value: activityLevel,
+        onChange: setActivityLevel,
+        options: ACTIVITY_MULTIPLIERS.map(level => ({
+          value: level.level,
+          label: level.label,
+          description: level.description,
+        })),
+      },
+    ],
+    [age, gender, height, weight, activityLevel, errors]
+  );
 
   return (
     <ErrorBoundary>

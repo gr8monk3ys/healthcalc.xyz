@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Gender } from '@/types/common';
 import { WHRResult as WHRResultType } from '@/types/whr';
 import { calculateWHRWithCategory } from '@/utils/calculators/whr';
@@ -93,9 +93,11 @@ export default function WHRCalculator() {
   // State for calculation result
   const [result, setResult] = useState<WHRResultType | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
+  const [calculationError, setCalculationError] = useState<string | null>(null);
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
+    setCalculationError(null);
     e.preventDefault();
 
     // Validate form
@@ -158,55 +160,61 @@ export default function WHRCalculator() {
         }, 100);
       } catch (error) {
         console.error('Error calculating WHR:', error);
-        // Handle error (could set an error state here)
+        setCalculationError(
+          'An error occurred while calculating. Please check your inputs and try again.'
+        );
       }
     }
-  };
+  }, [gender, waist, hips]);
 
   // Reset form
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setGender('male');
     setWaist('');
     setHips('');
     setErrors({});
     setResult(null);
     setShowResult(false);
-  };
+    setCalculationError(null);
+  }, []);
 
   // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: setGender,
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    {
-      name: 'waist',
-      label: 'Waist Circumference (cm)',
-      type: 'number' as const,
-      value: waist,
-      onChange: setWaist,
-      error: errors.waist,
-      placeholder: 'Centimeters',
-      step: '0.1',
-    },
-    {
-      name: 'hips',
-      label: 'Hip Circumference (cm)',
-      type: 'number' as const,
-      value: hips,
-      onChange: setHips,
-      error: errors.hips,
-      placeholder: 'Centimeters',
-      step: '0.1',
-    },
-  ];
+  const formFields = useMemo(
+    () => [
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'radio' as const,
+        value: gender,
+        onChange: setGender,
+        options: [
+          { value: 'male', label: 'Male' },
+          { value: 'female', label: 'Female' },
+        ],
+      },
+      {
+        name: 'waist',
+        label: 'Waist Circumference (cm)',
+        type: 'number' as const,
+        value: waist,
+        onChange: setWaist,
+        error: errors.waist,
+        placeholder: 'Centimeters',
+        step: '0.1',
+      },
+      {
+        name: 'hips',
+        label: 'Hip Circumference (cm)',
+        type: 'number' as const,
+        value: hips,
+        onChange: setHips,
+        error: errors.hips,
+        placeholder: 'Centimeters',
+        step: '0.1',
+      },
+    ],
+    [gender, waist, hips, errors]
+  );
 
   return (
     <ErrorBoundary>
@@ -240,6 +248,11 @@ export default function WHRCalculator() {
           </div>
 
           <div className="md:col-span-2" id="whr-result">
+            {calculationError && (
+              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {calculationError}
+              </div>
+            )}
             {showResult && result ? (
               <>
                 <WHRResultDisplay result={result} gender={gender} />

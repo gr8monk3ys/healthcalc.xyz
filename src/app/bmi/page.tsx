@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import {
   calculateBMI,
   getBMICategory,
@@ -116,7 +116,7 @@ export default function BMICalculator() {
   const [showResult, setShowResult] = useState<boolean>(false);
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate form using validation utilities
@@ -231,10 +231,10 @@ export default function BMICalculator() {
         }
       }, 100);
     }
-  };
+  }, [age, gender, height, weight]);
 
   // Reset form
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setAge('');
     setGender('male');
     height.setValue('');
@@ -242,33 +242,36 @@ export default function BMICalculator() {
     setErrors({});
     setResult(null);
     setShowResult(false);
-  };
+  }, [height, weight]);
 
   // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: setGender,
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    createHeightField(height, errors.height),
-    createWeightField(weight, errors.weight),
-  ];
+  const formFields = useMemo(
+    () => [
+      {
+        name: 'age',
+        label: 'Age',
+        type: 'number' as const,
+        value: age,
+        onChange: setAge,
+        error: errors.age,
+        placeholder: 'Years',
+      },
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'radio' as const,
+        value: gender,
+        onChange: setGender,
+        options: [
+          { value: 'male', label: 'Male' },
+          { value: 'female', label: 'Female' },
+        ],
+      },
+      createHeightField(height, errors.height),
+      createWeightField(weight, errors.weight),
+    ],
+    [age, gender, height, weight, errors]
+  );
 
   return (
     <ErrorBoundary>
