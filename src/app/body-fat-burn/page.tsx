@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Gender, UnitSystem } from '@/types/common';
 import { BodyFatBurnResult as BodyFatBurnResultType } from '@/types/bodyFatBurn';
 import { calculateBodyFatBurn } from '@/utils/calculators/bodyFatBurn';
@@ -59,6 +59,9 @@ const faqs = [
   },
 ];
 
+// Social share hashtags
+const SOCIAL_HASHTAGS = ['fitness', 'weightloss', 'calorieburn', 'exercise'];
+
 // Blog article data for related articles
 const blogArticles = [
   {
@@ -115,102 +118,104 @@ export default function BodyFatBurnCalculator() {
   const [calculationError, setCalculationError] = useState<string | null>(null);
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setCalculationError(null);
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      setCalculationError(null);
 
-    // Validate form
-    const newErrors: {
-      age?: string;
-      height?: string;
-      weight?: string;
-    } = {};
+      // Validate form
+      const newErrors: {
+        age?: string;
+        height?: string;
+        weight?: string;
+      } = {};
 
-    // Validate age
-    if (isEmpty(age)) {
-      newErrors.age = 'Age is required';
-    } else {
-      const ageValidation = validateAge(age);
-      if (!ageValidation.isValid) {
-        newErrors.age = ageValidation.error;
+      // Validate age
+      if (isEmpty(age)) {
+        newErrors.age = 'Age is required';
+      } else {
+        const ageValidation = validateAge(age);
+        if (!ageValidation.isValid) {
+          newErrors.age = ageValidation.error;
+        }
       }
-    }
 
-    // Validate height
-    // Validate height (feet for imperial, cm for metric)
-    if (isEmpty(height.value)) {
-      newErrors.height = 'Height is required';
-    } else {
-      const unitSystem = height.unit === 'cm' ? 'metric' : 'imperial';
-      const heightValidation = validateHeight(height.value, unitSystem);
-      if (!heightValidation.isValid) {
-        newErrors.height = heightValidation.error;
+      // Validate height (feet for imperial, cm for metric)
+      if (isEmpty(height.value)) {
+        newErrors.height = 'Height is required';
+      } else {
+        const unitSystem = height.unit === 'cm' ? 'metric' : 'imperial';
+        const heightValidation = validateHeight(height.value, unitSystem);
+        if (!heightValidation.isValid) {
+          newErrors.height = heightValidation.error;
+        }
       }
-    }
 
-    // Validate weight
-    if (isEmpty(weight.value)) {
-      newErrors.weight = 'Weight is required';
-    } else {
-      const unitSystem = weight.unit === 'kg' ? 'metric' : 'imperial';
-      const weightValidation = validateWeight(weight.value, unitSystem);
-      if (!weightValidation.isValid) {
-        newErrors.weight = weightValidation.error;
+      // Validate weight
+      if (isEmpty(weight.value)) {
+        newErrors.weight = 'Weight is required';
+      } else {
+        const unitSystem = weight.unit === 'kg' ? 'metric' : 'imperial';
+        const weightValidation = validateWeight(weight.value, unitSystem);
+        if (!weightValidation.isValid) {
+          newErrors.weight = weightValidation.error;
+        }
       }
-    }
 
-    setErrors(newErrors);
+      setErrors(newErrors);
 
-    // Get converted values
-    const heightCm = height.toCm();
-    const weightKg = weight.toKg();
+      // Get converted values
+      const heightCm = height.toCm();
+      const weightKg = weight.toKg();
 
-    // If no errors, calculate body fat burn
-    if (
-      Object.keys(newErrors).length === 0 &&
-      typeof age === 'number' &&
-      heightCm !== null &&
-      weightKg !== null
-    ) {
-      try {
-        // Prepare form data
-        const formData = {
-          gender,
-          age,
-          height: heightCm,
-          weight: weightKg,
-          unitSystem: weight.unit === 'kg' ? ('metric' as UnitSystem) : ('imperial' as UnitSystem),
-          activity,
-          speed,
-          duration,
-          frequency,
-          burnGoal,
-        };
+      // If no errors, calculate body fat burn
+      if (
+        Object.keys(newErrors).length === 0 &&
+        typeof age === 'number' &&
+        heightCm !== null &&
+        weightKg !== null
+      ) {
+        try {
+          // Prepare form data
+          const formData = {
+            gender,
+            age,
+            height: heightCm,
+            weight: weightKg,
+            unitSystem: weight.unit === 'kg' ? ('metric' as UnitSystem) : ('imperial' as UnitSystem),
+            activity,
+            speed,
+            duration,
+            frequency,
+            burnGoal,
+          };
 
-        // Calculate body fat burn
-        const bodyFatBurnResult = calculateBodyFatBurn(formData);
+          // Calculate body fat burn
+          const bodyFatBurnResult = calculateBodyFatBurn(formData);
 
-        setResult(bodyFatBurnResult);
-        setShowResult(true);
+          setResult(bodyFatBurnResult);
+          setShowResult(true);
 
-        // Scroll to result with smooth animation
-        setTimeout(() => {
-          const resultElement = document.getElementById('body-fat-burn-result');
-          if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      } catch (error) {
-        console.error('Error calculating body fat burn:', error);
-        setCalculationError(
-          'An error occurred while calculating. Please check your inputs and try again.'
-        );
+          // Scroll to result with smooth animation
+          setTimeout(() => {
+            const resultElement = document.getElementById('body-fat-burn-result');
+            if (resultElement) {
+              resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        } catch (error) {
+          console.error('Error calculating body fat burn:', error);
+          setCalculationError(
+            'An error occurred while calculating. Please check your inputs and try again.'
+          );
+        }
       }
-    }
-  };
+    },
+    [age, gender, height, weight, activity, speed, duration, frequency, burnGoal]
+  );
 
   // Reset form
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setGender('male');
     setAge('');
     height.setValue('');
@@ -224,87 +229,105 @@ export default function BodyFatBurnCalculator() {
     setResult(null);
     setShowResult(false);
     setCalculationError(null);
-  };
+  }, [height, weight]);
 
   // Get the selected activity
-  const selectedActivity = ACTIVITIES.find(a => a.id === activity);
+  const selectedActivity = useMemo(
+    () => ACTIVITIES.find(a => a.id === activity),
+    [activity]
+  );
 
   // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: setGender,
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    createHeightField(height, errors.height),
-    createWeightField(weight, errors.weight),
-    {
-      name: 'activity',
-      label: 'Activity',
-      type: 'select' as const,
-      value: activity,
-      onChange: setActivity,
-      options: ACTIVITIES.map(activity => ({
-        value: activity.id,
-        label: activity.name,
-      })),
-    },
-    {
-      name: 'speed',
-      label: `Speed/Intensity (${selectedActivity?.speedUnit || 'level'})`,
-      type: 'number' as const,
-      value: speed,
-      onChange: setSpeed,
-      min: selectedActivity?.speedRange.min || 0,
-      max: selectedActivity?.speedRange.max || 10,
-      step: selectedActivity?.speedRange.step.toString() || '0.1',
-    },
-    {
-      name: 'duration',
-      label: 'Duration (minutes)',
-      type: 'number' as const,
-      value: duration,
-      onChange: setDuration,
-      min: DURATION_RANGE.min,
-      max: DURATION_RANGE.max,
-      step: DURATION_RANGE.step.toString(),
-    },
-    {
-      name: 'frequency',
-      label: 'Frequency (times per week)',
-      type: 'number' as const,
-      value: frequency,
-      onChange: setFrequency,
-      min: FREQUENCY_RANGE.min,
-      max: FREQUENCY_RANGE.max,
-      step: FREQUENCY_RANGE.step.toString(),
-    },
-    {
-      name: 'burnGoal',
-      label: `Weight Loss Goal (${weight.unit === 'kg' ? 'kg' : 'lb'})`,
-      type: 'number' as const,
-      value: burnGoal,
-      onChange: setBurnGoal,
-      min: BURN_GOAL_RANGE.min,
-      max: BURN_GOAL_RANGE.max,
-      step: BURN_GOAL_RANGE.step.toString(),
-    },
-  ];
+  const formFields = useMemo(
+    () => [
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'radio' as const,
+        value: gender,
+        onChange: setGender,
+        options: [
+          { value: 'male', label: 'Male' },
+          { value: 'female', label: 'Female' },
+        ],
+      },
+      {
+        name: 'age',
+        label: 'Age',
+        type: 'number' as const,
+        value: age,
+        onChange: setAge,
+        error: errors.age,
+        placeholder: 'Years',
+      },
+      createHeightField(height, errors.height),
+      createWeightField(weight, errors.weight),
+      {
+        name: 'activity',
+        label: 'Activity',
+        type: 'select' as const,
+        value: activity,
+        onChange: setActivity,
+        options: ACTIVITIES.map(act => ({
+          value: act.id,
+          label: act.name,
+        })),
+      },
+      {
+        name: 'speed',
+        label: `Speed/Intensity (${selectedActivity?.speedUnit || 'level'})`,
+        type: 'number' as const,
+        value: speed,
+        onChange: setSpeed,
+        min: selectedActivity?.speedRange.min || 0,
+        max: selectedActivity?.speedRange.max || 10,
+        step: selectedActivity?.speedRange.step.toString() || '0.1',
+      },
+      {
+        name: 'duration',
+        label: 'Duration (minutes)',
+        type: 'number' as const,
+        value: duration,
+        onChange: setDuration,
+        min: DURATION_RANGE.min,
+        max: DURATION_RANGE.max,
+        step: DURATION_RANGE.step.toString(),
+      },
+      {
+        name: 'frequency',
+        label: 'Frequency (times per week)',
+        type: 'number' as const,
+        value: frequency,
+        onChange: setFrequency,
+        min: FREQUENCY_RANGE.min,
+        max: FREQUENCY_RANGE.max,
+        step: FREQUENCY_RANGE.step.toString(),
+      },
+      {
+        name: 'burnGoal',
+        label: `Weight Loss Goal (${weight.unit === 'kg' ? 'kg' : 'lb'})`,
+        type: 'number' as const,
+        value: burnGoal,
+        onChange: setBurnGoal,
+        min: BURN_GOAL_RANGE.min,
+        max: BURN_GOAL_RANGE.max,
+        step: BURN_GOAL_RANGE.step.toString(),
+      },
+    ],
+    [
+      gender,
+      age,
+      errors,
+      height,
+      weight,
+      activity,
+      selectedActivity,
+      speed,
+      duration,
+      frequency,
+      burnGoal,
+    ]
+  );
 
   return (
     <ErrorBoundary>
@@ -324,7 +347,7 @@ export default function BodyFatBurnCalculator() {
             url="/body-fat-burn"
             title="Body Fat Burn Calculator | Activity & Weight Loss Planner"
             description="Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals through exercise."
-            hashtags={['fitness', 'weightloss', 'calorieburn', 'exercise']}
+            hashtags={SOCIAL_HASHTAGS}
           />
         </div>
 
