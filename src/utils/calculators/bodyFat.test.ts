@@ -68,7 +68,7 @@ describe('Body Fat Calculation', () => {
 
       it('should throw error if hips not provided for female', () => {
         expect(() => calculateNavyMethodBodyFat('female', 71, 33, 165)).toThrow(
-          'Hip measurement is required for women using the Navy method'
+          'Hip measurement is required for women and must be positive'
         );
       });
 

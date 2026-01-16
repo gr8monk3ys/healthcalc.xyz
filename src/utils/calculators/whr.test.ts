@@ -20,7 +20,9 @@ describe('WHR Calculation', () => {
     });
 
     it('should throw error for zero hip circumference', () => {
-      expect(() => calculateWHR(80, 0)).toThrow('Hip circumference cannot be zero');
+      expect(() => calculateWHR(80, 0)).toThrow(
+        'Both waist and hip measurements must be positive numbers'
+      );
     });
 
     it('should handle edge case where waist equals hips', () => {
@@ -168,7 +170,7 @@ describe('WHR Calculation', () => {
 
     it('should throw error for zero hips', () => {
       expect(() => calculateWHRWithCategory(80, 0, 'male')).toThrow(
-        'Hip circumference cannot be zero'
+        'Both waist and hip measurements must be positive numbers'
       );
     });
   });
