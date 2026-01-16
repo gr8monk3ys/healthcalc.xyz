@@ -9,8 +9,10 @@ import React, {
   useCallback,
 } from 'react';
 import { useLocalStorage, LocalStorageError } from '@/hooks/useLocalStorage';
+import { useDarkMode, DarkModeContextType } from './DarkModeContext';
+import { useUnitSystem, UnitSystemContextType } from './UnitSystemContext';
 
-// Define the types for our preferences
+// Define the types for our preferences (kept for backward compatibility)
 export interface UserPreferences {
   darkMode: boolean;
   unitSystem: 'metric' | 'imperial';
@@ -21,7 +23,13 @@ export interface UserPreferences {
   notificationsEnabled: boolean;
 }
 
-// Define the context type
+// Additional preferences that don't fit into DarkMode or UnitSystem contexts
+interface AdditionalPreferences {
+  saveHistory: boolean;
+  notificationsEnabled: boolean;
+}
+
+// Define the context type (kept for backward compatibility)
 interface PreferencesContextType {
   preferences: UserPreferences;
   setDarkMode: (enabled: boolean) => void;
@@ -40,22 +48,23 @@ interface PreferencesContextType {
   dismissStorageError: () => void;
 }
 
-// Default preferences
-const defaultPreferences: UserPreferences = {
-  darkMode: false, // Default to light mode
-  unitSystem: 'metric', // Default to metric
-  heightUnit: 'cm', // Default to centimeters
-  weightUnit: 'kg', // Default to kilograms
-  energyUnit: 'kcal', // Default to kilocalories
-  saveHistory: true, // Default to saving history
-  notificationsEnabled: false, // Default to notifications off
+// Default additional preferences
+const defaultAdditionalPreferences: AdditionalPreferences = {
+  saveHistory: true,
+  notificationsEnabled: false,
 };
 
 // Create the context
 const PreferencesContext = createContext<PreferencesContextType | undefined>(undefined);
 
-// Provider component
-export function PreferencesProvider({ children }: { children: ReactNode }) {
+// Internal provider that requires DarkMode and UnitSystem contexts
+function PreferencesProviderInner({ children }: { children: ReactNode }) {
+  // Get dark mode context
+  const darkModeContext = useDarkMode();
+
+  // Get unit system context
+  const unitSystemContext = useUnitSystem();
+
   // Track storage error state for user notification
   const [displayedError, setDisplayedError] = useState<LocalStorageError | null>(null);
 
@@ -64,124 +73,81 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     setDisplayedError(error);
   }, []);
 
-  // Use localStorage to persist preferences
-  const [storedPreferences, setStoredPreferences, , storageError] =
-    useLocalStorage<UserPreferences>('user-preferences', defaultPreferences, {
+  // Use localStorage for additional preferences
+  const [storedAdditionalPrefs, setStoredAdditionalPrefs, , additionalStorageError] =
+    useLocalStorage<AdditionalPreferences>('additional-preferences', defaultAdditionalPreferences, {
       onError: handleStorageError,
     });
 
-  // Track system dark mode preference
-  const [isSystemDarkMode, setIsSystemDarkMode] = useState(false);
-
-  // Initialize preferences from localStorage
-  const [preferences, setPreferences] = useState<UserPreferences>(storedPreferences);
+  // Initialize additional preferences from localStorage
+  const [additionalPrefs, setAdditionalPrefs] =
+    useState<AdditionalPreferences>(storedAdditionalPrefs);
 
   // Dismiss storage error notification
   const dismissStorageError = useCallback(() => {
     setDisplayedError(null);
+    darkModeContext.dismissStorageError();
+    unitSystemContext.dismissStorageError();
+  }, [darkModeContext, unitSystemContext]);
+
+  // Update localStorage when additional preferences change
+  useEffect(() => {
+    setStoredAdditionalPrefs(additionalPrefs);
+  }, [additionalPrefs, setStoredAdditionalPrefs]);
+
+  // Additional preference setters
+  const setSaveHistory = useCallback((enabled: boolean) => {
+    setAdditionalPrefs(prev => ({ ...prev, saveHistory: enabled }));
   }, []);
 
-  // Update localStorage when preferences change
-  useEffect(() => {
-    setStoredPreferences(preferences);
-
-    // Apply dark mode to document
-    if (preferences.darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [preferences, setStoredPreferences]);
-
-  // Detect system dark mode preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    // Set initial value
-    setIsSystemDarkMode(mediaQuery.matches);
-
-    // Listen for changes
-    const handler = (e: MediaQueryListEvent) => {
-      setIsSystemDarkMode(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handler);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handler);
-    };
-  }, []);
-
-  // Preference setters
-  const setDarkMode = (enabled: boolean) => {
-    setPreferences(prev => ({ ...prev, darkMode: enabled }));
-  };
-
-  const toggleDarkMode = () => {
-    setPreferences(prev => ({ ...prev, darkMode: !prev.darkMode }));
-  };
-
-  const setUnitSystem = (system: 'metric' | 'imperial') => {
-    setPreferences(prev => {
-      // Update all units based on system
-      const newPrefs = { ...prev, unitSystem: system };
-
-      if (system === 'metric') {
-        newPrefs.heightUnit = 'cm';
-        newPrefs.weightUnit = 'kg';
-      } else {
-        newPrefs.heightUnit = 'ft';
-        newPrefs.weightUnit = 'lb';
-      }
-
-      return newPrefs;
-    });
-  };
-
-  const setHeightUnit = (unit: 'cm' | 'ft') => {
-    setPreferences(prev => ({ ...prev, heightUnit: unit }));
-  };
-
-  const setWeightUnit = (unit: 'kg' | 'lb') => {
-    setPreferences(prev => ({ ...prev, weightUnit: unit }));
-  };
-
-  const setEnergyUnit = (unit: 'kcal' | 'kj') => {
-    setPreferences(prev => ({ ...prev, energyUnit: unit }));
-  };
-
-  const setSaveHistory = (enabled: boolean) => {
-    setPreferences(prev => ({ ...prev, saveHistory: enabled }));
-  };
-
-  const setNotificationsEnabled = (enabled: boolean) => {
-    setPreferences(prev => ({ ...prev, notificationsEnabled: enabled }));
+  const setNotificationsEnabled = useCallback((enabled: boolean) => {
+    setAdditionalPrefs(prev => ({ ...prev, notificationsEnabled: enabled }));
 
     // Request notification permission if enabled
-    if (enabled && 'Notification' in window) {
+    if (enabled && typeof window !== 'undefined' && 'Notification' in window) {
       Notification.requestPermission();
     }
+  }, []);
+
+  // Reset all preferences to defaults
+  const resetPreferences = useCallback(() => {
+    darkModeContext.setDarkMode(false);
+    unitSystemContext.setUnitSystem('metric');
+    setAdditionalPrefs(defaultAdditionalPreferences);
+  }, [darkModeContext, unitSystemContext]);
+
+  // Build the combined preferences object for backward compatibility
+  const preferences: UserPreferences = {
+    darkMode: darkModeContext.darkMode,
+    unitSystem: unitSystemContext.unitSystem,
+    heightUnit: unitSystemContext.heightUnit,
+    weightUnit: unitSystemContext.weightUnit,
+    energyUnit: unitSystemContext.energyUnit,
+    saveHistory: additionalPrefs.saveHistory,
+    notificationsEnabled: additionalPrefs.notificationsEnabled,
   };
 
-  // Reset to defaults
-  const resetPreferences = () => {
-    setPreferences(defaultPreferences);
-  };
+  // Combine storage errors from all contexts
+  const combinedStorageError =
+    displayedError ||
+    additionalStorageError ||
+    darkModeContext.storageError ||
+    unitSystemContext.storageError;
 
   // Context value
   const contextValue: PreferencesContextType = {
     preferences,
-    setDarkMode,
-    toggleDarkMode,
-    setUnitSystem,
-    setHeightUnit,
-    setWeightUnit,
-    setEnergyUnit,
+    setDarkMode: darkModeContext.setDarkMode,
+    toggleDarkMode: darkModeContext.toggleDarkMode,
+    setUnitSystem: unitSystemContext.setUnitSystem,
+    setHeightUnit: unitSystemContext.setHeightUnit,
+    setWeightUnit: unitSystemContext.setWeightUnit,
+    setEnergyUnit: unitSystemContext.setEnergyUnit,
     setSaveHistory,
     setNotificationsEnabled,
     resetPreferences,
-    isSystemDarkMode,
-    storageError: displayedError || storageError,
+    isSystemDarkMode: darkModeContext.isSystemDarkMode,
+    storageError: combinedStorageError,
     dismissStorageError,
   };
 
@@ -189,7 +155,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     <PreferencesContext.Provider value={contextValue}>
       {children}
       {/* Storage error notification */}
-      {displayedError && (
+      {combinedStorageError && (
         <div
           className="fixed bottom-4 right-4 max-w-sm bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-4 shadow-lg z-50"
           role="alert"
@@ -209,7 +175,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
                 Preferences Not Saved
               </h3>
               <p className="mt-1 text-sm text-yellow-700 dark:text-yellow-300">
-                {displayedError.message}. Your preferences will reset when you leave.
+                {combinedStorageError.message}. Your preferences will reset when you leave.
               </p>
             </div>
             <button
@@ -233,7 +199,16 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Custom hook to use the preferences context
+// Provider component that wraps everything - this maintains backward compatibility
+// but no longer manages state directly (it's handled by split providers)
+export function PreferencesProvider({ children }: { children: ReactNode }) {
+  // Note: This provider now expects DarkModeProvider and UnitSystemProvider
+  // to be in the component tree above it. However, for backward compatibility,
+  // if they're not present, the inner component will throw a clear error.
+  return <PreferencesProviderInner>{children}</PreferencesProviderInner>;
+}
+
+// Custom hook to use the preferences context (backward compatible)
 export function usePreferences(): PreferencesContextType {
   const context = useContext(PreferencesContext);
 
@@ -243,3 +218,9 @@ export function usePreferences(): PreferencesContextType {
 
   return context;
 }
+
+// Re-export the split context hooks for direct access
+export { useDarkMode } from './DarkModeContext';
+export { useUnitSystem } from './UnitSystemContext';
+export type { DarkModeContextType } from './DarkModeContext';
+export type { UnitSystemContextType } from './UnitSystemContext';

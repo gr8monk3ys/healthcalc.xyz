@@ -5,6 +5,8 @@ import Footer from '@/components/Footer';
 import GlobalStructuredData from '@/components/GlobalStructuredData';
 import Preconnect from '@/components/Preconnect';
 import { ReactNode } from 'react';
+import { DarkModeProvider } from '@/context/DarkModeContext';
+import { UnitSystemProvider } from '@/context/UnitSystemContext';
 import { PreferencesProvider } from '@/context/PreferencesContext';
 import { SavedResultsProvider } from '@/context/SavedResultsContext';
 import { Analytics } from '@vercel/analytics/react';
@@ -124,24 +126,33 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         {/* Rule: Use React Context for global state management */}
-        <PreferencesProvider>
-          <SavedResultsProvider>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
-              <Footer />
-            </div>
+        {/* Split providers for granular re-renders:
+            - DarkModeProvider: only re-renders when dark mode changes
+            - UnitSystemProvider: only re-renders when unit preferences change
+            - PreferencesProvider: backward compatibility wrapper combining both
+        */}
+        <DarkModeProvider>
+          <UnitSystemProvider>
+            <PreferencesProvider>
+              <SavedResultsProvider>
+                <div className="min-h-screen flex flex-col">
+                  <Header />
+                  <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+                  <Footer />
+                </div>
 
-            {/* Analytics component for tracking */}
-            <Analytics />
+                {/* Analytics component for tracking */}
+                <Analytics />
 
-            {/* PWA initialization and service worker registration */}
-            <PWAInit />
+                {/* PWA initialization and service worker registration */}
+                <PWAInit />
 
-            {/* Global structured data for organization and website */}
-            <GlobalStructuredData />
-          </SavedResultsProvider>
-        </PreferencesProvider>
+                {/* Global structured data for organization and website */}
+                <GlobalStructuredData />
+              </SavedResultsProvider>
+            </PreferencesProvider>
+          </UnitSystemProvider>
+        </DarkModeProvider>
       </body>
     </html>
   );
