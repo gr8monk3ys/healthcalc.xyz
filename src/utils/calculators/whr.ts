@@ -8,11 +8,27 @@ import { WHR_CATEGORIES } from '@/constants/whr';
  * @returns WHR value
  */
 export function calculateWHR(waistCm: number, hipsCm: number): number {
-  if (hipsCm === 0) {
-    throw new Error('Hip circumference cannot be zero');
+  // Defensive input validation
+  if (waistCm <= 0 || hipsCm <= 0) {
+    throw new Error('Both waist and hip measurements must be positive numbers');
   }
 
-  return waistCm / hipsCm;
+  if (isNaN(waistCm) || isNaN(hipsCm)) {
+    throw new Error('Both measurements must be valid numbers');
+  }
+
+  if (!isFinite(waistCm) || !isFinite(hipsCm)) {
+    throw new Error('Measurements must be finite numbers');
+  }
+
+  const whr = waistCm / hipsCm;
+
+  // WHR should be in a reasonable range (0.5 to 1.5 covers all realistic human proportions)
+  if (whr < 0.5 || whr > 1.5) {
+    throw new Error('WHR result is outside realistic range - please check your measurements');
+  }
+
+  return whr;
 }
 
 /**

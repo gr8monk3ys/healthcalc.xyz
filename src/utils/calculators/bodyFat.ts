@@ -44,6 +44,23 @@ export function calculateNavyMethodBodyFat(
   heightCm: number,
   hipsCm?: number
 ): number {
+  // Defensive input validation
+  if (waistCm <= 0 || neckCm <= 0 || heightCm <= 0) {
+    throw new Error('All measurements must be positive numbers');
+  }
+
+  if (waistCm <= neckCm) {
+    throw new Error('Waist circumference must be greater than neck circumference');
+  }
+
+  if (gender === 'female' && (!hipsCm || hipsCm <= 0)) {
+    throw new Error('Hip measurement is required for women and must be positive');
+  }
+
+  if (isNaN(waistCm) || isNaN(neckCm) || isNaN(heightCm)) {
+    throw new Error('All measurements must be valid numbers');
+  }
+
   // Convert cm to inches for the formula
   const waistIn = waistCm / 2.54;
   const neckIn = neckCm / 2.54;

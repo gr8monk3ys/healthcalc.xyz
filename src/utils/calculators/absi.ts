@@ -10,6 +10,15 @@ import { getBMICategory } from './bmi';
  * @returns ABSI value
  */
 export function calculateABSI(waistCm: number, heightCm: number, weightKg: number): number {
+  // Defensive input validation
+  if (waistCm <= 0 || heightCm <= 0 || weightKg <= 0) {
+    throw new Error('All measurements must be positive numbers');
+  }
+
+  if (isNaN(waistCm) || isNaN(heightCm) || isNaN(weightKg)) {
+    throw new Error('All measurements must be valid numbers');
+  }
+
   // Convert waist from cm to m
   const waistM = waistCm / 100;
 
@@ -19,9 +28,18 @@ export function calculateABSI(waistCm: number, heightCm: number, weightKg: numbe
   // Calculate BMI
   const bmi = weightKg / (heightM * heightM);
 
+  // Validate BMI is reasonable (prevents issues with extreme values)
+  if (bmi <= 0 || !isFinite(bmi)) {
+    throw new Error('Invalid BMI calculation - check height and weight values');
+  }
+
   // Calculate ABSI
   // Formula: ABSI = WC / (BMI^(2/3) * H^(1/2))
   const absi = waistM / (Math.pow(bmi, 2 / 3) * Math.pow(heightM, 1 / 2));
+
+  if (!isFinite(absi)) {
+    throw new Error('Invalid ABSI calculation - check input values');
+  }
 
   return absi;
 }
