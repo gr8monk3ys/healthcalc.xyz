@@ -14,7 +14,8 @@ export default function Button({
   fullWidth = false,
   ...props
 }: ButtonProps) {
-  const baseClasses = 'neumorph-btn font-medium focus:outline-none transition-all duration-200';
+  const baseClasses =
+    'neumorph-btn font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-200';
 
   const variantClasses = {
     primary: 'text-accent',
