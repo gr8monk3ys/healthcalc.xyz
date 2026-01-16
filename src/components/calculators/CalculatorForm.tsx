@@ -1,32 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 
 // Discriminated union for type-safe form fields
 type NumberFieldValue = number | '';
-
-/**
- * Form field onChange handler type.
- *
- * This type is intentionally flexible to support both:
- * - Direct value setters: (value: T) => void
- * - React state setters: React.Dispatch<React.SetStateAction<T>>
- * - Setters for union subtypes like Gender ('male' | 'female')
- *
- * TypeScript's function parameter contravariance makes it impossible to
- * create a single type that accepts all these patterns without using
- * a bivariant function type. We use an interface method syntax here
- * because methods in TypeScript are bivariant.
- *
- * Type safety is enforced at field definition sites where specific
- * value types are used with useState. The form component passes
- * values matching the declared field type.
- */
-interface FormFieldChangeHandler {
-  // Using method syntax for bivariance - allows any function accepting any value
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (value: any): void;
-}
 
 interface BaseFormField {
   name: string;
@@ -38,7 +15,11 @@ interface NumberFormField extends BaseFormField {
   type: 'number';
   placeholder?: string;
   value: NumberFieldValue;
-  onChange: FormFieldChangeHandler;
+  /**
+   * onChange handler that receives the new value.
+   * Compatible with React state setters like useState's setState function.
+   */
+  onChange: (value: NumberFieldValue) => void;
   unit?: string;
   unitToggle?: () => void;
   min?: number;
@@ -49,21 +30,33 @@ interface NumberFormField extends BaseFormField {
 interface RadioFormField extends BaseFormField {
   type: 'radio';
   value: string;
-  onChange: FormFieldChangeHandler;
+  /**
+   * onChange handler that receives the selected option value.
+   * Compatible with React state setters for string or string literal types.
+   */
+  onChange: (value: string) => void;
   options: Array<{ value: string; label: string; description?: string }>;
 }
 
 interface SelectFormField extends BaseFormField {
   type: 'select';
   value: string;
-  onChange: FormFieldChangeHandler;
+  /**
+   * onChange handler that receives the selected option value.
+   * Compatible with React state setters for string or string literal types.
+   */
+  onChange: (value: string) => void;
   options: Array<{ value: string; label: string; description?: string }>;
 }
 
 interface DateFormField extends BaseFormField {
   type: 'date';
   value: string;
-  onChange: FormFieldChangeHandler;
+  /**
+   * onChange handler that receives the date string value.
+   * Compatible with React state setters for string types.
+   */
+  onChange: (value: string) => void;
   min?: string;
   max?: string;
 }
@@ -80,14 +73,14 @@ interface CalculatorFormProps {
   resetButtonText?: string;
 }
 
-const CalculatorForm: React.FC<CalculatorFormProps> = ({
+const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorForm({
   title,
   fields,
   onSubmit,
   onReset,
   submitButtonText = 'Calculate',
   resetButtonText = 'Reset',
-}) => {
+}) {
   const renderField = (field: FormField) => {
     switch (field.type) {
       case 'number':
@@ -112,13 +105,11 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
                   step={field.step || '0.1'}
                   min={field.min}
                   max={field.max}
-                  aria-invalid={field.error ? 'true' : 'false'}
-                  aria-describedby={field.error ? `${field.name}-error` : undefined}
                 />
                 <button
                   type="button"
                   onClick={field.unitToggle}
-                  className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-all"
+                  className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
                   aria-label={`Toggle ${field.label.toLowerCase()} unit, currently ${field.unit}`}
                 >
                   {field.unit}
@@ -139,37 +130,21 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
                 step={field.step || '0.1'}
                 min={field.min}
                 max={field.max}
-                aria-invalid={field.error ? 'true' : 'false'}
-                aria-describedby={field.error ? `${field.name}-error` : undefined}
               />
             )}
-            {field.error && (
-              <p
-                id={`${field.name}-error`}
-                className="text-red-500 text-sm mt-1"
-                role="alert"
-                aria-live="polite"
-              >
-                {field.error}
-              </p>
-            )}
+            {field.error && <p className="text-red-500 text-sm mt-1">{field.error}</p>}
           </div>
         );
 
       case 'radio':
-        const radioGroupId = `radiogroup-${field.name}`;
         return (
           <div key={field.name}>
-            <div id={radioGroupId} className="block text-sm font-medium mb-1">
-              {field.label}
-            </div>
-            <div className="flex space-x-4" role="radiogroup" aria-labelledby={radioGroupId}>
-              {field.options.map(option => (
-                <label key={option.value} className="flex items-center cursor-pointer">
+            <label className="block text-sm font-medium mb-1">{field.label}</label>
+            <div className="flex space-x-4">
+              {field.options?.map(option => (
+                <label key={option.value} className="flex items-center">
                   <input
                     type="radio"
-                    name={field.name}
-                    value={option.value}
                     checked={field.value === option.value}
                     onChange={() => field.onChange(option.value)}
                     className="mr-2"
@@ -178,16 +153,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
                 </label>
               ))}
             </div>
-            {field.error && (
-              <p
-                id={`${field.name}-error`}
-                className="text-red-500 text-sm mt-1"
-                role="alert"
-                aria-live="polite"
-              >
-                {field.error}
-              </p>
-            )}
           </div>
         );
 
@@ -202,27 +167,16 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
               className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              aria-describedby={field.error ? `${field.name}-error` : undefined}
             >
-              {field.options.map(option => (
+              {field.options?.map(option => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
               ))}
             </select>
-            {field.options.find(option => option.value === field.value)?.description && (
+            {field.options?.find(option => option.value === field.value)?.description && (
               <p className="text-sm text-gray-500 mt-1">
                 {field.options.find(option => option.value === field.value)?.description}
-              </p>
-            )}
-            {field.error && (
-              <p
-                id={`${field.name}-error`}
-                className="text-red-500 text-sm mt-1"
-                role="alert"
-                aria-live="polite"
-              >
-                {field.error}
               </p>
             )}
           </div>
@@ -242,21 +196,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
               className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
-              min={field.min}
-              max={field.max}
-              aria-invalid={field.error ? 'true' : 'false'}
-              aria-describedby={field.error ? `${field.name}-error` : undefined}
+              min={field.min as string}
+              max={field.max as string}
             />
-            {field.error && (
-              <p
-                id={`${field.name}-error`}
-                className="text-red-500 text-sm mt-1"
-                role="alert"
-                aria-live="polite"
-              >
-                {field.error}
-              </p>
-            )}
+            {field.error && <p className="text-red-500 text-sm mt-1">{field.error}</p>}
           </div>
         );
 
@@ -275,14 +218,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
         <div className="flex space-x-4 pt-2">
           <button
             type="submit"
-            className="flex-1 py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all"
+            className="flex-1 py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all"
           >
             {submitButtonText}
           </button>
           <button
             type="button"
             onClick={onReset}
-            className="py-3 px-4 neumorph text-gray-500 font-medium rounded-lg hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all"
+            className="py-3 px-4 neumorph text-gray-500 font-medium rounded-lg hover:shadow-neumorph-inset transition-all"
           >
             {resetButtonText}
           </button>
@@ -290,6 +233,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({
       </form>
     </div>
   );
-};
+});
 
 export default CalculatorForm;
