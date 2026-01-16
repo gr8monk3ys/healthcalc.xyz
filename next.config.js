@@ -63,8 +63,8 @@ const sentryWebpackPluginOptions = {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
 
-  // Only upload source maps in production
-  silent: process.env.NODE_ENV !== 'production',
+  // Only print logs for uploading source maps in CI
+  silent: !process.env.CI,
 
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
@@ -76,16 +76,14 @@ const sentryWebpackPluginOptions = {
   widenClientFileUpload: true,
 
   // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-  // This can increase your server load as well as your hosting bill.
-  // Note: Check that the Sentry DSN is publicly accessible before enabling this option.
   tunnelRoute: '/monitoring',
 
-  // Hides source maps from generated client bundles
-  disableLogger: true,
-
-  // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableClientWebpackPlugin: process.env.NODE_ENV !== 'production',
-  disableServerWebpackPlugin: process.env.NODE_ENV !== 'production',
+  // Use the new webpack treeshake option instead of deprecated disableLogger
+  webpack: {
+    treeshake: {
+      removeDebugLogging: true,
+    },
+  },
 };
 
 // Export next config wrapped with Sentry
