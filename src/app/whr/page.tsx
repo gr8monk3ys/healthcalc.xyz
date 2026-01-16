@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { Gender } from '@/types/common';
 import { WHRResult as WHRResultType } from '@/types/whr';
 import { calculateWHRWithCategory } from '@/utils/calculators/whr';
@@ -9,14 +10,16 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WHRResultDisplay from '@/components/calculators/whr/WHRResult';
 import WHRInfo from '@/components/calculators/whr/WHRInfo';
-import WHRUnderstanding from '@/components/calculators/whr/WHRUnderstanding';
 import Breadcrumb from '@/components/Breadcrumb';
 import StructuredData from '@/components/StructuredData';
 import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
+
+// Dynamic imports for below-the-fold components
+const WHRUnderstanding = dynamic(() => import('@/components/calculators/whr/WHRUnderstanding'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -93,13 +96,15 @@ export default function WHRCalculator() {
   // State for calculation result
   const [result, setResult] = useState<WHRResultType | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
+
+  // State for user-facing calculation errors
   const [calculationError, setCalculationError] = useState<string | null>(null);
 
   // Handle form submission
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
-      setCalculationError(null);
       e.preventDefault();
+      setCalculationError(null);
 
       // Validate form
       const newErrors: {
@@ -162,7 +167,7 @@ export default function WHRCalculator() {
         } catch (error) {
           console.error('Error calculating WHR:', error);
           setCalculationError(
-            'An error occurred while calculating. Please check your inputs and try again.'
+            'An error occurred during calculation. Please check your inputs and try again.'
           );
         }
       }
@@ -181,7 +186,7 @@ export default function WHRCalculator() {
     setCalculationError(null);
   }, []);
 
-  // Form fields for the CalculatorForm component
+  // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
     () => [
       {
@@ -189,7 +194,7 @@ export default function WHRCalculator() {
         label: 'Gender',
         type: 'radio' as const,
         value: gender,
-        onChange: setGender,
+        onChange: (value: string) => setGender(value as Gender),
         options: [
           { value: 'male', label: 'Male' },
           { value: 'female', label: 'Female' },
@@ -248,14 +253,16 @@ export default function WHRCalculator() {
               onSubmit={handleSubmit}
               onReset={handleReset}
             />
-          </div>
 
-          <div className="md:col-span-2" id="whr-result">
+            {/* User-facing error state */}
             {calculationError && (
-              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
                 {calculationError}
               </div>
             )}
+          </div>
+
+          <div className="md:col-span-2" id="whr-result">
             {showResult && result ? (
               <>
                 <WHRResultDisplay result={result} gender={gender} />

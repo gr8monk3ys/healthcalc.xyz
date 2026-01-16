@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { Gender } from '@/types/common';
 import { BodyFatMethod, BodyFatResult as BodyFatResultType } from '@/types/bodyFat';
 import {
@@ -25,13 +26,17 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatResultDisplay from '@/components/calculators/body-fat/BodyFatResult';
 import BodyFatInfo from '@/components/calculators/body-fat/BodyFatInfo';
-import BodyFatUnderstanding from '@/components/calculators/body-fat/BodyFatUnderstanding';
 import {
   useHeight,
   useWeight,
   createHeightField,
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
+
+// Dynamic imports for below-the-fold components
+const BodyFatUnderstanding = dynamic(
+  () => import('@/components/calculators/body-fat/BodyFatUnderstanding')
+);
 
 export default function BodyFatCalculator() {
   // State for form inputs
@@ -59,6 +64,8 @@ export default function BodyFatCalculator() {
   // State for calculation result
   const [result, setResult] = useState<BodyFatResultType | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
+
+  // State for user-facing calculation errors
   const [calculationError, setCalculationError] = useState<string | null>(null);
 
   // Handle form submission with useCallback to memoize the function
@@ -221,12 +228,26 @@ export default function BodyFatCalculator() {
         } catch (error) {
           console.error('Error calculating body fat:', error);
           setCalculationError(
-            'An error occurred while calculating. Please check your inputs and try again.'
+            'An error occurred during calculation. Please check your inputs and try again.'
           );
         }
       }
     },
-    [age, gender, height, weight, method, waist, neck, hips, bodyFatPercentage]
+    [
+      age,
+      gender,
+      height.value,
+      height.unit,
+      weight.value,
+      weight.unit,
+      method,
+      waist,
+      neck,
+      hips,
+      bodyFatPercentage,
+      height,
+      weight,
+    ]
   );
 
   // Reset form with useCallback
@@ -247,8 +268,8 @@ export default function BodyFatCalculator() {
   }, [height, weight]);
 
   // Handle method change with useCallback
-  const handleMethodChange = useCallback((newMethod: BodyFatMethod) => {
-    setMethod(newMethod);
+  const handleMethodChange = useCallback((newMethod: string) => {
+    setMethod(newMethod as BodyFatMethod);
     // Clear method-specific errors when changing methods
     setErrors(prev => {
       const updated = { ...prev };
@@ -324,7 +345,7 @@ export default function BodyFatCalculator() {
         label: 'Gender',
         type: 'radio' as const,
         value: gender,
-        onChange: setGender,
+        onChange: (value: string) => setGender(value as Gender),
         options: [
           { value: 'male', label: 'Male' },
           { value: 'female', label: 'Female' },
@@ -380,14 +401,16 @@ export default function BodyFatCalculator() {
               onSubmit={handleSubmit}
               onReset={handleReset}
             />
-          </div>
 
-          <div className="md:col-span-2">
+            {/* User-facing error state */}
             {calculationError && (
-              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
                 {calculationError}
               </div>
             )}
+          </div>
+
+          <div className="md:col-span-2" id="body-fat-result">
             {showResult && result ? (
               <BodyFatResultDisplay
                 result={result}

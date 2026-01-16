@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { ActivityLevel, Gender } from '@/types/common';
 import { calculateBMR, calculateTDEE, getActivityMultiplier } from '@/utils/calculators/tdee';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
@@ -9,20 +10,22 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import TDEEResult from '@/components/calculators/tdee/TDEEResult';
 import TDEEInfo from '@/components/calculators/tdee/TDEEInfo';
-import TDEEUnderstanding from '@/components/calculators/tdee/TDEEUnderstanding';
 import Breadcrumb from '@/components/Breadcrumb';
 import StructuredData from '@/components/StructuredData';
 import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
 import {
   useHeight,
   useWeight,
   createHeightField,
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
+
+// Dynamic imports for below-the-fold components
+const TDEEUnderstanding = dynamic(() => import('@/components/calculators/tdee/TDEEUnderstanding'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for TDEE calculator
 const faqs = [
@@ -121,10 +124,14 @@ export default function TDEECalculator() {
   } | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
 
+  // State for user-facing calculation errors
+  const [calculationError, setCalculationError] = useState<string | null>(null);
+
   // Handle form submission
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
+      setCalculationError(null);
 
       // Validate form
       const newErrors: {
@@ -178,42 +185,49 @@ export default function TDEECalculator() {
         heightCm !== null &&
         weightKg !== null
       ) {
-        // Get activity multiplier
-        const activityMultiplier = getActivityMultiplier(activityLevel);
+        try {
+          // Get activity multiplier
+          const activityMultiplier = getActivityMultiplier(activityLevel);
 
-        // Calculate BMR
-        const bmr = calculateBMR(gender, age, weightKg, heightCm);
+          // Calculate BMR
+          const bmr = calculateBMR(gender, age, weightKg, heightCm);
 
-        // Calculate TDEE
-        const tdee = calculateTDEE(bmr, activityMultiplier);
+          // Calculate TDEE
+          const tdee = calculateTDEE(bmr, activityMultiplier);
 
-        // Calculate daily calories for different goals
-        const dailyCalories = {
-          maintain: Math.round(tdee),
-          mildLoss: Math.round(tdee * 0.9), // 10% deficit
-          moderateLoss: Math.round(tdee * 0.8), // 20% deficit
-          extremeLoss: Math.round(tdee * 0.75), // 25% deficit
-          mildGain: Math.round(tdee * 1.1), // 10% surplus
-          moderateGain: Math.round(tdee * 1.15), // 15% surplus
-          extremeGain: Math.round(tdee * 1.2), // 20% surplus
-        };
+          // Calculate daily calories for different goals
+          const dailyCalories = {
+            maintain: Math.round(tdee),
+            mildLoss: Math.round(tdee * 0.9), // 10% deficit
+            moderateLoss: Math.round(tdee * 0.8), // 20% deficit
+            extremeLoss: Math.round(tdee * 0.75), // 25% deficit
+            mildGain: Math.round(tdee * 1.1), // 10% surplus
+            moderateGain: Math.round(tdee * 1.15), // 15% surplus
+            extremeGain: Math.round(tdee * 1.2), // 20% surplus
+          };
 
-        setResult({
-          bmr: Math.round(bmr),
-          tdee: Math.round(tdee),
-          activityMultiplier,
-          dailyCalories,
-        });
+          setResult({
+            bmr: Math.round(bmr),
+            tdee: Math.round(tdee),
+            activityMultiplier,
+            dailyCalories,
+          });
 
-        setShowResult(true);
+          setShowResult(true);
 
-        // Scroll to result with smooth animation
-        setTimeout(() => {
-          const resultElement = document.getElementById('tdee-result');
-          if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
+          // Scroll to result with smooth animation
+          setTimeout(() => {
+            const resultElement = document.getElementById('tdee-result');
+            if (resultElement) {
+              resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        } catch (error) {
+          console.error('Error calculating TDEE:', error);
+          setCalculationError(
+            'An error occurred during calculation. Please check your inputs and try again.'
+          );
+        }
       }
     },
     [age, gender, height, weight, activityLevel]
@@ -229,9 +243,10 @@ export default function TDEECalculator() {
     setErrors({});
     setResult(null);
     setShowResult(false);
+    setCalculationError(null);
   }, [height, weight]);
 
-  // Form fields for the CalculatorForm component
+  // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
     () => [
       {
@@ -248,7 +263,7 @@ export default function TDEECalculator() {
         label: 'Gender',
         type: 'radio' as const,
         value: gender,
-        onChange: setGender,
+        onChange: (value: string) => setGender(value as Gender),
         options: [
           { value: 'male', label: 'Male' },
           { value: 'female', label: 'Female' },
@@ -261,7 +276,7 @@ export default function TDEECalculator() {
         label: 'Activity Level',
         type: 'select' as const,
         value: activityLevel,
-        onChange: setActivityLevel,
+        onChange: (value: string) => setActivityLevel(value as ActivityLevel),
         options: ACTIVITY_MULTIPLIERS.map(level => ({
           value: level.level,
           label: level.label,
@@ -302,6 +317,13 @@ export default function TDEECalculator() {
               onSubmit={handleSubmit}
               onReset={handleReset}
             />
+
+            {/* User-facing error state */}
+            {calculationError && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+                {calculationError}
+              </div>
+            )}
           </div>
 
           <div className="md:col-span-2" id="tdee-result">

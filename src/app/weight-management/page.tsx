@@ -293,7 +293,7 @@ export default function WeightManagementCalculator() {
       label: 'Gender',
       type: 'radio' as const,
       value: gender,
-      onChange: setGender,
+      onChange: (value: string) => setGender(value as Gender),
       options: [
         { value: 'male', label: 'Male' },
         { value: 'female', label: 'Female' },
@@ -357,7 +357,7 @@ export default function WeightManagementCalculator() {
       label: 'Activity Level',
       type: 'select' as const,
       value: activityLevel,
-      onChange: setActivityLevel,
+      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
       options: ACTIVITY_MULTIPLIERS.map(level => ({
         value: level.level,
         label: level.label,
@@ -369,7 +369,7 @@ export default function WeightManagementCalculator() {
       label: 'Diet Type',
       type: 'select' as const,
       value: dietType,
-      onChange: setDietType,
+      onChange: (value: string) => setDietType(value as DietType),
       options: DIET_TYPES.map(diet => ({
         value: diet.type,
         label: diet.label,

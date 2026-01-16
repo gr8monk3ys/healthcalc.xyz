@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { Gender } from '@/types/common';
 import { ABSIResult as ABSIResultType } from '@/types/absi';
 import { calculateABSIMetrics } from '@/utils/calculators/absi';
@@ -15,20 +16,22 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import ABSIResultDisplay from '@/components/calculators/absi/ABSIResult';
 import ABSIInfo from '@/components/calculators/absi/ABSIInfo';
-import ABSIUnderstanding from '@/components/calculators/absi/ABSIUnderstanding';
 import Breadcrumb from '@/components/Breadcrumb';
 import StructuredData from '@/components/StructuredData';
 import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
 import {
   useHeight,
   useWeight,
   createHeightField,
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
+
+// Dynamic imports for below-the-fold components
+const ABSIUnderstanding = dynamic(() => import('@/components/calculators/absi/ABSIUnderstanding'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -109,103 +112,108 @@ export default function ABSICalculator() {
   // State for calculation result
   const [result, setResult] = useState<ABSIResultType | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
+
+  // State for user-facing calculation errors
   const [calculationError, setCalculationError] = useState<string | null>(null);
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setCalculationError(null);
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      setCalculationError(null);
 
-    // Validate form
-    const newErrors: {
-      age?: string;
-      height?: string;
-      weight?: string;
-      waist?: string;
-    } = {};
+      // Validate form
+      const newErrors: {
+        age?: string;
+        height?: string;
+        weight?: string;
+        waist?: string;
+      } = {};
 
-    // Validate age
-    if (isEmpty(age)) {
-      newErrors.age = 'Age is required';
-    } else {
-      const ageValidation = validateAge(age);
-      if (!ageValidation.isValid) {
-        newErrors.age = ageValidation.error;
+      // Validate age
+      if (isEmpty(age)) {
+        newErrors.age = 'Age is required';
+      } else {
+        const ageValidation = validateAge(age);
+        if (!ageValidation.isValid) {
+          newErrors.age = ageValidation.error;
+        }
       }
-    }
 
-    // Validate height
-    // Validate height (feet for imperial, cm for metric)
-    if (isEmpty(height.value)) {
-      newErrors.height = 'Height is required';
-    } else {
-      const unitSystem = height.unit === 'cm' ? 'metric' : 'imperial';
-      const heightValidation = validateHeight(height.value, unitSystem);
-      if (!heightValidation.isValid) {
-        newErrors.height = heightValidation.error;
+      // Validate height
+      // Validate height (feet for imperial, cm for metric)
+      if (isEmpty(height.value)) {
+        newErrors.height = 'Height is required';
+      } else {
+        const unitSystem = height.unit === 'cm' ? 'metric' : 'imperial';
+        const heightValidation = validateHeight(height.value, unitSystem);
+        if (!heightValidation.isValid) {
+          newErrors.height = heightValidation.error;
+        }
       }
-    }
 
-    // Validate weight
-    if (isEmpty(weight.value)) {
-      newErrors.weight = 'Weight is required';
-    } else {
-      const unitSystem = weight.unit === 'kg' ? 'metric' : 'imperial';
-      const weightValidation = validateWeight(weight.value, unitSystem);
-      if (!weightValidation.isValid) {
-        newErrors.weight = weightValidation.error;
+      // Validate weight
+      if (isEmpty(weight.value)) {
+        newErrors.weight = 'Weight is required';
+      } else {
+        const unitSystem = weight.unit === 'kg' ? 'metric' : 'imperial';
+        const weightValidation = validateWeight(weight.value, unitSystem);
+        if (!weightValidation.isValid) {
+          newErrors.weight = weightValidation.error;
+        }
       }
-    }
 
-    // Validate waist
-    if (isEmpty(waist)) {
-      newErrors.waist = 'Waist measurement is required';
-    } else {
-      const waistValidation = validateWaist(waist, 'metric');
-      if (!waistValidation.isValid) {
-        newErrors.waist = waistValidation.error;
+      // Validate waist
+      if (isEmpty(waist)) {
+        newErrors.waist = 'Waist measurement is required';
+      } else {
+        const waistValidation = validateWaist(waist, 'metric');
+        if (!waistValidation.isValid) {
+          newErrors.waist = waistValidation.error;
+        }
       }
-    }
 
-    setErrors(newErrors);
+      setErrors(newErrors);
 
-    // Get converted values
-    const heightCm = height.toCm();
-    const weightKg = weight.toKg();
+      // Get converted values
+      const heightCm = height.toCm();
+      const weightKg = weight.toKg();
 
-    // If no errors, calculate ABSI
-    if (
-      Object.keys(newErrors).length === 0 &&
-      typeof age === 'number' &&
-      heightCm !== null &&
-      weightKg !== null &&
-      typeof waist === 'number'
-    ) {
-      try {
-        // Calculate ABSI and related metrics
-        const absiResult = calculateABSIMetrics(waist, heightCm, weightKg, age, gender);
+      // If no errors, calculate ABSI
+      if (
+        Object.keys(newErrors).length === 0 &&
+        typeof age === 'number' &&
+        heightCm !== null &&
+        weightKg !== null &&
+        typeof waist === 'number'
+      ) {
+        try {
+          // Calculate ABSI and related metrics
+          const absiResult = calculateABSIMetrics(waist, heightCm, weightKg, age, gender);
 
-        setResult(absiResult);
-        setShowResult(true);
+          setResult(absiResult);
+          setShowResult(true);
 
-        // Scroll to result with smooth animation
-        setTimeout(() => {
-          const resultElement = document.getElementById('absi-result');
-          if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      } catch (error) {
-        console.error('Error calculating ABSI:', error);
-        setCalculationError(
-          'An error occurred while calculating. Please check your inputs and try again.'
-        );
+          // Scroll to result with smooth animation
+          setTimeout(() => {
+            const resultElement = document.getElementById('absi-result');
+            if (resultElement) {
+              resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        } catch (error) {
+          console.error('Error calculating ABSI:', error);
+          setCalculationError(
+            'An error occurred during calculation. Please check your inputs and try again.'
+          );
+        }
       }
-    }
-  };
+    },
+    [age, gender, height, weight, waist]
+  );
 
   // Reset form
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setGender('male');
     setAge('');
     height.setValue('');
@@ -215,43 +223,46 @@ export default function ABSICalculator() {
     setResult(null);
     setShowResult(false);
     setCalculationError(null);
-  };
+  }, [height, weight]);
 
-  // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: setGender,
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    createHeightField(height, errors.height),
-    createWeightField(weight, errors.weight),
-    {
-      name: 'waist',
-      label: 'Waist Circumference (cm)',
-      type: 'number' as const,
-      value: waist,
-      onChange: setWaist,
-      error: errors.waist,
-      placeholder: 'Centimeters',
-      step: '0.1',
-    },
-  ];
+  // Form fields for the CalculatorForm component - memoized for performance
+  const formFields = useMemo(
+    () => [
+      {
+        name: 'gender',
+        label: 'Gender',
+        type: 'radio' as const,
+        value: gender,
+        onChange: (value: string) => setGender(value as Gender),
+        options: [
+          { value: 'male', label: 'Male' },
+          { value: 'female', label: 'Female' },
+        ],
+      },
+      {
+        name: 'age',
+        label: 'Age',
+        type: 'number' as const,
+        value: age,
+        onChange: setAge,
+        error: errors.age,
+        placeholder: 'Years',
+      },
+      createHeightField(height, errors.height),
+      createWeightField(weight, errors.weight),
+      {
+        name: 'waist',
+        label: 'Waist Circumference (cm)',
+        type: 'number' as const,
+        value: waist,
+        onChange: setWaist,
+        error: errors.waist,
+        placeholder: 'Centimeters',
+        step: '0.1',
+      },
+    ],
+    [age, gender, height, weight, waist, errors]
+  );
 
   return (
     <ErrorBoundary>
@@ -282,14 +293,16 @@ export default function ABSICalculator() {
               onSubmit={handleSubmit}
               onReset={handleReset}
             />
-          </div>
 
-          <div className="md:col-span-2" id="absi-result">
+            {/* User-facing error state */}
             {calculationError && (
-              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
                 {calculationError}
               </div>
             )}
+          </div>
+
+          <div className="md:col-span-2" id="absi-result">
             {showResult && result ? (
               <>
                 <ABSIResultDisplay result={result} />

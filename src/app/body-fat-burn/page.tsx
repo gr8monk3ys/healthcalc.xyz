@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { Gender, UnitSystem } from '@/types/common';
 import { BodyFatBurnResult as BodyFatBurnResultType } from '@/types/bodyFatBurn';
 import { calculateBodyFatBurn } from '@/utils/calculators/bodyFatBurn';
@@ -15,20 +16,24 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatBurnResultDisplay from '@/components/calculators/bodyFatBurn/BodyFatBurnResult';
 import BodyFatBurnInfo from '@/components/calculators/bodyFatBurn/BodyFatBurnInfo';
-import BodyFatBurnUnderstanding from '@/components/calculators/bodyFatBurn/BodyFatBurnUnderstanding';
 import Breadcrumb from '@/components/Breadcrumb';
 import StructuredData from '@/components/StructuredData';
 import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
 import {
   useHeight,
   useWeight,
   createHeightField,
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
+
+// Dynamic imports for below-the-fold components
+const BodyFatBurnUnderstanding = dynamic(
+  () => import('@/components/calculators/bodyFatBurn/BodyFatBurnUnderstanding')
+);
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -58,9 +63,6 @@ const faqs = [
       'For optimal weight loss results, combining exercise with dietary modifications is recommended. While exercise burns calories and improves fitness, nutrition plays a crucial role in creating a calorie deficit. Research suggests that a combined approach of diet and exercise leads to more sustainable weight loss than either strategy alone.',
   },
 ];
-
-// Social share hashtags
-const SOCIAL_HASHTAGS = ['fitness', 'weightloss', 'calorieburn', 'exercise'];
 
 // Blog article data for related articles
 const blogArticles = [
@@ -115,6 +117,8 @@ export default function BodyFatBurnCalculator() {
   // State for calculation result
   const [result, setResult] = useState<BodyFatBurnResultType | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
+
+  // State for user-facing calculation errors
   const [calculationError, setCalculationError] = useState<string | null>(null);
 
   // Handle form submission
@@ -140,6 +144,7 @@ export default function BodyFatBurnCalculator() {
         }
       }
 
+      // Validate height
       // Validate height (feet for imperial, cm for metric)
       if (isEmpty(height.value)) {
         newErrors.height = 'Height is required';
@@ -207,7 +212,7 @@ export default function BodyFatBurnCalculator() {
         } catch (error) {
           console.error('Error calculating body fat burn:', error);
           setCalculationError(
-            'An error occurred while calculating. Please check your inputs and try again.'
+            'An error occurred during calculation. Please check your inputs and try again.'
           );
         }
       }
@@ -235,7 +240,7 @@ export default function BodyFatBurnCalculator() {
   // Get the selected activity
   const selectedActivity = useMemo(() => ACTIVITIES.find(a => a.id === activity), [activity]);
 
-  // Form fields for the CalculatorForm component
+  // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
     () => [
       {
@@ -243,7 +248,7 @@ export default function BodyFatBurnCalculator() {
         label: 'Gender',
         type: 'radio' as const,
         value: gender,
-        onChange: setGender,
+        onChange: (value: string) => setGender(value as Gender),
         options: [
           { value: 'male', label: 'Male' },
           { value: 'female', label: 'Female' },
@@ -265,10 +270,10 @@ export default function BodyFatBurnCalculator() {
         label: 'Activity',
         type: 'select' as const,
         value: activity,
-        onChange: setActivity,
-        options: ACTIVITIES.map(act => ({
-          value: act.id,
-          label: act.name,
+        onChange: (value: string) => setActivity(value),
+        options: ACTIVITIES.map(activity => ({
+          value: activity.id,
+          label: activity.name,
         })),
       },
       {
@@ -276,7 +281,7 @@ export default function BodyFatBurnCalculator() {
         label: `Speed/Intensity (${selectedActivity?.speedUnit || 'level'})`,
         type: 'number' as const,
         value: speed,
-        onChange: setSpeed,
+        onChange: (value: number | '') => setSpeed(typeof value === 'number' ? value : 0),
         min: selectedActivity?.speedRange.min || 0,
         max: selectedActivity?.speedRange.max || 10,
         step: selectedActivity?.speedRange.step.toString() || '0.1',
@@ -286,7 +291,7 @@ export default function BodyFatBurnCalculator() {
         label: 'Duration (minutes)',
         type: 'number' as const,
         value: duration,
-        onChange: setDuration,
+        onChange: (value: number | '') => setDuration(typeof value === 'number' ? value : 0),
         min: DURATION_RANGE.min,
         max: DURATION_RANGE.max,
         step: DURATION_RANGE.step.toString(),
@@ -296,7 +301,7 @@ export default function BodyFatBurnCalculator() {
         label: 'Frequency (times per week)',
         type: 'number' as const,
         value: frequency,
-        onChange: setFrequency,
+        onChange: (value: number | '') => setFrequency(typeof value === 'number' ? value : 0),
         min: FREQUENCY_RANGE.min,
         max: FREQUENCY_RANGE.max,
         step: FREQUENCY_RANGE.step.toString(),
@@ -306,24 +311,24 @@ export default function BodyFatBurnCalculator() {
         label: `Weight Loss Goal (${weight.unit === 'kg' ? 'kg' : 'lb'})`,
         type: 'number' as const,
         value: burnGoal,
-        onChange: setBurnGoal,
+        onChange: (value: number | '') => setBurnGoal(typeof value === 'number' ? value : 0),
         min: BURN_GOAL_RANGE.min,
         max: BURN_GOAL_RANGE.max,
         step: BURN_GOAL_RANGE.step.toString(),
       },
     ],
     [
-      gender,
       age,
-      errors,
+      gender,
       height,
       weight,
       activity,
-      selectedActivity,
       speed,
       duration,
       frequency,
       burnGoal,
+      errors,
+      selectedActivity,
     ]
   );
 
@@ -345,7 +350,7 @@ export default function BodyFatBurnCalculator() {
             url="/body-fat-burn"
             title="Body Fat Burn Calculator | Activity & Weight Loss Planner"
             description="Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals through exercise."
-            hashtags={SOCIAL_HASHTAGS}
+            hashtags={['fitness', 'weightloss', 'calorieburn', 'exercise']}
           />
         </div>
 
@@ -357,14 +362,16 @@ export default function BodyFatBurnCalculator() {
               onSubmit={handleSubmit}
               onReset={handleReset}
             />
-          </div>
 
-          <div className="md:col-span-2" id="body-fat-burn-result">
+            {/* User-facing error state */}
             {calculationError && (
-              <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
                 {calculationError}
               </div>
             )}
+          </div>
+
+          <div className="md:col-span-2" id="body-fat-burn-result">
             {showResult && result ? (
               <>
                 <BodyFatBurnResultDisplay

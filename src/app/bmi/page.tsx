@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import {
   calculateBMI,
   getBMICategory,
@@ -16,20 +17,22 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BMIResultDisplay from '@/components/calculators/bmi/BMIResult';
 import BMIInfo from '@/components/calculators/bmi/BMIInfo';
-import BMIUnderstanding from '@/components/calculators/bmi/BMIUnderstanding';
 import Breadcrumb from '@/components/Breadcrumb';
 import StructuredData from '@/components/StructuredData';
 import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
 import {
   useHeight,
   useWeight,
   createHeightField,
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
+
+// Dynamic imports for below-the-fold components
+const BMIUnderstanding = dynamic(() => import('@/components/calculators/bmi/BMIUnderstanding'));
+const FAQSection = dynamic(() => import('@/components/FAQSection'));
+const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
+const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for BMI calculator
 const faqs = [
@@ -115,10 +118,14 @@ export default function BMICalculator() {
   const [result, setResult] = useState<BMIResult | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
 
+  // State for user-facing calculation errors
+  const [calculationError, setCalculationError] = useState<string | null>(null);
+
   // Handle form submission
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
+      setCalculationError(null);
 
       // Validate form using validation utilities
       const newErrors: {
@@ -172,65 +179,72 @@ export default function BMICalculator() {
         heightCm !== null &&
         weightKg !== null
       ) {
-        // Set isChild based on age
-        const childStatus = age < 20;
-        setIsChild(childStatus);
+        try {
+          // Set isChild based on age
+          const childStatus = age < 20;
+          setIsChild(childStatus);
 
-        // Calculate BMI
-        const bmi = calculateBMI(heightCm, weightKg);
+          // Calculate BMI
+          const bmi = calculateBMI(heightCm, weightKg);
 
-        // Get healthy weight range
-        const healthyWeightRange = calculateHealthyWeightRange(heightCm);
+          // Get healthy weight range
+          const healthyWeightRange = calculateHealthyWeightRange(heightCm);
 
-        // Convert healthy weight range to the current unit
-        const displayHealthyWeightRange = {
-          min:
-            weight.unit === 'kg'
-              ? healthyWeightRange.min
-              : convertWeight(healthyWeightRange.min, 'kg', 'lb'),
-          max:
-            weight.unit === 'kg'
-              ? healthyWeightRange.max
-              : convertWeight(healthyWeightRange.max, 'kg', 'lb'),
-        };
-
-        // Create result object
-        let bmiResult: BMIResult;
-
-        if (childStatus) {
-          // For children
-          const percentile = estimateBMIPercentile(bmi, age, gender);
-          const { name: category, color } = getBMIPercentileCategory(percentile);
-
-          bmiResult = {
-            bmi: Math.round(bmi * 10) / 10,
-            category,
-            color,
-            healthyWeightRange: displayHealthyWeightRange,
-            percentile,
+          // Convert healthy weight range to the current unit
+          const displayHealthyWeightRange = {
+            min:
+              weight.unit === 'kg'
+                ? healthyWeightRange.min
+                : convertWeight(healthyWeightRange.min, 'kg', 'lb'),
+            max:
+              weight.unit === 'kg'
+                ? healthyWeightRange.max
+                : convertWeight(healthyWeightRange.max, 'kg', 'lb'),
           };
-        } else {
-          // For adults
-          const { name: category, color } = getBMICategory(bmi);
 
-          bmiResult = {
-            bmi: Math.round(bmi * 10) / 10,
-            category,
-            color,
-            healthyWeightRange: displayHealthyWeightRange,
-          };
-        }
+          // Create result object
+          let bmiResult: BMIResult;
 
-        setResult(bmiResult);
-        setShowResult(true);
+          if (childStatus) {
+            // For children
+            const percentile = estimateBMIPercentile(bmi, age, gender);
+            const { name: category, color } = getBMIPercentileCategory(percentile);
 
-        // Scroll to result with smooth animation
-        setTimeout(() => {
-          const resultElement = document.getElementById('bmi-result');
-          if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            bmiResult = {
+              bmi: Math.round(bmi * 10) / 10,
+              category,
+              color,
+              healthyWeightRange: displayHealthyWeightRange,
+              percentile,
+            };
+          } else {
+            // For adults
+            const { name: category, color } = getBMICategory(bmi);
+
+            bmiResult = {
+              bmi: Math.round(bmi * 10) / 10,
+              category,
+              color,
+              healthyWeightRange: displayHealthyWeightRange,
+            };
           }
-        }, 100);
+
+          setResult(bmiResult);
+          setShowResult(true);
+
+          // Scroll to result with smooth animation
+          setTimeout(() => {
+            const resultElement = document.getElementById('bmi-result');
+            if (resultElement) {
+              resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        } catch (error) {
+          console.error('Error calculating BMI:', error);
+          setCalculationError(
+            'An error occurred during calculation. Please check your inputs and try again.'
+          );
+        }
       }
     },
     [age, gender, height, weight]
@@ -245,9 +259,10 @@ export default function BMICalculator() {
     setErrors({});
     setResult(null);
     setShowResult(false);
+    setCalculationError(null);
   }, [height, weight]);
 
-  // Form fields for the CalculatorForm component
+  // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
     () => [
       {
@@ -264,7 +279,7 @@ export default function BMICalculator() {
         label: 'Gender',
         type: 'radio' as const,
         value: gender,
-        onChange: setGender,
+        onChange: (value: string) => setGender(value as Gender),
         options: [
           { value: 'male', label: 'Male' },
           { value: 'female', label: 'Female' },
@@ -306,6 +321,13 @@ export default function BMICalculator() {
               onSubmit={handleSubmit}
               onReset={handleReset}
             />
+
+            {/* User-facing error state */}
+            {calculationError && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+                {calculationError}
+              </div>
+            )}
           </div>
 
           <div className="md:col-span-2" id="bmi-result">

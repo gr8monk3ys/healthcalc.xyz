@@ -261,7 +261,7 @@ export default function CalorieDeficitCalculator() {
       label: 'Gender',
       type: 'radio' as const,
       value: gender,
-      onChange: setGender,
+      onChange: (value: string) => setGender(value as Gender),
       options: [
         { value: 'male', label: 'Male' },
         { value: 'female', label: 'Female' },
@@ -316,7 +316,7 @@ export default function CalorieDeficitCalculator() {
       label: 'Activity Level',
       type: 'select' as const,
       value: activityLevel,
-      onChange: setActivityLevel,
+      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
       options: ACTIVITY_MULTIPLIERS.map(level => ({
         value: level.level,
         label: level.label,
@@ -328,7 +328,7 @@ export default function CalorieDeficitCalculator() {
       label: 'Deficit Level',
       type: 'select' as const,
       value: deficitLevel,
-      onChange: setDeficitLevel,
+      onChange: (value: string) => setDeficitLevel(value as 'mild' | 'moderate' | 'aggressive'),
       options: DEFICIT_OPTIONS.map(option => ({
         value: option.level,
         label: option.label,
