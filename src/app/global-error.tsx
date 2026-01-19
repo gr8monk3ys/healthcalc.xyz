@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'GlobalError', level: 'critical' });
 
 /**
  * Global error boundary for app-level errors
@@ -17,7 +20,9 @@ export default function GlobalError({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error('Global error:', error);
+    logger.logError('Critical global error occurred', error, {
+      digest: error.digest,
+    });
   }, [error]);
 
   return (

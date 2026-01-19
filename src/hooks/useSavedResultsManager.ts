@@ -4,6 +4,9 @@
 
 import { useSavedResults } from '@/context/SavedResultsContext';
 import { useState } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'useSavedResultsManager' });
 
 /**
  * Custom hook for managing saved calculator results
@@ -68,7 +71,7 @@ export function useSavedResultsManager() {
       showNotification('Result saved successfully');
       return true;
     } catch (error) {
-      console.error('Error saving result:', error);
+      logger.logError('Error saving result', error);
       showNotification('Error saving result');
       return false;
     }
@@ -83,7 +86,7 @@ export function useSavedResultsManager() {
       removeResultFromContext(id);
       showNotification('Result removed');
     } catch (error) {
-      console.error('Error removing result:', error);
+      logger.logError('Error removing result', error);
       showNotification('Error removing result');
     }
   }
@@ -105,7 +108,7 @@ export function useSavedResultsManager() {
       showNotification('Result removed');
       return true;
     } catch (error) {
-      console.error('Error removing result:', error);
+      logger.logError('Error removing result', error);
       showNotification('Error removing result');
       return false;
     }

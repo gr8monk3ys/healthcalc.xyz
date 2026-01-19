@@ -1,6 +1,9 @@
 // Rule: Move localStorage logic to dedicated hooks/utilities for better separation of concerns
 
 import { useState, useCallback, useEffect } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'useLocalStorage' });
 
 export interface LocalStorageError {
   type: 'read' | 'write' | 'remove';
@@ -42,7 +45,7 @@ export function useLocalStorage<T>(
         message: err instanceof Error ? err.message : 'Failed to read from localStorage',
         key,
       };
-      console.error(`Error reading localStorage key "${key}":`, err);
+      logger.logError(`Error reading localStorage key "${key}"`, err);
       setError(storageError);
       options?.onError?.(storageError);
       return initialValue;
@@ -80,7 +83,7 @@ export function useLocalStorage<T>(
               : 'Failed to write to localStorage (storage may be full)',
           key,
         };
-        console.error(`Error setting localStorage key "${key}":`, err);
+        logger.logError(`Error setting localStorage key "${key}"`, err);
         setError(storageError);
         options?.onError?.(storageError);
       }
@@ -102,7 +105,7 @@ export function useLocalStorage<T>(
         message: err instanceof Error ? err.message : 'Failed to remove from localStorage',
         key,
       };
-      console.error(`Error removing localStorage key "${key}":`, err);
+      logger.logError(`Error removing localStorage key "${key}"`, err);
       setError(storageError);
       options?.onError?.(storageError);
     }
@@ -138,7 +141,7 @@ export function getFromLocalStorage<T>(key: string, defaultValue: T): T {
     const item = window.localStorage.getItem(key);
     return item ? JSON.parse(item) : defaultValue;
   } catch (error) {
-    console.error(`Error reading localStorage key "${key}":`, error);
+    logger.logError(`Error reading localStorage key "${key}"`, error);
     return defaultValue;
   }
 }
@@ -158,7 +161,7 @@ export function setToLocalStorage<T>(key: string, value: T): boolean {
     window.localStorage.setItem(key, JSON.stringify(value));
     return true;
   } catch (error) {
-    console.error(`Error writing to localStorage key "${key}":`, error);
+    logger.logError(`Error writing to localStorage key "${key}"`, error);
     return false;
   }
 }
@@ -177,7 +180,7 @@ export function removeFromLocalStorage(key: string): boolean {
     window.localStorage.removeItem(key);
     return true;
   } catch (error) {
-    console.error(`Error removing localStorage key "${key}":`, error);
+    logger.logError(`Error removing localStorage key "${key}"`, error);
     return false;
   }
 }

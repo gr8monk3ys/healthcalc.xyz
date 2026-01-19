@@ -2,6 +2,9 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'ErrorBoundary', level: 'route' });
 
 /**
  * Error boundary for route-level errors
@@ -17,7 +20,9 @@ export default function Error({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error('Route error:', error);
+    logger.logError('Route error occurred', error, {
+      digest: error.digest,
+    });
   }, [error]);
 
   return (
