@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
+import { createLogger } from '@/utils/logger';
 import dynamic from 'next/dynamic';
+
+const logger = createLogger({ component: 'BodyFatBurnCalculator' });
 import { Gender, UnitSystem } from '@/types/common';
 import { BodyFatBurnResult as BodyFatBurnResultType } from '@/types/bodyFatBurn';
 import { calculateBodyFatBurn } from '@/utils/calculators/bodyFatBurn';
@@ -210,7 +213,7 @@ export default function BodyFatBurnCalculator() {
             }
           }, 100);
         } catch (error) {
-          console.error('Error calculating body fat burn:', error);
+          logger.logError('Error calculating body fat burn', error);
           setCalculationError(
             'An error occurred during calculation. Please check your inputs and try again.'
           );

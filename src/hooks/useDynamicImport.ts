@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'useDynamicImport' });
 
 /**
  * Hook for dynamically importing components only when needed
@@ -30,7 +33,7 @@ export function useDynamicImport<T = Record<string, unknown>>(
       const loadedModule = await importFn();
       setComponent(() => loadedModule.default);
     } catch (err) {
-      console.error('Failed to dynamically load component', err);
+      logger.logError('Failed to dynamically load component', err);
       setError(err instanceof Error ? err : new Error(String(err)));
     } finally {
       setIsLoading(false);

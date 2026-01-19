@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'BMICalculator' });
 import dynamic from 'next/dynamic';
 import {
   calculateBMI,
@@ -240,7 +243,7 @@ export default function BMICalculator() {
             }
           }, 100);
         } catch (error) {
-          console.error('Error calculating BMI:', error);
+          logger.logError('Error calculating BMI', error);
           setCalculationError(
             'An error occurred during calculation. Please check your inputs and try again.'
           );

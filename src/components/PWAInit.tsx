@@ -2,6 +2,9 @@
 
 import { useEffect } from 'react';
 import { registerServiceWorker, checkForUpdates } from '@/utils/serviceWorker';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'PWAInit' });
 
 /**
  * PWAInit Component
@@ -14,7 +17,7 @@ export default function PWAInit() {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       // Register the service worker
       registerServiceWorker().catch(error => {
-        console.error('Service Worker registration failed:', error);
+        logger.logError('Service Worker registration failed', error);
       });
 
       // Check for updates

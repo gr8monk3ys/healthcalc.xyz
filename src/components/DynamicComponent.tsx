@@ -2,6 +2,9 @@
 
 import React, { Suspense } from 'react';
 import { useDynamicImport } from '@/hooks/useDynamicImport';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'DynamicComponent' });
 
 interface DynamicComponentProps {
   importFn: () => Promise<{ default: React.ComponentType<Record<string, unknown>> }>;
@@ -78,7 +81,7 @@ export function createLazyComponent<T extends Record<string, unknown> = Record<s
     try {
       return await importFn();
     } catch (error) {
-      console.error('Failed to load component:', error);
+      logger.logError('Failed to load component', error);
       return {
         default: () => (
           <div className="p-4 border border-red-200 bg-red-50 text-red-500 rounded-lg">

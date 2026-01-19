@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'TDEECalculator' });
 import dynamic from 'next/dynamic';
 import { ActivityLevel, Gender } from '@/types/common';
 import { calculateBMR, calculateTDEE, getActivityMultiplier } from '@/utils/calculators/tdee';
@@ -223,7 +226,7 @@ export default function TDEECalculator() {
             }
           }, 100);
         } catch (error) {
-          console.error('Error calculating TDEE:', error);
+          logger.logError('Error calculating TDEE', error);
           setCalculationError(
             'An error occurred during calculation. Please check your inputs and try again.'
           );

@@ -2,6 +2,10 @@
  * Performance utility functions for optimizing Core Web Vitals
  */
 
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'Performance' });
+
 // Type definitions for browser APIs
 interface PerformanceEventTiming extends PerformanceEntry {
   processingStart: number;
@@ -145,7 +149,7 @@ export function measureCoreWebVitals(): void {
     });
     clsObserver.observe({ type: 'layout-shift', buffered: true });
   } catch (e) {
-    console.error('Error measuring Core Web Vitals:', e);
+    logger.logError('Error measuring Core Web Vitals', e);
   }
 }
 

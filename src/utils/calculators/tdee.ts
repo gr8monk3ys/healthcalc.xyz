@@ -21,9 +21,12 @@
  * TDEE = BMR × Activity Factor
  */
 
+import { createLogger } from '@/utils/logger';
 import { TDEEFormValues, TDEEResult } from '@/types/tdee';
 import { ACTIVITY_MULTIPLIERS, TDEE_FORMULAS, WEIGHT_GOAL_ADJUSTMENTS } from '@/constants/tdee';
 import { convertWeight, heightFtInToCm } from '@/utils/conversions';
+
+const logger = createLogger({ component: 'TDEECalculator' });
 
 /**
  * Calculates Basal Metabolic Rate (BMR) using the specified formula
@@ -86,7 +89,7 @@ export function getActivityMultiplier(activityLevel: string): number {
 
   if (!activity) {
     // Default to sedentary if not found
-    console.warn(`Activity level '${activityLevel}' not found, defaulting to sedentary`);
+    logger.warn(`Activity level '${activityLevel}' not found, defaulting to sedentary`);
     return 1.2;
   }
 
@@ -182,7 +185,7 @@ export function processTDEECalculation(values: TDEEFormValues): TDEEResult {
       weightGoals,
     };
   } catch (error) {
-    console.error('Error calculating TDEE:', error);
+    logger.logError('Error calculating TDEE', error);
     throw error;
   }
 }

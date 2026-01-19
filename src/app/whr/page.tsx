@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
+import { createLogger } from '@/utils/logger';
 import dynamic from 'next/dynamic';
+
+const logger = createLogger({ component: 'WHRCalculator' });
 import { Gender } from '@/types/common';
 import { WHRResult as WHRResultType } from '@/types/whr';
 import { calculateWHRWithCategory } from '@/utils/calculators/whr';
@@ -165,7 +168,7 @@ export default function WHRCalculator() {
             }
           }, 100);
         } catch (error) {
-          console.error('Error calculating WHR:', error);
+          logger.logError('Error calculating WHR', error);
           setCalculationError(
             'An error occurred during calculation. Please check your inputs and try again.'
           );

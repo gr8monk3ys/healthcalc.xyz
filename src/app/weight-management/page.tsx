@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'WeightManagementCalculator' });
 import { Gender, ActivityLevel, HeightUnit, WeightUnit } from '@/types/common';
 import { WeightManagementResult, DietType, GoalType } from '@/types/weightManagement';
 import { calculateWeightManagement } from '@/app/api/weightManagement';
@@ -234,7 +237,7 @@ export default function WeightManagementCalculator() {
           }
         }, 100);
       } catch (error) {
-        console.error('Error calculating weight management plan:', error);
+        logger.logError('Error calculating weight management plan', error);
         if (error instanceof Error) {
           setErrors({ ...newErrors, goalWeight: error.message });
         }

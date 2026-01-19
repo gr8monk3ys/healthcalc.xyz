@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'CalorieDeficitCalculator' });
 import { Gender, ActivityLevel, HeightUnit, WeightUnit } from '@/types/common';
 import { CalorieDeficitResult as CalorieDeficitResultType } from '@/types/calorieDeficit';
 import { calculateCalorieDeficit } from '@/app/api/calorieDeficit';
@@ -203,7 +206,7 @@ export default function CalorieDeficitCalculator() {
           }
         }, 100);
       } catch (error) {
-        console.error('Error calculating calorie deficit:', error);
+        logger.logError('Error calculating calorie deficit', error);
         if (error instanceof Error) {
           setErrors({ ...newErrors, goalWeight: error.message });
         }

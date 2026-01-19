@@ -3,6 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'Search' });
 
 interface SearchResult {
   title: string;
@@ -68,7 +71,7 @@ export default function Search({
         const data = await response.json();
         setSearchIndex(data);
       } catch (error) {
-        console.error('Error loading search index:', error);
+        logger.logError('Error loading search index', error);
         // Fallback to empty index
         setSearchIndex({});
       }

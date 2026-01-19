@@ -3,6 +3,10 @@
  * This enables offline functionality and improves performance
  */
 
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'ServiceWorker' });
+
 // Type definitions for browser APIs
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -32,7 +36,7 @@ export function registerServiceWorker(): Promise<ServiceWorkerRegistration | und
       return registration;
     })
     .catch(error => {
-      console.error('Service Worker registration failed:', error);
+      logger.logError('Service Worker registration failed', error);
       return undefined;
     });
 }

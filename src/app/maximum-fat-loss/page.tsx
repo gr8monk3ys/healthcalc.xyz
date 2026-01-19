@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import { createLogger } from '@/utils/logger';
+
+const logger = createLogger({ component: 'MaximumFatLossCalculator' });
 import { Gender, ActivityLevel, HeightUnit, WeightUnit } from '@/types/common';
 import { MaximumFatLossResult } from '@/types/maximumFatLoss';
 import { calculateMaximumFatLoss } from '@/app/api/maximumFatLoss';
@@ -199,7 +202,7 @@ export default function MaximumFatLossCalculator() {
           }
         }, 100);
       } catch (error) {
-        console.error('Error calculating maximum fat loss:', error);
+        logger.logError('Error calculating maximum fat loss', error);
         if (error instanceof Error) {
           setErrors({ ...newErrors, bodyFatPercentage: error.message });
         }

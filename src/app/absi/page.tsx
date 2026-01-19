@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
+import { createLogger } from '@/utils/logger';
 import dynamic from 'next/dynamic';
+
+const logger = createLogger({ component: 'ABSICalculator' });
 import { Gender } from '@/types/common';
 import { ABSIResult as ABSIResultType } from '@/types/absi';
 import { calculateABSIMetrics } from '@/utils/calculators/absi';
@@ -202,7 +205,7 @@ export default function ABSICalculator() {
             }
           }, 100);
         } catch (error) {
-          console.error('Error calculating ABSI:', error);
+          logger.logError('Error calculating ABSI', error);
           setCalculationError(
             'An error occurred during calculation. Please check your inputs and try again.'
           );

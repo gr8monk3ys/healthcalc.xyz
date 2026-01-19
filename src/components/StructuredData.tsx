@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { createLogger } from '@/utils/logger';
 // Import schema utility functions for re-export
 import * as schemaUtils from '@/utils/schema';
+
+const logger = createLogger({ component: 'StructuredData' });
 
 // Re-export all schema utility functions
 export const {
@@ -37,7 +40,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
           }
         } catch (e) {
           // If parsing fails, leave the script alone
-          console.error('Error parsing existing JSON-LD:', e);
+          logger.logError('Error parsing existing JSON-LD', e);
         }
       });
     }
