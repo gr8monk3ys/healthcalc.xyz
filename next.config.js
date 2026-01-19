@@ -83,10 +83,12 @@ const sentryWebpackPluginOptions = {
   tunnelRoute: '/monitoring',
 
   // Use the new webpack treeshake option instead of deprecated disableLogger
+  // Also disable automatic middleware instrumentation (fixes Next.js 16 compatibility issue)
   webpack: {
     treeshake: {
       removeDebugLogging: true,
     },
+    autoInstrumentMiddleware: false,
   },
 };
 
