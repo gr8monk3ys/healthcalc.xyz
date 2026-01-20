@@ -1,6 +1,6 @@
 // Rule: Move localStorage logic to dedicated hooks/utilities for better separation of concerns
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { createLogger } from '@/utils/logger';
 
 const logger = createLogger({ component: 'useLocalStorage' });
@@ -54,6 +54,11 @@ export function useLocalStorage<T>(
 
   const [storedValue, setStoredValue] = useState<T>(getStoredValue);
 
+  // Use a ref to track current value to avoid setValue depending on storedValue
+  // This prevents infinite loops when setValue is used in useEffect dependencies
+  const storedValueRef = useRef<T>(storedValue);
+  storedValueRef.current = storedValue;
+
   // Clear error when key changes
   useEffect(() => {
     setError(null);
@@ -65,7 +70,8 @@ export function useLocalStorage<T>(
     (value: T | ((val: T) => T)): void => {
       try {
         // Allow value to be a function so we have the same API as useState
-        const valueToStore = value instanceof Function ? value(storedValue) : value;
+        // Use ref to get current value without depending on storedValue in deps
+        const valueToStore = value instanceof Function ? value(storedValueRef.current) : value;
 
         setStoredValue(valueToStore);
         setError(null);
@@ -88,7 +94,7 @@ export function useLocalStorage<T>(
         options?.onError?.(storageError);
       }
     },
-    [key, storedValue, options]
+    [key, options]
   );
 
   // Function to remove the item from localStorage
