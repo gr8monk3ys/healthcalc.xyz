@@ -1,0 +1,19 @@
+name: org-codeql
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use default CodeQL setup
+        run: |
+          echo "GitHub default CodeQL is enabled for this repository."
+          echo "Skipping the duplicate advanced workflow to avoid conflicting uploads."

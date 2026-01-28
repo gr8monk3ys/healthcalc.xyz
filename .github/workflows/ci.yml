@@ -1,0 +1,163 @@
+permissions: read-all
+
+name: CI/CD Pipeline
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  quality-checks:
+    name: Code Quality & Testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Install Bun
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://bun.sh/install | bash
+          echo "${HOME}/.bun/bin" >> "$GITHUB_PATH"
+          "${HOME}/.bun/bin/bun" --version
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run format check
+        run: bun run format:check
+
+      - name: Run linting
+        run: bun run lint
+
+      - name: Run type checking
+        run: bun run type-check
+
+      - name: Run tests
+        run: bun run test -- --run --coverage
+
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/coverage-final.json
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Build project
+        run: bun run build
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
+
+      - name: Start production server
+        run: bun run start &
+
+      - name: Wait for server to be ready
+        run: |
+          echo "Waiting for server..."
+          timeout 60 bash -c 'until curl -sf http://127.0.0.1:3000 > /dev/null 2>&1; do sleep 1; done'
+          echo "Server is ready."
+
+      - name: Run smoke checks
+        run: bun run smoke
+        env:
+          SMOKE_BASE_URL: http://127.0.0.1:3000
+
+      - name: Run E2E tests
+        run: bun run test:e2e
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Check bundle size
+        run: |
+          echo "Bundle size analysis:"
+          du -sh .next/static
+
+  lighthouse:
+    name: Lighthouse Performance Check
+    runs-on: ubuntu-latest
+    needs: quality-checks
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Install Bun
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://bun.sh/install | bash
+          echo "${HOME}/.bun/bin" >> "$GITHUB_PATH"
+          "${HOME}/.bun/bin/bun" --version
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build project
+        run: bun run build
+
+      - name: Start production server
+        run: bun run start &
+
+      - name: Wait for server to be ready
+        run: |
+          echo "Waiting for server..."
+          timeout 60 bash -c 'until curl -sf http://localhost:3000 > /dev/null 2>&1; do sleep 1; done'
+          echo "Server is ready."
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@fcd65974f7c4c2bf0ee9d09b84d2489183c29726
+        with:
+          urls: |
+            http://localhost:3000
+            http://localhost:3000/bmi
+            http://localhost:3000/tdee
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Install Bun
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://bun.sh/install | bash
+          echo "${HOME}/.bun/bin" >> "$GITHUB_PATH"
+          "${HOME}/.bun/bin/bun" --version
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Check for vulnerabilities
+        # audit-ci doesn't support bun.lock; use bun's native audit instead
+        run: bun audit --level high

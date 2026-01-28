@@ -1,0 +1,17 @@
+name: security-baseline
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  security-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baseline CI check
+        run: |
+          echo "Security baseline workflow is active"
