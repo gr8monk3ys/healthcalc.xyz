@@ -1,9 +1,32 @@
-/* Import animations - must come before other rules */
+/* Tailwind CSS v4 */
+@import 'tailwindcss';
+
+/* Import animations - must come after tailwindcss */
 @import '../styles/animations.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Custom theme values for Tailwind v4 */
+@theme {
+  --radius-neumorph: 1rem;
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-slide-in-up: slideInUp 0.5s ease-out;
+  --animate-pulse: pulse 2s infinite ease-in-out;
+  --animate-bounce: bounce 2s infinite;
+  --animate-shimmer: shimmer 2s infinite;
+}
+
+/* Custom utility for neumorph border radius */
+@utility rounded-neumorph {
+  border-radius: var(--radius-neumorph);
+}
 
 :root {
   --background: #f0f2f5;
@@ -49,97 +72,145 @@ body {
     color 0.3s ease;
 }
 
-@layer components {
-  .neumorph {
-    background-color: var(--primary);
-    @apply rounded-neumorph;
-    box-shadow:
-      5px 5px 10px var(--neumorph-shadow-2),
-      -5px -5px 10px var(--neumorph-shadow-1);
-  }
+/* Neumorph component styles - no @apply for custom classes in Tailwind v4 */
+.neumorph {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    5px 5px 10px var(--neumorph-shadow-2),
+    -5px -5px 10px var(--neumorph-shadow-1);
+}
 
-  .neumorph-inset {
-    background-color: var(--primary);
-    @apply rounded-neumorph;
-    box-shadow:
-      inset 5px 5px 10px var(--neumorph-shadow-2),
-      inset -5px -5px 10px var(--neumorph-shadow-1);
-  }
+.neumorph-inset {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1);
+}
 
-  .neumorph-flat {
-    background-color: var(--primary);
-    @apply rounded-neumorph;
-    box-shadow:
-      2px 2px 5px var(--neumorph-shadow-2),
-      -2px -2px 5px var(--neumorph-shadow-1);
-  }
+.neumorph-flat {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    2px 2px 5px var(--neumorph-shadow-2),
+    -2px -2px 5px var(--neumorph-shadow-1);
+}
 
-  .neumorph-btn {
-    @apply neumorph px-4 py-2 transition-all duration-200;
-  }
+.neumorph-btn {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    5px 5px 10px var(--neumorph-shadow-2),
+    -5px -5px 10px var(--neumorph-shadow-1);
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
 
-  .neumorph-btn:hover,
-  .neumorph-btn:active {
-    box-shadow:
-      inset 5px 5px 10px var(--neumorph-shadow-2),
-      inset -5px -5px 10px var(--neumorph-shadow-1);
-  }
+.neumorph-btn:hover,
+.neumorph-btn:active {
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1);
+}
 
-  .neumorph-card {
-    @apply neumorph p-6 mb-6;
-  }
+.neumorph-card {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    5px 5px 10px var(--neumorph-shadow-2),
+    -5px -5px 10px var(--neumorph-shadow-1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 
-  .neumorph-input {
-    @apply neumorph-inset px-4 py-2 w-full focus:outline-none;
-  }
+.neumorph-input {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1);
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
 
-  .neumorph-select {
-    @apply neumorph-inset px-4 py-2 w-full focus:outline-none appearance-none;
-  }
+.neumorph-input:focus {
+  outline: none;
+}
 
-  .neumorph-slider {
-    @apply w-full h-2 neumorph-inset appearance-none cursor-pointer;
-  }
+.neumorph-select {
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  appearance: none;
+}
 
-  .neumorph-slider::-webkit-slider-thumb {
-    @apply appearance-none w-6 h-6 rounded-full border-0;
-    background-color: var(--accent);
-    box-shadow:
-      2px 2px 5px var(--neumorph-shadow-2),
-      -2px -2px 5px var(--neumorph-shadow-1);
-  }
+.neumorph-select:focus {
+  outline: none;
+}
 
-  .neumorph-slider::-moz-range-thumb {
-    @apply w-6 h-6 rounded-full border-0;
-    background-color: var(--accent);
-    box-shadow:
-      2px 2px 5px var(--neumorph-shadow-2),
-      -2px -2px 5px var(--neumorph-shadow-1);
-  }
+.neumorph-slider {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--primary);
+  border-radius: var(--radius-neumorph);
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1);
+  appearance: none;
+  cursor: pointer;
+}
 
-  /* Radio button styles */
-  input[type='radio']:checked ~ div .radio-dot {
-    @apply opacity-100 scale-100;
-  }
+.neumorph-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 0;
+  background-color: var(--accent);
+  box-shadow:
+    2px 2px 5px var(--neumorph-shadow-2),
+    -2px -2px 5px var(--neumorph-shadow-1);
+}
 
-  input[type='radio']:focus ~ div {
-    @apply ring-2 ring-accent;
-  }
+.neumorph-slider::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 0;
+  background-color: var(--accent);
+  box-shadow:
+    2px 2px 5px var(--neumorph-shadow-2),
+    -2px -2px 5px var(--neumorph-shadow-1);
+}
 
-  /* Animation classes */
-  .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-  }
+/* Radio button styles */
+input[type='radio']:checked ~ div .radio-dot {
+  opacity: 1;
+  transform: scale(1);
+}
 
-  .slide-in-up {
-    animation: slideInUp 0.5s ease-out;
-  }
+input[type='radio']:focus ~ div {
+  box-shadow: 0 0 0 2px var(--accent);
+}
 
-  .pulse {
-    animation: pulse 2s infinite ease-in-out;
-  }
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
 
-  .bounce {
-    animation: bounce 2s infinite;
-  }
+.slide-in-up {
+  animation: slideInUp 0.5s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
 }
