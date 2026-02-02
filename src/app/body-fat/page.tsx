@@ -29,6 +29,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatResultDisplay from '@/components/calculators/body-fat/BodyFatResult';
 import BodyFatInfo from '@/components/calculators/body-fat/BodyFatInfo';
+import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -414,6 +415,17 @@ export default function BodyFatCalculator() {
         </div>
 
         <BodyFatUnderstanding />
+
+        {/* Recommended Products - shown after calculation */}
+        {showResult && result && (
+          <AffiliateLinks
+            calculatorType="body-fat"
+            title="Recommended Products for Body Composition Tracking"
+            maxProducts={6}
+            showDisclosure={true}
+            className="my-8"
+          />
+        )}
       </div>
     </ErrorBoundary>
   );

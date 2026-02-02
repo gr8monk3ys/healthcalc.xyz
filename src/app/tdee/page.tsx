@@ -17,6 +17,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import StructuredData from '@/components/StructuredData';
 import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
+import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -365,6 +366,17 @@ export default function TDEECalculator() {
         <FAQSection faqs={faqs} title="Frequently Asked Questions About TDEE" className="mb-8" />
 
         <TDEEUnderstanding />
+
+        {/* Recommended Products - shown after calculation */}
+        {showResult && result && (
+          <AffiliateLinks
+            calculatorType="tdee"
+            title="Tools to Help You Manage Your Calories"
+            maxProducts={6}
+            showDisclosure={true}
+            className="my-8"
+          />
+        )}
 
         {/* Related Articles Section */}
         <RelatedArticles

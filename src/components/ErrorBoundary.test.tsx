@@ -35,7 +35,7 @@ describe('ErrorBoundary', () => {
 
   afterEach(() => {
     console.error = originalConsoleError;
-    process.env.NODE_ENV = originalNodeEnv;
+    vi.unstubAllEnvs();
   });
 
   describe('Normal Rendering', () => {
@@ -117,7 +117,7 @@ describe('ErrorBoundary', () => {
     });
 
     it('should show error message in development mode', () => {
-      process.env.NODE_ENV = 'development';
+      vi.stubEnv('NODE_ENV', 'development');
 
       render(
         <ErrorBoundary>
@@ -129,7 +129,7 @@ describe('ErrorBoundary', () => {
     });
 
     it('should not show error message in production mode', () => {
-      process.env.NODE_ENV = 'production';
+      vi.stubEnv('NODE_ENV', 'production');
 
       render(
         <ErrorBoundary>
