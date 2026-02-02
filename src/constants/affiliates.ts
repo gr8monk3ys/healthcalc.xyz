@@ -11,7 +11,10 @@ export type CalculatorType =
   | 'maximum-fat-loss'
   | 'absi'
   | 'whr'
-  | 'conversions';
+  | 'conversions'
+  | 'macro'
+  | 'protein'
+  | 'one-rep-max';
 
 export type ProductCategory =
   | 'fitness-tracker'
@@ -259,6 +262,9 @@ export const CALCULATOR_PRODUCT_MAPPING: Record<CalculatorType, ProductCategory[
   absi: ['smart-scale', 'meal-delivery', 'fitness-app'],
   whr: ['smart-scale', 'fitness-tracker', 'equipment'],
   conversions: ['fitness-app', 'smart-scale'],
+  macro: ['meal-delivery', 'fitness-app', 'supplement'],
+  protein: ['supplement', 'meal-delivery', 'fitness-app'],
+  'one-rep-max': ['equipment', 'fitness-app', 'supplement'],
 };
 
 // Helper function to get products for a specific calculator type

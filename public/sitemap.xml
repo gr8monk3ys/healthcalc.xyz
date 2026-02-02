@@ -107,7 +107,37 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+  <url>
+    <loc>https://www.heathcheck.info/macro</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.heathcheck.info/images/calculators/macro-calculator.jpg</image:loc>
+      <image:title>Macro Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.heathcheck.info/one-rep-max</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.heathcheck.info/images/calculators/one-rep-max-calculator.jpg</image:loc>
+      <image:title>One Rep Max Calculator</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.heathcheck.info/protein</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.heathcheck.info/images/calculators/protein-calculator.jpg</image:loc>
+      <image:title>Protein Intake Calculator</image:title>
+    </image:image>
+  </url>
+
   <!-- Blog Pages -->
   <url>
     <loc>https://www.heathcheck.info/blog</loc>
