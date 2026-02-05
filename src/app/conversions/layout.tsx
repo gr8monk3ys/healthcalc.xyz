@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export const metadata: Metadata = {
   title: 'Unit Converter | Measurement Conversions | HealthCheck',
   description:
-    'Convert between different units of measurement for weight, height, volume, temperature, and energy. Easy-to-use unit conversion tool.',
+    'Convert weight, height, volume, temperature, and energy units quickly and accurately.',
   keywords:
     'unit converter, measurement conversion, weight converter, height converter, metric to imperial, kg to lbs, cm to feet',
   alternates: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Unit Converter | Measurement Conversions | HealthCheck',
     description:
-      'Convert between different units of measurement for weight, height, volume, temperature, and energy. Easy-to-use unit conversion tool.',
+      'Convert weight, height, volume, temperature, and energy units quickly and accurately.',
     type: 'website',
     url: 'https://www.heathcheck.info/conversions',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Unit Converter | Measurement Conversions',
     description:
-      'Convert between different units for weight, height, volume, temperature, and energy.',
+      'Convert weight, height, volume, temperature, and energy units quickly and accurately.',
     images: ['/images/calculators/conversions-calculator.jpg'],
   },
 };

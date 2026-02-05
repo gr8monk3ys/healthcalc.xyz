@@ -3,13 +3,13 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Calorie Calculator | HealthCheck',
-  description: 'Calculate your daily calorie needs for maintenance, weight loss, or muscle gain.',
+  description: 'Find your daily calories for maintenance, fat loss, or muscle gain in minutes.',
   alternates: {
     canonical: 'https://www.heathcheck.info/calorie',
   },
   openGraph: {
     title: 'Calorie Calculator | HealthCheck',
-    description: 'Calculate your daily calorie needs for maintenance, weight loss, or muscle gain.',
+    description: 'Find your daily calories for maintenance, fat loss, or muscle gain in minutes.',
     type: 'website',
     url: 'https://www.heathcheck.info/calorie',
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Calorie Calculator | HealthCheck',
-    description: 'Calculate your daily calorie needs for maintenance, weight loss, or muscle gain.',
+    description: 'Find your daily calories for maintenance, fat loss, or muscle gain in minutes.',
     images: ['/images/calculators/calorie-calculator.jpg'],
   },
 };

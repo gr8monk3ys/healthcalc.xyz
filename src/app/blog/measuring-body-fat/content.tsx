@@ -2,23 +2,26 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
+import AdBlock from '@/components/AdBlock';
 import { createArticleSchema } from '@/utils/schema';
 import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
 import SocialShare from '@/components/SocialShare';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedArticles from '@/components/RelatedArticles';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
   title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
   description:
-    'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+    'Compare popular body fat measurement methods and learn which option fits your goals.',
   keywords:
     'body fat measurement, DEXA scan, skinfold calipers, Navy method, bioelectrical impedance, body fat percentage, hydrostatic weighing, accuracy, body composition',
   openGraph: {
     title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
     description:
-      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+      'Compare popular body fat measurement methods and learn which option fits your goals.',
     type: 'article',
     url: 'https://www.heathcheck.info/blog/measuring-body-fat',
     images: [
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
     description:
-      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+      'Compare popular body fat measurement methods and learn which option fits your goals.',
     images: ['/images/blog/measuring-body-fat.jpg'],
   },
   alternates: {
@@ -78,7 +81,7 @@ export default function MeasuringBodyFatPage() {
   const articleData = {
     title: 'The Pros and Cons of Different Body Fat Measurement Methods',
     description:
-      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+      'Compare popular body fat measurement methods and learn which option fits your goals.',
     url: 'https://www.heathcheck.info/blog/measuring-body-fat',
     imageUrl: 'https://www.heathcheck.info/images/blog/measuring-body-fat.jpg',
     datePublished: '2025-02-15T08:00:00Z',
@@ -110,13 +113,15 @@ export default function MeasuringBodyFatPage() {
         <SocialShare
           url="/blog/measuring-body-fat"
           title="The Pros and Cons of Different Body Fat Measurement Methods"
-          description="Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements."
+          description="Compare popular body fat measurement methods and learn which option fits your goals."
           hashtags={['bodyfat', 'fitness', 'measurement', 'dexa', 'health']}
         />
       </div>
 
       {/* Table of Contents */}
       <TableOfContents />
+
+      <AdBlock format="horizontal" />
 
       <div className="prose prose-lg max-w-none">
         <div className="neumorph p-6 rounded-lg mb-8">
@@ -716,6 +721,11 @@ export default function MeasuringBodyFatPage() {
               research or medical applications.
             </p>
           </div>
+
+          <RelatedCalculatorLinks
+            slugs={['body-fat', 'bmi', 'lean-body-mass', 'body-frame-size']}
+          />
+          <RelatedGuides />
 
           {/* Related Articles */}
           <RelatedArticles

@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export const metadata: Metadata = {
   title: 'Calorie Deficit Calculator | HealthCheck',
   description:
-    'Calculate how long it will take to reach your goal weight with different calorie deficit levels. Plan your weight loss journey effectively.',
+    'Estimate your weight-loss timeline using calorie deficit levels and goal weight targets.',
   keywords:
     'calorie deficit calculator, weight loss calculator, calorie deficit, weight loss timeline, goal weight calculator',
   alternates: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Calorie Deficit Calculator | HealthCheck',
     description:
-      'Calculate how long it will take to reach your goal weight with different calorie deficit levels. Plan your weight loss journey effectively.',
+      'Estimate your weight-loss timeline using calorie deficit levels and goal weight targets.',
     type: 'website',
     url: 'https://www.heathcheck.info/calorie-deficit',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Calorie Deficit Calculator | HealthCheck',
     description:
-      'Calculate how long it will take to reach your goal weight with different calorie deficit levels.',
+      'Estimate your weight-loss timeline using calorie deficit levels and goal weight targets.',
     images: ['/images/calculators/calorie-deficit-calculator.jpg'],
   },
 };

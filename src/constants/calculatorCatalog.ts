@@ -11,6 +11,13 @@ export interface CalculatorCatalogItem {
   category: string;
   hub: string;
   image: string;
+  detail?: {
+    intro: string;
+    highlights: string[];
+    faqs: { question: string; answer: string }[];
+    relatedCalculators: string[];
+    relatedGuides: string[];
+  };
 }
 
 export const CALCULATOR_HUBS: CalculatorHub[] = [
@@ -77,6 +84,29 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Body Composition',
     hub: 'body-composition',
     image: getCalculatorImage('bmi'),
+    detail: {
+      intro:
+        'Use BMI to quickly estimate whether your weight is in a healthy range for your height.',
+      highlights: [
+        'Supports metric and imperial inputs.',
+        'Shows BMI category and healthy weight range.',
+        'Great first check before deeper body composition analysis.',
+      ],
+      faqs: [
+        {
+          question: 'Is BMI accurate for athletes?',
+          answer:
+            'BMI is a helpful screening tool, but it can overestimate risk for muscular athletes. Pair it with body fat or waist-based metrics for better context.',
+        },
+        {
+          question: 'What is a healthy BMI range?',
+          answer:
+            'Most guidelines cite 18.5–24.9 as the general healthy range for adults, but individual factors still matter.',
+        },
+      ],
+      relatedCalculators: ['body-fat', 'whr', 'absi', 'lean-body-mass'],
+      relatedGuides: ['/learn/body-composition-guide', '/learn/calorie-basics'],
+    },
   },
   {
     slug: 'body-fat',
@@ -85,6 +115,28 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Body Composition',
     hub: 'body-composition',
     image: getCalculatorImage('body-fat'),
+    detail: {
+      intro:
+        'Estimate body fat percentage using Navy, BMI-based, or manual inputs to understand fat vs lean mass.',
+      highlights: [
+        'Multiple calculation methods for flexibility.',
+        'Explains body fat categories by gender.',
+        'Pairs well with BMI and lean mass calculators.',
+      ],
+      faqs: [
+        {
+          question: 'Which body fat method is most accurate?',
+          answer:
+            'DEXA and hydrostatic weighing are most accurate, but the Navy method is a practical, reliable option for most people.',
+        },
+        {
+          question: 'How often should I measure body fat?',
+          answer: 'Every 2–4 weeks is typical; consistency matters more than frequency.',
+        },
+      ],
+      relatedCalculators: ['bmi', 'lean-body-mass', 'body-frame-size', 'absi'],
+      relatedGuides: ['/learn/body-composition-guide'],
+    },
   },
   {
     slug: 'body-frame-size',
@@ -109,6 +161,26 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Body Composition',
     hub: 'body-composition',
     image: getCalculatorImage('absi'),
+    detail: {
+      intro: 'Use ABSI to assess central obesity risk based on waist circumference and height.',
+      highlights: [
+        'Highlights abdominal fat risk.',
+        'Pairs with BMI and WHR for fuller context.',
+        'Simple inputs with clear risk categories.',
+      ],
+      faqs: [
+        {
+          question: 'Is ABSI better than BMI?',
+          answer: 'ABSI can better reflect abdominal fat risk, but it works best alongside BMI.',
+        },
+        {
+          question: 'What inputs do I need?',
+          answer: 'You only need height, weight, and waist circumference.',
+        },
+      ],
+      relatedCalculators: ['whr', 'bmi', 'body-fat', 'waist-to-height-ratio'],
+      relatedGuides: ['/learn/body-composition-guide'],
+    },
   },
   {
     slug: 'whr',
@@ -117,6 +189,26 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Body Composition',
     hub: 'body-composition',
     image: getCalculatorImage('whr'),
+    detail: {
+      intro: 'Calculate waist-to-hip ratio to understand fat distribution and health risk.',
+      highlights: [
+        'Quick abdominal fat risk check.',
+        'Easy to measure with a tape.',
+        'Pairs well with ABSI and BMI.',
+      ],
+      faqs: [
+        {
+          question: 'What WHR indicates higher risk?',
+          answer: 'Common cutoffs are >0.90 for men and >0.85 for women, but guidelines vary.',
+        },
+        {
+          question: 'Is WHR better than waist alone?',
+          answer: 'It adds hip context, which can improve risk assessment.',
+        },
+      ],
+      relatedCalculators: ['absi', 'waist-to-height-ratio', 'body-fat', 'bmi'],
+      relatedGuides: ['/learn/body-composition-guide'],
+    },
   },
   {
     slug: 'waist-to-height-ratio',
@@ -165,6 +257,28 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Energy Expenditure',
     hub: 'metabolism-energy',
     image: getCalculatorImage('tdee'),
+    detail: {
+      intro:
+        'Estimate how many calories you burn each day based on activity level to plan maintenance, loss, or gain.',
+      highlights: [
+        'Activity-based multipliers for realistic daily burn.',
+        'Great starting point for fat loss or muscle gain plans.',
+        'Pairs with calorie deficit and weight management tools.',
+      ],
+      faqs: [
+        {
+          question: 'How often should I recalculate TDEE?',
+          answer: 'Recalculate every 10–15 lbs of weight change or every few months if stable.',
+        },
+        {
+          question: 'Why do TDEE calculators differ?',
+          answer:
+            'Different formulas and activity assumptions can shift results by 100–300 calories.',
+        },
+      ],
+      relatedCalculators: ['calorie', 'calorie-deficit', 'weight-management', 'maximum-fat-loss'],
+      relatedGuides: ['/learn/calorie-basics', '/learn/macro-planning'],
+    },
   },
   {
     slug: 'calorie',
@@ -173,6 +287,26 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Energy Expenditure',
     hub: 'metabolism-energy',
     image: getCalculatorImage('calorie'),
+    detail: {
+      intro: 'Get a daily calorie target for your goal—maintain weight, lose fat, or gain muscle.',
+      highlights: [
+        'Personalized calorie targets by goal.',
+        'Pairs with macro and protein calculators.',
+        'Easy starting point for nutrition planning.',
+      ],
+      faqs: [
+        {
+          question: 'How big of a deficit should I use?',
+          answer: 'A 10–20% deficit is common for sustainable fat loss without excessive fatigue.',
+        },
+        {
+          question: 'Do calories change as I lose weight?',
+          answer: 'Yes—your calorie needs decrease as body weight drops, so revisit your targets.',
+        },
+      ],
+      relatedCalculators: ['tdee', 'calorie-deficit', 'macro', 'protein'],
+      relatedGuides: ['/learn/calorie-basics', '/learn/macro-planning'],
+    },
   },
   {
     slug: 'bmr',
@@ -189,6 +323,28 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Weight Management',
     hub: 'weight-loss',
     image: getCalculatorImage('calorie-deficit'),
+    detail: {
+      intro:
+        'Estimate how long it will take to reach your goal weight using different deficit sizes.',
+      highlights: [
+        'Timeline projections for goal weight.',
+        'Deficit ranges for sustainable fat loss.',
+        'Connects to TDEE and weight management planning.',
+      ],
+      faqs: [
+        {
+          question: 'Is a 500-calorie deficit safe?',
+          answer:
+            'For many adults it is, but your ideal deficit depends on body size, activity, and goals.',
+        },
+        {
+          question: 'Why does weight loss slow down?',
+          answer: 'As you lose weight, your maintenance calories drop—recalculate periodically.',
+        },
+      ],
+      relatedCalculators: ['tdee', 'weight-management', 'maximum-fat-loss', 'calorie'],
+      relatedGuides: ['/learn/calorie-basics'],
+    },
   },
   {
     slug: 'weight-management',
@@ -197,6 +353,26 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Weight Management',
     hub: 'weight-loss',
     image: getCalculatorImage('weight-management'),
+    detail: {
+      intro: 'Build a timeline-based plan to lose or gain weight with daily calorie targets.',
+      highlights: [
+        'Target-date planning for weight change.',
+        'Personalized daily calorie recommendations.',
+        'Pairs with deficit and macro calculators.',
+      ],
+      faqs: [
+        {
+          question: 'How aggressive should my timeline be?',
+          answer: 'Aim for 0.5–1% of body weight per week for sustainable changes.',
+        },
+        {
+          question: 'Do I need to update the plan?',
+          answer: 'Yes—adjust every few weeks as your weight and activity change.',
+        },
+      ],
+      relatedCalculators: ['calorie-deficit', 'tdee', 'macro', 'protein'],
+      relatedGuides: ['/learn/calorie-basics', '/learn/macro-planning'],
+    },
   },
   {
     slug: 'maximum-fat-loss',
@@ -205,6 +381,26 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Weight Management',
     hub: 'weight-loss',
     image: getCalculatorImage('maximum-fat-loss'),
+    detail: {
+      intro: 'Find the most aggressive deficit that still preserves muscle and performance.',
+      highlights: [
+        'Optimized cutting calories.',
+        'Balances fat loss with muscle retention.',
+        'Useful for short-term cut planning.',
+      ],
+      faqs: [
+        {
+          question: 'Is maximum fat loss sustainable long term?',
+          answer: 'It is designed for short phases—transition to a moderate deficit afterward.',
+        },
+        {
+          question: 'How do I preserve muscle while cutting?',
+          answer: 'Keep protein high and prioritize resistance training.',
+        },
+      ],
+      relatedCalculators: ['calorie-deficit', 'tdee', 'weight-management', 'protein'],
+      relatedGuides: ['/learn/calorie-basics', '/learn/macro-planning'],
+    },
   },
   {
     slug: 'body-fat-burn',
@@ -413,6 +609,26 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     category: 'Utilities',
     hub: 'utilities',
     image: getCalculatorImage('conversions'),
+    detail: {
+      intro: 'Convert weight, height, volume, and temperature units quickly with a single tool.',
+      highlights: [
+        'Fast conversions for common fitness metrics.',
+        'Supports metric and imperial units.',
+        'Great companion for any calculator.',
+      ],
+      faqs: [
+        {
+          question: 'Which units are supported?',
+          answer: 'Weight, height, volume, temperature, and several fitness-friendly units.',
+        },
+        {
+          question: 'Do conversions affect calculator accuracy?',
+          answer: 'Accurate conversions help ensure calculator inputs are consistent.',
+        },
+      ],
+      relatedCalculators: ['bmi', 'tdee', 'body-fat', 'macro'],
+      relatedGuides: ['/learn/calorie-basics'],
+    },
   },
   {
     slug: 'age',
@@ -436,3 +652,6 @@ export const getCalculatorHub = (slug: string) => CALCULATOR_HUBS.find(hub => hu
 
 export const getCalculatorsForHub = (hubSlug: string) =>
   CALCULATOR_CATALOG.filter(item => item.hub === hubSlug);
+
+export const getCalculatorBySlug = (slug: string) =>
+  CALCULATOR_CATALOG.find(item => item.slug === slug);

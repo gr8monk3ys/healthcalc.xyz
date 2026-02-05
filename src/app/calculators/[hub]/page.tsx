@@ -64,7 +64,7 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
         {calculators.map(calculator => (
           <Link
             key={calculator.slug}
-            href={`/${calculator.slug}`}
+            href={`/calculator/${calculator.slug}`}
             className="neumorph rounded-xl p-6 transition-all hover:shadow-neumorph-inset"
           >
             <div className="flex items-start gap-4">
@@ -83,7 +83,7 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
                 <h2 className="text-lg font-semibold mt-1">{calculator.title}</h2>
                 <p className="text-sm text-gray-600 mt-2">{calculator.description}</p>
                 <span className="text-sm text-accent font-medium mt-3 inline-flex items-center gap-1">
-                  Open calculator <span aria-hidden="true">→</span>
+                  View details <span aria-hidden="true">→</span>
                 </span>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export const metadata: Metadata = {
   title: 'Weight Management Planner | HealthCheck',
   description:
-    'Plan your weight loss or gain journey with a target date. Get personalized daily calorie recommendations to reach your goal weight.',
+    'Plan weight loss or gain with a target date and personalized daily calorie targets.',
   keywords:
     'weight management calculator, weight loss planner, weight gain planner, goal weight calculator, calorie planning',
   alternates: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Weight Management Planner | HealthCheck',
     description:
-      'Plan your weight loss or gain journey with a target date. Get personalized daily calorie recommendations to reach your goal weight.',
+      'Plan weight loss or gain with a target date and personalized daily calorie targets.',
     type: 'website',
     url: 'https://www.heathcheck.info/weight-management',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Weight Management Planner | HealthCheck',
     description:
-      'Plan your weight loss or gain journey with personalized daily calorie recommendations.',
+      'Plan weight loss or gain with a target date and personalized daily calorie targets.',
     images: ['/images/calculators/weight-management-calculator.jpg'],
   },
 };

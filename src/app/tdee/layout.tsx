@@ -3,8 +3,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'TDEE Calculator | HealthCheck',
-  description:
-    'Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs.',
+  description: 'Estimate TDEE and daily calorie needs based on activity level and goals.',
   keywords:
     'TDEE calculator, total daily energy expenditure, calorie calculator, BMR calculator, daily calorie needs',
   alternates: {
@@ -12,8 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'TDEE Calculator | HealthCheck',
-    description:
-      'Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs.',
+    description: 'Estimate TDEE and daily calorie needs based on activity level and goals.',
     type: 'website',
     url: 'https://www.heathcheck.info/tdee',
     images: [
@@ -28,8 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'TDEE Calculator | HealthCheck',
-    description:
-      'Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs.',
+    description: 'Estimate TDEE and daily calorie needs based on activity level and goals.',
     images: ['/images/calculators/tdee-calculator.jpg'],
   },
 };

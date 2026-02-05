@@ -1,17 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import AdBlock from '@/components/AdBlock';
+import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
   title: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
   description:
-    "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+    'Debunk common calorie deficit myths and learn what actually drives sustainable fat loss.',
   keywords:
     'calorie deficit myths, weight loss myths, 3500 calorie rule, starvation mode, metabolism myths, weight loss plateau, sustainable weight loss',
   openGraph: {
     title: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Debunk common calorie deficit myths and learn what actually drives sustainable fat loss.',
     type: 'article',
     url: 'https://www.heathcheck.info/blog/calorie-deficit-myths',
     images: [
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Debunk common calorie deficit myths and learn what actually drives sustainable fat loss.',
     images: ['/images/blog/calorie-deficit-myths.jpg'],
   },
 };
@@ -68,6 +71,8 @@ export default function CalorieDeficitMythsPage() {
             </li>
           </ul>
         </div>
+
+        <AdBlock format="horizontal" />
 
         <p>
           If you've ever tried to lose weight, you've likely encountered various "rules" and "facts"
@@ -351,6 +356,11 @@ export default function CalorieDeficitMythsPage() {
             </li>
           </ul>
         </div>
+
+        <RelatedCalculatorLinks
+          slugs={['calorie-deficit', 'tdee', 'weight-management', 'maximum-fat-loss']}
+        />
+        <RelatedGuides />
 
         <div className="mt-12 border-t pt-8">
           <h3 className="text-xl font-semibold mb-4">References</h3>
