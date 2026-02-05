@@ -3,8 +3,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Maximum Fat Loss Calculator | HealthCheck',
-  description:
-    'Find the optimal calorie intake that maximizes fat loss while minimizing muscle loss. Calculate your ideal cutting calories.',
+  description: 'Calculate optimal cutting calories to maximize fat loss while preserving muscle.',
   keywords:
     'maximum fat loss calculator, optimal calorie deficit, fat loss calculator, muscle preservation, cutting calculator',
   alternates: {
@@ -12,8 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Maximum Fat Loss Calculator | HealthCheck',
-    description:
-      'Find the optimal calorie intake that maximizes fat loss while minimizing muscle loss. Calculate your ideal cutting calories.',
+    description: 'Calculate optimal cutting calories to maximize fat loss while preserving muscle.',
     type: 'website',
     url: 'https://www.heathcheck.info/maximum-fat-loss',
     images: [
@@ -28,8 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Maximum Fat Loss Calculator | HealthCheck',
-    description:
-      'Find the optimal calorie intake that maximizes fat loss while minimizing muscle loss.',
+    description: 'Calculate optimal cutting calories to maximize fat loss while preserving muscle.',
     images: ['/images/calculators/maximum-fat-loss-calculator.jpg'],
   },
 };

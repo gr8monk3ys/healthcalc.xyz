@@ -13,6 +13,8 @@ import StructuredData, {
 } from '@/components/StructuredData';
 import RelatedCalculators from '@/components/RelatedCalculators';
 import EmbedCalculator from '@/components/calculators/EmbedCalculator';
+import AdBlock from '@/components/AdBlock';
+import RelatedGuides from '@/components/RelatedGuides';
 
 // Dynamic imports for below-the-fold components (performance optimization)
 const FAQSection = dynamic(() => import('@/components/FAQSection'), {
@@ -191,7 +193,11 @@ export function CalculatorPageLayout({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">{children}</div>
 
+        <AdBlock slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULT} format="rectangle" />
+
         <RelatedCalculators currentSlug={calculatorSlug} />
+
+        <RelatedGuides />
 
         <Suspense
           fallback={

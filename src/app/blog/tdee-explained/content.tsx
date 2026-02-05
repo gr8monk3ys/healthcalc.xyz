@@ -1,17 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import AdBlock from '@/components/AdBlock';
+import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
   title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
   description:
-    "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+    'Learn how to calculate TDEE, what affects daily calorie needs, and how to use it for fat loss.',
   keywords:
     'TDEE, total daily energy expenditure, BMR, calorie needs, metabolism, weight management, energy balance, activity level, exercise, non-exercise activity thermogenesis',
   openGraph: {
     title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Learn how to calculate TDEE, what affects daily calorie needs, and how to use it for fat loss.',
     type: 'article',
     url: 'https://www.heathcheck.info/blog/tdee-explained',
     images: [
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Learn how to calculate TDEE, what affects daily calorie needs, and how to use it for fat loss.',
     images: ['/images/blog/tdee-explained.jpg'],
   },
 };
@@ -59,6 +62,8 @@ export default function TDEEExplainedPage() {
             <li>Understanding your TDEE is essential for effective weight management</li>
           </ul>
         </div>
+
+        <AdBlock format="horizontal" />
 
         <p>
           Whether you're trying to lose weight, gain muscle, or simply maintain your current
@@ -671,6 +676,11 @@ export default function TDEEExplainedPage() {
             </li>
           </ul>
         </div>
+
+        <RelatedCalculatorLinks
+          slugs={['tdee', 'calorie', 'calorie-deficit', 'weight-management']}
+        />
+        <RelatedGuides />
 
         <div className="mt-12 border-t pt-8">
           <h3 className="text-xl font-semibold mb-4">References</h3>

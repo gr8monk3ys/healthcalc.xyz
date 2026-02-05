@@ -1,16 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
+import AdBlock from '@/components/AdBlock';
+import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
   title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
   description:
-    "Learn what body fat percentage means, how it's measured, and what ranges are considered healthy for different ages and fitness levels.",
+    'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
   keywords:
     'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
   openGraph: {
     title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
     description:
-      "Learn what body fat percentage means, how it's measured, and what ranges are considered healthy for different ages and fitness levels.",
+      'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
     type: 'article',
     url: 'https://www.heathcheck.info/blog/understanding-body-fat-percentage',
     images: [
@@ -26,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
     description:
-      "Learn what body fat percentage means, how it's measured, and what ranges are considered healthy for different ages and fitness levels.",
+      'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
     images: ['/images/blog/understanding-body-fat-percentage.jpg'],
   },
   alternates: {
@@ -82,6 +85,8 @@ export default function BlogPostPage() {
             measures the proportion of your body that's composed of fat, provides a much more
             meaningful metric for understanding your body composition and overall health.
           </p>
+
+          <AdBlock format="horizontal" />
 
           <h2>What Is Body Fat Percentage?</h2>
           <p>
@@ -313,6 +318,9 @@ export default function BlogPostPage() {
           </p>
         </div>
       </article>
+
+      <RelatedCalculatorLinks slugs={['body-fat', 'bmi', 'lean-body-mass', 'body-frame-size']} />
+      <RelatedGuides />
 
       <div className="mt-12 pt-8 border-t border-gray-200">
         <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>

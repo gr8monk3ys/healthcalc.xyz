@@ -1,16 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
+import AdBlock from '@/components/AdBlock';
+import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
   title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment | HealthCheck',
-  description:
-    'Learn about A Body Shape Index (ABSI), how it differs from BMI, and why it might be a better predictor of health risks associated with body shape and fat distribution.',
+  description: 'Learn how ABSI works, why it beats BMI for risk, and how to use it.',
   keywords:
     'ABSI, A Body Shape Index, body shape, waist circumference, BMI limitations, health risk assessment, central obesity, mortality risk',
   openGraph: {
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',
-    description:
-      'Learn about A Body Shape Index (ABSI), how it differs from BMI, and why it might be a better predictor of health risks associated with body shape and fat distribution.',
+    description: 'Learn how ABSI works, why it beats BMI for risk, and how to use it.',
     url: 'https://www.heathcheck.info/blog/understanding-absi',
     siteName: 'HealthCheck',
     locale: 'en_US',
@@ -27,8 +28,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',
-    description:
-      'Learn about A Body Shape Index (ABSI), how it differs from BMI, and why it might be a better predictor of health risks associated with body shape and fat distribution.',
+    description: 'Learn how ABSI works, why it beats BMI for risk, and how to use it.',
     images: ['/images/blog/understanding-absi.jpg'],
   },
   alternates: {
@@ -118,6 +118,8 @@ export default function UnderstandingABSIPage() {
               </li>
             </ul>
           </div>
+
+          <AdBlock format="horizontal" />
 
           <h2>What is ABSI?</h2>
           <p>
@@ -388,6 +390,9 @@ export default function UnderstandingABSIPage() {
           </div>
         </div>
       </article>
+
+      <RelatedCalculatorLinks slugs={['absi', 'whr', 'body-fat', 'bmi']} />
+      <RelatedGuides />
 
       <div className="mt-12 mb-8">
         <h3 className="text-xl font-semibold mb-4">Related Articles</h3>

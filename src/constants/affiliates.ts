@@ -1,16 +1,7 @@
 // Affiliate link configurations for health/fitness products
 // Update the `AMAZON_ASSOCIATES_TAG` value with your actual affiliate tag when available.
 
-const AMAZON_ASSOCIATES_TAG = 'YOURTAG-20';
-
-const PENDING_DIRECT_PARTNER_URLS = {
-  factorMeals: 'PENDING_DIRECT_PARTNER_URL',
-  helloFresh: 'PENDING_DIRECT_PARTNER_URL',
-  noom: 'PENDING_DIRECT_PARTNER_URL',
-  myFitnessPal: 'PENDING_DIRECT_PARTNER_URL',
-  loseIt: 'PENDING_DIRECT_PARTNER_URL',
-  cronometer: 'PENDING_DIRECT_PARTNER_URL',
-};
+const AMAZON_ASSOCIATES_TAG = 'gr8monk3ys-20';
 
 // Notes:
 // - Withings Body+ replaced with Withings Body Smart for a consistently available Amazon US listing.
@@ -19,6 +10,15 @@ const amazonSearchUrl = (query: string) =>
   `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AMAZON_ASSOCIATES_TAG}`;
 const amazonProductUrl = (asin: string) =>
   `https://www.amazon.com/dp/${asin}?tag=${AMAZON_ASSOCIATES_TAG}`;
+
+const PENDING_DIRECT_PARTNER_URLS = {
+  factorMeals: amazonSearchUrl('Factor Meals'),
+  helloFresh: amazonSearchUrl('HelloFresh'),
+  noom: amazonSearchUrl('Noom weight loss program'),
+  myFitnessPal: amazonSearchUrl('MyFitnessPal premium'),
+  loseIt: amazonSearchUrl('Lose It app'),
+  cronometer: amazonSearchUrl('Cronometer nutrition tracking'),
+};
 
 export type CalculatorType =
   | 'bmi'

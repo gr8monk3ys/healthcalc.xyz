@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export const metadata: Metadata = {
   title: 'BMI Calculator | HealthCheck',
   description:
-    'Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height.',
+    'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
   keywords: 'BMI calculator, body mass index, healthy weight, weight calculator, BMI chart',
   alternates: {
     canonical: 'https://www.heathcheck.info/bmi',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'BMI Calculator | HealthCheck',
     description:
-      'Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height.',
+      'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
     type: 'website',
     url: 'https://www.heathcheck.info/bmi',
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'BMI Calculator | HealthCheck',
     description:
-      'Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height.',
+      'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
     images: ['/images/calculators/bmi-calculator.jpg'],
   },
 };

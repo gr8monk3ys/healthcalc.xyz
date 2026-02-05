@@ -163,15 +163,19 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
       });
     }
 
-    // Production without provider - still acknowledge but warn in logs
+    // Production without provider - return a clear error so integrations don't silently fail
     console.warn(
       'Newsletter subscription received but no email provider configured. Please set up Mailchimp, ConvertKit, or Resend.'
     );
 
-    return NextResponse.json({
-      success: true,
-      message: 'Thank you for subscribing! Please check your email to confirm your subscription.',
-    });
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          'Newsletter service is temporarily unavailable. Please try again later or contact support.',
+      },
+      { status: 503 }
+    );
   } catch (error) {
     console.error('Newsletter subscription error:', error);
     return NextResponse.json(

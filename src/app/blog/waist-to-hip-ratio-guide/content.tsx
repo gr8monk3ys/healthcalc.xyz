@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import AdBlock from '@/components/AdBlock';
+import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
   title: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape | HealthCheck',
-  description:
-    'Learn about Waist-to-Hip Ratio (WHR), how to measure it correctly, what your results mean, and why body shape matters for your health.',
+  description: 'Measure waist-to-hip ratio, interpret your body shape, and understand health risk.',
   keywords:
     'waist-to-hip ratio, WHR, apple shape, pear shape, body shape, central obesity, fat distribution, health risk assessment, waist circumference, hip circumference',
   openGraph: {
     title: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape',
     description:
-      'Learn about Waist-to-Hip Ratio (WHR), how to measure it correctly, what your results mean, and why body shape matters for your health.',
+      'Measure waist-to-hip ratio, interpret your body shape, and understand health risk.',
     url: 'https://www.heathcheck.info/blog/waist-to-hip-ratio-guide',
     siteName: 'HealthCheck',
     locale: 'en_US',
@@ -28,7 +30,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape',
     description:
-      'Learn about Waist-to-Hip Ratio (WHR), how to measure it correctly, what your results mean, and why body shape matters for your health.',
+      'Measure waist-to-hip ratio, interpret your body shape, and understand health risk.',
     images: ['/images/blog/waist-to-hip-ratio-guide.jpg'],
   },
   alternates: {
@@ -115,6 +117,8 @@ export default function WaistToHipRatioGuidePage() {
               <li>Proper measurement technique is crucial for accurate WHR calculation.</li>
             </ul>
           </div>
+
+          <AdBlock format="horizontal" />
 
           <h2>What is Waist-to-Hip Ratio?</h2>
           <p>
@@ -454,6 +458,9 @@ export default function WaistToHipRatioGuidePage() {
           </div>
         </div>
       </article>
+
+      <RelatedCalculatorLinks slugs={['whr', 'absi', 'waist-to-height-ratio', 'body-fat']} />
+      <RelatedGuides />
 
       <div className="mt-12 mb-8">
         <h3 className="text-xl font-semibold mb-4">Related Articles</h3>

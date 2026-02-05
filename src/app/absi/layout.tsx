@@ -3,8 +3,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'ABSI Calculator | A Body Shape Index Calculator',
-  description:
-    'Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. ABSI is a better predictor of mortality risk than BMI alone.',
+  description: 'Calculate ABSI to assess body-shape risk using waist circumference and height.',
   keywords:
     'absi calculator, a body shape index, body shape index, absi z-score, waist circumference, mortality risk, central obesity, body shape, fat distribution, health risk calculator',
   alternates: {
@@ -12,8 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'ABSI Calculator | A Body Shape Index Calculator',
-    description:
-      'Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. ABSI is a better predictor of mortality risk than BMI alone.',
+    description: 'Calculate ABSI to assess body-shape risk using waist circumference and height.',
     url: 'https://www.heathcheck.info/absi',
     siteName: 'HealthCheck',
     locale: 'en_US',
@@ -30,8 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'ABSI Calculator | A Body Shape Index Calculator',
-    description:
-      'Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. ABSI is a better predictor of mortality risk than BMI alone.',
+    description: 'Calculate ABSI to assess body-shape risk using waist circumference and height.',
     images: ['/images/calculators/absi-calculator.jpg'],
   },
 };
