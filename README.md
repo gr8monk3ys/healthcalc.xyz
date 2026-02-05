@@ -51,15 +51,23 @@ HealthCheck is a comprehensive health and fitness calculator web application bui
 - Node.js 18.x or higher
 - npm or yarn
 
+### Vercel Preview Domains (Important)
+
+Vercel preview deployments only issue TLS certificates for the base preview host. Do **not** use a
+`www.` subdomain on preview URLs or you will see `ERR_CERT_COMMON_NAME_INVALID`. Use the base URL
+Vercel provides (for example, `https://your-project.vercel.app`) instead.
+
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/gr8monk3ys/heathcheck.info.git
    cd heathcheck.info
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -67,6 +75,7 @@ HealthCheck is a comprehensive health and fitness calculator web application bui
    ```
 
 3. Run the development server:
+
    ```bash
    npm run dev
    # or
@@ -96,11 +105,13 @@ yarn start
 In addition to the standard Next.js scripts, this project includes several helpful commands:
 
 ### Development
+
 - `npm run dev` - Start development server on [http://localhost:3000](http://localhost:3000)
 - `npm run build` - Build production-ready application
 - `npm run start` - Start production server
 
 ### Code Quality
+
 - `npm run lint` - Run ESLint to check for code issues
 - `npm run lint:fix` - Automatically fix ESLint errors where possible
 - `npm run format` - Format code with Prettier
@@ -109,12 +120,15 @@ In addition to the standard Next.js scripts, this project includes several helpf
 - `npm run validate` - Run all checks (format, lint, type-check) - **recommended before commits**
 
 ### Maintenance
+
 - `npm run clean` - Remove build artifacts (.next, out, cache)
 - `npm run audit:fix` - Automatically fix security vulnerabilities
 - `npm run update` - Update caniuse-lite and browserslist databases
 
 ### Recommended Workflow
+
 Before committing changes:
+
 ```bash
 npm run validate  # Ensures code passes all checks
 ```
@@ -150,33 +164,43 @@ healthcheck/
 ## Calculator Descriptions
 
 ### BMI Calculator
+
 Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height. Includes special calculations for children and teens using age and gender-specific percentiles.
 
 ### Body Fat Calculator
+
 Estimate your body fat percentage using various methods including Navy method, skinfold measurements, and more.
 
 ### Body Fat Burn Calculator
+
 Calculate how much body fat you can burn through various physical activities based on your personal metrics, activity type, duration, and frequency.
 
 ### TDEE Calculator
+
 Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs based on your activity level.
 
 ### Calorie Deficit Calculator
+
 Discover how long it will take to reach your goal weight with different calorie deficit levels.
 
 ### Weight Management Planner
+
 Plan your weight loss or gain journey with a target date and get daily calorie recommendations.
 
 ### Maximum Fat Loss Calculator
+
 Find the optimal calorie intake that maximizes fat loss while minimizing muscle loss.
 
 ### ABSI Calculator
+
 Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and waist circumference.
 
 ### Waist-to-Hip Ratio Calculator
+
 Determine your waist-to-hip ratio to assess health risks associated with abdominal fat.
 
 ### Measurement Conversions
+
 Convert between different units of measurement for weight, height, volume, and more.
 
 ## Contributing

@@ -8,16 +8,35 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
   const url = request.nextUrl.clone();
+  const canonicalHost = process.env.NEXT_PUBLIC_CANONICAL_HOST?.trim().toLowerCase();
+  const currentHost = url.host.toLowerCase();
+  const normalizeHost = (host: string) => host.replace(/^www\./, '');
 
   // Security headers
   response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set(
     'Permissions-Policy',
     'camera=(), microphone=(), geolocation=(), interest-cohort=()'
   );
+
+  // Canonical host redirect to prevent redirect loops between apex/www.
+  if (canonicalHost && currentHost) {
+    const isSameRootDomain = normalizeHost(currentHost) === normalizeHost(canonicalHost);
+    if (
+      isSameRootDomain &&
+      currentHost !== canonicalHost &&
+      !currentHost.includes('localhost') &&
+      !currentHost.includes('127.0.0.1') &&
+      !currentHost.endsWith('.vercel.app')
+    ) {
+      url.host = canonicalHost;
+      url.protocol = 'https:';
+      return NextResponse.redirect(url, 308);
+    }
+  }
 
   // URL canonicalization - remove trailing slashes (except for root)
   if (url.pathname !== '/' && url.pathname.endsWith('/')) {
