@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface BlogPost {
   title: string;
@@ -59,11 +60,12 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
             className="group block neumorph rounded-lg p-6 transition-all hover:shadow-neumorph-inset"
           >
             <div className="mb-4 overflow-hidden rounded-lg bg-gray-100">
-              <img
+              <Image
                 src={post.image}
                 alt={post.title}
-                className="w-full h-48 object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
-                loading="lazy"
+                width={1200}
+                height={600}
+                className="h-48 w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
               />
             </div>
             <span className="inline-block bg-accent/10 text-accent text-sm px-3 py-1 rounded-full mb-2">

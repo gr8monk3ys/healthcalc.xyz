@@ -16,18 +16,9 @@ const ThrowingComponent = ({ shouldThrow = true }: { shouldThrow?: boolean }) =>
   return <div>No error</div>;
 };
 
-// Component that throws on specific condition
-const ConditionalThrowingComponent = ({ throwOnRender }: { throwOnRender: boolean }) => {
-  if (throwOnRender) {
-    throw new Error('Conditional error');
-  }
-  return <div data-testid="safe-content">Safe content rendered</div>;
-};
-
 describe('ErrorBoundary', () => {
   // Suppress console.error during error boundary tests
   const originalConsoleError = console.error;
-  const originalNodeEnv = process.env.NODE_ENV;
 
   beforeEach(() => {
     console.error = vi.fn();

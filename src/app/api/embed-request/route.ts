@@ -39,7 +39,7 @@ export async function POST(request: Request) {
         return NextResponse.json({ ok: false }, { status: 502 });
       }
     } else {
-      console.info('[embed-request] Missing ConvertKit config. Payload:', payload);
+      console.warn('[embed-request] Missing ConvertKit config. Payload:', payload);
     }
 
     return NextResponse.json({ ok: true });

@@ -2,8 +2,9 @@
 
 import React, { createContext, useContext, ReactNode } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { useUser } from '@clerk/nextjs';
+import { clerkEnabled } from '@/utils/auth';
 
-// Rule: Use TypeScript for all code; prefer interfaces over types
 export interface SavedResult {
   id: string;
   calculatorType: string;
@@ -12,64 +13,68 @@ export interface SavedResult {
   data: Record<string, unknown>;
 }
 
-// Rule: Use discriminated unions for complex state types
 interface SavedResultsContextState {
   savedResults: SavedResult[];
+  canSaveResults: boolean;
   saveResult: (
     calculatorType: string,
     calculatorName: string,
     data: Record<string, unknown>
-  ) => void;
+  ) => boolean;
   removeResult: (id: string) => void;
   clearAllResults: () => void;
   isResultSaved: (id: string) => boolean;
 }
 
-// Create context with default values
 const SavedResultsContext = createContext<SavedResultsContextState | undefined>(undefined);
 
-// Rule: Use functional components with TypeScript interfaces
 interface SavedResultsProviderProps {
   children: ReactNode;
 }
 
-export function SavedResultsProvider({ children }: SavedResultsProviderProps): React.JSX.Element {
-  // Rule: Move localStorage logic to dedicated hooks/utilities
-  const [savedResults, setSavedResults] = useLocalStorage<SavedResult[]>(
-    'healthcheck-saved-results',
-    []
-  );
+function generateResultId(type: string, resultData: Record<string, unknown>): string {
+  const dataString = JSON.stringify(resultData);
+  let hash = 0;
 
-  // Generate a unique ID for the result
-  function generateResultId(type: string, resultData: Record<string, unknown>): string {
-    // Create a string representation of the data
-    const dataString = JSON.stringify(resultData);
-
-    // Simple hash function
-    let hash = 0;
-    for (let i = 0; i < dataString.length; i++) {
-      const char = dataString.charCodeAt(i);
-      hash = (hash << 5) - hash + char;
-      hash = hash & hash; // Convert to 32bit integer
-    }
-
-    return `${type}-${hash}`;
+  for (let i = 0; i < dataString.length; i++) {
+    const char = dataString.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash &= hash;
   }
 
-  // Rule: Use explicit return types for all functions
+  return `${type}-${hash}`;
+}
+
+function SavedResultsProviderBase({
+  children,
+  userKey,
+  canSaveResults,
+}: {
+  children: ReactNode;
+  userKey: string;
+  canSaveResults: boolean;
+}): React.JSX.Element {
+  const [savedResultsByUser, setSavedResultsByUser] = useLocalStorage<
+    Record<string, SavedResult[]>
+  >('healthcheck-saved-results-by-user', {});
+
+  const savedResults = savedResultsByUser[userKey] ?? [];
+
   function saveResult(
     calculatorType: string,
     calculatorName: string,
     data: Record<string, unknown>
-  ): void {
-    const resultId = generateResultId(calculatorType, data);
-
-    // Check if already saved
-    if (savedResults.some(result => result.id === resultId)) {
-      return; // Already saved
+  ): boolean {
+    if (!canSaveResults) {
+      return false;
     }
 
-    // Add new result
+    const resultId = generateResultId(calculatorType, data);
+
+    if (savedResults.some(result => result.id === resultId)) {
+      return false;
+    }
+
     const newResult: SavedResult = {
       id: resultId,
       calculatorType,
@@ -78,16 +83,27 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
       data,
     };
 
-    // Limit to 20 saved results (remove oldest if needed)
-    setSavedResults([newResult, ...savedResults].slice(0, 20));
+    const updatedForUser = [newResult, ...savedResults].slice(0, 30);
+    setSavedResultsByUser({
+      ...savedResultsByUser,
+      [userKey]: updatedForUser,
+    });
+
+    return true;
   }
 
   function removeResult(id: string): void {
-    setSavedResults(savedResults.filter(result => result.id !== id));
+    setSavedResultsByUser({
+      ...savedResultsByUser,
+      [userKey]: savedResults.filter(result => result.id !== id),
+    });
   }
 
   function clearAllResults(): void {
-    setSavedResults([]);
+    setSavedResultsByUser({
+      ...savedResultsByUser,
+      [userKey]: [],
+    });
   }
 
   function isResultSaved(id: string): boolean {
@@ -96,6 +112,7 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
 
   const value: SavedResultsContextState = {
     savedResults,
+    canSaveResults,
     saveResult,
     removeResult,
     clearAllResults,
@@ -105,7 +122,36 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
   return <SavedResultsContext.Provider value={value}>{children}</SavedResultsContext.Provider>;
 }
 
-// Custom hook for using saved results context
+function SavedResultsProviderWithClerk({ children }: SavedResultsProviderProps): React.JSX.Element {
+  const { user } = useUser();
+  const userKey = user?.id ?? 'guest';
+  const canSaveResults = Boolean(user);
+
+  return (
+    <SavedResultsProviderBase userKey={userKey} canSaveResults={canSaveResults}>
+      {children}
+    </SavedResultsProviderBase>
+  );
+}
+
+function SavedResultsProviderWithoutClerk({
+  children,
+}: SavedResultsProviderProps): React.JSX.Element {
+  return (
+    <SavedResultsProviderBase userKey="guest" canSaveResults={false}>
+      {children}
+    </SavedResultsProviderBase>
+  );
+}
+
+export function SavedResultsProvider({ children }: SavedResultsProviderProps): React.JSX.Element {
+  if (clerkEnabled) {
+    return <SavedResultsProviderWithClerk>{children}</SavedResultsProviderWithClerk>;
+  }
+
+  return <SavedResultsProviderWithoutClerk>{children}</SavedResultsProviderWithoutClerk>;
+}
+
 export function useSavedResults(): SavedResultsContextState {
   const context = useContext(SavedResultsContext);
   if (context === undefined) {

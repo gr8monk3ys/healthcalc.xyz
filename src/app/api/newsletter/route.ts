@@ -152,7 +152,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
 
     // No email provider configured - log the email for manual processing
     // In production, you should configure an email provider
-    console.log('Newsletter subscription (no provider configured):', email);
+    console.warn('Newsletter subscription (no provider configured):', email);
 
     // For development/demo: Store in a simple way or just acknowledge
     if (process.env.NODE_ENV === 'development') {

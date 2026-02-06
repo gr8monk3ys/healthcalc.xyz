@@ -19,6 +19,7 @@ export function useSavedResultsManager() {
     removeResult: removeResultFromContext,
     clearAllResults,
     isResultSaved,
+    canSaveResults,
   } = useSavedResults();
 
   const [message, setMessage] = useState<string>('');
@@ -66,7 +67,11 @@ export function useSavedResultsManager() {
       }
 
       // Save to context (which handles localStorage)
-      saveResultToContext(calculatorType, calculatorName, data);
+      const didSave = saveResultToContext(calculatorType, calculatorName, data);
+      if (!didSave) {
+        showNotification('Sign in required to save results');
+        return false;
+      }
 
       showNotification('Result saved successfully');
       return true;
@@ -165,6 +170,7 @@ export function useSavedResultsManager() {
 
   return {
     savedResults,
+    canSaveResults,
     saveResult,
     removeResult,
     removeResultByData,

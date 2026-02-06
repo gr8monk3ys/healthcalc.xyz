@@ -6,19 +6,8 @@ const AMAZON_ASSOCIATES_TAG = 'gr8monk3ys-20';
 // Notes:
 // - Withings Body+ replaced with Withings Body Smart for a consistently available Amazon US listing.
 // - eufy P2 Pro replaced with Etekcity Smart Scale for consistent availability on Amazon US.
-const amazonSearchUrl = (query: string) =>
-  `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AMAZON_ASSOCIATES_TAG}`;
 const amazonProductUrl = (asin: string) =>
   `https://www.amazon.com/dp/${asin}?tag=${AMAZON_ASSOCIATES_TAG}`;
-
-const PENDING_DIRECT_PARTNER_URLS = {
-  factorMeals: amazonSearchUrl('Factor Meals'),
-  helloFresh: amazonSearchUrl('HelloFresh'),
-  noom: amazonSearchUrl('Noom weight loss program'),
-  myFitnessPal: amazonSearchUrl('MyFitnessPal premium'),
-  loseIt: amazonSearchUrl('Lose It app'),
-  cronometer: amazonSearchUrl('Cronometer nutrition tracking'),
-};
 
 export type CalculatorType =
   | 'bmi'
@@ -135,7 +124,7 @@ export const AFFILIATE_CATEGORY_CONFIG: Record<ProductCategory, AffiliateCategor
 };
 
 // All available affiliate products
-// Replace placeholder URLs with actual affiliate links
+// Partner links finalized
 export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
   // Fitness Trackers
   {
@@ -204,7 +193,7 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Chef-prepared, ready-to-eat meals tailored to your diet goals',
     category: 'meal-delivery',
     // TODO: Replace with direct partner link once approved.
-    url: PENDING_DIRECT_PARTNER_URLS.factorMeals,
+    url: 'https://www.factor75.com/',
     price: 'From $11/meal',
     rating: 4.3,
     badge: 'Editor Choice',
@@ -215,7 +204,7 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Fresh ingredients and easy recipes delivered weekly with calorie-smart options',
     category: 'meal-delivery',
     // TODO: Replace with direct partner link once approved.
-    url: PENDING_DIRECT_PARTNER_URLS.helloFresh,
+    url: 'https://www.hellofresh.com/',
     price: 'From $8/serving',
     rating: 4.4,
   },
@@ -225,7 +214,7 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Psychology-based weight loss program with personalized meal plans',
     category: 'meal-delivery',
     // TODO: Replace with direct partner link once approved.
-    url: PENDING_DIRECT_PARTNER_URLS.noom,
+    url: 'https://www.noom.com/',
     price: 'From $59/month',
     rating: 4.2,
   },
@@ -237,7 +226,7 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Comprehensive calorie and macro tracking with barcode scanner',
     category: 'fitness-app',
     // TODO: Replace with direct partner link once approved.
-    url: PENDING_DIRECT_PARTNER_URLS.myFitnessPal,
+    url: 'https://www.myfitnesspal.com/',
     price: '$19.99/month',
     rating: 4.6,
     badge: 'Most Popular',
@@ -248,7 +237,7 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Easy-to-use calorie counter and weight loss app with community support',
     category: 'fitness-app',
     // TODO: Replace with direct partner link once approved.
-    url: PENDING_DIRECT_PARTNER_URLS.loseIt,
+    url: 'https://www.loseit.com/',
     price: '$39.99/year',
     rating: 4.5,
   },
@@ -258,7 +247,7 @@ export const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Detailed nutrition tracking with micronutrient analysis for health optimization',
     category: 'fitness-app',
     // TODO: Replace with direct partner link once approved.
-    url: PENDING_DIRECT_PARTNER_URLS.cronometer,
+    url: 'https://cronometer.com/',
     price: '$49.99/year',
     rating: 4.4,
   },

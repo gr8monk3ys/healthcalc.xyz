@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import {
@@ -69,11 +70,12 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
           >
             <div className="flex items-start gap-4">
               <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
-                <img
+                <Image
                   src={calculator.image}
                   alt={calculator.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div>

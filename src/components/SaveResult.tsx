@@ -21,7 +21,7 @@ export default function SaveResult({
   className = '',
 }: SaveResultProps) {
   // Rule: Move localStorage logic to dedicated hooks/utilities
-  const { saveResult, removeResultByData, isResultSaved, message, showMessage } =
+  const { saveResult, removeResultByData, isResultSaved, canSaveResults, message, showMessage } =
     useSavedResultsManager();
 
   // Check if this result is already saved
@@ -58,7 +58,7 @@ export default function SaveResult({
       ) : (
         <button
           onClick={handleSaveResult}
-          className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors"
+          className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors disabled:cursor-not-allowed disabled:bg-gray-400"
           aria-label="Save result"
         >
           <svg
@@ -75,8 +75,14 @@ export default function SaveResult({
               d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
             />
           </svg>
-          Save Result
+          {canSaveResults ? 'Save Result' : 'Log in to Save'}
         </button>
+      )}
+
+      {!canSaveResults && (
+        <p className="mt-2 text-xs text-gray-600">
+          Sign in from the top-right account button to save and sync results on this browser.
+        </p>
       )}
 
       {showMessage && (

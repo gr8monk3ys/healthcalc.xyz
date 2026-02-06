@@ -271,8 +271,6 @@ export function getMacroFoodEquivalents(
   // Approximate food equivalents
   const chickenBreastGrams = 100; // ~31g protein per 100g chicken breast
   const riceGrams = 100; // ~28g carbs per 100g cooked rice
-  const avocadoGrams = 200; // ~30g fat per avocado (~200g)
-
   const chickenServings = protein / 31;
   const riceServings = carbs / 28;
   const avocadoServings = fat / 15;

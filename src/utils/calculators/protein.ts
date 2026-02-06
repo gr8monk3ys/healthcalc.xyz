@@ -37,7 +37,7 @@ import {
   AGE_PROTEIN_ADJUSTMENTS,
   PROTEIN_RECOMMENDATIONS,
 } from '@/constants/protein';
-import { convertWeight, heightFtInToCm } from '@/utils/conversions';
+import { convertWeight } from '@/utils/conversions';
 
 const logger = createLogger({ component: 'ProteinCalculator' });
 
@@ -266,12 +266,6 @@ export function processProteinCalculation(values: ProteinFormValues): ProteinRes
   }
 
   try {
-    // Convert height to cm if needed (for potential future use/BMI calculations)
-    const heightCm =
-      values.heightUnit === 'cm'
-        ? values.heightCm
-        : heightFtInToCm(values.heightFt, values.heightIn);
-
     // Convert weight to kg if needed
     const weightKg =
       values.weightUnit === 'kg' ? values.weightKg : convertWeight(values.weightLb, 'lb', 'kg');

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
 import EmbedWidgetPicker from '@/components/calculators/EmbedWidgetPicker';
 import { getEmbedPartners, getEmbedShowcase } from '@/data/embedShowcase';
@@ -41,11 +42,12 @@ export default async function CalculatorWidgetsPage() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 items-center">
           {partners.map(partner => (
             <div key={partner.name} className="flex items-center justify-center">
-              <img
+              <Image
                 src={partner.logo}
                 alt={`${partner.name} logo`}
+                width={180}
+                height={48}
                 className="h-12 w-full object-contain"
-                loading="lazy"
               />
             </div>
           ))}

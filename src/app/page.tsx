@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import CalculatorCard from '@/components/CalculatorCard';
+import Search from '@/components/Search';
 
 export const metadata = {
   title: 'HeathCheck - Free Body Fat, BMI, TDEE Calculators',
@@ -343,415 +344,164 @@ const icons = {
 };
 
 export default function Home() {
+  const featuredCalculators = [
+    {
+      title: 'Body Fat Calculator',
+      description:
+        'Calculate your body fat percentage using various methods including Navy, skinfold, and BMI.',
+      path: '/body-fat',
+      icon: icons.bodyFat,
+    },
+    {
+      title: 'Calorie Deficit Calculator',
+      description: 'Estimate your daily calorie target for sustainable fat loss.',
+      path: '/calorie-deficit',
+      icon: icons.calorieDeficit,
+    },
+    {
+      title: 'TDEE Calculator',
+      description: 'Calculate your Total Daily Energy Expenditure to maintain your current weight.',
+      path: '/tdee',
+      icon: icons.tdee,
+    },
+    {
+      title: 'BMI Calculator',
+      description:
+        'Calculate Body Mass Index for adults and children with age-appropriate insights.',
+      path: '/bmi',
+      icon: icons.bmi,
+    },
+    {
+      title: 'Heart Rate Zones',
+      description: 'Generate personalized training zones for endurance and cardio sessions.',
+      path: '/heart-rate-zones',
+      icon: icons.heartRateZones,
+    },
+    {
+      title: 'Measurement Conversions',
+      description: 'Convert weight, height, temperature, and more in one place.',
+      path: '/conversions',
+      icon: icons.conversions,
+    },
+  ];
+
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="py-12 mb-12 bg-gradient-to-br from-accent/5 to-accent/10 rounded-3xl">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                Accurate Health & Fitness Calculators
-              </h1>
-              <p className="text-xl text-gray-700 mb-6">
-                Evidence-based tools to help you understand your body composition, set realistic
-                goals, and track your progress.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/bmi"
-                  className="px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition-all"
-                >
-                  Calculate BMI
-                </Link>
-                <Link
-                  href="/body-fat"
-                  className="px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition-all"
-                >
-                  Body Fat Calculator
-                </Link>
-                <Link
-                  href="/tdee"
-                  className="px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition-all"
-                >
-                  TDEE Calculator
-                </Link>
-              </div>
-            </div>
-            <div className="md:w-1/2 relative">
-              <div className="neumorph p-4 rounded-2xl">
-                <div className="aspect-w-4 aspect-h-3 relative rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="text-5xl font-bold mb-2">9+</div>
-                      <div className="text-xl">Free Calculators</div>
-                      <div className="mt-4 text-sm">No sign-up required</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 neumorph p-3 rounded-lg transform rotate-3 bg-white">
-                <div className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-green-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="font-medium">Scientifically Validated</span>
-                </div>
-              </div>
-            </div>
+    <div className="space-y-16">
+      <section className="relative overflow-hidden rounded-3xl border border-accent/10 bg-gradient-to-br from-white via-indigo-50/30 to-blue-50/60 px-6 py-14 md:px-12">
+        <div className="absolute -left-10 top-10 h-40 w-40 rounded-full border-8 border-accent/20 animate-pulse" />
+        <div className="absolute -right-16 bottom-0 h-56 w-56 rounded-full border-8 border-blue-300/40" />
+
+        <div className="relative mx-auto max-w-6xl">
+          <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+            HealthCheck Platform
+          </p>
+          <h1 className="mt-4 animate-slide-up text-4xl font-extrabold leading-tight md:text-6xl">
+            Smarter health calculators with a cleaner, faster experience
+          </h1>
+          <p className="mt-5 max-w-3xl text-lg text-gray-700">
+            Explore modern tools for body composition, calorie planning, and performance goals — now
+            with improved visuals, stronger interactions, and easier navigation.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/calculators"
+              className="rounded-full bg-accent px-6 py-3 font-semibold text-white transition-all hover:translate-y-[-2px] hover:bg-accent-dark"
+            >
+              Browse calculators
+            </Link>
+            <Link
+              href="/blog"
+              className="rounded-full border border-accent/20 bg-white px-6 py-3 font-semibold text-accent transition-all hover:border-accent hover:bg-accent/5"
+            >
+              Read the blog
+            </Link>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-accent/15 bg-white p-3 shadow-lg">
+            <Search
+              placeholder="Search calculators, guides, and blog posts..."
+              className="rounded-xl border border-accent/10"
+            />
           </div>
         </div>
       </section>
 
-      {/* Featured Calculators Section */}
-      <section className="mb-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-4">Health & Fitness Calculators</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Your go-to resource for body fat, calorie needs, and weight management calculations.
-          </p>
+      <section>
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-bold">Most popular calculators</h2>
+            <p className="text-gray-600">Quickly jump into the tools users rely on most.</p>
+          </div>
+          <Link href="/calculators" className="text-sm font-semibold text-accent hover:underline">
+            View all categories →
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CalculatorCard
-            title="Body Fat Calculator"
-            description="Calculate your body fat percentage using various methods including Navy, skinfold, and BMI."
-            path="/body-fat"
-            icon={icons.bodyFat}
-          />
-
-          <CalculatorCard
-            title="Body Fat Burn Calculator"
-            description="Calculate calories burned during physical activities and estimate weight loss timeline."
-            path="/body-fat-burn"
-            icon={icons.calorieBurn}
-          />
-
-          <CalculatorCard
-            title="Calorie Deficit Calculator"
-            description="Discover how long it will take to reach your goal weight with different calorie deficits."
-            path="/calorie-deficit"
-            icon={icons.calorieDeficit}
-          />
-
-          <CalculatorCard
-            title="Weight Management Calculator"
-            description="Plan your weight loss with a target date and get daily calorie and macro recommendations."
-            path="/weight-management"
-            icon={icons.weightManagement}
-          />
-
-          <CalculatorCard
-            title="Maximum Fat Loss Calculator"
-            description="Find the optimal calorie intake for maximum fat loss while preserving muscle mass."
-            path="/maximum-fat-loss"
-            icon={icons.maxFatLoss}
-          />
-
-          <CalculatorCard
-            title="TDEE Calculator"
-            description="Calculate your Total Daily Energy Expenditure to maintain your current weight."
-            path="/tdee"
-            icon={icons.tdee}
-          />
-
-          <CalculatorCard
-            title="ABSI Calculator"
-            description="Calculate your A Body Shape Index to assess health risk based on body shape."
-            path="/absi"
-            icon={icons.absi}
-          />
-
-          <CalculatorCard
-            title="BMI Calculator"
-            description="Calculate Body Mass Index for adults and children with age-appropriate interpretations."
-            path="/bmi"
-            icon={icons.bmi}
-          />
-
-          <CalculatorCard
-            title="Ideal Weight Calculator"
-            description="Estimate your ideal weight range using widely used clinical formulas."
-            path="/ideal-weight"
-            icon={icons.idealWeight}
-          />
-
-          <CalculatorCard
-            title="Heart Rate Zones"
-            description="Calculate personalized training zones using max heart rate or Karvonen method."
-            path="/heart-rate-zones"
-            icon={icons.heartRateZones}
-          />
-
-          <CalculatorCard
-            title="Water Intake Calculator"
-            description="Estimate daily hydration needs based on weight and activity level."
-            path="/water-intake"
-            icon={icons.waterIntake}
-          />
-
-          <CalculatorCard
-            title="Sleep Calculator"
-            description="Find optimal bedtimes or wake times based on 90-minute sleep cycles."
-            path="/sleep"
-            icon={icons.sleep}
-          />
-
-          <CalculatorCard
-            title="Blood Pressure Calculator"
-            description="Check your blood pressure category from systolic and diastolic values."
-            path="/blood-pressure"
-            icon={icons.bloodPressure}
-          />
-
-          <CalculatorCard
-            title="BMR Calculator"
-            description="Calculate your basal metabolic rate and calories at rest."
-            path="/bmr"
-            icon={icons.bmr}
-          />
-
-          <CalculatorCard
-            title="VO2 Max Calculator"
-            description="Estimate cardiovascular fitness using the Rockport 1-mile walk test."
-            path="/vo2-max"
-            icon={icons.vo2Max}
-          />
-
-          <CalculatorCard
-            title="Running Pace Calculator"
-            description="Calculate pace per mile or kilometer plus average speed."
-            path="/running-pace"
-            icon={icons.runningPace}
-          />
-
-          <CalculatorCard
-            title="Pregnancy Due Date"
-            description="Estimate pregnancy due date based on key dates."
-            path="/pregnancy-due-date"
-            icon={icons.pregnancyDueDate}
-          />
-
-          <CalculatorCard
-            title="Ovulation Calculator"
-            description="Estimate ovulation date and fertile window."
-            path="/ovulation"
-            icon={icons.ovulation}
-          />
-
-          <CalculatorCard
-            title="Waist-to-Hip Ratio"
-            description="Calculate your Waist-to-Hip Ratio to assess fat distribution and health risk."
-            path="/whr"
-            icon={icons.whr}
-          />
-
-          <CalculatorCard
-            title="Measurement Conversions"
-            description="Convert between different units of measurement for weight, length, and volume."
-            path="/conversions"
-            icon={icons.conversions}
-          />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featuredCalculators.map(calculator => (
+            <CalculatorCard
+              key={calculator.path}
+              title={calculator.title}
+              description={calculator.description}
+              path={calculator.path}
+              icon={calculator.icon}
+            />
+          ))}
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section className="mb-12">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-4">Health & Fitness Blog</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Evidence-based articles to help you understand health, fitness, and nutrition.
-          </p>
+      <section className="rounded-3xl border border-accent/10 bg-white p-8">
+        <div className="mb-6 text-center">
+          <h2 className="text-3xl font-bold">From the blog</h2>
+          <p className="text-gray-600">Evidence-based explainers and practical guides.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <Link
-            href="/blog/calorie-deficit-myths"
-            className="neumorph p-5 rounded-lg hover:shadow-neumorph-inset transition-all"
-          >
-            <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
-              Weight Management
-            </span>
-            <h3 className="font-bold mb-2">5 Myths About Calorie Deficits Debunked</h3>
-            <p className="text-sm text-gray-600 mb-2">
-              Discover the truth behind common misconceptions about calorie deficits and weight
-              loss.
-            </p>
-            <p className="text-xs text-gray-500">February 25, 2025 • 8 min read</p>
-          </Link>
-
-          <Link
-            href="/blog/tdee-explained"
-            className="neumorph p-5 rounded-lg hover:shadow-neumorph-inset transition-all"
-          >
-            <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
-              Energy Expenditure
-            </span>
-            <h3 className="font-bold mb-2">
-              TDEE Explained: How Many Calories Do You Really Need?
-            </h3>
-            <p className="text-sm text-gray-600 mb-2">
-              Understand the components of TDEE and why it's crucial for weight management.
-            </p>
-            <p className="text-xs text-gray-500">February 20, 2025 • 10 min read</p>
-          </Link>
-
-          <Link
-            href="/blog/measuring-body-fat"
-            className="neumorph p-5 rounded-lg hover:shadow-neumorph-inset transition-all"
-          >
-            <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
-              Measurement Methods
-            </span>
-            <h3 className="font-bold mb-2">
-              The Pros and Cons of Different Body Fat Measurement Methods
-            </h3>
-            <p className="text-sm text-gray-600 mb-2">
-              Compare accuracy and practicality of various body fat assessment techniques.
-            </p>
-            <p className="text-xs text-gray-500">February 15, 2025 • 12 min read</p>
-          </Link>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[
+            {
+              href: '/blog/calorie-deficit-myths',
+              category: 'Weight Management',
+              title: '5 Myths About Calorie Deficits Debunked',
+              excerpt:
+                'Discover why weight loss is not always linear and how to set realistic expectations.',
+            },
+            {
+              href: '/blog/tdee-explained',
+              category: 'Energy Expenditure',
+              title: 'TDEE Explained: How Many Calories Do You Really Need?',
+              excerpt: 'Understand each TDEE component and how it impacts your nutrition strategy.',
+            },
+            {
+              href: '/blog/measuring-body-fat',
+              category: 'Measurement Methods',
+              title: 'The Pros and Cons of Different Body Fat Measurement Methods',
+              excerpt:
+                'Compare practical and clinical body fat methods by accuracy and convenience.',
+            },
+          ].map(post => (
+            <Link
+              key={post.href}
+              href={post.href}
+              className="group rounded-2xl border border-accent/10 bg-gradient-to-b from-white to-indigo-50/30 p-5 transition-all hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg"
+            >
+              <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+                {post.category}
+              </span>
+              <h3 className="mt-3 text-lg font-bold">{post.title}</h3>
+              <p className="mt-2 text-sm text-gray-600">{post.excerpt}</p>
+              <p className="mt-4 text-sm font-semibold text-accent">Read article →</p>
+            </Link>
+          ))}
         </div>
 
-        <div className="text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/blog"
-            className="inline-block px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition-all"
+            className="inline-flex rounded-full border border-accent/20 px-6 py-3 font-semibold text-accent transition-colors hover:bg-accent/5"
           >
-            View All Articles
+            Explore all blog articles
           </Link>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <div className="neumorph p-6">
-          <h2 className="text-2xl font-bold mb-4">About HealthCheck</h2>
-          <p className="mb-4">
-            HealthCheck provides evidence-based calculators to help you understand your body
-            composition, calorie needs, and set realistic fitness goals. Our tools use
-            scientifically validated formulas and provide educational content to help you make
-            informed decisions about your health.
-          </p>
-          <p>
-            Whether you're looking to lose weight, gain muscle, or simply understand your body
-            better, our calculators offer personalized insights based on your unique measurements
-            and goals.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <div className="neumorph p-6">
-          <h2 className="text-2xl font-bold mb-4">Common Misconceptions About Fat Loss</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-lg font-semibold">The 3,500 Calorie Rule</h3>
-              <p>
-                While it's commonly stated that a 3,500 calorie deficit equals one pound of fat
-                loss, the reality is more complex. Your body adapts to calorie restriction over
-                time, and weight loss isn't linear. Our calculators use advanced models that account
-                for these adaptations.
-              </p>
-              <p className="mt-2">
-                Research shows that factors like metabolic adaptation, hormone fluctuations, and
-                individual genetics all affect how your body processes a calorie deficit. This is
-                why some people may see rapid initial weight loss followed by a plateau, even while
-                maintaining the same caloric intake.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Spot Reduction</h3>
-              <p>
-                You can't target fat loss from specific areas through exercise. Fat reduction occurs
-                throughout the body based on genetics, hormones, and overall calorie deficit. Focus
-                on total body fat percentage rather than "problem areas."
-              </p>
-              <p className="mt-2">
-                When your body mobilizes fat stores for energy, it does so from all adipose tissue
-                sites simultaneously, though the proportion may differ based on your genetic
-                predisposition. This explains why some people may notice fat loss in certain areas
-                before others, despite performing exercises that target different muscle groups.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Crash Diets</h3>
-              <p>
-                Extreme calorie restriction can lead to muscle loss, metabolic adaptation, and
-                eventual weight regain. Our calculators promote sustainable approaches that preserve
-                muscle mass and metabolic health.
-              </p>
-              <p className="mt-2">
-                Studies have consistently shown that rapid weight loss through severe caloric
-                restriction often results in a higher percentage of lean muscle loss compared to
-                more moderate approaches. Additionally, the body responds to extreme restriction by
-                lowering basal metabolic rate—a protective mechanism that makes maintaining weight
-                loss even more challenging once normal eating patterns resume.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <div className="neumorph p-6">
-          <h2 className="text-2xl font-bold mb-4">The Science Behind Our Calculators</h2>
-          <p className="mb-3">
-            At HealthCheck, we believe in evidence-based approaches to health and fitness. Our
-            calculators incorporate peer-reviewed scientific research and validated formulas to
-            provide you with accurate information about your body composition and energy needs.
-          </p>
-          <p className="mb-3">
-            For example, our Body Fat Calculator uses multiple methods including the Navy formula,
-            which has been validated against gold standard DEXA scans. Our TDEE Calculator considers
-            not only your basic metrics but also factors in the Thermic Effect of Food (TEF) and
-            Non-Exercise Activity Thermogenesis (NEAT) for more precise estimations.
-          </p>
-          <p>
-            We regularly review emerging research in nutrition and exercise science to ensure our
-            calculators reflect the most current understanding of human physiology. While these
-            tools provide excellent estimates, remember that individual variations exist, and
-            results should be used as guidance rather than absolute values.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <div className="neumorph p-6">
-          <h2 className="text-2xl font-bold mb-4">Understanding Weight Management</h2>
-          <p className="mb-3">
-            Sustainable weight management goes beyond simple calorie counting. It involves
-            understanding your body's unique needs, setting realistic goals, and developing
-            consistent habits that support your long-term health.
-          </p>
-          <p className="mb-3">
-            Protein intake plays a crucial role in preserving lean muscle mass during weight loss.
-            Research suggests that consuming between 1.6-2.2g of protein per kilogram of body weight
-            helps maintain muscle while in a calorie deficit. Our calculators factor this research
-            into their recommendations.
-          </p>
-          <p className="mb-3">
-            Adequate hydration is another often overlooked aspect of weight management. Proper fluid
-            intake supports metabolic processes, helps regulate hunger signals, and enhances
-            physical performance. A general guideline is to consume 30-40ml of water per kilogram of
-            body weight daily, adjusted for activity level and climate.
-          </p>
-          <p>
-            Remember that weight fluctuations due to water retention, hormonal changes, and glycogen
-            storage are normal and don't necessarily reflect changes in body fat. Focus on
-            longer-term trends rather than daily fluctuations for a more accurate picture of your
-            progress.
-          </p>
         </div>
       </section>
     </div>

@@ -20,10 +20,12 @@ interface CalculatorCardProps {
  */
 function CalculatorCard({ title, description, path, icon }: CalculatorCardProps) {
   return (
-    <Link href={path} className="block">
-      <div className="neumorph h-full p-6 transition-all duration-300 hover:shadow-neumorph-inset">
+    <Link href={path} className="group block h-full">
+      <div className="neumorph h-full p-6 border border-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/30 group-hover:shadow-xl">
         <div className="flex items-start mb-4">
-          <div className="mr-4 text-accent">{icon}</div>
+          <div className="mr-4 rounded-xl bg-accent/10 p-2 text-accent transition-transform duration-300 group-hover:scale-110">
+            {icon}
+          </div>
           <h2 className="text-xl font-semibold">{title}</h2>
         </div>
         <p className="text-gray-600 mb-4">{description}</p>

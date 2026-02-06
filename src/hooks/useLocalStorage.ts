@@ -29,6 +29,11 @@ export function useLocalStorage<T>(
   options?: UseLocalStorageOptions
 ): [T, (value: T | ((val: T) => T)) => void, () => void, LocalStorageError | null] {
   const [error, setError] = useState<LocalStorageError | null>(null);
+  const onErrorRef = useRef(options?.onError);
+
+  useEffect(() => {
+    onErrorRef.current = options?.onError;
+  }, [options?.onError]);
 
   // Rule: Use explicit return types for all functions
   const getStoredValue = useCallback((): T => {
@@ -47,10 +52,10 @@ export function useLocalStorage<T>(
       };
       logger.logError(`Error reading localStorage key "${key}"`, err);
       setError(storageError);
-      options?.onError?.(storageError);
+      onErrorRef.current?.(storageError);
       return initialValue;
     }
-  }, [key, initialValue, options]);
+  }, [key, initialValue]);
 
   const [storedValue, setStoredValue] = useState<T>(getStoredValue);
 
@@ -91,10 +96,10 @@ export function useLocalStorage<T>(
         };
         logger.logError(`Error setting localStorage key "${key}"`, err);
         setError(storageError);
-        options?.onError?.(storageError);
+        onErrorRef.current?.(storageError);
       }
     },
-    [key, options]
+    [key]
   );
 
   // Function to remove the item from localStorage
@@ -113,9 +118,9 @@ export function useLocalStorage<T>(
       };
       logger.logError(`Error removing localStorage key "${key}"`, err);
       setError(storageError);
-      options?.onError?.(storageError);
+      onErrorRef.current?.(storageError);
     }
-  }, [key, initialValue, options]);
+  }, [key, initialValue]);
 
   return [storedValue, setValue, removeValue, error];
 }

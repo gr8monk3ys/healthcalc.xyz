@@ -21,7 +21,8 @@
     "clean": "rm -rf .next out node_modules/.cache",
     "audit:fix": "npm audit fix",
     "update": "npm update",
-    "prepare": "husky"
+    "prepare": "husky",
+    "smoke": "node scripts/smoke-check.mjs"
   },
   "keywords": [
     "health",
@@ -39,6 +40,7 @@
   "license": "UNLICENSED",
   "description": "Free health and fitness calculators for BMI, body fat, TDEE, and more. Built with Next.js, TypeScript, and TailwindCSS.",
   "dependencies": {
+    "@clerk/nextjs": "^6.37.3",
     "@radix-ui/react-radio-group": "^1.2.3",
     "@sentry/nextjs": "^10.38.0",
     "@types/node": "^25.1.0",

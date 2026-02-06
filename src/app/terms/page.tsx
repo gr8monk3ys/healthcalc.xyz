@@ -2,188 +2,73 @@ import React from 'react';
 
 export const metadata = {
   title: 'Terms of Service | HealthCheck',
-  description: 'Terms and conditions for using HealthCheck health and fitness calculators.',
+  description: 'HealthCheck terms of service for using our health and fitness calculator tools.',
 };
 
 export default function TermsPage() {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
+    <div className="mx-auto max-w-4xl">
+      <h1 className="mb-6 text-3xl font-bold">Terms of Service</h1>
 
-      <div className="neumorph p-6 mb-8 rounded-lg">
+      <div className="neumorph mb-8 rounded-lg p-6">
         <p className="mb-4">
-          <strong>Last Updated:</strong> February 28, 2025
-        </p>
-
-        <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
-        <p className="mb-4">
-          Welcome to HealthCheck. These Terms of Service ("Terms") govern your access to and use of
-          the HealthCheck website, including any content, functionality, and services offered on or
-          through the website (the "Service").
+          <strong>Last Updated:</strong> February 6, 2026
         </p>
         <p>
-          Please read these Terms carefully before using our Service. By accessing or using the
-          Service, you agree to be bound by these Terms. If you do not agree to these Terms, you
-          must not access or use the Service.
+          By accessing and using HealthCheck, you agree to these Terms. If you do not agree, please
+          do not use the site.
         </p>
       </div>
 
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Use of the Service</h2>
-
-        <h3 className="text-xl font-medium mb-2">Eligibility</h3>
-        <p className="mb-4">
-          The Service is intended for users who are at least 13 years of age. By using the Service,
-          you represent and warrant that you are at least 13 years old. If you are under 18, you
-          should use the Service only with the involvement of a parent or guardian.
+      <div className="neumorph mb-8 rounded-lg p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Service Description</h2>
+        <p>
+          HealthCheck provides informational calculators and educational content related to fitness,
+          body composition, and nutrition.
         </p>
+      </div>
 
-        <h3 className="text-xl font-medium mb-2">User Accounts</h3>
-        <p className="mb-4">
-          Some features of the Service may require you to create an account. You are responsible for
-          maintaining the confidentiality of your account credentials and for all activities that
-          occur under your account. You agree to notify us immediately of any unauthorized access to
-          or use of your account.
+      <div className="neumorph mb-8 rounded-lg p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Accounts and Saved Results</h2>
+        <p className="mb-3">
+          We offer account sign-in/sign-up through Clerk to support saved results and account
+          sessions. Saved-result data may be stored locally in your browser and associated with your
+          account ID.
         </p>
+        <p>
+          You are responsible for safeguarding access to your device/browser profile and for the
+          activity associated with your use of the site.
+        </p>
+      </div>
 
-        <h3 className="text-xl font-medium mb-2">Acceptable Use</h3>
-        <p className="mb-4">
-          You agree to use the Service only for lawful purposes and in accordance with these Terms.
-          You agree not to:
-        </p>
-        <ul className="list-disc pl-6 mb-4 space-y-1">
-          <li>Use the Service in any way that violates any applicable law or regulation</li>
-          <li>
-            Use the Service to transmit any material that is defamatory, obscene, or offensive
-          </li>
-          <li>
-            Attempt to interfere with, compromise the system integrity or security, or decipher any
-            transmissions to or from the servers running the Service
-          </li>
-          <li>
-            Use any robot, spider, or other automatic device to access the Service for any purpose
-          </li>
-          <li>
-            Impersonate or attempt to impersonate HealthCheck, a HealthCheck employee, or another
-            user
-          </li>
-          <li>
-            Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the
-            Service
-          </li>
+      <div className="neumorph mb-8 rounded-lg p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Acceptable Use</h2>
+        <ul className="list-disc space-y-2 pl-6">
+          <li>Do not misuse, disrupt, or attempt unauthorized access to the service.</li>
+          <li>Do not use the service for unlawful activities.</li>
+          <li>Do not rely on calculators as medical diagnosis or treatment tools.</li>
         </ul>
       </div>
 
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Intellectual Property</h2>
-        <p className="mb-4">
-          The Service and its entire contents, features, and functionality (including but not
-          limited to all information, software, text, displays, images, and the design, selection,
-          and arrangement thereof) are owned by HealthCheck, its licensors, or other providers of
-          such material and are protected by copyright, trademark, and other intellectual property
-          laws.
-        </p>
-        <p className="mb-4">
-          You may use the Service for your personal, non-commercial use only. You must not
-          reproduce, distribute, modify, create derivative works of, publicly display, publicly
-          perform, republish, download, store, or transmit any of the material on our Service,
-          except as follows:
-        </p>
-        <ul className="list-disc pl-6 mb-4 space-y-1">
-          <li>
-            Your computer may temporarily store copies of such materials incidental to your
-            accessing and viewing those materials
-          </li>
-          <li>
-            You may store files that are automatically cached by your web browser for display
-            enhancement purposes
-          </li>
-          <li>
-            You may print or download one copy of a reasonable number of pages of the Service for
-            your own personal, non-commercial use and not for further reproduction, publication, or
-            distribution
-          </li>
-        </ul>
+      <div className="neumorph mb-8 rounded-lg p-6">
+        <h2 className="mb-4 text-2xl font-semibold">No Medical Relationship</h2>
         <p>
-          If you wish to use any material from the Service for commercial purposes, you must obtain
-          permission from HealthCheck by contacting us at info@heathcheck.info.
+          Use of HealthCheck does not create a doctor-patient relationship. Content and calculator
+          outputs are educational estimates only.
         </p>
       </div>
 
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Disclaimer of Warranties</h2>
-        <p className="mb-4">
-          THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF
-          ANY KIND, EITHER EXPRESS OR IMPLIED. healthcheck DISCLAIMS ALL WARRANTIES, INCLUDING
-          IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
-          NON-INFRINGEMENT.
-        </p>
-        <p className="mb-4">
-          healthcheck DOES NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED OR ERROR-FREE, THAT
-          DEFECTS WILL BE CORRECTED, OR THAT THE SERVICE OR THE SERVER THAT MAKES IT AVAILABLE ARE
-          FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.
-        </p>
+      <div className="neumorph mb-8 rounded-lg p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Limitation of Liability</h2>
         <p>
-          healthcheck MAKES NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF
-          THE CONTENT ON THE SERVICE OR THE CONTENT OF ANY WEBSITES LINKED TO THE SERVICE.
+          To the fullest extent permitted by law, HealthCheck and its operators are not liable for
+          losses or damages resulting from use of the service or reliance on site content.
         </p>
       </div>
 
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Limitation of Liability</h2>
-        <p className="mb-4">
-          IN NO EVENT WILL healthcheck, ITS AFFILIATES, OR THEIR LICENSORS, SERVICE PROVIDERS,
-          EMPLOYEES, AGENTS, OFFICERS, OR DIRECTORS BE LIABLE FOR DAMAGES OF ANY KIND, UNDER ANY
-          LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH YOUR USE, OR INABILITY TO USE, THE
-          SERVICE, INCLUDING ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE
-          DAMAGES.
-        </p>
-        <p>
-          THIS LIMITATION OF LIABILITY APPLIES WHETHER THE DAMAGES ARISE FROM USE OR MISUSE OF THE
-          SERVICE, FROM INABILITY TO USE THE SERVICE, OR FROM THE INTERRUPTION, SUSPENSION, OR
-          TERMINATION OF THE SERVICE.
-        </p>
-      </div>
-
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Indemnification</h2>
-        <p>
-          You agree to defend, indemnify, and hold harmless HealthCheck, its affiliates, licensors,
-          and service providers, and its and their respective officers, directors, employees,
-          contractors, agents, licensors, suppliers, successors, and assigns from and against any
-          claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees
-          (including reasonable attorneys' fees) arising out of or relating to your violation of
-          these Terms or your use of the Service.
-        </p>
-      </div>
-
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Governing Law</h2>
-        <p>
-          These Terms shall be governed by and construed in accordance with the laws of the State of
-          California, without giving effect to any principles of conflicts of law. Any legal action
-          or proceeding relating to your access to or use of the Service shall be instituted in a
-          state or federal court in San Francisco County, California, and you agree to submit to the
-          personal jurisdiction of such courts.
-        </p>
-      </div>
-
-      <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Changes to These Terms</h2>
-        <p>
-          We may revise these Terms from time to time. The most current version will always be
-          posted on our website, with the "Last Updated" date. If a revision meaningfully reduces
-          your rights, we will notify you (by, for example, posting a notice on our website or
-          sending you an email). By continuing to access or use the Service after revisions become
-          effective, you agree to be bound by the revised Terms.
-        </p>
-      </div>
-
-      <div className="neumorph p-6 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-        <p>
-          If you have any questions about these Terms, please contact us at legal@heathcheck.info.
-        </p>
+      <div className="neumorph rounded-lg p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Contact</h2>
+        <p>Questions about these Terms: info@heathcheck.info</p>
       </div>
     </div>
   );
