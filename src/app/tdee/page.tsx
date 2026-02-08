@@ -9,16 +9,12 @@ import { ActivityLevel, Gender } from '@/types/common';
 import { calculateBMR, calculateTDEE, getActivityMultiplier } from '@/utils/calculators/tdee';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import TDEEResult from '@/components/calculators/tdee/TDEEResult';
 import TDEEInfo from '@/components/calculators/tdee/TDEEInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
 import AffiliateLinks from '@/components/AffiliateLinks';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 import {
   useHeight,
   useWeight,
@@ -28,9 +24,6 @@ import {
 
 // Dynamic imports for below-the-fold components
 const TDEEUnderstanding = dynamic(() => import('@/components/calculators/tdee/TDEEUnderstanding'));
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for TDEE calculator
 const faqs = [
@@ -293,82 +286,72 @@ export default function TDEECalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
+    <CalculatorPageLayout
+      title="TDEE Calculator"
+      description="Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs for weight management."
+      calculatorSlug="tdee"
+      shareTitle="TDEE Calculator | Total Daily Energy Expenditure & Calorie Needs"
+      shareDescription="Calculate your TDEE to determine daily calorie needs. Find your maintenance calories, weight loss/gain targets, and optimize your nutrition with our free calculator."
+      shareHashtags={['TDEE', 'caloriedeficit', 'weightloss', 'nutrition']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About TDEE"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'TDEE Calculator',
+        description:
+          'Calculate your Total Daily Energy Expenditure (TDEE) and discover your daily calorie needs. Supports multiple formulas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle) for accurate metabolism calculations.',
+        url: 'https://www.heathcheck.info/tdee',
+      }}
+      understandingSection={<TDEEUnderstanding />}
+      newsletterDescription="Subscribe to receive the latest metabolism insights, calorie management strategies, and evidence-based nutrition advice delivered to your inbox."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        />
 
-        <h1 className="text-3xl font-bold mb-2">TDEE Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs
-          for weight management.
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/tdee"
-            title="TDEE Calculator | Total Daily Energy Expenditure & Calorie Needs"
-            description="Calculate your TDEE to determine daily calorie needs. Find your maintenance calories, weight loss/gain targets, and optimize your nutrition with our free calculator."
-            hashtags={['TDEE', 'caloriedeficit', 'weightloss', 'nutrition']}
-          />
-        </div>
-
-        <EmbedCalculator calculatorSlug="tdee" title="TDEE Calculator" className="mb-8" />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
+        )}
+      </div>
 
-          <div className="md:col-span-2" id="tdee-result">
-            {showResult && result ? (
-              <>
-                <TDEEResult result={result} />
+      <div className="md:col-span-2" id="tdee-result">
+        {showResult && result ? (
+          <>
+            <TDEEResult result={result} />
 
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="tdee"
-                    calculatorName="TDEE Calculator"
-                    data={{
-                      bmr: result.bmr,
-                      tdee: result.tdee,
-                      activityMultiplier: result.activityMultiplier,
-                      dailyCalories: result.dailyCalories,
-                    }}
-                  />
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="tdee"
+                calculatorName="TDEE Calculator"
+                data={{
+                  bmr: result.bmr,
+                  tdee: result.tdee,
+                  activityMultiplier: result.activityMultiplier,
+                  dailyCalories: result.dailyCalories,
+                }}
+              />
 
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <TDEEInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection faqs={faqs} title="Frequently Asked Questions About TDEE" className="mb-8" />
-
-        <TDEEUnderstanding />
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <TDEEInfo />
+        )}
 
         {/* Recommended Products - shown after calculation */}
         {showResult && result && (
@@ -380,30 +363,7 @@ export default function TDEECalculator() {
             className="my-8"
           />
         )}
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Health & Wellness Tips"
-          description="Subscribe to receive the latest metabolism insights, calorie management strategies, and evidence-based nutrition advice delivered to your inbox."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="TDEE Calculator"
-          description="Calculate your Total Daily Energy Expenditure (TDEE) and discover your daily calorie needs. Supports multiple formulas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle) for accurate metabolism calculations."
-          url="https://www.heathcheck.info/tdee"
-          faqs={faqs}
-        />
       </div>
-    </ErrorBoundary>
+    </CalculatorPageLayout>
   );
 }

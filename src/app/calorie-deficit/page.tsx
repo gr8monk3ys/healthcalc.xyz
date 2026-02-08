@@ -10,19 +10,12 @@ import { calculateCalorieDeficit } from '@/app/api/calorieDeficit';
 import { DEFICIT_OPTIONS } from '@/constants/calorieDeficit';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalorieDeficitResultDisplay from '@/components/calculators/calorie-deficit/CalorieDeficitResult';
 import CalorieDeficitInfo from '@/components/calculators/calorie-deficit/CalorieDeficitInfo';
 import CalorieDeficitUnderstanding from '@/components/calculators/calorie-deficit/CalorieDeficitUnderstanding';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 
 // FAQ data for the calculator
 const faqs = [
@@ -342,108 +335,68 @@ export default function CalorieDeficitCalculator() {
   ];
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
-
-        <h1 className="text-3xl font-bold mb-2">Calorie Deficit Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate how long it will take to reach your goal weight with different calorie deficit
-          levels
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/calorie-deficit"
-            title="Calorie Deficit Calculator | Weight Loss Timeline"
-            description="Calculate how long it will take to reach your goal weight with different calorie deficit levels. Get personalized recommendations for safe, sustainable weight loss."
-            hashtags={['caloriedeficit', 'weightloss', 'fitness', 'nutrition']}
-          />
-        </div>
-
-        <EmbedCalculator
-          calculatorSlug="calorie-deficit"
-          title="Calorie Deficit Calculator"
-          className="mb-8"
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-          </div>
-
-          <div className="md:col-span-2" id="calorie-deficit-result">
-            {showResult && result ? (
-              <>
-                <CalorieDeficitResultDisplay result={result} weightUnit={weightUnit} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="calorie-deficit"
-                    calculatorName="Calorie Deficit Calculator"
-                    data={{
-                      tdee: result.tdee,
-                      targetCalories: result.dailyCalorieTarget,
-                      deficitCalories: result.dailyDeficit,
-                      estimatedWeeks: result.estimatedWeeks,
-                      weightToLose: `${typeof weight === 'number' && typeof goalWeight === 'number' ? (weight - goalWeight).toFixed(1) : 0} ${weightUnit}`,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <CalorieDeficitInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection
-          faqs={faqs}
-          title="Frequently Asked Questions About Calorie Deficits"
-          className="mb-8"
-        />
-
-        <CalorieDeficitUnderstanding />
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Weight Loss Tips & Updates"
-          description="Subscribe to receive the latest nutrition and fitness tips, calculator updates, and exclusive content to help you achieve your weight loss goals."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="Calorie Deficit Calculator"
-          description="Calculate how long it will take to reach your goal weight with different calorie deficit levels. Get personalized recommendations for safe, sustainable weight loss."
-          url="https://www.heathcheck.info/calorie-deficit"
-          faqs={faqs}
+    <CalculatorPageLayout
+      title="Calorie Deficit Calculator"
+      description="Calculate how long it will take to reach your goal weight with different calorie deficit levels"
+      calculatorSlug="calorie-deficit"
+      shareTitle="Calorie Deficit Calculator | Weight Loss Timeline"
+      shareDescription="Calculate how long it will take to reach your goal weight with different calorie deficit levels. Get personalized recommendations for safe, sustainable weight loss."
+      shareHashtags={['caloriedeficit', 'weightloss', 'fitness', 'nutrition']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About Calorie Deficits"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Calorie Deficit Calculator',
+        description:
+          'Calculate how long it will take to reach your goal weight with different calorie deficit levels. Get personalized recommendations for safe, sustainable weight loss.',
+        url: 'https://www.heathcheck.info/calorie-deficit',
+      }}
+      understandingSection={<CalorieDeficitUnderstanding />}
+      newsletterTitle="Get Weight Loss Tips & Updates"
+      newsletterDescription="Subscribe to receive the latest nutrition and fitness tips, calculator updates, and exclusive content to help you achieve your weight loss goals."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
         />
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="calorie-deficit-result">
+        {showResult && result ? (
+          <>
+            <CalorieDeficitResultDisplay result={result} weightUnit={weightUnit} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="calorie-deficit"
+                calculatorName="Calorie Deficit Calculator"
+                data={{
+                  tdee: result.tdee,
+                  targetCalories: result.dailyCalorieTarget,
+                  deficitCalories: result.dailyDeficit,
+                  estimatedWeeks: result.estimatedWeeks,
+                  weightToLose: `${typeof weight === 'number' && typeof goalWeight === 'number' ? (weight - goalWeight).toFixed(1) : 0} ${weightUnit}`,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <CalorieDeficitInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

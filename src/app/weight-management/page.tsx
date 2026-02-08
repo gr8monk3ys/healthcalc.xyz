@@ -10,19 +10,12 @@ import { calculateWeightManagement } from '@/app/api/weightManagement';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { DIET_TYPES } from '@/constants/weightManagement';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WeightManagementResultDisplay from '@/components/calculators/weight-management/WeightManagementResult';
 import WeightManagementInfo from '@/components/calculators/weight-management/WeightManagementInfo';
 import WeightManagementUnderstanding from '@/components/calculators/weight-management/WeightManagementUnderstanding';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 
 // FAQ data for the calculator
 const faqs = [
@@ -383,110 +376,70 @@ export default function WeightManagementCalculator() {
   ];
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
-
-        <h1 className="text-3xl font-bold mb-2">Weight Management Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Plan your weight management journey with a target date and get personalized calorie and
-          macro recommendations
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/weight-management"
-            title="Weight Management Calculator | Complete Macro & Calorie Plan"
-            description="Plan your weight management journey with a target date and get personalized calorie and macro recommendations. Complete roadmap for weight loss or muscle gain."
-            hashtags={['weightmanagement', 'weightloss', 'musclegain', 'macros']}
-          />
-        </div>
-
-        <EmbedCalculator
-          calculatorSlug="weight-management"
-          title="Weight Management Calculator"
-          className="mb-8"
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-          </div>
-
-          <div className="md:col-span-2" id="weight-management-result">
-            {showResult && result ? (
-              <>
-                <WeightManagementResultDisplay result={result} weightUnit={weightUnit} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="weight-management"
-                    calculatorName="Weight Management Calculator"
-                    data={{
-                      tdee: result.tdee,
-                      dailyCalorieTarget: result.dailyCalorieTarget,
-                      proteinGrams: result.macros.proteinGrams,
-                      carbsGrams: result.macros.carbsGrams,
-                      fatGrams: result.macros.fatGrams,
-                      targetDate: targetDate,
-                      weightToChange: `${Math.abs(typeof weight === 'number' && typeof goalWeight === 'number' ? weight - goalWeight : 0).toFixed(1)} ${weightUnit}`,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <WeightManagementInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection
-          faqs={faqs}
-          title="Frequently Asked Questions About Weight Management"
-          className="mb-8"
-        />
-
-        <WeightManagementUnderstanding />
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Weight Management Tips & Updates"
-          description="Subscribe to receive the latest nutrition and fitness tips, calculator updates, and exclusive content to help you achieve your weight management goals."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="Weight Management Calculator"
-          description="Plan your weight management journey with a target date and get personalized calorie and macro recommendations. Complete roadmap for weight loss or muscle gain."
-          url="https://www.heathcheck.info/weight-management"
-          faqs={faqs}
+    <CalculatorPageLayout
+      title="Weight Management Calculator"
+      description="Plan your weight management journey with a target date and get personalized calorie and macro recommendations"
+      calculatorSlug="weight-management"
+      shareTitle="Weight Management Calculator | Complete Macro & Calorie Plan"
+      shareDescription="Plan your weight management journey with a target date and get personalized calorie and macro recommendations. Complete roadmap for weight loss or muscle gain."
+      shareHashtags={['weightmanagement', 'weightloss', 'musclegain', 'macros']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About Weight Management"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Weight Management Calculator',
+        description:
+          'Plan your weight management journey with a target date and get personalized calorie and macro recommendations. Complete roadmap for weight loss or muscle gain.',
+        url: 'https://www.heathcheck.info/weight-management',
+      }}
+      understandingSection={<WeightManagementUnderstanding />}
+      newsletterTitle="Get Weight Management Tips & Updates"
+      newsletterDescription="Subscribe to receive the latest nutrition and fitness tips, calculator updates, and exclusive content to help you achieve your weight management goals."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
         />
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="weight-management-result">
+        {showResult && result ? (
+          <>
+            <WeightManagementResultDisplay result={result} weightUnit={weightUnit} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="weight-management"
+                calculatorName="Weight Management Calculator"
+                data={{
+                  tdee: result.tdee,
+                  dailyCalorieTarget: result.dailyCalorieTarget,
+                  proteinGrams: result.macros.proteinGrams,
+                  carbsGrams: result.macros.carbsGrams,
+                  fatGrams: result.macros.fatGrams,
+                  targetDate: targetDate,
+                  weightToChange: `${Math.abs(typeof weight === 'number' && typeof goalWeight === 'number' ? weight - goalWeight : 0).toFixed(1)} ${weightUnit}`,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <WeightManagementInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

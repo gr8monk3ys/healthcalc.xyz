@@ -4,28 +4,18 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { createLogger } from '@/utils/logger';
 
 const logger = createLogger({ component: 'ProteinCalculator' });
-import dynamic from 'next/dynamic';
 import { ActivityLevel, Gender } from '@/types/common';
 import { ProteinGoal, ProteinResult as ProteinResultType } from '@/types/protein';
 import { processProteinCalculation } from '@/utils/calculators/protein';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { validateAge, validateWeight, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import ProteinResult from '@/components/calculators/protein/ProteinResult';
 import ProteinInfo from '@/components/calculators/protein/ProteinInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
 import AffiliateLinks from '@/components/AffiliateLinks';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 import { useWeight } from '@/hooks/useCalculatorUnits';
-
-// Dynamic imports for below-the-fold components
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // Goal options for the calculator
 const GOAL_OPTIONS = [
@@ -275,124 +265,83 @@ export default function ProteinCalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
-
-        <h1 className="text-3xl font-bold mb-2">Protein Intake Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your optimal daily protein intake based on your weight, activity level, and
-          fitness goals. Get personalized recommendations backed by scientific research.
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/protein"
-            title="Protein Intake Calculator | Daily Protein Needs"
-            description="Calculate your optimal daily protein intake based on your weight, activity level, and fitness goals. Free calculator with personalized recommendations."
-            hashtags={['protein', 'nutrition', 'fitness', 'macros']}
-          />
-        </div>
-
-        <EmbedCalculator
-          calculatorSlug="protein"
-          title="Protein Intake Calculator"
-          className="mb-8"
+    <CalculatorPageLayout
+      title="Protein Intake Calculator"
+      description="Calculate your optimal daily protein intake based on your weight, activity level, and fitness goals. Get personalized recommendations backed by scientific research."
+      calculatorSlug="protein"
+      shareTitle="Protein Intake Calculator | Daily Protein Needs"
+      shareDescription="Calculate your optimal daily protein intake based on your weight, activity level, and fitness goals. Free calculator with personalized recommendations."
+      shareHashtags={['protein', 'nutrition', 'fitness', 'macros']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About Protein Intake"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Protein Intake Calculator',
+        description:
+          'Calculate your optimal daily protein intake based on weight, activity level, age, and fitness goals. Get science-backed recommendations for muscle building, weight loss, or general health.',
+        url: 'https://www.heathcheck.info/protein',
+      }}
+      newsletterTitle="Get Nutrition & Fitness Tips"
+      newsletterDescription="Subscribe to receive the latest protein research, nutrition strategies, and evidence-based fitness advice delivered to your inbox."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
-
-          <div className="md:col-span-2" id="protein-result">
-            {showResult && result ? (
-              <>
-                <ProteinResult result={result} weightUnit={weight.unit} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="protein"
-                    calculatorName="Protein Calculator"
-                    data={{
-                      dailyProteinGrams: result.dailyProteinGrams,
-                      proteinPerKg: result.proteinPerKg,
-                      minProteinGrams: result.minProteinGrams,
-                      maxProteinGrams: result.maxProteinGrams,
-                      proteinCalories: result.proteinCalories,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <ProteinInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection
-          faqs={faqs}
-          title="Frequently Asked Questions About Protein Intake"
-          className="mb-8"
-        />
-
-        {/* Recommended Products - shown after calculation */}
-        {showResult && result && (
-          <AffiliateLinks
-            calculatorType="protein"
-            title="Products to Help You Meet Your Protein Goals"
-            maxProducts={6}
-            showDisclosure={true}
-            className="my-8"
-          />
         )}
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Nutrition & Fitness Tips"
-          description="Subscribe to receive the latest protein research, nutrition strategies, and evidence-based fitness advice delivered to your inbox."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="Protein Intake Calculator"
-          description="Calculate your optimal daily protein intake based on weight, activity level, age, and fitness goals. Get science-backed recommendations for muscle building, weight loss, or general health."
-          url="https://www.heathcheck.info/protein"
-          faqs={faqs}
-        />
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="protein-result">
+        {showResult && result ? (
+          <>
+            <ProteinResult result={result} weightUnit={weight.unit} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="protein"
+                calculatorName="Protein Calculator"
+                data={{
+                  dailyProteinGrams: result.dailyProteinGrams,
+                  proteinPerKg: result.proteinPerKg,
+                  minProteinGrams: result.minProteinGrams,
+                  maxProteinGrams: result.maxProteinGrams,
+                  proteinCalories: result.proteinCalories,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+
+            {/* Recommended Products - shown after calculation */}
+            <AffiliateLinks
+              calculatorType="protein"
+              title="Products to Help You Meet Your Protein Goals"
+              maxProducts={6}
+              showDisclosure={true}
+              className="my-8"
+            />
+          </>
+        ) : (
+          <ProteinInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

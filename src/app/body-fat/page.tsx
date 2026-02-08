@@ -25,12 +25,11 @@ import {
   validateBodyFatPercentage,
   isEmpty,
 } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatResultDisplay from '@/components/calculators/body-fat/BodyFatResult';
 import BodyFatInfo from '@/components/calculators/body-fat/BodyFatInfo';
 import AffiliateLinks from '@/components/AffiliateLinks';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
 import {
   useHeight,
   useWeight,
@@ -100,7 +99,6 @@ export default function BodyFatCalculator() {
         }
       }
 
-      // Validate height
       // Validate height (feet for imperial, cm for metric)
       if (isEmpty(height.value)) {
         newErrors.height = 'Height is required';
@@ -377,47 +375,49 @@ export default function BodyFatCalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-2">Body Fat Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your body fat percentage using various methods including Navy, skinfold, and BMI
-        </p>
+    <CalculatorPageLayout
+      title="Body Fat Calculator"
+      description="Calculate your body fat percentage using various methods including Navy, skinfold, and BMI"
+      calculatorSlug="body-fat"
+      faqs={[]}
+      relatedArticles={[]}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Body Fat Calculator',
+        description:
+          'Calculate your body fat percentage using various methods including Navy, skinfold, and BMI.',
+        url: 'https://www.heathcheck.info/body-fat',
+      }}
+      understandingSection={<BodyFatUnderstanding />}
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        />
 
-        <EmbedCalculator calculatorSlug="body-fat" title="Body Fat Calculator" className="mb-8" />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
+        )}
+      </div>
 
-          <div className="md:col-span-2" id="body-fat-result">
-            {showResult && result ? (
-              <BodyFatResultDisplay
-                result={result}
-                gender={gender}
-                weightUnit={weight.unit}
-                method={methodLabel}
-              />
-            ) : (
-              <BodyFatInfo />
-            )}
-          </div>
-        </div>
-
-        <BodyFatUnderstanding />
+      <div className="md:col-span-2" id="body-fat-result">
+        {showResult && result ? (
+          <BodyFatResultDisplay
+            result={result}
+            gender={gender}
+            weightUnit={weight.unit}
+            method={methodLabel}
+          />
+        ) : (
+          <BodyFatInfo />
+        )}
 
         {/* Recommended Products - shown after calculation */}
         {showResult && result && (
@@ -430,6 +430,6 @@ export default function BodyFatCalculator() {
           />
         )}
       </div>
-    </ErrorBoundary>
+    </CalculatorPageLayout>
   );
 }

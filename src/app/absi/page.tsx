@@ -15,15 +15,11 @@ import {
   validateWaist,
   isEmpty,
 } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import ABSIResultDisplay from '@/components/calculators/absi/ABSIResult';
 import ABSIInfo from '@/components/calculators/absi/ABSIInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 import {
   useHeight,
   useWeight,
@@ -33,9 +29,6 @@ import {
 
 // Dynamic imports for below-the-fold components
 const ABSIUnderstanding = dynamic(() => import('@/components/calculators/absi/ABSIUnderstanding'));
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -144,7 +137,6 @@ export default function ABSICalculator() {
         }
       }
 
-      // Validate height
       // Validate height (feet for imperial, cm for metric)
       if (isEmpty(height.value)) {
         newErrors.height = 'Height is required';
@@ -269,106 +261,75 @@ export default function ABSICalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
+    <CalculatorPageLayout
+      title="A Body Shape Index (ABSI) Calculator"
+      description="Calculate your ABSI to assess health risks related to body shape and fat distribution"
+      calculatorSlug="absi"
+      shareTitle="ABSI Calculator | Beyond BMI Health Assessment"
+      shareDescription="Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. More accurate than BMI for mortality risk prediction."
+      shareHashtags={['ABSI', 'healthmetrics', 'bodyshape', 'healthrisk']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About ABSI"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'ABSI Calculator',
+        description:
+          'Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. More accurate than BMI for mortality risk prediction.',
+        url: 'https://www.heathcheck.info/absi',
+      }}
+      understandingSection={<ABSIUnderstanding />}
+      newsletterTitle="Get Health Metrics Insights"
+      newsletterDescription="Subscribe to receive the latest health assessment tips, calculator updates, and exclusive content to help you understand your body composition better."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        />
 
-        <h1 className="text-3xl font-bold mb-2">A Body Shape Index (ABSI) Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your ABSI to assess health risks related to body shape and fat distribution
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/absi"
-            title="ABSI Calculator | Beyond BMI Health Assessment"
-            description="Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. More accurate than BMI for mortality risk prediction."
-            hashtags={['ABSI', 'healthmetrics', 'bodyshape', 'healthrisk']}
-          />
-        </div>
-
-        <EmbedCalculator calculatorSlug="absi" title="ABSI Calculator" className="mb-8" />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
-
-          <div className="md:col-span-2" id="absi-result">
-            {showResult && result ? (
-              <>
-                <ABSIResultDisplay result={result} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="absi"
-                    calculatorName="ABSI Calculator"
-                    data={{
-                      absi: result.absi,
-                      absiZScore: result.absiZScore,
-                      waistCircumference: waist,
-                      waistHeightRatio: result.waistHeightRatio,
-                      riskCategory: result.riskCategory,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <ABSIInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection faqs={faqs} title="Frequently Asked Questions About ABSI" className="mb-8" />
-
-        <ABSIUnderstanding />
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Health Metrics Insights"
-          description="Subscribe to receive the latest health assessment tips, calculator updates, and exclusive content to help you understand your body composition better."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="ABSI Calculator"
-          description="Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and fat distribution. More accurate than BMI for mortality risk prediction."
-          url="https://www.heathcheck.info/absi"
-          faqs={faqs}
-        />
+        )}
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="absi-result">
+        {showResult && result ? (
+          <>
+            <ABSIResultDisplay result={result} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="absi"
+                calculatorName="ABSI Calculator"
+                data={{
+                  absi: result.absi,
+                  absiZScore: result.absiZScore,
+                  waistCircumference: waist,
+                  waistHeightRatio: result.waistHeightRatio,
+                  riskCategory: result.riskCategory,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <ABSIInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

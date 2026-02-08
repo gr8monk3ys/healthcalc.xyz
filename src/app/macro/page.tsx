@@ -4,34 +4,24 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { createLogger } from '@/utils/logger';
 
 const logger = createLogger({ component: 'MacroCalculator' });
-import dynamic from 'next/dynamic';
 import { ActivityLevel, Gender } from '@/types/common';
 import { MacroGoal, MacroResult as MacroResultType } from '@/types/macro';
 import { processMacroCalculation } from '@/utils/calculators/macro';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { MACRO_RATIO_PRESETS, validateMacroDistribution } from '@/constants/macro';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import MacroResult from '@/components/calculators/macro/MacroResult';
 import MacroInfo from '@/components/calculators/macro/MacroInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
 import AffiliateLinks from '@/components/AffiliateLinks';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 import {
   useHeight,
   useWeight,
   createHeightField,
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
-
-// Dynamic imports for below-the-fold components
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for Macro calculator
 const faqs = [
@@ -350,118 +340,85 @@ export default function MacroCalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
+    <CalculatorPageLayout
+      title="Macro Calculator"
+      description="Calculate your daily macronutrient targets (protein, carbs, fat) based on your goals and activity level."
+      calculatorSlug="macro"
+      shareTitle="Macro Calculator | Calculate Your Daily Protein, Carbs & Fat"
+      shareDescription="Calculate your optimal daily macronutrient intake for weight loss, maintenance, or muscle gain with our free macro calculator."
+      shareHashtags={['macros', 'nutrition', 'fitness', 'mealprep']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About Macros"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Macro Calculator',
+        description:
+          'Calculate your daily macronutrient (protein, carbs, fat) targets based on your TDEE and dietary goals. Supports weight loss, maintenance, and muscle gain presets.',
+        url: 'https://www.heathcheck.info/macro',
+      }}
+      newsletterTitle="Get Nutrition & Macro Tips"
+      newsletterDescription="Subscribe to receive the latest macro tracking strategies, meal prep ideas, and evidence-based nutrition advice delivered to your inbox."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        />
 
-        <h1 className="text-3xl font-bold mb-2">Macro Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your daily macronutrient targets (protein, carbs, fat) based on your goals and
-          activity level.
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/macro"
-            title="Macro Calculator | Calculate Your Daily Protein, Carbs & Fat"
-            description="Calculate your optimal daily macronutrient intake for weight loss, maintenance, or muscle gain with our free macro calculator."
-            hashtags={['macros', 'nutrition', 'fitness', 'mealprep']}
-          />
-        </div>
-
-        <EmbedCalculator calculatorSlug="macro" title="Macro Calculator" className="mb-8" />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
-
-          <div className="md:col-span-2" id="macro-result">
-            {showResult && result ? (
-              <>
-                <MacroResult result={result} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="macro"
-                    calculatorName="Macro Calculator"
-                    data={{
-                      bmr: result.bmr,
-                      tdee: result.tdee,
-                      targetCalories: result.targetCalories,
-                      protein: result.protein,
-                      carbs: result.carbs,
-                      fat: result.fat,
-                      goal: result.goal,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <MacroInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection faqs={faqs} title="Frequently Asked Questions About Macros" className="mb-8" />
-
-        {/* Recommended Products - shown after calculation */}
-        {showResult && result && (
-          <AffiliateLinks
-            calculatorType="macro"
-            title="Tools to Help You Track Your Macros"
-            maxProducts={6}
-            showDisclosure={true}
-            className="my-8"
-          />
         )}
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Nutrition & Macro Tips"
-          description="Subscribe to receive the latest macro tracking strategies, meal prep ideas, and evidence-based nutrition advice delivered to your inbox."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="Macro Calculator"
-          description="Calculate your daily macronutrient (protein, carbs, fat) targets based on your TDEE and dietary goals. Supports weight loss, maintenance, and muscle gain presets."
-          url="https://www.heathcheck.info/macro"
-          faqs={faqs}
-        />
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="macro-result">
+        {showResult && result ? (
+          <>
+            <MacroResult result={result} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="macro"
+                calculatorName="Macro Calculator"
+                data={{
+                  bmr: result.bmr,
+                  tdee: result.tdee,
+                  targetCalories: result.targetCalories,
+                  protein: result.protein,
+                  carbs: result.carbs,
+                  fat: result.fat,
+                  goal: result.goal,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+
+            {/* Recommended Products - shown after calculation */}
+            <AffiliateLinks
+              calculatorType="macro"
+              title="Tools to Help You Track Your Macros"
+              maxProducts={6}
+              showDisclosure={true}
+              className="my-8"
+            />
+          </>
+        ) : (
+          <MacroInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

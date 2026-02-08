@@ -4,7 +4,6 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { createLogger } from '@/utils/logger';
 
 const logger = createLogger({ component: 'OneRepMaxCalculator' });
-import dynamic from 'next/dynamic';
 import {
   processOneRepMaxCalculation,
   validateOneRepMaxWeight,
@@ -14,21 +13,12 @@ import { OneRepMaxResult, OneRepMaxFormula } from '@/types/oneRepMax';
 import { WeightUnit } from '@/types/common';
 import { isEmpty } from '@/utils/validation';
 import { convertWeight } from '@/utils/conversions';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import OneRepMaxResultDisplay from '@/components/calculators/oneRepMax/OneRepMaxResult';
 import OneRepMaxInfo from '@/components/calculators/oneRepMax/OneRepMaxInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
 import { ONE_REP_MAX_FORMULAS } from '@/constants/oneRepMax';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
-
-// Dynamic imports for below-the-fold components
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for 1RM calculator
 const faqs = [
@@ -247,115 +237,76 @@ export default function OneRepMaxCalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
-
-        <h1 className="text-3xl font-bold mb-2">One Rep Max (1RM) Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Estimate your one rep max from submaximal lifts. Get training zone recommendations and a
-          percentage chart for programming your workouts.
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/one-rep-max"
-            title="One Rep Max Calculator | Estimate Your 1RM"
-            description="Calculate your one rep max from submaximal lifts using Epley, Brzycki, or Lombardi formulas. Get training zone recommendations for strength, hypertrophy, and endurance."
-            hashtags={['1RM', 'strengthtraining', 'fitness', 'powerlifting']}
-          />
-        </div>
-
-        <EmbedCalculator
-          calculatorSlug="one-rep-max"
-          title="One Rep Max Calculator"
-          className="mb-8"
+    <CalculatorPageLayout
+      title="One Rep Max (1RM) Calculator"
+      description="Estimate your one rep max from submaximal lifts. Get training zone recommendations and a percentage chart for programming your workouts."
+      calculatorSlug="one-rep-max"
+      shareTitle="One Rep Max Calculator | Estimate Your 1RM"
+      shareDescription="Calculate your one rep max from submaximal lifts using Epley, Brzycki, or Lombardi formulas. Get training zone recommendations for strength, hypertrophy, and endurance."
+      shareHashtags={['1RM', 'strengthtraining', 'fitness', 'powerlifting']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About One Rep Max"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'One Rep Max Calculator',
+        description:
+          'Calculate your One Rep Max (1RM) from submaximal lifts using Epley, Brzycki, or Lombardi formulas. Get training zone recommendations and percentage charts for strength programming.',
+        url: 'https://www.heathcheck.info/one-rep-max',
+      }}
+      newsletterTitle="Get Strength Training Tips"
+      newsletterDescription="Subscribe to receive the latest strength training insights, workout programming advice, and evidence-based fitness tips delivered to your inbox."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Lift Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Lift Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
-
-          <div className="md:col-span-2" id="one-rep-max-result">
-            {showResult && result ? (
-              <>
-                <OneRepMaxResultDisplay result={result} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="one-rep-max"
-                    calculatorName="One Rep Max Calculator"
-                    data={{
-                      oneRepMax: result.oneRepMax,
-                      formula: result.selectedFormula,
-                      weightUnit: result.weightUnit,
-                      trainingZones: result.trainingZones.map(z => ({
-                        name: z.name,
-                        range: `${z.minWeight}-${z.maxWeight} ${result.weightUnit}`,
-                      })),
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <OneRepMaxInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection
-          faqs={faqs}
-          title="Frequently Asked Questions About One Rep Max"
-          className="mb-8"
-        />
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Strength Training Tips"
-          description="Subscribe to receive the latest strength training insights, workout programming advice, and evidence-based fitness tips delivered to your inbox."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="One Rep Max Calculator"
-          description="Calculate your One Rep Max (1RM) from submaximal lifts using Epley, Brzycki, or Lombardi formulas. Get training zone recommendations and percentage charts for strength programming."
-          url="https://www.heathcheck.info/one-rep-max"
-          faqs={faqs}
-        />
+        )}
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="one-rep-max-result">
+        {showResult && result ? (
+          <>
+            <OneRepMaxResultDisplay result={result} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="one-rep-max"
+                calculatorName="One Rep Max Calculator"
+                data={{
+                  oneRepMax: result.oneRepMax,
+                  formula: result.selectedFormula,
+                  weightUnit: result.weightUnit,
+                  trainingZones: result.trainingZones.map(z => ({
+                    name: z.name,
+                    range: `${z.minWeight}-${z.maxWeight} ${result.weightUnit}`,
+                  })),
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <OneRepMaxInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

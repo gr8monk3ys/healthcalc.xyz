@@ -16,16 +16,12 @@ import { BMIResult } from '@/types/bmi';
 import { Gender } from '@/types/common';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
 import { convertWeight } from '@/utils/conversions';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BMIResultDisplay from '@/components/calculators/bmi/BMIResult';
 import BMIInfo from '@/components/calculators/bmi/BMIInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
 import AffiliateLinks from '@/components/AffiliateLinks';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 import {
   useHeight,
   useWeight,
@@ -35,9 +31,6 @@ import {
 
 // Dynamic imports for below-the-fold components
 const BMIUnderstanding = dynamic(() => import('@/components/calculators/bmi/BMIUnderstanding'));
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for BMI calculator
 const faqs = [
@@ -297,85 +290,75 @@ export default function BMICalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
+    <CalculatorPageLayout
+      title="BMI Calculator"
+      description="Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height."
+      calculatorSlug="bmi"
+      shareTitle="BMI Calculator | Body Mass Index & Healthy Weight Range"
+      shareDescription="Calculate your BMI and discover your healthy weight range. Free, accurate BMI calculator for adults and children with WHO-approved categories."
+      shareHashtags={['BMI', 'healthyweight', 'bodymassindex', 'wellness']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About BMI"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'BMI Calculator',
+        description:
+          'Calculate your Body Mass Index (BMI) and discover your healthy weight range. Supports both adults and children with WHO and CDC-approved categories.',
+        url: 'https://www.heathcheck.info/bmi',
+      }}
+      understandingSection={<BMIUnderstanding />}
+      newsletterDescription="Subscribe to receive the latest body composition insights, health calculators, and evidence-based wellness advice delivered to your inbox."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        />
 
-        <h1 className="text-3xl font-bold mb-2">BMI Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your Body Mass Index (BMI) and find your healthy weight range based on your
-          height.
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/bmi"
-            title="BMI Calculator | Body Mass Index & Healthy Weight Range"
-            description="Calculate your BMI and discover your healthy weight range. Free, accurate BMI calculator for adults and children with WHO-approved categories."
-            hashtags={['BMI', 'healthyweight', 'bodymassindex', 'wellness']}
-          />
-        </div>
-
-        <EmbedCalculator calculatorSlug="bmi" title="BMI Calculator" className="mb-8" />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
+        )}
+      </div>
 
-          <div className="md:col-span-2" id="bmi-result">
-            {showResult && result ? (
-              <>
-                <BMIResultDisplay result={result} isChild={isChild} weightUnit={weight.unit} />
+      <div className="md:col-span-2" id="bmi-result">
+        {showResult && result ? (
+          <>
+            <BMIResultDisplay result={result} isChild={isChild} weightUnit={weight.unit} />
 
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="bmi"
-                    calculatorName="BMI Calculator"
-                    data={{
-                      bmi: result.bmi,
-                      category: result.category,
-                      healthyWeightRange: result.healthyWeightRange,
-                      isChild,
-                      ...(isChild && {
-                        percentile: result.percentile,
-                      }),
-                    }}
-                  />
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="bmi"
+                calculatorName="BMI Calculator"
+                data={{
+                  bmi: result.bmi,
+                  category: result.category,
+                  healthyWeightRange: result.healthyWeightRange,
+                  isChild,
+                  ...(isChild && {
+                    percentile: result.percentile,
+                  }),
+                }}
+              />
 
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <BMIInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection faqs={faqs} title="Frequently Asked Questions About BMI" className="mb-8" />
-
-        <BMIUnderstanding />
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <BMIInfo />
+        )}
 
         {/* Recommended Products - shown after calculation */}
         {showResult && result && (
@@ -387,30 +370,7 @@ export default function BMICalculator() {
             className="my-8"
           />
         )}
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Health & Wellness Tips"
-          description="Subscribe to receive the latest body composition insights, health calculators, and evidence-based wellness advice delivered to your inbox."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="BMI Calculator"
-          description="Calculate your Body Mass Index (BMI) and discover your healthy weight range. Supports both adults and children with WHO and CDC-approved categories."
-          url="https://www.heathcheck.info/bmi"
-          faqs={faqs}
-        />
       </div>
-    </ErrorBoundary>
+    </CalculatorPageLayout>
   );
 }

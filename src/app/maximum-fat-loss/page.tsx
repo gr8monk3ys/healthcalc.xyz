@@ -9,19 +9,12 @@ import { MaximumFatLossResult } from '@/types/maximumFatLoss';
 import { calculateMaximumFatLoss } from '@/app/api/maximumFatLoss';
 import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import MaximumFatLossResultDisplay from '@/components/calculators/maximum-fat-loss/MaximumFatLossResult';
 import MaximumFatLossInfo from '@/components/calculators/maximum-fat-loss/MaximumFatLossInfo';
 import MaximumFatLossUnderstanding from '@/components/calculators/maximum-fat-loss/MaximumFatLossUnderstanding';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import NewsletterSignup from '@/components/NewsletterSignup';
-import FAQSection from '@/components/FAQSection';
-import RelatedArticles from '@/components/RelatedArticles';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 
 // FAQ data for the calculator
 const faqs = [
@@ -324,112 +317,69 @@ export default function MaximumFatLossCalculator() {
   ];
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
-
-        <h1 className="text-3xl font-bold mb-2">Maximum Fat Loss Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Find the optimal calorie intake for maximum fat loss while preserving muscle mass
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/maximum-fat-loss"
-            title="Maximum Fat Loss Calculator | Preserve Muscle While Losing Fat"
-            description="Find the optimal calorie intake for maximum fat loss while preserving muscle mass. Science-based approach using body composition analysis."
-            hashtags={['fatloss', 'musclepreservation', 'bodycomposition', 'fitness']}
-          />
-        </div>
-
-        <EmbedCalculator
-          calculatorSlug="maximum-fat-loss"
-          title="Maximum Fat Loss Calculator"
-          className="mb-8"
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Details"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-          </div>
-
-          <div className="md:col-span-2" id="maximum-fat-loss-result">
-            {showResult && result ? (
-              <>
-                <MaximumFatLossResultDisplay
-                  result={result}
-                  weightUnit={weightUnit}
-                  gender={gender}
-                />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="maximum-fat-loss"
-                    calculatorName="Maximum Fat Loss Calculator"
-                    data={{
-                      tdee: result.tdee,
-                      minimumCalories: result.minimumCalories,
-                      maximumDeficit: result.maximumDeficit,
-                      leanMassKg: result.leanMassKg,
-                      fatMassKg: result.fatMassKg,
-                      bodyFatPercentage: bodyFatPercentage,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <MaximumFatLossInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection
-          faqs={faqs}
-          title="Frequently Asked Questions About Maximum Fat Loss"
-          className="mb-8"
-        />
-
-        <MaximumFatLossUnderstanding />
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Fat Loss Tips & Updates"
-          description="Subscribe to receive the latest fat loss strategies, body composition tips, calculator updates, and exclusive content to help you achieve your physique goals."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="Maximum Fat Loss Calculator"
-          description="Find the optimal calorie intake for maximum fat loss while preserving muscle mass. Science-based approach using body composition analysis."
-          url="https://www.heathcheck.info/maximum-fat-loss"
-          faqs={faqs}
+    <CalculatorPageLayout
+      title="Maximum Fat Loss Calculator"
+      description="Find the optimal calorie intake for maximum fat loss while preserving muscle mass"
+      calculatorSlug="maximum-fat-loss"
+      shareTitle="Maximum Fat Loss Calculator | Preserve Muscle While Losing Fat"
+      shareDescription="Find the optimal calorie intake for maximum fat loss while preserving muscle mass. Science-based approach using body composition analysis."
+      shareHashtags={['fatloss', 'musclepreservation', 'bodycomposition', 'fitness']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About Maximum Fat Loss"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Maximum Fat Loss Calculator',
+        description:
+          'Find the optimal calorie intake for maximum fat loss while preserving muscle mass. Science-based approach using body composition analysis.',
+        url: 'https://www.heathcheck.info/maximum-fat-loss',
+      }}
+      understandingSection={<MaximumFatLossUnderstanding />}
+      newsletterTitle="Get Fat Loss Tips & Updates"
+      newsletterDescription="Subscribe to receive the latest fat loss strategies, body composition tips, calculator updates, and exclusive content to help you achieve your physique goals."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
         />
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="maximum-fat-loss-result">
+        {showResult && result ? (
+          <>
+            <MaximumFatLossResultDisplay result={result} weightUnit={weightUnit} gender={gender} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="maximum-fat-loss"
+                calculatorName="Maximum Fat Loss Calculator"
+                data={{
+                  tdee: result.tdee,
+                  minimumCalories: result.minimumCalories,
+                  maximumDeficit: result.maximumDeficit,
+                  leanMassKg: result.leanMassKg,
+                  fatMassKg: result.fatMassKg,
+                  bodyFatPercentage: bodyFatPercentage,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <MaximumFatLossInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }

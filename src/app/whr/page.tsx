@@ -9,21 +9,14 @@ import { Gender } from '@/types/common';
 import { WHRResult as WHRResultType } from '@/types/whr';
 import { calculateWHRWithCategory } from '@/utils/calculators/whr';
 import { validateWaist, validateHip, validateWaistHipRatio, isEmpty } from '@/utils/validation';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WHRResultDisplay from '@/components/calculators/whr/WHRResult';
 import WHRInfo from '@/components/calculators/whr/WHRInfo';
-import Breadcrumb from '@/components/Breadcrumb';
-import SocialShare from '@/components/SocialShare';
 import SaveResult from '@/components/SaveResult';
-import EmbedCalculator from '@/components/calculators/EmbedCalculator';
-import CalculatorStructuredData from '@/components/calculators/CalculatorStructuredData';
 
 // Dynamic imports for below-the-fold components
 const WHRUnderstanding = dynamic(() => import('@/components/calculators/whr/WHRUnderstanding'));
-const FAQSection = dynamic(() => import('@/components/FAQSection'));
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'));
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -141,8 +134,6 @@ export default function WHRCalculator() {
         const ratioValidation = validateWaistHipRatio(waist, hips);
         if (!ratioValidation.isValid) {
           // Note: This is a warning, not an error that blocks calculation
-          // Silently skip - unusual but not impossible (e.g., athletes with large waist muscles)
-          // Could show it to the user as a warning in the future
         }
       }
 
@@ -229,110 +220,75 @@ export default function WHRCalculator() {
   );
 
   return (
-    <ErrorBoundary>
-      <div className="max-w-4xl mx-auto">
-        {/* Breadcrumb navigation */}
-        <Breadcrumb />
-
-        <h1 className="text-3xl font-bold mb-2">Waist-to-Hip Ratio (WHR) Calculator</h1>
-        <p className="text-gray-600 mb-6">
-          Calculate your waist-to-hip ratio to assess your body fat distribution and health risks
-        </p>
-
-        {/* Social sharing buttons */}
-        <div className="mb-6">
-          <SocialShare
-            url="/whr"
-            title="Waist-to-Hip Ratio Calculator | Body Fat Distribution Assessment"
-            description="Calculate your waist-to-hip ratio (WHR) to assess body fat distribution and health risks. More accurate than BMI for predicting cardiovascular disease risk."
-            hashtags={['WHR', 'healthmetrics', 'bodycomposition', 'healthrisk']}
-          />
-        </div>
-
-        <EmbedCalculator
-          calculatorSlug="whr"
-          title="Waist-to-Hip Ratio Calculator"
-          className="mb-8"
+    <CalculatorPageLayout
+      title="Waist-to-Hip Ratio (WHR) Calculator"
+      description="Calculate your waist-to-hip ratio to assess your body fat distribution and health risks"
+      calculatorSlug="whr"
+      shareTitle="Waist-to-Hip Ratio Calculator | Body Fat Distribution Assessment"
+      shareDescription="Calculate your waist-to-hip ratio (WHR) to assess body fat distribution and health risks. More accurate than BMI for predicting cardiovascular disease risk."
+      shareHashtags={['WHR', 'healthmetrics', 'bodycomposition', 'healthrisk']}
+      faqs={faqs}
+      faqTitle="Frequently Asked Questions About WHR"
+      relatedArticles={blogArticles}
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Waist-to-Hip Ratio Calculator',
+        description:
+          'Calculate your waist-to-hip ratio (WHR) to assess body fat distribution and health risks. More accurate than BMI for predicting cardiovascular disease risk.',
+        url: 'https://www.heathcheck.info/whr',
+      }}
+      understandingSection={<WHRUnderstanding />}
+      newsletterTitle="Get Body Composition Insights"
+      newsletterDescription="Subscribe to receive the latest body composition tips, health metrics updates, and exclusive content to help you understand your health better."
+    >
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Measurements"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="md:col-span-1">
-            <CalculatorForm
-              title="Enter Your Measurements"
-              fields={formFields}
-              onSubmit={handleSubmit}
-              onReset={handleReset}
-            />
-
-            {/* User-facing error state */}
-            {calculationError && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-                {calculationError}
-              </div>
-            )}
+        {/* User-facing error state */}
+        {calculationError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+            {calculationError}
           </div>
-
-          <div className="md:col-span-2" id="whr-result">
-            {showResult && result ? (
-              <>
-                <WHRResultDisplay result={result} gender={gender} />
-
-                {/* Save result functionality */}
-                <div className="mt-6 flex justify-between items-center">
-                  <SaveResult
-                    calculatorType="whr"
-                    calculatorName="WHR Calculator"
-                    data={{
-                      whr: result.whr,
-                      waistCircumference: waist,
-                      hipCircumference: hips,
-                      category: result.category,
-                      healthRisk: result.healthRisk,
-                    }}
-                  />
-
-                  <button
-                    onClick={handleReset}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-                  >
-                    New Calculation
-                  </button>
-                </div>
-              </>
-            ) : (
-              <WHRInfo />
-            )}
-          </div>
-        </div>
-
-        {/* FAQ Section with structured data */}
-        <FAQSection faqs={faqs} title="Frequently Asked Questions About WHR" className="mb-8" />
-
-        <WHRUnderstanding />
-
-        {/* Related Articles Section */}
-        <RelatedArticles
-          currentSlug=""
-          articles={blogArticles}
-          title="Related Articles"
-          className="my-8"
-        />
-
-        {/* Newsletter Signup */}
-        <NewsletterSignup
-          title="Get Body Composition Insights"
-          description="Subscribe to receive the latest body composition tips, health metrics updates, and exclusive content to help you understand your health better."
-          className="my-8"
-        />
-
-        {/* Structured data for the calculator */}
-        <CalculatorStructuredData
-          name="Waist-to-Hip Ratio Calculator"
-          description="Calculate your waist-to-hip ratio (WHR) to assess body fat distribution and health risks. More accurate than BMI for predicting cardiovascular disease risk."
-          url="https://www.heathcheck.info/whr"
-          faqs={faqs}
-        />
+        )}
       </div>
-    </ErrorBoundary>
+
+      <div className="md:col-span-2" id="whr-result">
+        {showResult && result ? (
+          <>
+            <WHRResultDisplay result={result} gender={gender} />
+
+            {/* Save result functionality */}
+            <div className="mt-6 flex justify-between items-center">
+              <SaveResult
+                calculatorType="whr"
+                calculatorName="WHR Calculator"
+                data={{
+                  whr: result.whr,
+                  waistCircumference: waist,
+                  hipCircumference: hips,
+                  category: result.category,
+                  healthRisk: result.healthRisk,
+                }}
+              />
+
+              <button
+                onClick={handleReset}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <WHRInfo />
+        )}
+      </div>
+    </CalculatorPageLayout>
   );
 }
