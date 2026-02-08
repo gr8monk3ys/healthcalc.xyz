@@ -120,7 +120,7 @@ export default function AdUnit({
       ref={adRef}
       className={`adsbygoogle ${className}`}
       style={getAdStyle()}
-      data-ad-client="ca-pub-4505962980988232"
+      data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-4505962980988232'}
       data-ad-slot={slot}
       data-ad-format={format === 'auto' ? 'auto' : undefined}
       data-full-width-responsive={fullWidth ? 'true' : undefined}
@@ -129,18 +129,36 @@ export default function AdUnit({
 }
 
 /**
- * Predefined ad placements for common locations
+ * Predefined ad placements for common locations.
+ * Configure slot IDs via environment variables in .env.local:
+ * - NEXT_PUBLIC_ADSENSE_SLOT_RESULT
+ * - NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR
+ * - NEXT_PUBLIC_ADSENSE_SLOT_CONTENT
+ * - NEXT_PUBLIC_ADSENSE_SLOT_RESPONSIVE
  */
 export const AdPlacements = {
   /** Below calculator results - rectangle format works well */
-  RESULT_BOTTOM: { format: 'rectangle' as const, slot: 'YOUR_SLOT_ID' },
+  RESULT_BOTTOM: {
+    format: 'rectangle' as const,
+    slot: process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULT || '',
+  },
 
   /** Sidebar ad - vertical format */
-  SIDEBAR: { format: 'vertical' as const, slot: 'YOUR_SLOT_ID' },
+  SIDEBAR: {
+    format: 'vertical' as const,
+    slot: process.env.NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR || '',
+  },
 
   /** Between content sections - horizontal format */
-  CONTENT_BREAK: { format: 'horizontal' as const, slot: 'YOUR_SLOT_ID' },
+  CONTENT_BREAK: {
+    format: 'horizontal' as const,
+    slot: process.env.NEXT_PUBLIC_ADSENSE_SLOT_CONTENT || '',
+  },
 
   /** Responsive ad that fits any container */
-  RESPONSIVE: { format: 'auto' as const, slot: 'YOUR_SLOT_ID', fullWidth: true },
+  RESPONSIVE: {
+    format: 'auto' as const,
+    slot: process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESPONSIVE || '',
+    fullWidth: true,
+  },
 };
