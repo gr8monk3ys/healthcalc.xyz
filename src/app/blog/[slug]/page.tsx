@@ -59,6 +59,18 @@ const BLOG_POSTS: Record<string, React.ComponentType<Record<string, never>>> = {
       loading: () => <BlogLoadingFallback />,
     }
   ),
+  'best-supplements-fitness-goals': dynamic(
+    () => import('@/app/blog/best-supplements-fitness-goals/content'),
+    {
+      loading: () => <BlogLoadingFallback />,
+    }
+  ),
+  'best-home-gym-equipment-beginners': dynamic(
+    () => import('@/app/blog/best-home-gym-equipment-beginners/content'),
+    {
+      loading: () => <BlogLoadingFallback />,
+    }
+  ),
 };
 
 const AFFILIATE_BLOG_SLUGS = new Set([
@@ -67,6 +79,8 @@ const AFFILIATE_BLOG_SLUGS = new Set([
   'best-kitchen-scales-portion-control',
   'best-fitness-apps-macro-tracking',
   'meal-delivery-services-weight-loss',
+  'best-supplements-fitness-goals',
+  'best-home-gym-equipment-beginners',
 ]);
 
 /**

@@ -334,6 +334,18 @@ export const AFFILIATE_GUIDES: AffiliateGuide[] = [
     description: 'Calorie-smart meal kits and prepared plans.',
     category: 'meal-delivery',
   },
+  {
+    slug: 'best-supplements-fitness-goals',
+    title: 'Best Supplements for Your Fitness Goals',
+    description: 'Top-rated protein, creatine, and vitamins for performance and recovery.',
+    category: 'supplement',
+  },
+  {
+    slug: 'best-home-gym-equipment-beginners',
+    title: 'Best Home Gym Equipment for Beginners',
+    description: 'Budget-friendly gear to build a complete home gym.',
+    category: 'equipment',
+  },
 ];
 
 // Mapping of calculator types to relevant product categories
@@ -402,7 +414,7 @@ export const CALCULATOR_GUIDE_MAPPING: Record<CalculatorType, AffiliateGuide['sl
     'meal-delivery-services-weight-loss',
     'best-kitchen-scales-portion-control',
   ],
-  'maximum-fat-loss': ['meal-delivery-services-weight-loss', 'best-fitness-apps-macro-tracking'],
+  'maximum-fat-loss': ['meal-delivery-services-weight-loss', 'best-supplements-fitness-goals'],
   absi: ['best-smart-scales-body-composition', 'best-kitchen-scales-portion-control'],
   whr: ['best-smart-scales-body-composition', 'best-fitness-trackers-calorie-tracking'],
   'waist-to-height-ratio': [
@@ -413,8 +425,8 @@ export const CALCULATOR_GUIDE_MAPPING: Record<CalculatorType, AffiliateGuide['sl
   macro: ['best-fitness-apps-macro-tracking', 'best-kitchen-scales-portion-control'],
   'carb-intake': ['best-fitness-apps-macro-tracking', 'best-kitchen-scales-portion-control'],
   'fat-intake': ['best-fitness-apps-macro-tracking', 'best-kitchen-scales-portion-control'],
-  protein: ['best-fitness-apps-macro-tracking', 'meal-delivery-services-weight-loss'],
-  'one-rep-max': ['best-fitness-trackers-calorie-tracking', 'best-fitness-apps-macro-tracking'],
+  protein: ['best-supplements-fitness-goals', 'best-fitness-apps-macro-tracking'],
+  'one-rep-max': ['best-home-gym-equipment-beginners', 'best-supplements-fitness-goals'],
   'blood-pressure': ['best-fitness-trackers-calorie-tracking'],
   'heart-rate-zones': ['best-fitness-trackers-calorie-tracking'],
   'target-heart-rate': ['best-fitness-trackers-calorie-tracking'],
@@ -439,9 +451,9 @@ export const CALCULATOR_GUIDE_MAPPING: Record<CalculatorType, AffiliateGuide['sl
   ovulation: ['best-fitness-apps-macro-tracking', 'meal-delivery-services-weight-loss'],
   bmr: ['best-fitness-apps-macro-tracking', 'meal-delivery-services-weight-loss'],
   'vo2-max': ['best-fitness-trackers-calorie-tracking'],
-  'running-pace': ['best-fitness-trackers-calorie-tracking', 'best-fitness-apps-macro-tracking'],
+  'running-pace': ['best-fitness-trackers-calorie-tracking', 'best-home-gym-equipment-beginners'],
   age: ['best-fitness-apps-macro-tracking'],
-  'lean-body-mass': ['best-smart-scales-body-composition', 'best-fitness-apps-macro-tracking'],
+  'lean-body-mass': ['best-smart-scales-body-composition', 'best-supplements-fitness-goals'],
   'army-body-fat': ['best-smart-scales-body-composition', 'best-fitness-trackers-calorie-tracking'],
   'steps-to-miles': ['best-fitness-trackers-calorie-tracking'],
   'steps-to-calories': ['best-fitness-trackers-calorie-tracking'],

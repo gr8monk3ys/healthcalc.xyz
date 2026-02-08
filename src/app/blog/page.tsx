@@ -73,6 +73,26 @@ const blogPosts: BlogPost[] = [
     image: '/images/blog/meal-delivery-services-weight-loss.jpg',
   },
   {
+    title: 'Best Supplements for Your Fitness Goals in 2026',
+    description:
+      'From protein powder to creatine, discover the best supplements to support muscle growth, recovery, and overall fitness performance.',
+    slug: 'best-supplements-fitness-goals',
+    date: 'February 8, 2026',
+    readTime: '12 min read',
+    category: 'Product Reviews',
+    image: '/images/blog/best-supplements-fitness-goals.jpg',
+  },
+  {
+    title: 'Best Home Gym Equipment for Beginners in 2026',
+    description:
+      'Build an effective home gym on any budget with these beginner-friendly picks for resistance bands, dumbbells, mats, and more.',
+    slug: 'best-home-gym-equipment-beginners',
+    date: 'February 8, 2026',
+    readTime: '11 min read',
+    category: 'Product Reviews',
+    image: '/images/blog/best-home-gym-equipment-beginners.jpg',
+  },
+  {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
       "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
