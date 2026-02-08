@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GlobalStructuredData from '@/components/GlobalStructuredData';
 import Preconnect from '@/components/Preconnect';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { DarkModeProvider } from '@/context/DarkModeContext';
 import { UnitSystemProvider } from '@/context/UnitSystemContext';
 import { PreferencesProvider } from '@/context/PreferencesContext';
@@ -15,6 +15,26 @@ import PWAInit from '@/components/PWAInit';
 import Script from 'next/script';
 import { ClerkProvider } from '@clerk/nextjs';
 import { clerkEnabled } from '@/utils/auth';
+
+function LayoutProviders({ children }: { children: ReactNode }): React.JSX.Element {
+  const inner = (
+    <DarkModeProvider>
+      <UnitSystemProvider>
+        <PreferencesProvider>
+          <AuthProvider>
+            <SavedResultsProvider>{children}</SavedResultsProvider>
+          </AuthProvider>
+        </PreferencesProvider>
+      </UnitSystemProvider>
+    </DarkModeProvider>
+  );
+
+  if (clerkEnabled) {
+    return <ClerkProvider>{inner}</ClerkProvider>;
+  }
+
+  return inner;
+}
 
 export const metadata: Metadata = {
   title: 'HealthCheck - Health and Fitness Calculators',
@@ -111,56 +131,40 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       </head>
       <body>
-        {clerkEnabled ? (
-          <ClerkProvider>
-            {/* Rule: Use React Context for global state management */}
-            {/* Split providers for granular re-renders:
-            - DarkModeProvider: only re-renders when dark mode changes
-            - UnitSystemProvider: only re-renders when unit preferences change
-            - PreferencesProvider: backward compatibility wrapper combining both
-        */}
-        <DarkModeProvider>
-          <UnitSystemProvider>
-            <PreferencesProvider>
-              <AuthProvider>
-                <SavedResultsProvider>
-                  <div className="min-h-screen flex flex-col">
-                    <Header />
-                    <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
-                    <Footer />
-                  </div>
+        <LayoutProviders>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+            <Footer />
+          </div>
 
-                  {/* Analytics component for tracking */}
-                  <Analytics />
+          {/* Analytics component for tracking */}
+          <Analytics />
 
-                  {/* PWA initialization and service worker registration */}
-                  <PWAInit />
+          {/* PWA initialization and service worker registration */}
+          <PWAInit />
 
-                  {/* Global structured data for organization and website */}
-                  <GlobalStructuredData />
+          {/* Global structured data for organization and website */}
+          <GlobalStructuredData />
 
-                  {/* Google Analytics - loaded after page is interactive for better performance */}
-                  {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
-                    <>
-                      <Script
-                        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-                        strategy="afterInteractive"
-                      />
-                      <Script id="google-analytics" strategy="afterInteractive">
-                        {`
-                          window.dataLayer = window.dataLayer || [];
-                          function gtag(){dataLayer.push(arguments);}
-                          gtag('js', new Date());
-                          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-                        `}
-                      </Script>
-                    </>
-                  )}
-                </SavedResultsProvider>
-              </AuthProvider>
-            </PreferencesProvider>
-          </UnitSystemProvider>
-        </DarkModeProvider>
+          {/* Google Analytics - loaded after page is interactive for better performance */}
+          {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
+            <>
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+                strategy="afterInteractive"
+              />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `}
+              </Script>
+            </>
+          )}
+        </LayoutProviders>
       </body>
     </html>
   );

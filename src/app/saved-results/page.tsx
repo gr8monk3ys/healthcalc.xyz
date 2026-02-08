@@ -19,7 +19,7 @@ export default function SavedResultsPage() {
         <div className="neumorph rounded-lg p-6">
           <h2 className="mb-2 text-xl font-semibold">You are not signed in</h2>
           <p className="mb-4 text-gray-700">
-            Use the account buttons in the header to sign in or create an account. Saved results are
+            Use the Sign In button in the header to sign in or create an account. Saved results are
             stored locally in your browser.
           </p>
           <Link href="/" className="text-accent font-medium hover:underline">
