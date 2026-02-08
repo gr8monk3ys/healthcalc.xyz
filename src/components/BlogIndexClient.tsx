@@ -53,7 +53,7 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
       </div>
 
       <div className="space-y-8">
-        {filteredPosts.map(post => (
+        {filteredPosts.map((post, index) => (
           <Link
             href={`/blog/${post.slug}`}
             key={post.slug}
@@ -64,7 +64,9 @@ export default function BlogIndexClient({ posts }: BlogIndexClientProps) {
                 src={post.image}
                 alt={post.title}
                 width={1200}
-                height={600}
+                height={630}
+                sizes="(max-width: 768px) 100vw, 896px"
+                priority={index === 0}
                 className="h-48 w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
               />
             </div>
