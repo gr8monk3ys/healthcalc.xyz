@@ -16,6 +16,7 @@ import EmbedCalculator from '@/components/calculators/EmbedCalculator';
 import AdBlock from '@/components/AdBlock';
 import RelatedGuides from '@/components/RelatedGuides';
 import Accordion from '@/components/ui/Accordion';
+import { ResultsEmailCapture } from '@/components/ResultsEmailCapture';
 
 // Dynamic imports for below-the-fold components (performance optimization)
 const FAQSection = dynamic(() => import('@/components/FAQSection'), {
@@ -106,6 +107,8 @@ export interface CalculatorPageLayoutProps {
   structuredData: Record<string, unknown>;
   /** Optional understanding section component (varies per calculator) */
   understandingSection?: React.ReactNode;
+  /** Whether to show the results email capture component (true when results are displayed) */
+  showResultsCapture?: boolean;
   /** Newsletter signup title */
   newsletterTitle?: string;
   /** Newsletter signup description */
@@ -146,6 +149,7 @@ export function CalculatorPageLayout({
   relatedArticles,
   structuredData,
   understandingSection,
+  showResultsCapture = false,
   newsletterTitle = 'Get Health & Wellness Tips',
   newsletterDescription = 'Subscribe to receive the latest health insights and evidence-based wellness advice delivered to your inbox.',
   children,
@@ -182,6 +186,13 @@ export function CalculatorPageLayout({
         <p className="text-gray-600 mb-6">{description}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">{children}</div>
+
+        {showResultsCapture && (
+          <ResultsEmailCapture
+            source={`calculator-${calculatorSlug}`}
+            className="mb-8 animate-fade-in"
+          />
+        )}
 
         <AdBlock slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULT} format="rectangle" />
 
@@ -272,7 +283,7 @@ export function CalculatorPageLayout({
           data={createCalculatorSchema({
             name: title,
             description,
-            url: `https://www.heathcheck.info/${calculatorSlug}`,
+            url: `https://www.healthcalc.xyz/${calculatorSlug}`,
           })}
         />
         <StructuredData data={createFAQSchema(faqs)} />

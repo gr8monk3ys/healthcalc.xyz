@@ -20,6 +20,8 @@ const logger = createLogger({ component: 'NewsletterAPI' });
 
 interface SubscribeRequest {
   email: string;
+  /** Optional source identifier for tracking where the subscription originated */
+  source?: string;
 }
 
 interface SubscribeResponse {
@@ -31,6 +33,19 @@ interface SubscribeResponse {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: NextRequest): Promise<NextResponse<SubscribeResponse>> {
+  // CSRF protection: verify the Origin header matches the expected host.
+  // Same-origin requests from older browsers may omit the header, so only
+  // reject when Origin is present but does not match.
+  const origin = request.headers.get('origin');
+  if (origin) {
+    const host = request.headers.get('host');
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+    const expectedOrigin = siteUrl || (host ? `https://${host}` : null);
+    if (!expectedOrigin || origin !== expectedOrigin) {
+      return NextResponse.json({ success: false, message: 'Forbidden' }, { status: 403 });
+    }
+  }
+
   const { success: withinLimit } = rateLimit(request);
   if (!withinLimit) {
     return NextResponse.json(
@@ -44,7 +59,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
 
   try {
     const body = (await request.json()) as SubscribeRequest;
-    const { email } = body;
+    const { email, source } = body;
 
     // Validate email
     if (!email || !EMAIL_REGEX.test(email)) {
@@ -76,6 +91,10 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
           body: JSON.stringify({
             email_address: email,
             status: 'pending', // Double opt-in
+            ...(source && {
+              tags: [source],
+              merge_fields: { SOURCE: source },
+            }),
           }),
         }
       );
@@ -178,7 +197,9 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
 
     // No email provider configured - log without the email address
     // In production, you should configure an email provider
-    logger.warn('Newsletter subscription (no provider configured)');
+    logger.warn('Newsletter subscription (no provider configured)', {
+      ...(source && { source }),
+    });
 
     // For development/demo: Store in a simple way or just acknowledge
     if (process.env.NODE_ENV === 'development') {
