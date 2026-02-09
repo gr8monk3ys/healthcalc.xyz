@@ -646,6 +646,48 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     hub: 'utilities',
     image: getCalculatorImage('steps-to-miles'),
   },
+  {
+    slug: 'ffmi',
+    title: 'FFMI Calculator',
+    description:
+      'Calculate your Fat-Free Mass Index to assess muscular development relative to your height.',
+    category: 'Body Composition',
+    hub: 'body-composition',
+    image: getCalculatorImage('ffmi'),
+  },
+  {
+    slug: 'body-recomposition',
+    title: 'Body Recomposition Calculator',
+    description: 'Get calorie and macro targets to build muscle and lose fat simultaneously.',
+    category: 'Body Composition',
+    hub: 'body-composition',
+    image: getCalculatorImage('body-recomposition'),
+  },
+  {
+    slug: 'intermittent-fasting',
+    title: 'Intermittent Fasting Calculator',
+    description: 'Plan your eating window and calorie distribution for popular fasting protocols.',
+    category: 'Nutrition & Macros',
+    hub: 'nutrition',
+    image: getCalculatorImage('intermittent-fasting'),
+  },
+  {
+    slug: 'keto-calculator',
+    title: 'Keto Macro Calculator',
+    description: 'Calculate your ideal fat, protein, and carb macros for a ketogenic diet.',
+    category: 'Nutrition & Macros',
+    hub: 'nutrition',
+    image: getCalculatorImage('keto-calculator'),
+  },
+  {
+    slug: 'caffeine-calculator',
+    title: 'Caffeine Intake Calculator',
+    description:
+      'Find your safe daily caffeine limit and optimal pre-workout timing based on body weight.',
+    category: 'Wellness & Recovery',
+    hub: 'wellness-recovery',
+    image: getCalculatorImage('caffeine-calculator'),
+  },
 ];
 
 export const getCalculatorHub = (slug: string) => CALCULATOR_HUBS.find(hub => hub.slug === slug);
