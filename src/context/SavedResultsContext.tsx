@@ -31,17 +31,8 @@ interface SavedResultsProviderProps {
   children: ReactNode;
 }
 
-function generateResultId(type: string, resultData: Record<string, unknown>): string {
-  const dataString = JSON.stringify(resultData);
-  let hash = 0;
-
-  for (let i = 0; i < dataString.length; i++) {
-    const char = dataString.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash = hash & hash;
-  }
-
-  return `${type}-${hash}`;
+function generateResultId(type: string, _resultData: Record<string, unknown>): string {
+  return `${type}-${crypto.randomUUID()}`;
 }
 
 export function SavedResultsProvider({ children }: SavedResultsProviderProps): React.JSX.Element {

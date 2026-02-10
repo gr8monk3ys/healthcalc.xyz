@@ -1,6 +1,5 @@
 import React from 'react';
 import { IFResult as IFResultType } from '@/types/intermittentFasting';
-import { getFormattedEatingWindow } from '@/utils/calculators/intermittentFasting';
 
 interface IFResultProps {
   result: IFResultType;
