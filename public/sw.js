@@ -5,10 +5,9 @@
  * Enhanced with workbox-inspired strategies and improved offline support
  */
 
-const CACHE_NAME = 'healthcheck-cache-v2';
-const STATIC_CACHE_NAME = 'healthcheck-static-v2';
-const DYNAMIC_CACHE_NAME = 'healthcheck-dynamic-v2';
-const API_CACHE_NAME = 'healthcheck-api-v2';
+const CACHE_NAME = 'healthcheck-cache-v3';
+const DYNAMIC_CACHE_NAME = 'healthcheck-dynamic-v3';
+const API_CACHE_NAME = 'healthcheck-api-v3';
 const OFFLINE_PAGE = '/offline.html';
 
 // Resources to cache on install
@@ -21,13 +20,6 @@ const PRECACHE_RESOURCES = [
   '/images/og-image.jpg',
   '/images/placeholder.png',
   '/favicon.ico'
-];
-
-// Static assets to cache (CSS, JS, fonts)
-const STATIC_RESOURCES = [
-  '/styles.css',
-  '/main.js',
-  '/fonts/inter-var.woff2'
 ];
 
 // API routes to cache with network-first strategy
@@ -45,26 +37,17 @@ const API_CACHE_MAX_AGE = 24 * 60 * 60 * 1000;
 // Install event - precache critical resources
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    Promise.all([
-      // Cache core resources
-      caches.open(CACHE_NAME).then((cache) => {
-        console.log('Service Worker: Caching core files');
-        return cache.addAll(PRECACHE_RESOURCES);
-      }),
-      
-      // Cache static assets
-      caches.open(STATIC_CACHE_NAME).then((cache) => {
-        console.log('Service Worker: Caching static assets');
-        return cache.addAll(STATIC_RESOURCES);
-      })
-    ])
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log('Service Worker: Caching core files');
+      return cache.addAll(PRECACHE_RESOURCES);
+    })
     .then(() => self.skipWaiting())
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  const currentCaches = [CACHE_NAME, STATIC_CACHE_NAME, DYNAMIC_CACHE_NAME, API_CACHE_NAME];
+  const currentCaches = [CACHE_NAME, DYNAMIC_CACHE_NAME, API_CACHE_NAME];
   
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -114,7 +97,7 @@ self.addEventListener('fetch', (event) => {
   // Strategy 2: Cache-first for static assets (CSS, JS, fonts)
   if (isStaticAsset(url.pathname)) {
     event.respondWith(
-      cacheFirstWithNetworkFallback(event.request, STATIC_CACHE_NAME)
+      cacheFirstWithNetworkFallback(event.request, DYNAMIC_CACHE_NAME)
     );
     return;
   }
@@ -284,8 +267,7 @@ function isStaticAsset(pathname) {
     pathname.endsWith('.woff') ||
     pathname.endsWith('.woff2') ||
     pathname.endsWith('.ttf') ||
-    pathname.endsWith('.eot') ||
-    STATIC_RESOURCES.includes(pathname)
+    pathname.endsWith('.eot')
   );
 }
 

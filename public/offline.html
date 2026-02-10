@@ -222,7 +222,7 @@
   <script>
     // Populate cached pages if available
     if ('caches' in window) {
-      caches.open('healthcheck-cache-v1').then(cache => {
+      caches.open('healthcheck-cache-v3').then(cache => {
         cache.keys().then(requests => {
           const cachedList = document.getElementById('cached-pages');
           const homeItem = cachedList.querySelector('li'); // Keep the home item
