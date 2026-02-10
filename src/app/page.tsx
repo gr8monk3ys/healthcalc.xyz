@@ -3,7 +3,7 @@ import Link from 'next/link';
 import CalculatorCard from '@/components/CalculatorCard';
 
 export const metadata = {
-  title: 'HeathCheck - Free Body Fat, BMI, TDEE Calculators',
+  title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
   description:
     'Free, accurate calculators for body fat percentage, BMI, TDEE, calorie deficit, and more. Evidence-based tools to help you achieve your health goals.',
   keywords:
@@ -12,7 +12,7 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'HeathCheck - Free Body Fat, BMI, TDEE Calculators',
+    title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
     description:
       'Free, accurate calculators for body fat percentage, BMI, TDEE, calorie deficit, and more. Evidence-based tools to help you achieve your health goals.',
     url: 'https://www.healthcalc.xyz/',
