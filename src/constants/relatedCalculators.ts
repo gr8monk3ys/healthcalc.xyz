@@ -104,11 +104,66 @@ const calculators: RelatedCalculator[] = [
     description: 'Estimate calories from steps',
   },
   { slug: 'age', title: 'Age Calculator', description: 'Calculate exact age' },
+  {
+    slug: 'ffmi',
+    title: 'FFMI Calculator',
+    description: 'Assess muscular development with Fat-Free Mass Index',
+  },
+  {
+    slug: 'body-recomposition',
+    title: 'Body Recomposition',
+    description: 'Build muscle and lose fat simultaneously',
+  },
+  {
+    slug: 'intermittent-fasting',
+    title: 'Intermittent Fasting',
+    description: 'Plan eating windows and calorie distribution',
+  },
+  {
+    slug: 'keto-calculator',
+    title: 'Keto Macro Calculator',
+    description: 'Calculate keto fat, protein, and carb targets',
+  },
+  {
+    slug: 'caffeine-calculator',
+    title: 'Caffeine Calculator',
+    description: 'Find safe daily caffeine limits',
+  },
+  {
+    slug: 'resting-heart-rate',
+    title: 'Resting Heart Rate',
+    description: 'Evaluate resting heart rate fitness category',
+  },
+  {
+    slug: 'max-heart-rate',
+    title: 'Max Heart Rate',
+    description: 'Estimate max heart rate using age formulas',
+  },
+  {
+    slug: 'calories-burned-walking',
+    title: 'Calories Burned Walking',
+    description: 'Estimate walking calorie burn',
+  },
+  {
+    slug: 'calories-burned-running',
+    title: 'Calories Burned Running',
+    description: 'Estimate running calorie burn',
+  },
+  {
+    slug: 'adjusted-body-weight',
+    title: 'Adjusted Body Weight',
+    description: 'Clinical adjusted body weight formulas',
+  },
+  {
+    slug: 'body-frame-size',
+    title: 'Body Frame Size',
+    description: 'Determine body frame using wrist measurement',
+  },
 ];
 
 const relatedMap: Record<string, string[]> = {
   bmi: ['body-fat', 'ideal-weight', 'tdee'],
-  'body-fat': ['bmi', 'absi', 'whr'],
+  'body-fat': ['bmi', 'ffmi', 'whr'],
   tdee: ['bmr', 'calorie-deficit', 'macro'],
   calorie: ['tdee', 'calorie-deficit', 'macro'],
   'calories-burned': ['tdee', 'heart-rate-zones', 'running-pace'],
@@ -140,12 +195,23 @@ const relatedMap: Record<string, string[]> = {
   'body-fat-burn': ['tdee', 'calorie-deficit', 'maximum-fat-loss'],
   'maximum-fat-loss': ['calorie-deficit', 'tdee', 'protein'],
   conversions: ['bmi', 'tdee', 'protein'],
-  'lean-body-mass': ['body-fat', 'bmi', 'ideal-weight'],
+  'lean-body-mass': ['body-fat', 'ffmi', 'ideal-weight'],
   'body-surface-area': ['lean-body-mass', 'bmi', 'ideal-weight'],
   'army-body-fat': ['body-fat', 'whr', 'waist-to-height-ratio'],
   'steps-to-miles': ['calories-burned', 'running-pace', 'tdee'],
   'steps-to-calories': ['steps-to-miles', 'calories-burned', 'tdee'],
   age: ['bmi', 'tdee', 'calorie'],
+  ffmi: ['body-fat', 'lean-body-mass', 'bmi'],
+  'body-recomposition': ['tdee', 'macro', 'protein'],
+  'intermittent-fasting': ['tdee', 'calorie-deficit', 'macro'],
+  'keto-calculator': ['macro', 'fat-intake', 'carb-intake'],
+  'caffeine-calculator': ['water-intake', 'sleep', 'tdee'],
+  'resting-heart-rate': ['heart-rate-zones', 'target-heart-rate', 'blood-pressure'],
+  'max-heart-rate': ['heart-rate-zones', 'target-heart-rate', 'vo2-max'],
+  'calories-burned-walking': ['calories-burned', 'steps-to-calories', 'tdee'],
+  'calories-burned-running': ['calories-burned', 'running-pace', 'tdee'],
+  'adjusted-body-weight': ['ideal-weight', 'bmi', 'lean-body-mass'],
+  'body-frame-size': ['ideal-weight', 'bmi', 'adjusted-body-weight'],
 };
 
 export function getRelatedCalculators(currentSlug: string, maxItems = 3): RelatedCalculator[] {
