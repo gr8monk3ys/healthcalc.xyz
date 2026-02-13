@@ -1,8 +1,10 @@
 const { withSentryConfig } = require('@sentry/nextjs');
+const path = require('node:path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: path.resolve(__dirname),
 
   // Image optimization
   images: {
@@ -49,12 +51,13 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com`,
+              `script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://*.adtrafficquality.google`,
+              "worker-src 'self' blob:",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self'",
-              "connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev",
-              'frame-src https://www.google.com https://pagead2.googlesyndication.com https://challenges.cloudflare.com',
+              "connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://clerk-telemetry.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google",
+              'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://challenges.cloudflare.com',
               "object-src 'none'",
               "base-uri 'self'",
               "frame-ancestors 'self'",

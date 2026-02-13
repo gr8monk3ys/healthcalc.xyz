@@ -114,10 +114,17 @@ function writeConsent(state: CookieConsentState): void {
 function AdSenseLoader(): React.JSX.Element | null {
   const { advertising } = useCookieConsent();
   const [loaded, setLoaded] = useState(false);
+  const hasConfiguredAdSlot = Boolean(
+    process.env.NEXT_PUBLIC_ADSENSE_SLOT_CONTENT?.trim() ||
+    process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULT?.trim() ||
+    process.env.NEXT_PUBLIC_ADSENSE_SLOT_SIDEBAR?.trim() ||
+    process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESPONSIVE?.trim()
+  );
 
   useEffect(() => {
     if (
       !advertising ||
+      !hasConfiguredAdSlot ||
       loaded ||
       typeof window === 'undefined' ||
       process.env.NODE_ENV !== 'production'
@@ -132,7 +139,7 @@ function AdSenseLoader(): React.JSX.Element | null {
     script.crossOrigin = 'anonymous';
     document.head.appendChild(script);
     setLoaded(true);
-  }, [advertising, loaded]);
+  }, [advertising, hasConfiguredAdSlot, loaded]);
 
   return null;
 }

@@ -1,11 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { createLogger } from '@/utils/logger';
 // Import schema utility functions for re-export
 import * as schemaUtils from '@/utils/schema';
-
-const logger = createLogger({ component: 'StructuredData' });
 
 // Re-export all schema utility functions
 export const {
@@ -26,27 +22,13 @@ interface StructuredDataProps {
  * This helps search engines better understand the content and can improve rich snippets
  */
 export default function StructuredData({ data }: StructuredDataProps) {
-  useEffect(() => {
-    // Only add structured data on the client side
-    if (typeof window !== 'undefined') {
-      // Remove any existing structured data with the same @type to avoid duplicates
-      const existingScripts = document.querySelectorAll(`script[type="application/ld+json"]`);
-
-      existingScripts.forEach(script => {
-        try {
-          const scriptData = JSON.parse(script.textContent || '{}');
-          if (scriptData['@type'] === data['@type']) {
-            script.remove();
-          }
-        } catch (e) {
-          // If parsing fails, leave the script alone
-          logger.logError('Error parsing existing JSON-LD', e);
-        }
-      });
-    }
-  }, [data]);
+  const schemaType = typeof data['@type'] === 'string' ? data['@type'] : 'unknown';
 
   return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+    <script
+      type="application/ld+json"
+      data-schema-type={schemaType}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
   );
 }
