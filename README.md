@@ -118,12 +118,42 @@ In addition to the standard Next.js scripts, this project includes several helpf
 - `npm run format:check` - Check if code is properly formatted
 - `npm run type-check` - Run TypeScript compiler to check for type errors
 - `npm run validate` - Run all checks (format, lint, type-check) - **recommended before commits**
+- `npm run smoke` - Run public route smoke checks for a target host (`SMOKE_BASE_URL`)
+- `npm run readiness` - Verify `/api/health` readiness checks (`READINESS_BASE_URL`, defaults to `http://127.0.0.1:3000`)
 
 ### Maintenance
 
 - `npm run clean` - Remove build artifacts (.next, out, cache)
 - `npm run audit:fix` - Automatically fix security vulnerabilities
 - `npm run update` - Update caniuse-lite and browserslist databases
+- `npm run migrate:submissions` - Apply submission storage schema migrations (SQLite/Postgres)
+
+### Submission Persistence
+
+- Use `SUBMISSIONS_DB_DRIVER=postgres` in production with `SUBMISSIONS_POSTGRES_URL` (or `DATABASE_URL`) for durable managed storage.
+- Use `SUBMISSIONS_DB_DRIVER=sqlite` for local/dev persistence.
+- Optional controls:
+  - `SUBMISSIONS_PERSISTENCE_STRICT=true` to fail API responses when persistence fails.
+  - `SUBMISSIONS_RETENTION_DAYS=365` for automatic retention cleanup.
+
+### Email Providers (Resend)
+
+- Newsletter with Resend requires `RESEND_API_KEY` and `RESEND_AUDIENCE_ID`.
+- Contact form with Resend requires `RESEND_API_KEY`.
+- Optional:
+  - `RESEND_FROM_EMAIL` to override the default sender for contact emails.
+  - `CONTACT_EMAIL` to set recipient inbox for contact messages.
+
+### Authentication (Clerk)
+
+- Clerk is enabled only when both `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` are set.
+- In production (`NODE_ENV=production`), test keys (`pk_test_*`, `sk_test_*`) are automatically rejected.
+- If Clerk is misconfigured in production, sign-in/up routes show a safe unavailable state instead of loading with invalid keys.
+
+### Affiliate Link Hardening
+
+- `prebuild` runs `scripts/check-affiliate-links.js` to warn when placeholder partner links remain.
+- Set `AFFILIATE_LINKS_STRICT=true` in CI if you want builds to fail when unresolved partner-link placeholders are detected.
 
 ### Recommended Workflow
 
