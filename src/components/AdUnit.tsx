@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { createLogger } from '@/utils/logger';
+import { getAdSensePublisherId } from '@/lib/adsense';
 
 const logger = createLogger({ component: 'AdUnit' });
 
@@ -43,7 +44,7 @@ interface AdUnitProps {
  * Usage:
  * 1. Sign up for Google AdSense at https://www.google.com/adsense
  * 2. Get approved and create ad units
- * 3. Add your publisher ID to layout.tsx (already configured)
+ * 3. Optionally override NEXT_PUBLIC_ADSENSE_PUBLISHER_ID in env
  * 4. Use this component with your ad slot IDs
  *
  * Example:
@@ -123,7 +124,7 @@ export default function AdUnit({
       ref={adRef}
       className={`adsbygoogle ${className}`}
       style={getAdStyle()}
-      data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-4505962980988232'}
+      data-ad-client={getAdSensePublisherId()}
       data-ad-slot={slot}
       data-ad-format={format === 'auto' ? 'auto' : undefined}
       data-full-width-responsive={fullWidth ? 'true' : undefined}

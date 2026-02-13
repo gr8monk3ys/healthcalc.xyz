@@ -9,6 +9,7 @@ import React, {
   ReactNode,
 } from 'react';
 import { usePreferences } from '@/context/PreferencesContext';
+import { getAdSensePublisherId, getAdSenseScriptSrc } from '@/lib/adsense';
 
 /* -------------------------------------------------------------------------- */
 /*  Types                                                                     */
@@ -114,6 +115,7 @@ function writeConsent(state: CookieConsentState): void {
 function AdSenseLoader(): React.JSX.Element | null {
   const { advertising } = useCookieConsent();
   const [loaded, setLoaded] = useState(false);
+  const publisherId = getAdSensePublisherId();
   const hasConfiguredAdSlot = Boolean(
     process.env.NEXT_PUBLIC_ADSENSE_SLOT_CONTENT?.trim() ||
     process.env.NEXT_PUBLIC_ADSENSE_SLOT_RESULT?.trim() ||
@@ -124,7 +126,7 @@ function AdSenseLoader(): React.JSX.Element | null {
   useEffect(() => {
     if (
       !advertising ||
-      !hasConfiguredAdSlot ||
+      (!hasConfiguredAdSlot && !publisherId) ||
       loaded ||
       typeof window === 'undefined' ||
       process.env.NODE_ENV !== 'production'
@@ -132,14 +134,20 @@ function AdSenseLoader(): React.JSX.Element | null {
       return;
     }
 
+    const existing = document.querySelector<HTMLScriptElement>('script[data-hc-adsense="1"]');
+    if (existing) {
+      setLoaded(true);
+      return;
+    }
+
     const script = document.createElement('script');
-    script.src =
-      'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4505962980988232';
+    script.src = getAdSenseScriptSrc();
     script.async = true;
     script.crossOrigin = 'anonymous';
+    script.dataset.hcAdsense = '1';
     document.head.appendChild(script);
     setLoaded(true);
-  }, [advertising, hasConfiguredAdSlot, loaded]);
+  }, [advertising, hasConfiguredAdSlot, loaded, publisherId]);
 
   return null;
 }
