@@ -17,6 +17,7 @@ import AdBlock from '@/components/AdBlock';
 import RelatedGuides from '@/components/RelatedGuides';
 import Accordion from '@/components/ui/Accordion';
 import { ResultsEmailCapture } from '@/components/ResultsEmailCapture';
+import { toAbsoluteUrl } from '@/lib/site';
 
 // Dynamic imports for below-the-fold components (performance optimization)
 const FAQSection = dynamic(() => import('@/components/FAQSection'), {
@@ -283,7 +284,7 @@ export function CalculatorPageLayout({
           data={createCalculatorSchema({
             name: title,
             description,
-            url: `https://www.healthcalc.xyz/${calculatorSlug}`,
+            url: toAbsoluteUrl(`/${calculatorSlug}`),
           })}
         />
         <StructuredData data={createFAQSchema(faqs)} />

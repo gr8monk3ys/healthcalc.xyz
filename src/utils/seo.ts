@@ -1,6 +1,7 @@
 /**
  * SEO utility functions for generating meta tags, canonical URLs, and other SEO-related data
  */
+import { getPublicSiteUrl, toAbsoluteUrl } from '@/lib/site';
 
 /**
  * Generates a canonical URL for a given path
@@ -8,7 +9,7 @@
  * @returns The canonical URL
  */
 export function getCanonicalUrl(path: string): string {
-  const baseUrl = 'https://www.healthcalc.xyz';
+  const baseUrl = getPublicSiteUrl();
   const normalizedPath = path === '/' ? '' : path.startsWith('/') ? path : `/${path}`;
   return `${baseUrl}${normalizedPath}`;
 }
@@ -215,10 +216,7 @@ export function generateImageMetadata(
   width: number,
   height: number
 ): { url: string; width: number; height: number; alt: string } {
-  // Ensure src is an absolute URL
-  const absoluteSrc = src.startsWith('http')
-    ? src
-    : `https://www.healthcalc.xyz${src.startsWith('/') ? '' : '/'}${src}`;
+  const absoluteSrc = toAbsoluteUrl(src);
 
   return {
     url: absoluteSrc,
@@ -267,7 +265,7 @@ export function generateArticleData(article: {
     '@type': 'Article',
     headline: article.title,
     description: article.description,
-    image: article.imageUrl || 'https://www.healthcalc.xyz/images/og-image.jpg',
+    image: article.imageUrl || toAbsoluteUrl('/images/og-image.jpg'),
     datePublished: article.datePublished,
     dateModified: article.dateModified || article.datePublished,
     author: {
@@ -279,7 +277,7 @@ export function generateArticleData(article: {
       name: 'HealthCheck',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.healthcalc.xyz/icons/icon-512x512.png',
+        url: toAbsoluteUrl('/icons/icon-512x512.png'),
       },
     },
     mainEntityOfPage: {

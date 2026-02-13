@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { toAbsoluteUrl } from '@/lib/site';
 
 interface SocialShareProps {
   url: string;
@@ -26,9 +27,7 @@ export default function SocialShare({
   platforms = ['twitter', 'facebook', 'linkedin', 'pinterest', 'reddit', 'email'],
 }: SocialShareProps) {
   // Ensure URL is absolute
-  const absoluteUrl = url.startsWith('http')
-    ? url
-    : `https://www.healthcalc.xyz${url.startsWith('/') ? '' : '/'}${url}`;
+  const absoluteUrl = url.startsWith('http') ? url : toAbsoluteUrl(url);
 
   // Encode parameters for sharing
   const encodedUrl = encodeURIComponent(absoluteUrl);

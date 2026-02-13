@@ -2,6 +2,9 @@
  * Utility functions for creating structured data schemas
  * These can be used in both client and server components
  */
+import { getPublicSiteUrl, toAbsoluteUrl } from '@/lib/site';
+
+const siteUrl = getPublicSiteUrl();
 
 /**
  * Creates Organization schema for the website
@@ -11,8 +14,8 @@ export function createOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'HealthCheck',
-    url: 'https://www.healthcalc.xyz',
-    logo: 'https://www.healthcalc.xyz/icons/icon-512x512.png',
+    url: siteUrl,
+    logo: toAbsoluteUrl('/icons/icon-512x512.png'),
     sameAs: [
       // Add social media profiles when available
       // 'https://www.facebook.com/healthcheck',
@@ -23,7 +26,7 @@ export function createOrganizationSchema() {
       '@type': 'ContactPoint',
       contactType: 'customer support',
       email: 'support@healthcalc.xyz',
-      url: 'https://www.healthcalc.xyz/contact',
+      url: toAbsoluteUrl('/contact'),
     },
   };
 }
@@ -36,10 +39,10 @@ export function createWebsiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'HealthCheck',
-    url: 'https://www.healthcalc.xyz',
+    url: siteUrl,
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://www.healthcalc.xyz/search?q={search_term_string}',
+      target: `${siteUrl}/search?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   };
@@ -104,7 +107,7 @@ export function createArticleSchema({
     '@type': 'Article',
     headline: title,
     description: description,
-    image: imageUrl || 'https://www.healthcalc.xyz/images/og-image.jpg',
+    image: imageUrl || toAbsoluteUrl('/images/og-image.jpg'),
     datePublished: datePublished,
     dateModified: dateModified || datePublished,
     author: {
@@ -116,7 +119,7 @@ export function createArticleSchema({
       name: 'HealthCheck',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.healthcalc.xyz/icons/icon-512x512.png',
+        url: toAbsoluteUrl('/icons/icon-512x512.png'),
       },
     },
     mainEntityOfPage: {

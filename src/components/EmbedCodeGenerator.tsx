@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { getPublicSiteUrl } from '@/lib/site';
 
 interface EmbedCodeGeneratorProps {
   calculatorSlug: string;
   calculatorTitle: string;
 }
 
-const SITE_URL = 'https://www.healthcalc.xyz';
+const SITE_URL = getPublicSiteUrl();
 const MIN_WIDTH = 300;
 const MAX_WIDTH = 800;
 const MIN_HEIGHT = 400;

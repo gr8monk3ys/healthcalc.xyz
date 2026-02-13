@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import StructuredData, { createBreadcrumbSchema } from './StructuredData';
+import { toAbsoluteUrl } from '@/lib/site';
 
 interface BreadcrumbItem {
   name: string;
@@ -63,7 +64,7 @@ export default function Breadcrumb({
   // Create schema items for structured data
   const schemaItems = breadcrumbItems.map(item => ({
     name: item.name,
-    url: `https://www.healthcalc.xyz${item.path}`,
+    url: toAbsoluteUrl(item.path),
   }));
 
   return (

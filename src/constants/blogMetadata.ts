@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import { getPublicSiteUrl } from '@/lib/site';
 
-const BASE_URL = 'https://www.healthcalc.xyz';
+const BASE_URL = getPublicSiteUrl();
 
 function blogMeta(
   slug: string,

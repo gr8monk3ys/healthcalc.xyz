@@ -2,6 +2,7 @@
 
 import React from 'react';
 import StructuredData from '@/components/StructuredData';
+import { getPublicSiteUrl, toAbsoluteUrl } from '@/lib/site';
 
 interface ReviewSchemaProps {
   productName: string;
@@ -52,21 +53,13 @@ export default function ReviewSchema({
   reviews = [],
 }: ReviewSchemaProps) {
   // Base URL for absolute URLs
-  const baseUrl = 'https://www.healthcalc.xyz';
+  const baseUrl = getPublicSiteUrl();
 
   // Ensure image URL is absolute
-  const imageUrl = image
-    ? image.startsWith('http')
-      ? image
-      : `${baseUrl}${image.startsWith('/') ? '' : '/'}${image}`
-    : '';
+  const imageUrl = image ? (image.startsWith('http') ? image : toAbsoluteUrl(image)) : '';
 
   // Ensure product URL is absolute
-  const productUrl = url
-    ? url.startsWith('http')
-      ? url
-      : `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`
-    : '';
+  const productUrl = url ? (url.startsWith('http') ? url : toAbsoluteUrl(url)) : '';
 
   // Generate aggregate rating schema
   const aggregateRating = {
