@@ -30,9 +30,9 @@ export default function UnitToggle({ className = '' }: UnitToggleProps): React.J
   if (!mounted) {
     return (
       <div className={`flex items-center ${className}`}>
-        <span className="text-sm mr-2">Units:</span>
+        <span className="mr-2 text-sm font-medium text-slate-600 dark:text-slate-300">Units:</span>
         <button
-          className="flex items-center px-3 py-1 rounded-lg neumorph text-sm"
+          className="elevated-pill flex items-center rounded-full px-3 py-1 text-sm"
           aria-label="Toggle units"
           disabled
         >
@@ -46,17 +46,27 @@ export default function UnitToggle({ className = '' }: UnitToggleProps): React.J
 
   return (
     <div className={`flex items-center ${className}`}>
-      <span className="text-sm mr-2">Units:</span>
+      <span className="mr-2 text-sm font-medium text-slate-600 dark:text-slate-300">Units:</span>
       <button
         onClick={toggleUnitSystem}
-        className="flex items-center px-3 py-1 rounded-lg neumorph text-sm"
+        className="elevated-pill flex items-center rounded-full px-3 py-1 text-sm"
         aria-label={`Switch to ${unitSystem === 'metric' ? 'imperial' : 'metric'} units`}
       >
-        <span className={unitSystem === 'metric' ? 'font-bold text-accent' : 'text-gray-500'}>
+        <span
+          className={
+            unitSystem === 'metric' ? 'font-bold text-accent' : 'text-slate-500 dark:text-slate-400'
+          }
+        >
           Metric
         </span>
-        <span className="mx-2 text-gray-400">|</span>
-        <span className={unitSystem === 'imperial' ? 'font-bold text-accent' : 'text-gray-500'}>
+        <span className="mx-2 text-slate-400 dark:text-slate-500">|</span>
+        <span
+          className={
+            unitSystem === 'imperial'
+              ? 'font-bold text-accent'
+              : 'text-slate-500 dark:text-slate-400'
+          }
+        >
           Imperial
         </span>
       </button>
@@ -83,7 +93,7 @@ export function HeightUnitToggle({ className = '' }: UnitToggleProps): React.JSX
   if (!mounted) {
     return (
       <button
-        className={`px-3 py-1 rounded-lg neumorph text-sm ${className}`}
+        className={`elevated-pill rounded-full px-3 py-1 text-sm ${className}`}
         aria-label="Toggle height unit"
         disabled
       >
@@ -95,7 +105,7 @@ export function HeightUnitToggle({ className = '' }: UnitToggleProps): React.JSX
   return (
     <button
       onClick={toggleHeightUnit}
-      className={`px-3 py-1 rounded-lg neumorph text-sm ${className}`}
+      className={`elevated-pill rounded-full px-3 py-1 text-sm ${className}`}
       aria-label={`Switch to ${heightUnit === 'cm' ? 'feet' : 'centimeters'}`}
     >
       {heightUnit === 'cm' ? 'cm' : 'ft'}
@@ -122,7 +132,7 @@ export function WeightUnitToggle({ className = '' }: UnitToggleProps): React.JSX
   if (!mounted) {
     return (
       <button
-        className={`px-3 py-1 rounded-lg neumorph text-sm ${className}`}
+        className={`elevated-pill rounded-full px-3 py-1 text-sm ${className}`}
         aria-label="Toggle weight unit"
         disabled
       >
@@ -134,7 +144,7 @@ export function WeightUnitToggle({ className = '' }: UnitToggleProps): React.JSX
   return (
     <button
       onClick={toggleWeightUnit}
-      className={`px-3 py-1 rounded-lg neumorph text-sm ${className}`}
+      className={`elevated-pill rounded-full px-3 py-1 text-sm ${className}`}
       aria-label={`Switch to ${weightUnit === 'kg' ? 'pounds' : 'kilograms'}`}
     >
       {weightUnit === 'kg' ? 'kg' : 'lb'}
@@ -161,7 +171,7 @@ export function EnergyUnitToggle({ className = '' }: UnitToggleProps): React.JSX
   if (!mounted) {
     return (
       <button
-        className={`px-3 py-1 rounded-lg neumorph text-sm ${className}`}
+        className={`elevated-pill rounded-full px-3 py-1 text-sm ${className}`}
         aria-label="Toggle energy unit"
         disabled
       >
@@ -173,7 +183,7 @@ export function EnergyUnitToggle({ className = '' }: UnitToggleProps): React.JSX
   return (
     <button
       onClick={toggleEnergyUnit}
-      className={`px-3 py-1 rounded-lg neumorph text-sm ${className}`}
+      className={`elevated-pill rounded-full px-3 py-1 text-sm ${className}`}
       aria-label={`Switch to ${energyUnit === 'kcal' ? 'kilojoules' : 'kilocalories'}`}
     >
       {energyUnit === 'kcal' ? 'kcal' : 'kj'}

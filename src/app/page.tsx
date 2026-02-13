@@ -385,19 +385,20 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-16">
-      <section className="relative overflow-hidden rounded-3xl border border-accent/10 bg-gradient-to-br from-white via-indigo-50/30 to-blue-50/60 px-6 py-14 md:px-12">
-        <div className="absolute -left-10 top-10 h-40 w-40 rounded-full border-8 border-accent/20 animate-pulse" />
-        <div className="absolute -right-16 bottom-0 h-56 w-56 rounded-full border-8 border-blue-300/40" />
+    <div className="space-y-14 md:space-y-20">
+      <section className="glass-panel-strong relative overflow-hidden rounded-[2rem] px-6 py-14 md:px-12">
+        <div className="absolute -left-12 top-8 h-44 w-44 rounded-full border-8 border-white/30" />
+        <div className="absolute right-[-4.5rem] top-[-4rem] h-52 w-52 rounded-full bg-gradient-to-br from-white/45 via-indigo-100/20 to-transparent blur-2xl" />
+        <div className="absolute bottom-[-5rem] right-14 h-52 w-52 rounded-full bg-gradient-to-tr from-indigo-400/20 to-transparent blur-2xl" />
 
         <div className="relative mx-auto max-w-6xl">
-          <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+          <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">
             HealthCheck Platform
           </p>
-          <h1 className="mt-4 animate-slide-up text-4xl font-extrabold leading-tight md:text-6xl">
+          <h1 className="mt-4 animate-slide-up text-4xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl">
             Smarter health calculators with a cleaner, faster experience
           </h1>
-          <p className="mt-5 max-w-3xl text-lg text-gray-700">
+          <p className="mt-5 max-w-3xl text-lg text-slate-700 dark:text-slate-200">
             Explore modern tools for body composition, calorie planning, and performance goals — now
             with improved visuals, stronger interactions, and easier navigation.
           </p>
@@ -405,13 +406,13 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/calculators"
-              className="rounded-full bg-accent px-6 py-3 font-semibold text-white transition-all hover:translate-y-[-2px] hover:bg-accent-dark"
+              className="rounded-full bg-accent px-6 py-3 font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
             >
               Browse calculators
             </Link>
             <Link
               href="/blog"
-              className="rounded-full border border-accent/20 bg-white px-6 py-3 font-semibold text-accent transition-all hover:border-accent hover:bg-accent/5"
+              className="elevated-pill rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
             >
               Read the blog
             </Link>
@@ -419,9 +420,9 @@ export default function Home() {
 
           <Link
             href="/search"
-            className="mt-8 block rounded-2xl border border-accent/15 bg-white p-3 shadow-lg transition-all hover:border-accent/30 hover:shadow-xl"
+            className="glass-panel mt-8 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
           >
-            <div className="flex items-center gap-3 rounded-xl border border-accent/10 px-4 py-3">
+            <div className="flex items-center gap-3 rounded-xl border border-white/50 bg-white/35 px-4 py-3 dark:border-indigo-200/10 dark:bg-indigo-100/5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-accent"
@@ -436,7 +437,9 @@ export default function Home() {
                   d="M21 21l-4.35-4.35M10.8 18a7.2 7.2 0 100-14.4 7.2 7.2 0 000 14.4z"
                 />
               </svg>
-              <span className="text-gray-500">Search calculators, guides, and blog posts…</span>
+              <span className="text-slate-500 dark:text-slate-300">
+                Search calculators, guides, and blog posts…
+              </span>
             </div>
           </Link>
         </div>
@@ -445,8 +448,12 @@ export default function Home() {
       <section>
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold">Most popular calculators</h2>
-            <p className="text-gray-600">Quickly jump into the tools users rely on most.</p>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+              Most popular calculators
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300">
+              Quickly jump into the tools users rely on most.
+            </p>
           </div>
           <Link href="/calculators" className="text-sm font-semibold text-accent hover:underline">
             View all categories →
@@ -466,10 +473,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-accent/10 bg-white p-8">
+      <section className="glass-panel rounded-3xl p-8">
         <div className="mb-6 text-center">
-          <h2 className="text-3xl font-bold">From the blog</h2>
-          <p className="text-gray-600">Evidence-based explainers and practical guides.</p>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">From the blog</h2>
+          <p className="text-slate-600 dark:text-slate-300">
+            Evidence-based explainers and practical guides.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -498,13 +507,15 @@ export default function Home() {
             <Link
               key={post.href}
               href={post.href}
-              className="group rounded-2xl border border-accent/10 bg-gradient-to-b from-white to-indigo-50/30 p-5 transition-all hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg"
+              className="group rounded-2xl border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(229,233,255,0.7))] p-5 transition-all hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_14px_30px_rgba(66,72,182,0.22)] dark:border-indigo-200/10 dark:bg-[linear-gradient(180deg,rgba(28,32,69,0.82),rgba(17,20,49,0.74))]"
             >
               <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
                 {post.category}
               </span>
-              <h3 className="mt-3 text-lg font-bold">{post.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{post.excerpt}</p>
+              <h3 className="mt-3 text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+                {post.title}
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{post.excerpt}</p>
               <p className="mt-4 text-sm font-semibold text-accent">Read article →</p>
             </Link>
           ))}
@@ -513,7 +524,7 @@ export default function Home() {
         <div className="mt-8 text-center">
           <Link
             href="/blog"
-            className="inline-flex rounded-full border border-accent/20 px-6 py-3 font-semibold text-accent transition-colors hover:bg-accent/5"
+            className="elevated-pill inline-flex rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/40"
           >
             Explore all blog articles
           </Link>

@@ -28,7 +28,7 @@ export default function LanguageSwitcher(): React.JSX.Element {
       <select
         value={locale}
         onChange={event => setLocale(event.target.value as SupportedLocale)}
-        className="ui-select min-h-9 rounded-full px-3 py-1 text-sm"
+        className="ui-select min-h-9 elevated-pill rounded-full px-3 py-1 text-sm"
         aria-label={t('language.label')}
       >
         {supportedLocales.map(item => (

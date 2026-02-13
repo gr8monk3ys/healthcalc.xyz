@@ -21,15 +21,15 @@ interface CalculatorCardProps {
 function CalculatorCard({ title, description, path, icon }: CalculatorCardProps) {
   return (
     <Link href={path} className="group block h-full">
-      <div className="neumorph h-full p-6 border border-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/30 group-hover:shadow-xl">
+      <div className="glass-panel-strong h-full rounded-3xl p-6 transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-accent/40 group-hover:shadow-[0_18px_35px_rgba(66,72,182,0.28)] dark:group-hover:shadow-[0_20px_38px_rgba(3,5,22,0.55)]">
         <div className="flex items-start mb-4">
-          <div className="mr-4 rounded-xl bg-accent/10 p-2 text-accent transition-transform duration-300 group-hover:scale-110">
+          <div className="mr-4 rounded-2xl bg-gradient-to-br from-accent/20 via-accent/12 to-transparent p-2.5 text-accent transition-transform duration-300 group-hover:scale-110">
             {icon}
           </div>
-          <h2 className="text-xl font-semibold">{title}</h2>
+          <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
         </div>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <div className="text-accent font-medium">Use Calculator →</div>
+        <p className="mb-4 text-slate-700 dark:text-slate-300">{description}</p>
+        <div className="font-medium text-accent">Use Calculator →</div>
       </div>
     </Link>
   );

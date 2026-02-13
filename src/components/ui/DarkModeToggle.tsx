@@ -25,7 +25,7 @@ export default function DarkModeToggle({ className = '' }: DarkModeToggleProps):
   if (!mounted) {
     return (
       <button
-        className={`p-2 rounded-full transition-colors bg-blue-100 text-gray-800 hover:bg-blue-200 ${className}`}
+        className={`elevated-pill rounded-full p-2 text-slate-700 transition-colors dark:text-slate-200 ${className}`}
         aria-label="Toggle dark mode"
         disabled
       >
@@ -44,10 +44,8 @@ export default function DarkModeToggle({ className = '' }: DarkModeToggleProps):
   return (
     <button
       onClick={toggleDarkMode}
-      className={`p-2 rounded-full transition-colors ${
-        darkMode
-          ? 'bg-gray-800 text-yellow-300 hover:bg-gray-700'
-          : 'bg-blue-100 text-gray-800 hover:bg-blue-200'
+      className={`elevated-pill rounded-full p-2 transition-all hover:-translate-y-0.5 ${
+        darkMode ? 'text-yellow-200' : 'text-slate-700'
       } ${className}`}
       aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
       title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}

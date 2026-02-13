@@ -25,13 +25,13 @@ function FallbackAuthControls(): React.JSX.Element {
     <div className="flex items-center gap-2">
       <Link
         href="/sign-in"
-        className="rounded-full border border-accent/20 bg-white px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/5"
+        className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
       >
         Log in
       </Link>
       <Link
         href="/sign-up"
-        className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
+        className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
       >
         Sign up
       </Link>

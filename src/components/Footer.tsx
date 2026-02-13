@@ -9,36 +9,55 @@ export default function Footer(): React.JSX.Element {
   const { openConsentBanner } = useCookieConsent();
   const { localizePath, t } = useLocale();
   return (
-    <footer className="bg-primary p-6 border-t border-gray-200 dark:border-gray-700">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="px-3 pb-6 pt-4 md:px-4 md:pb-8">
+      <div className="glass-panel-strong container mx-auto rounded-[1.75rem] px-6 py-8 md:px-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
-            <Link href={localizePath('/')} className="notranslate text-xl font-bold text-accent">
+            <Link
+              href={localizePath('/')}
+              className="notranslate inline-flex items-baseline gap-1 text-xl font-black tracking-tight text-accent"
+            >
               HealthCheck
             </Link>
-            <p className="text-sm mt-2">{t('footer.tagline')}</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+              {t('footer.tagline')}
+            </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-3">{t('footer.section.calculators')}</h3>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+              {t('footer.section.calculators')}
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link href={localizePath('/bmi')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/bmi')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.calc.bmi')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/body-fat')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/body-fat')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.calc.bodyFat')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/calorie-deficit')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/calorie-deficit')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.calc.calorieDeficit')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/tdee')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/tdee')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.calc.tdee')}
                 </Link>
               </li>
@@ -46,25 +65,39 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-3">{t('footer.section.company')}</h3>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+              {t('footer.section.company')}
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link href={localizePath('/about')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/about')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.company.about')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/about/editorial')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/about/editorial')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.company.editorial')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/contact')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/contact')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.company.contact')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/blog')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/blog')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.company.blog')}
                 </Link>
               </li>
@@ -72,20 +105,31 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-3">{t('footer.section.legal')}</h3>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+              {t('footer.section.legal')}
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link href={localizePath('/privacy')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/privacy')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.legal.privacy')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/terms')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/terms')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.legal.terms')}
                 </Link>
               </li>
               <li>
-                <Link href={localizePath('/disclaimer')} className="text-sm hover:text-accent">
+                <Link
+                  href={localizePath('/disclaimer')}
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
+                >
                   {t('footer.legal.disclaimer')}
                 </Link>
               </li>
@@ -93,7 +137,7 @@ export default function Footer(): React.JSX.Element {
                 <button
                   type="button"
                   onClick={openConsentBanner}
-                  className="text-sm hover:text-accent"
+                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
                 >
                   {t('footer.legal.cookies')}
                 </button>
@@ -103,7 +147,7 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         {/* Trust signals */}
-        <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-7 flex items-center justify-center gap-2 border-t border-white/40 pt-5 text-xs text-slate-600 dark:border-indigo-200/10 dark:text-slate-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4 text-accent shrink-0"
@@ -127,11 +171,11 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         {/* Medical disclaimer */}
-        <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-4 border-t border-white/40 pt-4 text-center text-xs text-slate-600 dark:border-indigo-200/10 dark:text-slate-400">
           <p>{t('footer.medicalDisclaimer')}</p>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-4 border-t border-white/40 pt-4 text-center text-sm text-slate-700 dark:border-indigo-200/10 dark:text-slate-300">
           &copy; {new Date().getFullYear()} HealthCheck. {t('footer.rightsReserved')}
         </div>
       </div>
