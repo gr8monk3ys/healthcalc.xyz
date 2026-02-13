@@ -15,6 +15,16 @@ import PWAInit from '@/components/PWAInit';
 import { ClerkProvider } from '@clerk/nextjs';
 import { clerkEnabled } from '@/utils/auth';
 import { CookieConsentProvider } from '@/components/CookieConsent';
+import { getPublicSiteUrl } from '@/lib/site';
+import { Manrope, Space_Grotesk } from 'next/font/google';
+
+const siteUrl = getPublicSiteUrl();
+const bodyFont = Manrope({ subsets: ['latin'], display: 'swap', variable: '--font-body' });
+const headingFont = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-heading',
+});
 
 function LayoutProviders({ children }: { children: ReactNode }): React.JSX.Element {
   const inner = (
@@ -51,12 +61,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.healthcalc.xyz'),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: 'HealthCheck - Health and Fitness Calculators',
     description:
       'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
-    url: 'https://www.healthcalc.xyz',
+    url: siteUrl,
     siteName: 'HealthCheck',
     images: [
       {
@@ -103,8 +113,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         {/* Core Web Vitals optimizations */}
-        <link rel="preconnect" href="https://www.healthcalc.xyz" />
-        <link rel="dns-prefetch" href="https://www.healthcalc.xyz" />
+        <link rel="preconnect" href={siteUrl} />
+        <link rel="dns-prefetch" href={siteUrl} />
 
         {/* PWA and app settings */}
         <link rel="manifest" href="/manifest.json" />
@@ -129,11 +139,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* AdSense and Analytics scripts are now loaded dynamically by
             CookieConsentProvider after the user grants consent. */}
       </head>
-      <body>
+      <body className={`${bodyFont.variable} ${headingFont.variable}`}>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <LayoutProviders>
           <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+            <main id="main-content" className="flex-grow container mx-auto px-4 py-8">
+              {children}
+            </main>
             <Footer />
           </div>
 

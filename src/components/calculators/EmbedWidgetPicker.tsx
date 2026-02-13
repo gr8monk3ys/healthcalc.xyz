@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from 'react';
 import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
 import { buildEmbedCode } from '@/utils/embed';
+import { toAbsoluteUrl } from '@/lib/site';
 
 const DEFAULT_HEIGHT = 680;
 
@@ -95,7 +96,7 @@ export default function EmbedWidgetPicker() {
         <button
           type="button"
           onClick={handleCopy}
-          className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="ui-btn-soft text-sm"
           disabled={!embedCode}
         >
           {copied ? 'Copied!' : 'Copy Embed Code'}
@@ -109,7 +110,7 @@ export default function EmbedWidgetPicker() {
           </label>
           <select
             id="embed-calculator"
-            className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+            className="ui-select w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
             value={selectedSlug}
             onChange={event => setSelectedSlug(event.target.value)}
           >
@@ -131,7 +132,7 @@ export default function EmbedWidgetPicker() {
             max={1400}
             value={height}
             onChange={event => setHeight(Number(event.target.value))}
-            className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+            className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
           />
         </div>
         <div className="md:col-span-3">
@@ -141,7 +142,7 @@ export default function EmbedWidgetPicker() {
           <textarea
             id="embed-code"
             readOnly
-            className="w-full h-32 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/40 text-xs font-mono"
+            className="ui-textarea w-full h-32 p-3 text-xs font-mono"
             value={embedCode}
           />
         </div>
@@ -152,7 +153,7 @@ export default function EmbedWidgetPicker() {
           <div className="neumorph p-3 rounded-lg bg-white/70 dark:bg-gray-900/40">
             <iframe
               id="embed-preview"
-              src={`https://www.healthcalc.xyz/${selectedSlug}?embed=1`}
+              src={toAbsoluteUrl(`/${selectedSlug}?embed=1`)}
               title={`${selectedCalculator?.title ?? 'Calculator'} preview`}
               className="w-full"
               style={{ height: `${height}px`, border: 0 }}
@@ -186,10 +187,11 @@ export default function EmbedWidgetPicker() {
             <input
               id="embed-request-name"
               type="text"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="Your name"
               value={requestName}
               onChange={event => setRequestName(event.target.value)}
+              autoComplete="name"
               required
             />
           </div>
@@ -200,10 +202,12 @@ export default function EmbedWidgetPicker() {
             <input
               id="embed-request-email"
               type="email"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="you@example.com"
               value={requestEmail}
               onChange={event => setRequestEmail(event.target.value)}
+              autoComplete="email"
+              inputMode="email"
               required
             />
           </div>
@@ -214,10 +218,12 @@ export default function EmbedWidgetPicker() {
             <input
               id="embed-request-site"
               type="url"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="https://example.com"
               value={requestSite}
               onChange={event => setRequestSite(event.target.value)}
+              autoComplete="url"
+              inputMode="url"
               required
             />
           </div>
@@ -228,16 +234,17 @@ export default function EmbedWidgetPicker() {
             <textarea
               id="embed-request-notes"
               rows={3}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-textarea w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
               placeholder="Tell us how you plan to use the embed."
               value={requestNotes}
               onChange={event => setRequestNotes(event.target.value)}
+              autoComplete="off"
             />
           </div>
           <div className="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <button
               type="submit"
-              className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="ui-btn-primary text-sm"
               disabled={requestStatus === 'sending'}
             >
               {requestStatus === 'sending' ? 'Sending...' : 'Request Approval'}
@@ -247,12 +254,12 @@ export default function EmbedWidgetPicker() {
             </p>
           </div>
           {requestStatus === 'success' && (
-            <p className="md:col-span-2 text-sm text-green-600">
+            <p className="md:col-span-2 text-sm text-green-600" role="status" aria-live="polite">
               Request sent. We’ll follow up by email.
             </p>
           )}
           {requestStatus === 'error' && (
-            <p className="md:col-span-2 text-sm text-red-600">
+            <p className="md:col-span-2 text-sm text-red-600" role="alert">
               Something went wrong. Please try again or email us directly.
             </p>
           )}

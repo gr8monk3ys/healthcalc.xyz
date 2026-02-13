@@ -94,19 +94,25 @@ export default function NewsletterSignup({
             placeholder="Your email address"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="ui-input w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
             disabled={loading}
+            autoComplete="email"
+            inputMode="email"
+            enterKeyHint="send"
+            name="email"
             required
             aria-required="true"
+            aria-describedby="newsletter-privacy-note"
           />
         </div>
 
         <button
           type="submit"
-          className={`w-full px-4 py-2 bg-accent text-white rounded-lg font-medium transition-colors ${
-            loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-accent/90'
+          className={`ui-btn-primary w-full px-4 py-2 rounded-lg font-medium ${
+            loading ? 'opacity-70 cursor-not-allowed' : ''
           }`}
           disabled={loading}
+          aria-busy={loading}
         >
           {loading ? 'Subscribing...' : buttonText}
         </button>
@@ -119,13 +125,14 @@ export default function NewsletterSignup({
               ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
               : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300'
           }`}
-          role="alert"
+          role={message.type === 'error' ? 'alert' : 'status'}
+          aria-live="polite"
         >
           {message.text}
         </div>
       )}
 
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-4">
+      <p id="newsletter-privacy-note" className="text-xs text-gray-500 dark:text-gray-400 mt-4">
         By subscribing, you agree to our{' '}
         <a href="/privacy" className="text-accent hover:underline">
           Privacy Policy

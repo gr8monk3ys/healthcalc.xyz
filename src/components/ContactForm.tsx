@@ -60,12 +60,10 @@ export default function ContactForm() {
           />
         </svg>
         <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
-        <p className="text-gray-600 mb-4">{statusMessage}</p>
-        <button
-          type="button"
-          onClick={() => setStatus('idle')}
-          className="text-accent hover:underline font-medium"
-        >
+        <p className="text-gray-600 mb-4" role="status" aria-live="polite">
+          {statusMessage}
+        </p>
+        <button type="button" onClick={() => setStatus('idle')} className="ui-btn-soft text-sm">
           Send another message
         </button>
       </div>
@@ -73,7 +71,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
+    <form className="space-y-4" onSubmit={handleSubmit} aria-busy={status === 'submitting'}>
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-1">
           Name
@@ -84,8 +82,9 @@ export default function ContactForm() {
           name="name"
           value={name}
           onChange={e => setName(e.target.value)}
-          className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Your name"
+          autoComplete="name"
           required
           minLength={2}
           maxLength={100}
@@ -102,8 +101,11 @@ export default function ContactForm() {
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="your.email@example.com"
+          autoComplete="email"
+          inputMode="email"
+          enterKeyHint="next"
           required
         />
       </div>
@@ -117,7 +119,7 @@ export default function ContactForm() {
           name="subject"
           value={subject}
           onChange={e => setSubject(e.target.value)}
-          className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-select w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
           required
         >
           <option value="">Select a subject</option>
@@ -139,8 +141,10 @@ export default function ContactForm() {
           rows={5}
           value={message}
           onChange={e => setMessage(e.target.value)}
-          className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-textarea w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
           placeholder="Your message here..."
+          autoComplete="off"
+          enterKeyHint="send"
           required
           minLength={10}
           maxLength={5000}
@@ -156,7 +160,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="ui-btn-primary w-full py-3 px-4"
       >
         {status === 'submitting' ? 'Sending...' : 'Send Message'}
       </button>

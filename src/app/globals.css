@@ -29,6 +29,8 @@
 }
 
 :root {
+  --font-body: 'Manrope', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-heading: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
   --background: #f0f2f5;
   --foreground: #333;
   --primary: #ffffff;
@@ -42,6 +44,7 @@
   --info: #3b82f6;
   --neumorph-shadow-1: rgba(255, 255, 255, 0.9);
   --neumorph-shadow-2: rgba(0, 0, 0, 0.1);
+  --focus-ring: rgba(79, 70, 229, 0.35);
 }
 
 /* Dark mode variables */
@@ -61,15 +64,204 @@
   --neumorph-shadow-2: rgba(0, 0, 0, 0.5);
 }
 
+.dark body {
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(99, 102, 241, 0.2), transparent 42%),
+    radial-gradient(circle at 90% 20%, rgba(16, 185, 129, 0.14), transparent 45%);
+}
+
 body {
   background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(99, 102, 241, 0.14), transparent 38%),
+    radial-gradient(circle at 90% 20%, rgba(59, 130, 246, 0.08), transparent 42%);
   color: var(--foreground);
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition:
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease,
+    background-image 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.18);
+}
+
+:where(button, [role='button'], input, select, textarea):focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], select) {
+  min-height: 2.75rem;
+}
+
+.ui-input,
+.ui-select,
+.ui-textarea {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.82);
+  color: var(--foreground);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ui-input,
+.ui-select {
+  min-height: 2.75rem;
+  padding: 0.625rem 0.875rem;
+}
+
+.ui-textarea {
+  padding: 0.75rem 0.875rem;
+}
+
+.ui-input::placeholder,
+.ui-textarea::placeholder {
+  color: rgba(100, 116, 139, 0.9);
+}
+
+.ui-input:disabled,
+.ui-select:disabled,
+.ui-textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.dark .ui-input,
+.dark .ui-select,
+.dark .ui-textarea {
+  border-color: rgba(99, 102, 241, 0.3);
+  background-color: rgba(17, 24, 39, 0.62);
+}
+
+.dark .ui-input::placeholder,
+.dark .ui-textarea::placeholder {
+  color: rgba(203, 213, 225, 0.78);
+}
+
+.ui-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-dark));
+  box-shadow:
+    8px 8px 20px rgba(15, 23, 42, 0.18),
+    -4px -4px 12px rgba(255, 255, 255, 0.38);
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ui-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+}
+
+.dark .ui-btn-primary {
+  box-shadow:
+    8px 8px 20px rgba(0, 0, 0, 0.35),
+    -4px -4px 12px rgba(99, 102, 241, 0.12);
+}
+
+.ui-btn-soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  background-color: var(--primary);
+  box-shadow:
+    5px 5px 10px var(--neumorph-shadow-2),
+    -5px -5px 10px var(--neumorph-shadow-1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ui-btn-soft:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1);
+}
+
+.ui-btn-primary:disabled,
+.ui-btn-soft:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  transform: translateY(-220%);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Neumorph component styles - no @apply for custom classes in Tailwind v4 */

@@ -27,168 +27,63 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body>
-        <div
-          style={{
-            minHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#f9fafb',
-            padding: '1rem',
-          }}
-        >
-          <div style={{ maxWidth: '32rem', width: '100%' }}>
-            <div
-              style={{
-                backgroundColor: 'white',
-                borderRadius: '0.5rem',
-                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                padding: '2rem',
-              }}
-            >
-              {/* Error Icon */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                <div
-                  style={{
-                    width: '4rem',
-                    height: '4rem',
-                    backgroundColor: '#fee2e2',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <svg
-                    style={{ width: '2rem', height: '2rem', color: '#dc2626' }}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                    />
-                  </svg>
-                </div>
+      <body className="bg-[var(--background)] text-[var(--foreground)]">
+        <main className="min-h-screen flex items-center justify-center p-4">
+          <section className="w-full max-w-xl neumorph border border-accent/10 rounded-neumorph p-8">
+            <div className="flex justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-danger/10 text-danger flex items-center justify-center">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  />
+                </svg>
               </div>
-
-              {/* Error Message */}
-              <h1
-                style={{
-                  fontSize: '1.5rem',
-                  fontWeight: 'bold',
-                  color: '#111827',
-                  textAlign: 'center',
-                  marginBottom: '1rem',
-                }}
-              >
-                Application Error
-              </h1>
-
-              <p
-                style={{
-                  color: '#6b7280',
-                  textAlign: 'center',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                A critical error occurred. Please refresh the page or try again later.
-              </p>
-
-              {/* Error Details (only in development) */}
-              {process.env.NODE_ENV === 'development' && (
-                <div
-                  style={{
-                    marginBottom: '1.5rem',
-                    padding: '1rem',
-                    backgroundColor: '#f3f4f6',
-                    borderRadius: '0.5rem',
-                  }}
-                >
-                  <p
-                    style={{
-                      fontSize: '0.875rem',
-                      fontFamily: 'monospace',
-                      color: '#1f2937',
-                      wordBreak: 'break-word',
-                    }}
-                  >
-                    {error.message || 'Unknown error'}
-                  </p>
-                  {error.digest && (
-                    <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.5rem' }}>
-                      Error ID: {error.digest}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {/* Action Buttons */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <button
-                  onClick={reset}
-                  style={{
-                    backgroundColor: '#4f46e5',
-                    color: 'white',
-                    fontWeight: '500',
-                    padding: '0.75rem 1rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onMouseOver={e => (e.currentTarget.style.backgroundColor = '#4338ca')}
-                  onMouseOut={e => (e.currentTarget.style.backgroundColor = '#4f46e5')}
-                >
-                  Try Again
-                </button>
-                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                <a
-                  href="/"
-                  style={{
-                    backgroundColor: '#e5e7eb',
-                    color: '#111827',
-                    fontWeight: '500',
-                    padding: '0.75rem 1rem',
-                    borderRadius: '0.5rem',
-                    textAlign: 'center',
-                    textDecoration: 'none',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onMouseOver={e => (e.currentTarget.style.backgroundColor = '#d1d5db')}
-                  onMouseOut={e => (e.currentTarget.style.backgroundColor = '#e5e7eb')}
-                >
-                  Go Home
-                </a>
-              </div>
-
-              {/* Help Text */}
-              <p
-                style={{
-                  fontSize: '0.875rem',
-                  color: '#9ca3af',
-                  textAlign: 'center',
-                  marginTop: '1.5rem',
-                }}
-              >
-                If this problem persists, please{' '}
-                <a
-                  href="/contact"
-                  style={{ color: '#4f46e5', textDecoration: 'underline' }}
-                  onMouseOver={e => (e.currentTarget.style.color = '#4338ca')}
-                  onMouseOut={e => (e.currentTarget.style.color = '#4f46e5')}
-                >
-                  contact support
-                </a>
-                .
-              </p>
             </div>
-          </div>
-        </div>
+
+            <h1 className="text-2xl font-bold text-center mb-3">Application Error</h1>
+            <p className="text-center text-gray-600 dark:text-gray-300 mb-6">
+              A critical error occurred. Please refresh the page or try again later.
+            </p>
+
+            {process.env.NODE_ENV === 'development' && (
+              <div className="mb-6 p-4 rounded-lg bg-primary-dark/60">
+                <p className="text-sm font-mono break-words">{error.message || 'Unknown error'}</p>
+                {error.digest && (
+                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
+                    Error ID: {error.digest}
+                  </p>
+                )}
+              </div>
+            )}
+
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={reset}
+                className="w-full rounded-lg bg-accent text-white font-semibold px-4 py-3 hover:bg-accent-dark transition-colors"
+              >
+                Try Again
+              </button>
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+              <a
+                href="/"
+                className="w-full rounded-lg bg-primary-dark text-center font-semibold px-4 py-3 hover:opacity-90 transition-opacity"
+              >
+                Go Home
+              </a>
+            </div>
+
+            <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-6">
+              If this problem persists, please{' '}
+              <a href="/contact" className="text-accent underline underline-offset-2">
+                contact support
+              </a>
+              .
+            </p>
+          </section>
+        </main>
       </body>
     </html>
   );

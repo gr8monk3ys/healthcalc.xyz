@@ -277,9 +277,9 @@ describe('NewsletterSignup', () => {
       const submitButton = screen.getByRole('button', { name: /subscribe/i });
       await user.click(submitButton);
 
-      const alert = await screen.findByRole('alert');
-      expect(alert).toHaveTextContent(/welcome aboard!/i);
-      expect(alert).toHaveClass('bg-green-100');
+      const status = await screen.findByRole('status');
+      expect(status).toHaveTextContent(/welcome aboard!/i);
+      expect(status).toHaveClass('bg-green-100');
     });
 
     it('should display default success message without onSubmit handler', async () => {
@@ -296,8 +296,8 @@ describe('NewsletterSignup', () => {
       // Wait with longer timeout for the mock delay (1000ms)
       await waitFor(
         () => {
-          const alert = screen.getByRole('alert');
-          expect(alert).toHaveTextContent(/thank you for subscribing/i);
+          const status = screen.getByRole('status');
+          expect(status).toHaveTextContent(/thank you for subscribing/i);
         },
         { timeout: 3000 }
       );
@@ -379,7 +379,8 @@ describe('NewsletterSignup', () => {
       await user.click(submitButton);
 
       await waitFor(() => {
-        expect(screen.getByRole('alert')).toHaveTextContent(/success!/i);
+        expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+        expect(screen.getByRole('status')).toHaveTextContent(/success!/i);
       });
     });
   });
