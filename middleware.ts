@@ -1,6 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
 import {
   defaultLocale,
   getLocaleFromAcceptLanguage,
@@ -14,6 +15,8 @@ import {
   type SupportedLocale,
 } from '@/i18n/config';
 
+const EMBEDDABLE_CALCULATOR_PATHS = new Set(CALCULATOR_CATALOG.map(calc => `/${calc.slug}`));
+
 const localizedProtectedRoutes = [
   '/saved-results(.*)',
   ...supportedLocales
@@ -26,9 +29,29 @@ const hasClerkKeys = Boolean(
   process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY
 );
 
-function applySecurityHeaders(response: NextResponse): NextResponse {
+function isEmbedAllowedRequest(request: NextRequest): boolean {
+  const url = request.nextUrl;
+
+  if (url.pathname.startsWith('/api/embed/')) {
+    return true;
+  }
+
+  if (url.searchParams.get('embed') !== '1') {
+    return false;
+  }
+
+  const pathWithoutLocale = stripLocaleFromPathname(url.pathname);
+  return EMBEDDABLE_CALCULATOR_PATHS.has(pathWithoutLocale);
+}
+
+function applySecurityHeaders(request: NextRequest, response: NextResponse): NextResponse {
   response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  // Allow framing for intentionally embeddable experiences (calculator widgets + /api/embed).
+  // Middleware response headers are merged into the final response, so setting X-Frame-Options
+  // here would override route handlers that opt into embedding.
+  if (!isEmbedAllowedRequest(request)) {
+    response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  }
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set(
@@ -144,11 +167,12 @@ function applySecurityAndCanonicalization(request: NextRequest): NextResponse {
   const canonicalRedirect = getCanonicalRedirect(request);
   if (canonicalRedirect) {
     return applySecurityHeaders(
+      request,
       NextResponse.redirect(canonicalRedirect.url, canonicalRedirect.status)
     );
   }
 
-  return applySecurityHeaders(handleLocaleRouting(request));
+  return applySecurityHeaders(request, handleLocaleRouting(request));
 }
 
 const withClerk = clerkMiddleware(async (auth, request: NextRequest) => {
