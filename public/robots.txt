@@ -1,5 +1,5 @@
 # HealthCheck Robots.txt
-# Last updated: 2026-02-08
+# Last updated: 2026-02-14
 
 User-agent: *
 Allow: /
@@ -11,7 +11,6 @@ Sitemap: https://www.healthcalc.xyz/sitemap.xml
 Disallow: /api/
 Disallow: /admin/
 Disallow: /dev/
-Disallow: /_next/
 
 # Allow crawling of all calculator pages (high priority)
 Allow: /bmi
