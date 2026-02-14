@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# local tooling artifacts
+.playwright-cli/
+
 # next.js
 /.next/
 /out/
