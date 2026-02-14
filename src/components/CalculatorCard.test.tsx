@@ -66,10 +66,10 @@ describe('CalculatorCard', () => {
       expect(screen.getByText('Use Calculator →')).toBeInTheDocument();
     });
 
-    it('should apply neumorph styling class', () => {
+    it('should apply glass panel styling class', () => {
       const { container } = render(<CalculatorCard {...defaultProps} />);
 
-      const cardDiv = container.querySelector('.neumorph');
+      const cardDiv = container.querySelector('.glass-panel-strong');
       expect(cardDiv).toBeInTheDocument();
     });
   });
