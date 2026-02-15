@@ -4,8 +4,9 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const BLOG_DIR = path.join(process.cwd(), 'src', 'app', 'blog');
+const BLOG_DIR = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const BLOG_IMAGE_PATTERN = /\/images\/blog\/[a-z0-9-]+\.(?:jpg|jpeg|png|webp)/gi;
 
