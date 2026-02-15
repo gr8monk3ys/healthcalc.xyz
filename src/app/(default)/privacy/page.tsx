@@ -24,11 +24,18 @@ export default function PrivacyPolicyPage() {
         <h2 className="mb-4 text-2xl font-semibold">What We Collect</h2>
         <ul className="list-disc space-y-2 pl-6">
           <li>
-            <strong>Calculator inputs/results:</strong> processed client-side in your browser.
+            <strong>Calculator inputs/results:</strong> processed client-side in your browser. If
+            you choose to save results while signed in, saved results are synced to our database so
+            you can access them across devices.
           </li>
           <li>
             <strong>Optional account data:</strong> if you create an account, your name and email
             are managed securely by our authentication provider (Clerk). We do not store passwords.
+          </li>
+          <li>
+            <strong>Form submissions:</strong> if you submit our contact form, newsletter signup, or
+            an embed request, we receive the information you provide (such as name, email, message,
+            website URL, and notes) to process your request.
           </li>
           <li>
             <strong>Usage analytics:</strong> we may collect aggregate site usage data (e.g., page
@@ -51,7 +58,8 @@ export default function PrivacyPolicyPage() {
         <p className="mb-3">
           Account authentication is handled by Clerk, a secure third-party authentication provider.
           Your password is never stored on our servers or in your browser. Saved calculator results
-          are stored locally in your browser for convenience.
+          are stored locally in your browser for convenience and, when you are signed in, may be
+          synced to our database so you can access them across devices.
         </p>
         <p>
           If you share a device, other users of that browser profile may access locally stored saved
