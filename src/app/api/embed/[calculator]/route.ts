@@ -624,8 +624,8 @@ export async function GET(
     status: 200,
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      'X-Frame-Options': 'ALLOWALL',
-      'Content-Security-Policy': 'frame-ancestors *;',
+      // Framing/CSP headers are handled centrally in src/middleware.ts so we can
+      // scope embedding to intentional surfaces.
       'Cache-Control': 'public, max-age=3600, s-maxage=86400',
     },
   });

@@ -44,13 +44,49 @@ function isEmbedAllowedRequest(request: NextRequest): boolean {
   return EMBEDDABLE_CALCULATOR_PATHS.has(pathWithoutLocale);
 }
 
+function getEmbedFrameAncestors(): string {
+  const configured = process.env.EMBED_FRAME_ANCESTORS?.trim();
+  if (configured) return configured;
+
+  // Default: allow same-origin preview + embedding on HTTPS sites.
+  return "'self' https:";
+}
+
+function buildContentSecurityPolicy(frameAncestors: string): string {
+  const unsafeEval = process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : '';
+
+  return [
+    "default-src 'self'",
+    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://*.adtrafficquality.google https://translate.google.com https://translate.googleapis.com`,
+    "worker-src 'self' blob:",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https:",
+    "font-src 'self'",
+    "connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://clerk-telemetry.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google https://translate.googleapis.com",
+    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://challenges.cloudflare.com https://translate.google.com',
+    "object-src 'none'",
+    "base-uri 'self'",
+    `frame-ancestors ${frameAncestors}`,
+    "form-action 'self'",
+  ]
+    .join('; ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 function applySecurityHeaders(request: NextRequest, response: NextResponse): NextResponse {
+  const embedAllowed = isEmbedAllowedRequest(request);
+
   response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set(
+    'Content-Security-Policy',
+    buildContentSecurityPolicy(embedAllowed ? getEmbedFrameAncestors() : "'self'")
+  );
   // Allow framing for intentionally embeddable experiences (calculator widgets + /api/embed).
-  // Middleware response headers are merged into the final response, so setting X-Frame-Options
-  // here would override route handlers that opt into embedding.
-  if (!isEmbedAllowedRequest(request)) {
+  if (!embedAllowed) {
     response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  } else {
+    response.headers.delete('X-Frame-Options');
   }
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');

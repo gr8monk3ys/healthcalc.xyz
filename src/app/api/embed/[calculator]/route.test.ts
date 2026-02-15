@@ -14,14 +14,15 @@ function makeParams(calculator: string): { params: Promise<{ calculator: string 
 }
 
 describe('GET /api/embed/[calculator]', () => {
-  it('returns embeddable HTML with security headers for supported calculators', async () => {
+  it('returns embeddable HTML for supported calculators', async () => {
     const res = await GET(makeRequest('/api/embed/bmi'), makeParams('bmi'));
     const html = await res.text();
 
     expect(res.status).toBe(200);
     expect(res.headers.get('Content-Type')).toContain('text/html');
-    expect(res.headers.get('X-Frame-Options')).toBe('ALLOWALL');
-    expect(res.headers.get('Content-Security-Policy')).toBe('frame-ancestors *;');
+    // Framing/CSP headers are enforced by middleware in production.
+    expect(res.headers.get('X-Frame-Options')).toBeNull();
+    expect(res.headers.get('Content-Security-Policy')).toBeNull();
     expect(res.headers.get('Cache-Control')).toContain('max-age=3600');
     expect(html).toContain('<title>BMI Calculator - HealthCheck</title>');
     expect(html).toContain('Powered by <a href="https://www.healthcalc.xyz/bmi"');
