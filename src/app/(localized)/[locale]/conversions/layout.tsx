@@ -1,2 +1,5 @@
-export { default } from '@/app/conversions/layout';
-export * from '@/app/conversions/layout';
+import type { ReactNode } from 'react';
+
+export default function LocalizedConversionsLayout({ children }: { children: ReactNode }) {
+  return <>{children}</>;
+}
