@@ -16,15 +16,6 @@ export const localeLabels: Record<SupportedLocale, string> = {
   zh: '中文',
 };
 
-export const localeToGoogleLanguage: Record<SupportedLocale, string> = {
-  en: 'en',
-  es: 'es',
-  fr: 'fr',
-  de: 'de',
-  pt: 'pt',
-  zh: 'zh-CN',
-};
-
 export const localeToHtmlLang: Record<SupportedLocale, string> = {
   en: 'en',
   es: 'es',
@@ -32,6 +23,16 @@ export const localeToHtmlLang: Record<SupportedLocale, string> = {
   de: 'de',
   pt: 'pt-BR',
   zh: 'zh-CN',
+};
+
+// Open Graph locale strings (used for og:locale).
+export const localeToOpenGraphLocale: Record<SupportedLocale, string> = {
+  en: 'en_US',
+  es: 'es_ES',
+  fr: 'fr_FR',
+  de: 'de_DE',
+  pt: 'pt_BR',
+  zh: 'zh_CN',
 };
 
 export function isSupportedLocale(locale: string | null | undefined): locale is SupportedLocale {
@@ -104,6 +105,9 @@ export function isLocalizablePath(pathname: string): boolean {
   if (!pathname.startsWith('/')) return false;
   if (pathname.startsWith('/api') || pathname.startsWith('/trpc')) return false;
   if (pathname.startsWith('/_next')) return false;
+  // Keep auth routes unprefixed to avoid extra auth provider configuration.
+  if (pathname === '/sign-in' || pathname.startsWith('/sign-in/')) return false;
+  if (pathname === '/sign-up' || pathname.startsWith('/sign-up/')) return false;
   if (/\.[a-z0-9]+$/i.test(pathname)) return false;
   return true;
 }

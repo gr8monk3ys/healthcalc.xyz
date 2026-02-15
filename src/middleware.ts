@@ -57,13 +57,13 @@ function buildContentSecurityPolicy(frameAncestors: string): string {
 
   return [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://*.adtrafficquality.google https://translate.google.com https://translate.googleapis.com`,
+    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://*.adtrafficquality.google`,
     "worker-src 'self' blob:",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https:",
     "font-src 'self'",
-    "connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://clerk-telemetry.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google https://translate.googleapis.com",
-    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://challenges.cloudflare.com https://translate.google.com',
+    "connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://clerk-telemetry.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google",
+    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://challenges.cloudflare.com',
     "object-src 'none'",
     "base-uri 'self'",
     `frame-ancestors ${frameAncestors}`,
@@ -172,10 +172,9 @@ function handleLocaleRouting(request: NextRequest): NextResponse {
     return response;
   }
 
-  // Rewrite non-default locale paths to internal routes while preserving the public URL.
+  // Non-default locale paths are real routes (e.g. "/es/bmi"). Keep the URL as-is.
   if (localeFromPath) {
-    const internalPath = stripLocaleFromPathname(url.pathname);
-    const response = NextResponse.rewrite(new URL(`${internalPath}${url.search}`, request.url), {
+    const response = NextResponse.next({
       request: {
         headers: withRequestLocaleHeader(request, localeFromPath),
       },

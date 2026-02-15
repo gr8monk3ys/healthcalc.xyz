@@ -1,4 +1,4 @@
-import '../globals.css';
+import '../../globals.css';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -12,6 +12,14 @@ import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import LayoutProviders from '@/components/LayoutProviders';
+import {
+  defaultLocale,
+  isSupportedLocale,
+  localeToHtmlLang,
+  localeToOpenGraphLocale,
+  type SupportedLocale,
+} from '@/i18n/config';
+import { notFound, redirect } from 'next/navigation';
 
 const siteUrl = getPublicSiteUrl();
 const adSenseScriptSrc = getAdSenseScriptSrc();
@@ -26,69 +34,101 @@ const headingFont = Sora({
   variable: '--font-heading',
 });
 
-export const metadata: Metadata = {
-  title: 'HealthCheck - Health and Fitness Calculators',
-  description:
-    'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
-  keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
-  authors: [{ name: 'HealthCheck Team' }],
-  creator: 'HealthCheck',
-  publisher: 'HealthCheck',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL(siteUrl),
-  openGraph: {
+interface LocalizedLayoutProps {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
+export function generateStaticParams(): Array<{ locale: SupportedLocale }> {
+  // Only generate non-default locale roots (e.g. "/es", "/fr").
+  return (Object.keys(localeToHtmlLang) as SupportedLocale[])
+    .filter(locale => locale !== defaultLocale)
+    .map(locale => ({ locale }));
+}
+
+export async function generateMetadata({ params }: LocalizedLayoutProps): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: SupportedLocale | null = isSupportedLocale(rawLocale) ? rawLocale : null;
+
+  // Default locale should never be served with an explicit prefix.
+  if (!locale || locale === defaultLocale) {
+    return {};
+  }
+
+  return {
     title: 'HealthCheck - Health and Fitness Calculators',
     description:
       'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
-    url: siteUrl,
-    siteName: 'HealthCheck',
-    images: [
-      {
-        url: '/images/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'HealthCheck - Health and Fitness Calculators',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'HealthCheck - Health and Fitness Calculators',
-    description:
-      'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
-    images: ['/images/og-image.jpg'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
+    authors: [{ name: 'HealthCheck Team' }],
+    creator: 'HealthCheck',
+    publisher: 'HealthCheck',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL(siteUrl),
+    openGraph: {
+      title: 'HealthCheck - Health and Fitness Calculators',
+      description:
+        'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+      url: siteUrl,
+      siteName: 'HealthCheck',
+      images: [
+        {
+          url: '/images/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'HealthCheck - Health and Fitness Calculators',
+        },
+      ],
+      locale: localeToOpenGraphLocale[locale],
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'HealthCheck - Health and Fitness Calculators',
+      description:
+        'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+      images: ['/images/og-image.jpg'],
+    },
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
-  },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-  },
-  alternates: {
-    types: {
-      'application/rss+xml': '/feed.xml',
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
-  },
-  category: 'health',
-};
+    alternates: {
+      types: {
+        'application/rss+xml': '/feed.xml',
+      },
+    },
+    category: 'health',
+  };
+}
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children, params }: LocalizedLayoutProps) {
+  const { locale: rawLocale } = await params;
+  if (!isSupportedLocale(rawLocale)) {
+    notFound();
+  }
+
+  const locale = rawLocale as SupportedLocale;
+  if (locale === defaultLocale) {
+    redirect('/');
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={localeToHtmlLang[locale]} suppressHydrationWarning>
       <head>
         {/* Core Web Vitals optimizations */}
         <link rel="preconnect" href={siteUrl} />
@@ -119,7 +159,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script async src={adSenseScriptSrc} crossOrigin="anonymous" data-hc-adsense="1" />
       </head>
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
-        <LayoutProviders>
+        <LayoutProviders initialLocale={locale}>
           <SkipToMainLink />
           <div className="min-h-screen flex flex-col">
             <Header />
