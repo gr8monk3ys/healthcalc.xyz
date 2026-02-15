@@ -1,9 +1,13 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
+import { useLocale } from '@/context/LocaleContext';
 import InfoSection from '../InfoSection';
 
 const ABSIUnderstanding: React.FC = () => {
+  const { localizePath } = useLocale();
+
   return (
     <InfoSection title="Understanding ABSI" className="mt-12">
       <p>
@@ -118,17 +122,17 @@ const ABSIUnderstanding: React.FC = () => {
 
       <p className="mt-4">
         For more comprehensive health assessments, consider using our other calculators like the{' '}
-        <a href="/bmi" className="text-accent hover:underline">
+        <Link href={localizePath('/bmi')} className="text-accent hover:underline">
           BMI Calculator
-        </a>
+        </Link>
         ,{' '}
-        <a href="/body-fat" className="text-accent hover:underline">
+        <Link href={localizePath('/body-fat')} className="text-accent hover:underline">
           Body Fat Calculator
-        </a>
+        </Link>
         , or{' '}
-        <a href="/whr" className="text-accent hover:underline">
+        <Link href={localizePath('/whr')} className="text-accent hover:underline">
           Waist-to-Hip Ratio Calculator
-        </a>
+        </Link>
         .
       </p>
     </InfoSection>

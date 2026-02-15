@@ -1,4 +1,8 @@
+'use client';
+
+import Link from 'next/link';
 import Image from 'next/image';
+import { useLocale } from '@/context/LocaleContext';
 
 interface BlogPostMeta {
   slug: string;
@@ -24,6 +28,8 @@ export const metadata: BlogPostMeta = {
 };
 
 export default function CountingCaloriesVsTrackingMacrosContent() {
+  const { localizePath } = useLocale();
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -104,9 +110,12 @@ export default function CountingCaloriesVsTrackingMacrosContent() {
 
             <p>
               Calorie counting is exactly what it sounds like. You figure out your{' '}
-              <a href="/tdee" className="text-primary-600 dark:text-primary-400 hover:underline">
+              <Link
+                href={localizePath('/tdee')}
+                className="text-primary-600 dark:text-primary-400 hover:underline"
+              >
                 daily calorie needs
-              </a>
+              </Link>
               , set a target, and track everything you eat to stay within that number. One number to
               track. One target to hit.
             </p>
@@ -120,12 +129,12 @@ export default function CountingCaloriesVsTrackingMacrosContent() {
             <p>
               And for pure weight loss, this works. The physics are undeniable. If you consistently
               eat fewer calories than you burn, you will lose weight. I've used{' '}
-              <a
-                href="/calorie-deficit"
+              <Link
+                href={localizePath('/calorie-deficit')}
                 className="text-primary-600 dark:text-primary-400 hover:underline"
               >
                 calorie deficits
-              </a>{' '}
+              </Link>{' '}
               successfully multiple times. It's proven. It's reliable.
             </p>
 
@@ -154,9 +163,12 @@ export default function CountingCaloriesVsTrackingMacrosContent() {
 
             <p>
               This matters more than most people realize.{' '}
-              <a href="/protein" className="text-primary-600 dark:text-primary-400 hover:underline">
+              <Link
+                href={localizePath('/protein')}
+                className="text-primary-600 dark:text-primary-400 hover:underline"
+              >
                 Protein
-              </a>{' '}
+              </Link>{' '}
               is the most important macro for preserving muscle during weight loss. Carbs fuel your
               workouts and affect how you feel day-to-day. Fats are essential for hormone production
               and nutrient absorption.
@@ -333,13 +345,19 @@ export default function CountingCaloriesVsTrackingMacrosContent() {
 
             <p>
               And if you're not sure where to start with your targets, use our calculators. The{' '}
-              <a href="/calorie" className="text-primary-600 dark:text-primary-400 hover:underline">
+              <Link
+                href={localizePath('/calorie')}
+                className="text-primary-600 dark:text-primary-400 hover:underline"
+              >
                 calorie calculator
-              </a>{' '}
+              </Link>{' '}
               will give you a baseline. The{' '}
-              <a href="/macro" className="text-primary-600 dark:text-primary-400 hover:underline">
+              <Link
+                href={localizePath('/macro')}
+                className="text-primary-600 dark:text-primary-400 hover:underline"
+              >
                 macro calculator
-              </a>{' '}
+              </Link>{' '}
               will break that down into protein, carbs, and fats based on your goals.
             </p>
 
@@ -377,24 +395,24 @@ export default function CountingCaloriesVsTrackingMacrosContent() {
                 numbers. Use our free calculators to determine your baseline.
               </p>
               <div className="flex flex-wrap gap-3">
-                <a
-                  href="/tdee"
+                <Link
+                  href={localizePath('/tdee')}
                   className="neumorph-button px-6 py-2 rounded-lg font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100 transition-colors"
                 >
                   Calculate TDEE
-                </a>
-                <a
-                  href="/macro"
+                </Link>
+                <Link
+                  href={localizePath('/macro')}
                   className="neumorph-button px-6 py-2 rounded-lg font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100 transition-colors"
                 >
                   Calculate Macros
-                </a>
-                <a
-                  href="/calorie-deficit"
+                </Link>
+                <Link
+                  href={localizePath('/calorie-deficit')}
                   className="neumorph-button px-6 py-2 rounded-lg font-semibold text-primary-700 dark:text-primary-300 hover:text-primary-900 dark:hover:text-primary-100 transition-colors"
                 >
                   Plan Deficit
-                </a>
+                </Link>
               </div>
             </div>
           </div>

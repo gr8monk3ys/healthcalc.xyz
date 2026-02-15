@@ -1,9 +1,13 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
+import { useLocale } from '@/context/LocaleContext';
 import InfoSection from '../InfoSection';
 
 const WHRUnderstanding: React.FC = () => {
+  const { localizePath } = useLocale();
+
   return (
     <InfoSection title="Understanding Waist-to-Hip Ratio" className="mt-12">
       <p>
@@ -133,17 +137,17 @@ const WHRUnderstanding: React.FC = () => {
 
       <p className="mt-4">
         For a more comprehensive health assessment, consider using our other calculators like the{' '}
-        <a href="/bmi" className="text-accent hover:underline">
+        <Link href={localizePath('/bmi')} className="text-accent hover:underline">
           BMI Calculator
-        </a>
+        </Link>
         ,{' '}
-        <a href="/absi" className="text-accent hover:underline">
+        <Link href={localizePath('/absi')} className="text-accent hover:underline">
           ABSI Calculator
-        </a>
+        </Link>
         , or{' '}
-        <a href="/body-fat" className="text-accent hover:underline">
+        <Link href={localizePath('/body-fat')} className="text-accent hover:underline">
           Body Fat Calculator
-        </a>
+        </Link>
         .
       </p>
     </InfoSection>

@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
+import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 interface NewsletterSignupProps {
@@ -26,6 +28,7 @@ export default function NewsletterSignup({
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
   const { trackEvent } = useFunnelTracking();
+  const { localizePath } = useLocale();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -144,13 +147,13 @@ export default function NewsletterSignup({
 
       <p id="newsletter-privacy-note" className="text-xs text-gray-500 dark:text-gray-400 mt-4">
         By subscribing, you agree to our{' '}
-        <a href="/privacy" className="text-accent hover:underline">
+        <Link href={localizePath('/privacy')} className="text-accent hover:underline">
           Privacy Policy
-        </a>{' '}
+        </Link>{' '}
         and{' '}
-        <a href="/terms" className="text-accent hover:underline">
+        <Link href={localizePath('/terms')} className="text-accent hover:underline">
           Terms of Service
-        </a>
+        </Link>
         . We'll never share your email with anyone else.
       </p>
     </div>

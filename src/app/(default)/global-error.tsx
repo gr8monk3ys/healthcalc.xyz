@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { createLogger } from '@/utils/logger';
 
@@ -66,20 +67,19 @@ export default function GlobalError({
               >
                 Try Again
               </button>
-              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-              <a
+              <Link
                 href="/"
                 className="w-full rounded-lg bg-primary-dark text-center font-semibold px-4 py-3 hover:opacity-90 transition-opacity"
               >
                 Go Home
-              </a>
+              </Link>
             </div>
 
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-6">
               If this problem persists, please{' '}
-              <a href="/contact" className="text-accent underline underline-offset-2">
+              <Link href="/contact" className="text-accent underline underline-offset-2">
                 contact support
-              </a>
+              </Link>
               .
             </p>
           </section>

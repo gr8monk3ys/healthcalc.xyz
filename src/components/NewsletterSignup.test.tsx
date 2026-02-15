@@ -6,6 +6,16 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
+vi.mock('@/context/LocaleContext', () => ({
+  useLocale: () => ({
+    locale: 'en',
+    setLocale: vi.fn(),
+    localizePath: (path: string) => path,
+    t: (key: string) => key,
+  }),
+}));
+
 import NewsletterSignup from './NewsletterSignup';
 
 // Mock fetch for API calls

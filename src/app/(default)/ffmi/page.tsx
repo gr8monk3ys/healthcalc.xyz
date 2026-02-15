@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState, useCallback } from 'react';
+import { useLocale } from '@/context/LocaleContext';
 import { createLogger } from '@/utils/logger';
 
 const logger = createLogger({ component: 'FFMICalculator' });
@@ -17,6 +19,8 @@ import FFMIResultDisplay from '@/components/calculators/ffmi/FFMIResult';
 import { useHeight, useWeight } from '@/hooks/useCalculatorUnits';
 
 export default function FFMICalculator() {
+  const { localizePath } = useLocale();
+
   // State for form inputs
   const height = useHeight();
   const weight = useWeight();
@@ -233,9 +237,9 @@ export default function FFMICalculator() {
                 )}
                 <p className="text-xs text-gray-500 mt-1">
                   If you don't know your body fat percentage, use our{' '}
-                  <a href="/body-fat" className="text-accent hover:underline">
+                  <Link href={localizePath('/body-fat')} className="text-accent hover:underline">
                     Body Fat Calculator
-                  </a>{' '}
+                  </Link>{' '}
                   first.
                 </p>
               </div>

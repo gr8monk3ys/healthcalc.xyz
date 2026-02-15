@@ -1,9 +1,13 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
+import { useLocale } from '@/context/LocaleContext';
 import InfoSection from '../InfoSection';
 
 const BMIUnderstanding: React.FC = () => {
+  const { localizePath } = useLocale();
+
   return (
     <InfoSection title="Understanding Your BMI" className="mt-12">
       <p>
@@ -53,13 +57,13 @@ const BMIUnderstanding: React.FC = () => {
       <p>
         For a more comprehensive assessment of your health status, consider using our other
         calculators like the{' '}
-        <a href="/body-fat" className="text-accent hover:underline">
+        <Link href={localizePath('/body-fat')} className="text-accent hover:underline">
           Body Fat Calculator
-        </a>{' '}
+        </Link>{' '}
         or{' '}
-        <a href="/absi" className="text-accent hover:underline">
+        <Link href={localizePath('/absi')} className="text-accent hover:underline">
           ABSI Calculator
-        </a>
+        </Link>
         , and consult with healthcare professionals.
       </p>
     </InfoSection>
