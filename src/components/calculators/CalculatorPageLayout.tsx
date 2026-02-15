@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -20,6 +20,7 @@ import { ResultsEmailCapture } from '@/components/ResultsEmailCapture';
 import { toAbsoluteUrl } from '@/lib/site';
 import { ResultsShareBar, ResultsShareProvider } from '@/components/ResultsShare';
 import { useLocale } from '@/context/LocaleContext';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 // Dynamic imports for below-the-fold components (performance optimization)
 const FAQSection = dynamic(() => import('@/components/FAQSection'), {
@@ -160,8 +161,26 @@ export function CalculatorPageLayout({
   const socialTitle = shareTitle || title;
   const socialDescription = shareDescription || description;
   const { localizePath } = useLocale();
+  const { trackEvent } = useFunnelTracking();
   const searchParams = useSearchParams();
   const isEmbed = searchParams.get('embed') === '1';
+  const hasTrackedResultRef = useRef(false);
+
+  useEffect(() => {
+    if (isEmbed) return;
+
+    if (showResultsCapture && !hasTrackedResultRef.current) {
+      trackEvent('calculator_complete', {
+        calculator: calculatorSlug,
+      });
+      hasTrackedResultRef.current = true;
+      return;
+    }
+
+    if (!showResultsCapture) {
+      hasTrackedResultRef.current = false;
+    }
+  }, [calculatorSlug, isEmbed, showResultsCapture, trackEvent]);
 
   if (isEmbed) {
     return (

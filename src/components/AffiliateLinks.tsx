@@ -2,6 +2,7 @@
 
 import React, { useMemo } from 'react';
 import Link from 'next/link';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 import {
   type CalculatorType,
   type AffiliateProduct,
@@ -22,6 +23,7 @@ interface AffiliateLinksProps {
 
 interface ProductCardProps {
   product: AffiliateProduct;
+  calculatorType: CalculatorType;
 }
 
 interface GuideCardProps {
@@ -29,6 +31,7 @@ interface GuideCardProps {
   description: string;
   href: string;
   category: ProductCategory;
+  calculatorType: CalculatorType;
 }
 
 /**
@@ -160,12 +163,22 @@ function StarRating({ rating }: { rating: number }) {
 /**
  * Individual product card component
  */
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, calculatorType }: ProductCardProps) {
+  const { trackEvent } = useFunnelTracking();
+
   return (
     <a
       href={product.url}
       target="_blank"
       rel="noopener noreferrer sponsored"
+      onClick={() =>
+        trackEvent('affiliate_click', {
+          calculator: calculatorType,
+          kind: 'product',
+          product: product.id,
+          category: product.category,
+        })
+      }
       className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
       aria-label={`View ${product.name} - ${product.price || 'Check price'}`}
     >
@@ -197,10 +210,20 @@ function ProductCard({ product }: ProductCardProps) {
   );
 }
 
-function GuideCard({ title, description, href, category }: GuideCardProps) {
+function GuideCard({ title, description, href, category, calculatorType }: GuideCardProps) {
+  const { trackEvent } = useFunnelTracking();
+
   return (
     <Link
       href={href}
+      onClick={() =>
+        trackEvent('affiliate_click', {
+          calculator: calculatorType,
+          kind: 'guide',
+          destination: href,
+          category,
+        })
+      }
       className="glass-panel block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
     >
       <div className="flex items-start gap-3">
@@ -275,6 +298,7 @@ export default function AffiliateLinks({
                 description={guide.description}
                 href={`/blog/${guide.slug}`}
                 category={guide.category}
+                calculatorType={calculatorType}
               />
             ))}
           </div>
@@ -283,7 +307,7 @@ export default function AffiliateLinks({
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} calculatorType={calculatorType} />
         ))}
       </div>
 

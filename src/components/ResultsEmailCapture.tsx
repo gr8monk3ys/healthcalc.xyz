@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 interface ResultsEmailCaptureProps {
   /** Optional custom headline */
@@ -38,6 +39,7 @@ export function ResultsEmailCapture({
   });
   const inputRef = useRef<HTMLInputElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const { trackEvent } = useFunnelTracking();
 
   // Move focus to success message for screen reader announcement
   useEffect(() => {
@@ -73,6 +75,7 @@ export function ResultsEmailCapture({
         const result = await response.json();
 
         if (result.success) {
+          trackEvent('newsletter_subscribe', { source, placement: 'calculator_results' });
           setSubmitState({
             status: 'success',
             message: result.message || 'You are subscribed. Check your inbox to confirm.',
@@ -91,7 +94,7 @@ export function ResultsEmailCapture({
         });
       }
     },
-    [email, source]
+    [email, source, trackEvent]
   );
 
   // Success state

@@ -5,6 +5,7 @@ import { toPng } from 'html-to-image';
 import { useLocale } from '@/context/LocaleContext';
 import { createLogger } from '@/utils/logger';
 import { toAbsoluteUrl } from '@/lib/site';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 const logger = createLogger({ component: 'ResultsShare' });
 
@@ -96,6 +97,7 @@ export function ResultsShareBar({
 }): React.JSX.Element {
   const { target, registerTarget } = useResultsShare();
   const { localizePath } = useLocale();
+  const { trackEvent } = useFunnelTracking();
   const [copied, setCopied] = React.useState(false);
   const [downloading, setDownloading] = React.useState(false);
 
@@ -108,12 +110,13 @@ export function ResultsShareBar({
     try {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
+      trackEvent('results_share_copy_link', { calculator: calculatorSlug });
       window.setTimeout(() => setCopied(false), 1800);
     } catch (error) {
       logger.logError('Failed to copy share URL', error);
       setCopied(false);
     }
-  }, [shareUrl]);
+  }, [calculatorSlug, shareUrl, trackEvent]);
 
   const handleDownload = useCallback(async () => {
     if (!target || downloading) return;
@@ -141,6 +144,7 @@ export function ResultsShareBar({
 
       const safeTitle = toFilenameFragment(title) || calculatorSlug;
       downloadDataUrl(dataUrl, `healthcheck-${safeTitle}-results.png`);
+      trackEvent('results_share_download_image', { calculator: calculatorSlug });
     } catch (error) {
       logger.logError('Failed to export results image', error, { calculatorSlug });
     } finally {
@@ -152,7 +156,7 @@ export function ResultsShareBar({
       }
       setDownloading(false);
     }
-  }, [calculatorSlug, downloading, target, title]);
+  }, [calculatorSlug, downloading, target, title, trackEvent]);
 
   useEffect(() => {
     if (target) return;

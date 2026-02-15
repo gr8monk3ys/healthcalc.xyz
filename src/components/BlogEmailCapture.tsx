@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 interface BlogEmailCaptureProps {
   /** Optional custom headline */
@@ -32,6 +33,7 @@ export function BlogEmailCapture({
   });
   const inputRef = useRef<HTMLInputElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const { trackEvent } = useFunnelTracking();
 
   useEffect(() => {
     if (submitState.status === 'success' && successRef.current) {
@@ -66,6 +68,7 @@ export function BlogEmailCapture({
         const result = await response.json();
 
         if (result.success) {
+          trackEvent('newsletter_subscribe', { source: 'blog', placement: 'blog_capture' });
           setSubmitState({
             status: 'success',
             message: result.message || 'You are subscribed. Check your inbox.',
@@ -84,7 +87,7 @@ export function BlogEmailCapture({
         });
       }
     },
-    [email]
+    [email, trackEvent]
   );
 
   // Success state -- compact confirmation

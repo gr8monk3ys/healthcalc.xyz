@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 interface NewsletterSignupProps {
   title?: string;
@@ -24,6 +25,7 @@ export default function NewsletterSignup({
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+  const { trackEvent } = useFunnelTracking();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,6 +48,10 @@ export default function NewsletterSignup({
           type: result.success ? 'success' : 'error',
         });
         if (result.success) {
+          trackEvent('newsletter_subscribe', {
+            source: 'newsletter',
+            placement: 'newsletter_signup',
+          });
           setEmail('');
         }
       } else {
@@ -65,6 +71,10 @@ export default function NewsletterSignup({
         });
 
         if (result.success) {
+          trackEvent('newsletter_subscribe', {
+            source: 'newsletter',
+            placement: 'newsletter_signup',
+          });
           setEmail('');
         }
       }

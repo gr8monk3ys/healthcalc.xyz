@@ -10,7 +10,6 @@ import { UnitSystemProvider } from '@/context/UnitSystemContext';
 import { PreferencesProvider } from '@/context/PreferencesContext';
 import { SavedResultsProvider } from '@/context/SavedResultsContext';
 import { AuthProvider } from '@/context/AuthContext';
-import { Analytics } from '@vercel/analytics/react';
 import PWAInit from '@/components/PWAInit';
 import { ClerkProvider } from '@clerk/nextjs';
 import { clerkEnabled } from '@/utils/auth';
@@ -20,6 +19,7 @@ import SkipToMainLink from '@/components/SkipToMainLink';
 import { LocaleProvider } from '@/context/LocaleContext';
 import { getAdSenseScriptSrc } from '@/lib/adsense';
 import { getPublicSiteUrl } from '@/lib/site';
+import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 
 const siteUrl = getPublicSiteUrl();
@@ -166,7 +166,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
 
           {/* Analytics component for tracking */}
-          <Analytics />
+          <VercelAnalyticsGate />
 
           {/* PWA initialization and service worker registration */}
           <PWAInit />
