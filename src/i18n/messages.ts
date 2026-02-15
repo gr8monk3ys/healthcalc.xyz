@@ -42,6 +42,18 @@ export type MessageKey =
   | 'calculator.relatedGuides.title'
   | 'calculator.relatedArticles.title'
   | 'calculator.faq.titleTemplate'
+  | 'calculatorForm.submit'
+  | 'calculatorForm.reset'
+  | 'calculatorForm.embedToggle'
+  | 'calculatorForm.unitToggleAriaTemplate'
+  | 'socialShare.label'
+  | 'socialShare.ariaTemplate'
+  | 'socialShare.platform.twitter'
+  | 'socialShare.platform.facebook'
+  | 'socialShare.platform.linkedin'
+  | 'socialShare.platform.pinterest'
+  | 'socialShare.platform.reddit'
+  | 'socialShare.platform.email'
   | 'cookie.banner.aria'
   | 'cookie.banner.title'
   | 'cookie.banner.body'
@@ -155,6 +167,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.relatedGuides.title': 'Related Guides',
     'calculator.relatedArticles.title': 'Related Articles',
     'calculator.faq.titleTemplate': 'Frequently Asked Questions About {topic}',
+    'calculatorForm.submit': 'Calculate',
+    'calculatorForm.reset': 'Reset',
+    'calculatorForm.embedToggle': 'Embed this calculator',
+    'calculatorForm.unitToggleAriaTemplate': 'Toggle {field} unit, currently {unit}',
+    'socialShare.label': 'Share this page:',
+    'socialShare.ariaTemplate': 'Share on {platform}',
+    'socialShare.platform.twitter': 'Twitter',
+    'socialShare.platform.facebook': 'Facebook',
+    'socialShare.platform.linkedin': 'LinkedIn',
+    'socialShare.platform.pinterest': 'Pinterest',
+    'socialShare.platform.reddit': 'Reddit',
+    'socialShare.platform.email': 'Email',
     'cookie.banner.aria': 'Cookie consent',
     'cookie.banner.title': 'We value your privacy',
     'cookie.banner.body':
@@ -275,6 +299,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.relatedGuides.title': 'Guías relacionadas',
     'calculator.relatedArticles.title': 'Artículos relacionados',
     'calculator.faq.titleTemplate': 'Preguntas frecuentes sobre {topic}',
+    'calculatorForm.submit': 'Calcular',
+    'calculatorForm.reset': 'Restablecer',
+    'calculatorForm.embedToggle': 'Incrustar esta calculadora',
+    'calculatorForm.unitToggleAriaTemplate': 'Cambiar la unidad de {field}, actualmente {unit}',
+    'socialShare.label': 'Comparte esta página:',
+    'socialShare.ariaTemplate': 'Compartir en {platform}',
+    'socialShare.platform.twitter': 'Twitter',
+    'socialShare.platform.facebook': 'Facebook',
+    'socialShare.platform.linkedin': 'LinkedIn',
+    'socialShare.platform.pinterest': 'Pinterest',
+    'socialShare.platform.reddit': 'Reddit',
+    'socialShare.platform.email': 'Correo',
     'cookie.banner.aria': 'Consentimiento de cookies',
     'cookie.banner.title': 'Valoramos tu privacidad',
     'cookie.banner.body':
@@ -397,6 +433,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.relatedGuides.title': 'Guides associés',
     'calculator.relatedArticles.title': 'Articles associés',
     'calculator.faq.titleTemplate': 'Questions fréquentes sur {topic}',
+    'calculatorForm.submit': 'Calculer',
+    'calculatorForm.reset': 'Réinitialiser',
+    'calculatorForm.embedToggle': 'Intégrer ce calculateur',
+    'calculatorForm.unitToggleAriaTemplate': "Changer l'unité de {field}, actuellement {unit}",
+    'socialShare.label': 'Partager cette page :',
+    'socialShare.ariaTemplate': 'Partager sur {platform}',
+    'socialShare.platform.twitter': 'Twitter',
+    'socialShare.platform.facebook': 'Facebook',
+    'socialShare.platform.linkedin': 'LinkedIn',
+    'socialShare.platform.pinterest': 'Pinterest',
+    'socialShare.platform.reddit': 'Reddit',
+    'socialShare.platform.email': 'E-mail',
     'cookie.banner.aria': 'Consentement aux cookies',
     'cookie.banner.title': 'Nous respectons votre vie privée',
     'cookie.banner.body':
@@ -520,6 +568,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.relatedGuides.title': 'Verwandte Guides',
     'calculator.relatedArticles.title': 'Ähnliche Artikel',
     'calculator.faq.titleTemplate': 'Häufige Fragen zu {topic}',
+    'calculatorForm.submit': 'Berechnen',
+    'calculatorForm.reset': 'Zurücksetzen',
+    'calculatorForm.embedToggle': 'Diesen Rechner einbetten',
+    'calculatorForm.unitToggleAriaTemplate': 'Einheit für {field} wechseln (aktuell {unit})',
+    'socialShare.label': 'Diese Seite teilen:',
+    'socialShare.ariaTemplate': 'Auf {platform} teilen',
+    'socialShare.platform.twitter': 'Twitter',
+    'socialShare.platform.facebook': 'Facebook',
+    'socialShare.platform.linkedin': 'LinkedIn',
+    'socialShare.platform.pinterest': 'Pinterest',
+    'socialShare.platform.reddit': 'Reddit',
+    'socialShare.platform.email': 'E-Mail',
     'cookie.banner.aria': 'Cookie-Einwilligung',
     'cookie.banner.title': 'Wir respektieren Ihre Privatsphäre',
     'cookie.banner.body':
@@ -642,6 +702,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.relatedGuides.title': 'Guias relacionados',
     'calculator.relatedArticles.title': 'Artigos relacionados',
     'calculator.faq.titleTemplate': 'Perguntas frequentes sobre {topic}',
+    'calculatorForm.submit': 'Calcular',
+    'calculatorForm.reset': 'Redefinir',
+    'calculatorForm.embedToggle': 'Incorporar esta calculadora',
+    'calculatorForm.unitToggleAriaTemplate': 'Alternar unidade de {field}, atualmente {unit}',
+    'socialShare.label': 'Compartilhe esta página:',
+    'socialShare.ariaTemplate': 'Compartilhar no {platform}',
+    'socialShare.platform.twitter': 'Twitter',
+    'socialShare.platform.facebook': 'Facebook',
+    'socialShare.platform.linkedin': 'LinkedIn',
+    'socialShare.platform.pinterest': 'Pinterest',
+    'socialShare.platform.reddit': 'Reddit',
+    'socialShare.platform.email': 'E-mail',
     'cookie.banner.aria': 'Consentimento de cookies',
     'cookie.banner.title': 'Valorizamos sua privacidade',
     'cookie.banner.body':
@@ -762,6 +834,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.relatedGuides.title': '相关指南',
     'calculator.relatedArticles.title': '相关文章',
     'calculator.faq.titleTemplate': '关于{topic}的常见问题',
+    'calculatorForm.submit': '计算',
+    'calculatorForm.reset': '重置',
+    'calculatorForm.embedToggle': '嵌入此计算器',
+    'calculatorForm.unitToggleAriaTemplate': '切换{field}单位（当前：{unit}）',
+    'socialShare.label': '分享此页面：',
+    'socialShare.ariaTemplate': '分享到{platform}',
+    'socialShare.platform.twitter': 'Twitter',
+    'socialShare.platform.facebook': 'Facebook',
+    'socialShare.platform.linkedin': 'LinkedIn',
+    'socialShare.platform.pinterest': 'Pinterest',
+    'socialShare.platform.reddit': 'Reddit',
+    'socialShare.platform.email': '邮件',
     'cookie.banner.aria': 'Cookie 同意',
     'cookie.banner.title': '我们尊重你的隐私',
     'cookie.banner.body':

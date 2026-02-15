@@ -3,6 +3,7 @@
 import React, { memo, useState } from 'react';
 import { MedicalDisclaimer } from '@/components/MedicalDisclaimer';
 import { EmbedCodeGenerator } from '@/components/EmbedCodeGenerator';
+import { useLocale } from '@/context/LocaleContext';
 
 // Discriminated union for type-safe form fields
 type NumberFieldValue = number | '';
@@ -91,16 +92,27 @@ interface CalculatorFormProps {
 
 const EMBEDDABLE_SLUGS = new Set(['bmi', 'tdee', 'body-fat', 'calorie-deficit']);
 
+function formatTemplate(template: string, vars: Record<string, string>): string {
+  let out = template;
+  for (const [key, value] of Object.entries(vars)) {
+    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+  }
+  return out;
+}
+
 const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorForm({
   title,
   fields,
   onSubmit,
   onReset,
-  submitButtonText = 'Calculate',
-  resetButtonText = 'Reset',
+  submitButtonText,
+  resetButtonText,
   calculatorSlug,
 }) {
   const [showEmbed, setShowEmbed] = useState(false);
+  const { t } = useLocale();
+  const resolvedSubmitButtonText = submitButtonText ?? t('calculatorForm.submit');
+  const resolvedResetButtonText = resetButtonText ?? t('calculatorForm.reset');
   const isEmbeddable = calculatorSlug && EMBEDDABLE_SLUGS.has(calculatorSlug);
   const renderField = (field: FormField) => {
     switch (field.type) {
@@ -133,7 +145,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                   type="button"
                   onClick={field.unitToggle}
                   className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-                  aria-label={`Toggle ${field.label.toLowerCase()} unit, currently ${field.unit}`}
+                  aria-label={formatTemplate(t('calculatorForm.unitToggleAriaTemplate'), {
+                    field: field.label,
+                    unit: field.unit ?? '',
+                  })}
                 >
                   {field.unit}
                 </button>
@@ -298,14 +313,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             type="submit"
             className="flex-1 py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
-            {submitButtonText}
+            {resolvedSubmitButtonText}
           </button>
           <button
             type="button"
             onClick={onReset}
             className="py-3 px-4 neumorph text-gray-500 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
-            {resetButtonText}
+            {resolvedResetButtonText}
           </button>
         </div>
       </form>
@@ -320,7 +335,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             className="text-xs text-gray-400 dark:text-gray-500 hover:text-accent dark:hover:text-accent transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
             aria-expanded={showEmbed}
           >
-            Embed this calculator
+            {t('calculatorForm.embedToggle')}
           </button>
         </div>
       )}
