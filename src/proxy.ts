@@ -218,7 +218,7 @@ const withClerk = clerkMiddleware(async (auth, request: NextRequest) => {
   return applySecurityAndCanonicalization(request);
 });
 
-export default function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   if (!hasClerkKeys) {
     return applySecurityAndCanonicalization(request);
   }
