@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
+import React from 'react';
 import {
   useHeight,
   useWeight,
@@ -7,10 +8,26 @@ import {
   createHeightField,
   createWeightField,
 } from '../useCalculatorUnits';
+import { LocaleProvider } from '@/context/LocaleContext';
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    replace: vi.fn(),
+    prefetch: vi.fn(),
+  }),
+  usePathname: () => '/',
+}));
+
+const wrapper = ({ children }: { children: React.ReactNode }) =>
+  React.createElement(LocaleProvider, null, children);
 
 describe('useHeight', () => {
   it('should initialize with default values', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     expect(result.current.value).toBe('');
     expect(result.current.unit).toBe('cm');
@@ -18,7 +35,9 @@ describe('useHeight', () => {
   });
 
   it('should initialize with custom values', () => {
-    const { result } = renderHook(() => useHeight({ initialUnit: 'ft', initialValue: 5.5 }));
+    const { result } = renderHook(() => useHeight({ initialUnit: 'ft', initialValue: 5.5 }), {
+      wrapper,
+    });
 
     expect(result.current.value).toBe(5.5);
     expect(result.current.unit).toBe('ft');
@@ -26,7 +45,7 @@ describe('useHeight', () => {
   });
 
   it('should update value when setValue is called', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     act(() => {
       result.current.setValue(175);
@@ -36,7 +55,7 @@ describe('useHeight', () => {
   });
 
   it('should toggle from cm to ft and convert value', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     act(() => {
       result.current.setValue(182.88); // 6 feet in cm
@@ -52,7 +71,9 @@ describe('useHeight', () => {
   });
 
   it('should toggle from ft to cm and convert value', () => {
-    const { result } = renderHook(() => useHeight({ initialUnit: 'ft', initialValue: 6 }));
+    const { result } = renderHook(() => useHeight({ initialUnit: 'ft', initialValue: 6 }), {
+      wrapper,
+    });
 
     act(() => {
       result.current.toggle();
@@ -64,7 +85,7 @@ describe('useHeight', () => {
   });
 
   it('should toggle unit without value when value is empty', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     act(() => {
       result.current.toggle();
@@ -75,7 +96,7 @@ describe('useHeight', () => {
   });
 
   it('should convert to cm correctly', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     act(() => {
       result.current.setValue(175);
@@ -85,13 +106,15 @@ describe('useHeight', () => {
   });
 
   it('should convert ft to cm when toCm is called', () => {
-    const { result } = renderHook(() => useHeight({ initialUnit: 'ft', initialValue: 6 }));
+    const { result } = renderHook(() => useHeight({ initialUnit: 'ft', initialValue: 6 }), {
+      wrapper,
+    });
 
     expect(result.current.toCm()).toBeCloseTo(182.88, 2);
   });
 
   it('should return null from toCm when value is empty', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     expect(result.current.toCm()).toBeNull();
   });
@@ -99,7 +122,7 @@ describe('useHeight', () => {
 
 describe('useWeight', () => {
   it('should initialize with default values', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     expect(result.current.value).toBe('');
     expect(result.current.unit).toBe('kg');
@@ -107,7 +130,9 @@ describe('useWeight', () => {
   });
 
   it('should initialize with custom values', () => {
-    const { result } = renderHook(() => useWeight({ initialUnit: 'lb', initialValue: 150 }));
+    const { result } = renderHook(() => useWeight({ initialUnit: 'lb', initialValue: 150 }), {
+      wrapper,
+    });
 
     expect(result.current.value).toBe(150);
     expect(result.current.unit).toBe('lb');
@@ -115,7 +140,7 @@ describe('useWeight', () => {
   });
 
   it('should update value when setValue is called', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     act(() => {
       result.current.setValue(70);
@@ -125,7 +150,7 @@ describe('useWeight', () => {
   });
 
   it('should toggle from kg to lb and convert value', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     act(() => {
       result.current.setValue(70);
@@ -141,7 +166,9 @@ describe('useWeight', () => {
   });
 
   it('should toggle from lb to kg and convert value', () => {
-    const { result } = renderHook(() => useWeight({ initialUnit: 'lb', initialValue: 154.324 }));
+    const { result } = renderHook(() => useWeight({ initialUnit: 'lb', initialValue: 154.324 }), {
+      wrapper,
+    });
 
     act(() => {
       result.current.toggle();
@@ -153,7 +180,7 @@ describe('useWeight', () => {
   });
 
   it('should toggle unit without value when value is empty', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     act(() => {
       result.current.toggle();
@@ -164,7 +191,7 @@ describe('useWeight', () => {
   });
 
   it('should convert to kg correctly', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     act(() => {
       result.current.setValue(70);
@@ -174,13 +201,15 @@ describe('useWeight', () => {
   });
 
   it('should convert lb to kg when toKg is called', () => {
-    const { result } = renderHook(() => useWeight({ initialUnit: 'lb', initialValue: 154.324 }));
+    const { result } = renderHook(() => useWeight({ initialUnit: 'lb', initialValue: 154.324 }), {
+      wrapper,
+    });
 
     expect(result.current.toKg()).toBeCloseTo(70, 2);
   });
 
   it('should return null from toKg when value is empty', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     expect(result.current.toKg()).toBeNull();
   });
@@ -188,7 +217,7 @@ describe('useWeight', () => {
 
 describe('useCalculatorUnits', () => {
   it('should provide both height and weight', () => {
-    const { result } = renderHook(() => useCalculatorUnits());
+    const { result } = renderHook(() => useCalculatorUnits(), { wrapper });
 
     expect(result.current.height).toBeDefined();
     expect(result.current.weight).toBeDefined();
@@ -197,7 +226,7 @@ describe('useCalculatorUnits', () => {
   });
 
   it('should reset both values', () => {
-    const { result } = renderHook(() => useCalculatorUnits());
+    const { result } = renderHook(() => useCalculatorUnits(), { wrapper });
 
     act(() => {
       result.current.height.setValue(175);
@@ -216,11 +245,13 @@ describe('useCalculatorUnits', () => {
   });
 
   it('should accept custom initial values', () => {
-    const { result } = renderHook(() =>
-      useCalculatorUnits({
-        height: { initialUnit: 'ft', initialValue: 6 },
-        weight: { initialUnit: 'lb', initialValue: 150 },
-      })
+    const { result } = renderHook(
+      () =>
+        useCalculatorUnits({
+          height: { initialUnit: 'ft', initialValue: 6 },
+          weight: { initialUnit: 'lb', initialValue: 150 },
+        }),
+      { wrapper }
     );
 
     expect(result.current.height.unit).toBe('ft');
@@ -232,7 +263,7 @@ describe('useCalculatorUnits', () => {
 
 describe('createHeightField', () => {
   it('should create correct field config', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
 
     act(() => {
       result.current.setValue(175);
@@ -253,7 +284,7 @@ describe('createHeightField', () => {
   });
 
   it('should work without error', () => {
-    const { result } = renderHook(() => useHeight());
+    const { result } = renderHook(() => useHeight(), { wrapper });
     const field = createHeightField(result.current);
 
     expect(field.error).toBeUndefined();
@@ -262,7 +293,7 @@ describe('createHeightField', () => {
 
 describe('createWeightField', () => {
   it('should create correct field config', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
 
     act(() => {
       result.current.setValue(70);
@@ -283,7 +314,7 @@ describe('createWeightField', () => {
   });
 
   it('should work without error', () => {
-    const { result } = renderHook(() => useWeight());
+    const { result } = renderHook(() => useWeight(), { wrapper });
     const field = createWeightField(result.current);
 
     expect(field.error).toBeUndefined();

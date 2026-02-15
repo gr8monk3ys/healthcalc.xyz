@@ -54,6 +54,12 @@ export type MessageKey =
   | 'socialShare.platform.pinterest'
   | 'socialShare.platform.reddit'
   | 'socialShare.platform.email'
+  | 'form.label.height'
+  | 'form.label.weight'
+  | 'unit.height.cm'
+  | 'unit.height.ft'
+  | 'unit.weight.kg'
+  | 'unit.weight.lb'
   | 'cookie.banner.aria'
   | 'cookie.banner.title'
   | 'cookie.banner.body'
@@ -179,6 +185,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'socialShare.platform.pinterest': 'Pinterest',
     'socialShare.platform.reddit': 'Reddit',
     'socialShare.platform.email': 'Email',
+    'form.label.height': 'Height',
+    'form.label.weight': 'Weight',
+    'unit.height.cm': 'Centimeters',
+    'unit.height.ft': 'Feet',
+    'unit.weight.kg': 'Kilograms',
+    'unit.weight.lb': 'Pounds',
     'cookie.banner.aria': 'Cookie consent',
     'cookie.banner.title': 'We value your privacy',
     'cookie.banner.body':
@@ -311,6 +323,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'socialShare.platform.pinterest': 'Pinterest',
     'socialShare.platform.reddit': 'Reddit',
     'socialShare.platform.email': 'Correo',
+    'form.label.height': 'Altura',
+    'form.label.weight': 'Peso',
+    'unit.height.cm': 'Centímetros',
+    'unit.height.ft': 'Pies',
+    'unit.weight.kg': 'Kilogramos',
+    'unit.weight.lb': 'Libras',
     'cookie.banner.aria': 'Consentimiento de cookies',
     'cookie.banner.title': 'Valoramos tu privacidad',
     'cookie.banner.body':
@@ -445,6 +463,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'socialShare.platform.pinterest': 'Pinterest',
     'socialShare.platform.reddit': 'Reddit',
     'socialShare.platform.email': 'E-mail',
+    'form.label.height': 'Taille',
+    'form.label.weight': 'Poids',
+    'unit.height.cm': 'Centimètres',
+    'unit.height.ft': 'Pieds',
+    'unit.weight.kg': 'Kilogrammes',
+    'unit.weight.lb': 'Livres',
     'cookie.banner.aria': 'Consentement aux cookies',
     'cookie.banner.title': 'Nous respectons votre vie privée',
     'cookie.banner.body':
@@ -580,6 +604,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'socialShare.platform.pinterest': 'Pinterest',
     'socialShare.platform.reddit': 'Reddit',
     'socialShare.platform.email': 'E-Mail',
+    'form.label.height': 'Größe',
+    'form.label.weight': 'Gewicht',
+    'unit.height.cm': 'Zentimeter',
+    'unit.height.ft': 'Fuß',
+    'unit.weight.kg': 'Kilogramm',
+    'unit.weight.lb': 'Pfund',
     'cookie.banner.aria': 'Cookie-Einwilligung',
     'cookie.banner.title': 'Wir respektieren Ihre Privatsphäre',
     'cookie.banner.body':
@@ -714,6 +744,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'socialShare.platform.pinterest': 'Pinterest',
     'socialShare.platform.reddit': 'Reddit',
     'socialShare.platform.email': 'E-mail',
+    'form.label.height': 'Altura',
+    'form.label.weight': 'Peso',
+    'unit.height.cm': 'Centímetros',
+    'unit.height.ft': 'Pés',
+    'unit.weight.kg': 'Quilogramas',
+    'unit.weight.lb': 'Libras',
     'cookie.banner.aria': 'Consentimento de cookies',
     'cookie.banner.title': 'Valorizamos sua privacidade',
     'cookie.banner.body':
@@ -846,6 +882,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'socialShare.platform.pinterest': 'Pinterest',
     'socialShare.platform.reddit': 'Reddit',
     'socialShare.platform.email': '邮件',
+    'form.label.height': '身高',
+    'form.label.weight': '体重',
+    'unit.height.cm': '厘米',
+    'unit.height.ft': '英尺',
+    'unit.weight.kg': '千克',
+    'unit.weight.lb': '磅',
     'cookie.banner.aria': 'Cookie 同意',
     'cookie.banner.title': '我们尊重你的隐私',
     'cookie.banner.body':

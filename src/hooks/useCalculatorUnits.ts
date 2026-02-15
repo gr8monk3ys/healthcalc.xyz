@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Custom hook for managing calculator form units with toggle functionality.
  * Centralizes height/weight state management and unit conversion logic.
@@ -6,6 +8,7 @@
 import { useState, useCallback } from 'react';
 import { HeightUnit, WeightUnit } from '@/types/common';
 import { convertHeight, convertWeight } from '@/utils/conversions';
+import { useLocale } from '@/context/LocaleContext';
 
 type NumericValue = number | '';
 
@@ -45,6 +48,7 @@ interface UseWeightOptions {
 export function useHeight(options: UseHeightOptions = {}): HeightState {
   const { initialUnit = 'cm', initialValue = '' } = options;
 
+  const { t } = useLocale();
   const [value, setValueRaw] = useState<NumericValue>(initialValue);
   const [unit, setUnit] = useState<HeightUnit>(initialUnit);
 
@@ -73,7 +77,7 @@ export function useHeight(options: UseHeightOptions = {}): HeightState {
     return unit === 'cm' ? value : convertHeight(value, 'ft', 'cm');
   }, [value, unit]);
 
-  const placeholder = unit === 'cm' ? 'Centimeters' : 'Feet';
+  const placeholder = unit === 'cm' ? t('unit.height.cm') : t('unit.height.ft');
 
   return {
     value,
@@ -91,6 +95,7 @@ export function useHeight(options: UseHeightOptions = {}): HeightState {
 export function useWeight(options: UseWeightOptions = {}): WeightState {
   const { initialUnit = 'kg', initialValue = '' } = options;
 
+  const { t } = useLocale();
   const [value, setValueRaw] = useState<NumericValue>(initialValue);
   const [unit, setUnit] = useState<WeightUnit>(initialUnit);
 
@@ -119,7 +124,7 @@ export function useWeight(options: UseWeightOptions = {}): WeightState {
     return unit === 'kg' ? value : convertWeight(value, 'lb', 'kg');
   }, [value, unit]);
 
-  const placeholder = unit === 'kg' ? 'Kilograms' : 'Pounds';
+  const placeholder = unit === 'kg' ? t('unit.weight.kg') : t('unit.weight.lb');
 
   return {
     value,
@@ -158,10 +163,10 @@ export function useCalculatorUnits(
 /**
  * Creates form field config for height input compatible with CalculatorForm
  */
-export function createHeightField(heightState: HeightState, error?: string) {
+export function createHeightField(heightState: HeightState, error?: string, label = 'Height') {
   return {
     name: 'height',
-    label: 'Height',
+    label,
     type: 'number' as const,
     value: heightState.value,
     onChange: heightState.setValue,
@@ -176,10 +181,10 @@ export function createHeightField(heightState: HeightState, error?: string) {
 /**
  * Creates form field config for weight input compatible with CalculatorForm
  */
-export function createWeightField(weightState: WeightState, error?: string) {
+export function createWeightField(weightState: WeightState, error?: string, label = 'Weight') {
   return {
     name: 'weight',
-    label: 'Weight',
+    label,
     type: 'number' as const,
     value: weightState.value,
     onChange: weightState.setValue,
