@@ -22,6 +22,14 @@ import { ResultsShareBar, ResultsShareProvider } from '@/components/ResultsShare
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
+function formatTemplate(template: string, vars: Record<string, string>): string {
+  let out = template;
+  for (const [key, value] of Object.entries(vars)) {
+    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+  }
+  return out;
+}
+
 // Dynamic imports for below-the-fold components (performance optimization)
 const FAQSection = dynamic(() => import('@/components/FAQSection'), {
   loading: () => (
@@ -154,13 +162,13 @@ export function CalculatorPageLayout({
   structuredData,
   understandingSection,
   showResultsCapture = false,
-  newsletterTitle = 'Get Health & Wellness Tips',
-  newsletterDescription = 'Subscribe to receive the latest health insights and evidence-based wellness advice delivered to your inbox.',
+  newsletterTitle,
+  newsletterDescription,
   children,
 }: CalculatorPageLayoutProps): React.ReactElement {
   const socialTitle = shareTitle || title;
   const socialDescription = shareDescription || description;
-  const { localizePath } = useLocale();
+  const { localizePath, t } = useLocale();
   const { trackEvent } = useFunnelTracking();
   const searchParams = useSearchParams();
   const isEmbed = searchParams.get('embed') === '1';
@@ -183,6 +191,31 @@ export function CalculatorPageLayout({
   }, [calculatorSlug, isEmbed, showResultsCapture, trackEvent]);
 
   if (isEmbed) {
+    const poweredByTemplate = t('calculator.embed.poweredBy');
+    const token = '{brand}';
+    const brandLink = (
+      <Link href={localizePath(`/${calculatorSlug}`)} className="text-accent hover:underline">
+        HealthCheck
+      </Link>
+    );
+    let poweredByContent: React.ReactNode;
+    if (poweredByTemplate.includes(token)) {
+      const [before, after] = poweredByTemplate.split(token);
+      poweredByContent = (
+        <>
+          {before}
+          {brandLink}
+          {after ?? ''}
+        </>
+      );
+    } else {
+      poweredByContent = (
+        <>
+          {poweredByTemplate} {brandLink}
+        </>
+      );
+    }
+
     return (
       <ErrorBoundary>
         <ResultsShareProvider>
@@ -190,15 +223,7 @@ export function CalculatorPageLayout({
             <h1 className="text-2xl font-bold mb-2">{title}</h1>
             <p className="text-sm text-gray-600 mb-6">{description}</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">{children}</div>
-            <div className="mt-4 text-xs text-gray-500">
-              Powered by{' '}
-              <Link
-                href={localizePath(`/${calculatorSlug}`)}
-                className="text-accent hover:underline"
-              >
-                HealthCheck
-              </Link>
-            </div>
+            <div className="mt-4 text-xs text-gray-500">{poweredByContent}</div>
           </div>
         </ResultsShareProvider>
       </ErrorBoundary>
@@ -240,13 +265,16 @@ export function CalculatorPageLayout({
             />
           </div>
 
-          <Accordion title="Embed This Calculator" defaultOpen={false}>
+          <Accordion title={t('calculator.embed.title')} defaultOpen={false}>
             <EmbedCalculator calculatorSlug={calculatorSlug} title={title} />
           </Accordion>
 
-          <RelatedCalculators currentSlug={calculatorSlug} />
+          <RelatedCalculators
+            currentSlug={calculatorSlug}
+            title={t('calculator.relatedCalculators.title')}
+          />
 
-          <RelatedGuides />
+          <RelatedGuides title={t('calculator.relatedGuides.title')} />
 
           <Suspense
             fallback={
@@ -263,7 +291,10 @@ export function CalculatorPageLayout({
             <FAQSection
               faqs={faqs}
               title={
-                faqTitle || `Frequently Asked Questions About ${title.replace(' Calculator', '')}`
+                faqTitle ||
+                formatTemplate(t('calculator.faq.titleTemplate'), {
+                  topic: title.replace(' Calculator', ''),
+                })
               }
               className="mb-8"
             />
@@ -291,7 +322,7 @@ export function CalculatorPageLayout({
             <RelatedArticles
               currentSlug=""
               articles={relatedArticles}
-              title="Related Articles"
+              title={t('calculator.relatedArticles.title')}
               className="my-8"
             />
           </Suspense>

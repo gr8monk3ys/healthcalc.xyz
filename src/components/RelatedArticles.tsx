@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/context/LocaleContext';
 
 interface Article {
   title: string;
@@ -28,10 +29,13 @@ interface RelatedArticlesProps {
 export default function RelatedArticles({
   currentSlug,
   articles,
-  title = 'Related Articles',
+  title,
   maxArticles = 3,
   className = '',
 }: RelatedArticlesProps) {
+  const { localizePath, t } = useLocale();
+  const resolvedTitle = title ?? t('calculator.relatedArticles.title');
+
   // Filter out the current article and limit to maxArticles
   const relatedArticles = articles
     .filter(article => article.slug !== currentSlug)
@@ -43,13 +47,13 @@ export default function RelatedArticles({
 
   return (
     <div className={`glass-panel rounded-3xl p-7 md:p-8 my-8 ${className}`}>
-      <h2 className="text-2xl font-bold mb-6">{title}</h2>
+      <h2 className="text-2xl font-bold mb-6">{resolvedTitle}</h2>
 
       <div className="space-y-6">
         {relatedArticles.map(article => (
           <Link
             key={article.slug}
-            href={`/blog/${article.slug}`}
+            href={localizePath(`/blog/${article.slug}`)}
             className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5"
           >
             <span className="inline-block bg-accent/10 text-accent text-xs px-2 py-1 rounded-full mb-2">
@@ -67,7 +71,7 @@ export default function RelatedArticles({
       </div>
 
       <div className="mt-4 text-center">
-        <Link href="/blog" className="inline-block text-accent hover:underline">
+        <Link href={localizePath('/blog')} className="inline-block text-accent hover:underline">
           View all articles →
         </Link>
       </div>

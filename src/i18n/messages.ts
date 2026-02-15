@@ -36,6 +36,12 @@ export type MessageKey =
   | 'breadcrumb.home'
   | 'breadcrumb.aria'
   | 'calculatorCard.cta'
+  | 'calculator.embed.title'
+  | 'calculator.embed.poweredBy'
+  | 'calculator.relatedCalculators.title'
+  | 'calculator.relatedGuides.title'
+  | 'calculator.relatedArticles.title'
+  | 'calculator.faq.titleTemplate'
   | 'cookie.banner.aria'
   | 'cookie.banner.title'
   | 'cookie.banner.body'
@@ -143,6 +149,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'breadcrumb.home': 'Home',
     'breadcrumb.aria': 'Breadcrumb',
     'calculatorCard.cta': 'Use Calculator',
+    'calculator.embed.title': 'Embed This Calculator',
+    'calculator.embed.poweredBy': 'Powered by {brand}',
+    'calculator.relatedCalculators.title': 'Related Calculators',
+    'calculator.relatedGuides.title': 'Related Guides',
+    'calculator.relatedArticles.title': 'Related Articles',
+    'calculator.faq.titleTemplate': 'Frequently Asked Questions About {topic}',
     'cookie.banner.aria': 'Cookie consent',
     'cookie.banner.title': 'We value your privacy',
     'cookie.banner.body':
@@ -257,6 +269,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'breadcrumb.home': 'Inicio',
     'breadcrumb.aria': 'Ruta de navegación',
     'calculatorCard.cta': 'Usar calculadora',
+    'calculator.embed.title': 'Incrustar esta calculadora',
+    'calculator.embed.poweredBy': 'Con tecnología de {brand}',
+    'calculator.relatedCalculators.title': 'Calculadoras relacionadas',
+    'calculator.relatedGuides.title': 'Guías relacionadas',
+    'calculator.relatedArticles.title': 'Artículos relacionados',
+    'calculator.faq.titleTemplate': 'Preguntas frecuentes sobre {topic}',
     'cookie.banner.aria': 'Consentimiento de cookies',
     'cookie.banner.title': 'Valoramos tu privacidad',
     'cookie.banner.body':
@@ -373,6 +391,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'breadcrumb.home': 'Accueil',
     'breadcrumb.aria': "Fil d'Ariane",
     'calculatorCard.cta': 'Utiliser le calculateur',
+    'calculator.embed.title': 'Intégrer ce calculateur',
+    'calculator.embed.poweredBy': 'Propulsé par {brand}',
+    'calculator.relatedCalculators.title': 'Calculateurs associés',
+    'calculator.relatedGuides.title': 'Guides associés',
+    'calculator.relatedArticles.title': 'Articles associés',
+    'calculator.faq.titleTemplate': 'Questions fréquentes sur {topic}',
     'cookie.banner.aria': 'Consentement aux cookies',
     'cookie.banner.title': 'Nous respectons votre vie privée',
     'cookie.banner.body':
@@ -490,6 +514,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'breadcrumb.home': 'Startseite',
     'breadcrumb.aria': 'Brotkrumen-Navigation',
     'calculatorCard.cta': 'Rechner nutzen',
+    'calculator.embed.title': 'Diesen Rechner einbetten',
+    'calculator.embed.poweredBy': 'Bereitgestellt von {brand}',
+    'calculator.relatedCalculators.title': 'Ähnliche Rechner',
+    'calculator.relatedGuides.title': 'Verwandte Guides',
+    'calculator.relatedArticles.title': 'Ähnliche Artikel',
+    'calculator.faq.titleTemplate': 'Häufige Fragen zu {topic}',
     'cookie.banner.aria': 'Cookie-Einwilligung',
     'cookie.banner.title': 'Wir respektieren Ihre Privatsphäre',
     'cookie.banner.body':
@@ -606,6 +636,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'breadcrumb.home': 'Início',
     'breadcrumb.aria': 'Trilha de navegação',
     'calculatorCard.cta': 'Usar calculadora',
+    'calculator.embed.title': 'Incorporar esta calculadora',
+    'calculator.embed.poweredBy': 'Com tecnologia de {brand}',
+    'calculator.relatedCalculators.title': 'Calculadoras relacionadas',
+    'calculator.relatedGuides.title': 'Guias relacionados',
+    'calculator.relatedArticles.title': 'Artigos relacionados',
+    'calculator.faq.titleTemplate': 'Perguntas frequentes sobre {topic}',
     'cookie.banner.aria': 'Consentimento de cookies',
     'cookie.banner.title': 'Valorizamos sua privacidade',
     'cookie.banner.body':
@@ -720,6 +756,12 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'breadcrumb.home': '首页',
     'breadcrumb.aria': '面包屑导航',
     'calculatorCard.cta': '使用计算器',
+    'calculator.embed.title': '嵌入此计算器',
+    'calculator.embed.poweredBy': '由{brand}提供支持',
+    'calculator.relatedCalculators.title': '相关计算器',
+    'calculator.relatedGuides.title': '相关指南',
+    'calculator.relatedArticles.title': '相关文章',
+    'calculator.faq.titleTemplate': '关于{topic}的常见问题',
     'cookie.banner.aria': 'Cookie 同意',
     'cookie.banner.title': '我们尊重你的隐私',
     'cookie.banner.body':

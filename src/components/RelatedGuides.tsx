@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useLocale } from '@/context/LocaleContext';
 
 const RELATED_GUIDES = [
   {
@@ -31,18 +32,18 @@ interface RelatedGuidesProps {
   className?: string;
 }
 
-export default function RelatedGuides({
-  title = 'Related Guides',
-  className = '',
-}: RelatedGuidesProps) {
+export default function RelatedGuides({ title, className = '' }: RelatedGuidesProps) {
+  const { localizePath, t } = useLocale();
+  const resolvedTitle = title ?? t('calculator.relatedGuides.title');
+
   return (
     <section className={`my-8 ${className}`}>
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+      <h2 className="text-2xl font-semibold mb-4">{resolvedTitle}</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {RELATED_GUIDES.map(guide => (
           <Link
             key={guide.url}
-            href={guide.url}
+            href={localizePath(guide.url)}
             className="neumorph p-4 rounded-lg hover:shadow-md transition-shadow"
           >
             <h3 className="text-lg font-semibold text-accent">{guide.title}</h3>
