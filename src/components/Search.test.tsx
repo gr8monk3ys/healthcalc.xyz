@@ -43,6 +43,16 @@ vi.mock('@/utils/logger', () => ({
   }),
 }));
 
+// Mock locale context (Search uses useLocale for strings + localized routing)
+vi.mock('@/context/LocaleContext', () => ({
+  useLocale: () => ({
+    locale: 'en',
+    setLocale: vi.fn(),
+    localizePath: (path: string) => path,
+    t: (key: string) => key,
+  }),
+}));
+
 // Mock fetch for search index
 const mockSearchIndex = {
   bmi: {
