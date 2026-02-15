@@ -58,11 +58,61 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
 
   const indexable = isLocaleIndexable(locale);
 
+  const localizedMeta: Record<
+    SupportedLocale,
+    { title: string; description: string; keywords: string; ogAlt: string }
+  > = {
+    en: {
+      title: 'HealthCheck - Health and Fitness Calculators',
+      description:
+        'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+      keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
+      ogAlt: 'HealthCheck - Health and Fitness Calculators',
+    },
+    es: {
+      title: 'HealthCheck - Calculadoras de salud y fitness',
+      description:
+        'Tu recurso de confianza para calculadoras de salud y fitness. Calcula grasa corporal, IMC, calorías diarias y más.',
+      keywords:
+        'calculadora de salud, calculadora fitness, control de peso, grasa corporal, IMC, TDEE',
+      ogAlt: 'HealthCheck - Calculadoras de salud y fitness',
+    },
+    fr: {
+      title: 'HealthCheck - Calculateurs santé et fitness',
+      description:
+        'Votre référence pour les calculateurs santé et fitness. Calculez la masse grasse, l’IMC, vos calories quotidiennes et plus encore.',
+      keywords: 'calculateur santé, calculateur fitness, gestion du poids, masse grasse, IMC, TDEE',
+      ogAlt: 'HealthCheck - Calculateurs santé et fitness',
+    },
+    de: {
+      title: 'HealthCheck - Gesundheits- und Fitnessrechner',
+      description:
+        'Ihre Anlaufstelle für Gesundheits- und Fitnessrechner. Berechnen Sie Körperfett, BMI, Kalorienbedarf und mehr.',
+      keywords: 'gesundheitsrechner, fitnessrechner, gewichtsmanagement, körperfett, BMI, TDEE',
+      ogAlt: 'HealthCheck - Gesundheits- und Fitnessrechner',
+    },
+    pt: {
+      title: 'HealthCheck - Calculadoras de saúde e fitness',
+      description:
+        'Seu recurso principal para calculadoras de saúde e fitness. Calcule gordura corporal, IMC, calorias diárias e muito mais.',
+      keywords:
+        'calculadora de saúde, calculadora fitness, controle de peso, gordura corporal, IMC, TDEE',
+      ogAlt: 'HealthCheck - Calculadoras de saúde e fitness',
+    },
+    zh: {
+      title: 'HealthCheck - 健康与健身计算器',
+      description: '你的健康与健身计算器平台。计算体脂、BMI、每日热量需求等。',
+      keywords: '健康计算器, 健身计算器, 体重管理, 体脂, BMI, TDEE',
+      ogAlt: 'HealthCheck - 健康与健身计算器',
+    },
+  };
+
+  const meta = localizedMeta[locale] ?? localizedMeta.en;
+
   return {
-    title: 'HealthCheck - Health and Fitness Calculators',
-    description:
-      'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
-    keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     authors: [{ name: 'HealthCheck Team' }],
     creator: 'HealthCheck',
     publisher: 'HealthCheck',
@@ -73,9 +123,8 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
     },
     metadataBase: new URL(siteUrl),
     openGraph: {
-      title: 'HealthCheck - Health and Fitness Calculators',
-      description:
-        'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+      title: meta.title,
+      description: meta.description,
       url: siteUrl,
       siteName: 'HealthCheck',
       images: [
@@ -83,7 +132,7 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
           url: '/images/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: 'HealthCheck - Health and Fitness Calculators',
+          alt: meta.ogAlt,
         },
       ],
       locale: localeToOpenGraphLocale[locale],
@@ -91,9 +140,8 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'HealthCheck - Health and Fitness Calculators',
-      description:
-        'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
+      title: meta.title,
+      description: meta.description,
       images: ['/images/og-image.jpg'],
     },
     robots: indexable
