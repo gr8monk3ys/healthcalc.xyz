@@ -2,24 +2,74 @@
 
 import React from 'react';
 import { BMIResult } from '@/types/bmi';
+import type { BMIPageCopy } from '@/i18n/pages/bmi';
 
 interface BMIResultDisplayProps {
   result: BMIResult;
   isChild: boolean;
   weightUnit: 'kg' | 'lb';
+  copy?: BMIPageCopy['result'];
 }
 
-const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({ result, isChild, weightUnit }) => {
+const FALLBACK_COPY: BMIPageCopy['result'] = {
+  title: 'Your BMI Results',
+  bmiValueLabel: 'BMI Value',
+  gaugeLabels: {
+    underweight: 'Underweight',
+    normal: 'Normal',
+    overweight: 'Overweight',
+    obese: 'Obese',
+  },
+  classificationAdult: 'BMI Classification',
+  classificationChild: 'BMI Percentile Classification',
+  percentileTemplate: '{percentile}th Percentile - {category}',
+  healthyWeightRangeTitle: 'Healthy Weight Range for Your Height',
+  whatThisMeansTitle: 'What This Means',
+  childIntroTemplate: "Your child's BMI is at the {percentile}th percentile for their age and sex.",
+  childUnderweight:
+    'This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.',
+  childHealthy: 'This is within the healthy weight range.',
+  childOverweight:
+    'This is considered overweight. Consider discussing healthy lifestyle habits with a healthcare provider.',
+  childObese:
+    'This is considered obese. It is recommended to consult with a healthcare provider about healthy weight management strategies.',
+  adultUnderweight:
+    'Being underweight can be associated with certain health risks including nutrient deficiencies and immune system issues. Consider consulting with a healthcare provider.',
+  adultNormal:
+    'Your BMI is within the healthy range. Maintaining a healthy weight can lower your risk of developing serious health problems.',
+  adultOverweight:
+    'Being overweight increases your risk of developing health problems such as heart disease, high blood pressure, and type 2 diabetes.',
+  adultObese:
+    'Obesity is associated with higher risks for serious health conditions including heart disease, stroke, type 2 diabetes, and certain cancers.',
+  note: 'Note: BMI is a screening tool but does not diagnose body fatness or health. Athletes may have a high BMI due to muscle mass. Consult a healthcare provider for a complete health assessment.',
+};
+
+function formatTemplate(template: string, vars: Record<string, string | number>): string {
+  let output = template;
+  for (const [key, value] of Object.entries(vars)) {
+    output = output.replace(new RegExp(`\\{${key}\\}`, 'g'), String(value));
+  }
+  return output;
+}
+
+const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
+  result,
+  isChild,
+  weightUnit,
+  copy,
+}) => {
+  const content = copy ?? FALLBACK_COPY;
+
   return (
     <div
       id="bmi-result"
       className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
     >
-      <h2 className="text-xl font-semibold mb-4">Your BMI Results</h2>
+      <h2 className="text-xl font-semibold mb-4">{content.title}</h2>
 
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium">BMI Value</span>
+          <span className="text-sm font-medium">{content.bmiValueLabel}</span>
           <span className="text-2xl font-bold">{result.bmi.toFixed(1)}</span>
         </div>
 
@@ -41,28 +91,31 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({ result, isChild, we
         </div>
 
         <div className="flex justify-between text-xs mt-1">
-          <span>Underweight</span>
-          <span>Normal</span>
-          <span>Overweight</span>
-          <span>Obese</span>
+          <span>{content.gaugeLabels.underweight}</span>
+          <span>{content.gaugeLabels.normal}</span>
+          <span>{content.gaugeLabels.overweight}</span>
+          <span>{content.gaugeLabels.obese}</span>
         </div>
       </div>
 
       <div className="mb-6">
         <h3 className="font-medium mb-2">
-          {isChild ? 'BMI Percentile Classification' : 'BMI Classification'}
+          {isChild ? content.classificationChild : content.classificationAdult}
         </h3>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="font-medium text-lg">
             {isChild && result.percentile !== undefined
-              ? `${result.percentile}th Percentile - ${result.category}`
+              ? formatTemplate(content.percentileTemplate, {
+                  percentile: result.percentile,
+                  category: result.category,
+                })
               : result.category}
           </p>
         </div>
       </div>
 
       <div className="mb-6">
-        <h3 className="font-medium mb-2">Healthy Weight Range for Your Height</h3>
+        <h3 className="font-medium mb-2">{content.healthyWeightRangeTitle}</h3>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="font-medium text-lg">
             {result.healthyWeightRange.min.toFixed(1)} - {result.healthyWeightRange.max.toFixed(1)}{' '}
@@ -72,36 +125,32 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({ result, isChild, we
       </div>
 
       <div>
-        <h3 className="font-medium mb-2">What This Means</h3>
+        <h3 className="font-medium mb-2">{content.whatThisMeansTitle}</h3>
         <p className="mb-2">
           {isChild && result.percentile !== undefined ? (
             <>
-              Your child's BMI is at the {result.percentile}th percentile for their age and sex.
+              {formatTemplate(content.childIntroTemplate, { percentile: result.percentile })}
               {result.percentile < 5
-                ? ' This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.'
+                ? ` ${content.childUnderweight}`
                 : result.percentile >= 5 && result.percentile < 85
-                  ? ' This is within the healthy weight range.'
+                  ? ` ${content.childHealthy}`
                   : result.percentile >= 85 && result.percentile < 95
-                    ? ' This is considered overweight. Consider discussing healthy lifestyle habits with a healthcare provider.'
-                    : ' This is considered obese. It is recommended to consult with a healthcare provider about healthy weight management strategies.'}
+                    ? ` ${content.childOverweight}`
+                    : ` ${content.childObese}`}
             </>
           ) : (
             <>
               {result.bmi < 18.5
-                ? 'Being underweight can be associated with certain health risks including nutrient deficiencies and immune system issues. Consider consulting with a healthcare provider.'
+                ? content.adultUnderweight
                 : result.bmi >= 18.5 && result.bmi < 25
-                  ? 'Your BMI is within the healthy range. Maintaining a healthy weight can lower your risk of developing serious health problems.'
+                  ? content.adultNormal
                   : result.bmi >= 25 && result.bmi < 30
-                    ? 'Being overweight increases your risk of developing health problems such as heart disease, high blood pressure, and type 2 diabetes.'
-                    : 'Obesity is associated with higher risks for serious health conditions including heart disease, stroke, type 2 diabetes, and certain cancers.'}
+                    ? content.adultOverweight
+                    : content.adultObese}
             </>
           )}
         </p>
-        <p className="text-sm text-gray-600">
-          Note: BMI is a screening tool but does not diagnose body fatness or health. Athletes may
-          have a high BMI due to muscle mass. Consult a healthcare provider for a complete health
-          assessment.
-        </p>
+        <p className="text-sm text-gray-600">{content.note}</p>
       </div>
     </div>
   );

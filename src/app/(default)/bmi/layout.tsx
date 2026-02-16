@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
   title: 'BMI Calculator | HealthCheck',
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
   keywords: 'BMI calculator, body mass index, healthy weight, weight calculator, BMI chart',
   alternates: {
-    canonical: './',
+    ...buildLanguageAlternates('/bmi'),
   },
   openGraph: {
     title: 'BMI Calculator | HealthCheck',
