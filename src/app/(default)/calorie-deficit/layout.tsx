@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
   title: 'Calorie Deficit Calculator | HealthCheck',
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     'calorie deficit calculator, weight loss calculator, calorie deficit, weight loss timeline, goal weight calculator',
   alternates: {
-    canonical: './',
+    ...buildLanguageAlternates('/calorie-deficit'),
   },
   openGraph: {
     title: 'Calorie Deficit Calculator | HealthCheck',

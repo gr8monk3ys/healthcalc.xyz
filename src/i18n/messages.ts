@@ -40,8 +40,18 @@ export type MessageKey =
   | 'calculator.embed.poweredBy'
   | 'calculator.relatedCalculators.title'
   | 'calculator.relatedGuides.title'
+  | 'calculator.relatedGuides.explore'
   | 'calculator.relatedArticles.title'
+  | 'calculator.relatedArticles.viewAll'
   | 'calculator.faq.titleTemplate'
+  | 'calculator.resultsShare.title'
+  | 'calculator.resultsShare.description'
+  | 'calculator.resultsShare.copyLink'
+  | 'calculator.resultsShare.linkCopied'
+  | 'calculator.resultsShare.downloadImage'
+  | 'calculator.resultsShare.exporting'
+  | 'calculator.resultsShare.enableHint'
+  | 'calculator.resultsShare.tipPrefix'
   | 'calculatorForm.submit'
   | 'calculatorForm.reset'
   | 'calculatorForm.embedToggle'
@@ -171,8 +181,19 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.embed.poweredBy': 'Powered by {brand}',
     'calculator.relatedCalculators.title': 'Related Calculators',
     'calculator.relatedGuides.title': 'Related Guides',
+    'calculator.relatedGuides.explore': 'Explore guide →',
     'calculator.relatedArticles.title': 'Related Articles',
+    'calculator.relatedArticles.viewAll': 'View all articles →',
     'calculator.faq.titleTemplate': 'Frequently Asked Questions About {topic}',
+    'calculator.resultsShare.title': 'Share your results',
+    'calculator.resultsShare.description':
+      'Copy a link to this calculator or export your result as an image.',
+    'calculator.resultsShare.copyLink': 'Copy link',
+    'calculator.resultsShare.linkCopied': 'Link copied',
+    'calculator.resultsShare.downloadImage': 'Download image',
+    'calculator.resultsShare.exporting': 'Exporting…',
+    'calculator.resultsShare.enableHint': 'Run a calculation to enable image export',
+    'calculator.resultsShare.tipPrefix': 'Tip: When sharing on social, include this URL:',
     'calculatorForm.submit': 'Calculate',
     'calculatorForm.reset': 'Reset',
     'calculatorForm.embedToggle': 'Embed this calculator',
@@ -309,8 +330,19 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.embed.poweredBy': 'Con tecnología de {brand}',
     'calculator.relatedCalculators.title': 'Calculadoras relacionadas',
     'calculator.relatedGuides.title': 'Guías relacionadas',
+    'calculator.relatedGuides.explore': 'Explorar guía →',
     'calculator.relatedArticles.title': 'Artículos relacionados',
+    'calculator.relatedArticles.viewAll': 'Ver todos los artículos →',
     'calculator.faq.titleTemplate': 'Preguntas frecuentes sobre {topic}',
+    'calculator.resultsShare.title': 'Comparte tus resultados',
+    'calculator.resultsShare.description':
+      'Copia un enlace a esta calculadora o exporta tu resultado como imagen.',
+    'calculator.resultsShare.copyLink': 'Copiar enlace',
+    'calculator.resultsShare.linkCopied': 'Enlace copiado',
+    'calculator.resultsShare.downloadImage': 'Descargar imagen',
+    'calculator.resultsShare.exporting': 'Exportando…',
+    'calculator.resultsShare.enableHint': 'Realiza un cálculo para habilitar la exportación',
+    'calculator.resultsShare.tipPrefix': 'Consejo: al compartir en redes, incluye esta URL:',
     'calculatorForm.submit': 'Calcular',
     'calculatorForm.reset': 'Restablecer',
     'calculatorForm.embedToggle': 'Incrustar esta calculadora',
@@ -449,8 +481,20 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.embed.poweredBy': 'Propulsé par {brand}',
     'calculator.relatedCalculators.title': 'Calculateurs associés',
     'calculator.relatedGuides.title': 'Guides associés',
+    'calculator.relatedGuides.explore': 'Explorer le guide →',
     'calculator.relatedArticles.title': 'Articles associés',
+    'calculator.relatedArticles.viewAll': 'Voir tous les articles →',
     'calculator.faq.titleTemplate': 'Questions fréquentes sur {topic}',
+    'calculator.resultsShare.title': 'Partagez vos résultats',
+    'calculator.resultsShare.description':
+      'Copiez un lien vers ce calculateur ou exportez votre résultat en image.',
+    'calculator.resultsShare.copyLink': 'Copier le lien',
+    'calculator.resultsShare.linkCopied': 'Lien copié',
+    'calculator.resultsShare.downloadImage': "Télécharger l'image",
+    'calculator.resultsShare.exporting': 'Export en cours…',
+    'calculator.resultsShare.enableHint': "Lancez un calcul pour activer l'export d'image",
+    'calculator.resultsShare.tipPrefix':
+      'Astuce : en partageant sur les réseaux, incluez cette URL :',
     'calculatorForm.submit': 'Calculer',
     'calculatorForm.reset': 'Réinitialiser',
     'calculatorForm.embedToggle': 'Intégrer ce calculateur',
@@ -590,8 +634,21 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.embed.poweredBy': 'Bereitgestellt von {brand}',
     'calculator.relatedCalculators.title': 'Ähnliche Rechner',
     'calculator.relatedGuides.title': 'Verwandte Guides',
+    'calculator.relatedGuides.explore': 'Guide ansehen →',
     'calculator.relatedArticles.title': 'Ähnliche Artikel',
+    'calculator.relatedArticles.viewAll': 'Alle Artikel anzeigen →',
     'calculator.faq.titleTemplate': 'Häufige Fragen zu {topic}',
+    'calculator.resultsShare.title': 'Ergebnisse teilen',
+    'calculator.resultsShare.description':
+      'Kopieren Sie einen Link zu diesem Rechner oder exportieren Sie Ihr Ergebnis als Bild.',
+    'calculator.resultsShare.copyLink': 'Link kopieren',
+    'calculator.resultsShare.linkCopied': 'Link kopiert',
+    'calculator.resultsShare.downloadImage': 'Bild herunterladen',
+    'calculator.resultsShare.exporting': 'Export läuft…',
+    'calculator.resultsShare.enableHint':
+      'Fuehren Sie zuerst eine Berechnung durch, um den Bildexport zu aktivieren',
+    'calculator.resultsShare.tipPrefix':
+      'Tipp: Beim Teilen in sozialen Netzwerken diese URL einfuegen:',
     'calculatorForm.submit': 'Berechnen',
     'calculatorForm.reset': 'Zurücksetzen',
     'calculatorForm.embedToggle': 'Diesen Rechner einbetten',
@@ -730,8 +787,19 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.embed.poweredBy': 'Com tecnologia de {brand}',
     'calculator.relatedCalculators.title': 'Calculadoras relacionadas',
     'calculator.relatedGuides.title': 'Guias relacionados',
+    'calculator.relatedGuides.explore': 'Explorar guia →',
     'calculator.relatedArticles.title': 'Artigos relacionados',
+    'calculator.relatedArticles.viewAll': 'Ver todos os artigos →',
     'calculator.faq.titleTemplate': 'Perguntas frequentes sobre {topic}',
+    'calculator.resultsShare.title': 'Compartilhe seus resultados',
+    'calculator.resultsShare.description':
+      'Copie um link desta calculadora ou exporte seu resultado como imagem.',
+    'calculator.resultsShare.copyLink': 'Copiar link',
+    'calculator.resultsShare.linkCopied': 'Link copiado',
+    'calculator.resultsShare.downloadImage': 'Baixar imagem',
+    'calculator.resultsShare.exporting': 'Exportando…',
+    'calculator.resultsShare.enableHint': 'Faça um cálculo para habilitar a exportação da imagem',
+    'calculator.resultsShare.tipPrefix': 'Dica: ao compartilhar nas redes, inclua esta URL:',
     'calculatorForm.submit': 'Calcular',
     'calculatorForm.reset': 'Redefinir',
     'calculatorForm.embedToggle': 'Incorporar esta calculadora',
@@ -868,8 +936,18 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'calculator.embed.poweredBy': '由{brand}提供支持',
     'calculator.relatedCalculators.title': '相关计算器',
     'calculator.relatedGuides.title': '相关指南',
+    'calculator.relatedGuides.explore': '查看指南 →',
     'calculator.relatedArticles.title': '相关文章',
+    'calculator.relatedArticles.viewAll': '查看全部文章 →',
     'calculator.faq.titleTemplate': '关于{topic}的常见问题',
+    'calculator.resultsShare.title': '分享你的结果',
+    'calculator.resultsShare.description': '复制此计算器链接，或将结果导出为图片。',
+    'calculator.resultsShare.copyLink': '复制链接',
+    'calculator.resultsShare.linkCopied': '链接已复制',
+    'calculator.resultsShare.downloadImage': '下载图片',
+    'calculator.resultsShare.exporting': '导出中…',
+    'calculator.resultsShare.enableHint': '先完成一次计算后才能导出图片',
+    'calculator.resultsShare.tipPrefix': '提示：在社交平台分享时，可附上此链接：',
     'calculatorForm.submit': '计算',
     'calculatorForm.reset': '重置',
     'calculatorForm.embedToggle': '嵌入此计算器',

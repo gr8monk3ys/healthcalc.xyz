@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
   title: 'Body Fat Calculator | Calculate Your Body Fat Percentage',
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   keywords:
     'body fat calculator, body fat percentage, navy method, body composition, fat mass, lean mass, body fat measurement, healthy body fat, body fat categories, fitness calculator',
   alternates: {
-    canonical: './',
+    ...buildLanguageAlternates('/body-fat'),
   },
   openGraph: {
     title: 'Body Fat Calculator | Calculate Your Body Fat Percentage',

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
   title: 'TDEE Calculator | HealthCheck',
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   keywords:
     'TDEE calculator, total daily energy expenditure, calorie calculator, BMR calculator, daily calorie needs',
   alternates: {
-    canonical: './',
+    ...buildLanguageAlternates('/tdee'),
   },
   openGraph: {
     title: 'TDEE Calculator | HealthCheck',

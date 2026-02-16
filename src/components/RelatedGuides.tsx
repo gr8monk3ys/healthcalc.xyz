@@ -48,7 +48,9 @@ export default function RelatedGuides({ title, className = '' }: RelatedGuidesPr
           >
             <h3 className="text-lg font-semibold text-accent">{guide.title}</h3>
             <p className="text-sm text-gray-600 mt-1">{guide.description}</p>
-            <span className="text-sm text-accent mt-3 inline-block">Explore guide →</span>
+            <span className="text-sm text-accent mt-3 inline-block">
+              {t('calculator.relatedGuides.explore')}
+            </span>
           </Link>
         ))}
       </div>

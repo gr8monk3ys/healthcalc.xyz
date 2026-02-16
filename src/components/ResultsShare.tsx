@@ -96,7 +96,7 @@ export function ResultsShareBar({
   className?: string;
 }): React.JSX.Element {
   const { target, registerTarget } = useResultsShare();
-  const { localizePath } = useLocale();
+  const { localizePath, t } = useLocale();
   const { trackEvent } = useFunnelTracking();
   const [copied, setCopied] = React.useState(false);
   const [downloading, setDownloading] = React.useState(false);
@@ -174,33 +174,39 @@ export function ResultsShareBar({
   }, [registerTarget, target]);
 
   return (
-    <section className={className} aria-label="Share results">
+    <section className={className} aria-label={t('calculator.resultsShare.title')}>
       <div className="glass-panel flex flex-col gap-3 rounded-2xl px-5 py-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-sm font-semibold text-slate-900 dark:text-white">Share your results</p>
+          <p className="text-sm font-semibold text-slate-900 dark:text-white">
+            {t('calculator.resultsShare.title')}
+          </p>
           <p className="text-xs text-slate-600 dark:text-slate-300">
-            Copy a link to this calculator or export your result as an image.
+            {t('calculator.resultsShare.description')}
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <button type="button" className="ui-btn-soft" onClick={handleCopy}>
-            {copied ? 'Link copied' : 'Copy link'}
+            {copied
+              ? t('calculator.resultsShare.linkCopied')
+              : t('calculator.resultsShare.copyLink')}
           </button>
           <button
             type="button"
             className="ui-btn-primary"
             onClick={handleDownload}
             disabled={!target || downloading}
-            title={!target ? 'Run a calculation to enable image export' : undefined}
+            title={!target ? t('calculator.resultsShare.enableHint') : undefined}
           >
-            {downloading ? 'Exporting…' : 'Download image'}
+            {downloading
+              ? t('calculator.resultsShare.exporting')
+              : t('calculator.resultsShare.downloadImage')}
           </button>
         </div>
       </div>
 
       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-        Tip: When sharing on social, include this URL: <span className="font-mono">{shareUrl}</span>
+        {t('calculator.resultsShare.tipPrefix')} <span className="font-mono">{shareUrl}</span>
       </p>
     </section>
   );

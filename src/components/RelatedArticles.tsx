@@ -72,7 +72,7 @@ export default function RelatedArticles({
 
       <div className="mt-4 text-center">
         <Link href={localizePath('/blog')} className="inline-block text-accent hover:underline">
-          View all articles →
+          {t('calculator.relatedArticles.viewAll')}
         </Link>
       </div>
     </div>
