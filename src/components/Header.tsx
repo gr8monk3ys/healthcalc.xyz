@@ -53,6 +53,7 @@ export default function Header(): React.JSX.Element {
               <Link
                 key={link.path}
                 href={localizePath(link.path)}
+                aria-current={normalizedPathname === link.path ? 'page' : undefined}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30'
@@ -87,6 +88,7 @@ export default function Header(): React.JSX.Element {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -102,6 +104,7 @@ export default function Header(): React.JSX.Element {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -126,6 +129,7 @@ export default function Header(): React.JSX.Element {
               <Link
                 key={link.path}
                 href={localizePath(link.path)}
+                aria-current={normalizedPathname === link.path ? 'page' : undefined}
                 className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-all ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30'

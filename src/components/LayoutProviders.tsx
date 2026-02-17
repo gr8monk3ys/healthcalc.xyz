@@ -4,8 +4,6 @@ import { UnitSystemProvider } from '@/context/UnitSystemContext';
 import { PreferencesProvider } from '@/context/PreferencesContext';
 import { SavedResultsProvider } from '@/context/SavedResultsContext';
 import { AuthProvider } from '@/context/AuthContext';
-import { ClerkProvider } from '@clerk/nextjs';
-import { clerkEnabled } from '@/utils/auth';
 import { CookieConsentProvider } from '@/components/CookieConsent';
 import { LocaleProvider } from '@/context/LocaleContext';
 import { defaultLocale, type SupportedLocale } from '@/i18n/config';
@@ -17,7 +15,7 @@ export default function LayoutProviders({
   children: ReactNode;
   initialLocale?: SupportedLocale;
 }): React.JSX.Element {
-  const inner = (
+  return (
     <LocaleProvider initialLocale={initialLocale}>
       <DarkModeProvider>
         <UnitSystemProvider>
@@ -32,10 +30,4 @@ export default function LayoutProviders({
       </DarkModeProvider>
     </LocaleProvider>
   );
-
-  if (clerkEnabled) {
-    return <ClerkProvider>{inner}</ClerkProvider>;
-  }
-
-  return inner;
 }

@@ -8,25 +8,14 @@ function makeRequest(method: 'DELETE'): NextRequest {
   return new NextRequest('http://localhost/api/saved-results/bmi-abc', { method });
 }
 
-async function loadRoute(options?: {
-  clerkEnabled?: boolean;
-  postgresConfigured?: boolean;
-  userId?: string | null;
-  csrfOk?: boolean;
-}) {
-  const clerkEnabled = options?.clerkEnabled ?? true;
+async function loadRoute(options?: { postgresConfigured?: boolean; csrfOk?: boolean }) {
   const postgresConfigured = options?.postgresConfigured ?? true;
-  const userId = options?.userId === undefined ? 'user_123' : options.userId;
   const csrfOk = options?.csrfOk ?? true;
 
   vi.resetModules();
 
   const verifyCsrf = vi.fn(() => csrfOk);
   vi.doMock('@/utils/csrf', () => ({ verifyCsrf }));
-  vi.doMock('@/utils/auth', () => ({ clerkEnabled }));
-
-  const auth = vi.fn(async () => ({ userId }));
-  vi.doMock('@clerk/nextjs/server', () => ({ auth }));
 
   const deleteSavedResult = vi.fn(async () => true);
   const isSavedResultsPostgresConfigured = vi.fn(() => postgresConfigured);
@@ -41,7 +30,6 @@ async function loadRoute(options?: {
   return {
     DELETE: route.DELETE,
     mocks: {
-      auth,
       verifyCsrf,
       deleteSavedResult,
       isSavedResultsPostgresConfigured,
@@ -56,22 +44,10 @@ describe('DELETE /api/saved-results/[id]', () => {
     expect(res.status).toBe(403);
   });
 
-  it('should return 501 when Clerk is disabled', async () => {
-    const { DELETE } = await loadRoute({ clerkEnabled: false });
-    const res = await DELETE(makeRequest('DELETE'), { params: Promise.resolve({ id: 'bmi-abc' }) });
-    expect(res.status).toBe(501);
-  });
-
   it('should return 503 when Postgres is not configured', async () => {
     const { DELETE } = await loadRoute({ postgresConfigured: false });
     const res = await DELETE(makeRequest('DELETE'), { params: Promise.resolve({ id: 'bmi-abc' }) });
     expect(res.status).toBe(503);
-  });
-
-  it('should return 401 when unauthenticated', async () => {
-    const { DELETE } = await loadRoute({ userId: null });
-    const res = await DELETE(makeRequest('DELETE'), { params: Promise.resolve({ id: 'bmi-abc' }) });
-    expect(res.status).toBe(401);
   });
 
   it('should return 400 when id is missing', async () => {
@@ -90,6 +66,6 @@ describe('DELETE /api/saved-results/[id]', () => {
     expect(res.status).toBe(200);
     expect(json.success).toBe(true);
     expect(json.deleted).toBe(true);
-    expect(mocks.deleteSavedResult).toHaveBeenCalledWith('user_123', 'bmi-abc');
+    expect(mocks.deleteSavedResult).toHaveBeenCalledWith('anonymous', 'bmi-abc');
   });
 });

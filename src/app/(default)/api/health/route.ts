@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { isSubmissionPersistenceStrictModeEnabled } from '@/lib/db/submissions';
-import { getClerkEnvState } from '@/utils/auth';
 
 interface HealthChecks {
   siteUrlConfigured: boolean;
@@ -14,10 +13,6 @@ interface HealthChecks {
   analyticsConfigured: boolean;
   sentryDsnConfigured: boolean;
   adsenseSlotsConfigured: boolean;
-  clerkPublishableKeyConfigured: boolean;
-  clerkSecretKeyConfigured: boolean;
-  clerkProductionKeysValid: boolean;
-  clerkConfigurationValid: boolean;
 }
 
 function has(value: string | undefined): boolean {
@@ -45,12 +40,6 @@ function createHealthChecks(): HealthChecks {
   const hasResend = has(process.env.RESEND_API_KEY);
   const hasPostgres = has(process.env.DATABASE_URL) || has(process.env.SUBMISSIONS_POSTGRES_URL);
   const dbDriver = (process.env.SUBMISSIONS_DB_DRIVER ?? '').trim().toLowerCase();
-  const clerkState = getClerkEnvState();
-  const clerkConfigurationValid =
-    (!clerkState.publishableKeyConfigured && !clerkState.secretKeyConfigured) ||
-    (clerkState.publishableKeyConfigured &&
-      clerkState.secretKeyConfigured &&
-      clerkState.productionKeysValid);
 
   return {
     siteUrlConfigured: has(process.env.NEXT_PUBLIC_SITE_URL),
@@ -64,10 +53,6 @@ function createHealthChecks(): HealthChecks {
     analyticsConfigured: isGaMeasurementId(process.env.NEXT_PUBLIC_GA_ID),
     sentryDsnConfigured: has(process.env.NEXT_PUBLIC_SENTRY_DSN),
     adsenseSlotsConfigured: hasConfiguredAdSenseSlot(),
-    clerkPublishableKeyConfigured: clerkState.publishableKeyConfigured,
-    clerkSecretKeyConfigured: clerkState.secretKeyConfigured,
-    clerkProductionKeysValid: clerkState.productionKeysValid,
-    clerkConfigurationValid,
   };
 }
 
@@ -83,9 +68,6 @@ function createWarnings(checks: HealthChecks): string[] {
   if (!checks.adsenseSlotsConfigured) {
     warnings.push('AdSense slots are not configured.');
   }
-  if (checks.clerkPublishableKeyConfigured && !checks.clerkSecretKeyConfigured) {
-    warnings.push('Clerk publishable key is set but CLERK_SECRET_KEY is missing.');
-  }
 
   return warnings;
 }
@@ -97,8 +79,7 @@ function isHealthy(checks: HealthChecks): boolean {
     checks.persistenceDriverConfigured &&
     checks.persistenceDatabaseConfigured &&
     checks.newsletterProviderConfigured &&
-    checks.contactProviderConfigured &&
-    checks.clerkConfigurationValid
+    checks.contactProviderConfigured
   );
 }
 

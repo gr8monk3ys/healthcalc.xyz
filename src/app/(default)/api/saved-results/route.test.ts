@@ -22,25 +22,14 @@ type SavedResultRowMock = {
   data: Record<string, unknown>;
 };
 
-async function loadRoute(options?: {
-  clerkEnabled?: boolean;
-  postgresConfigured?: boolean;
-  userId?: string | null;
-  csrfOk?: boolean;
-}) {
-  const clerkEnabled = options?.clerkEnabled ?? true;
+async function loadRoute(options?: { postgresConfigured?: boolean; csrfOk?: boolean }) {
   const postgresConfigured = options?.postgresConfigured ?? true;
-  const userId = options?.userId === undefined ? 'user_123' : options.userId;
   const csrfOk = options?.csrfOk ?? true;
 
   vi.resetModules();
 
   const verifyCsrf = vi.fn(() => csrfOk);
   vi.doMock('@/utils/csrf', () => ({ verifyCsrf }));
-  vi.doMock('@/utils/auth', () => ({ clerkEnabled }));
-
-  const auth = vi.fn(async () => ({ userId }));
-  vi.doMock('@clerk/nextjs/server', () => ({ auth }));
 
   const listSavedResults = vi.fn(async () => [] as SavedResultRowMock[]);
   const upsertSavedResult = vi.fn(
@@ -70,7 +59,6 @@ async function loadRoute(options?: {
     POST: route.POST,
     DELETE: route.DELETE,
     mocks: {
-      auth,
       verifyCsrf,
       listSavedResults,
       upsertSavedResult,
@@ -81,22 +69,10 @@ async function loadRoute(options?: {
 }
 
 describe('GET /api/saved-results', () => {
-  it('should return 501 when Clerk is disabled', async () => {
-    const { GET } = await loadRoute({ clerkEnabled: false });
-    const res = await GET();
-    expect(res.status).toBe(501);
-  });
-
   it('should return 503 when Postgres is not configured', async () => {
     const { GET } = await loadRoute({ postgresConfigured: false });
     const res = await GET();
     expect(res.status).toBe(503);
-  });
-
-  it('should return 401 when unauthenticated', async () => {
-    const { GET } = await loadRoute({ userId: null });
-    const res = await GET();
-    expect(res.status).toBe(401);
   });
 
   it('should return saved results on success', async () => {
@@ -138,18 +114,6 @@ describe('POST /api/saved-results', () => {
     expect(res.status).toBe(403);
   });
 
-  it('should return 501 when Clerk is disabled', async () => {
-    const { POST } = await loadRoute({ clerkEnabled: false });
-    const res = await POST(
-      makeRequest('POST', {
-        calculatorType: 'bmi',
-        calculatorName: 'BMI',
-        data: { bmi: 25 },
-      })
-    );
-    expect(res.status).toBe(501);
-  });
-
   it('should return 503 when Postgres is not configured', async () => {
     const { POST } = await loadRoute({ postgresConfigured: false });
     const res = await POST(
@@ -160,18 +124,6 @@ describe('POST /api/saved-results', () => {
       })
     );
     expect(res.status).toBe(503);
-  });
-
-  it('should return 401 when unauthenticated', async () => {
-    const { POST } = await loadRoute({ userId: null });
-    const res = await POST(
-      makeRequest('POST', {
-        calculatorType: 'bmi',
-        calculatorName: 'BMI',
-        data: { bmi: 25 },
-      })
-    );
-    expect(res.status).toBe(401);
   });
 
   it('should return 400 for invalid input', async () => {

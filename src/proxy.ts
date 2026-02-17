@@ -1,33 +1,16 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
 import {
   defaultLocale,
-  getLocaleFromAcceptLanguage,
   getLocaleFromPathname,
   isLocalizablePath,
   localeCookieName,
-  normalizeLocale,
-  prefixPathWithLocale,
   stripLocaleFromPathname,
-  supportedLocales,
   type SupportedLocale,
 } from '@/i18n/config';
 
 const EMBEDDABLE_CALCULATOR_PATHS = new Set(CALCULATOR_CATALOG.map(calc => `/${calc.slug}`));
-
-const localizedProtectedRoutes = [
-  '/saved-results(.*)',
-  ...supportedLocales
-    .filter(locale => locale !== defaultLocale)
-    .map(locale => `/${locale}/saved-results(.*)`),
-];
-
-const isProtectedRoute = createRouteMatcher(localizedProtectedRoutes);
-const hasClerkKeys = Boolean(
-  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY
-);
 
 function isEmbedAllowedRequest(request: NextRequest): boolean {
   const url = request.nextUrl;
@@ -57,13 +40,13 @@ function buildContentSecurityPolicy(frameAncestors: string): string {
 
   return [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://*.adtrafficquality.google`,
+    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://*.adtrafficquality.google`,
     "worker-src 'self' blob:",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https:",
     "font-src 'self'",
-    "connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com https://clerk.healthcalc.xyz https://*.clerk.accounts.dev https://clerk-telemetry.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google",
-    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://challenges.cloudflare.com',
+    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://*.sentry.io https://*.ingest.sentry.io https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google",
+    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com',
     "object-src 'none'",
     "base-uri 'self'",
     `frame-ancestors ${frameAncestors}`,
@@ -84,16 +67,13 @@ function applySecurityHeaders(request: NextRequest, response: NextResponse): Nex
   );
   // Allow framing for intentionally embeddable experiences (calculator widgets + /api/embed).
   if (!embedAllowed) {
-    response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+    response.headers.set('X-Frame-Options', 'DENY');
   } else {
     response.headers.delete('X-Frame-Options');
   }
   response.headers.set('X-XSS-Protection', '1; mode=block');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set(
-    'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()'
-  );
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
   response.headers.set('Vary', 'Accept-Language, Cookie');
   return response;
 }
@@ -153,14 +133,11 @@ function getCanonicalRedirect(request: NextRequest): { url: URL; status: 301 | 3
 function handleLocaleRouting(request: NextRequest): NextResponse {
   const url = request.nextUrl.clone();
   const localeFromPath = getLocaleFromPathname(url.pathname);
-  const localeFromCookie = normalizeLocale(request.cookies.get(localeCookieName)?.value);
-  const localeFromHeader = getLocaleFromAcceptLanguage(request.headers.get('accept-language'));
-  const preferredLocale = localeFromCookie ?? localeFromHeader ?? defaultLocale;
 
   if (!isLocalizablePath(url.pathname)) {
     return NextResponse.next({
       request: {
-        headers: withRequestLocaleHeader(request, localeFromCookie ?? defaultLocale),
+        headers: withRequestLocaleHeader(request, defaultLocale),
       },
     });
   }
@@ -173,25 +150,23 @@ function handleLocaleRouting(request: NextRequest): NextResponse {
     return response;
   }
 
-  // Non-default locale paths are real routes (e.g. "/es/bmi"). Keep the URL as-is.
+  // Non-default locale paths redirect to the English version with 302 (temporary).
+  // Translations are not yet complete for most pages, so serving localized URLs
+  // with mixed English/translated content confuses users and search engines.
+  // Use 302 so crawlers do not cache the redirect permanently -- we can remove
+  // this once translations ship.
+  // TODO: Re-enable localized routing when translations are complete
   if (localeFromPath) {
-    const response = NextResponse.next({
-      request: {
-        headers: withRequestLocaleHeader(request, localeFromPath),
-      },
-    });
-    setLocaleCookie(response, localeFromPath);
+    url.pathname = stripLocaleFromPathname(url.pathname);
+    const response = NextResponse.redirect(url, 302);
+    setLocaleCookie(response, defaultLocale);
     return response;
   }
 
-  // Keep users on locale-prefixed routes once a non-default locale is selected.
-  if (preferredLocale !== defaultLocale) {
-    url.pathname = prefixPathWithLocale(url.pathname, preferredLocale);
-    const response = NextResponse.redirect(url, 307);
-    setLocaleCookie(response, preferredLocale);
-    return response;
-  }
-
+  // All non-prefixed paths serve as English. We no longer redirect users to
+  // locale-prefixed routes based on cookie or Accept-Language header since
+  // translations are incomplete. The Accept-Language detection infrastructure
+  // is preserved in i18n/config.ts for future use.
   return NextResponse.next({
     request: {
       headers: withRequestLocaleHeader(request, defaultLocale),
@@ -199,7 +174,7 @@ function handleLocaleRouting(request: NextRequest): NextResponse {
   });
 }
 
-function applySecurityAndCanonicalization(request: NextRequest): NextResponse {
+export function proxy(request: NextRequest): NextResponse {
   const canonicalRedirect = getCanonicalRedirect(request);
   if (canonicalRedirect) {
     return applySecurityHeaders(
@@ -209,22 +184,6 @@ function applySecurityAndCanonicalization(request: NextRequest): NextResponse {
   }
 
   return applySecurityHeaders(request, handleLocaleRouting(request));
-}
-
-const withClerk = clerkMiddleware(async (auth, request: NextRequest) => {
-  if (isProtectedRoute(request)) {
-    await auth.protect();
-  }
-
-  return applySecurityAndCanonicalization(request);
-});
-
-export function proxy(request: NextRequest) {
-  if (!hasClerkKeys) {
-    return applySecurityAndCanonicalization(request);
-  }
-
-  return (withClerk as unknown as (req: NextRequest) => NextResponse)(request);
 }
 
 export const config = {

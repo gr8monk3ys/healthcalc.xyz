@@ -42,9 +42,10 @@
   "license": "UNLICENSED",
   "description": "Free health and fitness calculators for BMI, body fat, TDEE, and more. Built with Next.js, TypeScript, and TailwindCSS.",
   "dependencies": {
-    "@clerk/nextjs": "^6.37.3",
     "@radix-ui/react-radio-group": "^1.2.3",
     "@sentry/nextjs": "^10.38.0",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.95.3",
     "@types/node": "^25.1.0",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.0.4",

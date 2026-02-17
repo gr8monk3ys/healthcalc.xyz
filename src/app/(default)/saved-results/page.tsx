@@ -4,27 +4,87 @@ import React from 'react';
 import Link from 'next/link';
 import { SavedResultsList } from '@/components/SaveResult';
 import { useAuth } from '@/context/AuthContext';
+import { useSavedResults } from '@/context/SavedResultsContext';
 import { useLocale } from '@/context/LocaleContext';
+import AuthModal from '@/components/auth/AuthModal';
 
 export default function SavedResultsPage() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, supabaseEnabled } = useAuth();
+  const { savedResults, syncPromptPending, confirmSync, dismissSync } = useSavedResults();
   const { localizePath, t } = useLocale();
+  const [authModalOpen, setAuthModalOpen] = React.useState(false);
+
+  // When Supabase is enabled, show results for both guest and authenticated users.
+  // The sign-in prompt appears alongside the results rather than replacing them.
+  const showResults = supabaseEnabled
+    ? savedResults.length > 0 || isAuthenticated
+    : isAuthenticated;
 
   return (
     <div className="mx-auto max-w-4xl">
       <h1 className="mb-2 text-3xl font-bold">{t('savedResults.page.title')}</h1>
       <p className="mb-8 text-gray-600">{t('savedResults.page.subtitle')}</p>
 
-      {!isAuthenticated ? (
+      {/* Sync prompt banner */}
+      {syncPromptPending && (
+        <div className="glass-panel mb-6 flex flex-col gap-3 rounded-xl p-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-[var(--foreground)]">
+            You have saved results from before signing in. Sync them to your account?
+          </p>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={confirmSync}
+              className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+            >
+              Sync now
+            </button>
+            <button
+              type="button"
+              onClick={dismissSync}
+              className="elevated-pill rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:-translate-y-0.5"
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Sign-in prompt for Supabase-enabled but unauthenticated users */}
+      {supabaseEnabled && !isAuthenticated && (
+        <div className="neumorph mb-6 rounded-lg p-6">
+          <h2 className="mb-2 text-xl font-semibold">Sign in to sync your results</h2>
+          <p className="mb-4 text-gray-700 dark:text-gray-300">
+            Create an account to save your calculator results to the cloud. Access them from any
+            device, any time.
+          </p>
+          <button
+            type="button"
+            onClick={() => setAuthModalOpen(true)}
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+          >
+            Sign in with email
+          </button>
+          <AuthModal open={authModalOpen} onClose={() => setAuthModalOpen(false)} />
+        </div>
+      )}
+
+      {showResults ? (
+        <SavedResultsList />
+      ) : !supabaseEnabled ? (
         <div className="neumorph rounded-lg p-6">
           <h2 className="mb-2 text-xl font-semibold">{t('savedResults.page.signedOut.title')}</h2>
           <p className="mb-4 text-gray-700">{t('savedResults.page.signedOut.body')}</p>
           <Link href={localizePath('/')} className="text-accent font-medium hover:underline">
-            {t('savedResults.page.signedOut.cta')} <span aria-hidden="true">→</span>
+            {t('savedResults.page.signedOut.cta')} <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       ) : (
-        <SavedResultsList />
+        <div className="neumorph rounded-lg p-6">
+          <p className="text-gray-600 dark:text-gray-400">
+            No saved results yet. Use any calculator and save your results to see them here.
+          </p>
+        </div>
       )}
     </div>
   );

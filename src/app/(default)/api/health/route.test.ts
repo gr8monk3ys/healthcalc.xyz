@@ -56,7 +56,7 @@ describe('GET /api/health', () => {
     expect(body.status).toBe('degraded');
   });
 
-  it('returns 503 when Clerk production keys are misconfigured', async () => {
+  it('returns 200 when all core checks pass without optional integrations', async () => {
     vi.stubEnv('NODE_ENV', 'production');
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://www.healthcalc.xyz');
     vi.stubEnv('NEXT_PUBLIC_CANONICAL_HOST', 'www.healthcalc.xyz');
@@ -65,13 +65,11 @@ describe('GET /api/health', () => {
     vi.stubEnv('SUBMISSIONS_PERSISTENCE_STRICT', 'true');
     vi.stubEnv('RESEND_API_KEY', 're_test_123');
     vi.stubEnv('RESEND_AUDIENCE_ID', 'aud_123');
-    vi.stubEnv('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY', 'pk_test_demo');
-    vi.stubEnv('CLERK_SECRET_KEY', 'sk_test_demo');
 
     const response = await runHealthCheck();
     const body = await response.json();
 
-    expect(response.status).toBe(503);
-    expect(body.status).toBe('degraded');
+    expect(response.status).toBe(200);
+    expect(body.status).toBe('ok');
   });
 });
