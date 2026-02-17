@@ -76,6 +76,10 @@ export default function Slider({
         onChange={handleChange}
         className={`neumorph-slider ${className}`}
         aria-describedby={helperText ? `${sliderId}-helper` : undefined}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={value !== undefined ? Number(value) : internalValue}
+        aria-valuetext={`${valuePrefix}${value !== undefined ? value : internalValue}${valueSuffix}`}
         style={sliderStyle}
         {...props}
       />

@@ -27,7 +27,11 @@ export default function Radio({
 
   return (
     <div className="mb-4">
-      {label && <div className="block text-sm font-medium mb-2">{label}</div>}
+      {label && (
+        <div id={radioGroupId} className="block text-sm font-medium mb-2">
+          {label}
+        </div>
+      )}
 
       <div
         className={`${inline ? 'flex gap-4' : 'space-y-2'}`}

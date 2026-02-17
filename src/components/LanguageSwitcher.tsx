@@ -1,11 +1,20 @@
 'use client';
 
 import React from 'react';
-import { localeLabels, supportedLocales, type SupportedLocale } from '@/i18n/config';
+import { defaultLocale, localeLabels, supportedLocales } from '@/i18n/config';
 import { useLocale } from '@/context/LocaleContext';
 
+/**
+ * Language selector shown in the site header.
+ *
+ * While translations are incomplete, non-English options are displayed but
+ * disabled with a "coming soon" suffix. The middleware also 302-redirects any
+ * non-English locale URLs to the English version as a safety net.
+ *
+ * TODO: Remove the disabled state once translations are complete
+ */
 export default function LanguageSwitcher(): React.JSX.Element {
-  const { locale, setLocale, t } = useLocale();
+  const { t } = useLocale();
 
   return (
     <label className="inline-flex items-center gap-2">
@@ -26,14 +35,15 @@ export default function LanguageSwitcher(): React.JSX.Element {
         />
       </svg>
       <select
-        value={locale}
-        onChange={event => setLocale(event.target.value as SupportedLocale)}
-        className="ui-select min-h-9 elevated-pill rounded-full px-3 py-1 text-sm"
+        value={defaultLocale}
+        disabled
+        className="ui-select min-h-9 elevated-pill rounded-full px-3 py-1 text-sm opacity-70 cursor-not-allowed"
         aria-label={t('language.label')}
       >
         {supportedLocales.map(item => (
-          <option key={item} value={item}>
+          <option key={item} value={item} disabled={item !== defaultLocale}>
             {localeLabels[item]}
+            {item !== defaultLocale ? ' (coming soon)' : ''}
           </option>
         ))}
       </select>

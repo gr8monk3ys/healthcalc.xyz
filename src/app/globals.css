@@ -375,11 +375,23 @@ html {
 
 .neumorph-inset {
   background-color: var(--surface-muted);
-  border: 1px solid rgba(149, 158, 255, 0.18);
+  border: 1px solid rgba(109, 117, 204, 0.32);
   border-radius: var(--radius-neumorph);
   box-shadow:
     inset 5px 5px 10px rgba(93, 101, 187, 0.15),
     inset -5px -5px 10px rgba(255, 255, 255, 0.42);
+}
+
+.neumorph-inset::placeholder {
+  color: rgba(71, 76, 140, 0.78);
+}
+
+.dark .neumorph-inset {
+  border-color: rgba(130, 138, 235, 0.3);
+}
+
+.dark .neumorph-inset::placeholder {
+  color: rgba(180, 187, 230, 0.72);
 }
 
 .neumorph-flat {
@@ -432,6 +444,10 @@ html {
 
 .neumorph-input:focus {
   outline: none;
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1),
+    0 0 0 3px var(--focus-ring);
 }
 
 .neumorph-select {
@@ -447,6 +463,10 @@ html {
 
 .neumorph-select:focus {
   outline: none;
+  box-shadow:
+    inset 5px 5px 10px var(--neumorph-shadow-2),
+    inset -5px -5px 10px var(--neumorph-shadow-1),
+    0 0 0 3px var(--focus-ring);
 }
 
 .neumorph-slider {

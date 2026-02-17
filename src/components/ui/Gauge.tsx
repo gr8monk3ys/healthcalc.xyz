@@ -57,12 +57,21 @@ export default function Gauge({
   };
 
   return (
-    <div className={`flex flex-col items-center ${className}`}>
+    <div
+      className={`flex flex-col items-center ${className}`}
+      role="meter"
+      aria-valuenow={value}
+      aria-valuemin={min}
+      aria-valuemax={max}
+      aria-label={label || 'Gauge'}
+    >
       {label && (
-        <div className={`text-center font-medium mb-2 ${fontSizeClasses[size]}`}>{label}</div>
+        <div className={`text-center font-medium mb-2 ${fontSizeClasses[size]}`} aria-hidden="true">
+          {label}
+        </div>
       )}
 
-      <div className={`relative ${sizeClasses[size]}`}>
+      <div className={`relative ${sizeClasses[size]}`} aria-hidden="true">
         {/* Gauge background */}
         <div className="absolute inset-0 overflow-hidden rounded-t-full bg-gray-200 neumorph-inset">
           {/* Segments */}
