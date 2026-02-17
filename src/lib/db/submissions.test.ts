@@ -1,3 +1,6 @@
+/**
+ * @vitest-environment node
+ */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -10,7 +13,18 @@ import {
   saveNewsletterSubmission,
 } from './submissions';
 
-describe('Submission store (SQLite)', () => {
+// node:sqlite is not available in Bun — skip this suite when running under Bun.
+const hasSqlite = (() => {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require('node:sqlite');
+    return true;
+  } catch {
+    return false;
+  }
+})();
+
+describe.skipIf(!hasSqlite)('Submission store (SQLite)', () => {
   let tempDir: string;
   let dbPath: string;
 

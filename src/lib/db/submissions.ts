@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { DatabaseSync } from 'node:sqlite';
 import { Pool } from 'pg';
 import { createLogger } from '@/utils/logger';
+
+type DatabaseSync = import('node:sqlite').DatabaseSync;
 
 type SubmissionProvider = 'mailchimp' | 'convertkit' | 'resend' | 'none';
 type SubmissionOperation = 'newsletter' | 'contact' | 'embed-request' | 'counts';
@@ -239,9 +240,14 @@ function errorCode(error: unknown): string | null {
 function ensureSqliteDatabase(): DatabaseSync {
   if (sqliteDb) return sqliteDb;
 
+  // Lazy-load node:sqlite so that Bun (which lacks this built-in) doesn't
+  // fail at module-import time when the postgres driver is selected.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { DatabaseSync: Ctor } = require('node:sqlite') as typeof import('node:sqlite');
+
   const sqlitePath = getSqliteDbPath();
   fs.mkdirSync(path.dirname(sqlitePath), { recursive: true });
-  sqliteDb = new DatabaseSync(sqlitePath);
+  sqliteDb = new Ctor(sqlitePath);
   sqliteDb.exec(SQLITE_SCHEMA_SQL);
   return sqliteDb;
 }
