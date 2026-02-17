@@ -688,6 +688,60 @@ export const CALCULATOR_CATALOG: CalculatorCatalogItem[] = [
     hub: 'wellness-recovery',
     image: getCalculatorImage('caffeine-calculator'),
   },
+  {
+    slug: 'glp1-calculator',
+    title: 'GLP-1 Weight Loss Calculator',
+    description:
+      'Get personalized nutrition, protein, and hydration targets while on Ozempic, Wegovy, Mounjaro, or Zepbound.',
+    category: 'Nutrition & Macros',
+    hub: 'nutrition',
+    image: getCalculatorImage('glp1'),
+  },
+  {
+    slug: 'diabetes-risk-calculator',
+    title: 'Diabetes Risk Calculator',
+    description:
+      'Assess your Type 2 diabetes risk using ADA-based scoring and convert A1C to estimated average glucose.',
+    category: 'Health & Vitals',
+    hub: 'health-vitals',
+    image: getCalculatorImage('diabetes-risk'),
+  },
+  {
+    slug: 'body-shape-calculator',
+    title: 'Body Shape Calculator',
+    description:
+      'Classify your body shape (apple, pear, hourglass, rectangle) and somatotype with personalized fitness tips.',
+    category: 'Body Composition',
+    hub: 'body-composition',
+    image: getCalculatorImage('body-shape'),
+  },
+  {
+    slug: 'life-expectancy-calculator',
+    title: 'Life Expectancy Calculator',
+    description:
+      'Estimate your life expectancy based on lifestyle factors including diet, exercise, sleep, and social connections.',
+    category: 'Wellness & Recovery',
+    hub: 'wellness-recovery',
+    image: getCalculatorImage('life-expectancy'),
+  },
+  {
+    slug: 'substance-impact-calculator',
+    title: 'Alcohol & Smoking Impact Calculator',
+    description:
+      'Calculate the health, financial, and lifespan impact of alcohol consumption and tobacco use.',
+    category: 'Wellness & Recovery',
+    hub: 'wellness-recovery',
+    image: getCalculatorImage('substance-impact'),
+  },
+  {
+    slug: 'acft-calculator',
+    title: 'ACFT Score Calculator',
+    description:
+      'Calculate your Army Combat Fitness Test score across all 6 events with gender-normed scoring tables.',
+    category: 'Performance & Training',
+    hub: 'performance',
+    image: getCalculatorImage('acft'),
+  },
 ];
 
 export const getCalculatorHub = (slug: string) => CALCULATOR_HUBS.find(hub => hub.slug === slug);
