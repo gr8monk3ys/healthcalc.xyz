@@ -9,12 +9,10 @@ import {
 } from '@/utils/resultSharing';
 
 export const runtime = 'edge';
-export const alt = 'HealthCheck shared result';
-export const size = {
+const imageSize = {
   width: 1200,
   height: 630,
 };
-export const contentType = 'image/png';
 
 const FALLBACK_TITLES: Record<ShareCalculatorSlug, string> = {
   bmi: 'BMI Calculator',
@@ -172,7 +170,7 @@ export async function GET(
       </div>
     </div>,
     {
-      ...size,
+      ...imageSize,
     }
   );
 }
