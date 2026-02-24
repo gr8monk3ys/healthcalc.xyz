@@ -143,3 +143,5 @@ For security-related questions or concerns:
 
 **Last Updated**: 2025-11-06
 **Next Review**: 2025-12-06
+
+For private disclosure, use GitHub Security Advisories: [https://github.com/gr8monk3ys/healthcalc.xyz/security/advisories](https://github.com/gr8monk3ys/healthcalc.xyz/security/advisories).
