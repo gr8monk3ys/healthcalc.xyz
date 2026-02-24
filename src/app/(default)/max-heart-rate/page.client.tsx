@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
@@ -12,6 +12,7 @@ import { validateAge } from '@/utils/validation';
 import { calculateMaxHeartRate } from '@/utils/calculators/maxHeartRate';
 import type { MaxHeartRateResult as MaxHeartRateResultType } from '@/types/maxHeartRate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 const faqs = [
   {
@@ -43,6 +44,20 @@ const relatedArticles = [
 
 export default function MaxHeartRateCalculator() {
   const [age, setAge] = useState<number | ''>('');
+
+  const chainPrefill = useChainPrefill('max-heart-rate');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+  }, [chainPrefill, setAge]);
+
+  const chainResultData = useMemo(
+    () => ({
+      ...(typeof age === 'number' ? { age } : {}),
+    }),
+    [age]
+  );
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<MaxHeartRateResultType>({
@@ -92,6 +107,7 @@ export default function MaxHeartRateCalculator() {
       }}
       understandingSection={<MaxHeartRateInfo />}
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
     >
       <div className="md:col-span-1">
         <CalculatorForm

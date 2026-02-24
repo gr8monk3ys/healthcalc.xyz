@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -24,6 +24,7 @@ import { useChainState } from '@/hooks/useChainState';
 import { getChainById, getChainsForCalculator } from '@/constants/calculatorChains';
 import ChainProgressBar from '@/components/chains/ChainProgressBar';
 import ChainContinueButton from '@/components/chains/ChainContinueButton';
+import { buildSharedResultToken, type ShareResultContext } from '@/utils/resultSharing';
 
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
@@ -141,6 +142,8 @@ interface CalculatorPageLayoutProps {
   newsletterDescription?: string;
   /** Data to pass to the next chain step (age, weight, etc.) */
   chainResultData?: Record<string, string | number>;
+  /** Optional result payload used to generate shareable prefilled URLs */
+  shareResultContext?: ShareResultContext;
   /** The main content (calculator form and result display) */
   children: React.ReactNode;
 }
@@ -181,6 +184,7 @@ function CalculatorPageLayoutContent({
   newsletterTitle,
   newsletterDescription,
   chainResultData,
+  shareResultContext,
   children,
 }: CalculatorPageLayoutProps): React.ReactElement {
   const socialTitle = shareTitle || title;
@@ -200,6 +204,10 @@ function CalculatorPageLayoutContent({
     chainDef.steps[chainState.currentStepIndex]?.slug === calculatorSlug;
 
   const availableChains = !isInChain ? getChainsForCalculator(calculatorSlug) : [];
+  const shareToken = useMemo(() => {
+    if (!shareResultContext) return undefined;
+    return buildSharedResultToken(shareResultContext);
+  }, [shareResultContext]);
 
   useEffect(() => {
     const syncEmbedFlag = () => {
@@ -286,7 +294,12 @@ function CalculatorPageLayoutContent({
           {showResultsCapture && <div id="results" className="sr-only" aria-hidden="true" />}
 
           {showResultsCapture && (
-            <ResultsShareBar calculatorSlug={calculatorSlug} title={socialTitle} className="mb-8" />
+            <ResultsShareBar
+              calculatorSlug={calculatorSlug}
+              title={socialTitle}
+              shareToken={shareToken}
+              className="mb-8"
+            />
           )}
 
           {showResultsCapture && isCurrentChainStep && chainResultData && (

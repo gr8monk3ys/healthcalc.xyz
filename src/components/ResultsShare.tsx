@@ -67,10 +67,12 @@ function toFilenameFragment(value: string): string {
 export function ResultsShareBar({
   calculatorSlug,
   title,
+  shareToken,
   className = '',
 }: {
   calculatorSlug: string;
   title: string;
+  shareToken?: string;
   className?: string;
 }): React.JSX.Element {
   const { target, registerTarget } = useResultsShare();
@@ -80,9 +82,21 @@ export function ResultsShareBar({
   const [downloading, setDownloading] = React.useState(false);
 
   const shareUrl = useMemo(() => {
-    const localizedPath = localizePath(`/${calculatorSlug}`);
+    const localizedPath = shareToken
+      ? localizePath(`/share/${calculatorSlug}?r=${encodeURIComponent(shareToken)}`)
+      : localizePath(`/${calculatorSlug}`);
     return toAbsoluteUrl(`${localizedPath}#results`);
-  }, [calculatorSlug, localizePath]);
+  }, [calculatorSlug, localizePath, shareToken]);
+
+  const shareIntents = useMemo(
+    () => ({
+      twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      whatsapp: `https://wa.me/?text=${encodeURIComponent(`${title} ${shareUrl}`)}`,
+    }),
+    [shareUrl, title]
+  );
 
   const handleCopy = useCallback(async () => {
     try {
@@ -95,6 +109,18 @@ export function ResultsShareBar({
       setCopied(false);
     }
   }, [calculatorSlug, shareUrl, trackEvent]);
+
+  const handlePlatformShare = useCallback(
+    (platform: keyof typeof shareIntents) => {
+      const url = shareIntents[platform];
+      const popup = window.open(url, `share-${platform}`, 'width=720,height=560,resizable=yes');
+      if (!popup) {
+        window.location.href = url;
+      }
+      trackEvent('results_share_platform', { calculator: calculatorSlug, platform });
+    },
+    [calculatorSlug, shareIntents, trackEvent]
+  );
 
   const handleDownload = useCallback(async () => {
     if (!target || downloading) return;
@@ -164,6 +190,38 @@ export function ResultsShareBar({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            className="ui-btn-soft"
+            onClick={() => handlePlatformShare('twitter')}
+            aria-label="Share result on Twitter"
+          >
+            {t('socialShare.platform.twitter')}
+          </button>
+          <button
+            type="button"
+            className="ui-btn-soft"
+            onClick={() => handlePlatformShare('facebook')}
+            aria-label="Share result on Facebook"
+          >
+            {t('socialShare.platform.facebook')}
+          </button>
+          <button
+            type="button"
+            className="ui-btn-soft"
+            onClick={() => handlePlatformShare('linkedin')}
+            aria-label="Share result on LinkedIn"
+          >
+            {t('socialShare.platform.linkedin')}
+          </button>
+          <button
+            type="button"
+            className="ui-btn-soft"
+            onClick={() => handlePlatformShare('whatsapp')}
+            aria-label="Share result on WhatsApp"
+          >
+            WhatsApp
+          </button>
           <button type="button" className="ui-btn-soft" onClick={handleCopy}>
             {copied
               ? t('calculator.resultsShare.linkCopied')

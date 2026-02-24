@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { ActivityLevel, Gender } from '@/types/common';
 import { calculateBMR, calculateTDEE, getActivityMultiplier } from '@/utils/calculators/tdee';
@@ -19,6 +19,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
+import {
+  requestCalculatorFormSubmit,
+  useSharedResultPrefill,
+} from '@/hooks/useSharedResultPrefill';
 
 // Dynamic imports for below-the-fold components
 const TDEEUnderstanding = dynamic(() => import('@/components/calculators/tdee/TDEEUnderstanding'));
@@ -111,6 +116,31 @@ export default function TDEECalculator() {
   const weight = useWeight();
   const [activityLevel, setActivityLevel] = useState<ActivityLevel>('sedentary');
 
+  const chainPrefill = useChainPrefill('tdee');
+  const sharedPrefill = useSharedResultPrefill('tdee');
+  const hasAppliedSharedPrefill = useRef(false);
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      setGender(chainPrefill.gender as Gender);
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, height, weight]);
+
+  useEffect(() => {
+    if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
+
+    hasAppliedSharedPrefill.current = true;
+    setAge(sharedPrefill.age);
+    setGender(sharedPrefill.gender);
+    height.setValue(sharedPrefill.heightCm);
+    weight.setValue(sharedPrefill.weightKg);
+    setActivityLevel(sharedPrefill.activityLevel);
+    requestCalculatorFormSubmit();
+  }, [height, sharedPrefill, weight]);
+
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<TDEEResultType>({
       validate: () => {
@@ -201,6 +231,38 @@ export default function TDEECalculator() {
     });
   };
 
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    return {
+      ...(typeof age === 'number' ? { age } : {}),
+      gender,
+      ...(heightCm !== null ? { height: heightCm } : {}),
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+      activityLevel,
+    };
+  }, [age, gender, height, weight, activityLevel]);
+
+  const shareResultContext = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+
+    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+      return undefined;
+    }
+
+    return {
+      calculator: 'tdee' as const,
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+        activityLevel,
+      },
+    };
+  }, [activityLevel, age, gender, height, showResult, weight]);
+
   // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
     () => [
@@ -264,6 +326,8 @@ export default function TDEECalculator() {
       understandingSection={<TDEEUnderstanding />}
       newsletterDescription="Subscribe to receive the latest metabolism insights, calorie management strategies, and evidence-based nutrition advice delivered to your inbox."
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
+      shareResultContext={shareResultContext}
     >
       <div className="md:col-span-1">
         <CalculatorForm

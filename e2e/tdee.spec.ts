@@ -1,8 +1,22 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+async function waitForReactHydration(page: Page): Promise<void> {
+  await page.waitForFunction(() => {
+    const form = document.querySelector('[data-calculator-form="1"]');
+    if (!form) return false;
+
+    return Object.keys(form).some(key => key.startsWith('__reactProps$'));
+  });
+}
 
 test.describe('TDEE Calculator', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/tdee');
+  test.beforeEach(async ({ page }, testInfo) => {
+    testInfo.setTimeout(90_000);
+    await page.goto('/tdee', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await expect(page.getByRole('heading', { name: /Enter Your Details/i })).toBeVisible({
+      timeout: 45_000,
+    });
+    await waitForReactHydration(page);
   });
 
   test('page renders the form with all expected fields', async ({ page }) => {

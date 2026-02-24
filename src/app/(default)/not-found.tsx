@@ -150,7 +150,7 @@ export default function NotFound() {
           <li>Use the navigation menu at the top of the page</li>
           <li>
             Visit our{' '}
-            <Link href="/sitemap" className="text-accent hover:underline">
+            <Link href="/sitemap.xml" className="text-accent hover:underline">
               sitemap
             </Link>
           </li>

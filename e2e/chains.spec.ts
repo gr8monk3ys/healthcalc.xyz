@@ -1,8 +1,13 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+async function gotoPath(page: Page, path: string): Promise<void> {
+  await page.goto(path, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+}
 
 test.describe('Calculator Chains', () => {
   test('chains page renders all 4 chains', async ({ page }) => {
-    await page.goto('/chains');
+    test.slow();
+    await gotoPath(page, '/chains');
     await expect(
       page.getByRole('heading', { name: 'Guided Health Workflows', exact: true })
     ).toBeVisible();
@@ -13,38 +18,45 @@ test.describe('Calculator Chains', () => {
   });
 
   test('starting a chain navigates to first calculator', async ({ page }) => {
-    await page.goto('/chains');
-    await page.getByText('Weight Loss Journey', { exact: true }).click();
-    await expect(page).toHaveURL('/bmi');
+    test.slow();
+    await gotoPath(page, '/chains');
+    await page.getByRole('link', { name: /Weight Loss Journey/i }).click();
+    await page.waitForURL('**/bmi', { timeout: 90_000, waitUntil: 'domcontentloaded' });
     // Chain progress bar should show the chain name
     await expect(page.getByText('Weight Loss Journey')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Exit guided workflow' })).toBeVisible();
   });
 
   test('chain auto-start via query param', async ({ page }) => {
-    await page.goto('/chains?start=fitness-baseline');
-    await expect(page).toHaveURL('/max-heart-rate');
+    test.slow();
+    await gotoPath(page, '/chains?start=fitness-baseline');
+    await page.waitForURL('**/max-heart-rate', { timeout: 90_000, waitUntil: 'domcontentloaded' });
   });
 
   test('homepage shows guided workflows section', async ({ page }) => {
-    await page.goto('/');
+    test.slow();
+    await gotoPath(page, '/');
     await expect(
       page.getByRole('heading', { name: 'Guided Health Workflows', exact: true })
     ).toBeVisible();
   });
 
   test('calculator page shows chain suggestions when not in chain', async ({ page }) => {
-    await page.goto('/bmi');
+    test.slow();
+    await gotoPath(page, '/bmi');
     // BMI participates in 2 chains: Weight Loss Journey and Body Composition Deep Dive
     // The "Guided Workflows" heading appears in the chain suggestions section
     await expect(page.getByText('Guided Workflows').first()).toBeVisible();
   });
 
   test('exiting a chain removes progress bar', async ({ page }) => {
-    await page.goto('/chains?start=fitness-baseline');
-    await expect(page).toHaveURL('/max-heart-rate');
+    test.slow();
+    await gotoPath(page, '/chains?start=fitness-baseline');
+    await page.waitForURL('**/max-heart-rate', { timeout: 90_000, waitUntil: 'domcontentloaded' });
     await expect(page.getByRole('button', { name: 'Exit guided workflow' })).toBeVisible();
     await page.getByRole('button', { name: 'Exit guided workflow' }).click();
-    await expect(page.getByRole('button', { name: 'Exit guided workflow' })).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Exit guided workflow' })).not.toBeVisible({
+      timeout: 15_000,
+    });
   });
 });

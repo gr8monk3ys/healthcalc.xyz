@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
@@ -14,6 +14,7 @@ import type { IdealWeightResult as IdealWeightResultType } from '@/types/idealWe
 import type { Gender } from '@/types/common';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 const faqs = [
   {
@@ -55,6 +56,23 @@ const relatedArticles = [
 export default function IdealWeightCalculator() {
   const [gender, setGender] = useState<Gender>('male');
   const height = useHeight();
+
+  const chainPrefill = useChainPrefill('ideal-weight');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      setGender(chainPrefill.gender as Gender);
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+  }, [chainPrefill, setGender, height]);
+
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    return {
+      gender,
+      ...(heightCm !== null ? { height: heightCm } : {}),
+    };
+  }, [gender, height]);
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<IdealWeightResultType>({
@@ -107,6 +125,7 @@ export default function IdealWeightCalculator() {
       }}
       understandingSection={<IdealWeightInfo />}
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
     >
       <div className="md:col-span-1">
         <CalculatorForm

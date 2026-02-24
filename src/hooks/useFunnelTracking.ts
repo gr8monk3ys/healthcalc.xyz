@@ -7,6 +7,7 @@ import { useCookieConsent } from '@/components/CookieConsent';
 type FunnelEvent =
   | 'calculator_complete'
   | 'results_share_copy_link'
+  | 'results_share_platform'
   | 'results_share_download_image'
   | 'newsletter_subscribe'
   | 'affiliate_click';

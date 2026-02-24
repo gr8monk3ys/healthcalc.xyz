@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { MacroGoal, MacroResult as MacroResultType } from '@/types/macro';
 import { processMacroCalculation } from '@/utils/calculators/macro';
@@ -20,6 +20,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
+import {
+  requestCalculatorFormSubmit,
+  useSharedResultPrefill,
+} from '@/hooks/useSharedResultPrefill';
 
 // FAQ data for Macro calculator
 const faqs = [
@@ -125,6 +130,62 @@ export default function MacroCalculator() {
     setCustomFat,
   } = useMacroCalculatorState();
 
+  const chainPrefill = useChainPrefill('macro');
+  const sharedPrefill = useSharedResultPrefill('macro');
+  const hasAppliedSharedPrefill = useRef(false);
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      setGender(chainPrefill.gender as Gender);
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, height, weight]);
+
+  useEffect(() => {
+    if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
+
+    hasAppliedSharedPrefill.current = true;
+    setAge(sharedPrefill.age);
+    setGender(sharedPrefill.gender);
+    height.setValue(sharedPrefill.heightCm);
+    weight.setValue(sharedPrefill.weightKg);
+    setActivityLevel(sharedPrefill.activityLevel);
+    setGoal(sharedPrefill.goal);
+    if (typeof sharedPrefill.customProteinPercent === 'number') {
+      setCustomProtein(sharedPrefill.customProteinPercent);
+    }
+    if (typeof sharedPrefill.customCarbsPercent === 'number') {
+      setCustomCarbs(sharedPrefill.customCarbsPercent);
+    }
+    if (typeof sharedPrefill.customFatPercent === 'number') {
+      setCustomFat(sharedPrefill.customFatPercent);
+    }
+    requestCalculatorFormSubmit();
+  }, [
+    height,
+    setActivityLevel,
+    setCustomCarbs,
+    setCustomFat,
+    setCustomProtein,
+    setGoal,
+    sharedPrefill,
+    weight,
+  ]);
+
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    return {
+      ...(typeof age === 'number' ? { age } : {}),
+      gender,
+      ...(heightCm !== null ? { height: heightCm } : {}),
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+      activityLevel,
+    };
+  }, [age, gender, height, weight, activityLevel]);
+
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<MacroResultType>({
       validate: () => {
@@ -219,6 +280,41 @@ export default function MacroCalculator() {
     });
   };
 
+  const shareResultContext = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+
+    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+      return undefined;
+    }
+
+    return {
+      calculator: 'macro' as const,
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+        activityLevel,
+        goal,
+        customProteinPercent: goal === 'custom' ? customProtein : undefined,
+        customCarbsPercent: goal === 'custom' ? customCarbs : undefined,
+        customFatPercent: goal === 'custom' ? customFat : undefined,
+      },
+    };
+  }, [
+    activityLevel,
+    age,
+    customCarbs,
+    customFat,
+    customProtein,
+    gender,
+    goal,
+    height,
+    showResult,
+    weight,
+  ]);
+
   // Form fields for the CalculatorForm component
   const formFields = [
     {
@@ -311,6 +407,7 @@ export default function MacroCalculator() {
       calculatorSlug="macro"
       shareTitle="Macro Calculator | Calculate Your Daily Protein, Carbs & Fat"
       shareDescription="Calculate your optimal daily macronutrient intake for weight loss, maintenance, or muscle gain with our free macro calculator."
+      chainResultData={chainResultData}
       shareHashtags={['macros', 'nutrition', 'fitness', 'mealprep']}
       faqs={faqs}
       faqTitle="Frequently Asked Questions About Macros"
@@ -326,6 +423,7 @@ export default function MacroCalculator() {
       newsletterTitle="Get Nutrition & Macro Tips"
       newsletterDescription="Subscribe to receive the latest macro tracking strategies, meal prep ideas, and evidence-based nutrition advice delivered to your inbox."
       showResultsCapture={showResult}
+      shareResultContext={shareResultContext}
     >
       <div className="md:col-span-1">
         <CalculatorForm

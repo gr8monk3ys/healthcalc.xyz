@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 import { CALCULATOR_CATALOG, CALCULATOR_HUBS } from '@/constants/calculatorCatalog';
+import { getAllProgrammaticPaths } from '@/utils/programmaticSeo';
 
 const BASE_URL = 'https://www.healthcalc.xyz';
 
@@ -93,6 +94,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/dashboard`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/fitness-age`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${BASE_URL}/report`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.65,
     },
     // Learn pages
     {
@@ -218,12 +237,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Programmatic result pages (Phase 2)
+  const programmaticPages: MetadataRoute.Sitemap = getAllProgrammaticPaths().map(path => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.65,
+  }));
+
   // Only English URLs for now. Non-English locale routes redirect to English
   // via middleware (302), so there is nothing to index for other locales.
   // Each entry gets a self-referencing hreflang=en + x-default pointing at
   // the same English URL so search engines know this is the canonical version.
   // TODO: Re-enable hreflang alternates when translations are complete
-  const allEntries = [...staticPages, ...calculatorPages, ...hubPages, ...blogPages];
+  const allEntries = [
+    ...staticPages,
+    ...calculatorPages,
+    ...hubPages,
+    ...blogPages,
+    ...programmaticPages,
+  ];
 
   return allEntries.map(entry => ({
     ...entry,

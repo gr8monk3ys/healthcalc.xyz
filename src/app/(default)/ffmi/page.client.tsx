@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { createLogger } from '@/utils/logger';
 
@@ -18,10 +18,12 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import FFMIResultDisplay from '@/components/calculators/ffmi/FFMIResult';
 import { useHeight, useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 type FFMICalculatorViewProps = {
   bodyFatPercentage: number | '';
   calculationError: string | null;
+  chainResultData: Record<string, string | number>;
   errors: Record<string, string>;
   handleSubmit: React.FormEventHandler<HTMLFormElement>;
   height: ReturnType<typeof useHeight>;
@@ -39,6 +41,26 @@ export default function FFMICalculator() {
   const height = useHeight();
   const weight = useWeight();
   const [bodyFatPercentage, setBodyFatPercentage] = useState<number | ''>('');
+
+  const chainPrefill = useChainPrefill('ffmi');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+    if (typeof chainPrefill.bodyFatPercentage === 'number')
+      setBodyFatPercentage(chainPrefill.bodyFatPercentage);
+  }, [chainPrefill, height, weight, setBodyFatPercentage]);
+
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    return {
+      ...(heightCm !== null ? { height: heightCm } : {}),
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+      ...(typeof bodyFatPercentage === 'number' ? { bodyFatPercentage } : {}),
+    };
+  }, [height, weight, bodyFatPercentage]);
 
   const { result, showResult, calculationError, errors, handleSubmit } =
     useCalculatorForm<FFMIResultType>({
@@ -111,6 +133,7 @@ export default function FFMICalculator() {
   return renderFFMICalculatorView({
     bodyFatPercentage,
     calculationError,
+    chainResultData,
     errors,
     handleSubmit,
     height,
@@ -124,6 +147,7 @@ export default function FFMICalculator() {
 function renderFFMICalculatorView({
   bodyFatPercentage,
   calculationError,
+  chainResultData,
   errors,
   handleSubmit,
   height,
@@ -138,6 +162,7 @@ function renderFFMICalculatorView({
       title="FFMI Calculator"
       description="Calculate your Fat-Free Mass Index (FFMI) to assess muscle mass development and compare to natural muscular potential"
       calculatorSlug="ffmi"
+      chainResultData={chainResultData}
       faqs={[]}
       relatedArticles={[]}
       structuredData={{

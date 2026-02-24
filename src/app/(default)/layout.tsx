@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import GlobalStructuredData from '@/components/GlobalStructuredData';
 import Preconnect from '@/components/Preconnect';
+import { createOrganizationSchema, createWebsiteSchema } from '@/utils/schema';
 import React, { ReactNode } from 'react';
 import SkipToMainLink from '@/components/SkipToMainLink';
 import { getAdSenseScriptSrc } from '@/lib/adsense';
@@ -122,6 +122,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           src={adSenseScriptSrc}
           crossOrigin="anonymous"
         />
+
+        {/* Blocking script to apply dark mode before first paint (prevents FOUC) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode)document.documentElement.classList.add('dark')}catch(e){}})()`,
+          }}
+        />
       </head>
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
         <LayoutProviders>
@@ -136,10 +143,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
           {/* Analytics component for tracking */}
           <VercelAnalyticsGate />
-
-          {/* Global structured data for organization and website */}
-          <GlobalStructuredData />
         </LayoutProviders>
+
+        {/* Global structured data — SSR so crawlers see it in initial HTML */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c'),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c'),
+          }}
+        />
       </body>
     </html>
   );

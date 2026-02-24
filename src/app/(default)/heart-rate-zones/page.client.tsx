@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
@@ -15,6 +15,7 @@ import type {
   HeartRateZoneMethod,
 } from '@/types/heartRateZones';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 const faqs = [
   {
@@ -49,6 +50,23 @@ export default function HeartRateZonesCalculator() {
   const [age, setAge] = useState<number | ''>('');
   const [restingHeartRate, setRestingHeartRate] = useState<number | ''>('');
   const [method, setMethod] = useState<HeartRateZoneMethod>('percent-max');
+
+  const chainPrefill = useChainPrefill('heart-rate-zones');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+    if (typeof chainPrefill.restingHeartRate === 'number')
+      setRestingHeartRate(chainPrefill.restingHeartRate);
+  }, [chainPrefill, setAge, setRestingHeartRate]);
+
+  const chainResultData = useMemo(
+    () => ({
+      ...(typeof age === 'number' ? { age } : {}),
+      ...(typeof restingHeartRate === 'number' ? { restingHeartRate } : {}),
+    }),
+    [age, restingHeartRate]
+  );
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<HeartRateZonesResultType>({
@@ -115,6 +133,7 @@ export default function HeartRateZonesCalculator() {
       }}
       understandingSection={<HeartRateZonesInfo />}
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
     >
       <div className="md:col-span-1">
         <CalculatorForm

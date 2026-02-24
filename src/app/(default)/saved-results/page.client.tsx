@@ -1,18 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { SavedResultsList } from '@/components/SaveResult';
 import { useAuth } from '@/context/AuthContext';
 import { useSavedResults } from '@/context/SavedResultsContext';
 import { useLocale } from '@/context/LocaleContext';
 import AuthModal from '@/components/auth/AuthModal';
+import HealthDashboard from '@/components/dashboard/HealthDashboard';
+
+type Tab = 'dashboard' | 'all-results';
 
 export default function SavedResultsPage() {
   const { isAuthenticated, supabaseEnabled } = useAuth();
   const { savedResults, syncPromptPending, confirmSync, dismissSync } = useSavedResults();
   const { localizePath, t } = useLocale();
-  const [authModalOpen, setAuthModalOpen] = React.useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<Tab>('dashboard');
 
   // When Supabase is enabled, show results for both guest and authenticated users.
   // The sign-in prompt appears alongside the results rather than replacing them.
@@ -23,7 +27,33 @@ export default function SavedResultsPage() {
   return (
     <div className="mx-auto max-w-4xl">
       <h1 className="mb-2 text-3xl font-bold">{t('savedResults.page.title')}</h1>
-      <p className="mb-8 text-gray-600">{t('savedResults.page.subtitle')}</p>
+      <p className="mb-6 text-gray-600">{t('savedResults.page.subtitle')}</p>
+
+      {/* Tab toggle */}
+      <div className="mb-6 flex gap-1 rounded-lg bg-[var(--glass-fill,rgba(255,255,255,0.08))] p-1">
+        <button
+          type="button"
+          onClick={() => setActiveTab('dashboard')}
+          className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+            activeTab === 'dashboard'
+              ? 'bg-[var(--accent)] text-white shadow-sm'
+              : 'text-[var(--foreground)] opacity-60 hover:opacity-100'
+          }`}
+        >
+          Dashboard
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('all-results')}
+          className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+            activeTab === 'all-results'
+              ? 'bg-[var(--accent)] text-white shadow-sm'
+              : 'text-[var(--foreground)] opacity-60 hover:opacity-100'
+          }`}
+        >
+          All Results
+        </button>
+      </div>
 
       {/* Sync prompt banner */}
       {syncPromptPending && (
@@ -69,22 +99,32 @@ export default function SavedResultsPage() {
         </div>
       )}
 
-      {showResults ? (
-        <SavedResultsList />
-      ) : !supabaseEnabled ? (
-        <div className="neumorph rounded-lg p-6">
-          <h2 className="mb-2 text-xl font-semibold">{t('savedResults.page.signedOut.title')}</h2>
-          <p className="mb-4 text-gray-700">{t('savedResults.page.signedOut.body')}</p>
-          <Link href={localizePath('/')} className="text-accent font-medium hover:underline">
-            {t('savedResults.page.signedOut.cta')} <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
-      ) : (
-        <div className="neumorph rounded-lg p-6">
-          <p className="text-gray-600 dark:text-gray-400">
-            No saved results yet. Use any calculator and save your results to see them here.
-          </p>
-        </div>
+      {/* Dashboard tab */}
+      {activeTab === 'dashboard' && <HealthDashboard />}
+
+      {/* All Results tab */}
+      {activeTab === 'all-results' && (
+        <>
+          {showResults ? (
+            <SavedResultsList />
+          ) : !supabaseEnabled ? (
+            <div className="neumorph rounded-lg p-6">
+              <h2 className="mb-2 text-xl font-semibold">
+                {t('savedResults.page.signedOut.title')}
+              </h2>
+              <p className="mb-4 text-gray-700">{t('savedResults.page.signedOut.body')}</p>
+              <Link href={localizePath('/')} className="text-accent font-medium hover:underline">
+                {t('savedResults.page.signedOut.cta')} <span aria-hidden="true">&rarr;</span>
+              </Link>
+            </div>
+          ) : (
+            <div className="neumorph rounded-lg p-6">
+              <p className="text-gray-600 dark:text-gray-400">
+                No saved results yet. Use any calculator and save your results to see them here.
+              </p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

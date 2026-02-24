@@ -400,8 +400,6 @@ const AFFILIATE_BLOG_SLUGS = new Set([
   'best-smart-scales-body-composition',
   'best-fitness-trackers-calorie-tracking',
   'best-kitchen-scales-portion-control',
-  'best-fitness-apps-macro-tracking',
-  'meal-delivery-services-weight-loss',
   'best-supplements-fitness-goals',
   'best-home-gym-equipment-beginners',
   'best-running-shoes-weight-loss',

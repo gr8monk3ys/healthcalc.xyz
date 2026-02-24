@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { CalorieDeficitResult as CalorieDeficitResultType } from '@/types/calorieDeficit';
 import { calculateCalorieDeficit } from '@/app/api/calorieDeficit';
@@ -21,6 +21,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
+import {
+  requestCalculatorFormSubmit,
+  useSharedResultPrefill,
+} from '@/hooks/useSharedResultPrefill';
 
 // FAQ data for the calculator
 const faqs = [
@@ -110,6 +115,45 @@ export default function CalorieDeficitCalculator() {
     deficitLevel,
     setDeficitLevel,
   } = useCalorieDeficitCalculatorState();
+
+  const chainPrefill = useChainPrefill('calorie-deficit');
+  const sharedPrefill = useSharedResultPrefill('calorie-deficit');
+  const hasAppliedSharedPrefill = useRef(false);
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      setGender(chainPrefill.gender as Gender);
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, height, weight]);
+
+  useEffect(() => {
+    if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
+
+    hasAppliedSharedPrefill.current = true;
+    setAge(sharedPrefill.age);
+    setGender(sharedPrefill.gender);
+    height.setValue(sharedPrefill.heightCm);
+    weight.setValue(sharedPrefill.weightKg);
+    setGoalWeight(sharedPrefill.goalWeightKg);
+    setActivityLevel(sharedPrefill.activityLevel);
+    setDeficitLevel(sharedPrefill.deficitLevel);
+    requestCalculatorFormSubmit();
+  }, [height, setActivityLevel, setDeficitLevel, setGoalWeight, sharedPrefill, weight]);
+
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    return {
+      ...(typeof age === 'number' ? { age } : {}),
+      gender,
+      ...(heightCm !== null ? { height: heightCm } : {}),
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+      activityLevel,
+    };
+  }, [age, gender, height, weight, activityLevel]);
 
   // Wrap the weight toggle to also convert goalWeight
   const toggleWeightUnitWithGoal = () => {
@@ -229,6 +273,40 @@ export default function CalorieDeficitCalculator() {
     });
   };
 
+  const shareResultContext = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    const goalWeightKg =
+      typeof goalWeight === 'number'
+        ? weight.unit === 'kg'
+          ? goalWeight
+          : convertWeight(goalWeight, 'lb', 'kg')
+        : null;
+
+    if (
+      !showResult ||
+      typeof age !== 'number' ||
+      heightCm === null ||
+      weightKg === null ||
+      goalWeightKg === null
+    ) {
+      return undefined;
+    }
+
+    return {
+      calculator: 'calorie-deficit' as const,
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+        goalWeightKg,
+        activityLevel,
+        deficitLevel,
+      },
+    };
+  }, [activityLevel, age, deficitLevel, gender, goalWeight, height, showResult, weight]);
+
   // Form fields for the CalculatorForm component
   const formFields = [
     {
@@ -317,6 +395,8 @@ export default function CalorieDeficitCalculator() {
       newsletterTitle="Get Weight Loss Tips & Updates"
       newsletterDescription="Subscribe to receive the latest nutrition and fitness tips, calculator updates, and exclusive content to help you achieve your weight loss goals."
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
+      shareResultContext={shareResultContext}
     >
       <div className="md:col-span-1">
         <CalculatorForm

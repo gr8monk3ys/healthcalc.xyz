@@ -538,6 +538,34 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
 
   <script>
     ${config.calculationScript}
+    var EMBED_ANALYTICS_ENDPOINT = '/api/embed-analytics';
+    var EMBED_CALCULATOR = ${JSON.stringify(calculator)};
+    var hasTrackedCalculation = false;
+
+    function sendEmbedAnalytics(action) {
+      try {
+        var payload = JSON.stringify({
+          calculator: EMBED_CALCULATOR,
+          action: action,
+          referrer: document.referrer || ''
+        });
+
+        if (navigator.sendBeacon && typeof Blob !== 'undefined') {
+          var blob = new Blob([payload], { type: 'application/json' });
+          navigator.sendBeacon(EMBED_ANALYTICS_ENDPOINT, blob);
+          return;
+        }
+
+        fetch(EMBED_ANALYTICS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload,
+          keepalive: true
+        }).catch(function() {});
+      } catch (_error) {
+        // Ignore analytics failures in embedded widgets.
+      }
+    }
 
     function renderResult(data) {
       var el = document.getElementById('result');
@@ -586,6 +614,10 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
       e.preventDefault();
       var result = calculate();
       renderResult(result);
+      if (!result.error && !hasTrackedCalculation) {
+        hasTrackedCalculation = true;
+        sendEmbedAnalytics('calculate');
+      }
     });
 
     document.getElementById('reset-btn').addEventListener('click', function() {
@@ -594,6 +626,8 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
       el.classList.remove('visible');
       while (el.firstChild) { el.removeChild(el.firstChild); }
     });
+
+    sendEmbedAnalytics('view');
   </script>
 </body>
 </html>`;
