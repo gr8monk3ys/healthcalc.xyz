@@ -87,6 +87,18 @@ const blogArticles = [
   },
 ];
 
+const ACTIVITY_LEVEL_OPTIONS: ActivityLevel[] = [
+  'sedentary',
+  'lightly_active',
+  'moderately_active',
+  'very_active',
+  'extremely_active',
+];
+
+function isActivityLevel(value: unknown): value is ActivityLevel {
+  return ACTIVITY_LEVEL_OPTIONS.includes(value as ActivityLevel);
+}
+
 function useCalorieDeficitCalculatorState() {
   const [activityLevel, setActivityLevel] = useState<ActivityLevel>('sedentary');
   const [goalWeight, setGoalWeight] = useState<number | ''>('');
@@ -127,7 +139,8 @@ export default function CalorieDeficitCalculator() {
       setGender(chainPrefill.gender as Gender);
     if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
     if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, setAge, setGender, height, weight]);
+    if (isActivityLevel(chainPrefill.activityLevel)) setActivityLevel(chainPrefill.activityLevel);
+  }, [chainPrefill, height, setActivityLevel, setAge, setGender, weight]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;

@@ -1,5 +1,6 @@
 export interface CalculatorMetricDef {
   key: string;
+  fallbackKeys?: string[];
   label: string;
   unit?: string;
   category: 'body' | 'energy' | 'nutrition' | 'fitness' | 'wellness';
@@ -42,14 +43,16 @@ export const CALCULATOR_METRICS: Record<string, CalculatorMetricDef> = {
     higherIsBetter: undefined,
   },
   'calorie-deficit': {
-    key: 'dailyCalories',
+    key: 'targetCalories',
+    fallbackKeys: ['dailyCalories'],
     label: 'Calorie Target',
     unit: 'kcal',
     category: 'energy',
     higherIsBetter: undefined,
   },
   macro: {
-    key: 'calories',
+    key: 'targetCalories',
+    fallbackKeys: ['calories'],
     label: 'Calories',
     unit: 'kcal',
     category: 'nutrition',
@@ -132,11 +135,22 @@ export function extractMetricValue(
   const def = CALCULATOR_METRICS[calculatorType];
   if (!def) return undefined;
 
-  const raw = data[def.key];
-  if (typeof raw === 'number' && isFinite(raw)) return raw;
-  if (typeof raw === 'string') {
-    const parsed = parseFloat(raw);
-    if (isFinite(parsed)) return parsed;
+  const parseValue = (raw: unknown): number | undefined => {
+    if (typeof raw === 'number' && isFinite(raw)) return raw;
+    if (typeof raw === 'string') {
+      const parsed = parseFloat(raw);
+      if (isFinite(parsed)) return parsed;
+    }
+    return undefined;
+  };
+
+  const primaryValue = parseValue(data[def.key]);
+  if (primaryValue !== undefined) return primaryValue;
+
+  for (const fallbackKey of def.fallbackKeys ?? []) {
+    const fallbackValue = parseValue(data[fallbackKey]);
+    if (fallbackValue !== undefined) return fallbackValue;
   }
+
   return undefined;
 }

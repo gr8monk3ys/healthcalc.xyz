@@ -41,6 +41,19 @@ describe('extractMetricValue', () => {
     expect(extractMetricValue('tdee', { tdee: '2500' })).toBe(2500);
   });
 
+  it('extracts calorie-deficit target calories from saved result shape', () => {
+    expect(extractMetricValue('calorie-deficit', { targetCalories: 2100 })).toBe(2100);
+  });
+
+  it('extracts macro target calories from saved result shape', () => {
+    expect(extractMetricValue('macro', { targetCalories: 2400 })).toBe(2400);
+  });
+
+  it('falls back to legacy metric keys when present', () => {
+    expect(extractMetricValue('calorie-deficit', { dailyCalories: 2050 })).toBe(2050);
+    expect(extractMetricValue('macro', { calories: 2300 })).toBe(2300);
+  });
+
   it('returns undefined for non-finite values', () => {
     expect(extractMetricValue('bmi', { bmi: NaN })).toBeUndefined();
     expect(extractMetricValue('bmi', { bmi: Infinity })).toBeUndefined();
