@@ -11,6 +11,7 @@ import { EDITORIAL_TEAM } from '@/constants/reviewers';
 
 interface BodyFatResultDisplayProps {
   result: BodyFatResult;
+  age?: number;
   gender: Gender;
   weightUnit: WeightUnit;
   method: string;
@@ -99,6 +100,7 @@ function getBodyFatNextSteps(
 
 const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
   result,
+  age,
   gender,
   weightUnit,
   method,
@@ -202,7 +204,12 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
         </div>
       </div>
 
-      <BodyCompositionVisual bodyFatPercentage={result.bodyFatPercentage} className="mb-6" />
+      <BodyCompositionVisual
+        bodyFatPercentage={result.bodyFatPercentage}
+        age={age}
+        gender={gender}
+        className="mb-6"
+      />
 
       <div>
         <h3 className="font-medium mb-2">What This Means</h3>

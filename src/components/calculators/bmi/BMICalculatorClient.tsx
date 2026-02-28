@@ -440,6 +440,8 @@ export default function BMICalculatorClient({ copy }: { copy: BMIPageCopy }) {
             <BMIResultDisplay
               result={localizedResult}
               isChild={isChild}
+              age={typeof age === 'number' ? age : undefined}
+              gender={gender}
               weightUnit={weight.unit}
               copy={copy.result}
             />

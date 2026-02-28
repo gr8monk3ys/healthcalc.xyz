@@ -8,6 +8,7 @@ import { useSavedResults } from '@/context/SavedResultsContext';
 import { useLocale } from '@/context/LocaleContext';
 import { CALCULATOR_METRICS, extractMetricValue } from '@/constants/calculatorMetrics';
 import { createLogger } from '@/utils/logger';
+import { estimateMetricPercentile } from '@/utils/metricPercentiles';
 
 interface ReportSectionConfig {
   id: string;
@@ -23,6 +24,7 @@ interface ReportRow {
   latestValue: number;
   previousValue?: number;
   trendDelta?: number;
+  percentile?: number;
   healthyRangeText: string;
   lastUpdated: string;
 }
@@ -190,6 +192,8 @@ async function exportReportPdf(
         typeof row.trendDelta === 'number'
           ? `${row.trendDelta >= 0 ? '+' : ''}${formatValue(row.trendDelta)}${row.unit ? ` ${row.unit}` : ''}`
           : 'No prior value';
+      const percentileText =
+        typeof row.percentile === 'number' ? `${row.percentile}th` : 'Unavailable';
 
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(11);
@@ -201,7 +205,7 @@ async function exportReportPdf(
       doc.setTextColor(51, 65, 85);
       y = drawWrappedPdfText(
         doc,
-        `Trend: ${trendValue} | Status: ${row.healthyRangeText} | Updated: ${formatDate(row.lastUpdated)}`,
+        `Trend: ${trendValue} | Percentile (est.): ${percentileText} | Status: ${row.healthyRangeText} | Updated: ${formatDate(row.lastUpdated)}`,
         margin + 10,
         y + 2,
         contentWidth - 10,
@@ -276,6 +280,7 @@ export default function ReportPageClient(): React.JSX.Element {
           latestValue: latest.value,
           previousValue: previous?.value,
           trendDelta: previous ? latest.value - previous.value : undefined,
+          percentile: estimateMetricPercentile(slug, latest.value),
           healthyRangeText: toHealthyRangeText(slug, latest.value),
           lastUpdated: latest.date,
         });
@@ -323,6 +328,9 @@ export default function ReportPageClient(): React.JSX.Element {
           <h1 className="text-3xl font-bold">Printable Health Report</h1>
           <p className="text-gray-600 dark:text-gray-400">
             Snapshot generated from your saved calculator results.
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            Percentiles are population estimates for context, not diagnostic thresholds.
           </p>
         </div>
 
@@ -388,6 +396,7 @@ export default function ReportPageClient(): React.JSX.Element {
                           <th className="py-2 pr-3">Metric</th>
                           <th className="py-2 pr-3">Latest</th>
                           <th className="py-2 pr-3">Trend</th>
+                          <th className="py-2 pr-3">Percentile (est.)</th>
                           <th className="py-2 pr-3">Status</th>
                           <th className="py-2">Updated</th>
                         </tr>
@@ -407,6 +416,9 @@ export default function ReportPageClient(): React.JSX.Element {
                               {typeof row.trendDelta === 'number'
                                 ? `${row.trendDelta >= 0 ? '+' : ''}${formatValue(row.trendDelta)}`
                                 : '—'}
+                            </td>
+                            <td className="py-2 pr-3">
+                              {typeof row.percentile === 'number' ? `${row.percentile}th` : '—'}
                             </td>
                             <td className="py-2 pr-3">{row.healthyRangeText}</td>
                             <td className="py-2">{formatDate(row.lastUpdated)}</td>

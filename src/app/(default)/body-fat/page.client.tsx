@@ -454,6 +454,7 @@ export default function BodyFatCalculator() {
   const methodLabel = BODY_FAT_METHODS.find(m => m.value === method)?.label || method;
 
   return renderBodyFatCalculatorView({
+    age: typeof age === 'number' ? age : undefined,
     calculationError,
     chainResultData,
     formFields,
@@ -469,6 +470,7 @@ export default function BodyFatCalculator() {
 }
 
 type BodyFatCalculatorViewProps = {
+  age?: number;
   calculationError: string | null;
   chainResultData: Record<string, string | number>;
   formFields: React.ComponentProps<typeof CalculatorForm>['fields'];
@@ -483,6 +485,7 @@ type BodyFatCalculatorViewProps = {
 };
 
 function renderBodyFatCalculatorView({
+  age,
   calculationError,
   chainResultData,
   formFields,
@@ -535,6 +538,7 @@ function renderBodyFatCalculatorView({
         {showResult && result ? (
           <BodyFatResultDisplay
             result={result}
+            age={age}
             gender={gender}
             weightUnit={weight.unit}
             method={methodLabel}

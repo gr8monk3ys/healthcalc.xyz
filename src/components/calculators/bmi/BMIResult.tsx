@@ -2,6 +2,7 @@
 
 import React, { useMemo } from 'react';
 import { BMIResult } from '@/types/bmi';
+import { Gender } from '@/types/common';
 import type { BMIPageCopy } from '@/i18n/pages/bmi';
 import NextSteps from '@/components/calculators/NextSteps';
 import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
@@ -11,6 +12,8 @@ import { EDITORIAL_TEAM } from '@/constants/reviewers';
 interface BMIResultDisplayProps {
   result: BMIResult;
   isChild: boolean;
+  age?: number;
+  gender?: Gender;
   weightUnit: 'kg' | 'lb';
   copy?: BMIPageCopy['result'];
 }
@@ -181,6 +184,8 @@ function getBMINextSteps(
 const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
   result,
   isChild,
+  age,
+  gender,
   weightUnit,
   copy,
 }) => {
@@ -256,7 +261,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
         </div>
       </div>
 
-      <BodyCompositionVisual bmi={result.bmi} className="mb-6" />
+      <BodyCompositionVisual bmi={result.bmi} age={age} gender={gender} className="mb-6" />
 
       <div>
         <h3 className="font-medium mb-2">{content.whatThisMeansTitle}</h3>

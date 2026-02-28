@@ -1,10 +1,14 @@
 'use client';
 
 import React from 'react';
+import type { Gender } from '@/types/common';
+import { getBodyCompositionReference } from '@/utils/bodyCompositionReference';
 
 interface BodyCompositionVisualProps {
   bmi?: number;
   bodyFatPercentage?: number;
+  age?: number;
+  gender?: Gender;
   className?: string;
 }
 
@@ -126,6 +130,8 @@ function BodySilhouette({
 export default function BodyCompositionVisual({
   bmi,
   bodyFatPercentage,
+  age,
+  gender,
   className = '',
 }: BodyCompositionVisualProps): React.JSX.Element | null {
   const activeBmi = typeof bmi === 'number' ? bmi : null;
@@ -140,8 +146,13 @@ export default function BodyCompositionVisual({
     return null;
   }
 
+  const personalizedReference = getBodyCompositionReference({ age, gender });
+  const hasPersonalizedReference = typeof age === 'number' || typeof gender === 'string';
   const userModel = buildModel(activeBmi ?? 22, activeBodyFat ?? 22);
-  const referenceModel = buildModel(22, 20);
+  const referenceModel = buildModel(
+    personalizedReference.bmi,
+    personalizedReference.bodyFatPercentage
+  );
 
   return (
     <section
@@ -149,7 +160,8 @@ export default function BodyCompositionVisual({
     >
       <h3 className="mb-1 text-base font-semibold">Body Composition Visual</h3>
       <p className="mb-4 text-sm text-gray-600 dark:text-gray-300">
-        A visual comparison of your current composition vs a reference profile.
+        A visual comparison of your current composition vs a{' '}
+        {hasPersonalizedReference ? 'age and sex adjusted' : 'general'} reference profile.
       </p>
 
       <div className="grid gap-3 sm:grid-cols-2">
@@ -160,7 +172,7 @@ export default function BodyCompositionVisual({
         />
         <BodySilhouette
           model={referenceModel}
-          label="Reference"
+          label={hasPersonalizedReference ? 'Age & Sex Reference' : 'Reference'}
           caption={`BMI ${referenceModel.bmi.toFixed(1)} • Body fat ${referenceModel.bodyFatPercentage.toFixed(1)}%`}
         />
       </div>
