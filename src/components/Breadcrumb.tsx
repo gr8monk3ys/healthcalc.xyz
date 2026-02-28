@@ -8,6 +8,20 @@ import { toAbsoluteUrl } from '@/lib/site';
 import { useLocale } from '@/context/LocaleContext';
 import { stripLocaleFromPathname } from '@/i18n/config';
 
+/** Known acronyms that should not use naive title-casing */
+const ACRONYMS: Record<string, string> = {
+  bmi: 'BMI',
+  tdee: 'TDEE',
+  bmr: 'BMR',
+  whr: 'WHR',
+  absi: 'ABSI',
+  ffmi: 'FFMI',
+  acft: 'ACFT',
+  vo2: 'VO2',
+  glp1: 'GLP-1',
+  hiit: 'HIIT',
+};
+
 interface BreadcrumbItem {
   name: string;
   path: string;
@@ -54,7 +68,7 @@ export default function Breadcrumb({ customItems, homeLabel, className = '' }: B
       // Format the segment name (convert-to-readable)
       const name = segment
         .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map(word => ACRONYMS[word.toLowerCase()] ?? word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
       items.push({ name, path: currentPath });

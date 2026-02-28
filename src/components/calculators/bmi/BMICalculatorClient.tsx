@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useMemo, useReducer } from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { createLogger } from '@/utils/logger';
 import {
@@ -28,6 +28,11 @@ import {
 } from '@/hooks/useCalculatorUnits';
 import { useLocale } from '@/context/LocaleContext';
 import { toAbsoluteUrl } from '@/lib/site';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
+import {
+  requestCalculatorFormSubmit,
+  useSharedResultPrefill,
+} from '@/hooks/useSharedResultPrefill';
 import type { BMIPageCopy } from '@/i18n/pages/bmi';
 
 const logger = createLogger({ component: 'BMICalculatorClient' });
@@ -130,6 +135,65 @@ export default function BMICalculatorClient({ copy }: { copy: BMIPageCopy }) {
   const { age, gender, isChild, errors, result, showResult, calculationError } = state;
   const height = useHeight();
   const weight = useWeight();
+  const chainPrefill = useChainPrefill('bmi');
+  const sharedPrefill = useSharedResultPrefill('bmi');
+  const hasAppliedSharedPrefill = useRef(false);
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number')
+      dispatchState({ type: 'patch', patch: { age: chainPrefill.age } });
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      dispatchState({ type: 'patch', patch: { gender: chainPrefill.gender as Gender } });
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, height, weight]);
+
+  useEffect(() => {
+    if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
+
+    hasAppliedSharedPrefill.current = true;
+    dispatchState({
+      type: 'patch',
+      patch: {
+        age: sharedPrefill.age,
+        gender: sharedPrefill.gender,
+      },
+    });
+    height.setValue(sharedPrefill.heightCm);
+    weight.setValue(sharedPrefill.weightKg);
+    requestCalculatorFormSubmit();
+  }, [height, sharedPrefill, weight]);
+
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    return {
+      ...(typeof age === 'number' ? { age } : {}),
+      gender,
+      ...(heightCm !== null ? { height: heightCm } : {}),
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+    };
+  }, [age, gender, height, weight]);
+
+  const shareResultContext = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+
+    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+      return undefined;
+    }
+
+    return {
+      calculator: 'bmi' as const,
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+      },
+    };
+  }, [age, gender, height, showResult, weight]);
 
   const setAge = useCallback((value: number | '') => {
     dispatchState({ type: 'patch', patch: { age: value } });
@@ -348,6 +412,8 @@ export default function BMICalculatorClient({ copy }: { copy: BMIPageCopy }) {
       understandingSection={<BMIUnderstanding copy={copy.understanding} />}
       newsletterDescription={copy.page.newsletterDescription}
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
+      shareResultContext={shareResultContext}
     >
       <div className="md:col-span-1">
         <CalculatorForm

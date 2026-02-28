@@ -5,6 +5,7 @@ import { BodyFatResult } from '@/types/bodyFat';
 import { Gender, WeightUnit } from '@/types/common';
 import { BODY_FAT_CATEGORIES } from '@/constants/bodyFat';
 import NextSteps from '@/components/calculators/NextSteps';
+import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
 
@@ -200,6 +201,8 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
           </p>
         </div>
       </div>
+
+      <BodyCompositionVisual bodyFatPercentage={result.bodyFatPercentage} className="mb-6" />
 
       <div>
         <h3 className="font-medium mb-2">What This Means</h3>

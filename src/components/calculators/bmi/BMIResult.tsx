@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import { BMIResult } from '@/types/bmi';
 import type { BMIPageCopy } from '@/i18n/pages/bmi';
 import NextSteps from '@/components/calculators/NextSteps';
+import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
 
@@ -254,6 +255,8 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
           </p>
         </div>
       </div>
+
+      <BodyCompositionVisual bmi={result.bmi} className="mb-6" />
 
       <div>
         <h3 className="font-medium mb-2">{content.whatThisMeansTitle}</h3>

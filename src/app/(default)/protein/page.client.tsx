@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { ProteinGoal, ProteinResult as ProteinResultType } from '@/types/protein';
 import { processProteinCalculation } from '@/utils/calculators/protein';
@@ -14,6 +14,7 @@ import SaveResult from '@/components/SaveResult';
 import AffiliateLinks from '@/components/AffiliateLinks';
 import { useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 // Goal options for the calculator
 const GOAL_OPTIONS = [
@@ -101,6 +102,13 @@ export default function ProteinCalculator() {
   const [activityLevel, setActivityLevel] = useState<ActivityLevel>('moderately_active');
   const [goal, setGoal] = useState<ProteinGoal>('maintain');
 
+  const chainPrefill = useChainPrefill('protein');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, weight]);
+
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<ProteinResultType>({
       validate: () => {
@@ -165,6 +173,14 @@ export default function ProteinCalculator() {
       setGoal('maintain');
     });
   };
+
+  const chainResultData = useMemo(() => {
+    const weightKg = weight.toKg();
+    return {
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+      activityLevel,
+    };
+  }, [weight, activityLevel]);
 
   // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
@@ -247,6 +263,7 @@ export default function ProteinCalculator() {
       newsletterTitle="Get Nutrition & Fitness Tips"
       newsletterDescription="Subscribe to receive the latest protein research, nutrition strategies, and evidence-based fitness advice delivered to your inbox."
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
     >
       <div className="md:col-span-1">
         <CalculatorForm

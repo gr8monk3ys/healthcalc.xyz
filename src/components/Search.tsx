@@ -414,10 +414,10 @@ export default function Search({
 
           // Content matches
           if (item.content) {
+            const contentLower = item.content.toLowerCase();
             terms.forEach(term => {
-              const contentMatches = (
-                item.content?.toLowerCase().match(new RegExp(term, 'g')) || []
-              ).length;
+              if (!term) return;
+              const contentMatches = contentLower.split(term).length - 1;
               score += contentMatches * 0.5; // Lower weight for content matches
             });
           }

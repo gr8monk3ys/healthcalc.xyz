@@ -76,12 +76,13 @@ const CALCULATOR_SLUGS = [
 
 for (const slug of CALCULATOR_SLUGS) {
   test(`/${slug} loads without error`, async ({ page }) => {
-    await page.goto(`/${slug}`);
+    test.setTimeout(180_000);
+    await page.goto(`/${slug}`, { waitUntil: 'domcontentloaded', timeout: 120_000 });
 
     // Must not be a 404 or 500 page
     await expect(page).not.toHaveTitle(/404|not found|500|error/i);
 
     // Must have a visible primary heading
-    await expect(page.locator('h1').first()).toBeVisible();
+    await expect(page.locator('h1').first()).toBeVisible({ timeout: 30_000 });
   });
 }

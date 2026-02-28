@@ -86,7 +86,7 @@ export function stripLocaleFromPathname(pathname: string): string {
   const locale = getLocaleFromPathname(pathname);
   if (!locale) return pathname;
 
-  const suffix = pathname.replace(new RegExp(`^/${locale}`), '');
+  const suffix = pathname.slice(`/${locale}`.length);
   return suffix || '/';
 }
 

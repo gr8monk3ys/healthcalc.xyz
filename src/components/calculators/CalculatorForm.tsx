@@ -345,7 +345,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
     <div className="neumorph p-6 rounded-lg">
       <h2 className="text-xl font-semibold mb-4">{title}</h2>
 
-      <form onSubmit={onSubmit} className="space-y-4">
+      <form onSubmit={onSubmit} className="space-y-4" data-calculator-form="1">
         {fields.map(renderField)}
 
         <div className="flex space-x-4 pt-2">

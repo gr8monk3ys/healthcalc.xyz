@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -20,6 +20,11 @@ import { toAbsoluteUrl } from '@/lib/site';
 import { ResultsShareBar, ResultsShareProvider } from '@/components/ResultsShare';
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
+import { useChainState } from '@/hooks/useChainState';
+import { getChainById, getChainsForCalculator } from '@/constants/calculatorChains';
+import ChainProgressBar from '@/components/chains/ChainProgressBar';
+import ChainContinueButton from '@/components/chains/ChainContinueButton';
+import { buildSharedResultToken, type ShareResultContext } from '@/utils/resultSharing';
 
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
@@ -135,6 +140,10 @@ interface CalculatorPageLayoutProps {
   newsletterTitle?: string;
   /** Newsletter signup description */
   newsletterDescription?: string;
+  /** Data to pass to the next chain step (age, weight, etc.) */
+  chainResultData?: Record<string, string | number>;
+  /** Optional result payload used to generate shareable prefilled URLs */
+  shareResultContext?: ShareResultContext;
   /** The main content (calculator form and result display) */
   children: React.ReactNode;
 }
@@ -174,14 +183,31 @@ function CalculatorPageLayoutContent({
   showResultsCapture = false,
   newsletterTitle,
   newsletterDescription,
+  chainResultData,
+  shareResultContext,
   children,
 }: CalculatorPageLayoutProps): React.ReactElement {
   const socialTitle = shareTitle || title;
   const socialDescription = shareDescription || description;
   const { localizePath, t } = useLocale();
   const { trackEvent } = useFunnelTracking();
+  const { chainState, isInChain, exitChain } = useChainState();
   const [isEmbed, setIsEmbed] = useState(false);
   const hasTrackedResultRef = useRef(false);
+
+  // Determine if this calculator is the current chain step
+  const chainDef = chainState ? getChainById(chainState.chainId) : undefined;
+  const isCurrentChainStep =
+    isInChain &&
+    chainState !== null &&
+    chainDef !== undefined &&
+    chainDef.steps[chainState.currentStepIndex]?.slug === calculatorSlug;
+
+  const availableChains = !isInChain ? getChainsForCalculator(calculatorSlug) : [];
+  const shareToken = useMemo(() => {
+    if (!shareResultContext) return undefined;
+    return buildSharedResultToken(shareResultContext);
+  }, [shareResultContext]);
 
   useEffect(() => {
     const syncEmbedFlag = () => {
@@ -255,6 +281,9 @@ function CalculatorPageLayoutContent({
     <ErrorBoundary>
       <ResultsShareProvider>
         <div className="max-w-4xl mx-auto">
+          {isCurrentChainStep && chainState && (
+            <ChainProgressBar chainState={chainState} onExit={exitChain} />
+          )}
           <Breadcrumb />
 
           <h1 className="text-3xl font-bold mb-2">{title}</h1>
@@ -265,7 +294,16 @@ function CalculatorPageLayoutContent({
           {showResultsCapture && <div id="results" className="sr-only" aria-hidden="true" />}
 
           {showResultsCapture && (
-            <ResultsShareBar calculatorSlug={calculatorSlug} title={socialTitle} className="mb-8" />
+            <ResultsShareBar
+              calculatorSlug={calculatorSlug}
+              title={socialTitle}
+              shareToken={shareToken}
+              className="mb-8"
+            />
+          )}
+
+          {showResultsCapture && isCurrentChainStep && chainResultData && (
+            <ChainContinueButton calculatorSlug={calculatorSlug} resultData={chainResultData} />
           )}
 
           {showResultsCapture && (
@@ -294,6 +332,29 @@ function CalculatorPageLayoutContent({
             currentSlug={calculatorSlug}
             title={t('calculator.relatedCalculators.title')}
           />
+
+          {availableChains.length > 0 && (
+            <div className="my-8">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide opacity-60">
+                Guided Workflows
+              </h3>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {availableChains.map(chain => (
+                  <Link
+                    key={chain.id}
+                    href={`/chains?start=${chain.id}`}
+                    className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+                  >
+                    <p className="font-medium text-sm">{chain.name}</p>
+                    <p className="mt-1 text-xs opacity-60">{chain.description}</p>
+                    <p className="mt-2 text-xs text-[var(--accent)] font-medium">
+                      {chain.steps.length} steps &middot; Start workflow &rarr;
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <RelatedGuides title={t('calculator.relatedGuides.title')} />
 

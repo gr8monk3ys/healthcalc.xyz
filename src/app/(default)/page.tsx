@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import CalculatorCard from '@/components/CalculatorCard';
+import { CALCULATOR_CHAINS } from '@/constants/calculatorChains';
 
 export const metadata = {
   title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
@@ -460,6 +461,37 @@ const HomeContent = (
         </Link>{' '}
         across 10 categories including body composition, performance, nutrition, and pregnancy.
       </p>
+    </section>
+
+    {/* Guided Workflows */}
+    <section className="my-16">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold mb-2">Guided Health Workflows</h2>
+        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Follow step-by-step workflows that connect multiple calculators. Enter your details once
+          and get a complete health picture.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {CALCULATOR_CHAINS.map(chain => (
+          <Link
+            key={chain.id}
+            href={`/chains?start=${chain.id}`}
+            className="glass-panel rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+          >
+            <h3 className="font-semibold text-lg">{chain.name}</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{chain.description}</p>
+            <div className="mt-3 flex items-center gap-2">
+              <span className="rounded-full bg-[var(--accent)] px-2 py-0.5 text-xs font-medium text-white">
+                {chain.steps.length} steps
+              </span>
+              <span className="text-xs text-[var(--accent)] font-medium">
+                Get started {'\u2192'}
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
     </section>
 
     {/* Why HealthCheck? Section */}

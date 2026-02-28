@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
@@ -14,6 +14,7 @@ import type { Vo2MaxResult as Vo2MaxResultType } from '@/types/vo2Max';
 import type { Gender } from '@/types/common';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 const faqs = [
   {
@@ -50,6 +51,25 @@ export default function Vo2MaxCalculator() {
   const weight = useWeight();
   const [walkTime, setWalkTime] = useState<number | ''>('');
   const [heartRate, setHeartRate] = useState<number | ''>('');
+
+  const chainPrefill = useChainPrefill('vo2-max');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      setGender(chainPrefill.gender as Gender);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, weight]);
+
+  const chainResultData = useMemo(() => {
+    const weightKg = weight.toKg();
+    return {
+      ...(typeof age === 'number' ? { age } : {}),
+      gender,
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+    };
+  }, [age, gender, weight]);
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<Vo2MaxResultType>({
@@ -124,6 +144,7 @@ export default function Vo2MaxCalculator() {
       title="VO2 Max Calculator"
       description="Estimate VO2 max using the Rockport 1-mile walk test formula."
       calculatorSlug="vo2-max"
+      chainResultData={chainResultData}
       faqs={faqs}
       relatedArticles={relatedArticles}
       structuredData={{

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Gender } from '@/types/common';
 import { BodyFatMethod, BodyFatResult as BodyFatResultType } from '@/types/bodyFat';
@@ -34,6 +34,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
+import {
+  requestCalculatorFormSubmit,
+  useSharedResultPrefill,
+} from '@/hooks/useSharedResultPrefill';
 
 // Dynamic imports for below-the-fold components
 const BodyFatUnderstanding = dynamic(
@@ -78,6 +83,48 @@ export default function BodyFatCalculator() {
     bodyFatPercentage,
     setBodyFatPercentage,
   } = useBodyFatCalculatorState();
+
+  const chainPrefill = useChainPrefill('body-fat');
+  const sharedPrefill = useSharedResultPrefill('body-fat');
+  const hasAppliedSharedPrefill = useRef(false);
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
+    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
+      setGender(chainPrefill.gender as Gender);
+    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, height, weight]);
+
+  useEffect(() => {
+    if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
+
+    hasAppliedSharedPrefill.current = true;
+    setGender(sharedPrefill.gender);
+    setAge(sharedPrefill.age);
+    height.setValue(sharedPrefill.heightCm);
+    weight.setValue(sharedPrefill.weightKg);
+    setMethod(sharedPrefill.method);
+    setWaist(typeof sharedPrefill.waistCm === 'number' ? sharedPrefill.waistCm : '');
+    setNeck(typeof sharedPrefill.neckCm === 'number' ? sharedPrefill.neckCm : '');
+    setHips(typeof sharedPrefill.hipsCm === 'number' ? sharedPrefill.hipsCm : '');
+    setBodyFatPercentage(
+      typeof sharedPrefill.bodyFatPercentage === 'number' ? sharedPrefill.bodyFatPercentage : ''
+    );
+    requestCalculatorFormSubmit();
+  }, [height, setBodyFatPercentage, setHips, setMethod, setNeck, setWaist, sharedPrefill, weight]);
+
+  const chainResultData = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+    return {
+      ...(typeof age === 'number' ? { age } : {}),
+      gender,
+      ...(heightCm !== null ? { height: heightCm } : {}),
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+    };
+  }, [age, gender, height, weight]);
 
   // Shared form boilerplate: errors, result, showResult, calculationError,
   // handleSubmit, handleReset — extracted into the shared hook.
@@ -225,6 +272,83 @@ export default function BodyFatCalculator() {
     });
   };
 
+  const shareResultContext = useMemo(() => {
+    const heightCm = height.toCm();
+    const weightKg = weight.toKg();
+
+    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+      return undefined;
+    }
+
+    if (method === 'navy') {
+      if (typeof waist !== 'number' || typeof neck !== 'number') {
+        return undefined;
+      }
+
+      if (gender === 'female') {
+        if (typeof hips !== 'number') {
+          return undefined;
+        }
+
+        return {
+          calculator: 'body-fat' as const,
+          inputs: {
+            age,
+            gender,
+            heightCm,
+            weightKg,
+            method,
+            waistCm: waist,
+            neckCm: neck,
+            hipsCm: hips,
+          },
+        };
+      }
+
+      return {
+        calculator: 'body-fat' as const,
+        inputs: {
+          age,
+          gender,
+          heightCm,
+          weightKg,
+          method,
+          waistCm: waist,
+          neckCm: neck,
+        },
+      };
+    }
+
+    if (method === 'manual') {
+      if (typeof bodyFatPercentage !== 'number') {
+        return undefined;
+      }
+
+      return {
+        calculator: 'body-fat' as const,
+        inputs: {
+          age,
+          gender,
+          heightCm,
+          weightKg,
+          method,
+          bodyFatPercentage,
+        },
+      };
+    }
+
+    return {
+      calculator: 'body-fat' as const,
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+        method,
+      },
+    };
+  }, [age, bodyFatPercentage, gender, height, hips, method, neck, showResult, waist, weight]);
+
   // Clear method-specific errors when changing methods.
   const handleMethodChange = (newMethod: string) => {
     setMethod(newMethod as BodyFatMethod);
@@ -331,12 +455,14 @@ export default function BodyFatCalculator() {
 
   return renderBodyFatCalculatorView({
     calculationError,
+    chainResultData,
     formFields,
     gender,
     handleSubmit,
     methodLabel,
     onReset,
     result,
+    shareResultContext,
     showResult,
     weight,
   });
@@ -344,24 +470,28 @@ export default function BodyFatCalculator() {
 
 type BodyFatCalculatorViewProps = {
   calculationError: string | null;
+  chainResultData: Record<string, string | number>;
   formFields: React.ComponentProps<typeof CalculatorForm>['fields'];
   gender: Gender;
   handleSubmit: React.FormEventHandler<Element>;
   methodLabel: string;
   onReset: () => void;
   result: BodyFatResultType | null;
+  shareResultContext: React.ComponentProps<typeof CalculatorPageLayout>['shareResultContext'];
   showResult: boolean;
   weight: ReturnType<typeof useWeight>;
 };
 
 function renderBodyFatCalculatorView({
   calculationError,
+  chainResultData,
   formFields,
   gender,
   handleSubmit,
   methodLabel,
   onReset,
   result,
+  shareResultContext,
   showResult,
   weight,
 }: BodyFatCalculatorViewProps) {
@@ -382,6 +512,8 @@ function renderBodyFatCalculatorView({
       }}
       understandingSection={<BodyFatUnderstanding />}
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
+      shareResultContext={shareResultContext}
     >
       <div className="md:col-span-1">
         <CalculatorForm

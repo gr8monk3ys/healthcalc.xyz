@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
@@ -14,6 +14,7 @@ import type { WaterIntakeResult as WaterIntakeResultType } from '@/types/waterIn
 import { WATER_INTAKE_ACTIVITY_OPTIONS, type WaterIntakeActivity } from '@/constants/waterIntake';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { useChainPrefill } from '@/hooks/useChainPrefill';
 
 const faqs = [
   {
@@ -47,6 +48,13 @@ const relatedArticles = [
 export default function WaterIntakeCalculator() {
   const weight = useWeight();
   const [activityLevel, setActivityLevel] = useState<WaterIntakeActivity>('low');
+
+  const chainPrefill = useChainPrefill('water-intake');
+
+  useEffect(() => {
+    if (!chainPrefill) return;
+    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+  }, [chainPrefill, weight]);
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<WaterIntakeResultType>({
@@ -83,6 +91,14 @@ export default function WaterIntakeCalculator() {
     });
   };
 
+  const chainResultData = useMemo(() => {
+    const weightKg = weight.toKg();
+    return {
+      ...(weightKg !== null ? { weight: weightKg } : {}),
+      activityLevel,
+    };
+  }, [weight, activityLevel]);
+
   return (
     <CalculatorPageLayout
       title="Water Intake Calculator"
@@ -99,6 +115,7 @@ export default function WaterIntakeCalculator() {
       }}
       understandingSection={<WaterIntakeInfo />}
       showResultsCapture={showResult}
+      chainResultData={chainResultData}
     >
       <div className="md:col-span-1">
         <CalculatorForm

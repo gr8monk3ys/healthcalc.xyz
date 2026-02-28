@@ -1,5 +1,5 @@
 # HealthCheck Robots.txt
-# Last updated: 2026-02-14
+# Last updated: 2026-02-22
 
 User-agent: *
 Allow: /
@@ -11,28 +11,6 @@ Sitemap: https://www.healthcalc.xyz/sitemap.xml
 Disallow: /api/
 Disallow: /admin/
 Disallow: /dev/
-
-# Allow crawling of all calculator pages (high priority)
-Allow: /bmi
-Allow: /body-fat
-Allow: /body-fat-burn
-Allow: /tdee
-Allow: /calorie-deficit
-Allow: /weight-management
-Allow: /maximum-fat-loss
-Allow: /absi
-Allow: /whr
-Allow: /conversions
-
-# Allow crawling of blog pages (high priority)
-Allow: /blog/
-
-# Allow crawling of informational pages
-Allow: /about
-Allow: /contact
-Allow: /privacy
-Allow: /terms
-Allow: /disclaimer
 
 # Crawl delay for specific bots
 User-agent: AhrefsBot
