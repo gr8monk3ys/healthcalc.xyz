@@ -35,7 +35,8 @@ test.describe('Printable Health Report', () => {
 
     await expect(page.getByRole('heading', { name: /printable health report/i })).toBeVisible();
     await expect(page.getByRole('columnheader', { name: /percentile \(est\.\)/i })).toBeVisible();
-    await expect(page.getByRole('cell', { name: /bmi/i })).toBeVisible();
-    await expect(page.getByText(/th/)).toBeVisible();
+    const bmiRow = page.getByRole('row', { name: /\bbmi\b/i });
+    await expect(bmiRow).toBeVisible();
+    await expect(bmiRow.locator('td').nth(3)).toHaveText(/\d+(st|nd|rd|th)/i);
   });
 });
