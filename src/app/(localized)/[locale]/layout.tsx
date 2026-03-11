@@ -1,13 +1,11 @@
 import '../../globals.css';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GlobalStructuredData from '@/components/GlobalStructuredData';
 import Preconnect from '@/components/Preconnect';
 import React, { ReactNode } from 'react';
 import SkipToMainLink from '@/components/SkipToMainLink';
-import { getAdSenseScriptSrc } from '@/lib/adsense';
 import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
@@ -23,7 +21,6 @@ import { isLocaleIndexable } from '@/i18n/indexing';
 import { notFound, redirect } from 'next/navigation';
 
 const siteUrl = getPublicSiteUrl();
-const adSenseScriptSrc = getAdSenseScriptSrc();
 const bodyFont = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -212,15 +209,6 @@ export default async function RootLayout({ children, params }: LocalizedLayoutPr
             'https://www.google.com',
             'https://stats.g.doubleclick.net',
           ]}
-        />
-
-        {/* Keep AdSense loader visible in page source for crawler verification.
-            Ad rendering remains gated by cookie consent in AdUnit. */}
-        <Script
-          id={`adsense-loader-${locale}`}
-          strategy="afterInteractive"
-          src={adSenseScriptSrc}
-          crossOrigin="anonymous"
         />
       </head>
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>

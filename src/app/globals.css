@@ -373,6 +373,24 @@ html {
     -8px -8px 20px var(--neumorph-shadow-1);
 }
 
+.consent-banner-shell {
+  background-color: var(--primary);
+  border: 1px solid rgba(109, 117, 204, 0.24);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 54px rgba(37, 45, 122, 0.22),
+    0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.dark .consent-banner-shell {
+  background-color: var(--primary-dark);
+  border-color: rgba(130, 138, 235, 0.24);
+  box-shadow:
+    0 26px 60px rgba(2, 6, 23, 0.5),
+    0 8px 24px rgba(2, 6, 23, 0.28);
+}
+
 .neumorph-inset {
   background-color: var(--surface-muted);
   border: 1px solid rgba(109, 117, 204, 0.32);

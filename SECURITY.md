@@ -120,6 +120,7 @@ All third-party integrations can be disabled via environment variables.
 ## Security Updates
 
 Security updates are released as:
+
 - **Patch versions** (1.0.x) for low-severity issues
 - **Minor versions** (1.x.0) for moderate-severity issues
 - **Immediate hotfixes** for critical vulnerabilities
@@ -136,6 +137,7 @@ Subscribe to releases on GitHub to stay informed.
 ## Contact
 
 For security-related questions or concerns:
+
 - **GitHub**: Create a private security advisory
 - **Email**: [Your security contact email]
 

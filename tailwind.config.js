@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/app/**/*.{js,ts,jsx,tsx}",
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}',
   ],
   // Rule: Add dark mode support
   darkMode: 'class',
@@ -12,28 +12,28 @@ module.exports = {
       colors: {
         // Light mode colors
         primary: {
-          DEFAULT: "var(--primary)",
-          dark: "var(--primary-dark)",
+          DEFAULT: 'var(--primary)',
+          dark: 'var(--primary-dark)',
         },
         accent: {
-          DEFAULT: "var(--accent)",
-          light: "var(--accent-light)",
-          dark: "var(--accent-dark)",
+          DEFAULT: 'var(--accent)',
+          light: 'var(--accent-light)',
+          dark: 'var(--accent-dark)',
         },
-        success: "var(--success)",
-        warning: "var(--warning)",
-        danger: "var(--danger)",
-        info: "var(--info)",
+        success: 'var(--success)',
+        warning: 'var(--warning)',
+        danger: 'var(--danger)',
+        info: 'var(--info)',
       },
       borderRadius: {
-        'neumorph': '1rem',
+        neumorph: '1rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-in-up': 'slideInUp 0.5s ease-out',
-        'pulse': 'pulse 2s infinite ease-in-out',
-        'bounce': 'bounce 2s infinite',
-        'shimmer': 'shimmer 2s infinite',
+        pulse: 'pulse 2s infinite ease-in-out',
+        bounce: 'bounce 2s infinite',
+        shimmer: 'shimmer 2s infinite',
       },
       keyframes: {
         fadeIn: {
@@ -59,12 +59,13 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'shimmer-gradient': 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%)',
+        'shimmer-gradient':
+          'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%)',
       },
       backgroundSize: {
-        '200': '200% 100%',
+        200: '200% 100%',
       },
     },
   },
   plugins: [],
-}
+};

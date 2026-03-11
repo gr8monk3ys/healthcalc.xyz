@@ -1,27 +1,31 @@
 version: 2
 updates:
   # Enable version updates for npm
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 2
+    ignore:
+      - dependency-name: 'eslint'
+        update-types:
+          - 'version-update:semver-major'
     groups:
       development-dependencies:
-        dependency-type: "development"
+        dependency-type: 'development'
       production-dependencies:
-        dependency-type: "production"
+        dependency-type: 'production'
 
   # Enable version updates for pip
-  - package-ecosystem: "pip"
-    directory: "/"
+  - package-ecosystem: 'pip'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 2
 
   # Enable version updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 2

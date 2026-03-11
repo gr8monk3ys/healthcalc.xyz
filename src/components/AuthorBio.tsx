@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Reviewer } from '@/constants/reviewers';
 import { REVIEWER_SARAH_CHEN } from '@/constants/reviewers';
 
@@ -49,9 +50,12 @@ export function AuthorBio({
         className={`flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 ${className}`}
       >
         {reviewer.imageUrl ? (
-          <img
+          <Image
             src={reviewer.imageUrl}
             alt=""
+            width={40}
+            height={40}
+            unoptimized
             className="h-10 w-10 rounded-full object-cover"
             aria-hidden="true"
           />
@@ -76,9 +80,12 @@ export function AuthorBio({
     <div className={`neumorph rounded-lg p-6 ${className}`}>
       <div className="flex items-start gap-4">
         {reviewer.imageUrl ? (
-          <img
+          <Image
             src={reviewer.imageUrl}
             alt=""
+            width={64}
+            height={64}
+            unoptimized
             className="h-16 w-16 rounded-full object-cover"
             aria-hidden="true"
           />

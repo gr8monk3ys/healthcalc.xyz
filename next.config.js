@@ -22,7 +22,7 @@ const nextConfig = {
       "img-src 'self' data: https:",
       "font-src 'self'",
       "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://*.sentry.io https://*.ingest.sentry.io https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google",
-      "frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com",
+      'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com',
       "worker-src 'self' blob:",
       "object-src 'none'",
       "base-uri 'self'",

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - PWA initialization component (`PWAInit.tsx`) for automatic service worker registration
 - Service worker now automatically registers in production environments
 - Update notifications for new app versions with user prompt to refresh
@@ -30,15 +31,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - All formulas now include proper scientific attribution and category documentation
 
 ### Changed
+
 - README.md now includes comprehensive "Available Scripts" documentation
 - Improved developer experience with clearly documented npm commands
 - Layout.tsx updated to include PWAInit component for seamless PWA functionality
+- Repository automation now uses Bun-first docs and repo-wide Prettier checks
+- Dependabot now ignores ESLint semver-major bumps until the lint stack is compatible
 
 ### Improved
+
 - PWA functionality now works out of the box without manual configuration
 - Better user experience with automatic service worker updates
+- Cookie consent now loads advertising scripts only after explicit consent
+- Homepage hero and cookie banner spacing are more readable on small screens
+
+### Fixed
+
+- Resolved failing organization workflows caused by outdated `actions/checkout` pins
+- Updated `actions/upload-artifact` pin in CI to match the latest safe Dependabot target
+- Fixed the OSV workflow to use the valid `google/osv-scanner-action`
+- Prevented duplicate CodeQL uploads by converting the extra org workflow into a no-op status job
+- Fixed offline cached-page filtering logic in `public/offline.html`
+- Replaced author bio `<img>` elements with `next/image` to satisfy lint rules
 
 ### Refactored
+
 - Consolidated duplicate utility functions between `calculators.ts` and `conversions.ts`
   - Eliminated 7 duplicate functions (formatNumber, height/weight converters)
   - `calculators.ts` now re-exports from `conversions.ts` for better code organization
@@ -48,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-10-29
 
 ### Added
+
 - Initial release of HealthCheck calculator platform
 - 10 health and fitness calculators:
   - BMI Calculator (with child percentile support)
@@ -76,6 +94,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Google AdSense integration
 
 ### Developer Experience
+
 - Comprehensive documentation:
   - [CLAUDE.md](CLAUDE.md) - Architecture guide
   - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
@@ -108,6 +127,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `npm run update` - Update dependencies
 
 ### Technical Stack
+
 - Next.js 15.2.0
 - React 19.0.0
 - TypeScript 5.8.2
@@ -116,6 +136,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Radix UI components
 
 ### Performance
+
 - Optimized images (AVIF/WebP support)
 - Code splitting and lazy loading
 - Service worker caching
@@ -123,6 +144,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Middleware for URL canonicalization
 
 ### Accessibility
+
 - Semantic HTML
 - ARIA labels
 - Keyboard navigation support
@@ -130,6 +152,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Responsive design for all devices
 
 ### SEO
+
 - Sitemap.xml with image annotations
 - Robots.txt configuration
 - Canonical URLs
@@ -141,6 +164,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - Development
 
 ### Initial Development
+
 - Project scaffolding
 - Basic calculator implementations
 - UI component development
@@ -156,7 +180,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Migration Notes
 
 ### Code Organization (October 2024)
+
 All calculator logic has been migrated from `src/app/api/` to `src/utils/calculators/`:
+
 - BMI Calculator ✅
 - TDEE Calculator ✅
 - Body Fat Burn Calculator ✅

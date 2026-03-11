@@ -286,9 +286,9 @@ function CookieConsentBanner({
       role="dialog"
       aria-modal="false"
       aria-label={t('cookie.banner.aria')}
-      className="fixed inset-x-0 bottom-0 z-[9999] p-4 animate-slide-in-up"
+      className="pointer-events-none fixed inset-x-0 bottom-0 z-[9999] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 animate-slide-in-up"
     >
-      <div className="neumorph mx-auto max-w-3xl p-6">
+      <div className="consent-banner-shell pointer-events-auto mx-auto max-w-3xl p-5 sm:p-6">
         {/* Main message */}
         <div className="mb-4">
           <h2 className="text-base font-bold mb-1">{t('cookie.banner.title')}</h2>
@@ -330,14 +330,14 @@ function CookieConsentBanner({
         )}
 
         {/* Action buttons */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <div className="grid grid-cols-2 items-stretch gap-3 sm:flex sm:flex-row sm:items-center">
           {/* Accept All -- prominent */}
           <button
             type="button"
             onClick={onAcceptAll}
-            className="neumorph-btn bg-accent text-white font-semibold px-6 py-2.5 text-sm
+            className="neumorph-btn col-span-2 w-full justify-center bg-accent text-white font-semibold px-6 py-2.5 text-sm
                        hover:opacity-90 focus-visible:ring-2 focus-visible:ring-accent
-                       focus-visible:ring-offset-2 transition-opacity order-1"
+                       focus-visible:ring-offset-2 transition-opacity order-1 sm:col-span-1 sm:w-auto"
           >
             {t('cookie.action.acceptAll')}
           </button>
@@ -346,9 +346,9 @@ function CookieConsentBanner({
             <button
               type="button"
               onClick={() => onSavePreferences(analyticsChecked, advertisingChecked)}
-              className="neumorph-btn text-accent font-semibold px-6 py-2.5 text-sm
+              className="neumorph-btn w-full justify-center text-accent font-semibold px-4 py-2.5 text-sm
                          focus-visible:ring-2 focus-visible:ring-accent
-                         focus-visible:ring-offset-2 order-2"
+                         focus-visible:ring-offset-2 order-2 sm:w-auto"
             >
               {t('cookie.action.savePreferences')}
             </button>
@@ -356,9 +356,9 @@ function CookieConsentBanner({
             <button
               type="button"
               onClick={() => setExpanded(true)}
-              className="neumorph-btn text-accent font-medium px-6 py-2.5 text-sm
+              className="neumorph-btn w-full justify-center text-accent font-medium px-4 py-2.5 text-sm
                          focus-visible:ring-2 focus-visible:ring-accent
-                         focus-visible:ring-offset-2 order-2"
+                         focus-visible:ring-offset-2 order-2 sm:w-auto"
             >
               {t('cookie.action.managePreferences')}
             </button>
@@ -368,10 +368,10 @@ function CookieConsentBanner({
           <button
             type="button"
             onClick={onRejectNonEssential}
-            className="neumorph-btn text-sm opacity-70 hover:opacity-100 px-6 py-2.5
+            className="neumorph-btn w-full justify-center text-sm opacity-70 hover:opacity-100 px-4 py-2.5
                        focus-visible:ring-2 focus-visible:ring-accent
                        focus-visible:ring-offset-2 transition-opacity order-3
-                       sm:ml-auto"
+                       sm:ml-auto sm:w-auto"
           >
             {t('cookie.action.rejectNonEssential')}
           </button>

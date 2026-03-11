@@ -20,6 +20,7 @@ This guide will help you set up Sentry error monitoring for HealthCheck.
 ### 2. Get Your Sentry DSN
 
 After creating the project, you'll see a **DSN** (Data Source Name). It looks like:
+
 ```
 https://[key]@[organization].ingest.sentry.io/[project-id]
 ```
@@ -45,11 +46,13 @@ Replace the placeholder values with your actual Sentry credentials.
 ### 4. Test the Setup
 
 Start your development server:
+
 ```bash
 npm run dev
 ```
 
 Trigger a test error by adding this to any page:
+
 ```typescript
 <button onClick={() => { throw new Error('Sentry test error!'); }}>
   Test Sentry
@@ -85,6 +88,7 @@ SENTRY_AUTH_TOKEN=your-production-auth-token
 ### 3. Deploy
 
 Build and deploy your application:
+
 ```bash
 npm run build
 ```
@@ -94,22 +98,26 @@ Source maps will be automatically uploaded to Sentry during the build process.
 ## Features Enabled
 
 ### ✅ Client-Side Error Tracking
+
 - JavaScript errors in the browser
 - React component errors
 - Network request failures
 - Session replay on errors (privacy-safe)
 
 ### ✅ Server-Side Error Tracking
+
 - API route errors
 - Server component errors
 - Build-time errors
 
 ### ✅ Performance Monitoring
+
 - 10% sample rate in production (configurable)
 - Page load times
 - API response times
 
 ### ✅ Session Replay
+
 - 10% of sessions recorded in production
 - 100% of error sessions recorded
 - Privacy: All text and media masked by default
@@ -152,6 +160,7 @@ ignoreErrors: [
 ### Test Client-Side Errors
 
 Add a test button to any page:
+
 ```typescript
 <button onClick={() => { throw new Error('Test client error'); }}>
   Test Client Error
@@ -161,6 +170,7 @@ Add a test button to any page:
 ### Test Server-Side Errors
 
 Create an API route that throws an error:
+
 ```typescript
 // app/api/test-error/route.ts
 export async function GET() {
@@ -182,6 +192,7 @@ Then visit `/api/test-error` in your browser.
 ### Build Warnings
 
 If you see warnings about missing auth tokens during build:
+
 - This is normal if you haven't set up source map uploads
 - Source maps improve error debugging but aren't required
 - Add `SENTRY_AUTH_TOKEN` to enable source map uploads
@@ -198,6 +209,7 @@ If you see warnings about missing auth tokens during build:
 ### 1. Use Breadcrumbs
 
 Add custom breadcrumbs for better debugging:
+
 ```typescript
 import * as Sentry from '@sentry/nextjs';
 
@@ -211,6 +223,7 @@ Sentry.addBreadcrumb({
 ### 2. Add User Context
 
 Track which users experience errors:
+
 ```typescript
 Sentry.setUser({ id: userId, email: userEmail });
 ```
@@ -218,6 +231,7 @@ Sentry.setUser({ id: userId, email: userEmail });
 ### 3. Add Tags
 
 Organize errors with custom tags:
+
 ```typescript
 Sentry.setTag('calculator_type', 'bmi');
 Sentry.setTag('unit_system', 'metric');
@@ -226,6 +240,7 @@ Sentry.setTag('unit_system', 'metric');
 ### 4. Monitor Performance
 
 Track specific operations:
+
 ```typescript
 const transaction = Sentry.startTransaction({
   name: 'BMI Calculation',
@@ -240,6 +255,7 @@ transaction.finish();
 ## Monitoring Dashboard
 
 Access your Sentry dashboard at:
+
 ```
 https://sentry.io/organizations/[your-org]/projects/[your-project]/
 ```
@@ -260,6 +276,7 @@ https://sentry.io/organizations/[your-org]/projects/[your-project]/
 ## Cost
 
 Sentry's free tier includes:
+
 - 5,000 errors per month
 - 10,000 performance transactions per month
 - 50 session replays per month

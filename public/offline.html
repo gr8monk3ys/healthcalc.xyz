@@ -1,288 +1,305 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="You are currently offline. HealthCheck provides health and fitness calculators for body fat, BMI, TDEE, and more.">
-  <title>Offline | HealthCheck</title>
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="/icons/icon-192x192.png">
-  <style>
-    :root {
-      --background: #f0f2f5;
-      --foreground: #333;
-      --accent: #4f46e5;
-      --accent-light: #6366f1;
-      --accent-dark: #4338ca;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background-color: var(--background);
-      color: var(--foreground);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    header {
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      width: 100%;
-    }
-    
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--accent);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo img {
-      height: 40px;
-      margin-right: 0.5rem;
-    }
-    
-    main {
-      flex: 1;
-      padding: 2rem 0;
-    }
-    
-    .offline-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-    
-    .offline-icon {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 2rem;
-    }
-    
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-    
-    p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-    
-    .cached-content {
-      margin-top: 2rem;
-      text-align: left;
-      border-top: 1px solid #eee;
-      padding-top: 1.5rem;
-    }
-    
-    .cached-content h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .cached-list {
-      list-style: none;
-    }
-    
-    .cached-list li {
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      background-color: #f5f5f5;
-      border-radius: 4px;
-    }
-    
-    .cached-list a {
-      color: var(--accent);
-      text-decoration: none;
-      display: block;
-      padding: 0.5rem;
-    }
-    
-    .cached-list a:hover {
-      background-color: #eef;
-    }
-    
-    .button {
-      display: inline-block;
-      background-color: var(--accent);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.2s;
-    }
-    
-    .button:hover {
-      background-color: var(--accent-dark);
-    }
-    
-    footer {
-      background-color: white;
-      padding: 1.5rem 0;
-      text-align: center;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-    }
-    
-    @media (max-width: 768px) {
-      .offline-icon {
-        width: 80px;
-        height: 80px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="You are currently offline. HealthCheck provides health and fitness calculators for body fat, BMI, TDEE, and more."
+    />
+    <title>Offline | HealthCheck</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon-192x192.png" />
+    <style>
+      :root {
+        --background: #f0f2f5;
+        --foreground: #333;
+        --accent: #4f46e5;
+        --accent-light: #6366f1;
+        --accent-dark: #4338ca;
       }
-      
-      h1 {
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+          'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: var(--background);
+        color: var(--foreground);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
         font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
       }
-      
+
+      .logo img {
+        height: 40px;
+        margin-right: 0.5rem;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem 0;
+      }
+
+      .offline-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .offline-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+      }
+
       p {
-        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <a href="/" class="logo">
-          <img src="/icons/icon-72x72.png" alt="HealthCheck Logo">
-          HealthCheck
-        </a>
-      </div>
-    </div>
-  </header>
-  
-  <main>
-    <div class="container">
-      <div class="offline-container">
-        <svg class="offline-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="1" y1="1" x2="23" y2="23"></line>
-          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-          <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-          <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-          <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-          <line x1="12" y1="20" x2="12.01" y2="20"></line>
-        </svg>
-        
-        <h1>You're Offline</h1>
-        <p>It looks like you're not connected to the internet right now. Some features may be unavailable until you're back online.</p>
-        
-        <a href="/" class="button">Try Again</a>
-        
-        <div class="cached-content">
-          <h2>Available Offline</h2>
-          <p>You can still access these previously visited pages:</p>
-          
-          <ul class="cached-list" id="cached-pages">
-            <li><a href="/">Home</a></li>
-            <!-- Dynamically populated list will appear here -->
-          </ul>
+
+      .cached-content {
+        margin-top: 2rem;
+        text-align: left;
+        border-top: 1px solid #eee;
+        padding-top: 1.5rem;
+      }
+
+      .cached-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .cached-list {
+        list-style: none;
+      }
+
+      .cached-list li {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+      }
+
+      .cached-list a {
+        color: var(--accent);
+        text-decoration: none;
+        display: block;
+        padding: 0.5rem;
+      }
+
+      .cached-list a:hover {
+        background-color: #eef;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: var(--accent);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.2s;
+      }
+
+      .button:hover {
+        background-color: var(--accent-dark);
+      }
+
+      footer {
+        background-color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      @media (max-width: 768px) {
+        .offline-icon {
+          width: 80px;
+          height: 80px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="logo">
+            <img src="/icons/icon-72x72.png" alt="HealthCheck Logo" />
+            HealthCheck
+          </a>
         </div>
       </div>
-    </div>
-  </main>
-  
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 HealthCheck. All rights reserved.</p>
-    </div>
-  </footer>
-  
-  <script>
-    // Populate cached pages if available
-    if ('caches' in window) {
-      caches.open('healthcheck-cache-v3').then(cache => {
-        cache.keys().then(requests => {
-          const cachedList = document.getElementById('cached-pages');
-          const homeItem = cachedList.querySelector('li'); // Keep the home item
-          
-          // Clear existing items except home
-          while (cachedList.firstChild) {
-            cachedList.removeChild(cachedList.firstChild);
-          }
-          
-          // Add home item back
-          cachedList.appendChild(homeItem);
-          
-          // Filter HTML pages and add to list
-          const htmlRequests = requests.filter(request => {
-            const url = new URL(request.url);
-            return url.pathname !== '/' && 
-                   url.pathname !== '/offline.html' && 
-                   !url.pathname.includes('.') || 
-                   url.pathname.endsWith('.html');
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="offline-container">
+          <svg
+            class="offline-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#4f46e5"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+            <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+            <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+            <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+            <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+          </svg>
+
+          <h1>You're Offline</h1>
+          <p>
+            It looks like you're not connected to the internet right now. Some features may be
+            unavailable until you're back online.
+          </p>
+
+          <a href="/" class="button">Try Again</a>
+
+          <div class="cached-content">
+            <h2>Available Offline</h2>
+            <p>You can still access these previously visited pages:</p>
+
+            <ul class="cached-list" id="cached-pages">
+              <li><a href="/">Home</a></li>
+              <!-- Dynamically populated list will appear here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 HealthCheck. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Populate cached pages if available
+      if ('caches' in window) {
+        caches.open('healthcheck-cache-v3').then(cache => {
+          cache.keys().then(requests => {
+            const cachedList = document.getElementById('cached-pages');
+            const homeItem = cachedList.querySelector('li'); // Keep the home item
+
+            // Clear existing items except home
+            while (cachedList.firstChild) {
+              cachedList.removeChild(cachedList.firstChild);
+            }
+
+            // Add home item back
+            cachedList.appendChild(homeItem);
+
+            // Filter HTML pages and add to list
+            const htmlRequests = requests.filter(request => {
+              const url = new URL(request.url);
+              return (
+                url.pathname !== '/' &&
+                url.pathname !== '/offline.html' &&
+                (!url.pathname.includes('.') || url.pathname.endsWith('.html'))
+              );
+            });
+
+            // Sort by pathname length (shorter paths first)
+            htmlRequests.sort((a, b) => {
+              const pathA = new URL(a.url).pathname;
+              const pathB = new URL(b.url).pathname;
+              return pathA.length - pathB.length;
+            });
+
+            // Add up to 10 items
+            htmlRequests.slice(0, 10).forEach(request => {
+              const url = new URL(request.url);
+              const pathname = url.pathname;
+
+              // Create readable name from pathname
+              let name = pathname.split('/').filter(Boolean).pop() || 'Page';
+              name = name.replace(/-/g, ' ').replace('.html', '');
+              name = name.charAt(0).toUpperCase() + name.slice(1);
+
+              const li = document.createElement('li');
+              const a = document.createElement('a');
+              a.href = pathname;
+              a.textContent = name;
+              li.appendChild(a);
+              cachedList.appendChild(li);
+            });
+
+            // If no cached pages found
+            if (cachedList.children.length <= 1) {
+              const li = document.createElement('li');
+              li.textContent = 'No additional pages cached yet';
+              cachedList.appendChild(li);
+            }
           });
-          
-          // Sort by pathname length (shorter paths first)
-          htmlRequests.sort((a, b) => {
-            const pathA = new URL(a.url).pathname;
-            const pathB = new URL(b.url).pathname;
-            return pathA.length - pathB.length;
-          });
-          
-          // Add up to 10 items
-          htmlRequests.slice(0, 10).forEach(request => {
-            const url = new URL(request.url);
-            const pathname = url.pathname;
-            
-            // Create readable name from pathname
-            let name = pathname.split('/').filter(Boolean).pop() || 'Page';
-            name = name.replace(/-/g, ' ').replace('.html', '');
-            name = name.charAt(0).toUpperCase() + name.slice(1);
-            
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = pathname;
-            a.textContent = name;
-            li.appendChild(a);
-            cachedList.appendChild(li);
-          });
-          
-          // If no cached pages found
-          if (cachedList.children.length <= 1) {
-            const li = document.createElement('li');
-            li.textContent = 'No additional pages cached yet';
-            cachedList.appendChild(li);
-          }
         });
+      }
+
+      // Check for online status changes
+      window.addEventListener('online', () => {
+        window.location.reload();
       });
-    }
-    
-    // Check for online status changes
-    window.addEventListener('online', () => {
-      window.location.reload();
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

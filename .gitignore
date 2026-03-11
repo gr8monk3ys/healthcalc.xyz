@@ -60,3 +60,15 @@ temp/
 
 # Local SQLite data
 .data/
+
+# Local browser review artifacts
+/output/
+/playwright.local.config.ts
+/*-full.png
+/*-viewport*.png
+/homepage-*.png
+/blog-*.png
+/bmi-*.png
+/calculators-index.png
+/search-dark.png
+/amazon-*-check.png

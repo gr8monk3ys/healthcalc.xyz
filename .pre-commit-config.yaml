@@ -10,8 +10,10 @@ repos:
       - id: mixed-line-ending
       - id: detect-private-key
       - id: check-added-large-files
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.10
+  - repo: local
     hooks:
-      - id: ruff
-      - id: ruff-format
+      - id: prettier-check
+        name: prettier-check
+        entry: bunx prettier --check .
+        language: system
+        pass_filenames: false

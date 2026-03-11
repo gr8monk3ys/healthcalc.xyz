@@ -1,243 +1,93 @@
-# GitHub Actions CI/CD Pipeline
+# GitHub Actions and Repo Automation
 
 ## Overview
 
-This repository uses GitHub Actions for continuous integration and deployment. The pipeline automatically runs quality checks, tests, and builds on every push and pull request.
+This repository uses GitHub Actions for application CI plus a set of organization-managed security and hygiene workflows. The app itself is Bun-first, so local verification and pre-commit hooks should be run with Bun.
 
-## Workflows
+## Main Workflows
 
-### 1. CI/CD Pipeline (`ci.yml`)
+### `ci.yml`
 
-**Triggers:**
+Runs the application test pipeline for pushes and pull requests:
 
-- Push to `master` or `main` branch
-- Pull requests targeting `master` or `main`
+- Prettier check
+- ESLint with zero warnings
+- TypeScript type-check
+- Vitest suite
+- Production build
+- Lighthouse on pull requests
+- Security audit
 
-**Jobs:**
+### Organization Workflows
 
-#### Quality Checks
+These workflows are kept in sync with org standards and run on pushes, pull requests, and manual dispatch:
 
-Runs on Node.js 18.x and 20.x to ensure compatibility.
+- `org-ci-tests.yml`
+- `org-gitleaks.yml`
+- `org-osv.yml`
+- `org-precommit.yml`
+- `org-trivy.yml`
+- `org-trufflehog.yml`
+- `security-baseline.yml`
+- `semgrep.yml`
 
-- **Format Check**: Verifies code formatting with Prettier
-- **Linting**: Runs ESLint to catch code quality issues
-- **Type Checking**: Validates TypeScript types
-- **Tests**: Runs all unit tests with coverage reporting
-- **Build**: Ensures the project builds successfully
-- **Bundle Size Check**: Reports the size of the production bundle
+### CodeQL
 
-#### Lighthouse Performance Check
+GitHub default CodeQL is enabled at the repository level. `org-codeql.yml` intentionally does not upload SARIF results; it serves as a pass-through status check so the repo does not generate duplicate CodeQL uploads from two different workflows.
 
-Runs on pull requests only.
+## Dependency Automation
 
-- Builds the project locally
-- Runs Lighthouse CI on key pages (home, BMI, TDEE)
-- Uploads performance reports as artifacts
-- Provides performance metrics for review
+- Dependabot manages npm and GitHub Actions updates.
+- GitHub Actions are pinned by commit SHA.
+- `eslint` semver-major updates are ignored for now because ESLint 10 currently breaks the repo's React lint stack.
 
-#### Security Audit
+## Local Verification
 
-- Runs npm audit to check for security vulnerabilities
-- Reports high-severity issues
-- Continues even if vulnerabilities are found (non-blocking)
-
-## Required Secrets
-
-To fully utilize the CI/CD pipeline, configure these secrets in your GitHub repository settings:
-
-### Codecov (Optional - for test coverage reports)
-
-- **`CODECOV_TOKEN`**: Token from [codecov.io](https://codecov.io)
-  - Sign up at codecov.io
-  - Add your repository
-  - Copy the upload token
-  - Add as repository secret
-
-### Google Analytics (Optional - for production builds)
-
-- **`NEXT_PUBLIC_GA_ID`**: Your Google Analytics Measurement ID
-  - Format: `G-XXXXXXXXXX`
-  - Get from Google Analytics Admin panel
-  - Add as repository secret
-
-### Sentry (Optional - for error monitoring)
-
-- **`NEXT_PUBLIC_SENTRY_DSN`**: Your Sentry DSN
-  - Get from Sentry project settings
-  - Format: `https://[key]@[org].ingest.sentry.io/[project-id]`
-  - Add as repository secret
-- **`SENTRY_ORG`**: Your Sentry organization slug
-- **`SENTRY_PROJECT`**: Your Sentry project name
-- **`SENTRY_AUTH_TOKEN`**: Sentry auth token for source map uploads
-  - Generate in Sentry Settings > Auth Tokens
-  - Needs `project:write` permission
-
-## Setting Up GitHub Secrets
-
-1. Go to your GitHub repository
-2. Navigate to **Settings** > **Secrets and variables** > **Actions**
-3. Click **New repository secret**
-4. Add each secret name and value
-5. Click **Add secret**
-
-## Vercel Deployment
-
-This project uses Vercel for deployment. Vercel automatically:
-
-- Deploys on push to `master`/`main` (production)
-- Creates preview deployments for pull requests
-- Builds using the same configuration as local builds
-
-### Connecting Vercel
-
-1. Go to [vercel.com](https://vercel.com)
-2. Import your GitHub repository
-3. Configure environment variables:
-   - `NEXT_PUBLIC_GA_ID`
-   - `NEXT_PUBLIC_SENTRY_DSN`
-   - `SENTRY_ORG`
-   - `SENTRY_PROJECT`
-   - `SENTRY_AUTH_TOKEN`
-4. Deploy!
-
-Vercel will automatically:
-
-- Run builds on every commit
-- Deploy to production on merge to main
-- Create preview URLs for PRs
-- Run health checks
-
-## Local Testing
-
-Before pushing, run the same checks locally:
+Run these before pushing:
 
 ```bash
-# Run all quality checks
-npm run validate
-
-# This runs:
-# - npm run format:check
-# - npm run lint
-# - npm run type-check
-
-# Run tests
-npm test -- --run
-
-# Build the project
-npm run build
+bun run format:check
+bun run lint
+bun run type-check
+bun run test -- --run
+bun run build
 ```
 
-## Workflow Status
+## Secrets
 
-You can view the status of workflows:
+Optional production-facing secrets commonly used by workflows and deployments:
 
-- In the **Actions** tab of your GitHub repository
-- On pull request pages (status checks)
-- Via status badges (add to README.md)
-
-### Status Badge
-
-Add this to your README.md:
-
-```markdown
-![CI/CD Pipeline](https://github.com/YOUR_USERNAME/healthcalc.xyz/actions/workflows/ci.yml/badge.svg)
-```
+- `NEXT_PUBLIC_GA_ID`
+- `NEXT_PUBLIC_SENTRY_DSN`
+- `SENTRY_ORG`
+- `SENTRY_PROJECT`
+- `SENTRY_AUTH_TOKEN`
+- `CODECOV_TOKEN`
 
 ## Troubleshooting
 
-### Build Failures
-
-**Format check fails:**
+### Formatting or pre-commit failures
 
 ```bash
-npm run format
+bun run format
 ```
 
-**Linting fails:**
+### Lint failures
 
 ```bash
-npm run lint:fix
+bun run lint:fix
 ```
 
-**Type check fails:**
-
-- Fix TypeScript errors in your IDE
-- Run `npm run type-check` to verify
-
-**Tests fail:**
-
-- Run `npm test` locally to debug
-- Check test output in GitHub Actions logs
-
-**Build fails:**
-
-- Check for missing environment variables
-- Verify all dependencies are in package.json
-- Run `npm run build` locally
-
-### Performance Issues
-
-If Lighthouse scores are low:
-
-- Check the Lighthouse report artifacts
-- Review performance recommendations
-- Optimize images, code splitting, lazy loading
-- Reduce bundle size
-
-### Security Vulnerabilities
-
-If security audit fails:
+### Test failures
 
 ```bash
-# Review vulnerabilities
-npm audit
-
-# Fix automatically (if possible)
-npm audit fix
-
-# For production dependencies only
-npm audit --production
+bun run test -- --run
 ```
 
-## Customization
+### Build failures
 
-### Adjust Node.js Versions
-
-Edit `.github/workflows/ci.yml`:
-
-```yaml
-strategy:
-  matrix:
-    node-version: [18.x, 20.x, 22.x] # Add or remove versions
-```
-
-### Skip Lighthouse on Some PRs
-
-Add this to PR description:
-
-```
-[skip lighthouse]
-```
-
-Then update the workflow to check for this flag.
-
-### Change Test Coverage Threshold
-
-Add to `package.json`:
-
-```json
-{
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
-  }
-}
+```bash
+bun run build
 ```
 
 ## Best Practices

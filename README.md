@@ -49,8 +49,8 @@ HealthCheck is a comprehensive health and fitness calculator web application bui
 
 ### Prerequisites
 
-- Node.js 18.x or higher
-- npm or yarn
+- Bun 1.2+ (primary package manager/runtime for this repo)
+- Node.js 20.19+ recommended for local tooling compatibility
 
 ### Vercel Preview Domains (Important)
 
@@ -70,17 +70,13 @@ Vercel provides (for example, `https://your-project.vercel.app`) instead.
 2. Install dependencies:
 
    ```bash
-   npm install
-   # or
-   yarn install
+   bun install
    ```
 
 3. Run the development server:
 
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   bun run dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
@@ -88,17 +84,13 @@ Vercel provides (for example, `https://your-project.vercel.app`) instead.
 ### Building for Production
 
 ```bash
-npm run build
-# or
-yarn build
+bun run build
 ```
 
 To start the production server:
 
 ```bash
-npm run start
-# or
-yarn start
+bun run start
 ```
 
 ## Available Scripts
@@ -107,27 +99,34 @@ In addition to the standard Next.js scripts, this project includes several helpf
 
 ### Development
 
-- `npm run dev` - Start development server on [http://localhost:3000](http://localhost:3000)
-- `npm run build` - Build production-ready application
-- `npm run start` - Start production server
+- `bun run dev` - Start development server on [http://localhost:3000](http://localhost:3000)
+- `bun run build` - Build a production bundle
+- `bun run start` - Start the production server
 
 ### Code Quality
 
-- `npm run lint` - Run ESLint to check for code issues
-- `npm run lint:fix` - Automatically fix ESLint errors where possible
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check if code is properly formatted
-- `npm run type-check` - Run TypeScript compiler to check for type errors
-- `npm run validate` - Run all checks (format, lint, type-check) - **recommended before commits**
-- `npm run smoke` - Run public route smoke checks for a target host (`SMOKE_BASE_URL`)
-- `npm run readiness` - Verify `/api/health` readiness checks (`READINESS_BASE_URL`, defaults to `http://127.0.0.1:3000`)
+- `bun run lint` - Run ESLint with zero warnings allowed
+- `bun run lint:fix` - Automatically fix ESLint issues where possible
+- `bun run format` - Format the repo with Prettier
+- `bun run format:check` - Verify formatting across tracked source/docs
+- `bun run type-check` - Run the TypeScript compiler
+- `bun run test -- --run` - Run the Vitest suite once
+- `bun run validate` - Run formatting, lint, type-check, and tests
+- `bun run smoke` - Run Playwright smoke coverage for core routes
 
 ### Maintenance
 
-- `npm run clean` - Remove build artifacts (.next, out, cache)
-- `npm run audit:fix` - Automatically fix security vulnerabilities
-- `npm run update` - Update caniuse-lite and browserslist databases
-- `npm run migrate:submissions` - Apply submission storage schema migrations (SQLite/Postgres)
+- `bun run clean` - Remove build artifacts (`.next`, `out`, cache)
+- `npm run audit:fix` - Apply `npm audit fix`
+- `npm run update` - Update npm dependencies using the current lockfile strategy
+
+### CI and Automation
+
+- GitHub Actions are pinned by SHA for `actions/checkout` and `actions/upload-artifact`.
+- Repository security scanning uses GitHub default CodeQL at the repo level; `org-codeql.yml` is intentionally a non-uploading placeholder to avoid duplicate SARIF uploads.
+- `org-osv.yml` uses the root `google/osv-scanner-action`.
+- Dependabot ignores `eslint` semver-major updates until the current Next.js/React lint stack is compatible with ESLint 10.
+- Pre-commit runs a repo-wide Prettier check plus standard file hygiene hooks.
 
 ### Submission Persistence
 
@@ -169,7 +168,11 @@ In addition to the standard Next.js scripts, this project includes several helpf
 Before committing changes:
 
 ```bash
-npm run validate  # Ensures code passes all checks
+bun run format:check
+bun run lint
+bun run type-check
+bun run test -- --run
+bun run build
 ```
 
 ## Project Structure

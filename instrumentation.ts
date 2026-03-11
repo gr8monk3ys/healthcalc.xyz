@@ -65,7 +65,10 @@ export async function register() {
             console.error('Sentry captured error (server):', hint.originalException || event);
           }
 
-          if (process.env.NODE_ENV === 'development' && !process.env.NEXT_PUBLIC_SENTRY_DEV_ENABLED) {
+          if (
+            process.env.NODE_ENV === 'development' &&
+            !process.env.NEXT_PUBLIC_SENTRY_DEV_ENABLED
+          ) {
             return null;
           }
 

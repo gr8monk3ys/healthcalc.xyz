@@ -291,15 +291,15 @@ const whyReasons = [
 const HomeContent = (
   <div className="space-y-14 md:space-y-20">
     {/* Hero Section */}
-    <section className="glass-panel-strong relative overflow-hidden rounded-[2rem] px-6 py-14 md:px-12">
+    <section className="glass-panel-strong relative overflow-hidden rounded-[2rem] px-5 py-10 sm:px-6 sm:py-12 md:px-12 md:py-14">
       <div className="relative mx-auto max-w-6xl">
         <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">
           HealthCheck Platform
         </p>
-        <h1 className="mt-4 animate-slide-up text-4xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl">
+        <h1 className="mt-4 animate-slide-up text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-6xl">
           54+ free health calculators, from body composition to GLP-1 dosing
         </h1>
-        <p className="mt-5 max-w-3xl text-lg text-slate-700 dark:text-slate-200">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-200 sm:text-lg">
           Tools you will not find on generic health sites. Track Ozempic titration schedules, score
           the Army ACFT, estimate body recomposition timelines, dial in keto macros, and calculate
           caffeine half-life -- all backed by published clinical formulas.
@@ -378,16 +378,16 @@ const HomeContent = (
         </div>
 
         {/* CTAs */}
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href="/calculators"
-            className="rounded-full bg-accent px-6 py-3 font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
+            className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
           >
             Browse calculators
           </Link>
           <Link
             href="/blog"
-            className="elevated-pill rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
+            className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
           >
             Read the guides
           </Link>
@@ -413,7 +413,7 @@ const HomeContent = (
                 d="M21 21l-4.35-4.35M10.8 18a7.2 7.2 0 100-14.4 7.2 7.2 0 000 14.4z"
               />
             </svg>
-            <span className="text-slate-500 dark:text-slate-300">
+            <span className="text-sm text-slate-500 dark:text-slate-300 sm:text-base">
               Search calculators, guides, and blog posts...
             </span>
           </div>
