@@ -87,6 +87,21 @@ describe('POST /api/client-errors', () => {
     expect(logger.error).not.toHaveBeenCalled();
   });
 
+  it('rejects non-string payload fields without throwing', async () => {
+    const { POST, logger } = await loadRoute();
+    const response = await POST(
+      makeRequest({ message: 123, url: { href: 'https://example.com' } })
+    );
+    const body = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(body).toEqual({
+      ok: false,
+      error: 'Invalid error payload',
+    });
+    expect(logger.error).not.toHaveBeenCalled();
+  });
+
   it('rejects invalid origins', async () => {
     const { POST } = await loadRoute({ csrf: false });
     const response = await POST(makeRequest({ message: 'boom' }));

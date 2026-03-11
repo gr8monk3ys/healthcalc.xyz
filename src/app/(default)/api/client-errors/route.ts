@@ -6,15 +6,15 @@ import { verifyCsrf } from '@/utils/csrf';
 
 const logger = createLogger({ route: 'api/client-errors' });
 
-function trim(value: string | undefined, maxLength: number): string | undefined {
-  if (!value) return undefined;
+function trim(value: unknown, maxLength: number): string | undefined {
+  if (typeof value !== 'string') return undefined;
   const normalized = value.trim();
   if (!normalized) return undefined;
   return normalized.slice(0, maxLength);
 }
 
-function normalizeUrl(value: string | undefined): string | undefined {
-  if (!value) return undefined;
+function normalizeUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string') return undefined;
 
   try {
     const url = new URL(value);
@@ -46,7 +46,7 @@ function sanitizeReport(
     stack: trim(report.stack, 4000),
     source: trim(report.source, 120),
     url: normalizeUrl(report.url),
-    userAgent: trim(report.userAgent, 500) ?? trim(fallbackUserAgent ?? undefined, 500),
+    userAgent: trim(report.userAgent, 500) ?? trim(fallbackUserAgent, 500),
     timestamp: trim(report.timestamp, 120) ?? new Date().toISOString(),
   };
 }
