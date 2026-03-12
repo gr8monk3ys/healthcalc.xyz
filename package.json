@@ -39,6 +39,20 @@
   "author": "HealthCheck Team",
   "license": "UNLICENSED",
   "description": "Free health and fitness calculators for BMI, body fat, TDEE, and more. Built with Next.js, TypeScript, and TailwindCSS.",
+  "browserslist": {
+    "production": [
+      "chrome >= 111",
+      "edge >= 111",
+      "firefox >= 113",
+      "safari >= 16.4",
+      "ios_saf >= 16.4"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@radix-ui/react-radio-group": "^1.2.3",
     "@sentry/nextjs": "^10.38.0",

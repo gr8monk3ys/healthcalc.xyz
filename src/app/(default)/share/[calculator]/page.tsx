@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import ShareRedirectClient from '@/components/share/ShareRedirectClient';
+import { notFound, redirect } from 'next/navigation';
 import {
   buildSharedResultSummary,
   decodeSharedResultToken,
@@ -129,11 +128,5 @@ export default async function SharePage({ params, searchParams }: SharePageProps
     ? `${localePrefix}/${calculator}?r=${encodeURIComponent(validToken)}`
     : `${localePrefix}/${calculator}`;
 
-  const title = validToken ? 'Opening shared result' : `Open ${CALCULATOR_LABELS[calculator]}`;
-
-  const description = validToken
-    ? 'This shared link includes prefilled inputs and will open the calculator with results.'
-    : 'The shared token was missing or invalid. Opening the calculator directly.';
-
-  return <ShareRedirectClient targetPath={targetPath} title={title} description={description} />;
+  redirect(targetPath);
 }

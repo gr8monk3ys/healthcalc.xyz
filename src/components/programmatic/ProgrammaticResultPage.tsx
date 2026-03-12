@@ -14,6 +14,17 @@ function TableHeader({ column }: { column: ProgrammaticTableColumn }) {
   );
 }
 
+function getBreadcrumbKey(item: ProgrammaticPageData['breadcrumbs'][number]): string {
+  return `${item.href ?? 'current'}:${item.label}`;
+}
+
+function getComparisonRowKey(
+  row: ProgrammaticPageData['comparisonRows'][number],
+  columns: ProgrammaticPageData['comparisonColumns']
+): string {
+  return columns.map(column => row[column.key] ?? '').join('|');
+}
+
 export default function ProgrammaticResultPage({ data }: { data: ProgrammaticPageData }) {
   return (
     <article className="max-w-5xl mx-auto space-y-8">
@@ -22,7 +33,7 @@ export default function ProgrammaticResultPage({ data }: { data: ProgrammaticPag
           {data.breadcrumbs.map((item, index) => {
             const isLast = index === data.breadcrumbs.length - 1;
             return (
-              <li key={`${item.label}-${index}`} className="inline-flex items-center gap-2">
+              <li key={getBreadcrumbKey(item)} className="inline-flex items-center gap-2">
                 {item.href && !isLast ? (
                   <Link href={item.href} className="hover:underline text-accent">
                     {item.label}
@@ -81,8 +92,8 @@ export default function ProgrammaticResultPage({ data }: { data: ProgrammaticPag
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 bg-white/45 dark:divide-slate-800 dark:bg-slate-900/25">
-              {data.comparisonRows.map((row, index) => (
-                <tr key={index}>
+              {data.comparisonRows.map(row => (
+                <tr key={getComparisonRowKey(row, data.comparisonColumns)}>
                   {data.comparisonColumns.map(column => {
                     const alignClass = column.align === 'right' ? 'text-right' : 'text-left';
                     return (
@@ -105,8 +116,8 @@ export default function ProgrammaticResultPage({ data }: { data: ProgrammaticPag
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
           {data.contextHeading}
         </h2>
-        {data.contextParagraphs.map((paragraph, index) => (
-          <p key={index} className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+        {data.contextParagraphs.map(paragraph => (
+          <p key={paragraph} className="text-sm md:text-base text-gray-700 dark:text-gray-300">
             {paragraph}
           </p>
         ))}

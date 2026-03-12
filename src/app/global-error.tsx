@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import * as Sentry from '@sentry/nextjs';
 import { createLogger } from '@/utils/logger';
 import { buildClientErrorReport, sendClientErrorReport } from '@/lib/clientErrorReporting';
 import { hasConfiguredBrowserSentryDsn } from '@/lib/monitoring';
@@ -33,11 +32,12 @@ export default function GlobalError({
     });
 
     if (hasConfiguredBrowserSentryDsn()) {
-      Sentry.captureException(error);
-      return;
+      void import('@sentry/nextjs').then(({ captureException }) => {
+        captureException(error);
+      });
+    } else {
+      sendClientErrorReport(buildClientErrorReport(error, 'global-error'));
     }
-
-    sendClientErrorReport(buildClientErrorReport(error, 'global-error'));
   }, [error]);
 
   return (

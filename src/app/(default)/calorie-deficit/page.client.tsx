@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { CalorieDeficitResult as CalorieDeficitResultType } from '@/types/calorieDeficit';
 import { calculateCalorieDeficit } from '@/app/api/calorieDeficit';
@@ -99,62 +99,305 @@ function isActivityLevel(value: unknown): value is ActivityLevel {
   return ACTIVITY_LEVEL_OPTIONS.includes(value as ActivityLevel);
 }
 
-function useCalorieDeficitCalculatorState() {
-  const [activityLevel, setActivityLevel] = useState<ActivityLevel>('sedentary');
-  const [goalWeight, setGoalWeight] = useState<number | ''>('');
-  const [deficitLevel, setDeficitLevel] = useState<'mild' | 'moderate' | 'aggressive'>('moderate');
+type CalorieDeficitState = {
+  age: number | '';
+  gender: Gender;
+  activityLevel: ActivityLevel;
+  goalWeight: number | '';
+  deficitLevel: 'mild' | 'moderate' | 'aggressive';
+};
+
+type CalorieDeficitAction =
+  | { type: 'patch'; patch: Partial<CalorieDeficitState> }
+  | { type: 'reset' };
+
+const initialCalorieDeficitState: CalorieDeficitState = {
+  age: '',
+  gender: 'male',
+  activityLevel: 'sedentary',
+  goalWeight: '',
+  deficitLevel: 'moderate',
+};
+
+function calorieDeficitReducer(
+  state: CalorieDeficitState,
+  action: CalorieDeficitAction
+): CalorieDeficitState {
+  switch (action.type) {
+    case 'patch':
+      return { ...state, ...action.patch };
+    case 'reset':
+      return initialCalorieDeficitState;
+    default:
+      return state;
+  }
+}
+
+type CalorieDeficitFormFieldsArgs = {
+  activityLevel: ActivityLevel;
+  age: number | '';
+  deficitLevel: 'mild' | 'moderate' | 'aggressive';
+  errors: Record<string, string>;
+  gender: Gender;
+  goalWeight: number | '';
+  height: ReturnType<typeof useHeight>;
+  setActivityLevel: (value: ActivityLevel) => void;
+  setAge: (value: number | '') => void;
+  setDeficitLevel: (value: 'mild' | 'moderate' | 'aggressive') => void;
+  setGender: (value: Gender) => void;
+  setGoalWeight: (value: number | '') => void;
+  toggleWeightUnitWithGoal: () => void;
+  weight: ReturnType<typeof useWeight>;
+};
+
+function createCalorieDeficitFormFields({
+  activityLevel,
+  age,
+  deficitLevel,
+  errors,
+  gender,
+  goalWeight,
+  height,
+  setActivityLevel,
+  setAge,
+  setDeficitLevel,
+  setGender,
+  setGoalWeight,
+  toggleWeightUnitWithGoal,
+  weight,
+}: CalorieDeficitFormFieldsArgs): React.ComponentProps<typeof CalculatorForm>['fields'] {
+  return [
+    {
+      name: 'gender',
+      label: 'Gender',
+      type: 'radio' as const,
+      value: gender,
+      onChange: (value: string) => setGender(value as Gender),
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' },
+      ],
+    },
+    {
+      name: 'age',
+      label: 'Age',
+      type: 'number' as const,
+      value: age,
+      onChange: setAge,
+      error: errors.age,
+      placeholder: 'Years',
+    },
+    createHeightField(height, errors.height),
+    {
+      ...createWeightField(weight, errors.weight),
+      label: 'Current Weight',
+      unitToggle: toggleWeightUnitWithGoal,
+    },
+    {
+      name: 'goalWeight',
+      label: 'Goal Weight',
+      type: 'number' as const,
+      value: goalWeight,
+      onChange: setGoalWeight,
+      error: errors.goalWeight,
+      placeholder: weight.placeholder,
+      unit: weight.unit,
+      step: '0.1',
+    },
+    {
+      name: 'activity',
+      label: 'Activity Level',
+      type: 'select' as const,
+      value: activityLevel,
+      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
+      options: ACTIVITY_MULTIPLIERS.map(level => ({
+        value: level.level,
+        label: level.label,
+        description: level.description,
+      })),
+    },
+    {
+      name: 'deficitLevel',
+      label: 'Deficit Level',
+      type: 'select' as const,
+      value: deficitLevel,
+      onChange: (value: string) => setDeficitLevel(value as 'mild' | 'moderate' | 'aggressive'),
+      options: DEFICIT_OPTIONS.map(option => ({
+        value: option.level,
+        label: option.label,
+        description: option.description,
+      })),
+    },
+  ];
+}
+
+function createCalorieDeficitShareResultContext({
+  activityLevel,
+  age,
+  deficitLevel,
+  gender,
+  goalWeight,
+  height,
+  showResult,
+  weight,
+}: Pick<CalorieDeficitState, 'activityLevel' | 'age' | 'deficitLevel' | 'gender' | 'goalWeight'> & {
+  height: ReturnType<typeof useHeight>;
+  showResult: boolean;
+  weight: ReturnType<typeof useWeight>;
+}): React.ComponentProps<typeof CalculatorPageLayout>['shareResultContext'] {
+  const heightCm = height.toCm();
+  const weightKg = weight.toKg();
+  const goalWeightKg =
+    typeof goalWeight === 'number'
+      ? weight.unit === 'kg'
+        ? goalWeight
+        : convertWeight(goalWeight, 'lb', 'kg')
+      : null;
+
+  if (
+    !showResult ||
+    typeof age !== 'number' ||
+    heightCm === null ||
+    weightKg === null ||
+    goalWeightKg === null
+  ) {
+    return undefined;
+  }
 
   return {
-    activityLevel,
-    setActivityLevel,
-    goalWeight,
-    setGoalWeight,
-    deficitLevel,
-    setDeficitLevel,
+    calculator: 'calorie-deficit',
+    inputs: {
+      age,
+      gender,
+      heightCm,
+      weightKg,
+      goalWeightKg,
+      activityLevel,
+      deficitLevel,
+    },
   };
 }
+
+type CalorieDeficitContentProps = {
+  calculationError: string | null;
+  formFields: React.ComponentProps<typeof CalculatorForm>['fields'];
+  goalWeight: number | '';
+  handleSubmit: React.FormEventHandler<Element>;
+  onReset: () => void;
+  result: CalorieDeficitResultType | null;
+  showResult: boolean;
+  weight: ReturnType<typeof useWeight>;
+};
+
+function CalorieDeficitContent({
+  calculationError,
+  formFields,
+  goalWeight,
+  handleSubmit,
+  onReset,
+  result,
+  showResult,
+  weight,
+}: CalorieDeficitContentProps): React.JSX.Element {
+  return (
+    <>
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={onReset}
+        />
+
+        {calculationError ? (
+          <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+            {calculationError}
+          </div>
+        ) : null}
+      </div>
+
+      <div className="md:col-span-2" id="calorie-deficit-result">
+        {showResult && result ? (
+          <>
+            <CalorieDeficitResultDisplay result={result} weightUnit={weight.unit} />
+
+            <div className="mt-6 flex items-center justify-between">
+              <SaveResult
+                calculatorType="calorie-deficit"
+                calculatorName="Calorie Deficit Calculator"
+                data={{
+                  tdee: result.tdee,
+                  targetCalories: result.dailyCalorieTarget,
+                  deficitCalories: result.dailyDeficit,
+                  estimatedWeeks: result.estimatedWeeks,
+                  weightToLose: `${
+                    typeof weight.value === 'number' && typeof goalWeight === 'number'
+                      ? (weight.value - goalWeight).toFixed(1)
+                      : 0
+                  } ${weight.unit}`,
+                }}
+              />
+
+              <button
+                onClick={onReset}
+                className="rounded-lg bg-gray-200 px-4 py-2 text-gray-800 transition-colors hover:bg-gray-300"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <CalorieDeficitInfo />
+        )}
+      </div>
+    </>
+  );
+}
 export default function CalorieDeficitCalculator() {
-  // State for form inputs
-  const [gender, setGender] = useState<Gender>('male');
-  const [age, setAge] = useState<number | ''>('');
+  const [state, dispatchState] = useReducer(calorieDeficitReducer, initialCalorieDeficitState);
+  const { activityLevel, age, deficitLevel, gender, goalWeight } = state;
   const height = useHeight();
   const weight = useWeight();
-  const {
-    activityLevel,
-    setActivityLevel,
-    goalWeight,
-    setGoalWeight,
-    deficitLevel,
-    setDeficitLevel,
-  } = useCalorieDeficitCalculatorState();
-
   const chainPrefill = useChainPrefill('calorie-deficit');
   const sharedPrefill = useSharedResultPrefill('calorie-deficit');
   const hasAppliedSharedPrefill = useRef(false);
 
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
-    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
-      setGender(chainPrefill.gender as Gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        ...(typeof chainPrefill.age === 'number' ? { age: chainPrefill.age } : {}),
+        ...(chainPrefill.gender === 'male' || chainPrefill.gender === 'female'
+          ? { gender: chainPrefill.gender as Gender }
+          : {}),
+        ...(isActivityLevel(chainPrefill.activityLevel)
+          ? { activityLevel: chainPrefill.activityLevel }
+          : {}),
+      },
+    });
     if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
     if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-    if (isActivityLevel(chainPrefill.activityLevel)) setActivityLevel(chainPrefill.activityLevel);
-  }, [chainPrefill, height, setActivityLevel, setAge, setGender, weight]);
+  }, [chainPrefill, height, weight]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
 
     hasAppliedSharedPrefill.current = true;
-    setAge(sharedPrefill.age);
-    setGender(sharedPrefill.gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        age: sharedPrefill.age,
+        gender: sharedPrefill.gender,
+        goalWeight: sharedPrefill.goalWeightKg,
+        activityLevel: sharedPrefill.activityLevel,
+        deficitLevel: sharedPrefill.deficitLevel,
+      },
+    });
     height.setValue(sharedPrefill.heightCm);
     weight.setValue(sharedPrefill.weightKg);
-    setGoalWeight(sharedPrefill.goalWeightKg);
-    setActivityLevel(sharedPrefill.activityLevel);
-    setDeficitLevel(sharedPrefill.deficitLevel);
     requestCalculatorFormSubmit();
-  }, [height, setActivityLevel, setDeficitLevel, setGoalWeight, sharedPrefill, weight]);
+  }, [height, sharedPrefill, weight]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();
@@ -169,16 +412,22 @@ export default function CalorieDeficitCalculator() {
   }, [age, gender, height, weight, activityLevel]);
 
   // Wrap the weight toggle to also convert goalWeight
-  const toggleWeightUnitWithGoal = () => {
+  const toggleWeightUnitWithGoal = useCallback(() => {
     if (typeof goalWeight === 'number') {
       if (weight.unit === 'kg') {
-        setGoalWeight(parseFloat(convertWeight(goalWeight, 'kg', 'lb').toFixed(1)));
+        dispatchState({
+          type: 'patch',
+          patch: { goalWeight: parseFloat(convertWeight(goalWeight, 'kg', 'lb').toFixed(1)) },
+        });
       } else {
-        setGoalWeight(parseFloat(convertWeight(goalWeight, 'lb', 'kg').toFixed(1)));
+        dispatchState({
+          type: 'patch',
+          patch: { goalWeight: parseFloat(convertWeight(goalWeight, 'lb', 'kg').toFixed(1)) },
+        });
       }
     }
     weight.toggle();
-  };
+  }, [goalWeight, weight]);
 
   // Shared form boilerplate: errors, result, showResult, calculationError,
   // handleSubmit, handleReset — extracted into the shared hook.
@@ -276,114 +525,58 @@ export default function CalorieDeficitCalculator() {
   // Wrap handleReset to also reset field state managed by this component
   const onReset = () => {
     handleReset(() => {
-      setGender('male');
-      setAge('');
+      dispatchState({ type: 'reset' });
       height.setValue('');
       weight.setValue('');
-      setActivityLevel('sedentary');
-      setGoalWeight('');
-      setDeficitLevel('moderate');
     });
   };
 
-  const shareResultContext = useMemo(() => {
-    const heightCm = height.toCm();
-    const weightKg = weight.toKg();
-    const goalWeightKg =
-      typeof goalWeight === 'number'
-        ? weight.unit === 'kg'
-          ? goalWeight
-          : convertWeight(goalWeight, 'lb', 'kg')
-        : null;
-
-    if (
-      !showResult ||
-      typeof age !== 'number' ||
-      heightCm === null ||
-      weightKg === null ||
-      goalWeightKg === null
-    ) {
-      return undefined;
-    }
-
-    return {
-      calculator: 'calorie-deficit' as const,
-      inputs: {
-        age,
-        gender,
-        heightCm,
-        weightKg,
-        goalWeightKg,
+  const shareResultContext = useMemo(
+    () =>
+      createCalorieDeficitShareResultContext({
         activityLevel,
+        age,
         deficitLevel,
-      },
-    };
-  }, [activityLevel, age, deficitLevel, gender, goalWeight, height, showResult, weight]);
+        gender,
+        goalWeight,
+        height,
+        showResult,
+        weight,
+      }),
+    [activityLevel, age, deficitLevel, gender, goalWeight, height, showResult, weight]
+  );
 
-  // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: (value: string) => setGender(value as Gender),
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    createHeightField(height, errors.height),
-    {
-      ...createWeightField(weight, errors.weight),
-      label: 'Current Weight',
-      unitToggle: toggleWeightUnitWithGoal,
-    },
-    {
-      name: 'goalWeight',
-      label: 'Goal Weight',
-      type: 'number' as const,
-      value: goalWeight,
-      onChange: setGoalWeight,
-      error: errors.goalWeight,
-      placeholder: weight.placeholder,
-      unit: weight.unit,
-      step: '0.1',
-    },
-    {
-      name: 'activity',
-      label: 'Activity Level',
-      type: 'select' as const,
-      value: activityLevel,
-      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
-      options: ACTIVITY_MULTIPLIERS.map(level => ({
-        value: level.level,
-        label: level.label,
-        description: level.description,
-      })),
-    },
-    {
-      name: 'deficitLevel',
-      label: 'Deficit Level',
-      type: 'select' as const,
-      value: deficitLevel,
-      onChange: (value: string) => setDeficitLevel(value as 'mild' | 'moderate' | 'aggressive'),
-      options: DEFICIT_OPTIONS.map(option => ({
-        value: option.level,
-        label: option.label,
-        description: option.description,
-      })),
-    },
-  ];
+  const formFields = useMemo(
+    () =>
+      createCalorieDeficitFormFields({
+        activityLevel,
+        age,
+        deficitLevel,
+        errors,
+        gender,
+        goalWeight,
+        height,
+        setActivityLevel: value =>
+          dispatchState({ type: 'patch', patch: { activityLevel: value } }),
+        setAge: value => dispatchState({ type: 'patch', patch: { age: value } }),
+        setDeficitLevel: value => dispatchState({ type: 'patch', patch: { deficitLevel: value } }),
+        setGender: value => dispatchState({ type: 'patch', patch: { gender: value } }),
+        setGoalWeight: value => dispatchState({ type: 'patch', patch: { goalWeight: value } }),
+        toggleWeightUnitWithGoal,
+        weight,
+      }),
+    [
+      activityLevel,
+      age,
+      deficitLevel,
+      errors,
+      gender,
+      goalWeight,
+      height,
+      toggleWeightUnitWithGoal,
+      weight,
+    ]
+  );
 
   return (
     <CalculatorPageLayout
@@ -411,53 +604,16 @@ export default function CalorieDeficitCalculator() {
       chainResultData={chainResultData}
       shareResultContext={shareResultContext}
     >
-      <div className="md:col-span-1">
-        <CalculatorForm
-          title="Enter Your Details"
-          fields={formFields}
-          onSubmit={handleSubmit}
-          onReset={onReset}
-        />
-
-        {/* User-facing calculation error */}
-        {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-            {calculationError}
-          </div>
-        )}
-      </div>
-
-      <div className="md:col-span-2" id="calorie-deficit-result">
-        {showResult && result ? (
-          <>
-            <CalorieDeficitResultDisplay result={result} weightUnit={weight.unit} />
-
-            {/* Save result functionality */}
-            <div className="mt-6 flex justify-between items-center">
-              <SaveResult
-                calculatorType="calorie-deficit"
-                calculatorName="Calorie Deficit Calculator"
-                data={{
-                  tdee: result.tdee,
-                  targetCalories: result.dailyCalorieTarget,
-                  deficitCalories: result.dailyDeficit,
-                  estimatedWeeks: result.estimatedWeeks,
-                  weightToLose: `${typeof weight.value === 'number' && typeof goalWeight === 'number' ? (weight.value - goalWeight).toFixed(1) : 0} ${weight.unit}`,
-                }}
-              />
-
-              <button
-                onClick={onReset}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-              >
-                New Calculation
-              </button>
-            </div>
-          </>
-        ) : (
-          <CalorieDeficitInfo />
-        )}
-      </div>
+      <CalorieDeficitContent
+        calculationError={calculationError}
+        formFields={formFields}
+        goalWeight={goalWeight}
+        handleSubmit={handleSubmit}
+        onReset={onReset}
+        result={result}
+        showResult={showResult}
+        weight={weight}
+      />
     </CalculatorPageLayout>
   );
 }

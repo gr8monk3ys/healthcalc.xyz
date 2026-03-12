@@ -1,10 +1,12 @@
 'use client';
 
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import Breadcrumb from '@/components/Breadcrumb';
+import FAQSection from '@/components/FAQSection';
+import NewsletterSignup from '@/components/NewsletterSignup';
+import RelatedArticles from '@/components/RelatedArticles';
 import SocialShare from '@/components/SocialShare';
 import StructuredData, {
   createCalculatorSchema,
@@ -35,8 +37,6 @@ function formatTemplate(template: string, vars: Record<string, string>): string 
 }
 
 const EMPTY_HASHTAGS: string[] = [];
-const FAQ_SKELETON_ROWS = ['faq-1', 'faq-2', 'faq-3'];
-const ARTICLE_SKELETON_ROWS = ['article-1', 'article-2', 'article-3'];
 
 function readIsEmbedFromLocation(): boolean {
   if (typeof window === 'undefined') {
@@ -44,49 +44,6 @@ function readIsEmbedFromLocation(): boolean {
   }
   return new URLSearchParams(window.location.search).get('embed') === '1';
 }
-
-// Dynamic imports for below-the-fold components (performance optimization)
-const FAQSection = dynamic(() => import('@/components/FAQSection'), {
-  loading: () => (
-    <div className="neumorph p-6 rounded-lg my-8 animate-pulse">
-      <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-6" />
-      <div className="space-y-4">
-        {FAQ_SKELETON_ROWS.map(rowId => (
-          <div key={rowId} className="h-12 bg-gray-200 dark:bg-gray-700 rounded" />
-        ))}
-      </div>
-    </div>
-  ),
-});
-
-const NewsletterSignup = dynamic(() => import('@/components/NewsletterSignup'), {
-  loading: () => (
-    <div className="neumorph p-6 rounded-lg animate-pulse">
-      <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-2" />
-      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4" />
-      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded mb-4" />
-      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded" />
-    </div>
-  ),
-});
-
-const RelatedArticles = dynamic(() => import('@/components/RelatedArticles'), {
-  loading: () => (
-    <div className="neumorph p-6 rounded-lg my-8 animate-pulse">
-      <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-6" />
-      <div className="space-y-6">
-        {ARTICLE_SKELETON_ROWS.map(rowId => (
-          <div key={rowId} className="p-4 rounded-lg neumorph">
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-2" />
-            <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2" />
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2" />
-            <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
-          </div>
-        ))}
-      </div>
-    </div>
-  ),
-});
 
 /**
  * Represents a FAQ item with question and answer
@@ -146,6 +103,25 @@ interface CalculatorPageLayoutProps {
   shareResultContext?: ShareResultContext;
   /** The main content (calculator form and result display) */
   children: React.ReactNode;
+}
+
+function SupplementalDisclosure({
+  summary,
+  children,
+  className = '',
+}: {
+  summary: string;
+  children: React.ReactNode;
+  className?: string;
+}): React.ReactElement {
+  return (
+    <details className={`glass-panel rounded-2xl ${className}`}>
+      <summary className="cursor-pointer list-none px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden dark:text-white">
+        {summary}
+      </summary>
+      <div className="px-5 pb-5">{children}</div>
+    </details>
+  );
 }
 
 /**
@@ -328,10 +304,12 @@ function CalculatorPageLayoutContent({
             <EmbedCalculator calculatorSlug={calculatorSlug} title={title} />
           </Accordion>
 
-          <RelatedCalculators
-            currentSlug={calculatorSlug}
-            title={t('calculator.relatedCalculators.title')}
-          />
+          <div>
+            <RelatedCalculators
+              currentSlug={calculatorSlug}
+              title={t('calculator.relatedCalculators.title')}
+            />
+          </div>
 
           {availableChains.length > 0 && (
             <div className="my-8">
@@ -356,75 +334,46 @@ function CalculatorPageLayoutContent({
             </div>
           )}
 
-          <RelatedGuides title={t('calculator.relatedGuides.title')} />
+          <div>
+            <RelatedGuides title={t('calculator.relatedGuides.title')} />
+          </div>
 
-          <Suspense
-            fallback={
-              <div className="neumorph p-6 rounded-lg my-8 animate-pulse">
-                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-6" />
-                <div className="space-y-4">
-                  {FAQ_SKELETON_ROWS.map(rowId => (
-                    <div key={rowId} className="h-12 bg-gray-200 dark:bg-gray-700 rounded" />
-                  ))}
-                </div>
-              </div>
+          <FAQSection
+            faqs={faqs}
+            title={
+              faqTitle ||
+              formatTemplate(t('calculator.faq.titleTemplate'), {
+                topic: title.replace(' Calculator', ''),
+              })
             }
-          >
-            <FAQSection
-              faqs={faqs}
-              title={
-                faqTitle ||
-                formatTemplate(t('calculator.faq.titleTemplate'), {
-                  topic: title.replace(' Calculator', ''),
-                })
-              }
-              className="mb-8"
-            />
-          </Suspense>
+            className="mb-8"
+          />
 
-          {understandingSection}
+          {understandingSection ? (
+            <SupplementalDisclosure
+              summary={`Learn more about ${title.replace(' Calculator', '')}`}
+              className="my-8"
+            >
+              {understandingSection}
+            </SupplementalDisclosure>
+          ) : null}
 
-          <Suspense
-            fallback={
-              <div className="neumorph p-6 rounded-lg my-8 animate-pulse">
-                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-6" />
-                <div className="space-y-6">
-                  {ARTICLE_SKELETON_ROWS.map(rowId => (
-                    <div key={rowId} className="p-4 rounded-lg neumorph">
-                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-2" />
-                      <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2" />
-                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2" />
-                      <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/3" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            }
-          >
+          <SupplementalDisclosure summary={t('calculator.relatedArticles.title')} className="my-8">
             <RelatedArticles
               currentSlug=""
               articles={relatedArticles}
               title={t('calculator.relatedArticles.title')}
-              className="my-8"
+              className="my-0"
             />
-          </Suspense>
+          </SupplementalDisclosure>
 
-          <Suspense
-            fallback={
-              <div className="neumorph p-6 rounded-lg animate-pulse">
-                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-2" />
-                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4" />
-                <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded mb-4" />
-                <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded" />
-              </div>
-            }
-          >
+          <SupplementalDisclosure summary={newsletterTitle ?? 'Newsletter'} className="my-8">
             <NewsletterSignup
               title={newsletterTitle}
               description={newsletterDescription}
-              className="my-8"
+              className="my-0"
             />
-          </Suspense>
+          </SupplementalDisclosure>
 
           <StructuredData data={structuredData} />
           <StructuredData
@@ -442,11 +391,7 @@ function CalculatorPageLayoutContent({
 }
 
 function CalculatorPageLayout(props: CalculatorPageLayoutProps): React.ReactElement {
-  return (
-    <Suspense fallback={null}>
-      <CalculatorPageLayoutContent {...props} />
-    </Suspense>
-  );
+  return <CalculatorPageLayoutContent {...props} />;
 }
 
 export default CalculatorPageLayout;

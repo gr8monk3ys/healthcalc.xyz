@@ -408,6 +408,27 @@ export function decodeSharedResultFromSearchParams(
   return payload;
 }
 
+export type SearchParamRecord = Record<string, string | string[] | undefined>;
+
+export function decodeSharedResultFromParamRecord(
+  searchParams: SearchParamRecord,
+  expectedCalculator?: ShareCalculatorSlug
+): SharedResultPayload | null {
+  return decodeSharedResultFromSearchParams(
+    {
+      get(key) {
+        const value = searchParams[key];
+        if (Array.isArray(value)) {
+          return value[0] ?? null;
+        }
+
+        return value ?? null;
+      },
+    },
+    expectedCalculator
+  );
+}
+
 function formatGender(gender: Gender): string {
   return gender === 'male' ? 'male' : 'female';
 }

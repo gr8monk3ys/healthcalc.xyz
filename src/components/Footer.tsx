@@ -8,6 +8,8 @@ import { useLocale } from '@/context/LocaleContext';
 export default function Footer(): React.JSX.Element {
   const { openConsentBanner } = useCookieConsent();
   const { localizePath, t } = useLocale();
+  const footerLinkClass =
+    'inline-flex min-h-6 items-center py-1 text-sm text-slate-700 hover:text-accent dark:text-slate-200';
   return (
     <footer className="px-3 pb-6 pt-4 md:px-4 md:pb-8">
       <div className="glass-panel-strong container mx-auto rounded-[1.75rem] px-6 py-8 md:px-10">
@@ -30,34 +32,22 @@ export default function Footer(): React.JSX.Element {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href={localizePath('/bmi')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/bmi')} className={footerLinkClass}>
                   {t('footer.calc.bmi')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/body-fat')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/body-fat')} className={footerLinkClass}>
                   {t('footer.calc.bodyFat')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/calorie-deficit')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/calorie-deficit')} className={footerLinkClass}>
                   {t('footer.calc.calorieDeficit')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/tdee')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/tdee')} className={footerLinkClass}>
                   {t('footer.calc.tdee')}
                 </Link>
               </li>
@@ -70,34 +60,22 @@ export default function Footer(): React.JSX.Element {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href={localizePath('/about')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/about')} className={footerLinkClass}>
                   {t('footer.company.about')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/about/editorial')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/about/editorial')} className={footerLinkClass}>
                   {t('footer.company.editorial')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/contact')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/contact')} className={footerLinkClass}>
                   {t('footer.company.contact')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/blog')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/blog')} className={footerLinkClass}>
                   {t('footer.company.blog')}
                 </Link>
               </li>
@@ -110,35 +88,22 @@ export default function Footer(): React.JSX.Element {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href={localizePath('/privacy')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/privacy')} className={footerLinkClass}>
                   {t('footer.legal.privacy')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/terms')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/terms')} className={footerLinkClass}>
                   {t('footer.legal.terms')}
                 </Link>
               </li>
               <li>
-                <Link
-                  href={localizePath('/disclaimer')}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <Link href={localizePath('/disclaimer')} className={footerLinkClass}>
                   {t('footer.legal.disclaimer')}
                 </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={openConsentBanner}
-                  className="text-sm text-slate-700 hover:text-accent dark:text-slate-200"
-                >
+                <button type="button" onClick={openConsentBanner} className={footerLinkClass}>
                   {t('footer.legal.cookies')}
                 </button>
               </li>

@@ -1,13 +1,13 @@
 'use client';
 
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
-import { toPng } from 'html-to-image';
 import { useLocale } from '@/context/LocaleContext';
 import { createLogger } from '@/utils/logger';
 import { toAbsoluteUrl } from '@/lib/site';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 const logger = createLogger({ component: 'ResultsShare' });
+let htmlToImageModulePromise: Promise<typeof import('html-to-image')> | null = null;
 
 type ShareTarget = HTMLElement | null;
 
@@ -46,6 +46,14 @@ function useResultsShare(): ResultsShareContextValue {
     throw new Error('useResultsShare must be used within a ResultsShareProvider');
   }
   return context;
+}
+
+async function getHtmlToImageModule(): Promise<typeof import('html-to-image')> {
+  if (!htmlToImageModulePromise) {
+    htmlToImageModulePromise = import('html-to-image');
+  }
+
+  return htmlToImageModulePromise;
 }
 
 function downloadDataUrl(dataUrl: string, filename: string): void {
@@ -135,7 +143,10 @@ export function ResultsShareBar({
       }
 
       target.dataset.hcCapturing = '1';
-      await new Promise(requestAnimationFrame);
+      const [{ toPng }] = await Promise.all([
+        getHtmlToImageModule(),
+        new Promise<void>(resolve => requestAnimationFrame(() => resolve())),
+      ]);
 
       const dataUrl = await toPng(target, {
         cacheBust: true,

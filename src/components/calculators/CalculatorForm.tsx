@@ -1,10 +1,14 @@
 'use client';
 
 import React, { memo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { MedicalDisclaimer } from '@/components/MedicalDisclaimer';
-import { EmbedCodeGenerator } from '@/components/EmbedCodeGenerator';
 import { useLocale } from '@/context/LocaleContext';
 import type { MessageKey } from '@/i18n/messages';
+
+const EmbedCodeGenerator = dynamic(() =>
+  import('@/components/EmbedCodeGenerator').then(module => module.EmbedCodeGenerator)
+);
 
 // Discriminated union for type-safe form fields
 type NumberFieldValue = number | '';

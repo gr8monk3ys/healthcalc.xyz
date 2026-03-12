@@ -67,7 +67,7 @@ function mergeSavedResults(local: SavedResult[], remote: SavedResult[]): SavedRe
 // ---- Supabase helpers (client-side) ----
 
 async function fetchResultsFromSupabase(): Promise<SavedResult[]> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await getSupabaseBrowserClient();
   if (!supabase) return [];
 
   const { data, error } = await supabase
@@ -88,7 +88,7 @@ async function fetchResultsFromSupabase(): Promise<SavedResult[]> {
 }
 
 async function upsertResultToSupabase(result: SavedResult, userId: string): Promise<void> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await getSupabaseBrowserClient();
   if (!supabase) return;
 
   await supabase.from('saved_results').upsert(
@@ -106,14 +106,14 @@ async function upsertResultToSupabase(result: SavedResult, userId: string): Prom
 }
 
 async function deleteResultFromSupabase(id: string): Promise<void> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await getSupabaseBrowserClient();
   if (!supabase) return;
 
   await supabase.from('saved_results').delete().eq('id', id);
 }
 
 async function clearResultsFromSupabase(userId: string): Promise<void> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await getSupabaseBrowserClient();
   if (!supabase) return;
 
   await supabase.from('saved_results').delete().eq('user_id', userId);

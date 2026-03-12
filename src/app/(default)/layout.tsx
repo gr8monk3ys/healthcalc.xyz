@@ -1,5 +1,6 @@
 import '../globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Preconnect from '@/components/Preconnect';
@@ -8,20 +9,13 @@ import React, { ReactNode } from 'react';
 import SkipToMainLink from '@/components/SkipToMainLink';
 import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
-import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import LayoutProviders from '@/components/LayoutProviders';
 
 const siteUrl = getPublicSiteUrl();
-const bodyFont = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-body',
-});
-const headingFont = Sora({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-heading',
-});
+
+const darkModeBootstrapScript = `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode)document.documentElement.classList.add('dark')}catch(e){}})()`;
+const organizationSchemaJson = JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c');
+const websiteSchemaJson = JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c');
 
 export const metadata: Metadata = {
   title: 'HealthCheck - Health and Fitness Calculators',
@@ -88,9 +82,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Core Web Vitals optimizations */}
-        <link rel="preconnect" href={siteUrl} />
-        <link rel="dns-prefetch" href={siteUrl} />
-
         {/* PWA and app settings */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#4f46e5" />
@@ -112,13 +103,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
 
         {/* Blocking script to apply dark mode before first paint (prevents FOUC) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode)document.documentElement.classList.add('dark')}catch(e){}})()`,
-          }}
-        />
+        <Script id="dark-mode-bootstrap" strategy="beforeInteractive">
+          {darkModeBootstrapScript}
+        </Script>
       </head>
-      <body className={`${bodyFont.variable} ${headingFont.variable}`}>
+      <body>
         <LayoutProviders>
           <SkipToMainLink />
           <div className="min-h-screen flex flex-col">
@@ -134,18 +123,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </LayoutProviders>
 
         {/* Global structured data — SSR so crawlers see it in initial HTML */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c'),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c'),
-          }}
-        />
+        <Script id="organization-schema" type="application/ld+json">
+          {organizationSchemaJson}
+        </Script>
+        <Script id="website-schema" type="application/ld+json">
+          {websiteSchemaJson}
+        </Script>
       </body>
     </html>
   );

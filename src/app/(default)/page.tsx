@@ -291,18 +291,17 @@ const whyReasons = [
 const HomeContent = (
   <div className="space-y-14 md:space-y-20">
     {/* Hero Section */}
-    <section className="glass-panel-strong relative overflow-hidden rounded-[2rem] px-5 py-10 sm:px-6 sm:py-12 md:px-12 md:py-14">
+    <section className="hero-panel relative overflow-hidden rounded-[2rem] px-5 py-10 sm:px-6 sm:py-12 md:px-12 md:py-14">
       <div className="relative mx-auto max-w-6xl">
-        <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">
           HealthCheck Platform
         </p>
-        <h1 className="mt-4 animate-slide-up text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-6xl">
-          54+ free health calculators, from body composition to GLP-1 dosing
+        <h1 className="mt-4 text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-6xl">
+          BMI, body fat, TDEE, and 50+ more health calculators
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-200 sm:text-lg">
-          Tools you will not find on generic health sites. Track Ozempic titration schedules, score
-          the Army ACFT, estimate body recomposition timelines, dial in keto macros, and calculate
-          caffeine half-life -- all backed by published clinical formulas.
+          Free tools for calorie planning, body composition, GLP-1 tracking, Army fitness testing,
+          and day-to-day health decisions.
         </p>
 
         {/* Trust Stats */}
@@ -396,7 +395,7 @@ const HomeContent = (
         {/* Search Bar */}
         <Link
           href="/search"
-          className="glass-panel mt-6 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+          className="hero-search-shell mt-6 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
         >
           <div className="flex items-center gap-3 rounded-xl border border-white/50 bg-white/35 px-4 py-3 dark:border-indigo-200/10 dark:bg-indigo-100/5">
             <svg
@@ -422,7 +421,7 @@ const HomeContent = (
     </section>
 
     {/* Featured Calculators Section */}
-    <section>
+    <section className="perf-defer-section">
       <div className="mb-8 flex items-end justify-between gap-4">
         <div>
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
@@ -464,7 +463,7 @@ const HomeContent = (
     </section>
 
     {/* Guided Workflows */}
-    <section className="my-16">
+    <section className="perf-defer-section my-16">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-2">Guided Health Workflows</h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -495,7 +494,7 @@ const HomeContent = (
     </section>
 
     {/* Why HealthCheck? Section */}
-    <section>
+    <section className="perf-defer-section">
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Why HealthCheck?</h2>
         <p className="mx-auto mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
@@ -520,7 +519,7 @@ const HomeContent = (
     </section>
 
     {/* Guides & Research Section */}
-    <section className="glass-panel rounded-3xl p-8">
+    <section className="perf-defer-section glass-panel rounded-3xl p-8">
       <div className="mb-6 text-center">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Guides &amp; Research</h2>
         <p className="text-slate-600 dark:text-slate-300">

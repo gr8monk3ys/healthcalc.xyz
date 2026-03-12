@@ -1,9 +1,6 @@
 /* Tailwind CSS v4 */
 @import 'tailwindcss';
 
-/* Import animations - must come after tailwindcss */
-@import '../styles/animations.css';
-
 /* Custom theme values for Tailwind v4 */
 @theme {
   --radius-neumorph: 1rem;
@@ -348,6 +345,43 @@ html {
     -6px -6px 14px rgba(255, 255, 255, 0.32);
 }
 
+.hero-panel {
+  background:
+    radial-gradient(circle at top left, rgba(120, 130, 255, 0.2), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(241, 243, 255, 0.94));
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 22px 44px rgba(52, 56, 140, 0.14),
+    0 8px 20px rgba(52, 56, 140, 0.08);
+}
+
+.dark .hero-panel {
+  background:
+    radial-gradient(circle at top left, rgba(120, 130, 255, 0.2), transparent 40%),
+    linear-gradient(180deg, rgba(24, 28, 61, 0.96), rgba(20, 23, 51, 0.94));
+  border-color: rgba(167, 176, 255, 0.16);
+  box-shadow:
+    0 24px 46px rgba(2, 6, 23, 0.36),
+    0 10px 22px rgba(2, 6, 23, 0.18);
+}
+
+.hero-search-shell {
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 14px 28px rgba(52, 56, 140, 0.08);
+}
+
+.dark .hero-search-shell {
+  border-color: rgba(167, 176, 255, 0.14);
+  background: rgba(15, 23, 42, 0.22);
+  box-shadow: 0 16px 30px rgba(2, 6, 23, 0.18);
+}
+
+.perf-defer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -436,6 +470,55 @@ html {
 .neumorph-btn:hover,
 .neumorph-btn:active {
   border-color: rgba(121, 127, 240, 0.35);
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(128, 136, 255, 0.14), transparent 34%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), var(--background) 42%);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(116, 124, 255, 0.18), transparent 34%),
+      linear-gradient(180deg, rgba(18, 21, 47, 0.96), var(--background) 42%);
+  }
+
+  .glass-panel,
+  .glass-panel-strong,
+  .neumorph,
+  .elevated-pill,
+  .neumorph-btn,
+  .ui-btn-soft {
+    backdrop-filter: none;
+  }
+
+  .glass-panel,
+  .glass-panel-strong,
+  .neumorph {
+    box-shadow:
+      0 16px 32px rgba(52, 56, 140, 0.1),
+      0 4px 14px rgba(52, 56, 140, 0.06);
+  }
+
+  .dark .glass-panel,
+  .dark .glass-panel-strong,
+  .dark .neumorph {
+    box-shadow:
+      0 18px 34px rgba(2, 6, 23, 0.3),
+      0 6px 16px rgba(2, 6, 23, 0.16);
+  }
+
+  .hero-panel,
+  .hero-search-shell {
+    box-shadow:
+      0 18px 34px rgba(52, 56, 140, 0.12),
+      0 6px 16px rgba(52, 56, 140, 0.08);
+  }
 }
 
 .neumorph-card {

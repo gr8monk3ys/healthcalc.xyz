@@ -289,11 +289,16 @@ function CookieConsentBanner({
       aria-label={t('cookie.banner.aria')}
       className="pointer-events-none fixed inset-x-0 bottom-0 z-[9999] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 animate-slide-in-up"
     >
-      <div className="consent-banner-shell pointer-events-auto mx-auto max-w-3xl p-5 sm:p-6">
+      <div className="consent-banner-shell pointer-events-auto mx-auto max-w-3xl p-4 sm:p-6">
         {/* Main message */}
-        <div className="mb-4">
-          <h2 className="text-base font-bold mb-1">{t('cookie.banner.title')}</h2>
-          <p className="text-sm opacity-80 leading-relaxed">{t('cookie.banner.body')}</p>
+        <div className="mb-3">
+          <h2 className="mb-1 text-sm font-bold sm:text-base">{t('cookie.banner.title')}</h2>
+          <p className="text-[11px] leading-4 opacity-80 sm:hidden">
+            Choose which optional cookies to allow.
+          </p>
+          <p className="hidden text-sm opacity-80 leading-relaxed sm:block">
+            {t('cookie.banner.body')}
+          </p>
         </div>
 
         {/* Expandable preferences panel */}
@@ -331,13 +336,13 @@ function CookieConsentBanner({
         )}
 
         {/* Action buttons */}
-        <div className="grid grid-cols-2 items-stretch gap-3 sm:flex sm:flex-row sm:items-center">
+        <div className="grid grid-cols-2 items-stretch gap-2 sm:flex sm:flex-row sm:items-center sm:gap-3">
           {/* Accept All -- prominent */}
           <button
             type="button"
             onClick={onAcceptAll}
-            className="neumorph-btn col-span-2 w-full justify-center bg-accent text-white font-semibold px-6 py-2.5 text-sm
-                       hover:opacity-90 focus-visible:ring-2 focus-visible:ring-accent
+            className="neumorph-btn col-span-2 w-full justify-center !bg-accent !text-white font-semibold px-6 py-2.5 text-sm
+                       hover:!bg-accent-dark focus-visible:ring-2 focus-visible:ring-accent
                        focus-visible:ring-offset-2 transition-opacity order-1 sm:col-span-1 sm:w-auto"
           >
             {t('cookie.action.acceptAll')}
@@ -379,7 +384,9 @@ function CookieConsentBanner({
         </div>
 
         {/* TCF 2.2 compliance note */}
-        <p className="mt-3 text-[11px] opacity-50 leading-snug">{t('cookie.note.tcf')}</p>
+        <p className="mt-3 hidden text-[11px] leading-snug text-[color:var(--foreground)] opacity-75 sm:block">
+          {t('cookie.note.tcf')}
+        </p>
       </div>
     </div>
   );

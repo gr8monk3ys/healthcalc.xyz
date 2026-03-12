@@ -74,7 +74,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.twitter'),
-      color: 'bg-[#1DA1F2] hover:bg-[#0c85d0]',
+      color: 'bg-[#0b6fb8] hover:bg-[#085a96]',
     },
     facebook: {
       icon: (
@@ -130,7 +130,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.reddit'),
-      color: 'bg-[#ff4500] hover:bg-[#cc3700]',
+      color: 'bg-[#b23300] hover:bg-[#8f2900]',
     },
     email: {
       icon: (

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import DarkModeToggle from '@/components/ui/DarkModeToggle';
@@ -8,8 +9,19 @@ import UnitToggle from '@/components/ui/UnitToggle';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { usePreferences } from '@/context/PreferencesContext';
 import { useLocale } from '@/context/LocaleContext';
-import AuthControls from '@/components/AuthControls';
 import { stripLocaleFromPathname } from '@/i18n/config';
+
+const AuthControls = dynamic(() => import('@/components/AuthControls'), {
+  ssr: false,
+  loading: () => (
+    <Link
+      href="/saved-results"
+      className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
+    >
+      Account
+    </Link>
+  ),
+});
 
 export default function Header(): React.JSX.Element {
   const pathname = usePathname();

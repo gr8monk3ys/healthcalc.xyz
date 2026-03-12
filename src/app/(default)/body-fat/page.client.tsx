@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { Gender } from '@/types/common';
 import { BodyFatMethod, BodyFatResult as BodyFatResultType } from '@/types/bodyFat';
@@ -45,75 +45,317 @@ const BodyFatUnderstanding = dynamic(
   () => import('@/components/calculators/body-fat/BodyFatUnderstanding')
 );
 
-function useBodyFatCalculatorState() {
-  const [method, setMethod] = useState<BodyFatMethod>('navy');
-  const [waist, setWaist] = useState<number | ''>('');
-  const [neck, setNeck] = useState<number | ''>('');
-  const [hips, setHips] = useState<number | ''>('');
-  const [bodyFatPercentage, setBodyFatPercentage] = useState<number | ''>('');
+type BodyFatCalculatorState = {
+  age: number | '';
+  gender: Gender;
+  method: BodyFatMethod;
+  waist: number | '';
+  neck: number | '';
+  hips: number | '';
+  bodyFatPercentage: number | '';
+};
+
+type BodyFatCalculatorAction =
+  | { type: 'patch'; patch: Partial<BodyFatCalculatorState> }
+  | { type: 'reset' };
+
+const initialBodyFatCalculatorState: BodyFatCalculatorState = {
+  age: '',
+  gender: 'male',
+  method: 'navy',
+  waist: '',
+  neck: '',
+  hips: '',
+  bodyFatPercentage: '',
+};
+
+function bodyFatCalculatorReducer(
+  state: BodyFatCalculatorState,
+  action: BodyFatCalculatorAction
+): BodyFatCalculatorState {
+  switch (action.type) {
+    case 'patch':
+      return { ...state, ...action.patch };
+    case 'reset':
+      return initialBodyFatCalculatorState;
+    default:
+      return state;
+  }
+}
+
+type BodyFatFormFieldsArgs = {
+  age: number | '';
+  errors: Record<string, string>;
+  gender: Gender;
+  handleMethodChange: (value: string) => void;
+  height: ReturnType<typeof useHeight>;
+  hips: number | '';
+  method: BodyFatMethod;
+  setAge: (value: number | '') => void;
+  setBodyFatPercentage: (value: number | '') => void;
+  setGender: (value: Gender) => void;
+  setHips: (value: number | '') => void;
+  setNeck: (value: number | '') => void;
+  setWaist: (value: number | '') => void;
+  waist: number | '';
+  neck: number | '';
+  bodyFatPercentage: number | '';
+  weight: ReturnType<typeof useWeight>;
+};
+
+function createBodyFatFormFields({
+  age,
+  errors,
+  gender,
+  handleMethodChange,
+  height,
+  hips,
+  method,
+  setAge,
+  setBodyFatPercentage,
+  setGender,
+  setHips,
+  setNeck,
+  setWaist,
+  waist,
+  neck,
+  bodyFatPercentage,
+  weight,
+}: BodyFatFormFieldsArgs): React.ComponentProps<typeof CalculatorForm>['fields'] {
+  const methodFields: React.ComponentProps<typeof CalculatorForm>['fields'] = [];
+
+  if (method === 'navy') {
+    methodFields.push(
+      {
+        name: 'waist',
+        label: 'Waist Circumference (cm)',
+        type: 'number' as const,
+        value: waist,
+        onChange: setWaist,
+        error: errors.waist,
+        placeholder: 'Centimeters',
+        step: '0.1',
+      },
+      {
+        name: 'neck',
+        label: 'Neck Circumference (cm)',
+        type: 'number' as const,
+        value: neck,
+        onChange: setNeck,
+        error: errors.neck,
+        placeholder: 'Centimeters',
+        step: '0.1',
+      }
+    );
+
+    if (gender === 'female') {
+      methodFields.push({
+        name: 'hips',
+        label: 'Hip Circumference (cm)',
+        type: 'number' as const,
+        value: hips,
+        onChange: setHips,
+        error: errors.hips,
+        placeholder: 'Centimeters',
+        step: '0.1',
+      });
+    }
+  } else if (method === 'manual') {
+    methodFields.push({
+      name: 'bodyFatPercentage',
+      label: 'Body Fat Percentage (%)',
+      type: 'number' as const,
+      value: bodyFatPercentage,
+      onChange: setBodyFatPercentage,
+      error: errors.bodyFatPercentage,
+      placeholder: 'Percentage',
+      step: '0.1',
+    });
+  }
+
+  return [
+    {
+      name: 'gender',
+      label: 'Gender',
+      type: 'radio' as const,
+      value: gender,
+      onChange: (value: string) => setGender(value as Gender),
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' },
+      ],
+    },
+    {
+      name: 'age',
+      label: 'Age',
+      type: 'number' as const,
+      value: age,
+      onChange: setAge,
+      error: errors.age,
+      placeholder: 'Years',
+    },
+    createHeightField(height, errors.height),
+    createWeightField(weight, errors.weight),
+    {
+      name: 'method',
+      label: 'Calculation Method',
+      type: 'select' as const,
+      value: method,
+      onChange: handleMethodChange,
+      options: BODY_FAT_METHODS.map(m => ({
+        value: m.value,
+        label: m.label,
+        description: m.description,
+      })),
+    },
+    ...methodFields,
+  ];
+}
+
+function createBodyFatShareResultContext({
+  age,
+  bodyFatPercentage,
+  gender,
+  height,
+  hips,
+  method,
+  neck,
+  showResult,
+  waist,
+  weight,
+}: Pick<
+  BodyFatCalculatorState,
+  'age' | 'bodyFatPercentage' | 'gender' | 'hips' | 'method' | 'neck' | 'waist'
+> & {
+  height: ReturnType<typeof useHeight>;
+  showResult: boolean;
+  weight: ReturnType<typeof useWeight>;
+}): React.ComponentProps<typeof CalculatorPageLayout>['shareResultContext'] {
+  const heightCm = height.toCm();
+  const weightKg = weight.toKg();
+
+  if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+    return undefined;
+  }
+
+  if (method === 'navy') {
+    if (typeof waist !== 'number' || typeof neck !== 'number') {
+      return undefined;
+    }
+
+    if (gender === 'female') {
+      if (typeof hips !== 'number') {
+        return undefined;
+      }
+
+      return {
+        calculator: 'body-fat',
+        inputs: {
+          age,
+          gender,
+          heightCm,
+          weightKg,
+          method,
+          waistCm: waist,
+          neckCm: neck,
+          hipsCm: hips,
+        },
+      };
+    }
+
+    return {
+      calculator: 'body-fat',
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+        method,
+        waistCm: waist,
+        neckCm: neck,
+      },
+    };
+  }
+
+  if (method === 'manual') {
+    if (typeof bodyFatPercentage !== 'number') {
+      return undefined;
+    }
+
+    return {
+      calculator: 'body-fat',
+      inputs: {
+        age,
+        gender,
+        heightCm,
+        weightKg,
+        method,
+        bodyFatPercentage,
+      },
+    };
+  }
 
   return {
-    method,
-    setMethod,
-    waist,
-    setWaist,
-    neck,
-    setNeck,
-    hips,
-    setHips,
-    bodyFatPercentage,
-    setBodyFatPercentage,
+    calculator: 'body-fat',
+    inputs: {
+      age,
+      gender,
+      heightCm,
+      weightKg,
+      method,
+    },
   };
 }
 export default function BodyFatCalculator() {
-  // State for form inputs
-  const [gender, setGender] = useState<Gender>('male');
-  const [age, setAge] = useState<number | ''>('');
+  const [state, dispatchState] = useReducer(
+    bodyFatCalculatorReducer,
+    initialBodyFatCalculatorState
+  );
+  const { age, bodyFatPercentage, gender, hips, method, neck, waist } = state;
   const height = useHeight();
   const weight = useWeight();
-  const {
-    method,
-    setMethod,
-    waist,
-    setWaist,
-    neck,
-    setNeck,
-    hips,
-    setHips,
-    bodyFatPercentage,
-    setBodyFatPercentage,
-  } = useBodyFatCalculatorState();
-
   const chainPrefill = useChainPrefill('body-fat');
   const sharedPrefill = useSharedResultPrefill('body-fat');
   const hasAppliedSharedPrefill = useRef(false);
 
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
-    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
-      setGender(chainPrefill.gender as Gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        ...(typeof chainPrefill.age === 'number' ? { age: chainPrefill.age } : {}),
+        ...(chainPrefill.gender === 'male' || chainPrefill.gender === 'female'
+          ? { gender: chainPrefill.gender as Gender }
+          : {}),
+      },
+    });
     if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
     if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, setAge, setGender, height, weight]);
+  }, [chainPrefill, height, weight]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
 
     hasAppliedSharedPrefill.current = true;
-    setGender(sharedPrefill.gender);
-    setAge(sharedPrefill.age);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        gender: sharedPrefill.gender,
+        age: sharedPrefill.age,
+        method: sharedPrefill.method,
+        waist: typeof sharedPrefill.waistCm === 'number' ? sharedPrefill.waistCm : '',
+        neck: typeof sharedPrefill.neckCm === 'number' ? sharedPrefill.neckCm : '',
+        hips: typeof sharedPrefill.hipsCm === 'number' ? sharedPrefill.hipsCm : '',
+        bodyFatPercentage:
+          typeof sharedPrefill.bodyFatPercentage === 'number'
+            ? sharedPrefill.bodyFatPercentage
+            : '',
+      },
+    });
     height.setValue(sharedPrefill.heightCm);
     weight.setValue(sharedPrefill.weightKg);
-    setMethod(sharedPrefill.method);
-    setWaist(typeof sharedPrefill.waistCm === 'number' ? sharedPrefill.waistCm : '');
-    setNeck(typeof sharedPrefill.neckCm === 'number' ? sharedPrefill.neckCm : '');
-    setHips(typeof sharedPrefill.hipsCm === 'number' ? sharedPrefill.hipsCm : '');
-    setBodyFatPercentage(
-      typeof sharedPrefill.bodyFatPercentage === 'number' ? sharedPrefill.bodyFatPercentage : ''
-    );
     requestCalculatorFormSubmit();
-  }, [height, setBodyFatPercentage, setHips, setMethod, setNeck, setWaist, sharedPrefill, weight]);
+  }, [height, sharedPrefill, weight]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();
@@ -260,196 +502,80 @@ export default function BodyFatCalculator() {
   // Wrap handleReset to also reset field state managed by this component
   const onReset = () => {
     handleReset(() => {
-      setGender('male');
-      setAge('');
+      dispatchState({ type: 'reset' });
       height.setValue('');
       weight.setValue('');
-      setMethod('navy');
-      setWaist('');
-      setNeck('');
-      setHips('');
-      setBodyFatPercentage('');
     });
   };
 
-  const shareResultContext = useMemo(() => {
-    const heightCm = height.toCm();
-    const weightKg = weight.toKg();
-
-    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
-      return undefined;
-    }
-
-    if (method === 'navy') {
-      if (typeof waist !== 'number' || typeof neck !== 'number') {
-        return undefined;
-      }
-
-      if (gender === 'female') {
-        if (typeof hips !== 'number') {
-          return undefined;
-        }
-
-        return {
-          calculator: 'body-fat' as const,
-          inputs: {
-            age,
-            gender,
-            heightCm,
-            weightKg,
-            method,
-            waistCm: waist,
-            neckCm: neck,
-            hipsCm: hips,
-          },
-        };
-      }
-
-      return {
-        calculator: 'body-fat' as const,
-        inputs: {
-          age,
-          gender,
-          heightCm,
-          weightKg,
-          method,
-          waistCm: waist,
-          neckCm: neck,
-        },
-      };
-    }
-
-    if (method === 'manual') {
-      if (typeof bodyFatPercentage !== 'number') {
-        return undefined;
-      }
-
-      return {
-        calculator: 'body-fat' as const,
-        inputs: {
-          age,
-          gender,
-          heightCm,
-          weightKg,
-          method,
-          bodyFatPercentage,
-        },
-      };
-    }
-
-    return {
-      calculator: 'body-fat' as const,
-      inputs: {
+  const shareResultContext = useMemo(
+    () =>
+      createBodyFatShareResultContext({
         age,
+        bodyFatPercentage,
         gender,
-        heightCm,
-        weightKg,
+        height,
+        hips,
         method,
-      },
-    };
-  }, [age, bodyFatPercentage, gender, height, hips, method, neck, showResult, waist, weight]);
+        neck,
+        showResult,
+        waist,
+        weight,
+      }),
+    [age, bodyFatPercentage, gender, height, hips, method, neck, showResult, waist, weight]
+  );
 
   // Clear method-specific errors when changing methods.
-  const handleMethodChange = (newMethod: string) => {
-    setMethod(newMethod as BodyFatMethod);
-    setErrors(prev => {
-      const updated = { ...prev };
-      delete updated.waist;
-      delete updated.neck;
-      delete updated.hips;
-      delete updated.bodyFatPercentage;
-      return updated;
-    });
-  };
-
-  const methodFields: React.ComponentProps<typeof CalculatorForm>['fields'] = [];
-
-  if (method === 'navy') {
-    methodFields.push(
-      {
-        name: 'waist',
-        label: 'Waist Circumference (cm)',
-        type: 'number' as const,
-        value: waist,
-        onChange: setWaist,
-        error: errors.waist,
-        placeholder: 'Centimeters',
-        step: '0.1',
-      },
-      {
-        name: 'neck',
-        label: 'Neck Circumference (cm)',
-        type: 'number' as const,
-        value: neck,
-        onChange: setNeck,
-        error: errors.neck,
-        placeholder: 'Centimeters',
-        step: '0.1',
-      }
-    );
-
-    if (gender === 'female') {
-      methodFields.push({
-        name: 'hips',
-        label: 'Hip Circumference (cm)',
-        type: 'number' as const,
-        value: hips,
-        onChange: setHips,
-        error: errors.hips,
-        placeholder: 'Centimeters',
-        step: '0.1',
+  const handleMethodChange = useCallback(
+    (newMethod: string) => {
+      dispatchState({ type: 'patch', patch: { method: newMethod as BodyFatMethod } });
+      setErrors(prev => {
+        const updated = { ...prev };
+        delete updated.waist;
+        delete updated.neck;
+        delete updated.hips;
+        delete updated.bodyFatPercentage;
+        return updated;
       });
-    }
-  } else if (method === 'manual') {
-    methodFields.push({
-      name: 'bodyFatPercentage',
-      label: 'Body Fat Percentage (%)',
-      type: 'number' as const,
-      value: bodyFatPercentage,
-      onChange: setBodyFatPercentage,
-      error: errors.bodyFatPercentage,
-      placeholder: 'Percentage',
-      step: '0.1',
-    });
-  }
-
-  const formFields: React.ComponentProps<typeof CalculatorForm>['fields'] = [
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: (value: string) => setGender(value as Gender),
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
     },
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    createHeightField(height, errors.height),
-    createWeightField(weight, errors.weight),
-    {
-      name: 'method',
-      label: 'Calculation Method',
-      type: 'select' as const,
-      value: method,
-      onChange: handleMethodChange,
-      options: BODY_FAT_METHODS.map(m => ({
-        value: m.value,
-        label: m.label,
-        description: m.description,
-      })),
-    },
-    ...methodFields,
-  ];
+    [setErrors]
+  );
+  const formFields = useMemo(
+    () =>
+      createBodyFatFormFields({
+        age,
+        errors,
+        gender,
+        handleMethodChange,
+        height,
+        hips,
+        method,
+        setAge: value => dispatchState({ type: 'patch', patch: { age: value } }),
+        setBodyFatPercentage: value =>
+          dispatchState({ type: 'patch', patch: { bodyFatPercentage: value } }),
+        setGender: value => dispatchState({ type: 'patch', patch: { gender: value } }),
+        setHips: value => dispatchState({ type: 'patch', patch: { hips: value } }),
+        setNeck: value => dispatchState({ type: 'patch', patch: { neck: value } }),
+        setWaist: value => dispatchState({ type: 'patch', patch: { waist: value } }),
+        waist,
+        neck,
+        bodyFatPercentage,
+        weight,
+      }),
+    [
+      age,
+      errors,
+      gender,
+      handleMethodChange,
+      height,
+      hips,
+      method,
+      waist,
+      neck,
+      bodyFatPercentage,
+      weight,
+    ]
+  );
 
   const methodLabel = BODY_FAT_METHODS.find(m => m.value === method)?.label || method;
 

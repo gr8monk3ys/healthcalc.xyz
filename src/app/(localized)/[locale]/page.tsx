@@ -551,7 +551,7 @@ export default async function LocalizedHome({ params }: LocalizedHomeProps) {
           <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">
             {copy.platformLabel}
           </p>
-          <h1 className="mt-4 animate-slide-up text-4xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl">
+          <h1 className="mt-4 animate-slide-in-up text-4xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl">
             {copy.heroTitle}
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-slate-700 dark:text-slate-200">

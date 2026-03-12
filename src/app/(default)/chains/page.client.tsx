@@ -1,30 +1,47 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import ChainSelector from '@/components/chains/ChainSelector';
 import { CALCULATOR_CHAINS, getChainById } from '@/constants/calculatorChains';
 import { useChainState } from '@/hooks/useChainState';
 
-export default function ChainsPageClient(): React.JSX.Element {
-  const searchParams = useSearchParams();
+interface ChainsPageClientProps {
+  initialChainId: string | null;
+}
+
+function WorkflowStartCard({ chainId }: { chainId: string }) {
   const router = useRouter();
   const { startChain } = useChainState();
+  const chain = getChainById(chainId);
 
-  useEffect(() => {
-    const chainId = searchParams.get('start');
-    if (!chainId) return;
+  if (!chain) {
+    return null;
+  }
 
-    const chain = getChainById(chainId);
-    if (!chain) return;
-
+  const handleStart = () => {
     const firstSlug = startChain(chainId);
     if (firstSlug) {
-      router.replace(`/${firstSlug}`);
+      router.push(`/${firstSlug}`);
     }
-  }, [searchParams, startChain, router]);
+  };
 
+  return (
+    <div className="mb-8 rounded-2xl border border-accent/25 bg-accent/5 p-5">
+      <p className="text-xs font-semibold uppercase tracking-wide text-accent">Workflow ready</p>
+      <h2 className="mt-2 text-xl font-semibold">{chain.name}</h2>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{chain.description}</p>
+      <button className="ui-btn-primary mt-4" type="button" onClick={handleStart}>
+        Start {chain.steps.length}-step workflow
+      </button>
+    </div>
+  );
+}
+
+export default function ChainsPageClient({
+  initialChainId,
+}: ChainsPageClientProps): React.JSX.Element {
   return (
     <div className="mx-auto max-w-4xl">
       <Breadcrumb />
@@ -33,6 +50,8 @@ export default function ChainsPageClient(): React.JSX.Element {
         Follow a step-by-step workflow to get a complete health assessment. Enter your details once
         and they carry forward to each calculator automatically.
       </p>
+
+      {initialChainId ? <WorkflowStartCard chainId={initialChainId} /> : null}
 
       <ChainSelector chains={CALCULATOR_CHAINS} />
 

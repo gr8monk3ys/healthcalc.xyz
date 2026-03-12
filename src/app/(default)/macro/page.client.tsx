@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useReducer, useRef } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { MacroGoal, MacroResult as MacroResultType } from '@/types/macro';
 import { processMacroCalculation } from '@/utils/calculators/macro';
@@ -91,88 +91,337 @@ const blogArticles = [
   },
 ];
 
-function useMacroCalculatorState() {
-  const [activityLevel, setActivityLevel] = useState<ActivityLevel>('sedentary');
-  const [goal, setGoal] = useState<MacroGoal>('maintenance');
-  const [customProtein, setCustomProtein] = useState<number>(30);
-  const [customCarbs, setCustomCarbs] = useState<number>(40);
-  const [customFat, setCustomFat] = useState<number>(30);
+type MacroCalculatorState = {
+  age: number | '';
+  gender: Gender;
+  activityLevel: ActivityLevel;
+  goal: MacroGoal;
+  customProtein: number;
+  customCarbs: number;
+  customFat: number;
+};
+
+type MacroCalculatorAction =
+  | { type: 'patch'; patch: Partial<MacroCalculatorState> }
+  | { type: 'reset' };
+
+const initialMacroCalculatorState: MacroCalculatorState = {
+  age: '',
+  gender: 'male',
+  activityLevel: 'sedentary',
+  goal: 'maintenance',
+  customProtein: 30,
+  customCarbs: 40,
+  customFat: 30,
+};
+
+function macroCalculatorReducer(
+  state: MacroCalculatorState,
+  action: MacroCalculatorAction
+): MacroCalculatorState {
+  switch (action.type) {
+    case 'patch':
+      return { ...state, ...action.patch };
+    case 'reset':
+      return initialMacroCalculatorState;
+    default:
+      return state;
+  }
+}
+
+type MacroFormFieldsArgs = {
+  activityLevel: ActivityLevel;
+  age: number | '';
+  customCarbs: number;
+  customFat: number;
+  customProtein: number;
+  errors: Record<string, string>;
+  gender: Gender;
+  goal: MacroGoal;
+  height: ReturnType<typeof useHeight>;
+  setActivityLevel: (value: ActivityLevel) => void;
+  setAge: (value: number | '') => void;
+  setCustomCarbs: (value: number) => void;
+  setCustomFat: (value: number) => void;
+  setCustomProtein: (value: number) => void;
+  setGender: (value: Gender) => void;
+  setGoal: (value: MacroGoal) => void;
+  weight: ReturnType<typeof useWeight>;
+};
+
+function createMacroFormFields({
+  activityLevel,
+  age,
+  customCarbs,
+  customFat,
+  customProtein,
+  errors,
+  gender,
+  goal,
+  height,
+  setActivityLevel,
+  setAge,
+  setCustomCarbs,
+  setCustomFat,
+  setCustomProtein,
+  setGender,
+  setGoal,
+  weight,
+}: MacroFormFieldsArgs): React.ComponentProps<typeof CalculatorForm>['fields'] {
+  return [
+    {
+      name: 'age',
+      label: 'Age',
+      type: 'number' as const,
+      value: age,
+      onChange: setAge,
+      error: errors.age,
+      placeholder: 'Years',
+    },
+    {
+      name: 'gender',
+      label: 'Gender',
+      type: 'radio' as const,
+      value: gender,
+      onChange: (value: string) => setGender(value as Gender),
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' },
+      ],
+    },
+    createHeightField(height, errors.height),
+    createWeightField(weight, errors.weight),
+    {
+      name: 'activity',
+      label: 'Activity Level',
+      type: 'select' as const,
+      value: activityLevel,
+      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
+      options: ACTIVITY_MULTIPLIERS.map(level => ({
+        value: level.level,
+        label: level.label,
+        description: level.description,
+      })),
+    },
+    {
+      name: 'goal',
+      label: 'Dietary Goal',
+      type: 'select' as const,
+      value: goal,
+      onChange: (value: string) => setGoal(value as MacroGoal),
+      options: MACRO_RATIO_PRESETS.map(preset => ({
+        value: preset.id,
+        label: preset.name,
+        description: preset.description,
+      })),
+    },
+    ...(goal === 'custom'
+      ? [
+          {
+            name: 'customProtein',
+            label: 'Protein %',
+            type: 'number' as const,
+            value: customProtein,
+            onChange: (val: number | '') => setCustomProtein(val === '' ? 30 : val),
+            error: errors.macros,
+            placeholder: 'Protein %',
+            min: 10,
+            max: 50,
+          },
+          {
+            name: 'customCarbs',
+            label: 'Carbs %',
+            type: 'number' as const,
+            value: customCarbs,
+            onChange: (val: number | '') => setCustomCarbs(val === '' ? 40 : val),
+            placeholder: 'Carbs %',
+            min: 10,
+            max: 70,
+          },
+          {
+            name: 'customFat',
+            label: 'Fat %',
+            type: 'number' as const,
+            value: customFat,
+            onChange: (val: number | '') => setCustomFat(val === '' ? 30 : val),
+            placeholder: 'Fat %',
+            min: 15,
+            max: 60,
+          },
+        ]
+      : []),
+  ];
+}
+
+function createMacroShareResultContext({
+  activityLevel,
+  age,
+  customCarbs,
+  customFat,
+  customProtein,
+  gender,
+  goal,
+  height,
+  showResult,
+  weight,
+}: Pick<
+  MacroCalculatorState,
+  'activityLevel' | 'age' | 'customCarbs' | 'customFat' | 'customProtein' | 'gender' | 'goal'
+> & {
+  height: ReturnType<typeof useHeight>;
+  showResult: boolean;
+  weight: ReturnType<typeof useWeight>;
+}): React.ComponentProps<typeof CalculatorPageLayout>['shareResultContext'] {
+  const heightCm = height.toCm();
+  const weightKg = weight.toKg();
+
+  if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+    return undefined;
+  }
 
   return {
-    activityLevel,
-    setActivityLevel,
-    goal,
-    setGoal,
-    customProtein,
-    setCustomProtein,
-    customCarbs,
-    setCustomCarbs,
-    customFat,
-    setCustomFat,
+    calculator: 'macro',
+    inputs: {
+      age,
+      gender,
+      heightCm,
+      weightKg,
+      activityLevel,
+      goal,
+      customProteinPercent: goal === 'custom' ? customProtein : undefined,
+      customCarbsPercent: goal === 'custom' ? customCarbs : undefined,
+      customFatPercent: goal === 'custom' ? customFat : undefined,
+    },
   };
 }
+
+type MacroCalculatorContentProps = {
+  calculationError: string | null;
+  formFields: React.ComponentProps<typeof CalculatorForm>['fields'];
+  handleSubmit: React.FormEventHandler<Element>;
+  onReset: () => void;
+  result: MacroResultType | null;
+  showResult: boolean;
+};
+
+function MacroCalculatorContent({
+  calculationError,
+  formFields,
+  handleSubmit,
+  onReset,
+  result,
+  showResult,
+}: MacroCalculatorContentProps): React.JSX.Element {
+  return (
+    <>
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={onReset}
+        />
+
+        {calculationError ? (
+          <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+            {calculationError}
+          </div>
+        ) : null}
+      </div>
+
+      <div className="md:col-span-2" id="macro-result">
+        {showResult && result ? (
+          <>
+            <MacroResult result={result} />
+
+            <div className="mt-6 flex items-center justify-between">
+              <SaveResult
+                calculatorType="macro"
+                calculatorName="Macro Calculator"
+                data={{
+                  bmr: result.bmr,
+                  tdee: result.tdee,
+                  targetCalories: result.targetCalories,
+                  protein: result.protein,
+                  carbs: result.carbs,
+                  fat: result.fat,
+                  goal: result.goal,
+                }}
+              />
+
+              <button
+                onClick={onReset}
+                className="rounded-lg bg-gray-200 px-4 py-2 text-gray-800 transition-colors hover:bg-gray-300"
+              >
+                New Calculation
+              </button>
+            </div>
+
+            <AffiliateLinks
+              calculatorType="macro"
+              title="Tools to Help You Track Your Macros"
+              maxProducts={6}
+              showDisclosure={true}
+              className="my-8"
+            />
+          </>
+        ) : (
+          <MacroInfo />
+        )}
+      </div>
+    </>
+  );
+}
 export default function MacroCalculator() {
-  // State for form inputs
-  const [age, setAge] = useState<number | ''>('');
-  const [gender, setGender] = useState<Gender>('male');
+  const [state, dispatchState] = useReducer(macroCalculatorReducer, initialMacroCalculatorState);
+  const { activityLevel, age, customCarbs, customFat, customProtein, gender, goal } = state;
   const height = useHeight();
   const weight = useWeight();
-  const {
-    activityLevel,
-    setActivityLevel,
-    goal,
-    setGoal,
-    customProtein,
-    setCustomProtein,
-    customCarbs,
-    setCustomCarbs,
-    customFat,
-    setCustomFat,
-  } = useMacroCalculatorState();
-
   const chainPrefill = useChainPrefill('macro');
   const sharedPrefill = useSharedResultPrefill('macro');
   const hasAppliedSharedPrefill = useRef(false);
 
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
-    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
-      setGender(chainPrefill.gender as Gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        ...(typeof chainPrefill.age === 'number' ? { age: chainPrefill.age } : {}),
+        ...(chainPrefill.gender === 'male' || chainPrefill.gender === 'female'
+          ? { gender: chainPrefill.gender as Gender }
+          : {}),
+      },
+    });
     if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
     if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, setAge, setGender, height, weight]);
+  }, [chainPrefill, height, weight]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
 
     hasAppliedSharedPrefill.current = true;
-    setAge(sharedPrefill.age);
-    setGender(sharedPrefill.gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        age: sharedPrefill.age,
+        gender: sharedPrefill.gender,
+        activityLevel: sharedPrefill.activityLevel,
+        goal: sharedPrefill.goal,
+        ...(typeof sharedPrefill.customProteinPercent === 'number'
+          ? { customProtein: sharedPrefill.customProteinPercent }
+          : {}),
+        ...(typeof sharedPrefill.customCarbsPercent === 'number'
+          ? { customCarbs: sharedPrefill.customCarbsPercent }
+          : {}),
+        ...(typeof sharedPrefill.customFatPercent === 'number'
+          ? { customFat: sharedPrefill.customFatPercent }
+          : {}),
+      },
+    });
     height.setValue(sharedPrefill.heightCm);
     weight.setValue(sharedPrefill.weightKg);
-    setActivityLevel(sharedPrefill.activityLevel);
-    setGoal(sharedPrefill.goal);
-    if (typeof sharedPrefill.customProteinPercent === 'number') {
-      setCustomProtein(sharedPrefill.customProteinPercent);
-    }
-    if (typeof sharedPrefill.customCarbsPercent === 'number') {
-      setCustomCarbs(sharedPrefill.customCarbsPercent);
-    }
-    if (typeof sharedPrefill.customFatPercent === 'number') {
-      setCustomFat(sharedPrefill.customFatPercent);
-    }
     requestCalculatorFormSubmit();
-  }, [
-    height,
-    setActivityLevel,
-    setCustomCarbs,
-    setCustomFat,
-    setCustomProtein,
-    setGoal,
-    sharedPrefill,
-    weight,
-  ]);
+  }, [height, sharedPrefill, weight]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();
@@ -268,137 +517,76 @@ export default function MacroCalculator() {
 
   const onReset = () => {
     handleReset(() => {
-      setAge('');
-      setGender('male');
+      dispatchState({ type: 'reset' });
       height.setValue('');
       weight.setValue('');
-      setActivityLevel('sedentary');
-      setGoal('maintenance');
-      setCustomProtein(30);
-      setCustomCarbs(40);
-      setCustomFat(30);
     });
   };
 
-  const shareResultContext = useMemo(() => {
-    const heightCm = height.toCm();
-    const weightKg = weight.toKg();
-
-    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
-      return undefined;
-    }
-
-    return {
-      calculator: 'macro' as const,
-      inputs: {
-        age,
-        gender,
-        heightCm,
-        weightKg,
+  const shareResultContext = useMemo(
+    () =>
+      createMacroShareResultContext({
         activityLevel,
+        age,
+        customCarbs,
+        customFat,
+        customProtein,
+        gender,
         goal,
-        customProteinPercent: goal === 'custom' ? customProtein : undefined,
-        customCarbsPercent: goal === 'custom' ? customCarbs : undefined,
-        customFatPercent: goal === 'custom' ? customFat : undefined,
-      },
-    };
-  }, [
-    activityLevel,
-    age,
-    customCarbs,
-    customFat,
-    customProtein,
-    gender,
-    goal,
-    height,
-    showResult,
-    weight,
-  ]);
+        height,
+        showResult,
+        weight,
+      }),
+    [
+      activityLevel,
+      age,
+      customCarbs,
+      customFat,
+      customProtein,
+      gender,
+      goal,
+      height,
+      showResult,
+      weight,
+    ]
+  );
 
-  // Form fields for the CalculatorForm component
-  const formFields = [
-    {
-      name: 'age',
-      label: 'Age',
-      type: 'number' as const,
-      value: age,
-      onChange: setAge,
-      error: errors.age,
-      placeholder: 'Years',
-    },
-    {
-      name: 'gender',
-      label: 'Gender',
-      type: 'radio' as const,
-      value: gender,
-      onChange: (value: string) => setGender(value as Gender),
-      options: [
-        { value: 'male', label: 'Male' },
-        { value: 'female', label: 'Female' },
-      ],
-    },
-    createHeightField(height, errors.height),
-    createWeightField(weight, errors.weight),
-    {
-      name: 'activity',
-      label: 'Activity Level',
-      type: 'select' as const,
-      value: activityLevel,
-      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
-      options: ACTIVITY_MULTIPLIERS.map(level => ({
-        value: level.level,
-        label: level.label,
-        description: level.description,
-      })),
-    },
-    {
-      name: 'goal',
-      label: 'Dietary Goal',
-      type: 'select' as const,
-      value: goal,
-      onChange: (value: string) => setGoal(value as MacroGoal),
-      options: MACRO_RATIO_PRESETS.map(preset => ({
-        value: preset.id,
-        label: preset.name,
-        description: preset.description,
-      })),
-    },
-    ...(goal === 'custom'
-      ? [
-          {
-            name: 'customProtein',
-            label: 'Protein %',
-            type: 'number' as const,
-            value: customProtein,
-            onChange: (val: number | '') => setCustomProtein(val === '' ? 30 : val),
-            error: errors.macros,
-            placeholder: 'Protein %',
-            min: 10,
-            max: 50,
-          },
-          {
-            name: 'customCarbs',
-            label: 'Carbs %',
-            type: 'number' as const,
-            value: customCarbs,
-            onChange: (val: number | '') => setCustomCarbs(val === '' ? 40 : val),
-            placeholder: 'Carbs %',
-            min: 10,
-            max: 70,
-          },
-          {
-            name: 'customFat',
-            label: 'Fat %',
-            type: 'number' as const,
-            value: customFat,
-            onChange: (val: number | '') => setCustomFat(val === '' ? 30 : val),
-            placeholder: 'Fat %',
-            min: 15,
-            max: 60,
-          },
-        ]
-      : []),
-  ];
+  const formFields = useMemo(
+    () =>
+      createMacroFormFields({
+        activityLevel,
+        age,
+        customCarbs,
+        customFat,
+        customProtein,
+        errors,
+        gender,
+        goal,
+        height,
+        setActivityLevel: value =>
+          dispatchState({ type: 'patch', patch: { activityLevel: value } }),
+        setAge: value => dispatchState({ type: 'patch', patch: { age: value } }),
+        setCustomCarbs: value => dispatchState({ type: 'patch', patch: { customCarbs: value } }),
+        setCustomFat: value => dispatchState({ type: 'patch', patch: { customFat: value } }),
+        setCustomProtein: value =>
+          dispatchState({ type: 'patch', patch: { customProtein: value } }),
+        setGender: value => dispatchState({ type: 'patch', patch: { gender: value } }),
+        setGoal: value => dispatchState({ type: 'patch', patch: { goal: value } }),
+        weight,
+      }),
+    [
+      activityLevel,
+      age,
+      customCarbs,
+      customFat,
+      customProtein,
+      errors,
+      gender,
+      goal,
+      height,
+      weight,
+    ]
+  );
 
   return (
     <CalculatorPageLayout
@@ -425,64 +613,14 @@ export default function MacroCalculator() {
       showResultsCapture={showResult}
       shareResultContext={shareResultContext}
     >
-      <div className="md:col-span-1">
-        <CalculatorForm
-          title="Enter Your Details"
-          fields={formFields}
-          onSubmit={handleSubmit}
-          onReset={onReset}
-        />
-
-        {/* User-facing error state */}
-        {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-            {calculationError}
-          </div>
-        )}
-      </div>
-
-      <div className="md:col-span-2" id="macro-result">
-        {showResult && result ? (
-          <>
-            <MacroResult result={result} />
-
-            {/* Save result functionality */}
-            <div className="mt-6 flex justify-between items-center">
-              <SaveResult
-                calculatorType="macro"
-                calculatorName="Macro Calculator"
-                data={{
-                  bmr: result.bmr,
-                  tdee: result.tdee,
-                  targetCalories: result.targetCalories,
-                  protein: result.protein,
-                  carbs: result.carbs,
-                  fat: result.fat,
-                  goal: result.goal,
-                }}
-              />
-
-              <button
-                onClick={onReset}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-              >
-                New Calculation
-              </button>
-            </div>
-
-            {/* Recommended Products - shown after calculation */}
-            <AffiliateLinks
-              calculatorType="macro"
-              title="Tools to Help You Track Your Macros"
-              maxProducts={6}
-              showDisclosure={true}
-              className="my-8"
-            />
-          </>
-        ) : (
-          <MacroInfo />
-        )}
-      </div>
+      <MacroCalculatorContent
+        calculationError={calculationError}
+        formFields={formFields}
+        handleSubmit={handleSubmit}
+        onReset={onReset}
+        result={result}
+        showResult={showResult}
+      />
     </CalculatorPageLayout>
   );
 }

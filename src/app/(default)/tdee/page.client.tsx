@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useReducer, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { ActivityLevel, Gender } from '@/types/common';
 import { calculateBMR, calculateTDEE, getActivityMultiplier } from '@/utils/calculators/tdee';
@@ -8,10 +8,7 @@ import { ACTIVITY_MULTIPLIERS } from '@/constants/tdee';
 import { validateAge, validateHeight, validateWeight, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
-import TDEEResult from '@/components/calculators/tdee/TDEEResult';
 import TDEEInfo from '@/components/calculators/tdee/TDEEInfo';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -20,13 +17,14 @@ import {
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
-import {
-  requestCalculatorFormSubmit,
-  useSharedResultPrefill,
-} from '@/hooks/useSharedResultPrefill';
+import { requestCalculatorFormSubmit } from '@/hooks/useSharedResultPrefill';
+import type { SharedResultInputMap } from '@/utils/resultSharing';
 
 // Dynamic imports for below-the-fold components
 const TDEEUnderstanding = dynamic(() => import('@/components/calculators/tdee/TDEEUnderstanding'));
+const TDEEResult = dynamic(() => import('@/components/calculators/tdee/TDEEResult'));
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // FAQ data for TDEE calculator
 const faqs = [
@@ -108,36 +106,242 @@ type TDEEResultType = {
   };
 };
 
-export default function TDEECalculator() {
-  // State for form inputs
-  const [age, setAge] = useState<number | ''>('');
-  const [gender, setGender] = useState<Gender>('male');
+type TDEEPageState = {
+  age: number | '';
+  gender: Gender;
+  activityLevel: ActivityLevel;
+};
+
+type TDEEPageAction = { type: 'patch'; patch: Partial<TDEEPageState> } | { type: 'reset' };
+
+const initialTDEEPageState: TDEEPageState = {
+  age: '',
+  gender: 'male',
+  activityLevel: 'sedentary',
+};
+
+function tdeePageReducer(state: TDEEPageState, action: TDEEPageAction): TDEEPageState {
+  switch (action.type) {
+    case 'patch':
+      return { ...state, ...action.patch };
+    case 'reset':
+      return initialTDEEPageState;
+    default:
+      return state;
+  }
+}
+
+type TDEEFormFieldsArgs = {
+  activityLevel: ActivityLevel;
+  age: number | '';
+  errors: Record<string, string>;
+  height: ReturnType<typeof useHeight>;
+  setActivityLevel: (value: ActivityLevel) => void;
+  setAge: (value: number | '') => void;
+  setGender: (value: Gender) => void;
+  gender: Gender;
+  weight: ReturnType<typeof useWeight>;
+};
+
+function createTDEEFormFields({
+  activityLevel,
+  age,
+  errors,
+  height,
+  setActivityLevel,
+  setAge,
+  setGender,
+  gender,
+  weight,
+}: TDEEFormFieldsArgs): React.ComponentProps<typeof CalculatorForm>['fields'] {
+  return [
+    {
+      name: 'age',
+      label: 'Age',
+      type: 'number' as const,
+      value: age,
+      onChange: setAge,
+      error: errors.age,
+      placeholder: 'Years',
+    },
+    {
+      name: 'gender',
+      label: 'Gender',
+      type: 'radio' as const,
+      value: gender,
+      onChange: (value: string) => setGender(value as Gender),
+      options: [
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' },
+      ],
+    },
+    createHeightField(height, errors.height),
+    createWeightField(weight, errors.weight),
+    {
+      name: 'activity',
+      label: 'Activity Level',
+      type: 'select' as const,
+      value: activityLevel,
+      onChange: (value: string) => setActivityLevel(value as ActivityLevel),
+      options: ACTIVITY_MULTIPLIERS.map(level => ({
+        value: level.level,
+        label: level.label,
+        description: level.description,
+      })),
+    },
+  ];
+}
+
+function createTDEEShareResultContext({
+  activityLevel,
+  age,
+  gender,
+  height,
+  showResult,
+  weight,
+}: Pick<TDEEPageState, 'activityLevel' | 'age' | 'gender'> & {
+  height: ReturnType<typeof useHeight>;
+  showResult: boolean;
+  weight: ReturnType<typeof useWeight>;
+}): React.ComponentProps<typeof CalculatorPageLayout>['shareResultContext'] {
+  const heightCm = height.toCm();
+  const weightKg = weight.toKg();
+
+  if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
+    return undefined;
+  }
+
+  return {
+    calculator: 'tdee',
+    inputs: {
+      age,
+      gender,
+      heightCm,
+      weightKg,
+      activityLevel,
+    },
+  };
+}
+
+type TDEECalculatorContentProps = {
+  calculationError: string | null;
+  formFields: React.ComponentProps<typeof CalculatorForm>['fields'];
+  handleSubmit: React.FormEventHandler<Element>;
+  onReset: () => void;
+  result: TDEEResultType | null;
+  showResult: boolean;
+};
+
+function TDEECalculatorContent({
+  calculationError,
+  formFields,
+  handleSubmit,
+  onReset,
+  result,
+  showResult,
+}: TDEECalculatorContentProps): React.JSX.Element {
+  return (
+    <>
+      <div className="md:col-span-1">
+        <CalculatorForm
+          title="Enter Your Details"
+          fields={formFields}
+          onSubmit={handleSubmit}
+          onReset={onReset}
+        />
+
+        {calculationError && (
+          <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+            {calculationError}
+          </div>
+        )}
+      </div>
+
+      <div className="md:col-span-2" id="tdee-result">
+        {showResult && result ? (
+          <>
+            <TDEEResult result={result} />
+
+            <div className="mt-6 flex items-center justify-between">
+              <SaveResult
+                calculatorType="tdee"
+                calculatorName="TDEE Calculator"
+                data={{
+                  bmr: result.bmr,
+                  tdee: result.tdee,
+                  activityMultiplier: result.activityMultiplier,
+                  dailyCalories: result.dailyCalories,
+                }}
+              />
+
+              <button
+                onClick={onReset}
+                className="rounded-lg bg-gray-200 px-4 py-2 text-gray-800 transition-colors hover:bg-gray-300"
+              >
+                New Calculation
+              </button>
+            </div>
+          </>
+        ) : (
+          <TDEEInfo />
+        )}
+
+        {showResult && result ? (
+          <AffiliateLinks
+            calculatorType="tdee"
+            title="Tools to Help You Manage Your Calories"
+            maxProducts={6}
+            showDisclosure={true}
+            className="my-8"
+          />
+        ) : null}
+      </div>
+    </>
+  );
+}
+
+export default function TDEECalculator({
+  initialSharedPrefill = null,
+}: {
+  initialSharedPrefill?: SharedResultInputMap['tdee'] | null;
+}) {
+  const [state, dispatchState] = useReducer(tdeePageReducer, initialTDEEPageState);
+  const { age, gender, activityLevel } = state;
   const height = useHeight();
   const weight = useWeight();
-  const [activityLevel, setActivityLevel] = useState<ActivityLevel>('sedentary');
-
   const chainPrefill = useChainPrefill('tdee');
-  const sharedPrefill = useSharedResultPrefill('tdee');
+  const sharedPrefill = initialSharedPrefill;
   const hasAppliedSharedPrefill = useRef(false);
 
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
-    if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
-      setGender(chainPrefill.gender as Gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        ...(typeof chainPrefill.age === 'number' ? { age: chainPrefill.age } : {}),
+        ...(chainPrefill.gender === 'male' || chainPrefill.gender === 'female'
+          ? { gender: chainPrefill.gender as Gender }
+          : {}),
+      },
+    });
     if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
     if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, setAge, setGender, height, weight]);
+  }, [chainPrefill, height, weight]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
 
     hasAppliedSharedPrefill.current = true;
-    setAge(sharedPrefill.age);
-    setGender(sharedPrefill.gender);
+    dispatchState({
+      type: 'patch',
+      patch: {
+        age: sharedPrefill.age,
+        gender: sharedPrefill.gender,
+        activityLevel: sharedPrefill.activityLevel,
+      },
+    });
     height.setValue(sharedPrefill.heightCm);
     weight.setValue(sharedPrefill.weightKg);
-    setActivityLevel(sharedPrefill.activityLevel);
     requestCalculatorFormSubmit();
   }, [height, sharedPrefill, weight]);
 
@@ -223,11 +427,9 @@ export default function TDEECalculator() {
 
   const onReset = () => {
     handleReset(() => {
-      setAge('');
-      setGender('male');
+      dispatchState({ type: 'reset' });
       height.setValue('');
       weight.setValue('');
-      setActivityLevel('sedentary');
     });
   };
 
@@ -243,71 +445,40 @@ export default function TDEECalculator() {
     };
   }, [age, gender, height, weight, activityLevel]);
 
-  const shareResultContext = useMemo(() => {
-    const heightCm = height.toCm();
-    const weightKg = weight.toKg();
-
-    if (!showResult || typeof age !== 'number' || heightCm === null || weightKg === null) {
-      return undefined;
-    }
-
-    return {
-      calculator: 'tdee' as const,
-      inputs: {
+  const shareResultContext = useMemo(
+    () =>
+      createTDEEShareResultContext({
+        activityLevel,
         age,
         gender,
-        heightCm,
-        weightKg,
-        activityLevel,
-      },
-    };
-  }, [activityLevel, age, gender, height, showResult, weight]);
+        height,
+        showResult,
+        weight,
+      }),
+    [activityLevel, age, gender, height, showResult, weight]
+  );
 
-  // Form fields for the CalculatorForm component - memoized for performance
   const formFields = useMemo(
-    () => [
-      {
-        name: 'age',
-        label: 'Age',
-        type: 'number' as const,
-        value: age,
-        onChange: setAge,
-        error: errors.age,
-        placeholder: 'Years',
-      },
-      {
-        name: 'gender',
-        label: 'Gender',
-        type: 'radio' as const,
-        value: gender,
-        onChange: (value: string) => setGender(value as Gender),
-        options: [
-          { value: 'male', label: 'Male' },
-          { value: 'female', label: 'Female' },
-        ],
-      },
-      createHeightField(height, errors.height),
-      createWeightField(weight, errors.weight),
-      {
-        name: 'activity',
-        label: 'Activity Level',
-        type: 'select' as const,
-        value: activityLevel,
-        onChange: (value: string) => setActivityLevel(value as ActivityLevel),
-        options: ACTIVITY_MULTIPLIERS.map(level => ({
-          value: level.level,
-          label: level.label,
-          description: level.description,
-        })),
-      },
-    ],
-    [age, gender, height, weight, activityLevel, errors]
+    () =>
+      createTDEEFormFields({
+        activityLevel,
+        age,
+        errors,
+        height,
+        setActivityLevel: value =>
+          dispatchState({ type: 'patch', patch: { activityLevel: value } }),
+        setAge: value => dispatchState({ type: 'patch', patch: { age: value } }),
+        setGender: value => dispatchState({ type: 'patch', patch: { gender: value } }),
+        gender,
+        weight,
+      }),
+    [activityLevel, age, errors, height, gender, weight]
   );
 
   return (
     <CalculatorPageLayout
       title="TDEE Calculator"
-      description="Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs for weight management."
+      description="Estimate your maintenance calories in seconds."
       calculatorSlug="tdee"
       shareTitle="TDEE Calculator | Total Daily Energy Expenditure & Calorie Needs"
       shareDescription="Calculate your TDEE to determine daily calorie needs. Find your maintenance calories, weight loss/gain targets, and optimize your nutrition with our free calculator."
@@ -329,63 +500,14 @@ export default function TDEECalculator() {
       chainResultData={chainResultData}
       shareResultContext={shareResultContext}
     >
-      <div className="md:col-span-1">
-        <CalculatorForm
-          title="Enter Your Details"
-          fields={formFields}
-          onSubmit={handleSubmit}
-          onReset={onReset}
-        />
-
-        {/* User-facing error state */}
-        {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
-            {calculationError}
-          </div>
-        )}
-      </div>
-
-      <div className="md:col-span-2" id="tdee-result">
-        {showResult && result ? (
-          <>
-            <TDEEResult result={result} />
-
-            {/* Save result functionality */}
-            <div className="mt-6 flex justify-between items-center">
-              <SaveResult
-                calculatorType="tdee"
-                calculatorName="TDEE Calculator"
-                data={{
-                  bmr: result.bmr,
-                  tdee: result.tdee,
-                  activityMultiplier: result.activityMultiplier,
-                  dailyCalories: result.dailyCalories,
-                }}
-              />
-
-              <button
-                onClick={onReset}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-              >
-                New Calculation
-              </button>
-            </div>
-          </>
-        ) : (
-          <TDEEInfo />
-        )}
-
-        {/* Recommended Products - shown after calculation */}
-        {showResult && result && (
-          <AffiliateLinks
-            calculatorType="tdee"
-            title="Tools to Help You Manage Your Calories"
-            maxProducts={6}
-            showDisclosure={true}
-            className="my-8"
-          />
-        )}
-      </div>
+      <TDEECalculatorContent
+        calculationError={calculationError}
+        formFields={formFields}
+        handleSubmit={handleSubmit}
+        onReset={onReset}
+        result={result}
+        showResult={showResult}
+      />
     </CalculatorPageLayout>
   );
 }

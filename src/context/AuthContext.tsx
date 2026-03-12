@@ -5,7 +5,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useReducer,
   ReactNode,
 } from 'react';
 import { getSupabaseBrowserClient, isSupabaseEnabled } from '@/lib/supabase/client';
@@ -29,6 +29,20 @@ interface AuthContextState {
 
 const AuthContext = createContext<AuthContextState | undefined>(undefined);
 
+interface AuthState {
+  user: AuthUser | null;
+  isLoading: boolean;
+}
+
+type AuthAction =
+  | {
+      type: 'resolve';
+      user: AuthUser | null;
+    }
+  | {
+      type: 'sign-out';
+    };
+
 function mapSupabaseUser(su: SupabaseUser): AuthUser {
   return {
     id: su.id,
@@ -42,16 +56,30 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+function authReducer(state: AuthState, action: AuthAction): AuthState {
+  switch (action.type) {
+    case 'resolve':
+      return {
+        user: action.user,
+        isLoading: false,
+      };
+    case 'sign-out':
+      return {
+        ...state,
+        user: null,
+      };
+    default:
+      return state;
+  }
+}
+
 /**
  * AuthProvider that integrates with Supabase Auth when env vars are set,
  * and falls back to an unauthenticated stub when they are not.
  */
 export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element {
   const enabled = isSupabaseEnabled();
-  const [authState, setAuthState] = useState<{
-    user: AuthUser | null;
-    isLoading: boolean;
-  }>({
+  const [authState, dispatchAuthState] = useReducer(authReducer, {
     user: null,
     isLoading: enabled,
   });
@@ -59,30 +87,45 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
 
   useEffect(() => {
     if (!enabled) return;
+    let cancelled = false;
+    let unsubscribe: (() => void) | undefined;
 
-    const supabase = getSupabaseBrowserClient();
-    if (!supabase) return;
+    async function hydrateAuth() {
+      const supabase = await getSupabaseBrowserClient();
+      if (!supabase) {
+        if (!cancelled) {
+          dispatchAuthState({ type: 'resolve', user: null });
+        }
+        return;
+      }
 
-    // Get the initial session.
-    supabase.auth.getUser().then(({ data }) => {
-      setAuthState({
-        user: data.user ? mapSupabaseUser(data.user) : null,
-        isLoading: false,
+      const { data } = await supabase.auth.getUser();
+      if (!cancelled) {
+        dispatchAuthState({
+          type: 'resolve',
+          user: data.user ? mapSupabaseUser(data.user) : null,
+        });
+      }
+
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((_event, session) => {
+        dispatchAuthState({
+          type: 'resolve',
+          user: session?.user ? mapSupabaseUser(session.user) : null,
+        });
       });
-    });
 
-    // Listen for auth state changes (sign in, sign out, token refresh).
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setAuthState({
-        user: session?.user ? mapSupabaseUser(session.user) : null,
-        isLoading: false,
-      });
-    });
+      unsubscribe = () => {
+        subscription.unsubscribe();
+      };
+    }
+
+    void hydrateAuth();
 
     return () => {
-      subscription.unsubscribe();
+      cancelled = true;
+      unsubscribe?.();
     };
   }, [enabled]);
 
@@ -92,7 +135,7 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
         return { error: 'Authentication is not configured.' };
       }
 
-      const supabase = getSupabaseBrowserClient();
+      const supabase = await getSupabaseBrowserClient();
       if (!supabase) {
         return { error: 'Authentication is not configured.' };
       }
@@ -115,11 +158,11 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
   );
 
   const signOut = useCallback(async (): Promise<void> => {
-    const supabase = getSupabaseBrowserClient();
+    const supabase = await getSupabaseBrowserClient();
     if (supabase) {
       await supabase.auth.signOut();
     }
-    setAuthState(prevState => ({ ...prevState, user: null }));
+    dispatchAuthState({ type: 'sign-out' });
   }, []);
 
   const value: AuthContextState = {

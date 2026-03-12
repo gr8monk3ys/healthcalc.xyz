@@ -6,9 +6,15 @@ interface AccordionProps {
   title: string;
   children: ReactNode;
   defaultOpen?: boolean;
+  className?: string;
 }
 
-export default function Accordion({ title, children, defaultOpen = false }: AccordionProps) {
+export default function Accordion({
+  title,
+  children,
+  defaultOpen = false,
+  className = '',
+}: AccordionProps) {
   const initialOpenRef = useRef(defaultOpen);
   const [isOpen, setIsOpen] = useState(initialOpenRef.current);
   const id = useId();
@@ -16,7 +22,7 @@ export default function Accordion({ title, children, defaultOpen = false }: Acco
   const panelId = `${id}-accordion-panel`;
 
   return (
-    <div className="neumorph rounded-lg overflow-hidden">
+    <div className={`neumorph rounded-lg overflow-hidden ${className}`}>
       <button
         id={buttonId}
         className="w-full p-4 text-left font-medium flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"

@@ -12,32 +12,11 @@ export function MedicalDisclaimer({
   if (variant === 'compact') {
     return (
       <div
-        className={`rounded-lg border border-amber-200 bg-amber-50 dark:border-amber-700 dark:bg-amber-950/30 px-4 py-3 ${className}`}
+        className={`py-1 text-amber-900 dark:text-amber-200 ${className}`}
         role="note"
-        aria-label="Medical disclaimer"
+        aria-label="Informational only. This tool does not provide medical advice."
       >
-        <div className="flex items-start gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <p className="text-xs text-amber-800 dark:text-amber-300">
-            <strong className="font-semibold">For informational purposes only.</strong> This tool
-            does not constitute medical advice. Consult a healthcare professional before making
-            health decisions.
-          </p>
-        </div>
+        <p className="text-[11px] font-medium leading-4">Info only. Not medical advice.</p>
       </div>
     );
   }

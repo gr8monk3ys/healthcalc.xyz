@@ -116,8 +116,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
     },
     page: {
       title: 'BMI Calculator',
-      description:
-        'Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height.',
+      description: 'Find your BMI and healthy weight range.',
       shareTitle: 'BMI Calculator | Body Mass Index & Healthy Weight Range',
       shareDescription:
         'Calculate your BMI and discover your healthy weight range. Free, accurate BMI calculator for adults and children with WHO-approved categories.',

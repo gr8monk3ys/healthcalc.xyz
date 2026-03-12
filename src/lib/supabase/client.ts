@@ -1,7 +1,6 @@
-import { createBrowserClient } from '@supabase/ssr';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-let browserClient: SupabaseClient | null = null;
+let browserClientPromise: Promise<SupabaseClient | null> | null = null;
 
 /**
  * Returns true when the required Supabase environment variables are set.
@@ -19,19 +18,21 @@ export function isSupabaseEnabled(): boolean {
  * client components. Returns null when Supabase env vars are not set,
  * allowing the app to fall back to localStorage-only behaviour.
  */
-export function getSupabaseBrowserClient(): SupabaseClient | null {
+export async function getSupabaseBrowserClient(): Promise<SupabaseClient | null> {
   if (!isSupabaseEnabled()) {
     return null;
   }
 
-  if (browserClient) {
-    return browserClient;
+  if (!browserClientPromise) {
+    browserClientPromise = import('@supabase/ssr')
+      .then(({ createBrowserClient }) =>
+        createBrowserClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+        )
+      )
+      .catch(() => null);
   }
 
-  browserClient = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-
-  return browserClient;
+  return browserClientPromise;
 }
