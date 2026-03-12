@@ -10,7 +10,7 @@ test.describe('Navigation', () => {
     await gotoPath(page, '/');
     await expect(
       page.getByRole('heading', {
-        name: /free health calculators/i,
+        name: /BMI, body fat, TDEE, and 50\+ more health calculators/i,
       })
     ).toBeVisible();
   });
