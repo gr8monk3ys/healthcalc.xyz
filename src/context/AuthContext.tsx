@@ -107,14 +107,26 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
         });
       }
 
+      if (cancelled) {
+        return;
+      }
+
       const {
         data: { subscription },
       } = supabase.auth.onAuthStateChange((_event, session) => {
+        if (cancelled) {
+          return;
+        }
         dispatchAuthState({
           type: 'resolve',
           user: session?.user ? mapSupabaseUser(session.user) : null,
         });
       });
+
+      if (cancelled) {
+        subscription.unsubscribe();
+        return;
+      }
 
       unsubscribe = () => {
         subscription.unsubscribe();
