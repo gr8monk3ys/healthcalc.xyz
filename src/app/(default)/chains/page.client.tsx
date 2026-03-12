@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import ChainSelector from '@/components/chains/ChainSelector';
@@ -42,6 +42,22 @@ function WorkflowStartCard({ chainId }: { chainId: string }) {
 export default function ChainsPageClient({
   initialChainId,
 }: ChainsPageClientProps): React.JSX.Element {
+  const router = useRouter();
+  const { startChain } = useChainState();
+  const hasAttemptedAutoStartRef = useRef(false);
+
+  useEffect(() => {
+    if (!initialChainId || hasAttemptedAutoStartRef.current) {
+      return;
+    }
+
+    hasAttemptedAutoStartRef.current = true;
+    const firstSlug = startChain(initialChainId);
+    if (firstSlug) {
+      router.replace(`/${firstSlug}`);
+    }
+  }, [initialChainId, router, startChain]);
+
   return (
     <div className="mx-auto max-w-4xl">
       <Breadcrumb />
