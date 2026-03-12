@@ -3,7 +3,8 @@ name: semgrep
 on:
   push:
     branches:
-      - '**'
+      - master
+      - main
   pull_request:
 
 permissions: read-all
