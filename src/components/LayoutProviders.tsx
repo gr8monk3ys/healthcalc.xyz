@@ -1,6 +1,4 @@
 import React, { ReactNode } from 'react';
-import { DarkModeProvider } from '@/context/DarkModeContext';
-import { UnitSystemProvider } from '@/context/UnitSystemContext';
 import { PreferencesProvider } from '@/context/PreferencesContext';
 import { CookieConsentProvider } from '@/components/CookieConsent';
 import { LocaleProvider } from '@/context/LocaleContext';
@@ -15,13 +13,9 @@ export default function LayoutProviders({
 }): React.JSX.Element {
   return (
     <LocaleProvider initialLocale={initialLocale}>
-      <DarkModeProvider>
-        <UnitSystemProvider>
-          <PreferencesProvider>
-            <CookieConsentProvider>{children}</CookieConsentProvider>
-          </PreferencesProvider>
-        </UnitSystemProvider>
-      </DarkModeProvider>
+      <PreferencesProvider>
+        <CookieConsentProvider>{children}</CookieConsentProvider>
+      </PreferencesProvider>
     </LocaleProvider>
   );
 }
