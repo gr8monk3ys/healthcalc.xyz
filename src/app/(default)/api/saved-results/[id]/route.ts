@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { rateLimit } from '@/utils/rateLimit';
 import { verifyCsrf } from '@/utils/csrf';
 import { deleteSavedResult, isSavedResultsPostgresConfigured } from '@/lib/db/savedResults';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
@@ -47,6 +48,14 @@ async function resolveUserId(request: NextRequest): Promise<{ userId: string; is
 export async function DELETE(request: NextRequest, { params }: Props): Promise<NextResponse> {
   if (!verifyCsrf(request)) {
     return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
+  }
+
+  const rateLimitResult = rateLimit(request, { limit: 10, routeKey: 'saved-results-delete' });
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { success: false, error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: rateLimitResult.headers }
+    );
   }
 
   if (!isSavedResultsPostgresConfigured()) {

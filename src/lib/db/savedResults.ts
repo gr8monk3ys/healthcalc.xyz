@@ -75,6 +75,7 @@ async function getPool(): Promise<Pool> {
       .query(POSTGRES_SCHEMA_SQL)
       .then(() => undefined)
       .catch(error => {
+        initPromise = null;
         logger.error('Failed to initialize saved results schema', { error: String(error) });
         throw error;
       });

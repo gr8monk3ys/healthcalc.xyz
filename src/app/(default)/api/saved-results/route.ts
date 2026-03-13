@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { rateLimit } from '@/utils/rateLimit';
 import { verifyCsrf } from '@/utils/csrf';
 import {
   clearSavedResults,
@@ -101,6 +102,14 @@ async function resolveUserId(request: NextRequest): Promise<{ userId: string; is
 }
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
+  const rateLimitResult = rateLimit(request, { limit: 30, routeKey: 'saved-results-get' });
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { success: false, error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: rateLimitResult.headers }
+    );
+  }
+
   if (!isSavedResultsPostgresConfigured()) {
     return NextResponse.json(
       { success: false, error: 'Saved results database is not configured.' },
@@ -126,6 +135,14 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 export async function POST(request: NextRequest): Promise<NextResponse> {
   if (!verifyCsrf(request)) {
     return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
+  }
+
+  const rateLimitResult = rateLimit(request, { limit: 10, routeKey: 'saved-results-post' });
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { success: false, error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: rateLimitResult.headers }
+    );
   }
 
   if (!isSavedResultsPostgresConfigured()) {
@@ -155,6 +172,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 export async function DELETE(request: NextRequest): Promise<NextResponse> {
   if (!verifyCsrf(request)) {
     return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
+  }
+
+  const rateLimitResult = rateLimit(request, { limit: 10, routeKey: 'saved-results-delete' });
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { success: false, error: 'Too many requests. Please try again later.' },
+      { status: 429, headers: rateLimitResult.headers }
+    );
   }
 
   if (!isSavedResultsPostgresConfigured()) {

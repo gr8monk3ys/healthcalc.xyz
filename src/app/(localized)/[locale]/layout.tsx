@@ -1,5 +1,6 @@
 import '../../globals.css';
 import type { Metadata } from 'next';
+import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GlobalStructuredData from '@/components/GlobalStructuredData';
@@ -17,6 +18,20 @@ import {
 } from '@/i18n/config';
 import { isLocaleIndexable } from '@/i18n/indexing';
 import { notFound, redirect } from 'next/navigation';
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
+});
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
+});
 
 const siteUrl = getPublicSiteUrl();
 
@@ -173,7 +188,11 @@ export default async function RootLayout({ children, params }: LocalizedLayoutPr
   }
 
   return (
-    <html lang={localeToHtmlLang[locale]} suppressHydrationWarning>
+    <html
+      lang={localeToHtmlLang[locale]}
+      className={`${plusJakarta.variable} ${sora.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Core Web Vitals optimizations */}
         {/* PWA and app settings */}

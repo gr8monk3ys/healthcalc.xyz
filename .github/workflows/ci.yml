@@ -160,5 +160,4 @@ jobs:
 
       - name: Check for vulnerabilities
         # audit-ci doesn't support bun.lock; use bun's native audit instead
-        continue-on-error: true
         run: bun audit --level high

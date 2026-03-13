@@ -16,7 +16,16 @@ export function calculateRunningPace(options: {
   seconds: number;
 }): RunningPaceResult {
   const { distance, distanceUnit, hours, minutes, seconds } = options;
+
+  if (distance <= 0) {
+    throw new Error('Distance must be greater than 0');
+  }
+
   const totalMinutes = hours * 60 + minutes + seconds / 60;
+
+  if (totalMinutes <= 0) {
+    throw new Error('Time must be greater than 0');
+  }
 
   const distanceMiles = distanceUnit === 'mi' ? distance : convertLength(distance, 'km', 'mi');
   const distanceKm = distanceUnit === 'km' ? distance : convertLength(distance, 'mi', 'km');

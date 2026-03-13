@@ -26,8 +26,7 @@
 }
 
 :root {
-  --font-body: 'Plus Jakarta Sans', 'Avenir Next', 'Segoe UI', sans-serif;
-  --font-heading: 'Sora', 'Avenir Next', 'Segoe UI', sans-serif;
+  /* --font-body and --font-heading are set by next/font/google via class names on <html> */
   --background: #ececff;
   --foreground: #171938;
   --primary: #f8f8ff;

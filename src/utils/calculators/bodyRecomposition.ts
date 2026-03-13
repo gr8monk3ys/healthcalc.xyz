@@ -169,7 +169,7 @@ export function calculateBodyRecomposition(values: BodyRecompFormValues): BodyRe
     // Carbs: Remaining calories
     const proteinCalories = proteinGrams * 4; // 4 calories per gram
     const carbCalories = dailyCalories - proteinCalories - fatCalories;
-    const carbGrams = Math.round(carbCalories / 4); // 4 calories per gram
+    const carbGrams = Math.max(0, Math.round(carbCalories / 4)); // 4 calories per gram
 
     // Calculate weekly deficit/surplus
     const weeklyCalorieBalance =

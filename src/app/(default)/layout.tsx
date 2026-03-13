@@ -1,5 +1,6 @@
 import '../globals.css';
 import type { Metadata } from 'next';
+import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -9,6 +10,20 @@ import SkipToMainLink from '@/components/SkipToMainLink';
 import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import LayoutProviders from '@/components/LayoutProviders';
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
+});
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
+});
 
 const siteUrl = getPublicSiteUrl();
 
@@ -78,7 +93,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${plusJakarta.variable} ${sora.variable}`} suppressHydrationWarning>
       <head>
         {/* Core Web Vitals optimizations */}
         {/* PWA and app settings */}
