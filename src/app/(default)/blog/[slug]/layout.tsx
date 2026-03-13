@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { BLOG_METADATA } from '@/constants/blogMetadata';
+import { generateBlogMetadata, BLOG_REGISTRY } from '@/lib/blog/registry';
 import { createArticleSchema, createBreadcrumbSchema } from '@/utils/schema';
 import { toAbsoluteUrl } from '@/lib/site';
 
@@ -10,7 +10,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const meta = BLOG_METADATA[slug];
+  const meta = generateBlogMetadata(slug);
 
   if (!meta) {
     return {
@@ -30,13 +30,10 @@ export default async function BlogPostLayout({
   params: Promise<{ slug: string }>;
 }): Promise<React.JSX.Element> {
   const { slug } = await params;
-  const meta = BLOG_METADATA[slug];
+  const post = BLOG_REGISTRY.find((p) => p.slug === slug);
 
-  const title = typeof meta?.title === 'string' ? meta.title : 'Blog Post | HealthCheck';
-  const description =
-    typeof meta?.description === 'string'
-      ? meta.description
-      : 'Health and fitness articles from HealthCheck.';
+  const title = post?.seoTitle ?? post?.title ?? 'Blog Post | HealthCheck';
+  const description = post?.description ?? 'Health and fitness articles from HealthCheck.';
 
   const articleSchema = createArticleSchema({
     title,

@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import { BlogEmailCapture } from '@/components/BlogEmailCapture';
 import { AuthorBio } from '@/components/AuthorBio';
+import { BLOG_REGISTRY } from '@/lib/blog/registry';
 import type { Reviewer } from '@/constants/reviewers';
 import {
   REVIEWER_SARAH_CHEN,
@@ -396,45 +397,6 @@ const BLOG_POSTS: Record<string, React.ComponentType<Record<string, never>>> = {
   ),
 };
 
-const AFFILIATE_BLOG_SLUGS = new Set([
-  'best-smart-scales-body-composition',
-  'best-fitness-trackers-calorie-tracking',
-  'best-kitchen-scales-portion-control',
-  'best-supplements-fitness-goals',
-  'best-home-gym-equipment-beginners',
-  'best-running-shoes-weight-loss',
-  'best-resistance-bands-strength-training',
-  'best-body-tape-measures-composition',
-  'best-protein-bars-on-the-go',
-  'best-foam-rollers-recovery',
-  'best-adjustable-dumbbells-home-gym',
-  'best-water-bottles-hydration-tracking',
-  'best-jump-ropes-cardio-weight-loss',
-  'best-pull-up-bars-home-fitness',
-  'best-kettlebells-full-body-workouts',
-  'best-workout-headphones-gym',
-  'best-blender-bottles-protein-shakes',
-  'best-heart-rate-monitors-training',
-  'best-treadmills-home-weight-loss',
-  'best-pre-workout-supplements-energy',
-  'best-rowing-machines-full-body',
-  'best-creatine-supplements-muscle-gain',
-  'best-weight-benches-home-gym',
-  'best-exercise-bikes-weight-loss',
-  'best-yoga-mats-home-workouts',
-  'best-ab-rollers-core-training',
-  'best-barbell-weight-sets-home-gym',
-  'best-compression-gear-recovery',
-  'best-massage-guns-recovery',
-  'best-meal-prep-containers-weight-loss',
-  'best-workout-gloves-weightlifting',
-  'best-gym-bags-workout-gear',
-  'best-fitness-trackers-kids',
-  'best-sleep-trackers-recovery',
-  'adjustable-dumbbells-vs-barbell-home-gym',
-  'smart-scale-vs-body-fat-calipers',
-]);
-
 /** Pick a reviewer by slug topic. Nutrition/diet posts go to James,
  *  body-composition and public-health posts go to Lisa, everything
  *  else defaults to Sarah (exercise science). */
@@ -488,7 +450,7 @@ export default function BlogPost(): React.JSX.Element {
       <AuthorBio variant="compact" reviewer={reviewer} className="mb-6" />
       <PostContent />
       <BlogEmailCapture className="mt-8 mb-8" />
-      {AFFILIATE_BLOG_SLUGS.has(slug) && <AffiliateDisclosure />}
+      {BLOG_REGISTRY.find(p => p.slug === slug)?.affiliate && <AffiliateDisclosure />}
     </Suspense>
   );
 }

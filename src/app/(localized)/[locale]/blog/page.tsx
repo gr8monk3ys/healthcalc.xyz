@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
 import BlogIndexClient from '@/components/BlogIndexClient';
-import { BLOG_POSTS } from '@/lib/blog/posts';
+import { BLOG_REGISTRY as BLOG_POSTS } from '@/lib/blog/registry';
 import {
   defaultLocale,
   isSupportedLocale,

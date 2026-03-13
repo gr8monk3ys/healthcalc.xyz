@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import BlogIndexClient from '@/components/BlogIndexClient';
-import { BLOG_POSTS } from '@/lib/blog/posts';
+import { BLOG_REGISTRY as BLOG_POSTS } from '@/lib/blog/registry';
 
 export const metadata: Metadata = {
   title: 'Health & Fitness Blog | HealthCheck',
