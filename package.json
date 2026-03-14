@@ -81,7 +81,6 @@
     ]
   },
   "overrides": {
-    "ajv": ">=8.18.0",
     "dompurify": ">=3.3.2",
     "flatted": ">=3.4.0",
     "minimatch": ">=3.1.3",
