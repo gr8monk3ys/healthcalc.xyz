@@ -4,6 +4,8 @@
 import { describe, it, expect } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET } from './route';
+import { MIFFLIN_BMR_JS } from './mifflinBmrJs';
+import { calculateBMR } from '@/utils/calculators/tdee';
 
 function makeRequest(path: string): NextRequest {
   return new NextRequest(`http://localhost${path}`, { method: 'GET' });
@@ -55,5 +57,29 @@ describe('GET /api/embed/[calculator]', () => {
     expect(res.headers.get('Content-Type')).toContain('text/html');
     expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;');
     expect(html).toContain('Available: bmi, tdee, body-fat, calorie-deficit');
+  });
+
+  it('keeps the embedded BMR snippet in sync with the canonical implementation', () => {
+    const evaluateSnippet = (gender: string, age: number, height: number, weight: number): number =>
+      new Function('gender', 'age', 'height', 'weight', `${MIFFLIN_BMR_JS}\nreturn bmr;`)(
+        gender,
+        age,
+        height,
+        weight
+      ) as number;
+
+    const samples: Array<['male' | 'female', number, number, number]> = [
+      ['male', 30, 175, 70],
+      ['female', 45, 160, 58],
+      ['male', 64, 182, 95],
+      ['female', 19, 168, 49],
+    ];
+
+    for (const [gender, age, height, weight] of samples) {
+      expect(evaluateSnippet(gender, age, height, weight)).toBeCloseTo(
+        calculateBMR(gender, age, weight, height),
+        6
+      );
+    }
   });
 });
