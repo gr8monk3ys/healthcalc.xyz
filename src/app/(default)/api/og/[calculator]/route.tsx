@@ -8,7 +8,9 @@ import {
   type SharedResultSummary,
 } from '@/utils/resultSharing';
 
-export const runtime = 'edge';
+// Node runtime: next/og's bundled renderer pushed this route past Vercel's
+// 1 MB Edge Function limit as of Next 16.2; the Node limit is 50 MB.
+export const runtime = 'nodejs';
 const imageSize = {
   width: 1200,
   height: 630,
