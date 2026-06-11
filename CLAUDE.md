@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-HealthCheck is a Next.js 16 health calculator application with 52 calculators and 66+ blog posts. Built with TypeScript, React 19, and TailwindCSS v4.
+HealthCheck is a Next.js 16 health calculator application with 56 calculators and 66+ blog posts. Built with TypeScript, React 19, and TailwindCSS v4.
 
 ## Development Commands
 
@@ -17,12 +17,12 @@ bun run build                  # Build for production
 bun run start                  # Start production server (requires build first)
 
 # Unit tests (Vitest, jsdom environment)
-bun run test                   # Run all 1712 unit tests across 89 files
+bun run test                   # Run the unit test suite
 bun run test -- --run          # Run once (CI mode, no watch)
 bun run test -- src/utils/calculators/bmi.test.ts  # Run single file
 
 # E2E tests (Playwright, separate from Vitest)
-bun run test:e2e               # Run all 84 E2E tests (requires no server running)
+bun run test:e2e               # Run all E2E tests (requires no server running)
 npx playwright install chromium  # Install browser binary (first time only)
 
 # Code quality
@@ -40,13 +40,13 @@ bun run validate               # All checks + tests
 All user-facing routes live under two route groups in `src/app/`:
 
 - `(default)/` — English routes. All calculator pages, blog, static pages.
-- `(localized)/[locale]/` — Locale-prefixed mirrors (e.g. `/es/bmi`). These pages re-export from their `(default)` counterparts; translation is incomplete and non-English paths redirect to English via middleware.
+- `(localized)/[locale]/` — Locale-prefixed mirrors (e.g. `/es/bmi`). These pages re-export from their `(default)` counterparts; translation is incomplete and non-English paths redirect to English via `src/proxy.ts`.
 
 Calculator pages are client components (`'use client'`), all others are server components.
 
 ### Calculator Registry
 
-`src/constants/calculatorCatalog.ts` is the **single source of truth** for all 52 calculators. It exports:
+`src/constants/calculatorCatalog.ts` is the **single source of truth** for all 56 calculators. It exports:
 
 - `CALCULATOR_CATALOG` — full list with slug, title, description, category, hub assignment
 - `CALCULATOR_HUBS` — the 10 category hub pages
@@ -116,12 +116,12 @@ Supabase auth with magic link (email OTP). `src/lib/supabase/` contains client h
 
 ### Blog System
 
-Blog posts live in `src/app/(default)/blog/[slug]/`. Adding a post requires updating **4 places**:
+`src/lib/blog/registry.ts` (`BLOG_REGISTRY`) is the single source of truth for blog post metadata: display data, SEO keywords, and the `affiliate` flag. Adding a post requires:
 
-1. `src/app/(default)/blog/page.tsx` — `blogPosts` array (index listing)
-2. `src/app/(default)/blog/[slug]/page.tsx` — `BLOG_POSTS` map + `AFFILIATE_BLOG_SLUGS` set
-3. `src/constants/affiliates.ts` — for affiliate posts: products, guides, link mappings
-4. `src/constants/blogMetadata.ts` — SEO metadata map (consumed by `blog/[slug]/layout.tsx`)
+1. Add a `BLOG_REGISTRY` entry in `src/lib/blog/registry.ts` (title, description, slug, date, category, keywords, `affiliate` flag)
+2. Create the post content at `src/app/(default)/blog/[post-slug]/content.tsx`
+3. Register the content component in the dynamic-import map in `src/app/(default)/blog/[slug]/page.client.tsx`
+4. For affiliate posts only: add products/guides/link mappings in `src/constants/affiliates.ts`
 
 Blog images: `/public/images/blog/[slug].jpg` at 1200×630px.
 Amazon affiliate tag: `gr8monk3ys-20`. Link format: `https://www.amazon.com/dp/ASIN?tag=gr8monk3ys-20`
@@ -139,14 +139,19 @@ src/components/
 
 ### SEO
 
-- Per-page metadata in `layout.tsx`. Blog SEO centralized in `src/constants/blogMetadata.ts`.
+- Per-page metadata in `layout.tsx`. Blog SEO centralized in `src/lib/blog/registry.ts`.
 - Structured data: `GlobalStructuredData` component (Schema.org JSON-LD)
 - Dynamic XML sitemap: `src/app/(default)/sitemap.ts` (serves `/sitemap.xml`)
 - HTML sitemap page does **not** exist — the `sitemap.ts` metadata route owns `/sitemap`
 
-### Middleware
+### Request Proxy (middleware)
 
-`src/middleware.ts` — trailing slash removal, www → non-www redirects (301), locale detection and routing.
+`src/proxy.ts` (Next.js proxy/middleware — there is **no** `src/middleware.ts`) handles, in order:
+
+- Canonical-host redirects: old domain → `NEXT_PUBLIC_CANONICAL_HOST` (301), www/apex normalization (308)
+- Trailing-slash removal (301)
+- Locale routing: `/en/*` → unprefixed (308); other locale prefixes → English (302) until translations ship
+- Security headers on every response: CSP, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and `X-Frame-Options: DENY` — except for embeddable routes (`/api/embed/*` and `?embed=1` calculator pages), which allow framing
 
 ### CI/CD
 
@@ -171,7 +176,7 @@ Vitest config: `vitest.config.mjs`. Excludes `e2e/` (Playwright files must not b
 
 ### E2E tests (Playwright)
 
-- `e2e/calculators-all.spec.ts` — smoke test for all 52 calculator slugs (h1 visible, no 404/500)
+- `e2e/calculators-all.spec.ts` — smoke test for all 56 calculator slugs (h1 visible, no 404/500)
 - `e2e/bmi.spec.ts`, `tdee.spec.ts`, `body-fat.spec.ts` — full interaction tests
 - `e2e/navigation.spec.ts`, `calculators.spec.ts` — page-level smoke tests
 
