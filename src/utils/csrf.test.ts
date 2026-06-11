@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 import { verifyCsrf } from './csrf';
 
@@ -129,6 +129,34 @@ describe('verifyCsrf', () => {
     const req = makeRequest({
       origin: 'https://www.healthcalc.xyz',
       host: 'localhost',
+    });
+    expect(verifyCsrf(req)).toBe(true);
+  });
+
+  it('should reject Host header fallback in production (fail-closed)', () => {
+    delete process.env.NEXT_PUBLIC_SITE_URL;
+    delete process.env.NEXT_PUBLIC_CANONICAL_HOST;
+    vi.stubEnv('NODE_ENV', 'production');
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      const req = makeRequest({
+        origin: 'https://healthcalc.xyz',
+        host: 'healthcalc.xyz',
+      });
+      expect(verifyCsrf(req)).toBe(false);
+      expect(consoleError).toHaveBeenCalled();
+    } finally {
+      consoleError.mockRestore();
+      vi.unstubAllEnvs();
+    }
+  });
+
+  it('should allow Host header fallback outside production', () => {
+    delete process.env.NEXT_PUBLIC_SITE_URL;
+    delete process.env.NEXT_PUBLIC_CANONICAL_HOST;
+    const req = makeRequest({
+      origin: 'http://localhost:3000',
+      host: 'localhost:3000',
     });
     expect(verifyCsrf(req)).toBe(true);
   });
