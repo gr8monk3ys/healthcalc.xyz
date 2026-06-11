@@ -60,14 +60,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   if (!limit.success) {
     return NextResponse.json(
-      { ok: false, error: 'Too many error reports' },
+      { success: false, error: 'Too many error reports' },
       { status: 429, headers: limit.headers }
     );
   }
 
   if (!verifyCsrf(request)) {
     return NextResponse.json(
-      { ok: false, error: 'Invalid origin' },
+      { success: false, error: 'Invalid origin' },
       { status: 403, headers: limit.headers }
     );
   }
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     payload = await request.json();
   } catch {
     return NextResponse.json(
-      { ok: false, error: 'Invalid JSON body' },
+      { success: false, error: 'Invalid JSON body' },
       { status: 400, headers: limit.headers }
     );
   }
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   if (!report) {
     return NextResponse.json(
-      { ok: false, error: 'Invalid error payload' },
+      { success: false, error: 'Invalid error payload' },
       { status: 400, headers: limit.headers }
     );
   }

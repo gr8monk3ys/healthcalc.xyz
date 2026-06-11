@@ -123,8 +123,13 @@ function getCanonicalRedirect(request: NextRequest): { url: URL; status: 301 | 3
   }
 
   if (url.pathname !== '/' && url.pathname.endsWith('/')) {
-    url.pathname = url.pathname.slice(0, -1);
-    return { url, status: 301 };
+    // Build a plain URL: NextURL remembers the original trailing slash and
+    // re-appends it on serialization, so mutating `url.pathname` here would
+    // redirect `/bmi/` to `/bmi/` — an infinite redirect loop. Strip all
+    // trailing slashes so `/bmi//` also resolves in a single hop.
+    const stripped = new URL(url.toString());
+    stripped.pathname = url.pathname.replace(/\/+$/, '');
+    return { url: stripped, status: 301 };
   }
 
   return null;

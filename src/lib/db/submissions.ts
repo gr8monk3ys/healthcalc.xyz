@@ -257,6 +257,11 @@ function createPostgresPool(): Pool {
     connectionString: getPostgresConnectionString(true) ?? undefined,
     max: getPostgresMaxConnections(),
     ssl: process.env.PGSSLMODE === 'disable' ? false : undefined,
+    // Fail fast: serverless functions time out at ~10s, so a hung connection
+    // or query must surface as an error before the platform kills the request.
+    connectionTimeoutMillis: 5_000,
+    query_timeout: 8_000,
+    statement_timeout: 8_000,
   });
 }
 
