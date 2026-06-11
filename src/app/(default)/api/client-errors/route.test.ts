@@ -83,7 +83,7 @@ describe('POST /api/client-errors', () => {
     const body = await response.json();
 
     expect(response.status).toBe(400);
-    expect(body.ok).toBe(false);
+    expect(body.success).toBe(false);
     expect(logger.error).not.toHaveBeenCalled();
   });
 
@@ -96,7 +96,7 @@ describe('POST /api/client-errors', () => {
 
     expect(response.status).toBe(400);
     expect(body).toEqual({
-      ok: false,
+      success: false,
       error: 'Invalid error payload',
     });
     expect(logger.error).not.toHaveBeenCalled();
