@@ -29,9 +29,10 @@ typescript:
 formatting:
   indent: 2 spaces
   quotes: single
-  semicolons: false
+  semicolons: true # .prettierrc has "semi": true
   trailing_comma: es5
   max_line_length: 100
+  arrow_parens: avoid
 ```
 
 ### Naming Conventions
@@ -44,8 +45,8 @@ naming:
   files:
     components: PascalCase.tsx
     utilities: camelCase.ts
-    types: camelCase.types.ts
-    tests: *.test.ts or *.spec.ts
+    types: camelCase.ts in src/types/
+    tests: *.test.ts adjacent to source
 ```
 
 ## Architecture Rules
@@ -56,20 +57,22 @@ naming:
 structure:
   components: src/components/
   hooks: src/hooks/
-  utils: src/lib/
+  utils: src/utils/ # calculation logic, validation, conversions
+  lib: src/lib/ # db, supabase, blog registry, monitoring
+  constants: src/constants/
   types: src/types/
-  api: app/api/
-  pages: app/
+  api: src/app/(default)/api/
+  pages: src/app/(default)/ and src/app/(localized)/
 ```
 
 ### Component Rules
 
 ```yaml
 components:
-  max_lines: 200
+  max_lines: 200 # target for new components; legacy violations listed under Exceptions
   single_responsibility: true
   props_interface: required
-  default_exports: false
+  default_exports: false # exception: Next.js page/layout/route files require default exports
   memo_threshold: 50_lines
 ```
 
@@ -89,10 +92,10 @@ api:
 
 ```yaml
 nextjs:
-  version: 15
+  version: 16
   router: app
-  prefer_server_components: true
-  use_server_actions: true
+  prefer_server_components: true # calculator pages are client components by design
+  use_server_actions: false # mutations go through API route handlers
   image_component: next/image
 ```
 
@@ -144,9 +147,10 @@ security:
 
 ```yaml
 auth:
-  jwt_in_httponly_cookies: true
-  refresh_token_rotation: true
-  password_hashing: bcrypt_or_argon2
+  provider: supabase_magic_link # email OTP, no passwords stored
+  rls_required: true # user_saved_results rows are RLS-protected
+  service_role_key: never_in_app_code # only the anon key is used client/server-side
+  anonymous_sessions: httponly_cookie # _hc_anon for unauthenticated saved results
 ```
 
 ## Documentation Rules
@@ -232,9 +236,19 @@ Document any exceptions to rules here:
 
 ```yaml
 exceptions:
-  - file: legacy/old-component.tsx
-    rules_ignored: [max_lines, memo_threshold]
-    reason: Legacy code, scheduled for refactor
+  - files:
+      [
+        src/components/calculators/bmi/BMICalculatorClient.tsx,
+        src/components/Search.tsx,
+        src/components/EmbedWidgetPicker.tsx,
+        src/components/CalculatorPageLayout.tsx,
+        src/components/calculators/CalculatorForm.tsx,
+      ]
+    rules_ignored: [max_lines]
+    reason: Pre-date the component-size rule; split when next touched (tracked in TODO.md)
+  - files: [src/app/**/page.tsx, src/app/**/layout.tsx, src/app/**/route.ts]
+    rules_ignored: [default_exports]
+    reason: Next.js App Router requires default exports for these files
 ```
 
 ---

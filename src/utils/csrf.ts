@@ -7,7 +7,9 @@ import { NextRequest } from 'next/server';
  *
  * Allowed hosts are resolved in this order:
  * 1. NEXT_PUBLIC_SITE_URL host and NEXT_PUBLIC_CANONICAL_HOST (if set)
- * 2. Request Host header fallback (when no env hosts are configured)
+ * 2. Request Host header fallback — non-production only. The Host header is
+ *    attacker-influenced behind some proxy configurations, so production
+ *    fails closed when no canonical host is configured.
  *
  * The function checks request headers in order of reliability:
  * 1. Origin header (most reliable, set by browsers on cross-origin requests)
@@ -45,10 +47,20 @@ export function verifyCsrf(request: NextRequest): boolean {
   const configuredHosts = [siteHost, canonicalHost].filter((value): value is string =>
     Boolean(value)
   );
-  const allowedHosts = new Set(configuredHosts.length > 0 ? configuredHosts : host ? [host] : []);
+  const isProductionRuntime =
+    (process.env.VERCEL_ENV ?? process.env.NODE_ENV ?? '').trim().toLowerCase() === 'production';
+  const fallbackHosts = !isProductionRuntime && host ? [host] : [];
+  const allowedHosts = new Set(configuredHosts.length > 0 ? configuredHosts : fallbackHosts);
   const allowedRootHosts = new Set(Array.from(allowedHosts, normalizeHost));
 
-  if (allowedHosts.size === 0) return false; // Fail-secure: reject if we can't verify
+  if (allowedHosts.size === 0) {
+    if (isProductionRuntime && configuredHosts.length === 0) {
+      console.error(
+        '[csrf] NEXT_PUBLIC_SITE_URL / NEXT_PUBLIC_CANONICAL_HOST not configured — rejecting request'
+      );
+    }
+    return false; // Fail-secure: reject if we can't verify
+  }
 
   function isAllowed(headerValue: string): boolean {
     const headerHost = parseHostFromUrl(headerValue);

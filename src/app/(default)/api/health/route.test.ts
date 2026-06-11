@@ -73,24 +73,39 @@ describe('GET /api/health', () => {
     expect(body.status).toBe('ok');
   });
 
-  it('treats Vercel Analytics as a valid analytics provider', async () => {
-    vi.stubEnv('VERCEL_ENV', 'production');
+  it('does not expose configuration details in the public response', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    vi.stubEnv('SUBMISSIONS_DB_DRIVER', 'postgres');
+    vi.stubEnv('DATABASE_URL', 'postgres://user:pass@localhost:5432/db');
 
     const response = await runHealthCheck();
     const body = await response.json();
 
-    expect(body.checks.analyticsConfigured).toBe(true);
-    expect(body.warnings).not.toContain('No analytics provider is configured.');
+    expect(body.checks).toBeUndefined();
+    expect(body.warnings).toBeUndefined();
+    expect(Object.keys(body).sort()).toEqual(['ok', 'status', 'timestamp']);
+  });
+
+  it('treats Vercel Analytics as a valid analytics provider', async () => {
+    vi.stubEnv('VERCEL_ENV', 'production');
+    vi.resetModules();
+    const { createHealthChecks, createWarnings } = await import('@/lib/health');
+
+    const checks = createHealthChecks();
+
+    expect(checks.analyticsConfigured).toBe(true);
+    expect(createWarnings(checks)).not.toContain('No analytics provider is configured.');
   });
 
   it('accepts a server-only Sentry DSN for observability checks', async () => {
     vi.stubEnv('SENTRY_DSN', 'https://secret@example.ingest.sentry.io/123');
+    vi.resetModules();
+    const { createHealthChecks, createWarnings } = await import('@/lib/health');
 
-    const response = await runHealthCheck();
-    const body = await response.json();
+    const checks = createHealthChecks();
 
-    expect(body.checks.sentryDsnConfigured).toBe(true);
-    expect(body.warnings).not.toContain(
+    expect(checks.sentryDsnConfigured).toBe(true);
+    expect(createWarnings(checks)).not.toContain(
       'Sentry DSN is not configured. Browser errors fall back to server logs.'
     );
   });

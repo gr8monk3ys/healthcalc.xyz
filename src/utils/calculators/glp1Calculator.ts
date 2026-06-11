@@ -13,12 +13,13 @@
  *
  * Formula:
  * BMR (Mifflin-St Jeor):
- *   Male: 10 * weight(kg) + 6.25 * height(cm) - 5 * age - 161 + 166
+ *   Male: 10 * weight(kg) + 6.25 * height(cm) - 5 * age + 5
  *   Female: 10 * weight(kg) + 6.25 * height(cm) - 5 * age - 161
  * TDEE = BMR * activity_multiplier
  * Adjusted Calories = TDEE * (1 - appetite_reduction_factor)
  */
 
+import { calculateBMR as calculateMifflinBMR } from './tdee';
 import { GLP1FormValues, GLP1Result } from '@/types/glp1Calculator';
 import {
   MEDICATION_INFO,
@@ -43,8 +44,7 @@ export function calculateBMR(
   if (heightCm <= 0) throw new Error('Height must be greater than 0');
   if (age <= 0) throw new Error('Age must be greater than 0');
 
-  const base = 10 * weightKg + 6.25 * heightCm - 5 * age;
-  return gender === 'male' ? base + 5 : base - 161;
+  return calculateMifflinBMR(gender, age, weightKg, heightCm);
 }
 
 /**

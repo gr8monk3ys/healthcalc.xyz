@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { MIFFLIN_BMR_JS } from './mifflinBmrJs';
 
 /**
  * Supported calculators for embedding.
@@ -104,13 +105,7 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
         var activity = parseFloat(document.getElementById('activity').value);
         if (!age || !height || !weight) {
           return { error: 'Please fill in all fields with valid values.' };
-        }
-        var bmr;
-        if (gender === 'male') {
-          bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-        } else {
-          bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-        }
+        }${MIFFLIN_BMR_JS}
         var tdee = Math.round(bmr * activity);
         bmr = Math.round(bmr);
         return {
@@ -274,13 +269,7 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
         }
         if (goal >= weight) {
           return { error: 'Goal weight must be less than current weight.' };
-        }
-        var bmr;
-        if (gender === 'male') {
-          bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-        } else {
-          bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-        }
+        }${MIFFLIN_BMR_JS}
         var tdee = Math.round(bmr * activity);
         var dailyTarget = tdee - deficit;
         var weightToLose = weight - goal;

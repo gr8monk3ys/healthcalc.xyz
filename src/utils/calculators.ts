@@ -10,6 +10,7 @@ import {
   weightKgToLb as weightKgToLbBase,
   formatNumber as formatNumberBase,
 } from '@/utils/conversions';
+import { calculateBMR as calculateMifflinBMR } from '@/utils/calculators/tdee';
 
 // Re-export conversion functions from conversions.ts
 
@@ -92,11 +93,7 @@ export function getBMICategory(bmi: number): {
  * @param isMale Boolean indicating if the person is male
  */
 export function calculateBMR(weight: number, height: number, age: number, isMale: boolean): number {
-  if (isMale) {
-    return 10 * weight + 6.25 * height - 5 * age + 5;
-  } else {
-    return 10 * weight + 6.25 * height - 5 * age - 161;
-  }
+  return calculateMifflinBMR(isMale ? 'male' : 'female', age, weight, height);
 }
 
 /**
