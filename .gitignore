@@ -1,0 +1,74 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# local tooling artifacts
+.playwright-cli/
+playwright-report/
+test-results/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+.env*.vercel
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Local SQLite data
+.data/
+
+# Local browser review artifacts
+/output/
+/playwright.local.config.ts
+/*-full.png
+/*-viewport*.png
+/homepage-*.png
+/blog-*.png
+/bmi-*.png
+/calculators-index.png
+/search-dark.png
+/amazon-*-check.png

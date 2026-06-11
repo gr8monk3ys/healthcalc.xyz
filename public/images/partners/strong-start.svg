@@ -1,0 +1,6 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="60" rx="10" fill="#F3F4F6"/>
+  <path d="M26 38L36 22L46 38H26Z" fill="#22C55E"/>
+  <path d="M52 38L62 22L72 38H52Z" fill="#4ADE80"/>
+  <text x="88" y="36" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#111827">Strong Start</text>
+</svg>

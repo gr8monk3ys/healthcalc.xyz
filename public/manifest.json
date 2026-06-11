@@ -1,0 +1,81 @@
+{
+  "name": "HealthCheck - Health and Fitness Calculators",
+  "short_name": "HealthCheck",
+  "description": "Free health and fitness calculators for body fat, BMI, TDEE, and more",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icons/icon-72x72.png", "sizes": "72x72", "type": "image/png" },
+    { "src": "/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "/icons/icon-128x128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "/icons/icon-144x144.png", "sizes": "144x144", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-152x152.png", "sizes": "152x152", "type": "image/png" },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    { "src": "/icons/icon-384x384.png", "sizes": "384x384", "type": "image/png" },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/home-screen.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "Home Screen"
+    },
+    {
+      "src": "/images/screenshots/bmi-calculator.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "BMI Calculator"
+    },
+    {
+      "src": "/images/screenshots/body-fat-calculator.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "platform": "narrow",
+      "label": "Body Fat Calculator"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "BMI Calculator",
+      "short_name": "BMI",
+      "description": "Calculate your Body Mass Index",
+      "url": "/bmi"
+    },
+    {
+      "name": "Body Fat Calculator",
+      "short_name": "Body Fat",
+      "description": "Calculate your body fat percentage",
+      "url": "/body-fat"
+    },
+    {
+      "name": "TDEE Calculator",
+      "short_name": "TDEE",
+      "description": "Calculate your Total Daily Energy Expenditure",
+      "url": "/tdee"
+    }
+  ],
+  "categories": ["health", "fitness", "lifestyle", "utilities"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "scope": "/",
+  "id": "healthcheck-pwa"
+}

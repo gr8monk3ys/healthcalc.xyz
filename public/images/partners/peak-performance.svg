@@ -1,0 +1,6 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="60" rx="10" fill="#F3F4F6"/>
+  <path d="M28 40L44 18L60 40H28Z" fill="#2563EB"/>
+  <path d="M44 18L60 40H76L60 18H44Z" fill="#60A5FA"/>
+  <text x="88" y="36" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#111827">Peak Performance</text>
+</svg>
