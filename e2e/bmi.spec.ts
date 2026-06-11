@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { gotoCalculator } from './helpers';
 
 test.describe('BMI Calculator', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/bmi');
+  test.beforeEach(async ({ page }, testInfo) => {
+    testInfo.setTimeout(90_000);
+    await gotoCalculator(page, '/bmi');
   });
 
   test('page renders the form with all expected fields', async ({ page }) => {

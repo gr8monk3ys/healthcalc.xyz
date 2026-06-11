@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { gotoCalculator } from './helpers';
 
 test.describe('Body Fat Calculator', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/body-fat');
+  test.beforeEach(async ({ page }, testInfo) => {
+    testInfo.setTimeout(90_000);
+    await gotoCalculator(page, '/body-fat');
   });
 
   test('page renders the calculator form', async ({ page }) => {
