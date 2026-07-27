@@ -14,6 +14,9 @@ repos:
     hooks:
       - id: prettier-check
         name: prettier-check
-        entry: bunx prettier --check .
+        # Pin to the version in package.json — an unpinned bunx downloads the
+        # latest prettier in CI (no node_modules there), which drifts from the
+        # repo's formatting and fails on files formatted with the pinned version.
+        entry: bunx prettier@3.8.4 --check .
         language: system
         pass_filenames: false
