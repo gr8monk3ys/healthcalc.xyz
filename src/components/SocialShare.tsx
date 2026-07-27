@@ -74,7 +74,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.twitter'),
-      color: 'bg-[#0b6fb8] hover:bg-[#085a96]',
+      color: 'text-[#1d9bf0]',
     },
     facebook: {
       icon: (
@@ -88,7 +88,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.facebook'),
-      color: 'bg-[#3b5998] hover:bg-[#2d4373]',
+      color: 'text-[#1877f2]',
     },
     linkedin: {
       icon: (
@@ -102,7 +102,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.linkedin'),
-      color: 'bg-[#0077b5] hover:bg-[#005582]',
+      color: 'text-[#0a66c2]',
     },
     pinterest: {
       icon: (
@@ -116,7 +116,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.pinterest'),
-      color: 'bg-[#bd081c] hover:bg-[#8c0615]',
+      color: 'text-[#e60023]',
     },
     reddit: {
       icon: (
@@ -130,7 +130,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.reddit'),
-      color: 'bg-[#b23300] hover:bg-[#8f2900]',
+      color: 'text-[#ff4500]',
     },
     email: {
       icon: (
@@ -150,7 +150,7 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.email'),
-      color: 'bg-gray-600 hover:bg-gray-700',
+      color: 'text-slate-500 dark:text-slate-300',
     },
   };
 
@@ -182,12 +182,14 @@ export default function SocialShare({
               key={platform}
               href={shareUrls[platform]}
               onClick={e => handleShare(e, platform)}
-              className={`flex items-center px-3 py-2 rounded-lg text-white ${config.color} transition-colors`}
+              className="elevated-pill flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium text-[var(--foreground)] transition-all hover:-translate-y-0.5 hover:border-accent/40"
               aria-label={formatTemplate(t('socialShare.ariaTemplate'), { platform: config.label })}
               rel="noopener noreferrer"
             >
-              {config.icon}
-              {showLabel && <span className="ml-2">{config.label}</span>}
+              <span className={config.color} aria-hidden="true">
+                {config.icon}
+              </span>
+              {showLabel && <span>{config.label}</span>}
             </a>
           );
         })}

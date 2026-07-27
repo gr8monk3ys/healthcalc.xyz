@@ -265,12 +265,14 @@ function CalculatorPageLayoutContent({
           )}
           <Breadcrumb />
 
-          {serverHeader ?? (
-            <>
-              <h1 className="text-3xl font-bold mb-2">{title}</h1>
-              <p className="text-gray-600 mb-6 dark:text-gray-400">{description}</p>
-            </>
-          )}
+          <div className="calc-hero">
+            {serverHeader ?? (
+              <>
+                <h1 className="text-3xl font-bold mb-2">{title}</h1>
+                <p className="text-gray-600 mb-6 dark:text-gray-400">{description}</p>
+              </>
+            )}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">{children}</div>
 
@@ -323,9 +325,7 @@ function CalculatorPageLayoutContent({
 
           {availableChains.length > 0 && (
             <div className="perf-defer-section my-8">
-              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide opacity-60">
-                Guided Workflows
-              </h3>
+              <h3 className="section-eyebrow mb-3">Guided Workflows</h3>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {availableChains.map(chain => (
                   <Link

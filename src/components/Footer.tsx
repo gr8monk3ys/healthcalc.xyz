@@ -17,8 +17,27 @@ export default function Footer(): React.JSX.Element {
           <div>
             <Link
               href={localizePath('/')}
-              className="notranslate inline-flex items-baseline gap-1 text-xl font-black tracking-tight text-accent"
+              className="notranslate inline-flex items-center gap-2 text-xl font-black tracking-tight text-accent"
             >
+              <span
+                aria-hidden="true"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-md shadow-accent/25"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.4}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 12h4l2.5-6 4 12L16 12h5"
+                  />
+                </svg>
+              </span>
               HealthCheck
             </Link>
             <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">

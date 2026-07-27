@@ -131,7 +131,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
           : field.placeholder;
         return (
           <div key={field.name}>
-            <label htmlFor={field.name} className="block text-sm font-medium mb-1">
+            <label htmlFor={field.name} className="block text-sm font-semibold mb-1.5">
               {resolvedLabel}
             </label>
             {field.unitToggle ? (
@@ -201,22 +201,21 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
       case 'radio':
         return (
           <div key={field.name}>
-            <div id={`${field.name}-group-label`} className="block text-sm font-medium mb-1">
+            <div id={`${field.name}-group-label`} className="block text-sm font-semibold mb-1.5">
               {resolvedLabel}
             </div>
             <div
-              className="flex space-x-4"
+              className="flex flex-wrap gap-2"
               role="radiogroup"
               aria-labelledby={`${field.name}-group-label`}
             >
               {field.options?.map(option => (
-                <label key={option.value} className="flex items-center">
+                <label key={option.value} className="seg-pill">
                   <input
                     type="radio"
                     name={field.name}
                     checked={field.value === option.value}
                     onChange={() => field.onChange(option.value)}
-                    className="mr-2"
                   />
                   <span>{option.label}</span>
                 </label>
@@ -228,7 +227,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
       case 'select':
         return (
           <div key={field.name}>
-            <label htmlFor={field.name} className="block text-sm font-medium mb-1">
+            <label htmlFor={field.name} className="block text-sm font-semibold mb-1.5">
               {resolvedLabel}
             </label>
             <select
@@ -279,7 +278,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
       case 'date':
         return (
           <div key={field.name}>
-            <label htmlFor={field.name} className="block text-sm font-medium mb-1">
+            <label htmlFor={field.name} className="block text-sm font-semibold mb-1.5">
               {resolvedLabel}
             </label>
             <input
@@ -311,7 +310,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
       case 'time':
         return (
           <div key={field.name}>
-            <label htmlFor={field.name} className="block text-sm font-medium mb-1">
+            <label htmlFor={field.name} className="block text-sm font-semibold mb-1.5">
               {resolvedLabel}
             </label>
             <input
@@ -346,23 +345,20 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
   };
 
   return (
-    <div className="neumorph p-6 rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">{title}</h2>
+    <div className="neumorph rounded-2xl p-6">
+      <h2 className="mb-5 text-xl font-bold tracking-tight">{title}</h2>
 
       <form onSubmit={onSubmit} className="space-y-4" data-calculator-form="1">
         {fields.map(renderField)}
 
-        <div className="flex space-x-4 pt-2">
-          <button
-            type="submit"
-            className="flex-1 py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-          >
+        <div className="flex gap-3 pt-2">
+          <button type="submit" className="ui-btn-primary flex-1">
             {resolvedSubmitButtonText}
           </button>
           <button
             type="button"
             onClick={onReset}
-            className="py-3 px-4 neumorph text-gray-500 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="rounded-[0.875rem] border border-transparent px-4 py-3 font-medium text-slate-500 transition-colors hover:border-[var(--card-border)] hover:bg-[var(--surface-muted)] hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
           >
             {resolvedResetButtonText}
           </button>

@@ -150,7 +150,7 @@ describe('CalculatorCard', () => {
     it('should apply accent color class to icon container', () => {
       const { container } = render(<CalculatorCard {...defaultProps} />);
 
-      const iconContainer = container.querySelector('.text-accent');
+      const iconContainer = container.querySelector('.text-indigo-600');
       expect(iconContainer).toBeInTheDocument();
       expect(iconContainer).toContainElement(screen.getByTestId('test-icon'));
     });
@@ -179,7 +179,7 @@ describe('CalculatorCard', () => {
     it('should have hover shadow transition', () => {
       const { container } = render(<CalculatorCard {...defaultProps} />);
 
-      const cardDiv = container.querySelector('.transition-all');
+      const cardDiv = container.querySelector('.card-interactive');
       expect(cardDiv).toBeInTheDocument();
     });
 

@@ -197,6 +197,7 @@ const featuredCalculators = [
       'Calculate your body fat percentage using the Navy method, skinfold measurements, or BMI estimation.',
     path: '/body-fat',
     icon: icons.bodyFat,
+    tone: 'rose' as const,
   },
   {
     title: 'TDEE Calculator',
@@ -204,6 +205,7 @@ const featuredCalculators = [
       'Find your Total Daily Energy Expenditure using Mifflin-St Jeor, Harris-Benedict, or Katch-McArdle.',
     path: '/tdee',
     icon: icons.tdee,
+    tone: 'amber' as const,
   },
   {
     title: 'BMI Calculator',
@@ -211,6 +213,7 @@ const featuredCalculators = [
       'Calculate Body Mass Index for adults and children with age-appropriate percentile charts.',
     path: '/bmi',
     icon: icons.bmi,
+    tone: 'sky' as const,
   },
   {
     title: 'Calorie Deficit Calculator',
@@ -218,6 +221,7 @@ const featuredCalculators = [
       'Build a sustainable calorie deficit plan based on your TDEE and weight loss timeline.',
     path: '/calorie-deficit',
     icon: icons.calorieDeficit,
+    tone: 'indigo' as const,
   },
   {
     title: 'GLP-1/Ozempic Calculator',
@@ -225,6 +229,7 @@ const featuredCalculators = [
       'Track GLP-1 medication dosing schedules, titration timelines, and expected outcomes.',
     path: '/glp1-calculator',
     icon: icons.glp1,
+    tone: 'teal' as const,
     badge: 'New',
   },
   {
@@ -233,6 +238,7 @@ const featuredCalculators = [
       'Score all six events of the Army Combat Fitness Test with age and gender adjustments.',
     path: '/acft-calculator',
     icon: icons.acft,
+    tone: 'emerald' as const,
     badge: 'New',
   },
 ];
@@ -264,24 +270,28 @@ const blogPosts = [
 const whyReasons = [
   {
     icon: whyIcons.peerReviewed,
+    chip: 'bg-gradient-to-br from-indigo-500/18 via-indigo-500/10 to-transparent text-indigo-600 dark:text-indigo-300',
     title: 'Peer-Reviewed Formulas',
     description:
       'Every calculator uses published equations like Mifflin-St Jeor for BMR, the Navy method for body fat, and WHO references for BMI.',
   },
   {
     icon: whyIcons.privacy,
+    chip: 'bg-gradient-to-br from-teal-500/18 via-teal-500/10 to-transparent text-teal-600 dark:text-teal-300',
     title: 'Privacy First',
     description:
       'No account required. No data leaves your browser. Your measurements stay on your device, not on our servers.',
   },
   {
     icon: whyIcons.free,
+    chip: 'bg-gradient-to-br from-emerald-500/18 via-emerald-500/10 to-transparent text-emerald-600 dark:text-emerald-300',
     title: 'Completely Free',
     description:
       'No paywalls, no premium tiers, no "unlock full results" gates. Every calculator and every feature is free.',
   },
   {
     icon: whyIcons.transparent,
+    chip: 'bg-gradient-to-br from-sky-500/18 via-sky-500/10 to-transparent text-sky-600 dark:text-sky-300',
     title: 'Open Source Formulas',
     description:
       'The calculation methodology behind every tool is transparent. You can see exactly which formula produced your result.',
@@ -292,131 +302,222 @@ const HomeContent = (
   <div className="space-y-14 md:space-y-20">
     {/* Hero Section */}
     <section className="hero-panel relative overflow-hidden rounded-[2rem] px-5 py-10 sm:px-6 sm:py-12 md:px-12 md:py-14">
-      <div className="relative mx-auto max-w-6xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/90">
-          HealthCheck Platform
-        </p>
-        <h1 className="mt-4 text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-6xl">
-          BMI, body fat, TDEE, and 50+ more health calculators
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-200 sm:text-lg">
-          Free tools for calorie planning, body composition, GLP-1 tracking, Army fitness testing,
-          and day-to-day health decisions.
-        </p>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p className="section-eyebrow">HealthCheck Platform</p>
+          <h1 className="mt-4 text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-[3.4rem]">
+            BMI, body fat, TDEE, and <span className="text-gradient">50+ more</span> health
+            calculators
+          </h1>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-200 sm:text-lg">
+            Free tools for calorie planning, body composition, GLP-1 tracking, Army fitness testing,
+            and day-to-day health decisions.
+          </p>
 
-        {/* Trust Stats */}
-        <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-600 dark:text-slate-300">
-          <span className="flex items-center gap-1.5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-              />
-            </svg>
-            54+ Calculators
-          </span>
-          <span className="flex items-center gap-1.5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            Evidence-Based Formulas
-          </span>
-          <span className="flex items-center gap-1.5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            100% Free
-          </span>
-          <span className="flex items-center gap-1.5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-            No Account Required
-          </span>
-        </div>
-
-        {/* CTAs */}
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link
-            href="/calculators"
-            className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
-          >
-            Browse calculators
-          </Link>
-          <Link
-            href="/blog"
-            className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
-          >
-            Read the guides
-          </Link>
-        </div>
-
-        {/* Search Bar */}
-        <Link
-          href="/search"
-          className="hero-search-shell mt-6 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
-        >
-          <div className="flex items-center gap-3 rounded-xl border border-white/50 bg-white/35 px-4 py-3 dark:border-indigo-200/10 dark:bg-indigo-100/5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-accent"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-4.35-4.35M10.8 18a7.2 7.2 0 100-14.4 7.2 7.2 0 000 14.4z"
-              />
-            </svg>
-            <span className="text-sm text-slate-500 dark:text-slate-300 sm:text-base">
-              Search calculators, guides, and blog posts...
+          {/* Trust Stats */}
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <span className="flex items-center gap-1.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-accent"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                />
+              </svg>
+              54+ Calculators
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-accent"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Evidence-Based Formulas
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-accent"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              100% Free
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-accent"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+              No Account Required
             </span>
           </div>
-        </Link>
+
+          {/* CTAs */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href="/calculators"
+              className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
+            >
+              Browse calculators
+            </Link>
+            <Link
+              href="/blog"
+              className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
+            >
+              Read the guides
+            </Link>
+          </div>
+
+          {/* Search Bar */}
+          <Link
+            href="/search"
+            className="hero-search-shell mt-6 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+          >
+            <div className="flex items-center gap-3 rounded-xl border border-white/50 bg-white/35 px-4 py-3 dark:border-indigo-200/10 dark:bg-indigo-100/5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-accent"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-4.35-4.35M10.8 18a7.2 7.2 0 100-14.4 7.2 7.2 0 000 14.4z"
+                />
+              </svg>
+              <span className="text-sm text-slate-500 dark:text-slate-300 sm:text-base">
+                Search calculators, guides, and blog posts...
+              </span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Decorative results preview */}
+        <div aria-hidden="true" className="relative hidden min-h-[26rem] select-none lg:block">
+          <div className="hero-metric-card animate-float-slow absolute left-2 top-4 w-64 rotate-[-2deg] p-5">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+              Your BMI
+            </p>
+            <div className="mt-3 flex items-center gap-4">
+              <svg viewBox="0 0 96 96" className="h-24 w-24 -rotate-90">
+                <circle
+                  cx="48"
+                  cy="48"
+                  r="40"
+                  fill="none"
+                  strokeWidth="9"
+                  className="stroke-[var(--surface-muted)]"
+                />
+                <circle
+                  cx="48"
+                  cy="48"
+                  r="40"
+                  fill="none"
+                  strokeWidth="9"
+                  strokeLinecap="round"
+                  strokeDasharray="251"
+                  strokeDashoffset="88"
+                  stroke="url(#hero-gauge-gradient)"
+                />
+                <defs>
+                  <linearGradient id="hero-gauge-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="var(--accent)" />
+                    <stop offset="100%" stopColor="var(--accent-alt-light)" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div>
+                <p className="text-3xl font-extrabold tabular-nums tracking-tight text-slate-900 dark:text-white">
+                  22.4
+                </p>
+                <span className="mt-1 inline-flex rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-300">
+                  Healthy range
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-metric-card animate-float-slower absolute right-0 top-36 w-60 rotate-[2.5deg] p-5">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+              TDEE
+            </p>
+            <p className="mt-2 text-3xl font-extrabold tabular-nums tracking-tight text-slate-900 dark:text-white">
+              2,340
+              <span className="ml-1.5 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                kcal/day
+              </span>
+            </p>
+            <div className="mt-3 flex h-12 items-end gap-1.5">
+              <div className="w-full rounded-t-md bg-accent/25" style={{ height: '40%' }} />
+              <div className="w-full rounded-t-md bg-accent/35" style={{ height: '62%' }} />
+              <div className="w-full rounded-t-md bg-accent/50" style={{ height: '48%' }} />
+              <div className="w-full rounded-t-md bg-accent" style={{ height: '86%' }} />
+              <div className="w-full rounded-t-md bg-accent/45" style={{ height: '58%' }} />
+              <div className="w-full rounded-t-md bg-accent/30" style={{ height: '70%' }} />
+            </div>
+          </div>
+
+          <div className="hero-metric-card animate-float-slow absolute bottom-2 left-10 w-56 rotate-[1.5deg] p-5">
+            <div className="flex items-baseline justify-between">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
+                Resting HR
+              </p>
+              <p className="text-lg font-extrabold tabular-nums text-slate-900 dark:text-white">
+                62{' '}
+                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                  bpm
+                </span>
+              </p>
+            </div>
+            <svg viewBox="0 0 200 48" className="hero-sparkline mt-3 h-12 w-full">
+              <path
+                d="M0 30 L28 30 L36 12 L46 42 L56 6 L66 34 L74 30 L112 30 L120 16 L130 40 L140 10 L150 33 L158 30 L200 30"
+                fill="none"
+                stroke="var(--accent-alt)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -424,14 +525,18 @@ const HomeContent = (
     <section className="perf-defer-section">
       <div className="mb-8 flex items-end justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+          <p className="section-eyebrow">Start here</p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
             Most popular calculators
           </h2>
-          <p className="text-slate-600 dark:text-slate-300">
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
             Quickly jump into the tools users rely on most.
           </p>
         </div>
-        <Link href="/calculators" className="text-sm font-semibold text-accent hover:underline">
+        <Link
+          href="/calculators"
+          className="hidden shrink-0 text-sm font-semibold text-accent hover:underline sm:block"
+        >
           View all categories &rarr;
         </Link>
       </div>
@@ -440,7 +545,7 @@ const HomeContent = (
         {featuredCalculators.map(calculator => (
           <div key={calculator.path} className="relative">
             {calculator.badge && (
-              <span className="absolute -right-2 -top-2 z-10 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-3 py-1 text-xs font-bold text-white shadow-lg shadow-indigo-500/30">
+              <span className="absolute -right-1.5 -top-1.5 z-10 rounded-full bg-gradient-to-r from-accent to-accent-alt px-2.5 py-0.5 text-[0.7rem] font-bold uppercase tracking-wide text-white shadow-md shadow-accent/30">
                 {calculator.badge}
               </span>
             )}
@@ -449,6 +554,7 @@ const HomeContent = (
               description={calculator.description}
               path={calculator.path}
               icon={calculator.icon}
+              tone={calculator.tone}
             />
           </div>
         ))}
@@ -464,28 +570,45 @@ const HomeContent = (
 
     {/* Guided Workflows */}
     <section className="perf-defer-section my-16">
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold mb-2">Guided Health Workflows</h2>
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      <div className="mb-8 text-center">
+        <p className="section-eyebrow justify-center">Connected tools</p>
+        <h2 className="mb-2 mt-2 text-3xl font-bold tracking-tight">Guided Health Workflows</h2>
+        <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-400">
           Follow step-by-step workflows that connect multiple calculators. Enter your details once
           and get a complete health picture.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {CALCULATOR_CHAINS.map(chain => (
           <Link
             key={chain.id}
             href={`/chains?start=${chain.id}`}
-            className="glass-panel rounded-xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+            className="glass-panel-strong card-interactive group block rounded-2xl p-6"
           >
-            <h3 className="font-semibold text-lg">{chain.name}</h3>
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{chain.description}</p>
-            <div className="mt-3 flex items-center gap-2">
-              <span className="rounded-full bg-[var(--accent)] px-2 py-0.5 text-xs font-medium text-white">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-lg font-bold tracking-tight">{chain.name}</h3>
+              <span aria-hidden="true" className="flex gap-1 pt-2">
+                {chain.steps.map((step, index) => (
+                  <span
+                    key={step.slug ?? index}
+                    className="h-1.5 w-4 rounded-full bg-accent/25 transition-colors group-hover:bg-accent/60"
+                  />
+                ))}
+              </span>
+            </div>
+            <p className="mt-1.5 text-sm text-gray-600 dark:text-gray-400">{chain.description}</p>
+            <div className="mt-4 flex items-center gap-2 text-sm">
+              <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-bold text-accent">
                 {chain.steps.length} steps
               </span>
-              <span className="text-xs text-[var(--accent)] font-medium">
-                Get started {'\u2192'}
+              <span className="font-semibold text-accent">
+                Get started{' '}
+                <span
+                  aria-hidden="true"
+                  className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  {'\u2192'}
+                </span>
               </span>
             </div>
           </Link>
@@ -496,7 +619,10 @@ const HomeContent = (
     {/* Why HealthCheck? Section */}
     <section className="perf-defer-section">
       <div className="mb-8 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Why HealthCheck?</h2>
+        <p className="section-eyebrow justify-center">Our promise</p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+          Why HealthCheck?
+        </h2>
         <p className="mx-auto mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
           Most health calculator sites recycle the same BMI tool with ads plastered everywhere. Here
           is what we do differently.
@@ -506,7 +632,9 @@ const HomeContent = (
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {whyReasons.map(reason => (
           <div key={reason.title} className="glass-panel-strong rounded-2xl p-6 text-center">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 via-accent/10 to-transparent text-accent">
+            <div
+              className={`mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl ${reason.chip}`}
+            >
               {reason.icon}
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">{reason.title}</h3>
@@ -521,8 +649,11 @@ const HomeContent = (
     {/* Guides & Research Section */}
     <section className="perf-defer-section glass-panel rounded-3xl p-8">
       <div className="mb-6 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Guides &amp; Research</h2>
-        <p className="text-slate-600 dark:text-slate-300">
+        <p className="section-eyebrow justify-center">Go deeper</p>
+        <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+          Guides &amp; Research
+        </h2>
+        <p className="mt-2 text-slate-600 dark:text-slate-300">
           Evidence-based explainers to help you understand what the numbers mean.
         </p>
       </div>
@@ -541,7 +672,15 @@ const HomeContent = (
               {post.title}
             </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{post.excerpt}</p>
-            <p className="mt-4 text-sm font-semibold text-accent">Read article &rarr;</p>
+            <p className="mt-4 text-sm font-semibold text-accent">
+              Read article{' '}
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+              >
+                &rarr;
+              </span>
+            </p>
           </Link>
         ))}
       </div>
@@ -553,6 +692,36 @@ const HomeContent = (
         >
           Explore all guides and articles
         </Link>
+      </div>
+    </section>
+
+    {/* Final CTA */}
+    <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-accent via-accent-dark to-indigo-900 px-6 py-12 text-center text-white shadow-xl shadow-accent/25 md:px-12 md:py-16 dark:from-accent-dark dark:via-indigo-800 dark:to-indigo-950">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_80%_-10%,rgba(45,212,191,0.25),transparent),radial-gradient(ellipse_40%_50%_at_10%_110%,rgba(255,255,255,0.12),transparent)]"
+      />
+      <div className="relative mx-auto max-w-2xl">
+        <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+          Ready to run your numbers?
+        </h2>
+        <p className="mt-3 text-base text-indigo-100 md:text-lg">
+          It takes less than a minute. No sign-up, no data stored, no paywall — just answers.
+        </p>
+        <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link
+            href="/bmi"
+            className="rounded-full bg-white px-7 py-3 font-bold text-accent-dark shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+          >
+            Try the BMI calculator
+          </Link>
+          <Link
+            href="/calculators"
+            className="rounded-full border border-white/40 bg-white/10 px-7 py-3 font-semibold text-white backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20"
+          >
+            See all calculators
+          </Link>
+        </div>
       </div>
     </section>
   </div>
