@@ -2,6 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import CalculatorCard from '@/components/CalculatorCard';
 import { CALCULATOR_CHAINS } from '@/constants/calculatorChains';
+import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
+
+const CALCULATOR_COUNT = CALCULATOR_CATALOG.length;
 
 export const metadata = {
   title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
@@ -287,7 +290,7 @@ const whyReasons = [
     chip: 'bg-gradient-to-br from-emerald-500/18 via-emerald-500/10 to-transparent text-emerald-600 dark:text-emerald-300',
     title: 'Completely Free',
     description:
-      'No paywalls, no premium tiers, no "unlock full results" gates. Every calculator and every feature is free.',
+      'No paywalls, no premium tiers, no "unlock full results" gates. Ads keep the tools free — your numbers never sit behind one.',
   },
   {
     icon: whyIcons.transparent,
@@ -331,7 +334,7 @@ const HomeContent = (
                   d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                 />
               </svg>
-              54+ Calculators
+              {CALCULATOR_COUNT} Calculators
             </span>
             <span className="flex items-center gap-1.5">
               <svg
@@ -562,7 +565,7 @@ const HomeContent = (
 
       <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
         <Link href="/calculators" className="font-medium text-accent hover:underline">
-          Browse all 54+ calculators
+          Browse all {CALCULATOR_COUNT} calculators
         </Link>{' '}
         across 10 categories including body composition, performance, nutrition, and pregnancy.
       </p>
@@ -624,8 +627,8 @@ const HomeContent = (
           Why HealthCheck?
         </h2>
         <p className="mx-auto mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
-          Most health calculator sites recycle the same BMI tool with ads plastered everywhere. Here
-          is what we do differently.
+          Most health calculator sites hide the answer behind sign-up walls, pop-ups, and upsells.
+          Here is what we do differently.
         </p>
       </div>
 

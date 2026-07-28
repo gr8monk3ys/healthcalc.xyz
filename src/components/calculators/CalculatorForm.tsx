@@ -352,7 +352,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
         {fields.map(renderField)}
 
         <div className="flex gap-3 pt-2">
-          <button type="submit" className="ui-btn-primary flex-1">
+          <button type="submit" className="ui-btn-primary flex-1 sm:max-w-xs">
             {resolvedSubmitButtonText}
           </button>
           <button

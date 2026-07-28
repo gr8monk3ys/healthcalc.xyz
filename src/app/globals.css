@@ -211,6 +211,199 @@ html {
   color: transparent;
 }
 
+/* ---------------------------------------------------------------------------
+ * Long-form article typography
+ *
+ * All 66 blog posts already ship `class="prose prose-lg"` markup, but the
+ * @tailwindcss/typography plugin was never installed — so those classes were
+ * inert and Preflight's reset left bare <p> at margin 0 and <ul> without
+ * markers. These rules implement `prose` against the design tokens.
+ *
+ * Declared in the `components` layer so any utility a post already sets on an
+ * element (e.g. `<h2 className="text-xl">`) still wins over the default.
+ * ------------------------------------------------------------------------ */
+
+@layer components {
+  .prose {
+    color: var(--foreground);
+    line-height: 1.75;
+  }
+
+  /* Comfortable reading measure (~75 characters) for running text only —
+     embedded cards, ad slots and related-link grids stay full width.
+     Expressed in rem rather than ch: Plus Jakarta Sans has unusually wide
+     figures, so 1ch is ~0.73em here and a ch-based measure runs far too long. */
+  .prose > p,
+  .prose > ul,
+  .prose > ol,
+  .prose > blockquote,
+  .prose > h2,
+  .prose > h3,
+  .prose > h4,
+  .prose > h5,
+  .prose > h6 {
+    max-width: 38rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.25em;
+  }
+
+  .prose > :first-child {
+    margin-top: 0;
+  }
+
+  .prose > :last-child {
+    margin-bottom: 0;
+  }
+
+  .prose h2 {
+    font-family: var(--font-heading);
+    font-size: 1.65em;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.022em;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    color: var(--foreground);
+  }
+
+  .prose h3 {
+    font-family: var(--font-heading);
+    font-size: 1.28em;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.018em;
+    margin-top: 1.7em;
+    margin-bottom: 0.5em;
+    color: var(--foreground);
+  }
+
+  .prose h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.4em;
+    color: var(--foreground);
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-bottom: 1.25em;
+    padding-left: 1.5em;
+  }
+
+  .prose ul {
+    list-style-type: disc;
+  }
+
+  .prose ol {
+    list-style-type: decimal;
+  }
+
+  .prose li {
+    margin-bottom: 0.5em;
+    padding-left: 0.25em;
+  }
+
+  .prose li::marker {
+    color: var(--accent);
+  }
+
+  .prose li > ul,
+  .prose li > ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    transition: text-decoration-color 0.15s ease;
+  }
+
+  .prose a:hover {
+    text-decoration-color: var(--accent);
+  }
+
+  .prose strong {
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  .prose blockquote {
+    margin: 1.75em 0;
+    padding: 0.25em 0 0.25em 1.25em;
+    border-left: 3px solid var(--accent);
+    font-style: italic;
+    color: var(--muted-ink);
+  }
+
+  .prose code {
+    font-size: 0.9em;
+    padding: 0.15em 0.4em;
+    border-radius: 0.375rem;
+    background-color: var(--surface-muted);
+    border: 1px solid var(--card-border);
+  }
+
+  .prose pre {
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    border-radius: 0.875rem;
+    overflow-x: auto;
+    background-color: var(--surface-muted);
+    border: 1px solid var(--card-border);
+  }
+
+  .prose pre code {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .prose hr {
+    margin: 2.5em 0;
+    border: 0;
+    border-top: 1px solid var(--card-border);
+  }
+
+  .prose img {
+    border-radius: 0.875rem;
+    margin: 1.75em 0;
+  }
+
+  /* Tables can exceed the measure — let them scroll rather than overflow. */
+  .prose table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.75em 0;
+    border-collapse: collapse;
+    font-size: 0.95em;
+  }
+
+  .prose :is(th, td) {
+    padding: 0.6em 0.85em;
+    border: 1px solid var(--card-border);
+    text-align: left;
+  }
+
+  .prose th {
+    font-weight: 700;
+    background-color: var(--surface-muted);
+  }
+
+  .prose-lg {
+    font-size: 1.0625rem;
+  }
+}
+
 /* Shared page intro used by CalculatorPageLayout — upgrades the h1/p that
    individual calculator pages render inline, without editing every page. */
 .calc-hero h1 {
@@ -632,16 +825,19 @@ input[type='checkbox'] {
   box-shadow: var(--shadow-ambient);
 }
 
+/* Docked full-width bar rather than a floating card: it reads as page chrome
+   instead of an overlay, and the body reserves its height (below) so it never
+   permanently covers the bottom of the page. */
 .consent-banner-shell {
-  background-color: var(--primary);
-  border: 1px solid var(--card-border);
-  border-radius: 1.5rem;
+  background-color: color-mix(in srgb, var(--primary) 93%, transparent);
+  border-top: 1px solid var(--card-border);
   backdrop-filter: blur(18px);
-  box-shadow: var(--shadow-raised);
+  box-shadow: 0 -8px 32px -12px rgba(37, 45, 122, 0.24);
 }
 
 .dark .consent-banner-shell {
-  background-color: var(--primary-dark);
+  background-color: color-mix(in srgb, var(--primary-dark) 95%, transparent);
+  box-shadow: 0 -8px 32px -12px rgba(2, 6, 23, 0.6);
 }
 
 .neumorph-inset {

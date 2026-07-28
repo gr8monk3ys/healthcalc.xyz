@@ -281,26 +281,39 @@ function CookieConsentBanner({
   const initialAdvertisingRef = useRef(initialAdvertising);
   const [analyticsChecked, setAnalyticsChecked] = useState(initialAnalyticsRef.current);
   const [advertisingChecked, setAdvertisingChecked] = useState(initialAdvertisingRef.current);
+  const bannerRef = useRef<HTMLDivElement | null>(null);
+
+  // The banner is fixed to the viewport bottom, so without this the last slice
+  // of every page sits permanently underneath it. Reserve matching space while
+  // the banner is mounted and release it once consent is given.
+  useEffect(() => {
+    const node = bannerRef.current;
+    if (!node) return undefined;
+
+    const reserveSpace = () => {
+      document.body.style.paddingBottom = `${node.offsetHeight}px`;
+    };
+
+    reserveSpace();
+
+    const observer = new ResizeObserver(reserveSpace);
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      document.body.style.paddingBottom = '';
+    };
+  }, []);
 
   return (
     <div
+      ref={bannerRef}
       role="dialog"
       aria-modal="false"
       aria-label={t('cookie.banner.aria')}
-      className="pointer-events-none fixed inset-x-0 bottom-0 z-[9999] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 animate-slide-in-up"
+      className="consent-banner-shell fixed inset-x-0 bottom-0 z-[9999] animate-slide-in-up pb-[env(safe-area-inset-bottom)]"
     >
-      <div className="consent-banner-shell pointer-events-auto mx-auto max-w-3xl p-4 sm:p-6">
-        {/* Main message */}
-        <div className="mb-3">
-          <h2 className="mb-1 text-sm font-bold sm:text-base">{t('cookie.banner.title')}</h2>
-          <p className="text-[11px] leading-4 opacity-80 sm:hidden">
-            Choose which optional cookies to allow.
-          </p>
-          <p className="hidden text-sm opacity-80 leading-relaxed sm:block">
-            {t('cookie.banner.body')}
-          </p>
-        </div>
-
+      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 sm:py-4">
         {/* Expandable preferences panel */}
         {expanded && (
           <div className="neumorph-inset p-4 mb-4 space-y-1">
@@ -335,58 +348,59 @@ function CookieConsentBanner({
           </div>
         )}
 
-        {/* Action buttons */}
-        <div className="grid grid-cols-2 items-stretch gap-2 sm:flex sm:flex-row sm:items-center sm:gap-3">
-          {/* Accept All -- prominent */}
-          <button
-            type="button"
-            onClick={onAcceptAll}
-            className="neumorph-btn col-span-2 w-full justify-center !bg-accent !text-white font-semibold px-6 py-2.5 text-sm
-                       hover:!bg-accent-dark focus-visible:ring-2 focus-visible:ring-accent
-                       focus-visible:ring-offset-2 transition-opacity order-1 sm:col-span-1 sm:w-auto"
-          >
-            {t('cookie.action.acceptAll')}
-          </button>
+        {/* Message and actions sit on one row from lg up so the bar stays shallow */}
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
+          <div className="min-w-0 lg:flex-1">
+            <h2 className="text-sm font-bold">{t('cookie.banner.title')}</h2>
+            <p className="mt-0.5 text-[11px] leading-4 opacity-80 sm:hidden">
+              Choose which optional cookies to allow.
+            </p>
+            <p className="mt-0.5 hidden text-[0.8rem] leading-snug opacity-80 sm:block">
+              {t('cookie.banner.body')}
+            </p>
+            <p className="mt-1 hidden text-[11px] leading-snug opacity-60 xl:block">
+              {t('cookie.note.tcf')}
+            </p>
+          </div>
 
-          {expanded ? (
+          <div className="grid grid-cols-2 items-stretch gap-2 sm:flex sm:flex-row sm:items-center sm:gap-3 lg:shrink-0">
+            {/* Reject Non-Essential — equal prominence to Accept for a fair choice */}
             <button
               type="button"
-              onClick={() => onSavePreferences(analyticsChecked, advertisingChecked)}
-              className="neumorph-btn w-full justify-center text-accent font-semibold px-4 py-2.5 text-sm
-                         focus-visible:ring-2 focus-visible:ring-accent
-                         focus-visible:ring-offset-2 order-2 sm:w-auto"
+              onClick={onRejectNonEssential}
+              className="ui-btn-soft order-2 w-full justify-center px-4 text-sm sm:order-1 sm:w-auto"
             >
-              {t('cookie.action.savePreferences')}
+              {t('cookie.action.rejectNonEssential')}
             </button>
-          ) : (
+
+            {expanded ? (
+              <button
+                type="button"
+                onClick={() => onSavePreferences(analyticsChecked, advertisingChecked)}
+                className="ui-btn-soft order-3 w-full justify-center px-4 text-sm sm:order-2 sm:w-auto"
+              >
+                {t('cookie.action.savePreferences')}
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setExpanded(true)}
+                className="order-3 w-full rounded-[0.875rem] px-4 py-2.5 text-sm font-medium text-accent underline-offset-4 transition-colors hover:underline sm:order-2 sm:w-auto"
+              >
+                {t('cookie.action.managePreferences')}
+              </button>
+            )}
+
+            {/* Accept All -- prominent */}
             <button
               type="button"
-              onClick={() => setExpanded(true)}
-              className="neumorph-btn w-full justify-center text-accent font-medium px-4 py-2.5 text-sm
-                         focus-visible:ring-2 focus-visible:ring-accent
-                         focus-visible:ring-offset-2 order-2 sm:w-auto"
+              onClick={onAcceptAll}
+              className="ui-btn-primary order-1 col-span-2 w-full px-6 text-sm sm:order-3 sm:col-span-1 sm:w-auto"
             >
-              {t('cookie.action.managePreferences')}
+              {t('cookie.action.acceptAll')}
             </button>
-          )}
-
-          {/* Reject Non-Essential */}
-          <button
-            type="button"
-            onClick={onRejectNonEssential}
-            className="neumorph-btn w-full justify-center text-sm opacity-70 hover:opacity-100 px-4 py-2.5
-                       focus-visible:ring-2 focus-visible:ring-accent
-                       focus-visible:ring-offset-2 transition-opacity order-3
-                       sm:ml-auto sm:w-auto"
-          >
-            {t('cookie.action.rejectNonEssential')}
-          </button>
+          </div>
         </div>
-
-        {/* TCF 2.2 compliance note */}
-        <p className="mt-3 hidden text-[11px] leading-snug text-[color:var(--foreground)] opacity-75 sm:block">
-          {t('cookie.note.tcf')}
-        </p>
       </div>
     </div>
   );

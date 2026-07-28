@@ -70,7 +70,7 @@ describe('Home Page', () => {
   it('renders trust signals and Why HealthCheck section', () => {
     const { container } = render(<Home />);
 
-    expect(container.textContent).toContain('54+ Calculators');
+    expect(container.textContent).toContain('56 Calculators');
     expect(container.textContent).toContain('Evidence-Based Formulas');
     expect(container.textContent).toContain('100% Free');
     expect(screen.getByRole('heading', { name: /Why HealthCheck/i })).toBeInTheDocument();
