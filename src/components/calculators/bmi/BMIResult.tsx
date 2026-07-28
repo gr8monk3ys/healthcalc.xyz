@@ -59,6 +59,41 @@ function formatTemplate(template: string, vars: Record<string, string | number>)
   return output;
 }
 
+type ResultTone = 'healthy' | 'caution' | 'elevated';
+
+const TONE_STYLES: Record<ResultTone, { panel: string; value: string; badge: string }> = {
+  healthy: {
+    panel: 'border-emerald-500/25 bg-emerald-500/[0.07]',
+    value: 'text-emerald-600 dark:text-emerald-400',
+    badge: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300',
+  },
+  caution: {
+    panel: 'border-amber-500/25 bg-amber-500/[0.07]',
+    value: 'text-amber-600 dark:text-amber-400',
+    badge: 'bg-amber-500/15 text-amber-700 dark:text-amber-300',
+  },
+  elevated: {
+    panel: 'border-red-500/25 bg-red-500/[0.07]',
+    value: 'text-red-600 dark:text-red-400',
+    badge: 'bg-red-500/15 text-red-700 dark:text-red-300',
+  },
+};
+
+/** Maps a result to a severity tone so the headline number is colour-coded. */
+function getResultTone(bmi: number, isChild: boolean, percentile?: number): ResultTone {
+  if (isChild && percentile !== undefined) {
+    if (percentile < 5) return 'caution';
+    if (percentile < 85) return 'healthy';
+    if (percentile < 95) return 'caution';
+    return 'elevated';
+  }
+
+  if (bmi < 18.5) return 'caution';
+  if (bmi < 25) return 'healthy';
+  if (bmi < 30) return 'caution';
+  return 'elevated';
+}
+
 function getBMINextSteps(
   bmi: number,
   isChild: boolean
@@ -192,6 +227,15 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
   const content = copy ?? FALLBACK_COPY;
 
   const nextStepsData = useMemo(() => getBMINextSteps(result.bmi, isChild), [result.bmi, isChild]);
+  const tone = TONE_STYLES[getResultTone(result.bmi, isChild, result.percentile)];
+  const classificationLabel = isChild ? content.classificationChild : content.classificationAdult;
+  const classificationValue =
+    isChild && result.percentile !== undefined
+      ? formatTemplate(content.percentileTemplate, {
+          percentile: result.percentile,
+          category: result.category,
+        })
+      : result.category;
 
   return (
     <div
@@ -202,32 +246,60 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
       role="region"
       aria-label={content.title}
     >
-      <h2 className="text-xl font-semibold mb-4">{content.title}</h2>
+      <h2 className="mb-5 text-xl font-bold tracking-tight">{content.title}</h2>
 
-      <div className="mb-6">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium">{content.bmiValueLabel}</span>
-          <span className="text-2xl font-bold">{result.bmi.toFixed(1)}</span>
+      {/* Headline metric: the number and what it means, read together. */}
+      <div className={`mb-6 rounded-2xl border p-5 ${tone.panel}`}>
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400">
+              {content.bmiValueLabel}
+            </p>
+            <p
+              className={`mt-1 text-5xl font-extrabold leading-none tracking-tight tabular-nums ${tone.value}`}
+            >
+              {result.bmi.toFixed(1)}
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400">
+              {classificationLabel}
+            </p>
+            <span
+              className={`mt-1.5 inline-flex rounded-full px-3 py-1 text-sm font-bold ${tone.badge}`}
+            >
+              {classificationValue}
+            </span>
+          </div>
         </div>
 
-        <div className="relative h-6 neumorph-inset rounded-full overflow-hidden">
+        <div className="relative mt-5 h-3 overflow-hidden rounded-full bg-white/60 dark:bg-slate-900/40">
           <div className="absolute inset-0 flex">
-            <div className="h-full bg-blue-200 dark:bg-blue-800" style={{ width: '20%' }}></div>
-            <div className="h-full bg-green-200 dark:bg-green-800" style={{ width: '15%' }}></div>
-            <div className="h-full bg-yellow-200 dark:bg-yellow-800" style={{ width: '15%' }}></div>
-            <div className="h-full bg-orange-200 dark:bg-orange-800" style={{ width: '15%' }}></div>
-            <div className="h-full bg-red-200 dark:bg-red-800" style={{ width: '35%' }}></div>
+            <div className="h-full bg-blue-300 dark:bg-blue-500/60" style={{ width: '20%' }}></div>
+            <div
+              className="h-full bg-emerald-300 dark:bg-emerald-500/60"
+              style={{ width: '15%' }}
+            ></div>
+            <div
+              className="h-full bg-amber-300 dark:bg-amber-500/60"
+              style={{ width: '15%' }}
+            ></div>
+            <div
+              className="h-full bg-orange-300 dark:bg-orange-500/60"
+              style={{ width: '15%' }}
+            ></div>
+            <div className="h-full bg-red-300 dark:bg-red-500/60" style={{ width: '35%' }}></div>
           </div>
 
           <div
-            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2 transition-all duration-500"
+            className="absolute -top-0.5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white bg-slate-900 shadow-md transition-all duration-500 dark:border-slate-900 dark:bg-white"
             style={{
               left: `${Math.min(Math.max(((result.bmi - 10) / 30) * 100, 0), 100)}%`,
             }}
           ></div>
         </div>
 
-        <div className="flex justify-between text-xs mt-1">
+        <div className="mt-2 flex justify-between text-[0.7rem] font-medium text-slate-500 dark:text-slate-400">
           <span>{content.gaugeLabels.underweight}</span>
           <span>{content.gaugeLabels.normal}</span>
           <span>{content.gaugeLabels.overweight}</span>
@@ -235,30 +307,16 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
         </div>
       </div>
 
-      <div className="mb-6">
-        <h3 className="font-medium mb-2">
-          {isChild ? content.classificationChild : content.classificationAdult}
+      <div className="mb-6 flex items-baseline justify-between gap-4 rounded-xl border border-[var(--card-border)] px-4 py-3.5">
+        <h3 className="text-sm font-semibold text-slate-600 dark:text-slate-300">
+          {content.healthyWeightRangeTitle}
         </h3>
-        <div className="neumorph-inset p-4 rounded-lg">
-          <p className="font-medium text-lg">
-            {isChild && result.percentile !== undefined
-              ? formatTemplate(content.percentileTemplate, {
-                  percentile: result.percentile,
-                  category: result.category,
-                })
-              : result.category}
-          </p>
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <h3 className="font-medium mb-2">{content.healthyWeightRangeTitle}</h3>
-        <div className="neumorph-inset p-4 rounded-lg">
-          <p className="font-medium text-lg">
-            {result.healthyWeightRange.min.toFixed(1)} - {result.healthyWeightRange.max.toFixed(1)}{' '}
+        <p className="shrink-0 text-lg font-bold tabular-nums">
+          {result.healthyWeightRange.min.toFixed(1)} - {result.healthyWeightRange.max.toFixed(1)}{' '}
+          <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
             {weightUnit}
-          </p>
-        </div>
+          </span>
+        </p>
       </div>
 
       <BodyCompositionVisual bmi={result.bmi} age={age} gender={gender} className="mb-6" />

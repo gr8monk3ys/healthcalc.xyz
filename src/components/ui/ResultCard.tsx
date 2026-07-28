@@ -21,15 +21,23 @@ export default function ResultCard({
   className = '',
 }: ResultCardProps) {
   const statusColors = {
-    success: 'text-green-600 dark:text-green-400',
-    warning: 'text-yellow-600 dark:text-yellow-400',
+    success: 'text-emerald-600 dark:text-emerald-400',
+    warning: 'text-amber-600 dark:text-amber-400',
     danger: 'text-red-600 dark:text-red-400',
     info: 'text-accent',
   };
 
+  const statusBars = {
+    success: 'bg-emerald-500/70',
+    warning: 'bg-amber-500/70',
+    danger: 'bg-red-500/70',
+    info: 'bg-accent/70',
+  };
+
   return (
-    <Card className={`${className}`}>
-      <div className="flex items-start">
+    <Card className={`relative overflow-hidden ${className}`}>
+      <span className={`absolute inset-y-3 left-0 w-1 rounded-r-full ${statusBars[status]}`} />
+      <div className="flex items-start pl-2">
         {icon && (
           <div className={`mr-4 ${statusColors[status]}`} aria-hidden="true">
             {icon}
@@ -37,16 +45,24 @@ export default function ResultCard({
         )}
 
         <div className="flex-1">
-          <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">{title}</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400 mb-1">
+            {title}
+          </h3>
 
-          <div className="flex items-baseline">
-            <span className={`text-2xl font-bold ${statusColors[status]}`}>{value}</span>
+          <div className="flex items-baseline gap-1.5">
+            <span
+              className={`text-3xl font-extrabold tracking-tight tabular-nums ${statusColors[status]}`}
+            >
+              {value}
+            </span>
 
-            {unit && <span className="ml-1 text-gray-600 dark:text-gray-400">{unit}</span>}
+            {unit && (
+              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">{unit}</span>
+            )}
           </div>
 
           {description && (
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
           )}
         </div>
       </div>

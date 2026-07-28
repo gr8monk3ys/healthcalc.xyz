@@ -115,14 +115,14 @@ describe('ResultCard', () => {
     it('should apply success status colors', () => {
       const { container } = render(<ResultCard {...defaultProps} status="success" />);
 
-      const valueElement = container.querySelector('.text-green-600');
+      const valueElement = container.querySelector('.text-emerald-600');
       expect(valueElement).toBeInTheDocument();
     });
 
     it('should apply warning status colors', () => {
       const { container } = render(<ResultCard {...defaultProps} status="warning" />);
 
-      const valueElement = container.querySelector('.text-yellow-600');
+      const valueElement = container.querySelector('.text-amber-600');
       expect(valueElement).toBeInTheDocument();
     });
 

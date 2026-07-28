@@ -46,10 +46,27 @@ export default function Header(): React.JSX.Element {
         <div className="container mx-auto flex items-center justify-between gap-4">
           <Link
             href={localizePath('/')}
-            className="notranslate inline-flex items-baseline gap-1 text-2xl font-black tracking-tight text-accent transition-transform duration-300 hover:scale-[1.02]"
+            className="notranslate group inline-flex items-center gap-2.5 text-2xl font-black tracking-tight text-accent"
           >
-            <span>Health</span>
-            <span className="text-[0.95em] text-accent-dark dark:text-accent-light">Check</span>
+            <span
+              aria-hidden="true"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-lg shadow-accent/30 transition-transform duration-300 group-hover:scale-105"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.4}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h4l2.5-6 4 12L16 12h5" />
+              </svg>
+            </span>
+            <span className="inline-flex items-baseline gap-0.5">
+              <span>Health</span>
+              <span className="text-[0.95em] text-accent-dark dark:text-accent-light">Check</span>
+            </span>
           </Link>
 
           <nav
@@ -63,8 +80,8 @@ export default function Header(): React.JSX.Element {
                 aria-current={normalizedPathname === link.path ? 'page' : undefined}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
                   normalizedPathname === link.path
-                    ? 'bg-accent text-white shadow-lg shadow-accent/30'
-                    : 'elevated-pill text-[var(--foreground)] hover:-translate-y-0.5'
+                    ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
+                    : 'text-[var(--foreground)]/80 hover:bg-[var(--surface-muted)] hover:text-accent'
                 }`}
               >
                 {link.name}
@@ -141,7 +158,7 @@ export default function Header(): React.JSX.Element {
                 aria-current={normalizedPathname === link.path ? 'page' : undefined}
                 className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-all ${
                   normalizedPathname === link.path
-                    ? 'bg-accent text-white shadow-lg shadow-accent/30'
+                    ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
                     : darkMode
                       ? 'elevated-pill hover:border-accent/60'
                       : 'elevated-pill hover:border-accent/40'

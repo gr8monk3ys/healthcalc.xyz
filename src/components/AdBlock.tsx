@@ -19,8 +19,14 @@ export default function AdBlock({
   if (!slot) return null;
 
   return (
-    <div className={`my-8 flex justify-center ${className}`}>
+    <aside
+      aria-label="Advertisement"
+      className={`my-8 flex flex-col items-center gap-1.5 ${className}`}
+    >
+      <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-400 dark:text-slate-500">
+        Advertisement
+      </span>
       <AdUnit slot={slot} format={format} fullWidth={fullWidth} />
-    </div>
+    </aside>
   );
 }
