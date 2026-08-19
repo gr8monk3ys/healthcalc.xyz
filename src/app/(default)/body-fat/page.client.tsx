@@ -57,8 +57,7 @@ type BodyFatCalculatorState = {
 };
 
 type BodyFatCalculatorAction =
-  | { type: 'patch'; patch: Partial<BodyFatCalculatorState> }
-  | { type: 'reset' };
+  { type: 'patch'; patch: Partial<BodyFatCalculatorState> } | { type: 'reset' };
 
 const initialBodyFatCalculatorState: BodyFatCalculatorState = {
   age: '',

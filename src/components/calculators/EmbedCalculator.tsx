@@ -21,8 +21,7 @@ interface EmbedRequestState {
 type RequestField = 'requestName' | 'requestEmail' | 'requestSite' | 'requestNotes';
 
 type EmbedRequestAction =
-  | { type: 'setCopied'; value: boolean }
-  | { type: 'setField'; field: RequestField; value: string };
+  { type: 'setCopied'; value: boolean } | { type: 'setField'; field: RequestField; value: string };
 
 const initialEmbedRequestState: EmbedRequestState = {
   copied: false,

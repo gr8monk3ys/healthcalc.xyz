@@ -161,8 +161,7 @@ async function fetchResultsFromServer(): Promise<SavedResult[]> {
     }
 
     const payload = (await res.json()) as
-      | { success: true; results: SavedResult[] }
-      | { success: false; error: string };
+      { success: true; results: SavedResult[] } | { success: false; error: string };
 
     if (!payload.success || !Array.isArray(payload.results)) {
       return [];

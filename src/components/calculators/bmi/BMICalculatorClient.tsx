@@ -103,8 +103,7 @@ interface BMICalculatorState {
 }
 
 type BMICalculatorAction =
-  | { type: 'patch'; patch: Partial<BMICalculatorState> }
-  | { type: 'reset' };
+  { type: 'patch'; patch: Partial<BMICalculatorState> } | { type: 'reset' };
 
 type BMIFormErrors = BMICalculatorState['errors'];
 

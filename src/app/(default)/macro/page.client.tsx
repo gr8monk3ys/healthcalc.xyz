@@ -103,8 +103,7 @@ type MacroCalculatorState = {
 };
 
 type MacroCalculatorAction =
-  | { type: 'patch'; patch: Partial<MacroCalculatorState> }
-  | { type: 'reset' };
+  { type: 'patch'; patch: Partial<MacroCalculatorState> } | { type: 'reset' };
 
 const initialMacroCalculatorState: MacroCalculatorState = {
   age: '',

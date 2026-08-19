@@ -43,12 +43,7 @@ export const EDITORIAL_TEAM: Reviewer = {
  * can pick the right reviewer by topic.
  */
 export type ReviewerCategory =
-  | 'exercise'
-  | 'nutrition'
-  | 'body-composition'
-  | 'weight-management'
-  | 'public-health'
-  | 'general';
+  'exercise' | 'nutrition' | 'body-composition' | 'weight-management' | 'public-health' | 'general';
 
 export const CATEGORY_REVIEWER: Record<ReviewerCategory, Reviewer> = {
   exercise: REVIEWER_SARAH_CHEN,

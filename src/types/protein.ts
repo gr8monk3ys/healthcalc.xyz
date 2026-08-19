@@ -18,11 +18,7 @@ type _ProteinActivityLevel =
  * Goal type for protein intake optimization
  */
 export type ProteinGoal =
-  | 'maintain'
-  | 'weight_loss'
-  | 'muscle_gain'
-  | 'athletic_performance'
-  | 'general_health';
+  'maintain' | 'weight_loss' | 'muscle_gain' | 'athletic_performance' | 'general_health';
 
 /**
  * Form values for the protein calculator

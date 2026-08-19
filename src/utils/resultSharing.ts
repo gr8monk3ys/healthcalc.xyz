@@ -10,12 +10,7 @@ import { calculateFitnessAge } from '@/utils/calculators/fitnessAge';
 import { getMacroPreset, validateMacroDistribution } from '@/constants/macro';
 
 export type ShareCalculatorSlug =
-  | 'bmi'
-  | 'tdee'
-  | 'calorie-deficit'
-  | 'body-fat'
-  | 'macro'
-  | 'fitness-age';
+  'bmi' | 'tdee' | 'calorie-deficit' | 'body-fat' | 'macro' | 'fitness-age';
 
 const SHARE_VERSION = 1 as const;
 
