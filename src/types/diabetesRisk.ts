@@ -11,12 +11,7 @@ type _DiabetesMode = 'risk-assessment' | 'a1c-converter';
 export type RiskLevel = 'low' | 'moderate' | 'high' | 'very-high';
 
 export type EthnicityRisk =
-  | 'standard'
-  | 'african-american'
-  | 'hispanic'
-  | 'asian'
-  | 'native-american'
-  | 'pacific-islander';
+  'standard' | 'african-american' | 'hispanic' | 'asian' | 'native-american' | 'pacific-islander';
 
 export interface DiabetesRiskFormValues {
   age: number;

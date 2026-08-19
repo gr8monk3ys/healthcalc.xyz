@@ -109,8 +109,7 @@ type CalorieDeficitState = {
 };
 
 type CalorieDeficitAction =
-  | { type: 'patch'; patch: Partial<CalorieDeficitState> }
-  | { type: 'reset' };
+  { type: 'patch'; patch: Partial<CalorieDeficitState> } | { type: 'reset' };
 
 const initialCalorieDeficitState: CalorieDeficitState = {
   age: '',

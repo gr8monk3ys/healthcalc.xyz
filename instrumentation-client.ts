@@ -67,8 +67,7 @@ export function onRouterTransitionStart(...args: unknown[]): void {
     }
 
     const captureRouterTransitionStart = Sentry.captureRouterTransitionStart as
-      | ((...params: unknown[]) => void)
-      | undefined;
+      ((...params: unknown[]) => void) | undefined;
 
     captureRouterTransitionStart?.(...args);
   });

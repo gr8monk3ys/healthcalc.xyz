@@ -9,12 +9,7 @@
 
 export type BodyShape = 'apple' | 'pear' | 'hourglass' | 'rectangle' | 'inverted-triangle';
 export type Somatotype =
-  | 'ectomorph'
-  | 'mesomorph'
-  | 'endomorph'
-  | 'ecto-mesomorph'
-  | 'meso-endomorph'
-  | 'ecto-endomorph';
+  'ectomorph' | 'mesomorph' | 'endomorph' | 'ecto-mesomorph' | 'meso-endomorph' | 'ecto-endomorph';
 
 export interface BodyShapeFormValues {
   gender: 'male' | 'female';

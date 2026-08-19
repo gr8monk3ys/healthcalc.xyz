@@ -17,6 +17,6 @@ repos:
         # Pin to the version in package.json — an unpinned bunx downloads the
         # latest prettier in CI (no node_modules there), which drifts from the
         # repo's formatting and fails on files formatted with the pinned version.
-        entry: bunx prettier@3.8.4 --check .
+        entry: bunx prettier@3.9.6 --check .
         language: system
         pass_filenames: false

@@ -62,12 +62,7 @@ export type CalculatorType =
   | 'caffeine-calculator';
 
 export type ProductCategory =
-  | 'fitness-tracker'
-  | 'smart-scale'
-  | 'meal-delivery'
-  | 'fitness-app'
-  | 'supplement'
-  | 'equipment';
+  'fitness-tracker' | 'smart-scale' | 'meal-delivery' | 'fitness-app' | 'supplement' | 'equipment';
 
 export interface AffiliateProduct {
   id: string;

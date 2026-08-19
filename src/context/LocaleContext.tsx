@@ -42,7 +42,10 @@ export function LocaleProvider({
     const localizedPath = prefixPathWithLocale(window.location.pathname, nextLocale);
     const search = window.location.search ?? '';
     const hash = window.location.hash ?? '';
-    window.location.assign(`${localizedPath}${search}${hash}`);
+    // Full-page navigation on purpose: the server must re-render with the new
+    // locale. Absolute URL because assign() with a relative destination
+    // misresolves under a basePath (@next/next/no-location-assign-relative-destination).
+    window.location.assign(new URL(`${localizedPath}${search}${hash}`, window.location.origin));
   }, []);
 
   const t = useCallback(
