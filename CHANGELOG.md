@@ -5,6 +5,21 @@ All notable changes to the HealthCheck project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.0.0 (2026-08-19)
+
+### Features
+
+- **app:** add calculator pages, blog routes, and API handlers ([5e1af50](https://github.com/gr8monk3ys/healthcalc.xyz/commit/5e1af5067ed8136cc9222eb47c8ab510d04eab33))
+- **calculators:** define calculator catalog, types, and constants ([a2e61d1](https://github.com/gr8monk3ys/healthcalc.xyz/commit/a2e61d1818606ce98faefaf100b1a21eec733297))
+- **calculators:** implement BMI, body fat, and TDEE calculation logic ([1bea96e](https://github.com/gr8monk3ys/healthcalc.xyz/commit/1bea96e855b414cf62a07e3405f0f4ad1b982604))
+- **data:** add Supabase auth, dual-backend persistence, and blog registry ([45c5e8d](https://github.com/gr8monk3ys/healthcalc.xyz/commit/45c5e8d660cbef484a1d14e9b0c1b1a0676bfe28))
+- **db:** add Postgres and SQLite migrations for submissions and saved results ([82af4f8](https://github.com/gr8monk3ys/healthcalc.xyz/commit/82af4f83db14b65b320deac00fcbd0eba17dc700))
+- **i18n:** add locale routing, message catalog, and request proxy ([2efbaa6](https://github.com/gr8monk3ys/healthcalc.xyz/commit/2efbaa6f8cc4d00e8490d27cded9291c038782f3))
+- **observability:** wire up Sentry instrumentation and error reporting ([c464d1e](https://github.com/gr8monk3ys/healthcalc.xyz/commit/c464d1eb2b322e656ad74ac2c6f1a5f3b5991121))
+- **state:** add calculator form hooks and preferences context ([f2a4ebe](https://github.com/gr8monk3ys/healthcalc.xyz/commit/f2a4ebe5e5e24f8f275a131a4f606af0f051a4a0))
+- **ui:** build calculator forms, result displays, and UI primitives ([95210f7](https://github.com/gr8monk3ys/healthcalc.xyz/commit/95210f73cd3d4b8e9f4e05f04a0be7921caad50c))
+- **ui:** design system overhaul with dark mode fix and article typography ([#60](https://github.com/gr8monk3ys/healthcalc.xyz/issues/60)) ([eec8633](https://github.com/gr8monk3ys/healthcalc.xyz/commit/eec863367129af6830c0a65d3c1e293394e420bc))
+
 ## [Unreleased]
 
 ### Added
