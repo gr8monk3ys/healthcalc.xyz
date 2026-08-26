@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Army Body Fat Calculator | HealthCheck',
+  title: 'Army Body Fat Calculator | HealthCalc',
   description: 'Estimate body fat percentage using U.S. Army circumference method.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Army Body Fat Calculator | HealthCheck',
+    title: 'Army Body Fat Calculator | HealthCalc',
     description: 'Estimate body fat percentage using U.S. Army circumference method.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Army Body Fat Calculator | HealthCheck',
+    title: 'Army Body Fat Calculator | HealthCalc',
     description: 'Estimate body fat percentage using U.S. Army circumference method.',
     images: ['/images/calculators/army-body-fat-calculator.jpg'],
   },

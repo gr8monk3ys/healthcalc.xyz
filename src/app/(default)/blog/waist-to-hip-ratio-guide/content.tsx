@@ -5,7 +5,7 @@ import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
-  title: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape | HealthCheck',
+  title: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape | HealthCalc',
   description: 'Measure waist-to-hip ratio, interpret your body shape, and understand health risk.',
   keywords:
     'waist-to-hip ratio, WHR, apple shape, pear shape, body shape, central obesity, fat distribution, health risk assessment, waist circumference, hip circumference',
@@ -14,7 +14,7 @@ export const metadata = {
     description:
       'Measure waist-to-hip ratio, interpret your body shape, and understand health risk.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'article',
     images: [
       {

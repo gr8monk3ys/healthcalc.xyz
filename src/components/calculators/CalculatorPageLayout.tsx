@@ -221,7 +221,7 @@ function CalculatorPageLayoutContent({
     const token = '{brand}';
     const brandLink = (
       <Link href={localizePath(`/${calculatorSlug}`)} className="text-accent hover:underline">
-        HealthCheck
+        HealthCalc
       </Link>
     );
     let poweredByContent: React.ReactNode;

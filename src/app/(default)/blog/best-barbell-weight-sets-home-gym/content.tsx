@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCheck Blog',
+  title: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCalc Blog',
   description:
     'Compare the best barbell weight sets for home workouts in 2026. Honest reviews of CAP Barbell, REP Fitness, BalanceFrom, Fitness Gear, and Rogue Echo with real pros, cons, and pricing.',
   keywords:
     'best barbell weight sets 2026, home gym barbell sets, CAP Barbell 300-lb set, REP Fitness iron plates, BalanceFrom cast iron, Rogue Echo bumper plates, Olympic barbell sets, home gym equipment',
   openGraph: {
-    title: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCheck Blog',
+    title: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCalc Blog',
     description:
       'Compare the best barbell weight sets for home workouts in 2026. Honest reviews of CAP Barbell, REP Fitness, BalanceFrom, Fitness Gear, and Rogue Echo.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCheck Blog',
+    title: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCalc Blog',
     description:
       'Compare the best barbell weight sets for home workouts in 2026. Honest reviews with real pros, cons, and pricing.',
     images: ['/images/blog/best-barbell-weight-sets-home-gym.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

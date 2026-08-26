@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Ideal Weight Calculator | HealthCheck',
+  title: 'Ideal Weight Calculator | HealthCalc',
   description:
     'Estimate your ideal weight range using popular formulas like Devine, Hamwi, Robinson, and Miller.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Ideal Weight Calculator | HealthCheck',
+    title: 'Ideal Weight Calculator | HealthCalc',
     description:
       'Estimate your ideal weight range using popular formulas like Devine, Hamwi, Robinson, and Miller.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ideal Weight Calculator | HealthCheck',
+    title: 'Ideal Weight Calculator | HealthCalc',
     description:
       'Estimate your ideal weight range using popular formulas like Devine, Hamwi, Robinson, and Miller.',
     images: ['/images/calculators/ideal-weight-calculator.jpg'],

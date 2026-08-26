@@ -2,20 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Us | HealthCheck',
+  title: 'About Us | HealthCalc',
   description:
-    'Learn about HealthCheck, our mission, and the science behind our health and fitness calculators.',
+    'Learn about HealthCalc, our mission, and the science behind our health and fitness calculators.',
 };
 
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">About HealthCheck</h1>
+      <h1 className="text-3xl font-bold mb-6">About HealthCalc</h1>
 
       <div className="neumorph p-6 mb-8 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">What We Do</h2>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          HealthCheck is a collection of 52 health and fitness calculators. Body fat, BMI, TDEE,
+          HealthCalc is a collection of 52 health and fitness calculators. Body fat, BMI, TDEE,
           macros, calorie deficit planning, and dozens more. Each one runs a published,
           peer-reviewed formula on the numbers you type in, and gives you a result you can actually
           use.

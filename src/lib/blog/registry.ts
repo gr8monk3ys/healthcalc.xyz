@@ -48,7 +48,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
-    seoTitle: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
+    seoTitle: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
   },
   {
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',
@@ -60,7 +60,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/understanding-absi.jpg',
     keywords:
       'ABSI, A Body Shape Index, body shape, waist circumference, BMI limitations, health risk assessment, central obesity, mortality risk',
-    seoTitle: 'Understanding ABSI: Beyond BMI for Health Risk Assessment | HealthCheck',
+    seoTitle: 'Understanding ABSI: Beyond BMI for Health Risk Assessment | HealthCalc',
   },
   {
     title: 'The Pros and Cons of Different Body Fat Measurement Methods',
@@ -73,7 +73,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/measuring-body-fat.jpg',
     keywords:
       'body fat measurement, DEXA scan, skinfold calipers, Navy method, bioelectrical impedance, body fat percentage, hydrostatic weighing, accuracy, body composition',
-    seoTitle: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
+    seoTitle: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
   },
   {
     title: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape',
@@ -86,7 +86,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/waist-to-hip-ratio-guide.jpg',
     keywords:
       'waist-to-hip ratio, WHR, apple shape, pear shape, body shape, central obesity, fat distribution, health risk assessment, waist circumference, hip circumference',
-    seoTitle: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape | HealthCheck',
+    seoTitle: 'Waist-to-Hip Ratio: A Complete Guide to Understanding Your Body Shape | HealthCalc',
   },
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
@@ -100,7 +100,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'TDEE, total daily energy expenditure, BMR, calorie needs, metabolism, weight management, energy balance, activity level, exercise, non-exercise activity thermogenesis',
-    seoTitle: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
+    seoTitle: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCalc Blog',
   },
   {
     title: '5 Myths About Calorie Deficits Debunked',
@@ -114,7 +114,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'calorie deficit myths, weight loss myths, 3500 calorie rule, starvation mode, metabolism myths, weight loss plateau, sustainable weight loss',
-    seoTitle: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
+    seoTitle: '5 Myths About Calorie Deficits Debunked | HealthCalc Blog',
   },
   {
     title: 'How to Measure Body Fat at Home: Methods, Accuracy, and What Works',
@@ -128,7 +128,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     keywords:
       'measure body fat at home, body fat percentage, Navy method, skinfold calipers, smart scale body fat, bioelectrical impedance, body composition, tape measure body fat, DEXA scan, hydrostatic weighing',
     seoTitle:
-      'How to Measure Body Fat at Home: Methods, Accuracy, and What Actually Works | HealthCheck',
+      'How to Measure Body Fat at Home: Methods, Accuracy, and What Actually Works | HealthCalc',
   },
   {
     title: 'Heart Rate Zones Explained: A Guide to Training Smarter',
@@ -141,7 +141,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/heart-rate-zones-explained-training.jpg',
     keywords:
       'heart rate zones, zone 2 training, max heart rate, Karvonen method, VO2 max, cardio training, heart rate training, target heart rate, exercise intensity, aerobic threshold',
-    seoTitle: 'Heart Rate Zones Explained: How to Train Smarter | HealthCheck Blog',
+    seoTitle: 'Heart Rate Zones Explained: How to Train Smarter | HealthCalc Blog',
   },
   {
     title: 'Counting Calories vs Tracking Macros: Which Approach Fits You?',
@@ -154,7 +154,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/counting-calories-vs-tracking-macros.jpg',
     keywords:
       'calorie counting, macro tracking, macros vs calories, IIFYM, flexible dieting, nutrition tracking, weight loss, body composition',
-    seoTitle: 'Calorie Counting vs Tracking Macros: Which One Actually Works? | HealthCheck',
+    seoTitle: 'Calorie Counting vs Tracking Macros: Which One Actually Works? | HealthCalc',
   },
   {
     title: 'How Fast Can You Build Muscle? Natural Expectations and Reality',
@@ -167,7 +167,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/how-fast-can-you-build-muscle.jpg',
     keywords:
       'muscle building, muscle gain rate, Alan Aragon model, newbie gains, progressive overload, muscle growth timeline, hypertrophy, natural muscle building',
-    seoTitle: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCheck Blog',
+    seoTitle: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCalc Blog',
   },
   {
     title: 'Cardio vs Weights for Fat Loss: What Science Actually Says',
@@ -180,7 +180,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/cardio-vs-weights-fat-loss.jpg',
     keywords:
       'cardio vs weights, fat loss, resistance training, EPOC, muscle mass, metabolism, training split, body composition',
-    seoTitle: 'Cardio vs Weights for Fat Loss: What Science Actually Says | HealthCheck',
+    seoTitle: 'Cardio vs Weights for Fat Loss: What Science Actually Says | HealthCalc',
   },
   // Comparison posts
   {
@@ -194,7 +194,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/treadmill-vs-exercise-bike-calories.jpg',
     keywords:
       'treadmill vs exercise bike, calories burned treadmill, calories burned bike, best cardio for weight loss, treadmill vs bike for fat loss, low impact cardio',
-    seoTitle: 'Treadmill vs Exercise Bike: Which Burns More Calories? | HealthCheck Blog',
+    seoTitle: 'Treadmill vs Exercise Bike: Which Burns More Calories? | HealthCalc Blog',
   },
   {
     title: 'Adjustable Dumbbells vs Barbell for Home Gym: Which Should You Buy First?',
@@ -209,7 +209,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     keywords:
       'adjustable dumbbells vs barbell, home gym equipment, dumbbells or barbell first, home gym on a budget, Bowflex SelectTech 552, PowerBlock Elite, CAP Barbell Olympic set, REP Fitness plates, strength training equipment',
     seoTitle:
-      'Adjustable Dumbbells vs Barbell for Home Gym: Which Should You Buy First? | HealthCheck Blog',
+      'Adjustable Dumbbells vs Barbell for Home Gym: Which Should You Buy First? | HealthCalc Blog',
   },
   {
     title: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate?',
@@ -223,7 +223,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'smart scale vs calipers, body fat measurement, BIA accuracy, skinfold calipers, body composition, body fat percentage, Withings scale, RENPHO scale, Accu-Measure caliper',
-    seoTitle: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate? | HealthCheck Blog',
+    seoTitle: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate? | HealthCalc Blog',
   },
   // Product reviews (spread across late January and February)
   {
@@ -238,7 +238,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'smart scale, body composition scale, body fat scale, Withings Body Smart, RENPHO scale, Eufy scale, best smart scale 2026, BMI scale, weight tracking',
-    seoTitle: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Fitness Trackers for Calorie Tracking in 2026',
@@ -252,7 +252,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'fitness tracker, calorie tracker, Fitbit Charge 6, Garmin Venu, Apple Watch, Samsung Galaxy Watch, best fitness watch 2026, calorie burn tracking, TDEE tracking',
-    seoTitle: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026',
@@ -267,7 +267,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     keywords:
       'kitchen scale, food scale, portion control scale, calorie counting scale, best food scale 2026, digital kitchen scale, nutrition scale, meal prep scale',
     seoTitle:
-      'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCheck Blog',
+      'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Fitness Apps for Tracking Macros and Calories in 2026',
@@ -280,7 +280,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/best-fitness-apps-macro-tracking.jpg',
     keywords:
       'calorie tracking app, macro tracking app, MyFitnessPal, Cronometer, MacroFactor, Lose It, best diet app 2026, food logging app, nutrition tracker',
-    seoTitle: 'Best Fitness Apps for Tracking Macros and Calories in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Fitness Apps for Tracking Macros and Calories in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Meal Delivery Services for Weight Loss in 2026',
@@ -293,7 +293,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/meal-delivery-services-weight-loss.jpg',
     keywords:
       'meal delivery weight loss, Factor meals, HelloFresh calorie smart, Trifecta nutrition, best diet meal delivery 2026, calorie controlled meals, macro friendly meals',
-    seoTitle: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Supplements for Your Fitness Goals in 2026',
@@ -307,7 +307,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best supplements 2026, whey protein, creatine monohydrate, multivitamin, omega-3, pre-workout, Optimum Nutrition Gold Standard, Thorne creatine, fitness supplements, muscle building supplements',
-    seoTitle: 'Best Supplements for Your Fitness Goals in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Supplements for Your Fitness Goals in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Home Gym Equipment for Beginners in 2026',
@@ -321,7 +321,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'home gym equipment, beginner home gym, resistance bands, yoga mat, adjustable dumbbells, pull-up bar, kettlebell, jump rope, best home gym 2026, budget home gym',
-    seoTitle: 'Best Home Gym Equipment for Beginners in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Home Gym Equipment for Beginners in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Treadmills for Home Weight Loss in 2026',
@@ -335,7 +335,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best treadmills 2026, home treadmills weight loss, NordicTrack Commercial 1750, Sole F80, ProForm Pro 2000, Horizon 7.0 AT, budget treadmills',
-    seoTitle: 'Best Treadmills for Home Weight Loss in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Treadmills for Home Weight Loss in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Running Shoes for Weight Loss in 2026',
@@ -349,7 +349,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best running shoes weight loss 2026, Brooks Ghost 16, HOKA Clifton 9, Nike Pegasus 41, ASICS Gel-Kayano 31, New Balance 1080v13, running shoes for beginners',
-    seoTitle: 'Best Running Shoes for Weight Loss in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Running Shoes for Weight Loss in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Resistance Bands for Strength Training in 2026',
@@ -363,7 +363,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best resistance bands 2026, resistance bands for strength training, loop bands, tube bands, exercise bands, home workout bands, Fit Simplify, WHATAFIT, Undersun',
-    seoTitle: 'Best Resistance Bands for Strength Training in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Resistance Bands for Strength Training in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Body Tape Measures for Tracking Composition in 2026',
@@ -377,7 +377,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best body tape measure 2026, body measuring tape, waist measurement tape, RENPHO smart tape measure, MyoTape, body composition tracking, WHR measurement, waist-to-hip ratio',
-    seoTitle: 'Best Body Tape Measures for Tracking Body Composition in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Body Tape Measures for Tracking Body Composition in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Protein Bars for On-the-Go Nutrition in 2026',
@@ -391,7 +391,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best protein bars 2026, high protein bars, Quest protein bars, Barebells, RXBAR, ONE bar, low sugar protein bars, protein snacks, macro-friendly bars',
-    seoTitle: 'Best Protein Bars for On-the-Go Nutrition in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Protein Bars for On-the-Go Nutrition in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Foam Rollers and Recovery Tools in 2026',
@@ -405,7 +405,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best foam roller 2026, TriggerPoint GRID, LuxFit foam roller, TheraGun Mini, recovery tools, muscle recovery, foam rolling, massage gun, Chirp Wheel',
-    seoTitle: 'Best Foam Rollers and Recovery Tools in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Foam Rollers and Recovery Tools in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Yoga Mats for Home Workouts in 2026',
@@ -419,7 +419,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best yoga mats 2026, yoga mats for home workouts, Manduka PRO yoga mat, Liforme yoga mat, Gaiam yoga mat, Jade Harmony yoga mat, BalanceFrom GoYoga, thick yoga mat, non-slip yoga mat',
-    seoTitle: 'Best Yoga Mats for Home Workouts in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Yoga Mats for Home Workouts in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Jump Ropes for Cardio and Weight Loss in 2026',
@@ -433,7 +433,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best jump rope 2026, jump rope weight loss, Crossrope, WOD Nation, speed rope, weighted jump rope, cardio jump rope',
-    seoTitle: 'Best Jump Ropes for Cardio and Weight Loss in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Jump Ropes for Cardio and Weight Loss in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Water Bottles for Hydration Tracking in 2026',
@@ -447,7 +447,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best water bottle 2026, hydration tracking, HidrateSpark, Nalgene, Hydro Flask, water intake, smart water bottle',
-    seoTitle: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Kettlebells for Full-Body Workouts in 2026',
@@ -461,7 +461,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best kettlebell 2026, kettlebell workouts, Kettlebell Kings, CAP Barbell, Rogue kettlebell, cast iron kettlebell, home gym kettlebell',
-    seoTitle: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Pull-Up Bars for Home Fitness in 2026',
@@ -475,7 +475,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best pull up bar 2026, doorway pull up bar, home pull up bar, wall mount pull up bar, power tower, home fitness equipment',
-    seoTitle: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Heart Rate Monitors for Training in 2026',
@@ -489,7 +489,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best heart rate monitor 2026, chest strap heart rate, Polar H10, Garmin HRM-Pro Plus, Wahoo TICKR X, heart rate training, HR monitor, heart rate chest strap, optical heart rate, armband HR monitor',
-    seoTitle: 'Best Heart Rate Monitors for Training in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Heart Rate Monitors for Training in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Workout Headphones for the Gym in 2026',
@@ -503,7 +503,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best workout headphones 2026, gym earbuds, Beats Fit Pro, Jabra Elite 8, Shokz OpenRun, sweatproof earbuds, running headphones',
-    seoTitle: 'Best Workout Headphones for the Gym in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Workout Headphones for the Gym in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Adjustable Dumbbells for Your Home Gym in 2026',
@@ -517,7 +517,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best adjustable dumbbells 2026, adjustable dumbbells home gym, Bowflex SelectTech 552, PowerBlock Elite EXP, NordicTrack Select-A-Weight, Flybird dumbbells, budget adjustable dumbbells, home gym dumbbells',
-    seoTitle: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Blender Bottles and Shaker Cups in 2026',
@@ -531,7 +531,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best blender bottle 2026, protein shaker cup, BlenderBottle Classic, BlenderBottle Pro Series, Helimix Vortex, Ice Shaker, SHAKESPHERE Tumbler, shaker bottle, protein shake mixer',
-    seoTitle: 'Best Blender Bottles and Shaker Cups in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Blender Bottles and Shaker Cups in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Pre-Workout Supplements for Energy in 2026',
@@ -545,7 +545,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best pre-workout supplements 2026, C4 pre-workout, Optimum Nutrition pre-workout, Legion Pulse, Transparent Labs BULK, Ghost Legend, caffeine pre-workout, natural pre-workout, energy supplements',
-    seoTitle: 'Best Pre-Workout Supplements for Energy in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Pre-Workout Supplements for Energy in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Rowing Machines for Full-Body Workouts in 2026',
@@ -559,7 +559,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best rowing machines 2026, rowing machine reviews, Concept2 Model D, home rowing machine, cardio equipment, full-body workout, indoor rowing, air rower, water rower',
-    seoTitle: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Exercise Bikes for Weight Loss in 2026',
@@ -573,7 +573,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'exercise bike, weight loss, indoor cycling, Schwinn IC4, Sunny Health, Bowflex VeloCore, Exerpeutic folding bike, YOSUDA cycling bike, best exercise bike 2026, stationary bike weight loss',
-    seoTitle: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Weight Benches for Home Gym in 2026',
@@ -587,7 +587,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best weight bench 2026, home gym bench, adjustable weight bench, REP Fitness AB-3000, Bowflex 5.1S, Fitness Reality 1000, FLYBIRD bench, Rogue Adjustable Bench, flat incline decline bench, home gym equipment',
-    seoTitle: 'Best Weight Benches for Home Gym in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Weight Benches for Home Gym in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Creatine Supplements for Muscle Gain in 2026',
@@ -601,7 +601,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best creatine supplements 2026, creatine monohydrate, Optimum Nutrition creatine, BulkSupplements creatine, Thorne creatine, MuscleTech Cell-Tech, Transparent Labs Creatine HMB, creatine for muscle gain, creatine loading phase',
-    seoTitle: 'Best Creatine Supplements for Muscle Gain in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Creatine Supplements for Muscle Gain in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Massage Guns for Muscle Recovery in 2026',
@@ -615,7 +615,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best massage gun 2026, Theragun Elite, Hypervolt 2, RENPHO R3, Ekrin B37, Bob and Brad Q2 Mini, percussion massager, muscle recovery, workout recovery, deep tissue massage',
-    seoTitle: 'Best Massage Guns for Muscle Recovery in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Massage Guns for Muscle Recovery in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Meal Prep Containers for Weight Loss in 2026',
@@ -629,7 +629,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'meal prep containers, portion control containers, weight loss meal prep, glass meal prep, leak-proof containers, food prep storage, macro containers 2026',
-    seoTitle: 'Best Meal Prep Containers for Weight Loss in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Meal Prep Containers for Weight Loss in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Workout Gloves for Weightlifting in 2026',
@@ -643,7 +643,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best workout gloves 2026, weightlifting gloves, gym gloves for men, gym gloves for women, grip gloves, CrossFit gloves, Harbinger, RIMSports, Fit Active Sports',
-    seoTitle: 'Best Workout Gloves for Weightlifting in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Workout Gloves for Weightlifting in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Ab Rollers for Core Training in 2026',
@@ -657,7 +657,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'ab roller, ab wheel, core training, core strength, Perfect Fitness Ab Carver Pro, Vinsguir ab roller, FLYBIRD ab roller, best ab wheel 2026, core workout equipment',
-    seoTitle: 'Best Ab Rollers for Core Training in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Ab Rollers for Core Training in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Gym Bags for Workout Gear in 2026',
@@ -671,7 +671,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best gym bags 2026, gym duffel bag, workout bag, Adidas Defender, Under Armour Undeniable, Nike Brasilia, King Kong gym bag, Vooray Burner',
-    seoTitle: 'Best Gym Bags for Workout Gear in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Gym Bags for Workout Gear in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Compression Gear for Recovery in 2026',
@@ -685,7 +685,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best compression gear 2026, 2XU compression tights, CEP compression socks, Under Armour HeatGear, CW-X Stabilyx, compression leggings recovery',
-    seoTitle: 'Best Compression Gear for Recovery in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Compression Gear for Recovery in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Barbell Weight Sets for Home Gym in 2026',
@@ -699,7 +699,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best barbell weight sets 2026, home gym barbell sets, CAP Barbell 300-lb set, REP Fitness iron plates, BalanceFrom cast iron, Rogue Echo bumper plates, Olympic barbell sets, home gym equipment',
-    seoTitle: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Barbell Weight Sets for Your Home Gym in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Fitness Trackers for Kids in 2026',
@@ -713,7 +713,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'fitness tracker for kids, kids smartwatch, Fitbit Ace 3, Garmin Vivofit Jr 3, BIGGERFIVE Vigor 2, Garmin Bounce, XPLORA X6 Play, best kids fitness watch 2026, children activity tracker',
-    seoTitle: 'Best Fitness Trackers for Kids in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Fitness Trackers for Kids in 2026 | HealthCalc Blog',
   },
   {
     title: 'Best Sleep Trackers for Recovery in 2026',
@@ -727,7 +727,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     affiliate: true,
     keywords:
       'best sleep tracker 2026, sleep tracking, Oura Ring Gen 3, Whoop 4.0, Fitbit Sense 2, Garmin Venu 3, Amazfit GTR 4, HRV tracking, sleep stages, recovery tracking, REM sleep, deep sleep',
-    seoTitle: 'Best Sleep Trackers for Recovery in 2026 | HealthCheck Blog',
+    seoTitle: 'Best Sleep Trackers for Recovery in 2026 | HealthCalc Blog',
   },
 
   // ─── GLP-1 Niche Hub ──────────────────────────────────────────────
@@ -743,7 +743,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'GLP-1 weight loss, semaglutide, tirzepatide, Ozempic, Wegovy, Mounjaro, GLP-1 receptor agonist, weight loss medication, obesity treatment',
-    seoTitle: 'The Complete Guide to GLP-1 Medications for Weight Loss | HealthCheck',
+    seoTitle: 'The Complete Guide to GLP-1 Medications for Weight Loss | HealthCalc',
   },
   {
     title: 'GLP-1 Side Effects: What to Expect and How to Manage Them',
@@ -756,7 +756,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/glp1-side-effects-what-to-expect.jpg',
     keywords:
       'GLP-1 side effects, Ozempic side effects, semaglutide nausea, Ozempic face, GLP-1 muscle loss, tirzepatide side effects, Wegovy side effects, Mounjaro side effects',
-    seoTitle: 'GLP-1 Side Effects: What to Expect and How to Manage Them | HealthCheck',
+    seoTitle: 'GLP-1 Side Effects: What to Expect and How to Manage Them | HealthCalc',
   },
   {
     title: 'Ozempic vs Wegovy vs Mounjaro: A Head-to-Head Comparison',
@@ -769,7 +769,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/ozempic-vs-wegovy-vs-mounjaro-comparison.jpg',
     keywords:
       'Ozempic vs Wegovy, Ozempic vs Mounjaro, semaglutide vs tirzepatide, weight loss medication comparison, GLP-1 comparison, Wegovy vs Mounjaro',
-    seoTitle: 'Ozempic vs Wegovy vs Mounjaro: A Head-to-Head Comparison | HealthCheck',
+    seoTitle: 'Ozempic vs Wegovy vs Mounjaro: A Head-to-Head Comparison | HealthCalc',
   },
 
   // ─── ACFT Niche Hub ────────────────────────────────────────────────
@@ -785,7 +785,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'ACFT guide, Army Combat Fitness Test, ACFT events, ACFT scoring, deadlift, standing power throw, hand release push-ups, sprint drag carry, leg tuck, two mile run',
-    seoTitle: 'The Complete Guide to the Army Combat Fitness Test (ACFT) | HealthCheck',
+    seoTitle: 'The Complete Guide to the Army Combat Fitness Test (ACFT) | HealthCalc',
   },
   {
     title: 'ACFT Training Plan: Event-by-Event Breakdown',
@@ -798,7 +798,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/acft-training-plan-event-breakdown.jpg',
     keywords:
       'ACFT training plan, ACFT workout, ACFT deadlift training, sprint drag carry training, hand release push-ups, ACFT preparation, Army fitness training',
-    seoTitle: 'ACFT Training Plan: Event-by-Event Breakdown | HealthCheck',
+    seoTitle: 'ACFT Training Plan: Event-by-Event Breakdown | HealthCalc',
   },
   {
     title: 'ACFT Scoring Standards: What You Need to Know',
@@ -811,7 +811,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/acft-scoring-standards-what-you-need.jpg',
     keywords:
       'ACFT scoring, ACFT standards, ACFT score chart, ACFT age groups, ACFT promotion points, Army fitness standards, ACFT minimum score',
-    seoTitle: 'ACFT Scoring Standards: What You Need to Know | HealthCheck',
+    seoTitle: 'ACFT Scoring Standards: What You Need to Know | HealthCalc',
   },
 
   // ─── Educational Deep Guides ───────────────────────────────────────
@@ -826,7 +826,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/science-of-tdee-energy-expenditure.jpg',
     keywords:
       'TDEE science, energy expenditure, BMR, NEAT, thermic effect of food, exercise activity thermogenesis, Mifflin-St Jeor, metabolic adaptation',
-    seoTitle: 'The Science of TDEE: Understanding Energy Expenditure | HealthCheck',
+    seoTitle: 'The Science of TDEE: Understanding Energy Expenditure | HealthCalc',
   },
   {
     title: 'Body Composition Beyond BMI: What Actually Matters',
@@ -839,7 +839,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/body-composition-beyond-bmi.jpg',
     keywords:
       'body composition, BMI limitations, waist-to-height ratio, ABSI, normal weight obesity, body fat percentage, WHR, DEXA scan, body composition analysis',
-    seoTitle: 'Body Composition Beyond BMI: What Actually Matters | HealthCheck',
+    seoTitle: 'Body Composition Beyond BMI: What Actually Matters | HealthCalc',
   },
   {
     title: 'Evidence-Based Weight Loss: What the Research Actually Shows',
@@ -852,7 +852,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/evidence-based-weight-loss-guide.jpg',
     keywords:
       'evidence-based weight loss, sustainable weight loss, energy balance, metabolic adaptation, protein for weight loss, National Weight Control Registry',
-    seoTitle: 'Evidence-Based Weight Loss: What the Research Actually Shows | HealthCheck',
+    seoTitle: 'Evidence-Based Weight Loss: What the Research Actually Shows | HealthCalc',
   },
   {
     title: 'The Complete Guide to Macronutrients',
@@ -865,7 +865,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/complete-guide-to-macronutrients.jpg',
     keywords:
       'macronutrients, protein intake, carbohydrates, dietary fat, macro tracking, macro ratios, protein for muscle, carbs for performance, fat minimum intake',
-    seoTitle: 'The Complete Guide to Macronutrients | HealthCheck',
+    seoTitle: 'The Complete Guide to Macronutrients | HealthCalc',
   },
   {
     title: 'Heart Rate Training: The Science Behind the Zones',
@@ -878,7 +878,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/heart-rate-training-science.jpg',
     keywords:
       'heart rate training, heart rate zones, zone 2 training, polarized training, 220 minus age, Tanaka formula, HRV, VO2 max, aerobic threshold',
-    seoTitle: 'Heart Rate Training: The Science Behind the Zones | HealthCheck',
+    seoTitle: 'Heart Rate Training: The Science Behind the Zones | HealthCalc',
   },
   {
     title: 'Sleep and Recovery: What the Science Says',
@@ -891,7 +891,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/sleep-recovery-science.jpg',
     keywords:
       'sleep and recovery, sleep for weight loss, sleep and muscle growth, sleep deprivation, sleep hygiene, circadian rhythm, melatonin, sleep stages',
-    seoTitle: 'Sleep and Recovery: What the Science Says | HealthCheck',
+    seoTitle: 'Sleep and Recovery: What the Science Says | HealthCalc',
   },
   {
     title: 'Hydration Science: How Much Water Do You Actually Need?',
@@ -904,7 +904,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/hydration-science-how-much-water.jpg',
     keywords:
       'hydration science, how much water, 8 glasses myth, water intake, dehydration, hyponatremia, urine color, electrolytes, hydration for exercise',
-    seoTitle: 'Hydration Science: How Much Water Do You Actually Need? | HealthCheck',
+    seoTitle: 'Hydration Science: How Much Water Do You Actually Need? | HealthCalc',
   },
   {
     title: 'Calorie Counting: Does It Actually Work?',
@@ -917,7 +917,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/calorie-counting-does-it-work.jpg',
     keywords:
       'calorie counting, does calorie counting work, food label accuracy, calorie tracking, food journal weight loss, calorie counting eating disorders',
-    seoTitle: 'Calorie Counting: Does It Actually Work? | HealthCheck',
+    seoTitle: 'Calorie Counting: Does It Actually Work? | HealthCalc',
   },
   {
     title: 'Pregnancy Nutrition: A Trimester-by-Trimester Guide',
@@ -930,7 +930,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/pregnancy-nutrition-guide.jpg',
     keywords:
       'pregnancy nutrition, prenatal nutrition, trimester nutrition, pregnancy weight gain, folate pregnancy, prenatal vitamins, exercise during pregnancy, gestational diabetes',
-    seoTitle: 'Pregnancy Nutrition: A Trimester-by-Trimester Guide | HealthCheck',
+    seoTitle: 'Pregnancy Nutrition: A Trimester-by-Trimester Guide | HealthCalc',
   },
   {
     title: 'Metabolic Adaptation and Weight Loss Plateaus',
@@ -943,7 +943,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/metabolic-adaptation-plateaus.jpg',
     keywords:
       'metabolic adaptation, weight loss plateau, adaptive thermogenesis, Biggest Loser study, diet breaks, MATADOR study, reverse dieting, NEAT suppression',
-    seoTitle: 'Metabolic Adaptation and Weight Loss Plateaus | HealthCheck',
+    seoTitle: 'Metabolic Adaptation and Weight Loss Plateaus | HealthCalc',
   },
 ];
 
@@ -963,7 +963,7 @@ export function generateBlogMetadata(slug: string): Metadata | null {
   const title = post.seoTitle ?? post.title;
   const { description, keywords } = post;
   const image = `/images/blog/${slug}.jpg`;
-  const imageAlt = title.replace(/ \| HealthCheck.*$/, '');
+  const imageAlt = title.replace(/ \| HealthCalc.*$/, '');
 
   return {
     title,

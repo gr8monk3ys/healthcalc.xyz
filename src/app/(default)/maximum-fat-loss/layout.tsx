@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Maximum Fat Loss Calculator | HealthCheck',
+  title: 'Maximum Fat Loss Calculator | HealthCalc',
   description: 'Calculate optimal cutting calories to maximize fat loss while preserving muscle.',
   keywords:
     'maximum fat loss calculator, optimal calorie deficit, fat loss calculator, muscle preservation, cutting calculator',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Maximum Fat Loss Calculator | HealthCheck',
+    title: 'Maximum Fat Loss Calculator | HealthCalc',
     description: 'Calculate optimal cutting calories to maximize fat loss while preserving muscle.',
     type: 'website',
     url: './',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Maximum Fat Loss Calculator | HealthCheck',
+    title: 'Maximum Fat Loss Calculator | HealthCalc',
     description: 'Calculate optimal cutting calories to maximize fat loss while preserving muscle.',
     images: ['/images/calculators/maximum-fat-loss-calculator.jpg'],
   },

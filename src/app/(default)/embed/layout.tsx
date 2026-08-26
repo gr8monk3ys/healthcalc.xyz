@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Embed Free Health Calculators on Your Website | HealthCheck',
+  title: 'Embed Free Health Calculators on Your Website | HealthCalc',
   description:
     'Add free, accurate health calculators to your website. Embed BMI, TDEE, Body Fat, and Calorie Deficit calculators with a simple iframe code snippet.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Embed Free Health Calculators on Your Website | HealthCheck',
+    title: 'Embed Free Health Calculators on Your Website | HealthCalc',
     description:
       'Add free, accurate health calculators to your website. Embed BMI, TDEE, Body Fat, and Calorie Deficit calculators with a simple iframe code snippet.',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Embed Free Health Calculators | HealthCheck',
+    title: 'Embed Free Health Calculators | HealthCalc',
     description: 'Add free health calculators to your website with a simple copy-paste embed code.',
   },
 };

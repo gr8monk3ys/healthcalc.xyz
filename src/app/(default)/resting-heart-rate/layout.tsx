@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Resting Heart Rate Calculator | HealthCheck',
+  title: 'Resting Heart Rate Calculator | HealthCalc',
   description: 'Evaluate your resting heart rate and fitness category.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Resting Heart Rate Calculator | HealthCheck',
+    title: 'Resting Heart Rate Calculator | HealthCalc',
     description: 'Evaluate your resting heart rate and fitness category.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Resting Heart Rate Calculator | HealthCheck',
+    title: 'Resting Heart Rate Calculator | HealthCalc',
     description: 'Evaluate your resting heart rate and fitness category.',
     images: ['/images/calculators/resting-heart-rate-calculator.jpg'],
   },

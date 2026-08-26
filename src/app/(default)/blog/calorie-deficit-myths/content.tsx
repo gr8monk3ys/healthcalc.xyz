@@ -6,13 +6,13 @@ import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
+  title: '5 Myths About Calorie Deficits Debunked | HealthCalc Blog',
   description:
     'Debunk common calorie deficit myths and learn what actually drives sustainable fat loss.',
   keywords:
     'calorie deficit myths, weight loss myths, 3500 calorie rule, starvation mode, metabolism myths, weight loss plateau, sustainable weight loss',
   openGraph: {
-    title: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
+    title: '5 Myths About Calorie Deficits Debunked | HealthCalc Blog',
     description:
       'Debunk common calorie deficit myths and learn what actually drives sustainable fat loss.',
     type: 'article',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '5 Myths About Calorie Deficits Debunked | HealthCheck Blog',
+    title: '5 Myths About Calorie Deficits Debunked | HealthCalc Blog',
     description:
       'Debunk common calorie deficit myths and learn what actually drives sustainable fat loss.',
     images: ['/images/blog/calorie-deficit-myths.jpg'],

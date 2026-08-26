@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Adjusted Body Weight Calculator | HealthCheck',
+  title: 'Adjusted Body Weight Calculator | HealthCalc',
   description: 'Estimate adjusted body weight using height and current weight.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Adjusted Body Weight Calculator | HealthCheck',
+    title: 'Adjusted Body Weight Calculator | HealthCalc',
     description: 'Estimate adjusted body weight using height and current weight.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adjusted Body Weight Calculator | HealthCheck',
+    title: 'Adjusted Body Weight Calculator | HealthCalc',
     description: 'Estimate adjusted body weight using height and current weight.',
     images: ['/images/calculators/adjusted-body-weight-calculator.jpg'],
   },

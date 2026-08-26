@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
-  title: 'Fitness Age Quiz | HealthCheck',
+  title: 'Fitness Age Quiz | HealthCalc',
   description:
     'Estimate your fitness age from cardio, body composition, and movement habits. Compare your fitness profile to your chronological age.',
   keywords:
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     ...buildLanguageAlternates('/fitness-age'),
   },
   openGraph: {
-    title: 'Fitness Age Quiz | HealthCheck',
+    title: 'Fitness Age Quiz | HealthCalc',
     description: 'Estimate your fitness age from cardio, body composition, and movement habits.',
     type: 'website',
     url: './',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'BMR Calculator | HealthCheck',
+  title: 'BMR Calculator | HealthCalc',
   description:
     'Calculate your basal metabolic rate using popular formulas like Mifflin-St Jeor and Katch-McArdle.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'BMR Calculator | HealthCheck',
+    title: 'BMR Calculator | HealthCalc',
     description:
       'Calculate your basal metabolic rate using popular formulas like Mifflin-St Jeor and Katch-McArdle.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BMR Calculator | HealthCheck',
+    title: 'BMR Calculator | HealthCalc',
     description:
       'Calculate your basal metabolic rate using popular formulas like Mifflin-St Jeor and Katch-McArdle.',
     images: ['/images/calculators/bmr-calculator.jpg'],

@@ -48,7 +48,7 @@ export function MedicalDisclaimer({
             Medical Disclaimer
           </h3>
           <p className="text-sm text-amber-800 dark:text-amber-300 mb-2">
-            The information and tools provided on HealthCheck are for educational and informational
+            The information and tools provided on HealthCalc are for educational and informational
             purposes only. They are not intended to be a substitute for professional medical advice,
             diagnosis, or treatment.
           </p>

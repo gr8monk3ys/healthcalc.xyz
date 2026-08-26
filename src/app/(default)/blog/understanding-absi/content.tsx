@@ -5,7 +5,7 @@ import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
-  title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment | HealthCheck',
+  title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment | HealthCalc',
   description: 'Learn how ABSI works, why it beats BMI for risk, and how to use it.',
   keywords:
     'ABSI, A Body Shape Index, body shape, waist circumference, BMI limitations, health risk assessment, central obesity, mortality risk',
@@ -13,7 +13,7 @@ export const metadata = {
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',
     description: 'Learn how ABSI works, why it beats BMI for risk, and how to use it.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'article',
     images: [
       {

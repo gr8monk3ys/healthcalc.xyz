@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-HealthCheck is a Next.js 16 health calculator application with 56 calculators and 66+ blog posts. Built with TypeScript, React 19, and TailwindCSS v4.
+HealthCalc is a Next.js 16 health calculator application with 60+ calculators and 60+ blog posts. Built with TypeScript, React 19, and TailwindCSS v4.
 
 ## Development Commands
 
@@ -46,7 +46,7 @@ Calculator pages are client components (`'use client'`), all others are server c
 
 ### Calculator Registry
 
-`src/constants/calculatorCatalog.ts` is the **single source of truth** for all 56 calculators. It exports:
+`src/constants/calculatorCatalog.ts` is the **single source of truth** for all calculators. It exports:
 
 - `CALCULATOR_CATALOG` — full list with slug, title, description, category, hub assignment
 - `CALCULATOR_HUBS` — the 10 category hub pages

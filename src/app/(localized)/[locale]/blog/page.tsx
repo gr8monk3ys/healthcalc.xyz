@@ -30,7 +30,7 @@ type BlogPageCopy = {
 
 const COPY: Record<SupportedLocale, BlogPageCopy> = {
   en: {
-    metaTitle: 'Health & Fitness Blog | HealthCheck',
+    metaTitle: 'Health & Fitness Blog | HealthCalc',
     metaDescription:
       'Explore articles on weight management, body composition, nutrition, and fitness to help you make informed decisions about your health.',
     pageTitle: 'Health & Fitness Blog',
@@ -65,7 +65,7 @@ const COPY: Record<SupportedLocale, BlogPageCopy> = {
     viewAllCalculators: 'View all calculators →',
   },
   es: {
-    metaTitle: 'Blog de salud y fitness | HealthCheck',
+    metaTitle: 'Blog de salud y fitness | HealthCalc',
     metaDescription:
       'Explora artículos sobre control de peso, composición corporal, nutrición y fitness para tomar decisiones informadas sobre tu salud.',
     pageTitle: 'Blog de salud y fitness',
@@ -101,7 +101,7 @@ const COPY: Record<SupportedLocale, BlogPageCopy> = {
     viewAllCalculators: 'Ver todas las calculadoras →',
   },
   fr: {
-    metaTitle: 'Blog santé et fitness | HealthCheck',
+    metaTitle: 'Blog santé et fitness | HealthCalc',
     metaDescription:
       'Découvrez des articles sur la gestion du poids, la composition corporelle, la nutrition et le fitness pour vous aider à prendre des décisions éclairées.',
     pageTitle: 'Blog santé et fitness',
@@ -138,7 +138,7 @@ const COPY: Record<SupportedLocale, BlogPageCopy> = {
     viewAllCalculators: 'Voir tous les calculateurs →',
   },
   de: {
-    metaTitle: 'Gesundheits- und Fitness-Blog | HealthCheck',
+    metaTitle: 'Gesundheits- und Fitness-Blog | HealthCalc',
     metaDescription:
       'Lesen Sie Artikel zu Gewichtsmanagement, Körperzusammensetzung, Ernährung und Fitness, um fundierte Entscheidungen für Ihre Gesundheit zu treffen.',
     pageTitle: 'Gesundheits- und Fitness-Blog',
@@ -174,7 +174,7 @@ const COPY: Record<SupportedLocale, BlogPageCopy> = {
     viewAllCalculators: 'Alle Rechner ansehen →',
   },
   pt: {
-    metaTitle: 'Blog de saúde e fitness | HealthCheck',
+    metaTitle: 'Blog de saúde e fitness | HealthCalc',
     metaDescription:
       'Explore artigos sobre controle de peso, composição corporal, nutrição e fitness para tomar decisões mais informadas sobre sua saúde.',
     pageTitle: 'Blog de saúde e fitness',
@@ -210,7 +210,7 @@ const COPY: Record<SupportedLocale, BlogPageCopy> = {
     viewAllCalculators: 'Ver todas as calculadoras →',
   },
   zh: {
-    metaTitle: '健康与健身博客 | HealthCheck',
+    metaTitle: '健康与健身博客 | HealthCalc',
     metaDescription: '浏览关于体重管理、体成分、营养与健身的文章，帮助你做出更明智的健康决策。',
     pageTitle: '健康与健身博客',
     pageDescription: '浏览基于证据的体重管理、体成分、营养与健身文章，帮助你做出更明智的健康决策。',

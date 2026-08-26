@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   if (!data) {
     return {
-      title: 'Calorie Deficit Result Not Found | HealthCheck',
+      title: 'Calorie Deficit Result Not Found | HealthCalc',
       robots: {
         index: false,
         follow: false,

@@ -1,34 +1,34 @@
 {
   "home": {
-    "title": "HealthCheck - Health and Fitness Calculators",
+    "title": "HealthCalc - Health and Fitness Calculators",
     "description": "Free health and fitness calculators for body fat, BMI, TDEE, and more",
     "url": "/",
     "type": "page",
-    "content": "HealthCheck provides free health and fitness calculators to help you track and improve your health. Our calculators include BMI, body fat percentage, TDEE, calorie deficit, and more."
+    "content": "HealthCalc provides free health and fitness calculators to help you track and improve your health. Our calculators include BMI, body fat percentage, TDEE, calorie deficit, and more."
   },
   "calculators": {
     "title": "Calculator Categories",
-    "description": "Browse HealthCheck calculators by category",
+    "description": "Browse HealthCalc calculators by category",
     "url": "/calculators",
     "type": "page",
     "category": "Calculators",
-    "content": "Explore HealthCheck calculators grouped by weight loss, body composition, nutrition, performance, wellness, pregnancy, and more."
+    "content": "Explore HealthCalc calculators grouped by weight loss, body composition, nutrition, performance, wellness, pregnancy, and more."
   },
   "calculator-widgets": {
     "title": "Calculator Widgets",
-    "description": "Embed HealthCheck calculators on your site with attribution",
+    "description": "Embed HealthCalc calculators on your site with attribution",
     "url": "/calculator-widgets",
     "type": "page",
     "category": "Calculators",
-    "content": "Embed HealthCheck calculators with an attribution link. Request approval, copy embed code, and publish the widget."
+    "content": "Embed HealthCalc calculators with an attribution link. Request approval, copy embed code, and publish the widget."
   },
   "embed-terms": {
     "title": "Embed Terms",
-    "description": "Terms for embedding HealthCheck calculators on external websites",
+    "description": "Terms for embedding HealthCalc calculators on external websites",
     "url": "/embed-terms",
     "type": "page",
     "category": "Legal",
-    "content": "HealthCheck embed terms outline attribution requirements, allowed modifications, and acceptable use of embedded calculators."
+    "content": "HealthCalc embed terms outline attribution requirements, allowed modifications, and acceptable use of embedded calculators."
   },
   "learn": {
     "title": "Health Guides",
@@ -52,7 +52,7 @@
     "url": "/learn/macro-planning",
     "type": "page",
     "category": "Guides",
-    "content": "Macro planning helps you set protein, carb, and fat targets using HealthCheck nutrition calculators."
+    "content": "Macro planning helps you set protein, carb, and fat targets using HealthCalc nutrition calculators."
   },
   "learn-heart-rate-training": {
     "title": "Heart Rate Training",
@@ -669,7 +669,7 @@
     "url": "/blog",
     "type": "page",
     "category": "Blog",
-    "content": "The HealthCheck blog provides evidence-based articles and guides on health, fitness, nutrition, and weight management. Our content is written by health professionals and fitness experts to help you make informed decisions about your health and fitness journey."
+    "content": "The HealthCalc blog provides evidence-based articles and guides on health, fitness, nutrition, and weight management. Our content is written by health professionals and fitness experts to help you make informed decisions about your health and fitness journey."
   },
   "blog-tdee-explained": {
     "title": "TDEE Explained: How Many Calories Do You Really Need?",
@@ -771,38 +771,38 @@
     "content": "Waist-to-Hip Ratio (WHR) is a simple measurement that can provide valuable insights into your health risks based on how your body fat is distributed. This article explains what WHR is, how to measure it accurately, healthy ranges for men and women, and the health implications of different body shapes ('apple' versus 'pear'). It also discusses strategies for reducing WHR and improving overall health through diet, exercise, and lifestyle changes."
   },
   "about": {
-    "title": "About HealthCheck",
+    "title": "About HealthCalc",
     "description": "Learn about our mission to provide accurate, evidence-based health and fitness calculators and information",
     "url": "/about",
     "type": "page",
-    "content": "HealthCheck is dedicated to providing accurate, evidence-based health and fitness calculators and information to help you make informed decisions about your health. Our team of health professionals and fitness experts develops and reviews all content to ensure it meets the highest standards of accuracy and reliability."
+    "content": "HealthCalc is dedicated to providing accurate, evidence-based health and fitness calculators and information to help you make informed decisions about your health. Our team of health professionals and fitness experts develops and reviews all content to ensure it meets the highest standards of accuracy and reliability."
   },
   "contact": {
-    "title": "Contact HealthCheck",
-    "description": "Get in touch with the HealthCheck team for questions, feedback, or collaboration opportunities",
+    "title": "Contact HealthCalc",
+    "description": "Get in touch with the HealthCalc team for questions, feedback, or collaboration opportunities",
     "url": "/contact",
     "type": "page",
-    "content": "Have questions, feedback, or collaboration opportunities? Get in touch with the HealthCheck team through our contact form. We value your input and are committed to continuously improving our calculators and content based on user feedback."
+    "content": "Have questions, feedback, or collaboration opportunities? Get in touch with the HealthCalc team through our contact form. We value your input and are committed to continuously improving our calculators and content based on user feedback."
   },
   "privacy": {
     "title": "Privacy Policy",
-    "description": "HealthCheck's privacy policy explaining how we collect, use, and protect your data",
+    "description": "HealthCalc's privacy policy explaining how we collect, use, and protect your data",
     "url": "/privacy",
     "type": "page",
-    "content": "HealthCheck's privacy policy explains how we collect, use, and protect your data. We are committed to protecting your privacy and ensuring the security of your personal information. This policy outlines our practices regarding data collection, usage, and your rights concerning your information."
+    "content": "HealthCalc's privacy policy explains how we collect, use, and protect your data. We are committed to protecting your privacy and ensuring the security of your personal information. This policy outlines our practices regarding data collection, usage, and your rights concerning your information."
   },
   "terms": {
     "title": "Terms of Service",
-    "description": "HealthCheck's terms of service outlining the rules and guidelines for using our website and calculators",
+    "description": "HealthCalc's terms of service outlining the rules and guidelines for using our website and calculators",
     "url": "/terms",
     "type": "page",
-    "content": "HealthCheck's terms of service outline the rules and guidelines for using our website and calculators. By using our services, you agree to these terms, which include information about acceptable use, intellectual property, disclaimers, and limitations of liability."
+    "content": "HealthCalc's terms of service outline the rules and guidelines for using our website and calculators. By using our services, you agree to these terms, which include information about acceptable use, intellectual property, disclaimers, and limitations of liability."
   },
   "disclaimer": {
     "title": "Medical Disclaimer",
-    "description": "Important information about the limitations of HealthCheck's calculators and content",
+    "description": "Important information about the limitations of HealthCalc's calculators and content",
     "url": "/disclaimer",
     "type": "page",
-    "content": "HealthCheck's medical disclaimer provides important information about the limitations of our calculators and content. Our tools and information are for educational purposes only and are not intended to replace professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider before making any health-related decisions."
+    "content": "HealthCalc's medical disclaimer provides important information about the limitations of our calculators and content. Our tools and information are for educational purposes only and are not intended to replace professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider before making any health-related decisions."
   }
 }

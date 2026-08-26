@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'ACFT Score Calculator | HealthCheck',
+  title: 'ACFT Score Calculator | HealthCalc',
   description:
     'Calculate your Army Combat Fitness Test (ACFT) score across all 6 events. Get your total score, event-by-event breakdown, pass/fail status, and personalized training recommendations.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'ACFT Score Calculator | HealthCheck',
+    title: 'ACFT Score Calculator | HealthCalc',
     description:
       'Calculate your Army Combat Fitness Test (ACFT) score across all 6 events. Get your total score, event-by-event breakdown, pass/fail status, and personalized training recommendations.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ACFT Score Calculator | HealthCheck',
+    title: 'ACFT Score Calculator | HealthCalc',
     description:
       'Calculate your Army Combat Fitness Test (ACFT) score across all 6 events. Get your total score, event-by-event breakdown, pass/fail status, and personalized training recommendations.',
     images: ['/images/calculators/acft-calculator.jpg'],

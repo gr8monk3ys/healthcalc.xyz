@@ -5,7 +5,7 @@ import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   title:
-    'Adjustable Dumbbells vs Barbell for Home Gym: Which Should You Buy First? | HealthCheck Blog',
+    'Adjustable Dumbbells vs Barbell for Home Gym: Which Should You Buy First? | HealthCalc Blog',
   description:
     'Compare adjustable dumbbells and barbells for your home gym. Space, cost, exercise versatility, progressive overload, and safety compared side by side with honest recommendations.',
   keywords:
@@ -44,12 +44,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

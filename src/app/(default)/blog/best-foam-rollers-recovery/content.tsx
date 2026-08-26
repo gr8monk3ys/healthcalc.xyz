@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Foam Rollers and Recovery Tools in 2026 | HealthCheck Blog',
+  title: 'Best Foam Rollers and Recovery Tools in 2026 | HealthCalc Blog',
   description:
     'Compare the best foam rollers and recovery tools for muscle soreness, back pain, and workout recovery. Reviews of TriggerPoint GRID, LuxFit, TheraGun Mini, and more.',
   keywords:
     'best foam roller 2026, TriggerPoint GRID, LuxFit foam roller, TheraGun Mini, recovery tools, muscle recovery, foam rolling, massage gun, Chirp Wheel',
   openGraph: {
-    title: 'Best Foam Rollers and Recovery Tools in 2026 | HealthCheck Blog',
+    title: 'Best Foam Rollers and Recovery Tools in 2026 | HealthCalc Blog',
     description: 'Honest reviews of the best foam rollers and recovery tools.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/best-foam-rollers-recovery',
@@ -37,10 +37,10 @@ const jsonLd = {
   description: 'Compare the best foam rollers and recovery tools for workout recovery.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-foam-rollers-recovery',

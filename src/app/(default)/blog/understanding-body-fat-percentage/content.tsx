@@ -5,13 +5,13 @@ import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
-  title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
+  title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
   description:
     'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
   keywords:
     'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
   openGraph: {
-    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
+    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
     description:
       'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
     type: 'article',
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCheck",
+    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
     description:
       'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
     images: ['/images/blog/understanding-body-fat-percentage.jpg'],

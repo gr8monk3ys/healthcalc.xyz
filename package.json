@@ -1,5 +1,5 @@
 {
-  "name": "healthcheck",
+  "name": "healthcalc",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -36,8 +36,8 @@
     "next.js",
     "react"
   ],
-  "author": "HealthCheck Team",
-  "license": "UNLICENSED",
+  "author": "gr8monk3ys",
+  "license": "GPL-3.0-only",
   "description": "Free health and fitness calculators for BMI, body fat, TDEE, and more. Built with Next.js, TypeScript, and TailwindCSS.",
   "browserslist": {
     "production": [

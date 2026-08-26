@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Running Shoes for Weight Loss in 2026 | HealthCheck Blog',
+  title: 'Best Running Shoes for Weight Loss in 2026 | HealthCalc Blog',
   description:
     'Compare the best running shoes for weight loss and beginners. Reviews of Brooks Ghost 16, HOKA Clifton 9, Nike Pegasus 41, ASICS Gel-Kayano 31, and New Balance 1080v13.',
   keywords:
     'best running shoes weight loss 2026, Brooks Ghost 16, HOKA Clifton 9, Nike Pegasus 41, ASICS Gel-Kayano 31, New Balance 1080v13, running shoes for beginners',
   openGraph: {
-    title: 'Best Running Shoes for Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Running Shoes for Weight Loss in 2026 | HealthCalc Blog',
     description: 'Honest reviews of the best running shoes for weight loss and beginners.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/best-running-shoes-weight-loss',
@@ -37,10 +37,10 @@ const jsonLd = {
   description: 'Compare the best running shoes for weight loss and beginner runners.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-running-shoes-weight-loss',

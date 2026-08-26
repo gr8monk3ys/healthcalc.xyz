@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Protein Bars for On-the-Go Nutrition in 2026 | HealthCheck Blog',
+  title: 'Best Protein Bars for On-the-Go Nutrition in 2026 | HealthCalc Blog',
   description:
     'Compare the best protein bars for hitting your macros on the go. Reviews of Quest, Barebells, RXBAR, ONE, and Built Bar with honest nutrition breakdowns.',
   keywords:
     'best protein bars 2026, high protein bars, Quest protein bars, Barebells, RXBAR, ONE bar, low sugar protein bars, protein snacks, macro-friendly bars',
   openGraph: {
-    title: 'Best Protein Bars for On-the-Go Nutrition in 2026 | HealthCheck Blog',
+    title: 'Best Protein Bars for On-the-Go Nutrition in 2026 | HealthCalc Blog',
     description: 'Compare the best protein bars for on-the-go nutrition with honest reviews.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/best-protein-bars-on-the-go',
@@ -38,10 +38,10 @@ const jsonLd = {
   description: 'Compare the best protein bars for hitting your macros on the go.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-protein-bars-on-the-go',

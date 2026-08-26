@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Privacy Policy | HealthCheck',
-  description: 'HealthCheck privacy policy - how we handle your data and protect your privacy.',
+  title: 'Privacy Policy | HealthCalc',
+  description: 'HealthCalc privacy policy - how we handle your data and protect your privacy.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -15,8 +15,8 @@ export default function PrivacyPolicyPage() {
           <strong>Last Updated:</strong> February 6, 2026
         </p>
         <p>
-          HealthCheck is designed to minimize personal data collection. Most calculator
-          functionality runs directly in your browser.
+          HealthCalc is designed to minimize personal data collection. Most calculator functionality
+          runs directly in your browser.
         </p>
       </div>
 
@@ -30,7 +30,8 @@ export default function PrivacyPolicyPage() {
           </li>
           <li>
             <strong>Optional account data:</strong> if you create an account, your name and email
-            are managed securely by our authentication provider (Clerk). We do not store passwords.
+            are managed securely by our authentication provider (Supabase). We do not store
+            passwords.
           </li>
           <li>
             <strong>Form submissions:</strong> if you submit our contact form, newsletter signup, or
@@ -56,7 +57,7 @@ export default function PrivacyPolicyPage() {
       <div className="neumorph mb-8 rounded-lg p-6">
         <h2 className="mb-4 text-2xl font-semibold">Storage and Security</h2>
         <p className="mb-3">
-          Account authentication is handled by Clerk, a secure third-party authentication provider.
+          Account authentication is handled by Supabase Auth, a third-party authentication provider.
           Your password is never stored on our servers or in your browser. Saved calculator results
           are stored locally in your browser for convenience and, when you are signed in, may be
           synced to our database so you can access them across devices.

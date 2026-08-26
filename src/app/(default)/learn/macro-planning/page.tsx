@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Macro Planning | HealthCheck',
+  title: 'Macro Planning | HealthCalc',
   description: 'Set carb, fat, and protein targets that match your calorie goals.',
 };
 

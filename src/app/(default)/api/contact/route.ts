@@ -103,7 +103,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactRe
     const resendApiKey = process.env.RESEND_API_KEY?.trim();
     const contactEmail = process.env.CONTACT_EMAIL?.trim() || 'info@healthcalc.xyz';
     const resendFrom =
-      process.env.RESEND_FROM_EMAIL?.trim() || 'HealthCheck Contact <noreply@healthcalc.xyz>';
+      process.env.RESEND_FROM_EMAIL?.trim() || 'HealthCalc Contact <noreply@healthcalc.xyz>';
 
     if (resendApiKey) {
       const response = await fetch('https://api.resend.com/emails', {
@@ -116,7 +116,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactRe
           from: resendFrom,
           to: contactEmail,
           reply_to: email,
-          subject: `[HealthCheck] ${SUBJECT_LABELS[subject] || subject} from ${name.trim()}`,
+          subject: `[HealthCalc] ${SUBJECT_LABELS[subject] || subject} from ${name.trim()}`,
           html: `
             <h2>New Contact Form Submission</h2>
             <p><strong>Name:</strong> ${escapeHtml(name.trim())}</p>

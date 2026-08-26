@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Weight Management Planner | HealthCheck',
+  title: 'Weight Management Planner | HealthCalc',
   description:
     'Plan weight loss or gain with a target date and personalized daily calorie targets.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Weight Management Planner | HealthCheck',
+    title: 'Weight Management Planner | HealthCalc',
     description:
       'Plan weight loss or gain with a target date and personalized daily calorie targets.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weight Management Planner | HealthCheck',
+    title: 'Weight Management Planner | HealthCalc',
     description:
       'Plan weight loss or gain with a target date and personalized daily calorie targets.',
     images: ['/images/calculators/weight-management-calculator.jpg'],

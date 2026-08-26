@@ -4,18 +4,18 @@ import type { Metadata } from 'next';
 import { MedicalDisclaimer } from '@/components/MedicalDisclaimer';
 
 export const metadata: Metadata = {
-  title: 'Editorial Process | HealthCheck',
+  title: 'Editorial Process | HealthCalc',
   description:
-    'Learn how HealthCheck researches, develops, and reviews health calculator tools and content. Our editorial process ensures accuracy and trustworthiness.',
+    'Learn how HealthCalc researches, develops, and reviews health calculator tools and content. Our editorial process ensures accuracy and trustworthiness.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Editorial Process | HealthCheck',
+    title: 'Editorial Process | HealthCalc',
     description:
-      'Learn how HealthCheck researches, develops, and reviews health calculator tools and content.',
+      'Learn how HealthCalc researches, develops, and reviews health calculator tools and content.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
   },
 };
@@ -31,11 +31,11 @@ const EditorialProcessPageContent = (
     <div className="neumorph p-6 mb-8 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Our Commitment to Accuracy</h2>
       <p className="mb-4">
-        HealthCheck provides health and fitness calculators that millions of people depend on to
-        make decisions about their wellbeing. We take that responsibility seriously. Every
-        calculator formula, every piece of educational content, and every recommendation on this
-        site goes through a structured process designed to ensure it is accurate, current, and
-        backed by credible science.
+        HealthCalc provides health and fitness calculators that millions of people depend on to make
+        decisions about their wellbeing. We take that responsibility seriously. Every calculator
+        formula, every piece of educational content, and every recommendation on this site goes
+        through a structured process designed to ensure it is accurate, current, and backed by
+        credible science.
       </p>
       <p>
         Health content is classified as &quot;Your Money or Your Life&quot; (YMYL) by major search
@@ -49,7 +49,7 @@ const EditorialProcessPageContent = (
     <div id="methodology" className="neumorph p-6 mb-8 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Our Methodology at a Glance</h2>
       <p className="mb-4">
-        Every calculator on HealthCheck is built on a specific, published formula chosen for its
+        Every calculator on HealthCalc is built on a specific, published formula chosen for its
         accuracy and clinical acceptance. Here is a quick reference of which formula powers each
         major tool:
       </p>
@@ -118,7 +118,7 @@ const EditorialProcessPageContent = (
     <div id="review-process" className="neumorph p-6 mb-8 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">How We Review Content</h2>
       <p className="mb-4">
-        Content review at HealthCheck is not a one-time event. It is a continuous cycle that ensures
+        Content review at HealthCalc is not a one-time event. It is a continuous cycle that ensures
         our tools and articles stay accurate as science progresses. Our review process covers three
         distinct areas:
       </p>
@@ -159,8 +159,8 @@ const EditorialProcessPageContent = (
     <div className="neumorph p-6 mb-8 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">How We Research Content</h2>
       <p className="mb-4">
-        All content on HealthCheck starts with a review of the current scientific literature. We
-        draw from peer-reviewed journals, clinical guidelines, and established textbooks in exercise
+        All content on HealthCalc starts with a review of the current scientific literature. We draw
+        from peer-reviewed journals, clinical guidelines, and established textbooks in exercise
         science, nutrition, and public health. We do not rely on anecdotal claims or unverified
         sources.
       </p>
@@ -445,7 +445,7 @@ const EditorialProcessPageContent = (
           href="/about"
           className="rounded-full border border-accent/20 bg-white dark:bg-gray-800 px-6 py-3 font-semibold text-accent transition-all hover:border-accent hover:bg-accent/5"
         >
-          About HealthCheck
+          About HealthCalc
         </Link>
       </div>
     </div>

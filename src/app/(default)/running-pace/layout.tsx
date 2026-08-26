@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Running Pace Calculator | HealthCheck',
+  title: 'Running Pace Calculator | HealthCalc',
   description: 'Calculate your running pace per mile or kilometer plus average speed.',
   keywords: 'running pace calculator, pace per mile, pace per km, running speed, race pace',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Running Pace Calculator | HealthCheck',
+    title: 'Running Pace Calculator | HealthCalc',
     description: 'Calculate your running pace per mile or kilometer plus average speed.',
     type: 'website',
     url: './',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Running Pace Calculator | HealthCheck',
+    title: 'Running Pace Calculator | HealthCalc',
     description: 'Calculate your running pace per mile or kilometer plus average speed.',
     images: ['/images/calculators/running-pace-calculator.jpg'],
   },

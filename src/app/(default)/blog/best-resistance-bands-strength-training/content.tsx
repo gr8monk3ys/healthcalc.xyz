@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Resistance Bands for Strength Training in 2026 | HealthCheck Blog',
+  title: 'Best Resistance Bands for Strength Training in 2026 | HealthCalc Blog',
   description:
     'Compare the best resistance bands for home workouts, strength training, and rehab. Reviews of Fit Simplify, WHATAFIT, Undersun, and more with honest pros and cons.',
   keywords:
     'best resistance bands 2026, resistance bands for strength training, loop bands, tube bands, exercise bands, home workout bands, Fit Simplify, WHATAFIT, Undersun',
   openGraph: {
-    title: 'Best Resistance Bands for Strength Training in 2026 | HealthCheck Blog',
+    title: 'Best Resistance Bands for Strength Training in 2026 | HealthCalc Blog',
     description:
       'Compare the best resistance bands for home workouts, strength training, and rehab. Reviews of Fit Simplify, WHATAFIT, Undersun, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Resistance Bands for Strength Training in 2026 | HealthCheck Blog',
+    title: 'Best Resistance Bands for Strength Training in 2026 | HealthCalc Blog',
     description:
       'Compare the best resistance bands for home workouts, strength training, and rehab.',
     images: ['/images/blog/best-resistance-bands-strength-training.jpg'],
@@ -40,10 +40,10 @@ const jsonLd = {
   description: 'Compare the best resistance bands for home workouts, strength training, and rehab.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-resistance-bands-strength-training',

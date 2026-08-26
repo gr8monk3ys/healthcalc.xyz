@@ -25,19 +25,19 @@ export async function generateMetadata({ params }: CalculatorDetailPageProps): P
 
   if (!calculator) {
     return {
-      title: 'Calculator | HealthCheck',
-      description: 'Explore HealthCheck calculators and tools.',
+      title: 'Calculator | HealthCalc',
+      description: 'Explore HealthCalc calculators and tools.',
     };
   }
 
   return {
-    title: `${calculator.title} | HealthCheck`,
+    title: `${calculator.title} | HealthCalc`,
     description: calculator.detail?.intro || calculator.description,
     alternates: {
       canonical: './',
     },
     openGraph: {
-      title: `${calculator.title} | HealthCheck`,
+      title: `${calculator.title} | HealthCalc`,
       description: calculator.detail?.intro || calculator.description,
       url: './',
       images: [
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: CalculatorDetailPageProps): P
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${calculator.title} | HealthCheck`,
+      title: `${calculator.title} | HealthCalc`,
       description: calculator.detail?.intro || calculator.description,
       images: [calculator.image],
     },

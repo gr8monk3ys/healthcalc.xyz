@@ -35,17 +35,17 @@ type TermsCopy = {
 
 const COPY: Record<SupportedLocale, TermsCopy> = {
   en: {
-    metaTitle: 'Terms of Service | HealthCheck',
+    metaTitle: 'Terms of Service | HealthCalc',
     metaDescription:
-      'HealthCheck terms of service for using our health and fitness calculator tools.',
+      'HealthCalc terms of service for using our health and fitness calculator tools.',
     pageTitle: 'Terms of Service',
     lastUpdatedLabel: 'Last Updated:',
     lastUpdatedDate: 'February 6, 2026',
     intro:
-      'By accessing and using HealthCheck, you agree to these Terms. If you do not agree, please do not use the site.',
+      'By accessing and using HealthCalc, you agree to these Terms. If you do not agree, please do not use the site.',
     serviceTitle: 'Service Description',
     serviceBody:
-      'HealthCheck provides informational calculators and educational content related to fitness, body composition, and nutrition.',
+      'HealthCalc provides informational calculators and educational content related to fitness, body composition, and nutrition.',
     accountsTitle: 'Accounts and Saved Results',
     accountsP1:
       'We offer account creation to save calculator results. Authentication is managed by Clerk, a secure third-party provider. Saved calculator results may be stored locally in your browser and, when you are signed in, synced to our database so you can access them across devices.',
@@ -64,27 +64,27 @@ const COPY: Record<SupportedLocale, TermsCopy> = {
     ],
     noMedicalTitle: 'No Medical Relationship',
     noMedicalBody:
-      'Use of HealthCheck does not create a doctor-patient relationship. Content and calculator outputs are educational estimates only.',
+      'Use of HealthCalc does not create a doctor-patient relationship. Content and calculator outputs are educational estimates only.',
     liabilityTitle: 'Limitation of Liability',
     liabilityBody:
-      'To the fullest extent permitted by law, HealthCheck and its operators are not liable for losses or damages resulting from use of the service or reliance on site content.',
+      'To the fullest extent permitted by law, HealthCalc and its operators are not liable for losses or damages resulting from use of the service or reliance on site content.',
     contactTitle: 'Contact',
     contactBody: 'Questions about these Terms: info@healthcalc.xyz',
   },
   es: {
-    metaTitle: 'Términos de servicio | HealthCheck',
+    metaTitle: 'Términos de servicio | HealthCalc',
     metaDescription:
-      'Términos de servicio de HealthCheck para el uso de nuestras calculadoras y contenidos.',
+      'Términos de servicio de HealthCalc para el uso de nuestras calculadoras y contenidos.',
     pageTitle: 'Términos de servicio',
     lastUpdatedLabel: 'Última actualización:',
     lastUpdatedDate: '6 de febrero de 2026',
     translationNotice:
       'Esta traducción se proporciona solo por conveniencia. En caso de conflicto, la versión en inglés prevalece.',
     intro:
-      'Al acceder y usar HealthCheck, aceptas estos Términos. Si no estás de acuerdo, no uses el sitio.',
+      'Al acceder y usar HealthCalc, aceptas estos Términos. Si no estás de acuerdo, no uses el sitio.',
     serviceTitle: 'Descripción del servicio',
     serviceBody:
-      'HealthCheck ofrece calculadoras informativas y contenido educativo relacionado con fitness, composición corporal y nutrición.',
+      'HealthCalc ofrece calculadoras informativas y contenido educativo relacionado con fitness, composición corporal y nutrición.',
     accountsTitle: 'Cuentas y resultados guardados',
     accountsP1:
       'Ofrecemos la creación de cuentas para guardar resultados. La autenticación la gestiona Clerk, un proveedor externo seguro. Los resultados guardados pueden almacenarse localmente en tu navegador y, cuando estás conectado, sincronizarse con nuestra base de datos para que puedas acceder desde varios dispositivos.',
@@ -103,27 +103,27 @@ const COPY: Record<SupportedLocale, TermsCopy> = {
     ],
     noMedicalTitle: 'Sin relación médica',
     noMedicalBody:
-      'El uso de HealthCheck no crea una relación médico-paciente. El contenido y los resultados de las calculadoras son solo estimaciones educativas.',
+      'El uso de HealthCalc no crea una relación médico-paciente. El contenido y los resultados de las calculadoras son solo estimaciones educativas.',
     liabilityTitle: 'Limitación de responsabilidad',
     liabilityBody:
-      'En la máxima medida permitida por la ley, HealthCheck y sus operadores no son responsables de pérdidas o daños derivados del uso del servicio o de la confianza en el contenido del sitio.',
+      'En la máxima medida permitida por la ley, HealthCalc y sus operadores no son responsables de pérdidas o daños derivados del uso del servicio o de la confianza en el contenido del sitio.',
     contactTitle: 'Contacto',
     contactBody: 'Preguntas sobre estos términos: info@healthcalc.xyz',
   },
   fr: {
-    metaTitle: 'Conditions d’utilisation | HealthCheck',
+    metaTitle: 'Conditions d’utilisation | HealthCalc',
     metaDescription:
-      'Conditions d’utilisation de HealthCheck pour l’usage de nos calculateurs et contenus.',
+      'Conditions d’utilisation de HealthCalc pour l’usage de nos calculateurs et contenus.',
     pageTitle: 'Conditions d’utilisation',
     lastUpdatedLabel: 'Dernière mise à jour :',
     lastUpdatedDate: '6 février 2026',
     translationNotice:
       'Cette traduction est fournie à titre de commodité. En cas de conflit, la version anglaise prévaut.',
     intro:
-      'En accédant à HealthCheck et en l’utilisant, vous acceptez ces conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser le site.',
+      'En accédant à HealthCalc et en l’utilisant, vous acceptez ces conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser le site.',
     serviceTitle: 'Description du service',
     serviceBody:
-      'HealthCheck fournit des calculateurs informatifs et du contenu éducatif liés au fitness, à la composition corporelle et à la nutrition.',
+      'HealthCalc fournit des calculateurs informatifs et du contenu éducatif liés au fitness, à la composition corporelle et à la nutrition.',
     accountsTitle: 'Comptes et résultats enregistrés',
     accountsP1:
       'Nous proposons la création de compte pour enregistrer des résultats. L’authentification est gérée par Clerk, un fournisseur tiers sécurisé. Les résultats enregistrés peuvent être stockés localement dans votre navigateur et, lorsque vous êtes connecté, synchronisés avec notre base de données pour un accès multi-appareils.',
@@ -142,27 +142,27 @@ const COPY: Record<SupportedLocale, TermsCopy> = {
     ],
     noMedicalTitle: 'Aucune relation médicale',
     noMedicalBody:
-      'L’utilisation de HealthCheck ne crée pas de relation médecin-patient. Le contenu et les résultats des calculateurs sont des estimations éducatives.',
+      'L’utilisation de HealthCalc ne crée pas de relation médecin-patient. Le contenu et les résultats des calculateurs sont des estimations éducatives.',
     liabilityTitle: 'Limitation de responsabilité',
     liabilityBody:
-      'Dans la mesure maximale autorisée par la loi, HealthCheck et ses opérateurs ne sont pas responsables des pertes ou dommages résultant de l’utilisation du service ou de la confiance accordée au contenu du site.',
+      'Dans la mesure maximale autorisée par la loi, HealthCalc et ses opérateurs ne sont pas responsables des pertes ou dommages résultant de l’utilisation du service ou de la confiance accordée au contenu du site.',
     contactTitle: 'Contact',
     contactBody: 'Questions sur ces conditions : info@healthcalc.xyz',
   },
   de: {
-    metaTitle: 'Nutzungsbedingungen | HealthCheck',
+    metaTitle: 'Nutzungsbedingungen | HealthCalc',
     metaDescription:
-      'Nutzungsbedingungen von HealthCheck für die Verwendung unserer Rechner und Inhalte.',
+      'Nutzungsbedingungen von HealthCalc für die Verwendung unserer Rechner und Inhalte.',
     pageTitle: 'Nutzungsbedingungen',
     lastUpdatedLabel: 'Zuletzt aktualisiert:',
     lastUpdatedDate: '6. Februar 2026',
     translationNotice:
       'Diese Übersetzung dient nur der Information. Im Falle von Abweichungen gilt die englische Version.',
     intro:
-      'Durch den Zugriff auf und die Nutzung von HealthCheck stimmen Sie diesen Bedingungen zu. Wenn Sie nicht einverstanden sind, nutzen Sie die Website bitte nicht.',
+      'Durch den Zugriff auf und die Nutzung von HealthCalc stimmen Sie diesen Bedingungen zu. Wenn Sie nicht einverstanden sind, nutzen Sie die Website bitte nicht.',
     serviceTitle: 'Beschreibung des Dienstes',
     serviceBody:
-      'HealthCheck bietet Informationsrechner und Bildungsinhalte rund um Fitness, Körperzusammensetzung und Ernährung.',
+      'HealthCalc bietet Informationsrechner und Bildungsinhalte rund um Fitness, Körperzusammensetzung und Ernährung.',
     accountsTitle: 'Konten und gespeicherte Ergebnisse',
     accountsP1:
       'Wir bieten Konten an, um Rechnerergebnisse zu speichern. Die Authentifizierung erfolgt über Clerk, einen sicheren Drittanbieter. Gespeicherte Ergebnisse können lokal im Browser abgelegt und, wenn Sie angemeldet sind, mit unserer Datenbank synchronisiert werden, damit Sie sie geräteübergreifend nutzen können.',
@@ -181,27 +181,27 @@ const COPY: Record<SupportedLocale, TermsCopy> = {
     ],
     noMedicalTitle: 'Keine medizinische Beziehung',
     noMedicalBody:
-      'Die Nutzung von HealthCheck begründet keine Arzt-Patienten-Beziehung. Inhalte und Rechnerergebnisse sind ausschließlich edukative Schätzungen.',
+      'Die Nutzung von HealthCalc begründet keine Arzt-Patienten-Beziehung. Inhalte und Rechnerergebnisse sind ausschließlich edukative Schätzungen.',
     liabilityTitle: 'Haftungsbeschränkung',
     liabilityBody:
-      'Soweit gesetzlich zulässig, haften HealthCheck und seine Betreiber nicht für Verluste oder Schäden, die aus der Nutzung des Dienstes oder dem Vertrauen in Inhalte der Website entstehen.',
+      'Soweit gesetzlich zulässig, haften HealthCalc und seine Betreiber nicht für Verluste oder Schäden, die aus der Nutzung des Dienstes oder dem Vertrauen in Inhalte der Website entstehen.',
     contactTitle: 'Kontakt',
     contactBody: 'Fragen zu diesen Bedingungen: info@healthcalc.xyz',
   },
   pt: {
-    metaTitle: 'Termos de serviço | HealthCheck',
+    metaTitle: 'Termos de serviço | HealthCalc',
     metaDescription:
-      'Termos de serviço da HealthCheck para o uso de nossas calculadoras e conteúdos.',
+      'Termos de serviço da HealthCalc para o uso de nossas calculadoras e conteúdos.',
     pageTitle: 'Termos de serviço',
     lastUpdatedLabel: 'Última atualização:',
     lastUpdatedDate: '6 de fevereiro de 2026',
     translationNotice:
       'Esta tradução é fornecida apenas por conveniência. Em caso de conflito, a versão em inglês prevalece.',
     intro:
-      'Ao acessar e usar a HealthCheck, você concorda com estes Termos. Se você não concorda, não utilize o site.',
+      'Ao acessar e usar a HealthCalc, você concorda com estes Termos. Se você não concorda, não utilize o site.',
     serviceTitle: 'Descrição do serviço',
     serviceBody:
-      'A HealthCheck fornece calculadoras informativas e conteúdo educacional relacionado a fitness, composição corporal e nutrição.',
+      'A HealthCalc fornece calculadoras informativas e conteúdo educacional relacionado a fitness, composição corporal e nutrição.',
     accountsTitle: 'Contas e resultados salvos',
     accountsP1:
       'Oferecemos criação de conta para salvar resultados. A autenticação é gerenciada pela Clerk, um provedor terceirizado seguro. Resultados salvos podem ficar armazenados localmente no navegador e, quando você está logado, sincronizados com nosso banco de dados para acesso em outros dispositivos.',
@@ -220,23 +220,23 @@ const COPY: Record<SupportedLocale, TermsCopy> = {
     ],
     noMedicalTitle: 'Sem relação médica',
     noMedicalBody:
-      'O uso da HealthCheck não cria uma relação médico-paciente. O conteúdo e os resultados das calculadoras são apenas estimativas educacionais.',
+      'O uso da HealthCalc não cria uma relação médico-paciente. O conteúdo e os resultados das calculadoras são apenas estimativas educacionais.',
     liabilityTitle: 'Limitação de responsabilidade',
     liabilityBody:
-      'Na máxima extensão permitida por lei, a HealthCheck e seus operadores não são responsáveis por perdas ou danos resultantes do uso do serviço ou da confiança no conteúdo do site.',
+      'Na máxima extensão permitida por lei, a HealthCalc e seus operadores não são responsáveis por perdas ou danos resultantes do uso do serviço ou da confiança no conteúdo do site.',
     contactTitle: 'Contato',
     contactBody: 'Dúvidas sobre estes termos: info@healthcalc.xyz',
   },
   zh: {
-    metaTitle: '服务条款 | HealthCheck',
-    metaDescription: 'HealthCheck 服务条款：使用我们的计算器与内容的规则说明。',
+    metaTitle: '服务条款 | HealthCalc',
+    metaDescription: 'HealthCalc 服务条款：使用我们的计算器与内容的规则说明。',
     pageTitle: '服务条款',
     lastUpdatedLabel: '更新日期：',
     lastUpdatedDate: '2026 年 2 月 6 日',
     translationNotice: '此翻译仅供参考。如有冲突，以英文版本为准。',
-    intro: '访问并使用 HealthCheck 即表示你同意本条款。如不同意，请不要使用本网站。',
+    intro: '访问并使用 HealthCalc 即表示你同意本条款。如不同意，请不要使用本网站。',
     serviceTitle: '服务说明',
-    serviceBody: 'HealthCheck 提供与健身、体成分与营养相关的信息型计算器与教育内容。',
+    serviceBody: 'HealthCalc 提供与健身、体成分与营养相关的信息型计算器与教育内容。',
     accountsTitle: '账户与已保存结果',
     accountsP1:
       '我们提供账户用于保存计算结果。认证由安全的第三方服务 Clerk 管理。已保存结果可能存储在你的浏览器本地；当你登录时，也可能同步到我们的数据库，以便你在不同设备上访问。',
@@ -253,10 +253,10 @@ const COPY: Record<SupportedLocale, TermsCopy> = {
       '不得将计算器作为医疗诊断或治疗工具。',
     ],
     noMedicalTitle: '不构成医疗关系',
-    noMedicalBody: '使用 HealthCheck 不会形成医患关系。内容与计算结果仅为教育性的估算。',
+    noMedicalBody: '使用 HealthCalc 不会形成医患关系。内容与计算结果仅为教育性的估算。',
     liabilityTitle: '责任限制',
     liabilityBody:
-      '在法律允许的最大范围内，HealthCheck 及其运营方不对因使用本服务或依赖网站内容而产生的损失或损害承担责任。',
+      '在法律允许的最大范围内，HealthCalc 及其运营方不对因使用本服务或依赖网站内容而产生的损失或损害承担责任。',
     contactTitle: '联系',
     contactBody: '关于本条款的问题：info@healthcalc.xyz',
   },

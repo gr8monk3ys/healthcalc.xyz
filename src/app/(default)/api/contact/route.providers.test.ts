@@ -80,7 +80,7 @@ describe('POST /api/contact provider integrations', () => {
     const payload = JSON.parse(String(requestInit?.body));
 
     expect(payload.to).toBe('support@healthcalc.xyz');
-    expect(payload.from).toBe('HealthCheck Contact <noreply@healthcalc.xyz>');
+    expect(payload.from).toBe('HealthCalc Contact <noreply@healthcalc.xyz>');
     expect(payload.subject).toContain('Bug Report');
     expect(payload.subject).toContain(`Jane <script>alert('x')</script>`);
     expect(payload.html).toContain('&lt;script&gt;alert(&#039;x&#039;)&lt;/script&gt;');

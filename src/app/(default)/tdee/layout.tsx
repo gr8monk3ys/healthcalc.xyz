@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
-  title: 'TDEE Calculator | HealthCheck',
+  title: 'TDEE Calculator | HealthCalc',
   description: 'Estimate TDEE and daily calorie needs based on activity level and goals.',
   keywords:
     'TDEE calculator, total daily energy expenditure, calorie calculator, BMR calculator, daily calorie needs',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     ...buildLanguageAlternates('/tdee'),
   },
   openGraph: {
-    title: 'TDEE Calculator | HealthCheck',
+    title: 'TDEE Calculator | HealthCalc',
     description: 'Estimate TDEE and daily calorie needs based on activity level and goals.',
     type: 'website',
     url: './',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TDEE Calculator | HealthCheck',
+    title: 'TDEE Calculator | HealthCalc',
     description: 'Estimate TDEE and daily calorie needs based on activity level and goals.',
     images: ['/images/calculators/tdee-calculator.jpg'],
   },

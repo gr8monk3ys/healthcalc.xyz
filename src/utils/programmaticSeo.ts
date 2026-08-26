@@ -687,7 +687,7 @@ export function buildBmiProgrammaticPage(slug: string): ProgrammaticPageData | n
 
   return {
     canonicalPath: `/bmi/results/${slug}`,
-    metadataTitle: `BMI ${bmi} (${category}) for ${heightIn}" ${weightLb} lb ${GENDER_LABEL[gender]} | HealthCheck`,
+    metadataTitle: `BMI ${bmi} (${category}) for ${heightIn}" ${weightLb} lb ${GENDER_LABEL[gender]} | HealthCalc`,
     metadataDescription: `Pre-calculated BMI result for ${heightIn}" and ${weightLb} lb (${gender}). See category, percentile estimate, and healthy weight context.`,
     ogImage: '/images/calculators/bmi-calculator.jpg',
     breadcrumbs: [
@@ -856,7 +856,7 @@ export function buildTdeeProgrammaticPage(slug: string): ProgrammaticPageData | 
 
   return {
     canonicalPath: `/tdee/results/${slug}`,
-    metadataTitle: `TDEE ${tdee} kcal for ${age}-year-old ${gender} at ${weightLb} lb (${activityOption.label}) | HealthCheck`,
+    metadataTitle: `TDEE ${tdee} kcal for ${age}-year-old ${gender} at ${weightLb} lb (${activityOption.label}) | HealthCalc`,
     metadataDescription: `Pre-calculated TDEE result: ${tdee} kcal/day for a ${age}-year-old ${gender} at ${weightLb} lb with ${activityOption.label.toLowerCase()} activity.`,
     ogImage: '/images/calculators/tdee-calculator.jpg',
     breadcrumbs: [
@@ -988,7 +988,7 @@ export function buildCalorieDeficitProgrammaticPage(slug: string): ProgrammaticP
 
   return {
     canonicalPath: `/calorie-deficit/results/${slug}`,
-    metadataTitle: `${rateOption.label} calorie deficit for ${weightLb} lb ${gender} | HealthCheck`,
+    metadataTitle: `${rateOption.label} calorie deficit for ${weightLb} lb ${gender} | HealthCalc`,
     metadataDescription: `Pre-calculated ${rateOption.label.toLowerCase()} calorie deficit plan for ${weightLb} lb ${gender} profile with timeline and daily target calories.`,
     ogImage: '/images/calculators/calorie-deficit-calculator.jpg',
     breadcrumbs: [
@@ -1095,7 +1095,7 @@ export function buildBodyFatProgrammaticPage(slug: string): ProgrammaticPageData
 
   return {
     canonicalPath: `/body-fat/results/${slug}`,
-    metadataTitle: `Body fat estimate for ${age}-year-old ${gender} (${category}) | HealthCheck`,
+    metadataTitle: `Body fat estimate for ${age}-year-old ${gender} (${category}) | HealthCalc`,
     metadataDescription: `Pre-calculated body-fat estimate for a ${age}-year-old ${gender} profile, with percentile and age-group comparison context.`,
     ogImage: '/images/calculators/body-fat-calculator.jpg',
     breadcrumbs: [
@@ -1211,7 +1211,7 @@ export function buildMacroProgrammaticPage(slug: string): ProgrammaticPageData |
 
   return {
     canonicalPath: `/macro/results/${slug}`,
-    metadataTitle: `${calories} calorie macro split (${goalOption.label}, ${dietOption.label}) | HealthCheck`,
+    metadataTitle: `${calories} calorie macro split (${goalOption.label}, ${dietOption.label}) | HealthCalc`,
     metadataDescription: `Pre-calculated macros for ${calories} calories using a ${dietOption.label.toLowerCase()} split for ${goalOption.label.toLowerCase()}.`,
     ogImage: '/images/calculators/macro-calculator.jpg',
     breadcrumbs: [

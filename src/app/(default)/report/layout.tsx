@@ -3,16 +3,16 @@ import { ReactNode } from 'react';
 import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
-  title: 'Printable Health Report | HealthCheck',
+  title: 'Printable Health Report | HealthCalc',
   description:
-    'Generate a printable report from your saved HealthCheck results, including body composition, nutrition, cardio, and hydration highlights.',
+    'Generate a printable report from your saved HealthCalc results, including body composition, nutrition, cardio, and hydration highlights.',
   alternates: {
     ...buildLanguageAlternates('/report'),
   },
   openGraph: {
-    title: 'Printable Health Report | HealthCheck',
+    title: 'Printable Health Report | HealthCalc',
     description:
-      'Generate a printable report from your saved HealthCheck results, including body composition, nutrition, cardio, and hydration highlights.',
+      'Generate a printable report from your saved HealthCalc results, including body composition, nutrition, cardio, and hydration highlights.',
     type: 'website',
     url: './',
   },

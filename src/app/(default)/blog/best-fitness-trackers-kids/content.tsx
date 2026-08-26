@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Fitness Trackers for Kids in 2026 | HealthCheck Blog',
+  title: 'Best Fitness Trackers for Kids in 2026 | HealthCalc Blog',
   description:
     'Find the best fitness trackers for kids in 2026. Reviews of Fitbit Ace 3, Garmin Vivofit Jr 3, BIGGERFIVE Vigor 2, Garmin Bounce, and XPLORA X6 Play with safety and privacy tips.',
   keywords:
     'fitness tracker for kids, kids smartwatch, Fitbit Ace 3, Garmin Vivofit Jr 3, BIGGERFIVE Vigor 2, Garmin Bounce, XPLORA X6 Play, best kids fitness watch 2026, children activity tracker',
   openGraph: {
-    title: 'Best Fitness Trackers for Kids in 2026 | HealthCheck Blog',
+    title: 'Best Fitness Trackers for Kids in 2026 | HealthCalc Blog',
     description:
       'Find the best fitness trackers for kids in 2026. Reviews of Fitbit Ace 3, Garmin Vivofit Jr 3, BIGGERFIVE Vigor 2, Garmin Bounce, and XPLORA X6 Play with safety and privacy tips.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Fitness Trackers for Kids in 2026 | HealthCheck Blog',
+    title: 'Best Fitness Trackers for Kids in 2026 | HealthCalc Blog',
     description:
       'Find the best fitness trackers for kids in 2026. Reviews of Fitbit Ace 3, Garmin Vivofit Jr 3, BIGGERFIVE Vigor 2, Garmin Bounce, and XPLORA X6 Play with safety and privacy tips.',
     images: ['/images/blog/best-fitness-trackers-kids.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

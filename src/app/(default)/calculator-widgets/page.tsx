@@ -7,9 +7,9 @@ import EmbedWidgetPicker from '@/components/calculators/EmbedWidgetPicker';
 import { getEmbedPartners, getEmbedShowcase } from '@/data/embedShowcase';
 
 export const metadata: Metadata = {
-  title: 'Calculator Widgets | HealthCheck',
+  title: 'Calculator Widgets | HealthCalc',
   description:
-    'Embed HealthCheck calculators on your site with an attribution link. Request approval, copy the code, and go live.',
+    'Embed HealthCalc calculators on your site with an attribution link. Request approval, copy the code, and go live.',
 };
 
 export default async function CalculatorWidgetsPage() {
@@ -27,7 +27,7 @@ export default async function CalculatorWidgetsPage() {
       <div className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-2">Calculator Widgets</h1>
         <p className="text-slate-700 dark:text-slate-200/80">
-          Add HealthCheck calculators to your site and keep the attribution link included. We review
+          Add HealthCalc calculators to your site and keep the attribution link included. We review
           embed requests to ensure quality placements and accurate context.
         </p>
       </div>
@@ -37,7 +37,7 @@ export default async function CalculatorWidgetsPage() {
       <div className="glass-panel rounded-3xl p-7 md:p-8 mt-8">
         <h2 className="text-xl font-semibold mb-2">Featured Embed Partners</h2>
         <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-          Trusted by coaches, bloggers, and wellness teams who embed HealthCheck calculators.
+          Trusted by coaches, bloggers, and wellness teams who embed HealthCalc calculators.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 items-center">
           {partners.map(partner => (
@@ -57,7 +57,7 @@ export default async function CalculatorWidgetsPage() {
       <div className="glass-panel rounded-3xl p-7 md:p-8 mt-8">
         <h2 className="text-xl font-semibold mb-2">Embed Guidelines</h2>
         <ul className="list-disc list-inside text-sm text-slate-600 dark:text-slate-300 space-y-2">
-          <li>Keep the “Powered by HealthCheck” attribution link visible below the widget.</li>
+          <li>Keep the “Powered by HealthCalc” attribution link visible below the widget.</li>
           <li>Don’t modify the embed code beyond width/height adjustments.</li>
           <li>Use the calculator in context so readers understand the inputs and outputs.</li>
           <li>We reserve the right to revoke embed access for misleading use cases.</li>
@@ -74,7 +74,7 @@ export default async function CalculatorWidgetsPage() {
       <div className="glass-panel rounded-3xl p-7 md:p-8 mt-8">
         <h2 className="text-xl font-semibold mb-2">Recently Embedded</h2>
         <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-          A few examples of partners using HealthCheck calculators (submit yours to be featured).
+          A few examples of partners using HealthCalc calculators (submit yours to be featured).
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {showcase.map(item => (

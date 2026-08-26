@@ -13,13 +13,13 @@ import RelatedArticles from '@/components/RelatedArticles';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
+  title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
   description:
     'Compare popular body fat measurement methods and learn which option fits your goals.',
   keywords:
     'body fat measurement, DEXA scan, skinfold calipers, Navy method, bioelectrical impedance, body fat percentage, hydrostatic weighing, accuracy, body composition',
   openGraph: {
-    title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
+    title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
     description:
       'Compare popular body fat measurement methods and learn which option fits your goals.',
     type: 'article',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCheck Blog',
+    title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
     description:
       'Compare popular body fat measurement methods and learn which option fits your goals.',
     images: ['/images/blog/measuring-body-fat.jpg'],
@@ -84,7 +84,7 @@ const articleData = {
   imageUrl: 'https://www.healthcalc.xyz/images/blog/measuring-body-fat.jpg',
   datePublished: '2025-02-15T08:00:00Z',
   dateModified: '2025-02-15T08:00:00Z',
-  authorName: 'HealthCheck Team',
+  authorName: 'HealthCalc Team',
 };
 
 const MeasuringBodyFatPageContent = (

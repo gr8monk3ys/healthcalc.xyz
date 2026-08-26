@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCheck Blog',
+  title: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCalc Blog',
   description:
     'Honest reviews of the best exercise bikes for losing weight at home. Comparing Schwinn IC4, Sunny Health SF-B1805, Bowflex VeloCore, Exerpeutic Folding, and YOSUDA.',
   keywords:
     'exercise bike, weight loss, indoor cycling, Schwinn IC4, Sunny Health, Bowflex VeloCore, Exerpeutic folding bike, YOSUDA cycling bike, best exercise bike 2026, stationary bike weight loss',
   openGraph: {
-    title: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCalc Blog',
     description:
       'Honest reviews of the best exercise bikes for losing weight at home. Comparing Schwinn IC4, Sunny Health SF-B1805, Bowflex VeloCore, Exerpeutic Folding, and YOSUDA.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Exercise Bikes for Weight Loss in 2026 | HealthCalc Blog',
     description:
       'Honest reviews of the best exercise bikes for losing weight at home. Comparing Schwinn IC4, Sunny Health SF-B1805, Bowflex VeloCore, Exerpeutic Folding, and YOSUDA.',
     images: ['/images/blog/best-exercise-bikes-weight-loss.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

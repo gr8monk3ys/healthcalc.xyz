@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'VO2 Max Calculator | HealthCheck',
+  title: 'VO2 Max Calculator | HealthCalc',
   description: 'Estimate VO2 max using the Rockport 1-mile walk test formula.',
   keywords: 'VO2 max calculator, rockport walk test, cardio fitness, oxygen uptake, fitness test',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'VO2 Max Calculator | HealthCheck',
+    title: 'VO2 Max Calculator | HealthCalc',
     description: 'Estimate VO2 max using the Rockport 1-mile walk test formula.',
     type: 'website',
     url: './',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VO2 Max Calculator | HealthCheck',
+    title: 'VO2 Max Calculator | HealthCalc',
     description: 'Estimate VO2 max using the Rockport 1-mile walk test formula.',
     images: ['/images/calculators/vo2-max-calculator.jpg'],
   },

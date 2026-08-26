@@ -24,8 +24,8 @@ type ContactCopy = {
 
 const COPY: Record<SupportedLocale, ContactCopy> = {
   en: {
-    metaTitle: 'Contact Us | HealthCheck',
-    metaDescription: 'Get in touch with the HealthCheck team for questions, feedback, or support.',
+    metaTitle: 'Contact Us | HealthCalc',
+    metaDescription: 'Get in touch with the HealthCalc team for questions, feedback, or support.',
     pageTitle: 'Contact Us',
     getInTouchTitle: 'Get in Touch',
     getInTouchBody:
@@ -55,9 +55,9 @@ const COPY: Record<SupportedLocale, ContactCopy> = {
     ],
   },
   es: {
-    metaTitle: 'Contáctanos | HealthCheck',
+    metaTitle: 'Contáctanos | HealthCalc',
     metaDescription:
-      'Ponte en contacto con el equipo de HealthCheck para preguntas, comentarios o soporte.',
+      'Ponte en contacto con el equipo de HealthCalc para preguntas, comentarios o soporte.',
     pageTitle: 'Contáctanos',
     getInTouchTitle: 'Ponte en contacto',
     getInTouchBody:
@@ -87,9 +87,9 @@ const COPY: Record<SupportedLocale, ContactCopy> = {
     ],
   },
   fr: {
-    metaTitle: 'Contact | HealthCheck',
+    metaTitle: 'Contact | HealthCalc',
     metaDescription:
-      'Contactez l’équipe HealthCheck pour des questions, des retours ou de l’assistance.',
+      'Contactez l’équipe HealthCalc pour des questions, des retours ou de l’assistance.',
     pageTitle: 'Contact',
     getInTouchTitle: 'Nous contacter',
     getInTouchBody:
@@ -119,9 +119,9 @@ const COPY: Record<SupportedLocale, ContactCopy> = {
     ],
   },
   de: {
-    metaTitle: 'Kontakt | HealthCheck',
+    metaTitle: 'Kontakt | HealthCalc',
     metaDescription:
-      'Kontaktieren Sie das HealthCheck-Team für Fragen, Feedback oder Unterstützung.',
+      'Kontaktieren Sie das HealthCalc-Team für Fragen, Feedback oder Unterstützung.',
     pageTitle: 'Kontakt',
     getInTouchTitle: 'Kontakt aufnehmen',
     getInTouchBody:
@@ -151,8 +151,8 @@ const COPY: Record<SupportedLocale, ContactCopy> = {
     ],
   },
   pt: {
-    metaTitle: 'Contato | HealthCheck',
-    metaDescription: 'Fale com a equipe da HealthCheck para dúvidas, feedback ou suporte.',
+    metaTitle: 'Contato | HealthCalc',
+    metaDescription: 'Fale com a equipe da HealthCalc para dúvidas, feedback ou suporte.',
     pageTitle: 'Contato',
     getInTouchTitle: 'Fale com a gente',
     getInTouchBody:
@@ -182,8 +182,8 @@ const COPY: Record<SupportedLocale, ContactCopy> = {
     ],
   },
   zh: {
-    metaTitle: '联系我们 | HealthCheck',
-    metaDescription: '如有问题、反馈或需要支持，请联系 HealthCheck 团队。',
+    metaTitle: '联系我们 | HealthCalc',
+    metaDescription: '如有问题、反馈或需要支持，请联系 HealthCalc 团队。',
     pageTitle: '联系我们',
     getInTouchTitle: '与我们联系',
     getInTouchBody: '有问题、反馈或建议？我们很乐意听到你的声音。填写表单，我们会尽快回复。',

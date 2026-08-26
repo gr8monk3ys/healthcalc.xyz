@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Creatine Supplements for Muscle Gain in 2026 | HealthCheck Blog',
+  title: 'Best Creatine Supplements for Muscle Gain in 2026 | HealthCalc Blog',
   description:
     'Honest reviews of the best creatine supplements for muscle gain. Comparing Optimum Nutrition, BulkSupplements, Thorne, MuscleTech Cell-Tech, and Transparent Labs Creatine HMB with real dosing advice.',
   keywords:
     'best creatine supplements 2026, creatine monohydrate, Optimum Nutrition creatine, BulkSupplements creatine, Thorne creatine, MuscleTech Cell-Tech, Transparent Labs Creatine HMB, creatine for muscle gain, creatine loading phase',
   openGraph: {
-    title: 'Best Creatine Supplements for Muscle Gain in 2026 | HealthCheck Blog',
+    title: 'Best Creatine Supplements for Muscle Gain in 2026 | HealthCalc Blog',
     description:
       'Honest reviews of the best creatine supplements for muscle gain with real dosing advice.',
     type: 'article',
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

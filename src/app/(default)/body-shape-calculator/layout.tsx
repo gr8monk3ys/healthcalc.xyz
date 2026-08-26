@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Body Shape Calculator | HealthCheck',
+  title: 'Body Shape Calculator | HealthCalc',
   description:
     'Classify your body shape and somatotype based on bust, waist, and hip measurements. Discover whether you are an hourglass, pear, apple, rectangle, or inverted triangle, plus your ectomorph, mesomorph, or endomorph classification.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Body Shape Calculator | HealthCheck',
+    title: 'Body Shape Calculator | HealthCalc',
     description:
       'Classify your body shape and somatotype based on bust, waist, and hip measurements. Discover whether you are an hourglass, pear, apple, rectangle, or inverted triangle, plus your ectomorph, mesomorph, or endomorph classification.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Body Shape Calculator | HealthCheck',
+    title: 'Body Shape Calculator | HealthCalc',
     description:
       'Classify your body shape and somatotype based on bust, waist, and hip measurements. Discover whether you are an hourglass, pear, apple, rectangle, or inverted triangle, plus your ectomorph, mesomorph, or endomorph classification.',
     images: ['/images/calculators/body-shape-calculator.jpg'],

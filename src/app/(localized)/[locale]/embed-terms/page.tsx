@@ -18,14 +18,14 @@ type EmbedTermsCopy = {
 
 const COPY: Record<SupportedLocale, EmbedTermsCopy> = {
   en: {
-    metaTitle: 'Embed Terms | HealthCheck',
-    metaDescription: 'Terms for embedding HealthCheck calculators on external websites.',
+    metaTitle: 'Embed Terms | HealthCalc',
+    metaDescription: 'Terms for embedding HealthCalc calculators on external websites.',
     breadcrumbLabel: 'Embed Terms',
     pageTitle: 'Embed Terms',
     sections: [
       {
         title: 'Attribution Required',
-        body: 'All embedded calculators must display the “Powered by HealthCheck” attribution link directly beneath the widget. Removing or obscuring attribution is not permitted.',
+        body: 'All embedded calculators must display the “Powered by HealthCalc” attribution link directly beneath the widget. Removing or obscuring attribution is not permitted.',
       },
       {
         title: 'Allowed Modifications',
@@ -46,14 +46,14 @@ const COPY: Record<SupportedLocale, EmbedTermsCopy> = {
     ],
   },
   es: {
-    metaTitle: 'Términos de inserción | HealthCheck',
-    metaDescription: 'Términos para incrustar calculadoras de HealthCheck en sitios externos.',
+    metaTitle: 'Términos de inserción | HealthCalc',
+    metaDescription: 'Términos para incrustar calculadoras de HealthCalc en sitios externos.',
     breadcrumbLabel: 'Términos de inserción',
     pageTitle: 'Términos de inserción',
     sections: [
       {
         title: 'Atribución obligatoria',
-        body: 'Todas las calculadoras incrustadas deben mostrar el enlace de atribución “Powered by HealthCheck” directamente debajo del widget. No se permite eliminar ni ocultar la atribución.',
+        body: 'Todas las calculadoras incrustadas deben mostrar el enlace de atribución “Powered by HealthCalc” directamente debajo del widget. No se permite eliminar ni ocultar la atribución.',
       },
       {
         title: 'Modificaciones permitidas',
@@ -74,15 +74,14 @@ const COPY: Record<SupportedLocale, EmbedTermsCopy> = {
     ],
   },
   fr: {
-    metaTitle: 'Conditions d’intégration | HealthCheck',
-    metaDescription:
-      'Conditions pour intégrer les calculateurs HealthCheck sur des sites externes.',
+    metaTitle: 'Conditions d’intégration | HealthCalc',
+    metaDescription: 'Conditions pour intégrer les calculateurs HealthCalc sur des sites externes.',
     breadcrumbLabel: 'Conditions d’intégration',
     pageTitle: 'Conditions d’intégration',
     sections: [
       {
         title: 'Attribution obligatoire',
-        body: 'Tous les calculateurs intégrés doivent afficher le lien d’attribution « Powered by HealthCheck » directement sous le widget. Supprimer ou masquer l’attribution est interdit.',
+        body: 'Tous les calculateurs intégrés doivent afficher le lien d’attribution « Powered by HealthCalc » directement sous le widget. Supprimer ou masquer l’attribution est interdit.',
       },
       {
         title: 'Modifications autorisées',
@@ -103,15 +102,14 @@ const COPY: Record<SupportedLocale, EmbedTermsCopy> = {
     ],
   },
   de: {
-    metaTitle: 'Einbettungsbedingungen | HealthCheck',
-    metaDescription:
-      'Bedingungen für das Einbetten von HealthCheck-Rechnern auf externen Websites.',
+    metaTitle: 'Einbettungsbedingungen | HealthCalc',
+    metaDescription: 'Bedingungen für das Einbetten von HealthCalc-Rechnern auf externen Websites.',
     breadcrumbLabel: 'Einbettungsbedingungen',
     pageTitle: 'Einbettungsbedingungen',
     sections: [
       {
         title: 'Attribution erforderlich',
-        body: 'Alle eingebetteten Rechner müssen den Attributionslink „Powered by HealthCheck“ direkt unter dem Widget anzeigen. Das Entfernen oder Verdecken der Attribution ist nicht erlaubt.',
+        body: 'Alle eingebetteten Rechner müssen den Attributionslink „Powered by HealthCalc“ direkt unter dem Widget anzeigen. Das Entfernen oder Verdecken der Attribution ist nicht erlaubt.',
       },
       {
         title: 'Erlaubte Änderungen',
@@ -132,14 +130,14 @@ const COPY: Record<SupportedLocale, EmbedTermsCopy> = {
     ],
   },
   pt: {
-    metaTitle: 'Termos de incorporação | HealthCheck',
-    metaDescription: 'Termos para incorporar calculadoras da HealthCheck em sites externos.',
+    metaTitle: 'Termos de incorporação | HealthCalc',
+    metaDescription: 'Termos para incorporar calculadoras da HealthCalc em sites externos.',
     breadcrumbLabel: 'Termos de incorporação',
     pageTitle: 'Termos de incorporação',
     sections: [
       {
         title: 'Atribuição obrigatória',
-        body: 'Todas as calculadoras incorporadas devem exibir o link de atribuição “Powered by HealthCheck” diretamente abaixo do widget. Não é permitido remover ou ocultar a atribuição.',
+        body: 'Todas as calculadoras incorporadas devem exibir o link de atribuição “Powered by HealthCalc” diretamente abaixo do widget. Não é permitido remover ou ocultar a atribuição.',
       },
       {
         title: 'Modificações permitidas',
@@ -160,14 +158,14 @@ const COPY: Record<SupportedLocale, EmbedTermsCopy> = {
     ],
   },
   zh: {
-    metaTitle: '嵌入条款 | HealthCheck',
-    metaDescription: '在外部网站上嵌入 HealthCheck 计算器的条款。',
+    metaTitle: '嵌入条款 | HealthCalc',
+    metaDescription: '在外部网站上嵌入 HealthCalc 计算器的条款。',
     breadcrumbLabel: '嵌入条款',
     pageTitle: '嵌入条款',
     sections: [
       {
         title: '必须署名',
-        body: '所有嵌入的计算器都必须在小组件下方直接显示 “Powered by HealthCheck” 署名链接。禁止移除或遮挡署名信息。',
+        body: '所有嵌入的计算器都必须在小组件下方直接显示 “Powered by HealthCalc” 署名链接。禁止移除或遮挡署名信息。',
       },
       {
         title: '允许的修改',

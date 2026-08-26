@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Calculate calories burned during physical activities and estimate how long it will take to reach your weight loss goals through exercise.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
     images: [
       {

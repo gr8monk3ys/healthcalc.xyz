@@ -33,7 +33,7 @@ export const REVIEWER_LISA_PATEL: Reviewer = {
 };
 
 export const EDITORIAL_TEAM: Reviewer = {
-  name: 'HealthCheck Editorial Team',
+  name: 'HealthCalc Editorial Team',
   credentials: '',
   title: 'Editorial Review Board',
 };

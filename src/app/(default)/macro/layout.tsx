@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Macro Calculator | Calculate Daily Protein, Carbs & Fat | HealthCheck',
+  title: 'Macro Calculator | Calculate Daily Protein, Carbs & Fat | HealthCalc',
   description:
     'Calculate your daily macronutrient targets (protein, carbohydrates, fat) based on your TDEE, activity level, and dietary goals. Free macro calculator for weight loss, maintenance, or muscle gain.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Macro Calculator | Calculate Daily Protein, Carbs & Fat | HealthCheck',
+    title: 'Macro Calculator | Calculate Daily Protein, Carbs & Fat | HealthCalc',
     description:
       'Calculate your optimal daily macronutrient intake for weight loss, maintenance, or muscle gain. Get personalized protein, carbs, and fat targets based on your goals.',
     type: 'website',

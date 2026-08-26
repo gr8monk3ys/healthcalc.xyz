@@ -26,13 +26,13 @@ export async function generateMetadata({ params }: CalculatorHubPageProps): Prom
 
   if (!hub) {
     return {
-      title: 'Calculator Category | HealthCheck',
-      description: 'Browse HealthCheck calculators by category.',
+      title: 'Calculator Category | HealthCalc',
+      description: 'Browse HealthCalc calculators by category.',
     };
   }
 
   return {
-    title: `${hub.title} Calculators | HealthCheck`,
+    title: `${hub.title} Calculators | HealthCalc`,
     description: hub.description,
   };
 }

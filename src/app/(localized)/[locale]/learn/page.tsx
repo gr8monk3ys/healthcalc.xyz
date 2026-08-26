@@ -29,7 +29,7 @@ type LearnCopy = {
 
 const COPY: Record<SupportedLocale, LearnCopy> = {
   en: {
-    metaTitle: 'Health Guides | HealthCheck',
+    metaTitle: 'Health Guides | HealthCalc',
     metaDescription:
       'Quick guides that explain key health metrics and link to the right calculators.',
     pageTitle: 'Health Guides',
@@ -69,7 +69,7 @@ const COPY: Record<SupportedLocale, LearnCopy> = {
     ],
   },
   es: {
-    metaTitle: 'Guías de salud | HealthCheck',
+    metaTitle: 'Guías de salud | HealthCalc',
     metaDescription:
       'Guías rápidas que explican métricas clave y te llevan a las calculadoras correctas.',
     pageTitle: 'Guías de salud',
@@ -110,7 +110,7 @@ const COPY: Record<SupportedLocale, LearnCopy> = {
     ],
   },
   fr: {
-    metaTitle: 'Guides santé | HealthCheck',
+    metaTitle: 'Guides santé | HealthCalc',
     metaDescription:
       'Des guides rapides qui expliquent les métriques clés et renvoient vers les bons calculateurs.',
     pageTitle: 'Guides santé',
@@ -151,7 +151,7 @@ const COPY: Record<SupportedLocale, LearnCopy> = {
     ],
   },
   de: {
-    metaTitle: 'Gesundheits-Guides | HealthCheck',
+    metaTitle: 'Gesundheits-Guides | HealthCalc',
     metaDescription:
       'Kurze Guides, die wichtige Gesundheitskennzahlen erklären und zu den passenden Rechnern führen.',
     pageTitle: 'Gesundheits-Guides',
@@ -191,7 +191,7 @@ const COPY: Record<SupportedLocale, LearnCopy> = {
     ],
   },
   pt: {
-    metaTitle: 'Guias de saúde | HealthCheck',
+    metaTitle: 'Guias de saúde | HealthCalc',
     metaDescription:
       'Guias rápidos que explicam métricas importantes e apontam para as calculadoras certas.',
     pageTitle: 'Guias de saúde',
@@ -232,7 +232,7 @@ const COPY: Record<SupportedLocale, LearnCopy> = {
     ],
   },
   zh: {
-    metaTitle: '健康指南 | HealthCheck',
+    metaTitle: '健康指南 | HealthCalc',
     metaDescription: '快速指南，解释关键健康指标并引导你使用合适的计算器。',
     pageTitle: '健康指南',
     pageSubtitle: '快速学习中心，解释各项指标并指向合适的计算器。（指南目前以英文提供。）',

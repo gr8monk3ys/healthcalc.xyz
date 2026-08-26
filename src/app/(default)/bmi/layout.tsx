@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator | HealthCheck',
+  title: 'BMI Calculator | HealthCalc',
   description:
     'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
   keywords: 'BMI calculator, body mass index, healthy weight, weight calculator, BMI chart',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     ...buildLanguageAlternates('/bmi'),
   },
   openGraph: {
-    title: 'BMI Calculator | HealthCheck',
+    title: 'BMI Calculator | HealthCalc',
     description:
       'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BMI Calculator | HealthCheck',
+    title: 'BMI Calculator | HealthCalc',
     description:
       'Calculate BMI instantly with metric or imperial inputs and see your healthy weight range.',
     images: ['/images/calculators/bmi-calculator.jpg'],

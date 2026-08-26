@@ -1,6 +1,6 @@
 {
-  "name": "HealthCheck - Health and Fitness Calculators",
-  "short_name": "HealthCheck",
+  "name": "HealthCalc - Health and Fitness Calculators",
+  "short_name": "HealthCalc",
   "description": "Free health and fitness calculators for body fat, BMI, TDEE, and more",
   "start_url": "/",
   "display": "standalone",
@@ -25,29 +25,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/images/screenshots/home-screen.jpg",
-      "sizes": "1080x1920",
-      "type": "image/jpeg",
-      "platform": "narrow",
-      "label": "Home Screen"
-    },
-    {
-      "src": "/images/screenshots/bmi-calculator.jpg",
-      "sizes": "1080x1920",
-      "type": "image/jpeg",
-      "platform": "narrow",
-      "label": "BMI Calculator"
-    },
-    {
-      "src": "/images/screenshots/body-fat-calculator.jpg",
-      "sizes": "1080x1920",
-      "type": "image/jpeg",
-      "platform": "narrow",
-      "label": "Body Fat Calculator"
     }
   ],
   "shortcuts": [

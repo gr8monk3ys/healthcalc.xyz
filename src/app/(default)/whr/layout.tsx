@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Waist-to-Hip Ratio Calculator | WHR Calculator',
     description: 'Calculate waist-to-hip ratio to understand fat distribution and health risk.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
     images: [
       {

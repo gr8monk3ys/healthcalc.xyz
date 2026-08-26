@@ -28,18 +28,18 @@ const PAGE_COPY: Record<
   }
 > = {
   en: {
-    metaTitle: 'Calculator Categories | HealthCheck',
+    metaTitle: 'Calculator Categories | HealthCalc',
     metaDescription:
-      'Browse HealthCheck calculator categories for weight loss, body composition, nutrition, performance, wellness, pregnancy, and more.',
+      'Browse HealthCalc calculator categories for weight loss, body composition, nutrition, performance, wellness, pregnancy, and more.',
     breadcrumbCalculators: 'Calculators',
     pageTitle: 'Calculator Categories',
     pageSubtitle: 'Explore calculators by category to find the exact tool you need faster.',
     viewCalculators: 'View calculators →',
   },
   es: {
-    metaTitle: 'Categorías de calculadoras | HealthCheck',
+    metaTitle: 'Categorías de calculadoras | HealthCalc',
     metaDescription:
-      'Explora categorías de calculadoras de HealthCheck: pérdida de peso, composición corporal, nutrición, rendimiento, bienestar, embarazo y más.',
+      'Explora categorías de calculadoras de HealthCalc: pérdida de peso, composición corporal, nutrición, rendimiento, bienestar, embarazo y más.',
     breadcrumbCalculators: 'Calculadoras',
     pageTitle: 'Categorías de calculadoras',
     pageSubtitle:
@@ -47,9 +47,9 @@ const PAGE_COPY: Record<
     viewCalculators: 'Ver calculadoras →',
   },
   fr: {
-    metaTitle: 'Catégories de calculateurs | HealthCheck',
+    metaTitle: 'Catégories de calculateurs | HealthCalc',
     metaDescription:
-      'Parcourez les catégories de calculateurs HealthCheck : perte de poids, composition corporelle, nutrition, performance, bien-être, grossesse et plus.',
+      'Parcourez les catégories de calculateurs HealthCalc : perte de poids, composition corporelle, nutrition, performance, bien-être, grossesse et plus.',
     breadcrumbCalculators: 'Calculateurs',
     pageTitle: 'Catégories de calculateurs',
     pageSubtitle:
@@ -57,18 +57,18 @@ const PAGE_COPY: Record<
     viewCalculators: 'Voir les calculateurs →',
   },
   de: {
-    metaTitle: 'Rechner-Kategorien | HealthCheck',
+    metaTitle: 'Rechner-Kategorien | HealthCalc',
     metaDescription:
-      'Durchsuchen Sie HealthCheck-Rechner-Kategorien für Abnehmen, Körperzusammensetzung, Ernährung, Training, Regeneration, Schwangerschaft und mehr.',
+      'Durchsuchen Sie HealthCalc-Rechner-Kategorien für Abnehmen, Körperzusammensetzung, Ernährung, Training, Regeneration, Schwangerschaft und mehr.',
     breadcrumbCalculators: 'Rechner',
     pageTitle: 'Rechner-Kategorien',
     pageSubtitle: 'Entdecken Sie Rechner nach Kategorie, um schneller das passende Tool zu finden.',
     viewCalculators: 'Rechner ansehen →',
   },
   pt: {
-    metaTitle: 'Categorias de calculadoras | HealthCheck',
+    metaTitle: 'Categorias de calculadoras | HealthCalc',
     metaDescription:
-      'Navegue pelas categorias de calculadoras da HealthCheck: emagrecimento, composição corporal, nutrição, performance, bem-estar, gravidez e mais.',
+      'Navegue pelas categorias de calculadoras da HealthCalc: emagrecimento, composição corporal, nutrição, performance, bem-estar, gravidez e mais.',
     breadcrumbCalculators: 'Calculadoras',
     pageTitle: 'Categorias de calculadoras',
     pageSubtitle:
@@ -76,9 +76,9 @@ const PAGE_COPY: Record<
     viewCalculators: 'Ver calculadoras →',
   },
   zh: {
-    metaTitle: '计算器分类 | HealthCheck',
+    metaTitle: '计算器分类 | HealthCalc',
     metaDescription:
-      '浏览 HealthCheck 的计算器分类：减脂与体重管理、体成分、营养、训练表现、恢复、孕期等。',
+      '浏览 HealthCalc 的计算器分类：减脂与体重管理、体成分、营养、训练表现、恢复、孕期等。',
     breadcrumbCalculators: '计算器',
     pageTitle: '计算器分类',
     pageSubtitle: '按类别浏览计算器，更快找到你需要的工具。',

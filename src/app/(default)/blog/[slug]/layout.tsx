@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!meta) {
     return {
-      title: 'Blog Post | HealthCheck',
-      description: 'Health and fitness articles from HealthCheck.',
+      title: 'Blog Post | HealthCalc',
+      description: 'Health and fitness articles from HealthCalc.',
     };
   }
 
@@ -32,8 +32,8 @@ export default async function BlogPostLayout({
   const { slug } = await params;
   const post = BLOG_REGISTRY.find(p => p.slug === slug);
 
-  const title = post?.seoTitle ?? post?.title ?? 'Blog Post | HealthCheck';
-  const description = post?.description ?? 'Health and fitness articles from HealthCheck.';
+  const title = post?.seoTitle ?? post?.title ?? 'Blog Post | HealthCalc';
+  const description = post?.description ?? 'Health and fitness articles from HealthCalc.';
 
   const articleSchema = createArticleSchema({
     title,
@@ -41,13 +41,13 @@ export default async function BlogPostLayout({
     url: toAbsoluteUrl(`/blog/${slug}`),
     imageUrl: toAbsoluteUrl(`/images/blog/${slug}.jpg`),
     datePublished: '2025-01-01',
-    authorName: 'HealthCheck Editorial Team',
+    authorName: 'HealthCalc Editorial Team',
   });
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: 'Home', url: toAbsoluteUrl('/') },
     { name: 'Blog', url: toAbsoluteUrl('/blog') },
-    { name: title.replace(/ \| HealthCheck.*$/, ''), url: toAbsoluteUrl(`/blog/${slug}`) },
+    { name: title.replace(/ \| HealthCalc.*$/, ''), url: toAbsoluteUrl(`/blog/${slug}`) },
   ]);
 
   return (

@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Gym Bags for Workout Gear in 2026 | HealthCheck Blog',
+  title: 'Best Gym Bags for Workout Gear in 2026 | HealthCalc Blog',
   description:
     'Compare the best gym bags for carrying workout gear, shoes, and accessories. Reviews of Adidas, Under Armour, Nike, King Kong, and Vooray with honest pros and cons.',
   keywords:
     'best gym bags 2026, gym duffel bag, workout bag, Adidas Defender, Under Armour Undeniable, Nike Brasilia, King Kong gym bag, Vooray Burner',
   openGraph: {
-    title: 'Best Gym Bags for Workout Gear in 2026 | HealthCheck Blog',
+    title: 'Best Gym Bags for Workout Gear in 2026 | HealthCalc Blog',
     description:
       'Compare the best gym bags for carrying workout gear, shoes, and accessories. Reviews of Adidas, Under Armour, Nike, King Kong, and Vooray.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Gym Bags for Workout Gear in 2026 | HealthCheck Blog',
+    title: 'Best Gym Bags for Workout Gear in 2026 | HealthCalc Blog',
     description:
       'Compare the best gym bags for carrying workout gear, shoes, and accessories. Reviews of Adidas, Under Armour, Nike, King Kong, and Vooray.',
     images: ['/images/blog/best-gym-bags-workout-gear.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

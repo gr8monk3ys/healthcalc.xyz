@@ -1,4 +1,4 @@
-# HealthCheck Robots.txt
+# HealthCalc Robots.txt
 # Last updated: 2026-02-22
 
 User-agent: *

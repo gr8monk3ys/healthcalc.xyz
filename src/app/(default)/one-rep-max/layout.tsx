@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'One Rep Max Calculator | HealthCheck',
+  title: 'One Rep Max Calculator | HealthCalc',
   description:
     'Calculate your one rep max (1RM) from submaximal lifts using Epley, Brzycki, or Lombardi formulas. Get training zone recommendations for strength, hypertrophy, and endurance.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'One Rep Max Calculator | HealthCheck',
+    title: 'One Rep Max Calculator | HealthCalc',
     description:
       'Calculate your one rep max (1RM) from submaximal lifts. Get training zone recommendations and percentage charts for programming your workouts.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'One Rep Max Calculator | HealthCheck',
+    title: 'One Rep Max Calculator | HealthCalc',
     description:
       'Calculate your one rep max (1RM) from submaximal lifts. Get training zone recommendations and percentage charts.',
     images: ['/images/calculators/one-rep-max-calculator.jpg'],

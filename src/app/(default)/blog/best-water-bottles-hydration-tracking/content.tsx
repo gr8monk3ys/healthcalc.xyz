@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCheck Blog',
+  title: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCalc Blog',
   description:
     'Compare the best water bottles for tracking daily water intake. Reviews of HidrateSpark, Nalgene, Hydro Flask, and more.',
   keywords:
     'best water bottle 2026, hydration tracking, HidrateSpark, Nalgene, Hydro Flask, water intake, smart water bottle',
   openGraph: {
-    title: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the best water bottles for tracking daily water intake. Reviews of HidrateSpark, Nalgene, Hydro Flask, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Water Bottles for Hydration Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the best water bottles for tracking daily water intake. Reviews of HidrateSpark, Nalgene, Hydro Flask, and more.',
     images: ['/images/blog/best-water-bottles-hydration-tracking.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

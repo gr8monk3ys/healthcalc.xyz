@@ -7,13 +7,13 @@ import RelatedGuides from '@/components/RelatedGuides';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Heart Rate Zones Explained: How to Train Smarter | HealthCheck Blog',
+  title: 'Heart Rate Zones Explained: How to Train Smarter | HealthCalc Blog',
   description:
     'Learn what heart rate zones are, when to push hard vs stay in Zone 2, and how to find your max heart rate for better training results.',
   keywords:
     'heart rate zones, zone 2 training, max heart rate, Karvonen method, VO2 max, cardio training, heart rate training, target heart rate, exercise intensity, aerobic threshold',
   openGraph: {
-    title: 'Heart Rate Zones Explained: How to Train Smarter | HealthCheck Blog',
+    title: 'Heart Rate Zones Explained: How to Train Smarter | HealthCalc Blog',
     description:
       'Learn what heart rate zones are, when to push hard vs stay in Zone 2, and how to find your max heart rate for better training results.',
     type: 'article',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Heart Rate Zones Explained: How to Train Smarter | HealthCheck Blog',
+    title: 'Heart Rate Zones Explained: How to Train Smarter | HealthCalc Blog',
     description:
       'Learn what heart rate zones are, when to push hard vs stay in Zone 2, and how to find your max heart rate for better training results.',
     images: ['/images/blog/heart-rate-zones-explained-training.jpg'],
@@ -47,11 +47,11 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/logo.png',

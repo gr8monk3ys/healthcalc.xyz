@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Blender Bottles and Shaker Cups in 2026 | HealthCheck Blog',
+  title: 'Best Blender Bottles and Shaker Cups in 2026 | HealthCalc Blog',
   description:
     'Compare the best blender bottles and shaker cups for protein shakes. Reviews of BlenderBottle Classic, BlenderBottle Pro, Helimix, Ice Shaker, and SHAKESPHERE.',
   keywords:
     'best blender bottle 2026, protein shaker cup, BlenderBottle Classic, BlenderBottle Pro Series, Helimix Vortex, Ice Shaker, SHAKESPHERE Tumbler, shaker bottle, protein shake mixer',
   openGraph: {
-    title: 'Best Blender Bottles and Shaker Cups in 2026 | HealthCheck Blog',
+    title: 'Best Blender Bottles and Shaker Cups in 2026 | HealthCalc Blog',
     description:
       'Compare the best blender bottles and shaker cups for protein shakes with honest reviews.',
     type: 'article',
@@ -42,12 +42,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

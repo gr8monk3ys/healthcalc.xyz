@@ -323,7 +323,7 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${escapeHtml(config.title)} - HealthCheck</title>
+  <title>${escapeHtml(config.title)} - HealthCalc</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -521,7 +521,7 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
     <div id="result" role="region" aria-live="polite"></div>
 
     <div class="powered-by">
-      Powered by <a href="${SITE_URL}/${calculator}" target="_blank" rel="noopener">HealthCheck</a>
+      Powered by <a href="${SITE_URL}/${calculator}" target="_blank" rel="noopener">HealthCalc</a>
     </div>
   </div>
 

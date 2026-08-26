@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-We actively support and provide security updates for the following versions of HealthCheck:
+We actively support and provide security updates for the following versions of HealthCalc:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -11,7 +11,7 @@ We actively support and provide security updates for the following versions of H
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in HealthCheck, please report it responsibly:
+If you discover a security vulnerability in HealthCalc, please report it responsibly:
 
 1. **DO NOT** create a public GitHub issue
 2. Email security concerns to: [security contact] or create a private security advisory on GitHub

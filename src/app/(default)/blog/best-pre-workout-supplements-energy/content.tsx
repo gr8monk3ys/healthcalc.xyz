@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Pre-Workout Supplements for Energy in 2026 | HealthCheck Blog',
+  title: 'Best Pre-Workout Supplements for Energy in 2026 | HealthCalc Blog',
   description:
     'Compare the best pre-workout supplements for energy and performance. Reviews of C4 Original, Optimum Nutrition, Legion Pulse, Transparent Labs, and Ghost Legend with honest ingredient breakdowns.',
   keywords:
     'best pre-workout supplements 2026, C4 pre-workout, Optimum Nutrition pre-workout, Legion Pulse, Transparent Labs BULK, Ghost Legend, caffeine pre-workout, natural pre-workout, energy supplements',
   openGraph: {
-    title: 'Best Pre-Workout Supplements for Energy in 2026 | HealthCheck Blog',
+    title: 'Best Pre-Workout Supplements for Energy in 2026 | HealthCalc Blog',
     description:
       'Compare the best pre-workout supplements for energy and performance with honest reviews.',
     type: 'article',
@@ -39,10 +39,10 @@ const jsonLd = {
   description: 'Compare the best pre-workout supplements for energy and performance.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-pre-workout-supplements-energy',

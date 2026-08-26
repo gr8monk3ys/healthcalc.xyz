@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Unit Converter | Measurement Conversions | HealthCheck',
+  title: 'Unit Converter | Measurement Conversions | HealthCalc',
   description:
     'Convert weight, height, volume, temperature, and energy units quickly and accurately.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Unit Converter | Measurement Conversions | HealthCheck',
+    title: 'Unit Converter | Measurement Conversions | HealthCalc',
     description:
       'Convert weight, height, volume, temperature, and energy units quickly and accurately.',
     type: 'website',

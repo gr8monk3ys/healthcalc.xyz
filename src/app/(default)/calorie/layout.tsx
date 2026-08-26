@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Calorie Calculator | HealthCheck',
+  title: 'Calorie Calculator | HealthCalc',
   description: 'Find your daily calories for maintenance, fat loss, or muscle gain in minutes.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Calorie Calculator | HealthCheck',
+    title: 'Calorie Calculator | HealthCalc',
     description: 'Find your daily calories for maintenance, fat loss, or muscle gain in minutes.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Calorie Calculator | HealthCheck',
+    title: 'Calorie Calculator | HealthCalc',
     description: 'Find your daily calories for maintenance, fat loss, or muscle gain in minutes.',
     images: ['/images/calculators/calorie-calculator.jpg'],
   },

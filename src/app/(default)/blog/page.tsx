@@ -5,7 +5,7 @@ import BlogIndexClient from '@/components/BlogIndexClient';
 import { BLOG_REGISTRY as BLOG_POSTS } from '@/lib/blog/registry';
 
 export const metadata: Metadata = {
-  title: 'Health & Fitness Blog | HealthCheck',
+  title: 'Health & Fitness Blog | HealthCalc',
   description:
     'Explore articles on weight management, body composition, nutrition, and fitness to help you make informed decisions about your health.',
   keywords:

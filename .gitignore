@@ -72,3 +72,6 @@ temp/
 /calculators-index.png
 /search-dark.png
 /amazon-*-check.png
+
+# Claude Code local overrides
+.claude/settings.local.json

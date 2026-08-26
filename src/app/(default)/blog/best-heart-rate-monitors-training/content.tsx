@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Heart Rate Monitors for Training in 2026 | HealthCheck Blog',
+  title: 'Best Heart Rate Monitors for Training in 2026 | HealthCalc Blog',
   description:
     'Compare the best heart rate monitors and chest straps for accurate training data. Reviews of Polar H10, Garmin HRM-Pro Plus, Wahoo TICKR X, and more.',
   keywords:
     'best heart rate monitor 2026, chest strap heart rate, Polar H10, Garmin HRM-Pro Plus, Wahoo TICKR X, heart rate training, HR monitor, heart rate chest strap, optical heart rate, armband HR monitor',
   openGraph: {
-    title: 'Best Heart Rate Monitors for Training in 2026 | HealthCheck Blog',
+    title: 'Best Heart Rate Monitors for Training in 2026 | HealthCalc Blog',
     description:
       'Compare the best heart rate monitors and chest straps for accurate training data. Reviews of Polar H10, Garmin HRM-Pro Plus, Wahoo TICKR X, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Heart Rate Monitors for Training in 2026 | HealthCheck Blog',
+    title: 'Best Heart Rate Monitors for Training in 2026 | HealthCalc Blog',
     description:
       'Compare the best heart rate monitors and chest straps for accurate training data. Reviews of Polar H10, Garmin HRM-Pro Plus, Wahoo TICKR X, and more.',
     images: ['/images/blog/best-heart-rate-monitors-training.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

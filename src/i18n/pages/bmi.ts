@@ -108,7 +108,7 @@ export type BMIPageCopy = {
 const COPY: Record<SupportedLocale, BMIPageCopy> = {
   en: {
     meta: {
-      title: 'BMI Calculator | HealthCheck',
+      title: 'BMI Calculator | HealthCalc',
       description:
         'Calculate your Body Mass Index (BMI) and healthy weight range with metric or imperial inputs.',
       keywords: 'BMI calculator, body mass index, healthy weight, weight calculator, BMI chart',
@@ -293,7 +293,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
   },
   es: {
     meta: {
-      title: 'Calculadora de IMC | HealthCheck',
+      title: 'Calculadora de IMC | HealthCalc',
       description:
         'Calcula tu Índice de Masa Corporal (IMC) y tu rango de peso saludable con unidades métricas o imperiales.',
       keywords:
@@ -445,7 +445,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
   },
   fr: {
     meta: {
-      title: 'Calculateur d’IMC | HealthCheck',
+      title: 'Calculateur d’IMC | HealthCalc',
       description:
         'Calculez votre indice de masse corporelle (IMC) et votre fourchette de poids santé en unités métriques ou impériales.',
       keywords:
@@ -596,7 +596,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
   },
   de: {
     meta: {
-      title: 'BMI-Rechner | HealthCheck',
+      title: 'BMI-Rechner | HealthCalc',
       description:
         'Berechnen Sie Ihren Body-Mass-Index (BMI) und Ihren gesunden Gewichtsbereich mit metrischen oder imperialen Einheiten.',
       keywords: 'BMI Rechner, Body Mass Index, gesundes Gewicht, Gewichtsrechner, BMI Tabelle',
@@ -746,7 +746,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
   },
   pt: {
     meta: {
-      title: 'Calculadora de IMC | HealthCheck',
+      title: 'Calculadora de IMC | HealthCalc',
       description:
         'Calcule seu Índice de Massa Corporal (IMC) e a faixa de peso saudável com unidades métricas ou imperiais.',
       keywords:
@@ -896,7 +896,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
   },
   zh: {
     meta: {
-      title: 'BMI 计算器 | HealthCheck',
+      title: 'BMI 计算器 | HealthCalc',
       description: '使用公制或英制输入计算体质指数（BMI），并查看适合你身高的健康体重范围。',
       keywords: 'BMI 计算器, 体质指数, 健康体重, 体重计算器, BMI 标准',
       ogAlt: 'BMI 计算器',

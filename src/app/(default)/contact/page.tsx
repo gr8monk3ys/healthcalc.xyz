@@ -2,8 +2,8 @@ import React from 'react';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
-  title: 'Contact Us | HealthCheck',
-  description: 'Get in touch with the HealthCheck team for questions, feedback, or support.',
+  title: 'Contact Us | HealthCalc',
+  description: 'Get in touch with the HealthCalc team for questions, feedback, or support.',
 };
 
 export default function ContactPage() {

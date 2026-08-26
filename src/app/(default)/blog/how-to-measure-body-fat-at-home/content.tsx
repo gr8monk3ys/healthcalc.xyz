@@ -4,8 +4,7 @@ import type { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title:
-    'How to Measure Body Fat at Home: Methods, Accuracy, and What Actually Works | HealthCheck',
+  title: 'How to Measure Body Fat at Home: Methods, Accuracy, and What Actually Works | HealthCalc',
   description:
     'A practical guide to measuring body fat at home using the Navy method, calipers, smart scales, and visual estimation. Honest accuracy comparisons and tracking tips.',
   keywords:
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
       'A practical guide to measuring body fat at home using the Navy method, calipers, smart scales, and visual estimation. Honest accuracy comparisons and tracking tips.',
     type: 'article',
     publishedTime: '2026-02-08T00:00:00Z',
-    authors: ['HealthCheck Team'],
+    authors: ['HealthCalc Team'],
     images: [
       {
         url: '/images/blog/how-to-measure-body-fat-at-home.jpg',
@@ -46,11 +45,11 @@ const structuredData = {
   dateModified: '2026-02-08T00:00:00Z',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck Team',
+    name: 'HealthCalc Team',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: '/logo.png',

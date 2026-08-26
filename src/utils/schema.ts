@@ -13,7 +13,7 @@ export function createOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: siteUrl,
     logo: toAbsoluteUrl('/icons/icon-512x512.png'),
     sameAs: [
@@ -38,7 +38,7 @@ export function createWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: siteUrl,
     potentialAction: {
       '@type': 'SearchAction',
@@ -116,7 +116,7 @@ export function createArticleSchema({
     },
     publisher: {
       '@type': 'Organization',
-      name: 'HealthCheck',
+      name: 'HealthCalc',
       logo: {
         '@type': 'ImageObject',
         url: toAbsoluteUrl('/icons/icon-512x512.png'),

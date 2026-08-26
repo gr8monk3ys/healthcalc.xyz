@@ -65,7 +65,7 @@ export default function Header(): React.JSX.Element {
             </span>
             <span className="inline-flex items-baseline gap-0.5">
               <span>Health</span>
-              <span className="text-[0.95em] text-accent-dark dark:text-accent-light">Check</span>
+              <span className="text-[0.95em] text-accent-dark dark:text-accent-light">Calc</span>
             </span>
           </Link>
 

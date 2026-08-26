@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCheck Blog',
+  title: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCalc Blog',
   description:
     'Compare the top smart scales for tracking body fat, muscle mass, BMI, and more. In-depth reviews of Withings, RENPHO, Eufy, and other leading body composition scales.',
   keywords:
     'smart scale, body composition scale, body fat scale, Withings Body Smart, RENPHO scale, Eufy scale, best smart scale 2026, BMI scale, weight tracking',
   openGraph: {
-    title: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the top smart scales for tracking body fat, muscle mass, BMI, and more. In-depth reviews of Withings, RENPHO, Eufy, and other leading body composition scales.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Smart Scales for Body Composition Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the top smart scales for tracking body fat, muscle mass, BMI, and more. In-depth reviews of Withings, RENPHO, Eufy, and other leading body composition scales.',
     images: ['/images/blog/best-smart-scales-body-composition.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-02',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

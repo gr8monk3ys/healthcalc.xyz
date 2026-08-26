@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Saved Results | HealthCheck',
+  title: 'Saved Results | HealthCalc',
   description: 'Review and manage your saved calculator results in one place.',
   alternates: { canonical: './' },
   openGraph: {
-    title: 'Saved Results | HealthCheck',
+    title: 'Saved Results | HealthCalc',
     description: 'Review and manage your saved calculator results in one place.',
     url: './',
   },

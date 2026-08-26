@@ -32,13 +32,13 @@ const organizationSchemaJson = JSON.stringify(createOrganizationSchema()).replac
 const websiteSchemaJson = JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c');
 
 export const metadata: Metadata = {
-  title: 'HealthCheck - Health and Fitness Calculators',
+  title: 'HealthCalc - Health and Fitness Calculators',
   description:
     'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
   keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
-  authors: [{ name: 'HealthCheck Team' }],
-  creator: 'HealthCheck',
-  publisher: 'HealthCheck',
+  authors: [{ name: 'HealthCalc Team' }],
+  creator: 'HealthCalc',
+  publisher: 'HealthCalc',
   formatDetection: {
     email: false,
     address: false,
@@ -46,17 +46,17 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: 'HealthCheck - Health and Fitness Calculators',
+    title: 'HealthCalc - Health and Fitness Calculators',
     description:
       'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
     url: siteUrl,
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'HealthCheck - Health and Fitness Calculators',
+        alt: 'HealthCalc - Health and Fitness Calculators',
       },
     ],
     locale: 'en_US',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HealthCheck - Health and Fitness Calculators',
+    title: 'HealthCalc - Health and Fitness Calculators',
     description:
       'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
     images: ['/images/og-image.jpg'],
@@ -105,7 +105,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="HealthCheck" />
+        <meta name="apple-mobile-web-app-title" content="HealthCalc" />
 
         {/* Blocking script to apply dark mode before first paint (prevents FOUC) */}
         <Script id="dark-mode-bootstrap" strategy="beforeInteractive">

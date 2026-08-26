@@ -15,42 +15,42 @@ const HOME_METADATA: Record<
   { title: string; description: string; keywords: string }
 > = {
   en: {
-    title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
+    title: 'HealthCalc - Free Body Fat, BMI, TDEE Calculators',
     description:
       'Free, accurate calculators for body fat percentage, BMI, TDEE, calorie deficit, and more. Evidence-based tools to help you achieve your health goals.',
     keywords:
       'body fat calculator, BMI calculator, TDEE calculator, calorie deficit calculator, weight loss calculator, fitness calculators, health calculators, waist-to-hip ratio, ABSI calculator',
   },
   es: {
-    title: 'HealthCheck - Calculadoras gratis de grasa corporal, IMC y TDEE',
+    title: 'HealthCalc - Calculadoras gratis de grasa corporal, IMC y TDEE',
     description:
       'Calculadoras gratuitas y precisas para porcentaje de grasa corporal, IMC, TDEE, déficit calórico y más. Herramientas basadas en evidencia para ayudarte a alcanzar tus objetivos de salud.',
     keywords:
       'calculadora de grasa corporal, calculadora IMC, calculadora TDEE, calculadora de déficit calórico, calculadora para bajar de peso, calculadoras fitness, calculadoras de salud, relación cintura-cadera, calculadora ABSI',
   },
   fr: {
-    title: 'HealthCheck - Calculateurs gratuits masse grasse, IMC et TDEE',
+    title: 'HealthCalc - Calculateurs gratuits masse grasse, IMC et TDEE',
     description:
       'Des calculateurs gratuits et précis pour le pourcentage de masse grasse, l’IMC, le TDEE, le déficit calorique et plus. Des outils fondés sur des preuves pour atteindre vos objectifs.',
     keywords:
       'calculateur masse grasse, calculateur IMC, calculateur TDEE, calculateur déficit calorique, perte de poids, calculateurs fitness, calculateurs santé, ratio taille-hanches, calculateur ABSI',
   },
   de: {
-    title: 'HealthCheck - Kostenlose Körperfett-, BMI- und TDEE-Rechner',
+    title: 'HealthCalc - Kostenlose Körperfett-, BMI- und TDEE-Rechner',
     description:
       'Kostenlose, präzise Rechner für Körperfettanteil, BMI, TDEE, Kaloriendefizit und mehr. Evidenzbasierte Tools für Ihre Gesundheitsziele.',
     keywords:
       'Körperfett-Rechner, BMI-Rechner, TDEE-Rechner, Kaloriendefizit-Rechner, Abnehmrechner, Fitnessrechner, Gesundheitsrechner, Taille-Hüft-Verhältnis, ABSI-Rechner',
   },
   pt: {
-    title: 'HealthCheck - Calculadoras gratuitas de gordura corporal, IMC e TDEE',
+    title: 'HealthCalc - Calculadoras gratuitas de gordura corporal, IMC e TDEE',
     description:
       'Calculadoras gratuitas e precisas para percentual de gordura corporal, IMC, TDEE, déficit calórico e mais. Ferramentas baseadas em evidências para ajudar você a atingir suas metas.',
     keywords:
       'calculadora de gordura corporal, calculadora IMC, calculadora TDEE, calculadora de déficit calórico, calculadora de emagrecimento, calculadoras fitness, calculadoras de saúde, relação cintura-quadril, calculadora ABSI',
   },
   zh: {
-    title: 'HealthCheck - 免费体脂、BMI、TDEE 计算器',
+    title: 'HealthCalc - 免费体脂、BMI、TDEE 计算器',
     description:
       '免费且准确的体脂率、BMI、TDEE、热量缺口等计算器。基于证据的工具，帮助你实现健康目标。',
     keywords:
@@ -77,7 +77,7 @@ const HOME_UI_COPY: Record<
   }
 > = {
   en: {
-    platformLabel: 'HealthCheck Platform',
+    platformLabel: 'HealthCalc Platform',
     heroTitle: 'Smarter health calculators with a cleaner, faster experience',
     heroBody:
       'Explore modern tools for body composition, calorie planning, and performance goals — now with improved visuals, stronger interactions, and easier navigation.',
@@ -93,7 +93,7 @@ const HOME_UI_COPY: Record<
     exploreAllBlog: 'Explore all blog articles',
   },
   es: {
-    platformLabel: 'Plataforma HealthCheck',
+    platformLabel: 'Plataforma HealthCalc',
     heroTitle: 'Calculadoras de salud más inteligentes con una experiencia más limpia y rápida',
     heroBody:
       'Explora herramientas modernas para composición corporal, planificación de calorías y objetivos de rendimiento, ahora con mejores visuales, interacciones más sólidas y navegación más fácil.',
@@ -110,7 +110,7 @@ const HOME_UI_COPY: Record<
     exploreAllBlog: 'Explorar todos los artículos del blog',
   },
   fr: {
-    platformLabel: 'Plateforme HealthCheck',
+    platformLabel: 'Plateforme HealthCalc',
     heroTitle:
       'Des calculateurs santé plus intelligents, avec une expérience plus fluide et plus rapide',
     heroBody:
@@ -128,7 +128,7 @@ const HOME_UI_COPY: Record<
     exploreAllBlog: 'Voir tous les articles du blog',
   },
   de: {
-    platformLabel: 'HealthCheck Plattform',
+    platformLabel: 'HealthCalc Plattform',
     heroTitle: 'Intelligentere Gesundheitsrechner mit einem klareren, schnelleren Erlebnis',
     heroBody:
       'Entdecken Sie moderne Tools für Körperzusammensetzung, Kalorienplanung und Leistungsziele — jetzt mit besseren Visuals, stärkeren Interaktionen und einfacher Navigation.',
@@ -145,7 +145,7 @@ const HOME_UI_COPY: Record<
     exploreAllBlog: 'Alle Blogartikel entdecken',
   },
   pt: {
-    platformLabel: 'Plataforma HealthCheck',
+    platformLabel: 'Plataforma HealthCalc',
     heroTitle: 'Calculadoras de saúde mais inteligentes, com uma experiência mais limpa e rápida',
     heroBody:
       'Explore ferramentas modernas para composição corporal, planejamento de calorias e metas de performance — agora com visuais melhores, interações mais fortes e navegação mais fácil.',
@@ -162,7 +162,7 @@ const HOME_UI_COPY: Record<
     exploreAllBlog: 'Explorar todos os artigos do blog',
   },
   zh: {
-    platformLabel: 'HealthCheck 平台',
+    platformLabel: 'HealthCalc 平台',
     heroTitle: '更聪明的健康计算器，更清爽、更快速的体验',
     heroBody:
       '探索用于体成分、热量规划和运动表现目标的现代工具，现在拥有更好的视觉、更强的交互和更便捷的导航。',
@@ -378,7 +378,7 @@ export async function generateMetadata({ params }: LocalizedHomeProps): Promise<
       title: meta.title,
       description: meta.description,
       url: './',
-      siteName: 'HealthCheck',
+      siteName: 'HealthCalc',
       type: 'website',
     },
   };

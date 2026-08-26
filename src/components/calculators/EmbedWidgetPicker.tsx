@@ -39,7 +39,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
   switch (locale) {
     case 'es':
       return {
-        title: 'Incrusta calculadoras de HealthCheck',
+        title: 'Incrusta calculadoras de HealthCalc',
         subtitle:
           'Elige una calculadora, copia el código de inserción y mantén el enlace de atribución.',
         copyCode: 'Copiar código de inserción',
@@ -66,7 +66,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
       };
     case 'fr':
       return {
-        title: 'Intégrer les calculateurs HealthCheck',
+        title: 'Intégrer les calculateurs HealthCalc',
         subtitle:
           'Choisissez un calculateur, copiez le code d’intégration et conservez le lien d’attribution.',
         copyCode: 'Copier le code d’intégration',
@@ -93,7 +93,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
       };
     case 'de':
       return {
-        title: 'HealthCheck-Rechner einbetten',
+        title: 'HealthCalc-Rechner einbetten',
         subtitle:
           'Wählen Sie einen Rechner, kopieren Sie den Einbettungscode und lassen Sie den Attributionslink sichtbar.',
         copyCode: 'Einbettungscode kopieren',
@@ -121,7 +121,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
       };
     case 'pt':
       return {
-        title: 'Incorporar calculadoras da HealthCheck',
+        title: 'Incorporar calculadoras da HealthCalc',
         subtitle:
           'Escolha uma calculadora, copie o código de incorporação e mantenha o link de atribuição.',
         copyCode: 'Copiar código de incorporação',
@@ -148,7 +148,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
       };
     case 'zh':
       return {
-        title: '嵌入 HealthCheck 计算器',
+        title: '嵌入 HealthCalc 计算器',
         subtitle: '选择一个计算器，复制嵌入代码，并保留署名链接。',
         copyCode: '复制嵌入代码',
         copied: '已复制',
@@ -175,7 +175,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
     case 'en':
     default:
       return {
-        title: 'Embed HealthCheck Calculators',
+        title: 'Embed HealthCalc Calculators',
         subtitle:
           'Choose a calculator, copy the embed code, and keep the attribution link included.',
         copyCode: 'Copy Embed Code',

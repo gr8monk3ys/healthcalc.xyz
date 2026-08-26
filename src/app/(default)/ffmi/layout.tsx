@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Calculate your Fat-Free Mass Index (FFMI) to assess muscle mass development and natural muscular potential. Includes adjusted FFMI and natural limit analysis.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
     images: [
       {

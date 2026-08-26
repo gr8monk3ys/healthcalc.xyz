@@ -7,7 +7,7 @@ import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
 const CALCULATOR_COUNT = CALCULATOR_CATALOG.length;
 
 export const metadata = {
-  title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
+  title: 'HealthCalc - Free Body Fat, BMI, TDEE Calculators',
   description:
     'Free, accurate calculators for body fat percentage, BMI, TDEE, calorie deficit, and more. Evidence-based tools to help you achieve your health goals.',
   keywords:
@@ -16,11 +16,11 @@ export const metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'HealthCheck - Free Body Fat, BMI, TDEE Calculators',
+    title: 'HealthCalc - Free Body Fat, BMI, TDEE Calculators',
     description:
       'Free, accurate calculators for body fat percentage, BMI, TDEE, calorie deficit, and more. Evidence-based tools to help you achieve your health goals.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
   },
 };
@@ -125,7 +125,7 @@ const icons = {
   ),
 };
 
-// "Why HealthCheck?" section icons (inline SVGs)
+// "Why HealthCalc?" section icons (inline SVGs)
 const whyIcons = {
   peerReviewed: (
     <svg
@@ -307,7 +307,7 @@ const HomeContent = (
     <section className="hero-panel relative overflow-hidden rounded-[2rem] px-5 py-10 sm:px-6 sm:py-12 md:px-12 md:py-14">
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <p className="section-eyebrow">HealthCheck Platform</p>
+          <p className="section-eyebrow">HealthCalc Platform</p>
           <h1 className="mt-4 text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-[3.4rem]">
             BMI, body fat, TDEE, and <span className="text-gradient">50+ more</span> health
             calculators
@@ -619,12 +619,12 @@ const HomeContent = (
       </div>
     </section>
 
-    {/* Why HealthCheck? Section */}
+    {/* Why HealthCalc? Section */}
     <section className="perf-defer-section">
       <div className="mb-8 text-center">
         <p className="section-eyebrow justify-center">Our promise</p>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Why HealthCheck?
+          Why HealthCalc?
         </h2>
         <p className="mx-auto mt-2 max-w-2xl text-slate-600 dark:text-slate-300">
           Most health calculator sites hide the answer behind sign-up walls, pop-ups, and upsells.

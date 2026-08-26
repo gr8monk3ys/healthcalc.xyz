@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Caffeine Intake Calculator | HealthCheck',
+  title: 'Caffeine Intake Calculator | HealthCalc',
   description:
     'Calculate your daily caffeine intake, check safe limits, and get personalized pre-workout dose recommendations based on your body weight and sensitivity.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Caffeine Intake Calculator | HealthCheck',
+    title: 'Caffeine Intake Calculator | HealthCalc',
     description:
       'Calculate your daily caffeine intake, check safe limits, and get personalized pre-workout dose recommendations based on your body weight and sensitivity.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Caffeine Intake Calculator | HealthCheck',
+    title: 'Caffeine Intake Calculator | HealthCalc',
     description:
       'Calculate your daily caffeine intake, check safe limits, and get personalized pre-workout dose recommendations based on your body weight and sensitivity.',
     images: ['/images/calculators/caffeine-calculator.jpg'],

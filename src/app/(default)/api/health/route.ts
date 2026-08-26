@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { createHealthChecks, createWarnings, isHealthy } from '@/lib/health';
+import { createHealthCalcs, createWarnings, isHealthy } from '@/lib/health';
 
 export async function GET(): Promise<NextResponse> {
-  const checks = createHealthChecks();
+  const checks = createHealthCalcs();
   const warnings = createWarnings(checks);
   const ok = isHealthy(checks);
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Life Expectancy Calculator | HealthCheck',
+  title: 'Life Expectancy Calculator | HealthCalc',
   description:
     'Estimate your life expectancy based on lifestyle factors including diet, exercise, smoking, sleep, stress, and chronic conditions. Get personalized recommendations to improve your longevity.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Life Expectancy Calculator | HealthCheck',
+    title: 'Life Expectancy Calculator | HealthCalc',
     description:
       'Estimate your life expectancy based on lifestyle factors including diet, exercise, smoking, sleep, stress, and chronic conditions. Get personalized recommendations to improve your longevity.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Life Expectancy Calculator | HealthCheck',
+    title: 'Life Expectancy Calculator | HealthCalc',
     description:
       'Estimate your life expectancy based on lifestyle factors including diet, exercise, smoking, sleep, stress, and chronic conditions. Get personalized recommendations to improve your longevity.',
     images: ['/images/calculators/life-expectancy-calculator.jpg'],

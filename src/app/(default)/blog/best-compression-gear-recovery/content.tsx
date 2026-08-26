@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Compression Gear for Recovery in 2026 | HealthCheck Blog',
+  title: 'Best Compression Gear for Recovery in 2026 | HealthCalc Blog',
   description:
     'Compare the best compression tights, socks, and gear for faster recovery. Reviews of 2XU MCS, CEP Compression Socks, Under Armour HeatGear, CW-X Stabilyx, and CompressionZ.',
   keywords:
     'best compression gear 2026, 2XU compression tights, CEP compression socks, Under Armour HeatGear, CW-X Stabilyx, compression leggings recovery',
   openGraph: {
-    title: 'Best Compression Gear for Recovery in 2026 | HealthCheck Blog',
+    title: 'Best Compression Gear for Recovery in 2026 | HealthCalc Blog',
     description:
       'Honest reviews of the best compression tights and socks for post-workout recovery.',
     type: 'article',
@@ -39,10 +39,10 @@ const jsonLd = {
     'Compare the best compression tights and socks for faster recovery between workouts.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-compression-gear-recovery',

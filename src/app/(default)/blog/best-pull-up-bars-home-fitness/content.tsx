@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCheck Blog',
+  title: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCalc Blog',
   description:
     'Compare the best pull-up bars for home workouts. Reviews of doorway, wall-mount, and freestanding options from Iron Gym, Yes4All, Sportsroyals, and more.',
   keywords:
     'best pull up bar 2026, doorway pull up bar, home pull up bar, wall mount pull up bar, power tower, home fitness equipment',
   openGraph: {
-    title: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCheck Blog',
+    title: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCalc Blog',
     description:
       'Compare the best pull-up bars for home workouts. Reviews of doorway, wall-mount, and freestanding options from Iron Gym, Yes4All, Sportsroyals, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCheck Blog',
+    title: 'Best Pull-Up Bars for Home Fitness in 2026 | HealthCalc Blog',
     description:
       'Compare the best pull-up bars for home workouts. Reviews of doorway, wall-mount, and freestanding options.',
     images: ['/images/blog/best-pull-up-bars-home-fitness.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',
