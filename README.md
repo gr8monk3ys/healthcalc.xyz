@@ -1,117 +1,54 @@
 # HealthCalc
 
 Free health and fitness calculators at [healthcalc.xyz](https://healthcalc.xyz): BMI, body fat,
-TDEE, calorie deficit, waist-to-hip ratio and sixty-odd more, plus a blog. Built with Next.js,
-TypeScript, and TailwindCSS.
+TDEE, calorie deficit, heart-rate zones and about sixty more, plus a blog. Next.js 16, React 19,
+TypeScript, Tailwind.
 
-![HealthCalc home page](public/images/dashboard.png)
+The engineering decision that matters: every calculator is a pure function in
+`src/utils/calculators/` with a colocated test file that asserts against hand-computed reference
+values, not against the function's own output. `src/utils/calculators/tdee.test.ts` is the model:
+each case writes out the Mifflin-St Jeor arithmetic (`(10 × 70) + (6.25 × 175) − (5 × 30) + 5 =
+1648.75`) and checks the result to one decimal place. `calculateBMR` and `calculateTDEE` from that
+module are the only BMR/TDEE implementations; calorie-deficit, weight-management and fat-loss
+calculators import them rather than re-deriving. 56 calculator test files, 1,949 unit tests, all
+run in CI alongside a Playwright smoke test that loads every calculator route from the catalog.
 
-## What it does
+![HealthCalc home page](docs/screenshot.png)
 
-- Over 60 calculators, listed in `src/constants/calculatorCatalog.ts` (the single source of truth
-  for routes, sitemap and hub pages). Calculations run client-side; each calculator also has a JSON
-  API route under `/api/<slug>`.
-- Saved results: stored in `localStorage` for anonymous visitors, synced to Postgres (via Supabase
-  auth with magic-link sign-in) when signed in.
-- Embeddable calculator widgets (`/api/embed/<calculator>`) and per-page OpenGraph images.
-- Newsletter and contact forms backed by Resend, with submissions persisted to Postgres or SQLite.
-- PWA manifest, offline page, dynamic sitemap, Schema.org structured data.
-- Locale-prefixed routes (`/es/...`, `/fr/...`, ...) exist but currently redirect to English;
-  translations are not shipped yet.
+## How it fits together
 
-## Tech stack
+- `src/constants/calculatorCatalog.ts` lists every calculator (slug, title, category, hub) and is
+  the single source for routes, hub pages and the generated `/sitemap.xml`.
+- Each calculator is `src/app/(default)/<slug>/` (client page + metadata layout) with a JSON API
+  mirror at `/api/<slug>`, and can be embedded via `/api/embed/<slug>`.
+- Results are saved to `localStorage`; signed-in users (Supabase magic link) sync them to Postgres
+  under row-level security.
+- `src/proxy.ts` handles canonical-host redirects, security headers, and sends any locale-prefixed
+  URL back to the English page. Only English ships.
 
-Next.js (App Router), React, TypeScript, TailwindCSS, Vitest, Playwright, Supabase, `pg` /
-`node:sqlite`, Sentry, Vercel Analytics.
+## Run
 
-## Getting started
-
-Prerequisites: [Bun](https://bun.sh) 1.2+ (package manager and runtime). Node.js 20.19+ is
-recommended for tooling compatibility.
+Requires [Bun](https://bun.sh) 1.2+.
 
 ```bash
-git clone https://github.com/gr8monk3ys/healthcalc.xyz.git
-cd healthcalc.xyz
 bun install
-cp .env.example .env.local   # optional: analytics, Sentry, Supabase, Resend, DB settings
-bun run dev                  # http://localhost:3000
+bun run dev          # http://localhost:3000
 ```
 
-Production build:
+The site runs with no environment variables. `.env.example` documents the optional ones
+(Supabase, Resend, Postgres, Sentry, analytics).
+
+## Test
 
 ```bash
-bun run build
-bun run start
+bun run validate            # prettier + eslint + tsc + vitest
+bun run test -- --run       # unit tests only
+bun run build && bun run start
+bun run smoke               # Playwright: every calculator route renders (needs `npx playwright install chromium`)
+bun run test:e2e            # full Playwright suite
 ```
 
-## Scripts
-
-| Command                     | What it does                                           |
-| --------------------------- | ------------------------------------------------------ |
-| `bun run dev`               | Development server on port 3000                        |
-| `bun run build`             | Production build                                       |
-| `bun run start`             | Serve the production build                             |
-| `bun run lint`              | ESLint (`--max-warnings 0`)                            |
-| `bun run format:check`      | Prettier check (`format` to write)                     |
-| `bun run type-check`        | `tsc --noEmit`                                         |
-| `bun run test -- --run`     | Vitest unit tests                                      |
-| `bun run test:e2e`          | Playwright end-to-end tests (`npx playwright install`) |
-| `bun run smoke`             | Playwright smoke tests for all calculator routes       |
-| `bun run validate`          | format:check + lint + type-check + test                |
-| `bun run create:calculator` | Scaffold a new calculator                              |
-
-## Configuration
-
-Everything is optional; the site runs with no environment variables. See `.env.example` for the
-full list.
-
-- **Submissions**: `SUBMISSIONS_DB_DRIVER=postgres` with `SUBMISSIONS_POSTGRES_URL` (or
-  `DATABASE_URL`) in production; `sqlite` for local development. `SUBMISSIONS_PERSISTENCE_STRICT`
-  and `SUBMISSIONS_RETENTION_DAYS` control failure handling and retention.
-- **Email (Resend)**: `RESEND_API_KEY`, `RESEND_AUDIENCE_ID` (newsletter), `RESEND_FROM_EMAIL`,
-  `CONTACT_EMAIL`.
-- **Auth and saved results**: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and
-  `SAVED_RESULTS_POSTGRES_URL`. Row Level Security keeps each user's rows private.
-- **Observability**: `NEXT_PUBLIC_GA_ID` ([setup guide](docs/google-analytics-setup.md)),
-  `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` ([setup guide](docs/sentry-setup.md)). Vercel Analytics
-  loads only after analytics consent. Without a browser Sentry DSN, client errors go to
-  `/api/client-errors` and the server log.
-- **Canonical host**: `NEXT_PUBLIC_CANONICAL_HOST` / `NEXT_PUBLIC_SITE_URL`; `src/proxy.ts`
-  redirects old hosts and normalises `www`.
-
-Vercel preview deployments only issue TLS certificates for the base preview host; do not add
-`www.` to a preview URL.
-
-## Project layout
-
-```
-src/
-├── app/(default)/       # English routes: calculators, blog, API, static pages
-├── app/(localized)/     # Locale-prefixed mirrors (redirect to English for now)
-├── components/          # UI primitives and per-calculator components
-├── constants/           # Calculator catalog, affiliates, per-calculator constants
-├── hooks/               # useCalculatorForm, useCalculatorUnits, saved results
-├── i18n/                # Messages and locale helpers
-├── lib/                 # blog registry, db layer, supabase clients
-├── utils/calculators/   # Pure calculation functions with tests
-└── proxy.ts             # Middleware: redirects, locale routing, security headers
-e2e/                     # Playwright specs
-docs/                    # Setup guides and partner notes
-supabase/, migrations/   # Database schema
-```
-
-See [CLAUDE.md](CLAUDE.md) for the architecture notes and the steps to add a calculator or blog
-post.
-
-## CI
-
-`.github/workflows/ci.yml` runs format, lint, type-check, unit tests, build, a server smoke check
-and the Playwright suite on every push and pull request. Security scanning (CodeQL, Semgrep,
-Trivy, OSV, gitleaks, TruffleHog) runs from the shared `org-*.yml` workflows.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+CI (`.github/workflows/ci.yml`) runs all of the above on every push and pull request.
 
 ## License
 
