@@ -22,7 +22,7 @@ export async function generateMetadata({
 
   if (!data) {
     return {
-      title: 'Body Fat Result Not Found | HealthCheck',
+      title: 'Body Fat Result Not Found | HealthCalc',
       robots: {
         index: false,
         follow: false,

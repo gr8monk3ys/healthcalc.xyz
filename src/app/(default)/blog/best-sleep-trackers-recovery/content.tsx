@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Sleep Trackers for Recovery in 2026 | HealthCheck Blog',
+  title: 'Best Sleep Trackers for Recovery in 2026 | HealthCalc Blog',
   description:
     'Compare the best sleep trackers for monitoring recovery, HRV, sleep stages, and sleep quality. Reviews of Oura Ring, Whoop, Fitbit Sense 2, Garmin Venu 3, and Amazfit GTR 4.',
   keywords:
     'best sleep tracker 2026, sleep tracking, Oura Ring Gen 3, Whoop 4.0, Fitbit Sense 2, Garmin Venu 3, Amazfit GTR 4, HRV tracking, sleep stages, recovery tracking, REM sleep, deep sleep',
   openGraph: {
-    title: 'Best Sleep Trackers for Recovery in 2026 | HealthCheck Blog',
+    title: 'Best Sleep Trackers for Recovery in 2026 | HealthCalc Blog',
     description:
       'Compare the best sleep trackers for monitoring recovery, HRV, sleep stages, and sleep quality. Reviews of Oura Ring, Whoop, Fitbit Sense 2, Garmin Venu 3, and Amazfit GTR 4.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Sleep Trackers for Recovery in 2026 | HealthCheck Blog',
+    title: 'Best Sleep Trackers for Recovery in 2026 | HealthCalc Blog',
     description:
       'Compare the best sleep trackers for monitoring recovery, HRV, sleep stages, and sleep quality. Reviews of Oura Ring, Whoop, Fitbit Sense 2, Garmin Venu 3, and Amazfit GTR 4.',
     images: ['/images/blog/best-sleep-trackers-recovery.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

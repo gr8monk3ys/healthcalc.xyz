@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'GLP-1 Weight Loss Calculator | HealthCheck',
+  title: 'GLP-1 Weight Loss Calculator | HealthCalc',
   description:
     'Calculate personalized nutrition targets while on GLP-1 medications like Ozempic, Wegovy, Mounjaro, or Zepbound. Get protein, calorie, and hydration recommendations.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'GLP-1 Weight Loss Calculator | HealthCheck',
+    title: 'GLP-1 Weight Loss Calculator | HealthCalc',
     description:
       'Calculate personalized nutrition targets while on GLP-1 medications like Ozempic, Wegovy, Mounjaro, or Zepbound.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GLP-1 Weight Loss Calculator | HealthCheck',
+    title: 'GLP-1 Weight Loss Calculator | HealthCalc',
     description: 'Calculate personalized nutrition targets while on GLP-1 medications.',
     images: ['/images/calculators/glp1-calculator.jpg'],
   },

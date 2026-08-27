@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       'Estimate body fat percentage with Navy, BMI, or manual inputs and see fat vs lean mass.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
     images: [
       {

@@ -21,7 +21,7 @@ Visit [Google Analytics](https://analytics.google.com/) and sign in with your Go
 1. Click **Admin** (gear icon) in the bottom left
 2. Under **Property** column, click **Create Property**
 3. Fill in property details:
-   - **Property name**: HealthCheck.info (or your site name)
+   - **Property name**: healthcalc.xyz (or your site name)
    - **Reporting time zone**: Select your timezone
    - **Currency**: Select your currency
 4. Click **Next**
@@ -39,7 +39,7 @@ Visit [Google Analytics](https://analytics.google.com/) and sign in with your Go
 1. Select **Web** as your platform
 2. Enter your website details:
    - **Website URL**: `https://www.healthcalc.xyz` (your actual domain)
-   - **Stream name**: HealthCheck.info Web
+   - **Stream name**: healthcalc.xyz Web
 3. _(Optional)_ Enable enhanced measurement for automatic event tracking:
    - Page views ✓
    - Scrolls ✓

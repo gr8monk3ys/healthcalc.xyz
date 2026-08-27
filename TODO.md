@@ -1,24 +1,8 @@
 # TODO
 
-> Last updated June 11, 2026. Snapshot of real, open work — completed items are
-> removed rather than archived here (git history has them). Keep counts out of
-> this file; they rot.
-
-## Security hardening
-
-- [ ] Move rate limiting to a shared store (Vercel KV / Upstash Redis). The
-      in-memory limiter in `src/utils/rateLimit.ts` is per-instance only and
-      resets on cold starts.
-- [ ] Tighten CSP: replace `script-src 'unsafe-inline'` with nonces or hashes
-      once analytics/AdSense snippets allow it (`src/proxy.ts`,
-      `next.config.js`).
-- [ ] Add `connectionTimeoutMillis` / `statement_timeout` to the Postgres pools
-      in `src/lib/db/` so slow queries fail before the serverless timeout.
-- [ ] Rotate or clear the `_hc_anon` saved-results cookie when a user
-      authenticates (session fixation hygiene).
-- [ ] Consider hashing subscriber emails stored locally in
-      `src/lib/db/submissions.ts` (GDPR data minimization); plaintext can stay
-      with the email provider.
+> Open nice-to-haves. Completed items are removed rather than archived here
+> (git history has them). Security and infrastructure work is tracked as
+> GitHub issues, not in this file.
 
 ## Code quality
 
@@ -51,5 +35,3 @@
 
 - [ ] Configure `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` in Vercel
       for sourcemap upload and release tracking.
-- [ ] Verify Supabase RLS policies on `user_saved_results` match the
-      application-layer `user_id` filtering (defense in depth).

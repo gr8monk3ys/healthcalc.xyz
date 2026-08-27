@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Age Calculator | HealthCheck',
+  title: 'Age Calculator | HealthCalc',
   description: 'Calculate your exact age in years, months, and days.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Age Calculator | HealthCheck',
+    title: 'Age Calculator | HealthCalc',
     description: 'Calculate your exact age in years, months, and days.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Age Calculator | HealthCheck',
+    title: 'Age Calculator | HealthCalc',
     description: 'Calculate your exact age in years, months, and days.',
     images: ['/images/calculators/age-calculator.jpg'],
   },

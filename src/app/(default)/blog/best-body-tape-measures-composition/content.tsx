@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Body Tape Measures for Tracking Body Composition in 2026 | HealthCheck Blog',
+  title: 'Best Body Tape Measures for Tracking Body Composition in 2026 | HealthCalc Blog',
   description:
     'Find the best body tape measures for tracking waist, hips, and body composition. Reviews of MyoTape, RENPHO Smart, and more for accurate WHR and body fat measurements.',
   keywords:
     'best body tape measure 2026, body measuring tape, waist measurement tape, RENPHO smart tape measure, MyoTape, body composition tracking, WHR measurement, waist-to-hip ratio',
   openGraph: {
-    title: 'Best Body Tape Measures for Tracking Body Composition in 2026 | HealthCheck Blog',
+    title: 'Best Body Tape Measures for Tracking Body Composition in 2026 | HealthCalc Blog',
     description: 'Find the best body tape measures for accurate WHR and body fat tracking.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/best-body-tape-measures-composition',
@@ -38,10 +38,10 @@ const jsonLd = {
   description: 'Find the best body tape measures for accurate body composition tracking.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-body-tape-measures-composition',

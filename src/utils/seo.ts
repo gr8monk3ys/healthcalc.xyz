@@ -274,7 +274,7 @@ export function generateArticleData(article: {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'HealthCheck',
+      name: 'HealthCalc',
       logo: {
         '@type': 'ImageObject',
         url: toAbsoluteUrl('/icons/icon-512x512.png'),

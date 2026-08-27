@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'ABSI Calculator | A Body Shape Index Calculator',
     description: 'Calculate ABSI to assess body-shape risk using waist circumference and height.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
     images: [
       {

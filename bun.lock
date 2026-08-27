@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "healthcheck",
+      "name": "healthcalc",
       "dependencies": {
         "@radix-ui/react-radio-group": "^1.4.0",
         "@sentry/nextjs": "^10.57.0",

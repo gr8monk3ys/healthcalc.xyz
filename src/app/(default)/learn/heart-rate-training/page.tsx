@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Heart Rate Training | HealthCheck',
+  title: 'Heart Rate Training | HealthCalc',
   description: 'Use max heart rate, target zones, and resting heart rate to guide training.',
 };
 

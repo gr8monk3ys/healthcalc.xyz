@@ -231,7 +231,7 @@ describe('generateArticleData', () => {
     description: 'A guide to BMI calculation',
     url: 'https://www.healthcalc.xyz/blog/bmi-guide',
     datePublished: '2024-01-15',
-    authorName: 'HealthCheck Team',
+    authorName: 'HealthCalc Team',
   };
 
   it('should create valid Article schema', () => {
@@ -264,7 +264,7 @@ describe('generateArticleData', () => {
   it('should include publisher info', () => {
     const result = generateArticleData(article);
     const publisher = result.publisher as { name: string };
-    expect(publisher.name).toBe('HealthCheck');
+    expect(publisher.name).toBe('HealthCalc');
   });
 });
 

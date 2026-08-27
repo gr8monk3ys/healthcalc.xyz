@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCheck Blog',
+  title: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCalc Blog',
   description:
     'Compare top meal delivery services for weight loss and calorie control. Reviews of Factor, HelloFresh, Trifecta, and more calorie-smart meal plans.',
   keywords:
     'meal delivery weight loss, Factor meals, HelloFresh calorie smart, Trifecta nutrition, best diet meal delivery 2026, calorie controlled meals, macro friendly meals',
   openGraph: {
-    title: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCalc Blog',
     description:
       'Compare top meal delivery services for weight loss and calorie control. Reviews of Factor, HelloFresh, Trifecta, and more calorie-smart meal plans.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Meal Delivery Services for Weight Loss in 2026 | HealthCalc Blog',
     description:
       'Compare top meal delivery services for weight loss and calorie control. Reviews of Factor, HelloFresh, Trifecta, and more calorie-smart meal plans.',
     images: ['/images/blog/meal-delivery-services-weight-loss.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-02',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

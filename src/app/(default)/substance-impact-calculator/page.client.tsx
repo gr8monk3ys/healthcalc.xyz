@@ -367,7 +367,7 @@ function renderSubstanceImpactCalculatorView({
       title="Alcohol & Smoking Impact Calculator"
       description="Calculate the health, financial, and lifespan impact of alcohol and tobacco use. See how much quitting could save you in years and dollars."
       calculatorSlug="substance-impact-calculator"
-      shareTitle="Alcohol & Smoking Impact Calculator | HealthCheck"
+      shareTitle="Alcohol & Smoking Impact Calculator | HealthCalc"
       shareDescription="Calculate the health, financial, and lifespan impact of alcohol and tobacco use."
       shareHashtags={['health', 'quitsmoking', 'alcohol', 'wellness']}
       relatedArticles={blogArticles}

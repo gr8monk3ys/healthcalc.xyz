@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCheck Blog',
+  title: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCalc Blog',
   description:
     'Compare the best kettlebells for home workouts, swings, and strength training. Reviews of Kettlebell Kings, CAP Barbell, Rogue, and more.',
   keywords:
     'best kettlebell 2026, kettlebell workouts, Kettlebell Kings, CAP Barbell, Rogue kettlebell, cast iron kettlebell, home gym kettlebell',
   openGraph: {
-    title: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCheck Blog',
+    title: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCalc Blog',
     description:
       'Compare the best kettlebells for home workouts, swings, and strength training. Reviews of Kettlebell Kings, CAP Barbell, Rogue, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCheck Blog',
+    title: 'Best Kettlebells for Full-Body Workouts in 2026 | HealthCalc Blog',
     description: 'Compare the best kettlebells for home workouts, swings, and strength training.',
     images: ['/images/blog/best-kettlebells-full-body-workouts.jpg'],
   },
@@ -41,12 +41,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

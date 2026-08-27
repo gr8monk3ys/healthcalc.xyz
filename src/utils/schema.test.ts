@@ -13,7 +13,7 @@ describe('createOrganizationSchema', () => {
     const schema = createOrganizationSchema();
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Organization');
-    expect(schema.name).toBe('HealthCheck');
+    expect(schema.name).toBe('HealthCalc');
     expect(schema.url).toBe('https://www.healthcalc.xyz');
   });
 
@@ -43,7 +43,7 @@ describe('createWebsiteSchema', () => {
     const schema = createWebsiteSchema();
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('WebSite');
-    expect(schema.name).toBe('HealthCheck');
+    expect(schema.name).toBe('HealthCalc');
     expect(schema.url).toBe('https://www.healthcalc.xyz');
   });
 
@@ -138,7 +138,7 @@ describe('createArticleSchema', () => {
     description: 'A guide to Body Mass Index',
     url: 'https://www.healthcalc.xyz/blog/understanding-bmi',
     datePublished: '2024-01-15',
-    authorName: 'HealthCheck Team',
+    authorName: 'HealthCalc Team',
   };
 
   it('should create valid Article schema', () => {
@@ -173,7 +173,7 @@ describe('createArticleSchema', () => {
     const schema = createArticleSchema(baseArticle);
     const author = schema.author as { '@type': string; name: string };
     expect(author['@type']).toBe('Person');
-    expect(author.name).toBe('HealthCheck Team');
+    expect(author.name).toBe('HealthCalc Team');
   });
 
   it('should include publisher with logo', () => {
@@ -184,7 +184,7 @@ describe('createArticleSchema', () => {
       logo: { '@type': string; url: string };
     };
     expect(publisher['@type']).toBe('Organization');
-    expect(publisher.name).toBe('HealthCheck');
+    expect(publisher.name).toBe('HealthCalc');
     expect(publisher.logo.url).toContain('icon-512x512.png');
   });
 

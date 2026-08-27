@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Health Guides | HealthCheck',
+  title: 'Health Guides | HealthCalc',
   description: 'Quick guides that explain key health metrics and link to the right calculators.',
 };
 

@@ -1,268 +1,118 @@
-# HealthCheck
+# HealthCalc
 
-HealthCheck is a comprehensive health and fitness calculator web application built with Next.js, TypeScript, and TailwindCSS. It features a modern neumorphic design and provides a variety of calculators to help users track and understand their health metrics.
+Free health and fitness calculators at [healthcalc.xyz](https://healthcalc.xyz): BMI, body fat,
+TDEE, calorie deficit, waist-to-hip ratio and sixty-odd more, plus a blog. Built with Next.js,
+TypeScript, and TailwindCSS.
 
-![HealthCheck Screenshot](public/images/dashboard.png)
+![HealthCalc home page](public/images/dashboard.png)
 
-## Features
+## What it does
 
-- **Multiple Health Calculators:**
-  - BMI Calculator (for adults and children)
-  - Body Fat Calculator
-  - Body Fat Burn Calculator
-  - TDEE (Total Daily Energy Expenditure) Calculator
-  - Calorie Deficit Calculator
-  - Weight Management Planner
-  - Maximum Fat Loss Calculator
-  - ABSI (A Body Shape Index) Calculator
-  - Waist-to-Hip Ratio (WHR) Calculator
-  - Measurement Conversions
+- Over 60 calculators, listed in `src/constants/calculatorCatalog.ts` (the single source of truth
+  for routes, sitemap and hub pages). Calculations run client-side; each calculator also has a JSON
+  API route under `/api/<slug>`.
+- Saved results: stored in `localStorage` for anonymous visitors, synced to Postgres (via Supabase
+  auth with magic-link sign-in) when signed in.
+- Embeddable calculator widgets (`/api/embed/<calculator>`) and per-page OpenGraph images.
+- Newsletter and contact forms backed by Resend, with submissions persisted to Postgres or SQLite.
+- PWA manifest, offline page, dynamic sitemap, Schema.org structured data.
+- Locale-prefixed routes (`/es/...`, `/fr/...`, ...) exist but currently redirect to English;
+  translations are not shipped yet.
 
-- **Modern UI/UX:**
-  - Neumorphic design elements
-  - Responsive layout for all devices
-  - Interactive components with real-time calculations
-  - Smooth animations and transitions
+## Tech stack
 
-- **Technical Features:**
-  - Server-side rendering with Next.js
-  - Type-safe code with TypeScript
-  - Responsive styling with TailwindCSS
-  - Progressive Web App (PWA) capabilities
-  - SEO optimized with metadata
-  - Accessibility focused
-  - Multi-language support (`en`, `es`, `fr`, `de`, `pt`, `zh`) with locale routing
+Next.js (App Router), React, TypeScript, TailwindCSS, Vitest, Playwright, Supabase, `pg` /
+`node:sqlite`, Sentry, Vercel Analytics.
 
-## Tech Stack
+## Getting started
 
-- **Frontend:**
-  - [Next.js](https://nextjs.org/) - React framework for server-side rendering
-  - [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-  - [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
-  - [React](https://reactjs.org/) - UI library
+Prerequisites: [Bun](https://bun.sh) 1.2+ (package manager and runtime). Node.js 20.19+ is
+recommended for tooling compatibility.
 
-- **Development Tools:**
-  - [ESLint](https://eslint.org/) - Code linting
-  - [Prettier](https://prettier.io/) - Code formatting
+```bash
+git clone https://github.com/gr8monk3ys/healthcalc.xyz.git
+cd healthcalc.xyz
+bun install
+cp .env.example .env.local   # optional: analytics, Sentry, Supabase, Resend, DB settings
+bun run dev                  # http://localhost:3000
+```
 
-## Getting Started
-
-### Prerequisites
-
-- Bun 1.2+ (primary package manager/runtime for this repo)
-- Node.js 20.19+ recommended for local tooling compatibility
-
-### Vercel Preview Domains (Important)
-
-Vercel preview deployments only issue TLS certificates for the base preview host. Do **not** use a
-`www.` subdomain on preview URLs or you will see `ERR_CERT_COMMON_NAME_INVALID`. Use the base URL
-Vercel provides (for example, `https://your-project.vercel.app`) instead.
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/gr8monk3ys/healthcalc.xyz.git
-   cd healthcalc.xyz
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   bun install
-   ```
-
-3. Run the development server:
-
-   ```bash
-   bun run dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
-### Building for Production
+Production build:
 
 ```bash
 bun run build
-```
-
-To start the production server:
-
-```bash
 bun run start
 ```
 
-## Available Scripts
+## Scripts
 
-In addition to the standard Next.js scripts, this project includes several helpful commands:
+| Command                     | What it does                                           |
+| --------------------------- | ------------------------------------------------------ |
+| `bun run dev`               | Development server on port 3000                        |
+| `bun run build`             | Production build                                       |
+| `bun run start`             | Serve the production build                             |
+| `bun run lint`              | ESLint (`--max-warnings 0`)                            |
+| `bun run format:check`      | Prettier check (`format` to write)                     |
+| `bun run type-check`        | `tsc --noEmit`                                         |
+| `bun run test -- --run`     | Vitest unit tests                                      |
+| `bun run test:e2e`          | Playwright end-to-end tests (`npx playwright install`) |
+| `bun run smoke`             | Playwright smoke tests for all calculator routes       |
+| `bun run validate`          | format:check + lint + type-check + test                |
+| `bun run create:calculator` | Scaffold a new calculator                              |
 
-### Development
+## Configuration
 
-- `bun run dev` - Start development server on [http://localhost:3000](http://localhost:3000)
-- `bun run build` - Build a production bundle
-- `bun run start` - Start the production server
+Everything is optional; the site runs with no environment variables. See `.env.example` for the
+full list.
 
-### Code Quality
+- **Submissions**: `SUBMISSIONS_DB_DRIVER=postgres` with `SUBMISSIONS_POSTGRES_URL` (or
+  `DATABASE_URL`) in production; `sqlite` for local development. `SUBMISSIONS_PERSISTENCE_STRICT`
+  and `SUBMISSIONS_RETENTION_DAYS` control failure handling and retention.
+- **Email (Resend)**: `RESEND_API_KEY`, `RESEND_AUDIENCE_ID` (newsletter), `RESEND_FROM_EMAIL`,
+  `CONTACT_EMAIL`.
+- **Auth and saved results**: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and
+  `SAVED_RESULTS_POSTGRES_URL`. Row Level Security keeps each user's rows private.
+- **Observability**: `NEXT_PUBLIC_GA_ID` ([setup guide](docs/google-analytics-setup.md)),
+  `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` ([setup guide](docs/sentry-setup.md)). Vercel Analytics
+  loads only after analytics consent. Without a browser Sentry DSN, client errors go to
+  `/api/client-errors` and the server log.
+- **Canonical host**: `NEXT_PUBLIC_CANONICAL_HOST` / `NEXT_PUBLIC_SITE_URL`; `src/proxy.ts`
+  redirects old hosts and normalises `www`.
 
-- `bun run lint` - Run ESLint with zero warnings allowed
-- `bun run lint:fix` - Automatically fix ESLint issues where possible
-- `bun run format` - Format the repo with Prettier
-- `bun run format:check` - Verify formatting across tracked source/docs
-- `bun run type-check` - Run the TypeScript compiler
-- `bun run test -- --run` - Run the Vitest suite once
-- `bun run validate` - Run formatting, lint, type-check, and tests
-- `bun run smoke` - Run Playwright smoke coverage for core routes
+Vercel preview deployments only issue TLS certificates for the base preview host; do not add
+`www.` to a preview URL.
 
-### Maintenance
-
-- `bun run clean` - Remove build artifacts (`.next`, `out`, cache)
-- `npm run audit:fix` - Apply `npm audit fix`
-- `npm run update` - Update npm dependencies using the current lockfile strategy
-
-### CI and Automation
-
-- GitHub Actions are pinned by SHA for `actions/checkout` and `actions/upload-artifact`.
-- Repository security scanning uses GitHub default CodeQL at the repo level; `org-codeql.yml` is intentionally a non-uploading placeholder to avoid duplicate SARIF uploads.
-- `org-osv.yml` uses the root `google/osv-scanner-action`.
-- Dependabot ignores `eslint` semver-major updates until the current Next.js/React lint stack is compatible with ESLint 10.
-- Pre-commit runs a repo-wide Prettier check plus standard file hygiene hooks.
-
-### Submission Persistence
-
-- Use `SUBMISSIONS_DB_DRIVER=postgres` in production with `SUBMISSIONS_POSTGRES_URL` (or `DATABASE_URL`) for durable managed storage.
-- Use `SUBMISSIONS_DB_DRIVER=sqlite` for local/dev persistence.
-- Optional controls:
-  - `SUBMISSIONS_PERSISTENCE_STRICT=true` to fail API responses when persistence fails.
-  - `SUBMISSIONS_RETENTION_DAYS=365` for automatic retention cleanup.
-
-### Email Providers (Resend)
-
-- Newsletter with Resend requires `RESEND_API_KEY` and `RESEND_AUDIENCE_ID`.
-- Contact form with Resend requires `RESEND_API_KEY`.
-- Optional:
-  - `RESEND_FROM_EMAIL` to override the default sender for contact emails.
-  - `CONTACT_EMAIL` to set recipient inbox for contact messages.
-
-### Observability
-
-- Vercel Analytics is built in and only loads after analytics consent.
-- Add `NEXT_PUBLIC_GA_ID` if you also want Google Analytics.
-- Add `NEXT_PUBLIC_SENTRY_DSN` for browser-side Sentry and optional `SENTRY_DSN` for server-only Sentry.
-- If no browser Sentry DSN is configured, client errors fall back to the internal `/api/client-errors` endpoint and are written to server logs.
-
-### Authentication (Clerk)
-
-- Clerk is enabled only when both `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` are set.
-- In production (`NODE_ENV=production`), test keys (`pk_test_*`, `sk_test_*`) are automatically rejected.
-- If Clerk is misconfigured in production, sign-in/up routes show a safe unavailable state instead of loading with invalid keys.
-
-### Multilingual Support
-
-- Supported locales: `en` (default), `es`, `fr`, `de`, `pt`, `zh`.
-- Localized routes work with path prefixes such as `/es/bmi`, `/fr/blog`, `/de/calculators`.
-- Locale preference is persisted in a first-party cookie (`hc_locale`) and applied automatically across the site.
-- Non-localized paths redirect to the saved locale (for example, users on Spanish stay on `/es/...` routes).
-- A global language switcher is available in the site header for desktop and mobile navigation.
-
-### Affiliate Link Hardening
-
-- `prebuild` runs `scripts/check-affiliate-links.js` to warn when placeholder partner links remain.
-- Set `AFFILIATE_LINKS_STRICT=true` in CI if you want builds to fail when unresolved partner-link placeholders are detected.
-
-### Recommended Workflow
-
-Before committing changes:
-
-```bash
-bun run format:check
-bun run lint
-bun run type-check
-bun run test -- --run
-bun run build
-```
-
-## Project Structure
+## Project layout
 
 ```
-healthcheck/
-├── public/              # Static assets
-├── src/
-│   ├── app/             # Next.js App Router pages
-│   │   ├── api/         # API routes and calculation functions
-│   │   ├── bmi/         # BMI calculator page
-│   │   ├── body-fat/    # Body fat calculator page
-│   │   └── ...          # Other calculator pages
-│   ├── components/      # Reusable React components
-│   │   ├── ui/          # UI components (buttons, cards, etc.)
-│   │   └── ...          # Other components
-│   ├── constants/       # Constants and configuration
-│   ├── hooks/           # Custom React hooks
-│   ├── styles/          # Global styles
-│   ├── types/           # TypeScript type definitions
-│   └── utils/           # Utility functions
-├── .eslintrc.json       # ESLint configuration
-├── .gitignore           # Git ignore file
-├── next.config.js       # Next.js configuration
-├── package.json         # Project dependencies
-├── postcss.config.js    # PostCSS configuration
-├── tailwind.config.js   # Tailwind CSS configuration
-└── tsconfig.json        # TypeScript configuration
+src/
+├── app/(default)/       # English routes: calculators, blog, API, static pages
+├── app/(localized)/     # Locale-prefixed mirrors (redirect to English for now)
+├── components/          # UI primitives and per-calculator components
+├── constants/           # Calculator catalog, affiliates, per-calculator constants
+├── hooks/               # useCalculatorForm, useCalculatorUnits, saved results
+├── i18n/                # Messages and locale helpers
+├── lib/                 # blog registry, db layer, supabase clients
+├── utils/calculators/   # Pure calculation functions with tests
+└── proxy.ts             # Middleware: redirects, locale routing, security headers
+e2e/                     # Playwright specs
+docs/                    # Setup guides and partner notes
+supabase/, migrations/   # Database schema
 ```
 
-## Calculator Descriptions
+See [CLAUDE.md](CLAUDE.md) for the architecture notes and the steps to add a calculator or blog
+post.
 
-### BMI Calculator
+## CI
 
-Calculate your Body Mass Index (BMI) and find your healthy weight range based on your height. Includes special calculations for children and teens using age and gender-specific percentiles.
-
-### Body Fat Calculator
-
-Estimate your body fat percentage using various methods including Navy method, skinfold measurements, and more.
-
-### Body Fat Burn Calculator
-
-Calculate how much body fat you can burn through various physical activities based on your personal metrics, activity type, duration, and frequency.
-
-### TDEE Calculator
-
-Calculate your Total Daily Energy Expenditure (TDEE) to determine your daily calorie needs based on your activity level.
-
-### Calorie Deficit Calculator
-
-Discover how long it will take to reach your goal weight with different calorie deficit levels.
-
-### Weight Management Planner
-
-Plan your weight loss or gain journey with a target date and get daily calorie recommendations.
-
-### Maximum Fat Loss Calculator
-
-Find the optimal calorie intake that maximizes fat loss while minimizing muscle loss.
-
-### ABSI Calculator
-
-Calculate your A Body Shape Index (ABSI) to assess health risks related to body shape and waist circumference.
-
-### Waist-to-Hip Ratio Calculator
-
-Determine your waist-to-hip ratio to assess health risks associated with abdominal fat.
-
-### Measurement Conversions
-
-Convert between different units of measurement for weight, height, volume, and more.
+`.github/workflows/ci.yml` runs format, lint, type-check, unit tests, build, a server smoke check
+and the Playwright suite on every push and pull request. Security scanning (CodeQL, Semgrep,
+Trivy, OSV, gitleaks, TruffleHog) runs from the shared `org-*.yml` workflows.
 
 ## Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, and contribute to the project.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This project is proprietary and confidential. Unauthorized copying, distribution, or use is strictly prohibited.
-
-## Acknowledgements
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [TailwindCSS Documentation](https://tailwindcss.com/docs)
-- [Neumorphism UI Design](https://neumorphism.io/)
-- Health calculation formulas from various scientific sources (referenced in the code)
+[GPL-3.0](LICENSE).

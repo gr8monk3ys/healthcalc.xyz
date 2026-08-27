@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Treadmills for Home Weight Loss in 2026 | HealthCheck Blog',
+  title: 'Best Treadmills for Home Weight Loss in 2026 | HealthCalc Blog',
   description:
     'Honest reviews of the best home treadmills for weight loss. Compare NordicTrack Commercial 1750, Sole F80, ProForm Pro 2000, Horizon 7.0 AT, and budget options.',
   keywords:
     'best treadmills 2026, home treadmills weight loss, NordicTrack Commercial 1750, Sole F80, ProForm Pro 2000, Horizon 7.0 AT, budget treadmills',
   openGraph: {
-    title: 'Best Treadmills for Home Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Treadmills for Home Weight Loss in 2026 | HealthCalc Blog',
     description: 'Honest reviews of the best home treadmills for weight loss and cardio training.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/best-treadmills-home-weight-loss',
@@ -38,10 +38,10 @@ const jsonLd = {
     'Compare the best home treadmills for weight loss and cardio training with honest reviews.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-treadmills-home-weight-loss',

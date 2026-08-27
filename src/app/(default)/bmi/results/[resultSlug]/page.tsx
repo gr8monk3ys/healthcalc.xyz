@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: BmiProgrammaticPageProps): Pr
 
   if (!data) {
     return {
-      title: 'BMI Result Not Found | HealthCheck',
+      title: 'BMI Result Not Found | HealthCalc',
       robots: {
         index: false,
         follow: false,

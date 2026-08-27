@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Pregnancy Due Date Calculator | HealthCheck',
+  title: 'Pregnancy Due Date Calculator | HealthCalc',
   description:
     'Estimate your pregnancy due date based on last menstrual period or conception date.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Pregnancy Due Date Calculator | HealthCheck',
+    title: 'Pregnancy Due Date Calculator | HealthCalc',
     description:
       'Estimate your pregnancy due date based on last menstrual period or conception date.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pregnancy Due Date Calculator | HealthCheck',
+    title: 'Pregnancy Due Date Calculator | HealthCalc',
     description:
       'Estimate your pregnancy due date based on last menstrual period or conception date.',
     images: ['/images/calculators/pregnancy-due-date-calculator.jpg'],

@@ -1,6 +1,6 @@
 # Sentry Error Monitoring Setup Guide
 
-This guide will help you set up Sentry error monitoring for HealthCheck.
+This guide will help you set up Sentry error monitoring for HealthCalc.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Click the button and check your Sentry dashboard - you should see the error with
 
 1. Go to Sentry Settings > Account > API > Auth Tokens
 2. Click "Create New Token"
-3. Give it a name (e.g., "HealthCheck Production")
+3. Give it a name (e.g., "HealthCalc Production")
 4. Select scopes:
    - `project:read`
    - `project:releases`

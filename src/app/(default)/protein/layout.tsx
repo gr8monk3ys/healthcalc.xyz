@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Protein Intake Calculator | Daily Protein Needs | HealthCheck',
+  title: 'Protein Intake Calculator | Daily Protein Needs | HealthCalc',
   description:
     'Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Get personalized recommendations for muscle building, weight loss, or general health.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Protein Intake Calculator | Daily Protein Needs | HealthCheck',
+    title: 'Protein Intake Calculator | Daily Protein Needs | HealthCalc',
     description:
       'Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Free calculator with science-backed recommendations.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Protein Intake Calculator | Daily Protein Needs | HealthCheck',
+    title: 'Protein Intake Calculator | Daily Protein Needs | HealthCalc',
     description:
       'Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Free calculator with personalized recommendations.',
     images: ['/images/calculators/protein-calculator.jpg'],

@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Cardio vs Weights for Fat Loss: What Science Actually Says | HealthCheck',
+  title: 'Cardio vs Weights for Fat Loss: What Science Actually Says | HealthCalc',
   description:
     'The truth about cardio versus resistance training for fat loss. Learn what research shows about EPOC, muscle mass, and metabolism - plus practical training splits that work.',
   keywords:
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       'The truth about cardio versus resistance training for fat loss. Learn what research shows about EPOC, muscle mass, and metabolism.',
     type: 'article',
     publishedTime: '2026-02-08T00:00:00Z',
-    authors: ['HealthCheck Team'],
+    authors: ['HealthCalc Team'],
     images: [
       {
         url: '/images/blog/cardio-vs-weights-fat-loss.jpg',
@@ -45,11 +45,11 @@ const structuredData = {
   dateModified: '2026-02-08T00:00:00Z',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck Team',
+    name: 'HealthCalc Team',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: '/logo.png',
@@ -57,7 +57,7 @@ const structuredData = {
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://healthcheck.info/blog/cardio-vs-weights-fat-loss',
+    '@id': 'https://healthcalc.xyz/blog/cardio-vs-weights-fat-loss',
   },
 };
 

@@ -605,7 +605,7 @@ export function buildSharedResultSummary(payload: SharedResultPayload): SharedRe
         title: 'Shared result',
         description: 'Shared calculator result',
         primaryValue: 'Result',
-        secondaryValue: 'HealthCheck',
+        secondaryValue: 'HealthCalc',
         detail: 'healthcalc.xyz',
         accentColor: '#4F46E5',
       };

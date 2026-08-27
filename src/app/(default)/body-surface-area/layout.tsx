@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Body Surface Area Calculator | HealthCheck',
+  title: 'Body Surface Area Calculator | HealthCalc',
   description: 'Calculate body surface area using height and weight.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Body Surface Area Calculator | HealthCheck',
+    title: 'Body Surface Area Calculator | HealthCalc',
     description: 'Calculate body surface area using height and weight.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Body Surface Area Calculator | HealthCheck',
+    title: 'Body Surface Area Calculator | HealthCalc',
     description: 'Calculate body surface area using height and weight.',
     images: ['/images/calculators/body-surface-area-calculator.jpg'],
   },

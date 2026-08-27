@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Home Gym Equipment for Beginners in 2026 | HealthCheck Blog',
+  title: 'Best Home Gym Equipment for Beginners in 2026 | HealthCalc Blog',
   description:
     'Discover the best home gym equipment for beginners in 2026. Reviews of resistance bands, yoga mats, adjustable dumbbells, pull-up bars, kettlebells, and jump ropes to build your first home gym.',
   keywords:
     'home gym equipment, beginner home gym, resistance bands, yoga mat, adjustable dumbbells, pull-up bar, kettlebell, jump rope, best home gym 2026, budget home gym',
   openGraph: {
-    title: 'Best Home Gym Equipment for Beginners in 2026 | HealthCheck Blog',
+    title: 'Best Home Gym Equipment for Beginners in 2026 | HealthCalc Blog',
     description:
       'Discover the best home gym equipment for beginners in 2026. Reviews of resistance bands, yoga mats, adjustable dumbbells, pull-up bars, kettlebells, and jump ropes to build your first home gym.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Home Gym Equipment for Beginners in 2026 | HealthCheck Blog',
+    title: 'Best Home Gym Equipment for Beginners in 2026 | HealthCalc Blog',
     description:
       'Discover the best home gym equipment for beginners in 2026. Reviews of resistance bands, yoga mats, adjustable dumbbells, pull-up bars, kettlebells, and jump ropes to build your first home gym.',
     images: ['/images/blog/best-home-gym-equipment-beginners.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

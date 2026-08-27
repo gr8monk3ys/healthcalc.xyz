@@ -7,13 +7,13 @@ import RelatedGuides from '@/components/RelatedGuides';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCheck Blog',
+  title: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCalc Blog',
   description:
     'Learn realistic muscle gain rates based on the Alan Aragon model. Understand why newbie gains are real and what to expect as you advance.',
   keywords:
     'muscle building, muscle gain rate, Alan Aragon model, newbie gains, progressive overload, muscle growth timeline, hypertrophy, natural muscle building',
   openGraph: {
-    title: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCheck Blog',
+    title: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCalc Blog',
     description:
       'Learn realistic muscle gain rates based on the Alan Aragon model. Understand why newbie gains are real and what to expect as you advance.',
     type: 'article',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCheck Blog',
+    title: 'How Fast Can You Build Muscle? Realistic Expectations | HealthCalc Blog',
     description:
       'Learn realistic muscle gain rates based on the Alan Aragon model. Understand why newbie gains are real and what to expect as you advance.',
     images: ['/images/blog/how-fast-can-you-build-muscle.jpg'],
@@ -45,12 +45,12 @@ const articleSchema = {
   image: 'https://www.healthcalc.xyz/images/blog/how-fast-can-you-build-muscle.jpg',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/icon-512x512.png',
@@ -650,7 +650,7 @@ const HowFastCanYouBuildMusclePageContent = (
             Tools to Support Your Muscle Building Journey
           </h3>
           <p className="mb-4">
-            HealthCheck offers several calculators to help you set realistic targets and track
+            HealthCalc offers several calculators to help you set realistic targets and track
             progress:
           </p>
           <ul className="list-disc list-inside space-y-2">

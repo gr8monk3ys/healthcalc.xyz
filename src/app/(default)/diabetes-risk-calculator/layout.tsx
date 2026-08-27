@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Diabetes Risk Calculator | HealthCheck',
+  title: 'Diabetes Risk Calculator | HealthCalc',
   description:
     'Assess your Type 2 diabetes risk using an ADA-based scoring system. Includes A1C to estimated average glucose converter, risk factor analysis, and personalized recommendations.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Diabetes Risk Calculator | HealthCheck',
+    title: 'Diabetes Risk Calculator | HealthCalc',
     description:
       'Assess your Type 2 diabetes risk using an ADA-based scoring system. Includes A1C to estimated average glucose converter, risk factor analysis, and personalized recommendations.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Diabetes Risk Calculator | HealthCheck',
+    title: 'Diabetes Risk Calculator | HealthCalc',
     description:
       'Assess your Type 2 diabetes risk using an ADA-based scoring system with A1C converter and personalized recommendations.',
     images: ['/images/calculators/diabetes-risk-calculator.jpg'],

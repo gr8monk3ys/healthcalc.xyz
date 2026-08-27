@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Lean Body Mass Calculator | HealthCheck',
+  title: 'Lean Body Mass Calculator | HealthCalc',
   description: 'Estimate lean body mass using weight, height, and sex.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Lean Body Mass Calculator | HealthCheck',
+    title: 'Lean Body Mass Calculator | HealthCalc',
     description: 'Estimate lean body mass using weight, height, and sex.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lean Body Mass Calculator | HealthCheck',
+    title: 'Lean Body Mass Calculator | HealthCalc',
     description: 'Estimate lean body mass using weight, height, and sex.',
     images: ['/images/calculators/lean-body-mass-calculator.jpg'],
   },

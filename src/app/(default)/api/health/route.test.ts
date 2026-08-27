@@ -3,7 +3,7 @@
  */
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-async function runHealthCheck() {
+async function runHealthCalc() {
   vi.resetModules();
   const route = await import('./route');
   return route.GET();
@@ -27,7 +27,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY', '');
     vi.stubEnv('CLERK_SECRET_KEY', '');
 
-    const response = await runHealthCheck();
+    const response = await runHealthCalc();
     const body = await response.json();
 
     expect(response.status).toBe(200);
@@ -49,7 +49,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('CONVERTKIT_API_KEY', '');
     vi.stubEnv('CONVERTKIT_FORM_ID', '');
 
-    const response = await runHealthCheck();
+    const response = await runHealthCalc();
     const body = await response.json();
 
     expect(response.status).toBe(503);
@@ -66,7 +66,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('RESEND_API_KEY', 're_test_123');
     vi.stubEnv('RESEND_AUDIENCE_ID', 'aud_123');
 
-    const response = await runHealthCheck();
+    const response = await runHealthCalc();
     const body = await response.json();
 
     expect(response.status).toBe(200);
@@ -78,7 +78,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('SUBMISSIONS_DB_DRIVER', 'postgres');
     vi.stubEnv('DATABASE_URL', 'postgres://user:pass@localhost:5432/db');
 
-    const response = await runHealthCheck();
+    const response = await runHealthCalc();
     const body = await response.json();
 
     expect(body.checks).toBeUndefined();
@@ -89,9 +89,9 @@ describe('GET /api/health', () => {
   it('treats Vercel Analytics as a valid analytics provider', async () => {
     vi.stubEnv('VERCEL_ENV', 'production');
     vi.resetModules();
-    const { createHealthChecks, createWarnings } = await import('@/lib/health');
+    const { createHealthCalcs, createWarnings } = await import('@/lib/health');
 
-    const checks = createHealthChecks();
+    const checks = createHealthCalcs();
 
     expect(checks.analyticsConfigured).toBe(true);
     expect(createWarnings(checks)).not.toContain('No analytics provider is configured.');
@@ -100,9 +100,9 @@ describe('GET /api/health', () => {
   it('accepts a server-only Sentry DSN for observability checks', async () => {
     vi.stubEnv('SENTRY_DSN', 'https://secret@example.ingest.sentry.io/123');
     vi.resetModules();
-    const { createHealthChecks, createWarnings } = await import('@/lib/health');
+    const { createHealthCalcs, createWarnings } = await import('@/lib/health');
 
-    const checks = createHealthChecks();
+    const checks = createHealthCalcs();
 
     expect(checks.sentryDsnConfigured).toBe(true);
     expect(createWarnings(checks)).not.toContain(

@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Jump Ropes for Cardio and Weight Loss in 2026 | HealthCheck Blog',
+  title: 'Best Jump Ropes for Cardio and Weight Loss in 2026 | HealthCalc Blog',
   description:
     'Compare the best jump ropes for cardio, weight loss, and HIIT. Reviews of Crossrope, WOD Nation, Rogue, and more.',
   keywords:
     'best jump rope 2026, jump rope weight loss, Crossrope, WOD Nation, speed rope, weighted jump rope, cardio jump rope',
   openGraph: {
-    title: 'Best Jump Ropes for Cardio and Weight Loss in 2026 | HealthCheck Blog',
+    title: 'Best Jump Ropes for Cardio and Weight Loss in 2026 | HealthCalc Blog',
     description:
       'Honest reviews of the best jump ropes for cardio, weight loss, and HIIT workouts.',
     type: 'article',
@@ -38,10 +38,10 @@ const jsonLd = {
   description: 'Compare the best jump ropes for cardio, weight loss, and HIIT workouts.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-jump-ropes-cardio-weight-loss',

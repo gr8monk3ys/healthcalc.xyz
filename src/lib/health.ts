@@ -1,7 +1,7 @@
 import { isSubmissionPersistenceStrictModeEnabled } from '@/lib/db/submissions';
 import { hasConfiguredAnalyticsProvider, hasConfiguredAnySentryDsn } from '@/lib/monitoring';
 
-export interface HealthChecks {
+export interface HealthCalcs {
   siteUrlConfigured: boolean;
   canonicalHostConfigured: boolean;
   persistenceDriverConfigured: boolean;
@@ -30,7 +30,7 @@ function hasConfiguredAdSenseSlot(): boolean {
   );
 }
 
-export function createHealthChecks(): HealthChecks {
+export function createHealthCalcs(): HealthCalcs {
   const hasMailchimp = has(process.env.MAILCHIMP_API_KEY) && has(process.env.MAILCHIMP_AUDIENCE_ID);
   const hasConvertKit = has(process.env.CONVERTKIT_API_KEY) && has(process.env.CONVERTKIT_FORM_ID);
   const hasResendAudience = has(process.env.RESEND_API_KEY) && has(process.env.RESEND_AUDIENCE_ID);
@@ -64,7 +64,7 @@ export function createHealthChecks(): HealthChecks {
   };
 }
 
-export function createWarnings(checks: HealthChecks): string[] {
+export function createWarnings(checks: HealthCalcs): string[] {
   const warnings: string[] = [];
 
   if (!checks.analyticsConfigured) {
@@ -86,7 +86,7 @@ export function createWarnings(checks: HealthChecks): string[] {
   return warnings;
 }
 
-export function isHealthy(checks: HealthChecks): boolean {
+export function isHealthy(checks: HealthCalcs): boolean {
   return (
     checks.siteUrlConfigured &&
     checks.canonicalHostConfigured &&

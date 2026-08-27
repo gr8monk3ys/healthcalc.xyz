@@ -39,14 +39,14 @@ type PrivacyCopy = {
 
 const COPY: Record<SupportedLocale, PrivacyCopy> = {
   en: {
-    metaTitle: 'Privacy Policy | HealthCheck',
+    metaTitle: 'Privacy Policy | HealthCalc',
     metaDescription:
-      'HealthCheck privacy policy - how we handle your data and protect your privacy.',
+      'HealthCalc privacy policy - how we handle your data and protect your privacy.',
     pageTitle: 'Privacy Policy',
     lastUpdatedLabel: 'Last Updated:',
     lastUpdatedDate: 'February 6, 2026',
     intro:
-      'HealthCheck is designed to minimize personal data collection. Most calculator functionality runs directly in your browser.',
+      'HealthCalc is designed to minimize personal data collection. Most calculator functionality runs directly in your browser.',
     collectTitle: 'What We Collect',
     collectItems: [
       {
@@ -99,16 +99,16 @@ const COPY: Record<SupportedLocale, PrivacyCopy> = {
     contactBody: 'Questions about this policy: info@healthcalc.xyz',
   },
   es: {
-    metaTitle: 'Política de privacidad | HealthCheck',
+    metaTitle: 'Política de privacidad | HealthCalc',
     metaDescription:
-      'Política de privacidad de HealthCheck: cómo gestionamos tus datos y protegemos tu privacidad.',
+      'Política de privacidad de HealthCalc: cómo gestionamos tus datos y protegemos tu privacidad.',
     pageTitle: 'Política de privacidad',
     lastUpdatedLabel: 'Última actualización:',
     lastUpdatedDate: '6 de febrero de 2026',
     translationNotice:
       'Esta traducción se proporciona solo por conveniencia. En caso de conflicto, la versión en inglés prevalece.',
     intro:
-      'HealthCheck está diseñado para minimizar la recopilación de datos personales. La mayoría de las funciones de las calculadoras se ejecutan directamente en tu navegador.',
+      'HealthCalc está diseñado para minimizar la recopilación de datos personales. La mayoría de las funciones de las calculadoras se ejecutan directamente en tu navegador.',
     collectTitle: 'Qué recopilamos',
     collectItems: [
       {
@@ -161,16 +161,16 @@ const COPY: Record<SupportedLocale, PrivacyCopy> = {
     contactBody: 'Preguntas sobre esta política: info@healthcalc.xyz',
   },
   fr: {
-    metaTitle: 'Politique de confidentialité | HealthCheck',
+    metaTitle: 'Politique de confidentialité | HealthCalc',
     metaDescription:
-      'Politique de confidentialité HealthCheck : comment nous gérons vos données et protégeons votre vie privée.',
+      'Politique de confidentialité HealthCalc : comment nous gérons vos données et protégeons votre vie privée.',
     pageTitle: 'Politique de confidentialité',
     lastUpdatedLabel: 'Dernière mise à jour :',
     lastUpdatedDate: '6 février 2026',
     translationNotice:
       'Cette traduction est fournie à titre de commodité. En cas de conflit, la version anglaise prévaut.',
     intro:
-      'HealthCheck est conçu pour limiter la collecte de données personnelles. La plupart des fonctionnalités des calculateurs s’exécutent directement dans votre navigateur.',
+      'HealthCalc est conçu pour limiter la collecte de données personnelles. La plupart des fonctionnalités des calculateurs s’exécutent directement dans votre navigateur.',
     collectTitle: 'Ce que nous collectons',
     collectItems: [
       {
@@ -223,16 +223,16 @@ const COPY: Record<SupportedLocale, PrivacyCopy> = {
     contactBody: 'Questions sur cette politique : info@healthcalc.xyz',
   },
   de: {
-    metaTitle: 'Datenschutzerklärung | HealthCheck',
+    metaTitle: 'Datenschutzerklärung | HealthCalc',
     metaDescription:
-      'Datenschutzerklärung von HealthCheck: wie wir Daten verarbeiten und Ihre Privatsphäre schützen.',
+      'Datenschutzerklärung von HealthCalc: wie wir Daten verarbeiten und Ihre Privatsphäre schützen.',
     pageTitle: 'Datenschutzerklärung',
     lastUpdatedLabel: 'Zuletzt aktualisiert:',
     lastUpdatedDate: '6. Februar 2026',
     translationNotice:
       'Diese Übersetzung dient nur der Information. Im Falle von Abweichungen gilt die englische Version.',
     intro:
-      'HealthCheck ist darauf ausgelegt, so wenige personenbezogene Daten wie möglich zu erfassen. Die meisten Rechnerfunktionen laufen direkt in Ihrem Browser.',
+      'HealthCalc ist darauf ausgelegt, so wenige personenbezogene Daten wie möglich zu erfassen. Die meisten Rechnerfunktionen laufen direkt in Ihrem Browser.',
     collectTitle: 'Was wir erfassen',
     collectItems: [
       {
@@ -285,16 +285,16 @@ const COPY: Record<SupportedLocale, PrivacyCopy> = {
     contactBody: 'Fragen zu dieser Richtlinie: info@healthcalc.xyz',
   },
   pt: {
-    metaTitle: 'Política de privacidade | HealthCheck',
+    metaTitle: 'Política de privacidade | HealthCalc',
     metaDescription:
-      'Política de privacidade da HealthCheck: como lidamos com seus dados e protegemos sua privacidade.',
+      'Política de privacidade da HealthCalc: como lidamos com seus dados e protegemos sua privacidade.',
     pageTitle: 'Política de privacidade',
     lastUpdatedLabel: 'Última atualização:',
     lastUpdatedDate: '6 de fevereiro de 2026',
     translationNotice:
       'Esta tradução é fornecida apenas por conveniência. Em caso de conflito, a versão em inglês prevalece.',
     intro:
-      'A HealthCheck foi projetada para minimizar a coleta de dados pessoais. A maior parte das calculadoras roda diretamente no seu navegador.',
+      'A HealthCalc foi projetada para minimizar a coleta de dados pessoais. A maior parte das calculadoras roda diretamente no seu navegador.',
     collectTitle: 'O que coletamos',
     collectItems: [
       {
@@ -347,13 +347,13 @@ const COPY: Record<SupportedLocale, PrivacyCopy> = {
     contactBody: 'Dúvidas sobre esta política: info@healthcalc.xyz',
   },
   zh: {
-    metaTitle: '隐私政策 | HealthCheck',
-    metaDescription: 'HealthCheck 隐私政策：我们如何处理数据并保护你的隐私。',
+    metaTitle: '隐私政策 | HealthCalc',
+    metaDescription: 'HealthCalc 隐私政策：我们如何处理数据并保护你的隐私。',
     pageTitle: '隐私政策',
     lastUpdatedLabel: '更新日期：',
     lastUpdatedDate: '2026 年 2 月 6 日',
     translationNotice: '此翻译仅供参考。如有冲突，以英文版本为准。',
-    intro: 'HealthCheck 致力于尽量减少个人数据的收集。大多数计算器功能直接在你的浏览器中运行。',
+    intro: 'HealthCalc 致力于尽量减少个人数据的收集。大多数计算器功能直接在你的浏览器中运行。',
     collectTitle: '我们收集什么',
     collectItems: [
       {

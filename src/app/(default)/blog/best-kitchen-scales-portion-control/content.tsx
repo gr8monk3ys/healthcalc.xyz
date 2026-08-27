@@ -4,14 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCheck Blog',
+  title: 'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCalc Blog',
   description:
     'Compare the top food scales for accurate portion control and calorie counting. Reviews of OXO, Etekcity, URAMAZ, and more digital kitchen scales.',
   keywords:
     'kitchen scale, food scale, portion control scale, calorie counting scale, best food scale 2026, digital kitchen scale, nutrition scale, meal prep scale',
   openGraph: {
-    title:
-      'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the top food scales for accurate portion control and calorie counting. Reviews of OXO, Etekcity, URAMAZ, and more digital kitchen scales.',
     type: 'article',
@@ -27,8 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Kitchen Scales for Portion Control and Calorie Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the top food scales for accurate portion control and calorie counting. Reviews of OXO, Etekcity, URAMAZ, and more digital kitchen scales.',
     images: ['/images/blog/best-kitchen-scales-portion-control.jpg'],
@@ -45,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-02',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

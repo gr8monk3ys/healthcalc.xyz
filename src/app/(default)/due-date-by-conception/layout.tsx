@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Due Date by Conception Calculator | HealthCheck',
+  title: 'Due Date by Conception Calculator | HealthCalc',
   description: 'Estimate pregnancy due date from conception date.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Due Date by Conception Calculator | HealthCheck',
+    title: 'Due Date by Conception Calculator | HealthCalc',
     description: 'Estimate pregnancy due date from conception date.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Due Date by Conception Calculator | HealthCheck',
+    title: 'Due Date by Conception Calculator | HealthCalc',
     description: 'Estimate pregnancy due date from conception date.',
     images: ['/images/calculators/due-date-by-conception-calculator.jpg'],
   },

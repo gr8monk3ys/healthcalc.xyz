@@ -63,47 +63,47 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
     { title: string; description: string; keywords: string; ogAlt: string }
   > = {
     en: {
-      title: 'HealthCheck - Health and Fitness Calculators',
+      title: 'HealthCalc - Health and Fitness Calculators',
       description:
         'Your go-to resource for health and fitness calculators. Calculate body fat, BMI, calorie needs, and more.',
       keywords: 'health calculator, fitness calculator, weight management, body fat, BMI, TDEE',
-      ogAlt: 'HealthCheck - Health and Fitness Calculators',
+      ogAlt: 'HealthCalc - Health and Fitness Calculators',
     },
     es: {
-      title: 'HealthCheck - Calculadoras de salud y fitness',
+      title: 'HealthCalc - Calculadoras de salud y fitness',
       description:
         'Tu recurso de confianza para calculadoras de salud y fitness. Calcula grasa corporal, IMC, calorías diarias y más.',
       keywords:
         'calculadora de salud, calculadora fitness, control de peso, grasa corporal, IMC, TDEE',
-      ogAlt: 'HealthCheck - Calculadoras de salud y fitness',
+      ogAlt: 'HealthCalc - Calculadoras de salud y fitness',
     },
     fr: {
-      title: 'HealthCheck - Calculateurs santé et fitness',
+      title: 'HealthCalc - Calculateurs santé et fitness',
       description:
         'Votre référence pour les calculateurs santé et fitness. Calculez la masse grasse, l’IMC, vos calories quotidiennes et plus encore.',
       keywords: 'calculateur santé, calculateur fitness, gestion du poids, masse grasse, IMC, TDEE',
-      ogAlt: 'HealthCheck - Calculateurs santé et fitness',
+      ogAlt: 'HealthCalc - Calculateurs santé et fitness',
     },
     de: {
-      title: 'HealthCheck - Gesundheits- und Fitnessrechner',
+      title: 'HealthCalc - Gesundheits- und Fitnessrechner',
       description:
         'Ihre Anlaufstelle für Gesundheits- und Fitnessrechner. Berechnen Sie Körperfett, BMI, Kalorienbedarf und mehr.',
       keywords: 'gesundheitsrechner, fitnessrechner, gewichtsmanagement, körperfett, BMI, TDEE',
-      ogAlt: 'HealthCheck - Gesundheits- und Fitnessrechner',
+      ogAlt: 'HealthCalc - Gesundheits- und Fitnessrechner',
     },
     pt: {
-      title: 'HealthCheck - Calculadoras de saúde e fitness',
+      title: 'HealthCalc - Calculadoras de saúde e fitness',
       description:
         'Seu recurso principal para calculadoras de saúde e fitness. Calcule gordura corporal, IMC, calorias diárias e muito mais.',
       keywords:
         'calculadora de saúde, calculadora fitness, controle de peso, gordura corporal, IMC, TDEE',
-      ogAlt: 'HealthCheck - Calculadoras de saúde e fitness',
+      ogAlt: 'HealthCalc - Calculadoras de saúde e fitness',
     },
     zh: {
-      title: 'HealthCheck - 健康与健身计算器',
+      title: 'HealthCalc - 健康与健身计算器',
       description: '你的健康与健身计算器平台。计算体脂、BMI、每日热量需求等。',
       keywords: '健康计算器, 健身计算器, 体重管理, 体脂, BMI, TDEE',
-      ogAlt: 'HealthCheck - 健康与健身计算器',
+      ogAlt: 'HealthCalc - 健康与健身计算器',
     },
   };
 
@@ -113,9 +113,9 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: 'HealthCheck Team' }],
-    creator: 'HealthCheck',
-    publisher: 'HealthCheck',
+    authors: [{ name: 'HealthCalc Team' }],
+    creator: 'HealthCalc',
+    publisher: 'HealthCalc',
     formatDetection: {
       email: false,
       address: false,
@@ -126,7 +126,7 @@ export async function generateMetadata({ params }: LocalizedLayoutProps): Promis
       title: meta.title,
       description: meta.description,
       url: siteUrl,
-      siteName: 'HealthCheck',
+      siteName: 'HealthCalc',
       images: [
         {
           url: '/images/og-image.jpg',
@@ -204,7 +204,7 @@ export default async function RootLayout({ children, params }: LocalizedLayoutPr
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="HealthCheck" />
+        <meta name="apple-mobile-web-app-title" content="HealthCalc" />
       </head>
       <body>
         <LayoutProviders initialLocale={locale}>

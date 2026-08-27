@@ -26,7 +26,7 @@ describe('GET /api/embed/[calculator]', () => {
     expect(res.headers.get('X-Frame-Options')).toBeNull();
     expect(res.headers.get('Content-Security-Policy')).toBeNull();
     expect(res.headers.get('Cache-Control')).toContain('max-age=3600');
-    expect(html).toContain('<title>BMI Calculator - HealthCheck</title>');
+    expect(html).toContain('<title>BMI Calculator - HealthCalc</title>');
     expect(html).toContain('Powered by <a href="https://www.healthcalc.xyz/bmi"');
     expect(html).toContain('background: #f0f0f3;');
   });

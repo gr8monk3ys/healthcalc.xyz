@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Alcohol & Smoking Impact Calculator | HealthCheck',
+  title: 'Alcohol & Smoking Impact Calculator | HealthCalc',
   description:
     'Calculate the health, financial, and lifespan impact of alcohol and tobacco use. See yearly costs, calorie intake from drinking, and recovery timelines for quitting.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Alcohol & Smoking Impact Calculator | HealthCheck',
+    title: 'Alcohol & Smoking Impact Calculator | HealthCalc',
     description:
       'Calculate the health, financial, and lifespan impact of alcohol and tobacco use. See yearly costs, calorie intake from drinking, and recovery timelines for quitting.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alcohol & Smoking Impact Calculator | HealthCheck',
+    title: 'Alcohol & Smoking Impact Calculator | HealthCalc',
     description:
       'Calculate the health, financial, and lifespan impact of alcohol and tobacco use. See yearly costs, calorie intake from drinking, and recovery timelines for quitting.',
     images: ['/images/calculators/substance-impact-calculator.jpg'],

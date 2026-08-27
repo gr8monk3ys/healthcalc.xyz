@@ -143,7 +143,7 @@ async function exportReportPdf(
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(24);
   doc.setTextColor(15, 23, 42);
-  doc.text('HealthCheck Report', margin, y);
+  doc.text('HealthCalc Report', margin, y);
   y += 28;
 
   doc.setFont('helvetica', 'normal');

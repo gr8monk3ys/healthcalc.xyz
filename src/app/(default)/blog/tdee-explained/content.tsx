@@ -6,13 +6,13 @@ import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-  title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
+  title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCalc Blog',
   description:
     'Learn how to calculate TDEE, what affects daily calorie needs, and how to use it for fat loss.',
   keywords:
     'TDEE, total daily energy expenditure, BMR, calorie needs, metabolism, weight management, energy balance, activity level, exercise, non-exercise activity thermogenesis',
   openGraph: {
-    title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
+    title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCalc Blog',
     description:
       'Learn how to calculate TDEE, what affects daily calorie needs, and how to use it for fat loss.',
     type: 'article',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCheck Blog',
+    title: 'TDEE Explained: How Many Calories Do You Really Need? | HealthCalc Blog',
     description:
       'Learn how to calculate TDEE, what affects daily calorie needs, and how to use it for fat loss.',
     images: ['/images/blog/tdee-explained.jpg'],

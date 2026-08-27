@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Body Frame Size Calculator | HealthCheck',
+  title: 'Body Frame Size Calculator | HealthCalc',
   description: 'Determine body frame size using height and wrist circumference.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Body Frame Size Calculator | HealthCheck',
+    title: 'Body Frame Size Calculator | HealthCalc',
     description: 'Determine body frame size using height and wrist circumference.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Body Frame Size Calculator | HealthCheck',
+    title: 'Body Frame Size Calculator | HealthCalc',
     description: 'Determine body frame size using height and wrist circumference.',
     images: ['/images/calculators/body-frame-size-calculator.jpg'],
   },

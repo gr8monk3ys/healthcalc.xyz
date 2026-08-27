@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Water Intake Calculator | HealthCheck',
+  title: 'Water Intake Calculator | HealthCalc',
   description: 'Calculate your daily water intake based on body weight and activity level.',
   keywords:
     'water intake calculator, hydration, daily water, how much water to drink, hydration calculator',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Water Intake Calculator | HealthCheck',
+    title: 'Water Intake Calculator | HealthCalc',
     description: 'Calculate your daily water intake based on body weight and activity level.',
     type: 'website',
     url: './',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Water Intake Calculator | HealthCheck',
+    title: 'Water Intake Calculator | HealthCalc',
     description: 'Calculate your daily water intake based on body weight and activity level.',
     images: ['/images/calculators/water-intake-calculator.jpg'],
   },

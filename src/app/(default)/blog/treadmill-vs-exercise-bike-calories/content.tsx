@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Treadmill vs Exercise Bike: Which Burns More Calories? | HealthCheck Blog',
+  title: 'Treadmill vs Exercise Bike: Which Burns More Calories? | HealthCalc Blog',
   description:
     'Compare calorie burn, joint impact, and weight loss effectiveness between treadmills and exercise bikes. Real data on which cardio machine is better for your goals.',
   keywords:
     'treadmill vs exercise bike, calories burned treadmill, calories burned bike, best cardio for weight loss, treadmill vs bike for fat loss, low impact cardio',
   openGraph: {
-    title: 'Treadmill vs Exercise Bike: Which Burns More Calories? | HealthCheck Blog',
+    title: 'Treadmill vs Exercise Bike: Which Burns More Calories? | HealthCalc Blog',
     description:
       'Compare calorie burn, joint impact, and weight loss effectiveness between treadmills and exercise bikes.',
     type: 'article',
@@ -39,10 +39,10 @@ const jsonLd = {
     'Compare calorie burn, joint impact, and weight loss effectiveness between treadmills and exercise bikes.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/treadmill-vs-exercise-bike-calories',

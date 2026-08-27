@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Walking & Running Energy | HealthCheck',
+  title: 'Walking & Running Energy | HealthCalc',
   description: 'Estimate calorie burn from walking and running sessions.',
 };
 

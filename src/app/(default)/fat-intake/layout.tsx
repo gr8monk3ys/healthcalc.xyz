@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Fat Intake Calculator | HealthCheck',
+  title: 'Fat Intake Calculator | HealthCalc',
   description: 'Calculate daily fat intake from calories or targets.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Fat Intake Calculator | HealthCheck',
+    title: 'Fat Intake Calculator | HealthCalc',
     description: 'Calculate daily fat intake from calories or targets.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fat Intake Calculator | HealthCheck',
+    title: 'Fat Intake Calculator | HealthCalc',
     description: 'Calculate daily fat intake from calories or targets.',
     images: ['/images/calculators/fat-intake-calculator.jpg'],
   },

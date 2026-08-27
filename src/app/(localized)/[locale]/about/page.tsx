@@ -35,13 +35,13 @@ type AboutCopy = {
 
 const COPY: Record<SupportedLocale, AboutCopy> = {
   en: {
-    metaTitle: 'About Us | HealthCheck',
+    metaTitle: 'About Us | HealthCalc',
     metaDescription:
-      'Learn about HealthCheck, our mission, and the science behind our health and fitness calculators.',
-    pageTitle: 'About HealthCheck',
+      'Learn about HealthCalc, our mission, and the science behind our health and fitness calculators.',
+    pageTitle: 'About HealthCalc',
     missionTitle: 'Our Mission',
     missionP1:
-      'HealthCheck is your go-to resource for evidence-based health and fitness calculators. We believe in making health information accessible, accurate, and actionable for everyone.',
+      'HealthCalc is your go-to resource for evidence-based health and fitness calculators. We believe in making health information accessible, accurate, and actionable for everyone.',
     missionP2:
       'Our suite of calculators helps you understand your body composition and calorie needs, empowering you to make informed decisions about your health based on your results.',
     scienceTitle: 'The Science Behind Our Calculators',
@@ -52,7 +52,7 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     scienceP3:
       'While these calculators provide valuable estimates, they are not substitutes for professional medical advice or laboratory measurements. We encourage users to consult with healthcare professionals for personalized guidance.',
     approachTitle: 'Our Approach',
-    approachIntro: 'At HealthCheck, we believe in:',
+    approachIntro: 'At HealthCalc, we believe in:',
     approachBullets: [
       {
         label: 'Accuracy',
@@ -104,13 +104,13 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     ],
   },
   es: {
-    metaTitle: 'Sobre nosotros | HealthCheck',
+    metaTitle: 'Sobre nosotros | HealthCalc',
     metaDescription:
-      'Conoce HealthCheck, nuestra misión y la ciencia detrás de nuestras calculadoras de salud y fitness.',
-    pageTitle: 'Acerca de HealthCheck',
+      'Conoce HealthCalc, nuestra misión y la ciencia detrás de nuestras calculadoras de salud y fitness.',
+    pageTitle: 'Acerca de HealthCalc',
     missionTitle: 'Nuestra misión',
     missionP1:
-      'HealthCheck es tu recurso de confianza para calculadoras de salud y fitness basadas en evidencia. Creemos en hacer que la información de salud sea accesible, precisa y accionable para todos.',
+      'HealthCalc es tu recurso de confianza para calculadoras de salud y fitness basadas en evidencia. Creemos en hacer que la información de salud sea accesible, precisa y accionable para todos.',
     missionP2:
       'Nuestra suite de calculadoras te ayuda a entender tu composición corporal y tus necesidades calóricas, para que puedas tomar decisiones informadas sobre tu salud a partir de tus resultados.',
     scienceTitle: 'La ciencia detrás de nuestras calculadoras',
@@ -121,7 +121,7 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     scienceP3:
       'Aunque estas calculadoras proporcionan estimaciones valiosas, no sustituyen el consejo médico profesional ni las mediciones de laboratorio. Recomendamos consultar con profesionales de la salud para orientación personalizada.',
     approachTitle: 'Nuestro enfoque',
-    approachIntro: 'En HealthCheck creemos en:',
+    approachIntro: 'En HealthCalc creemos en:',
     approachBullets: [
       { label: 'Exactitud', text: 'Usar fórmulas y metodologías científicas validadas' },
       { label: 'Educación', text: 'Ofrecer contexto y explicación junto con los resultados' },
@@ -164,13 +164,13 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     ],
   },
   fr: {
-    metaTitle: 'À propos | HealthCheck',
+    metaTitle: 'À propos | HealthCalc',
     metaDescription:
-      'Découvrez HealthCheck, notre mission et la science derrière nos calculateurs santé et fitness.',
-    pageTitle: 'À propos de HealthCheck',
+      'Découvrez HealthCalc, notre mission et la science derrière nos calculateurs santé et fitness.',
+    pageTitle: 'À propos de HealthCalc',
     missionTitle: 'Notre mission',
     missionP1:
-      'HealthCheck est votre référence pour des calculateurs santé et fitness fondés sur des preuves. Nous croyons en une information santé accessible, précise et actionnable pour tous.',
+      'HealthCalc est votre référence pour des calculateurs santé et fitness fondés sur des preuves. Nous croyons en une information santé accessible, précise et actionnable pour tous.',
     missionP2:
       'Notre suite de calculateurs vous aide à comprendre votre composition corporelle et vos besoins caloriques, pour prendre des décisions éclairées à partir de vos résultats.',
     scienceTitle: 'La science derrière nos calculateurs',
@@ -181,7 +181,7 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     scienceP3:
       'Ces calculateurs fournissent des estimations utiles, mais ne remplacent pas un avis médical ni des mesures en laboratoire. Nous vous encourageons à consulter des professionnels de santé pour un accompagnement personnalisé.',
     approachTitle: 'Notre approche',
-    approachIntro: 'Chez HealthCheck, nous croyons en :',
+    approachIntro: 'Chez HealthCalc, nous croyons en :',
     approachBullets: [
       { label: 'Précision', text: 'Utiliser des formules et méthodologies scientifiques validées' },
       { label: 'Éducation', text: 'Fournir du contexte et des explications avec les résultats' },
@@ -221,13 +221,13 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     ],
   },
   de: {
-    metaTitle: 'Über uns | HealthCheck',
+    metaTitle: 'Über uns | HealthCalc',
     metaDescription:
-      'Erfahren Sie mehr über HealthCheck, unsere Mission und die Wissenschaft hinter unseren Gesundheits- und Fitnessrechnern.',
-    pageTitle: 'Über HealthCheck',
+      'Erfahren Sie mehr über HealthCalc, unsere Mission und die Wissenschaft hinter unseren Gesundheits- und Fitnessrechnern.',
+    pageTitle: 'Über HealthCalc',
     missionTitle: 'Unsere Mission',
     missionP1:
-      'HealthCheck ist Ihre Anlaufstelle für evidenzbasierte Gesundheits- und Fitnessrechner. Wir möchten Gesundheitsinformationen für alle zugänglich, präzise und umsetzbar machen.',
+      'HealthCalc ist Ihre Anlaufstelle für evidenzbasierte Gesundheits- und Fitnessrechner. Wir möchten Gesundheitsinformationen für alle zugänglich, präzise und umsetzbar machen.',
     missionP2:
       'Unsere Rechner helfen Ihnen, Ihre Körperzusammensetzung und Ihren Kalorienbedarf zu verstehen, damit Sie auf Basis Ihrer Ergebnisse informierte Entscheidungen treffen können.',
     scienceTitle: 'Die Wissenschaft hinter unseren Rechnern',
@@ -238,7 +238,7 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     scienceP3:
       'Diese Rechner liefern hilfreiche Schätzungen, ersetzen jedoch keine medizinische Beratung oder Labor-Messungen. Wir empfehlen, für individuelle Empfehlungen medizinisches Fachpersonal zu konsultieren.',
     approachTitle: 'Unser Ansatz',
-    approachIntro: 'Bei HealthCheck glauben wir an:',
+    approachIntro: 'Bei HealthCalc glauben wir an:',
     approachBullets: [
       {
         label: 'Genauigkeit',
@@ -274,13 +274,13 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     ],
   },
   pt: {
-    metaTitle: 'Sobre nós | HealthCheck',
+    metaTitle: 'Sobre nós | HealthCalc',
     metaDescription:
-      'Saiba mais sobre a HealthCheck, nossa missão e a ciência por trás das nossas calculadoras de saúde e fitness.',
-    pageTitle: 'Sobre a HealthCheck',
+      'Saiba mais sobre a HealthCalc, nossa missão e a ciência por trás das nossas calculadoras de saúde e fitness.',
+    pageTitle: 'Sobre a HealthCalc',
     missionTitle: 'Nossa missão',
     missionP1:
-      'A HealthCheck é seu recurso principal para calculadoras de saúde e fitness baseadas em evidências. Acreditamos em tornar a informação de saúde acessível, precisa e prática para todos.',
+      'A HealthCalc é seu recurso principal para calculadoras de saúde e fitness baseadas em evidências. Acreditamos em tornar a informação de saúde acessível, precisa e prática para todos.',
     missionP2:
       'Nossa suíte de calculadoras ajuda você a entender sua composição corporal e suas necessidades calóricas, permitindo decisões mais informadas a partir dos resultados.',
     scienceTitle: 'A ciência por trás das nossas calculadoras',
@@ -291,7 +291,7 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     scienceP3:
       'Embora ofereçam estimativas valiosas, essas calculadoras não substituem orientação médica profissional nem medições laboratoriais. Recomendamos consultar profissionais de saúde para orientação personalizada.',
     approachTitle: 'Nossa abordagem',
-    approachIntro: 'Na HealthCheck, acreditamos em:',
+    approachIntro: 'Na HealthCalc, acreditamos em:',
     approachBullets: [
       { label: 'Precisão', text: 'Usar fórmulas e metodologias científicas validadas' },
       { label: 'Educação', text: 'Oferecer contexto e explicação junto aos resultados' },
@@ -331,12 +331,12 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     ],
   },
   zh: {
-    metaTitle: '关于我们 | HealthCheck',
-    metaDescription: '了解 HealthCheck、我们的使命，以及健康与健身计算器背后的科学。',
-    pageTitle: '关于 HealthCheck',
+    metaTitle: '关于我们 | HealthCalc',
+    metaDescription: '了解 HealthCalc、我们的使命，以及健康与健身计算器背后的科学。',
+    pageTitle: '关于 HealthCalc',
     missionTitle: '我们的使命',
     missionP1:
-      'HealthCheck 是基于证据的健康与健身计算器平台。我们相信应让健康信息更易获取、更准确、更可行动，服务每一个人。',
+      'HealthCalc 是基于证据的健康与健身计算器平台。我们相信应让健康信息更易获取、更准确、更可行动，服务每一个人。',
     missionP2: '我们的计算器帮助你了解体成分与热量需求，让你能够基于结果做出更明智的健康决策。',
     scienceTitle: '计算器背后的科学',
     scienceP1:
@@ -346,7 +346,7 @@ const COPY: Record<SupportedLocale, AboutCopy> = {
     scienceP3:
       '这些计算器提供有价值的估算，但不能替代专业医疗建议或实验室测量。我们建议你向医疗专业人士咨询以获得个性化指导。',
     approachTitle: '我们的方法',
-    approachIntro: '在 HealthCheck，我们重视：',
+    approachIntro: '在 HealthCalc，我们重视：',
     approachBullets: [
       { label: '准确性', text: '使用经验证的科学公式与方法' },
       { label: '教育性', text: '在结果旁提供背景与解释' },

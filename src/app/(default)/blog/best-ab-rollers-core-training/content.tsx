@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Ab Rollers for Core Training in 2026 | HealthCheck Blog',
+  title: 'Best Ab Rollers for Core Training in 2026 | HealthCalc Blog',
   description:
     'Compare the top ab rollers and ab wheels for building core strength. In-depth reviews of Perfect Fitness Ab Carver Pro, Vinsguir, FLYBIRD, and more.',
   keywords:
     'ab roller, ab wheel, core training, core strength, Perfect Fitness Ab Carver Pro, Vinsguir ab roller, FLYBIRD ab roller, best ab wheel 2026, core workout equipment',
   openGraph: {
-    title: 'Best Ab Rollers for Core Training in 2026 | HealthCheck Blog',
+    title: 'Best Ab Rollers for Core Training in 2026 | HealthCalc Blog',
     description:
       'Compare the top ab rollers and ab wheels for building core strength. In-depth reviews of Perfect Fitness Ab Carver Pro, Vinsguir, FLYBIRD, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Ab Rollers for Core Training in 2026 | HealthCheck Blog',
+    title: 'Best Ab Rollers for Core Training in 2026 | HealthCalc Blog',
     description:
       'Compare the top ab rollers and ab wheels for building core strength. In-depth reviews of Perfect Fitness Ab Carver Pro, Vinsguir, FLYBIRD, and more.',
     images: ['/images/blog/best-ab-rollers-core-training.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

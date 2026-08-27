@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       'Calculate your personalized keto macros for fat, protein, and carbs. Choose from standard, targeted, or cyclical keto based on your goals and activity level.',
     url: './',
-    siteName: 'HealthCheck',
+    siteName: 'HealthCalc',
     type: 'website',
   },
   twitter: {

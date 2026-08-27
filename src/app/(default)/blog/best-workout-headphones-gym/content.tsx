@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Workout Headphones for the Gym in 2026 | HealthCheck Blog',
+  title: 'Best Workout Headphones for the Gym in 2026 | HealthCalc Blog',
   description:
     'Compare the best workout headphones and earbuds for the gym, running, and HIIT. Reviews of Beats Fit Pro, Jabra Elite 8, Shokz OpenRun, and more.',
   keywords:
     'best workout headphones 2026, gym earbuds, Beats Fit Pro, Jabra Elite 8, Shokz OpenRun, sweatproof earbuds, running headphones',
   openGraph: {
-    title: 'Best Workout Headphones for the Gym in 2026 | HealthCheck Blog',
+    title: 'Best Workout Headphones for the Gym in 2026 | HealthCalc Blog',
     description:
       'Honest reviews of the best workout headphones and earbuds for gym, running, and HIIT.',
     type: 'article',
@@ -41,12 +41,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

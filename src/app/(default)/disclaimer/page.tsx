@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Medical Disclaimer | HealthCheck',
-  description: 'Important medical disclaimer for HealthCheck calculators and content.',
+  title: 'Medical Disclaimer | HealthCalc',
+  description: 'Important medical disclaimer for HealthCalc calculators and content.',
 };
 
 export default function DisclaimerPage() {
@@ -15,7 +15,7 @@ export default function DisclaimerPage() {
           <strong>Last Updated:</strong> February 6, 2026
         </p>
         <p>
-          HealthCheck content and calculators are for informational and educational use only and are
+          HealthCalc content and calculators are for informational and educational use only and are
           not medical advice.
         </p>
       </div>

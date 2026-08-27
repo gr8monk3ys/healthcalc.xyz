@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Ovulation Calculator | HealthCheck',
+  title: 'Ovulation Calculator | HealthCalc',
   description: 'Estimate ovulation and fertile window based on your last period and cycle length.',
   keywords: 'ovulation calculator, fertile window, cycle length, ovulation date, fertility',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Ovulation Calculator | HealthCheck',
+    title: 'Ovulation Calculator | HealthCalc',
     description:
       'Estimate ovulation and fertile window based on your last period and cycle length.',
     type: 'website',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ovulation Calculator | HealthCheck',
+    title: 'Ovulation Calculator | HealthCalc',
     description:
       'Estimate ovulation and fertile window based on your last period and cycle length.',
     images: ['/images/calculators/ovulation-calculator.jpg'],

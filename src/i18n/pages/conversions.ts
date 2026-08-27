@@ -89,7 +89,7 @@ const ARTICLE_DATES = {
 
 const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
   en: {
-    metaTitle: 'Unit Converter | Measurement Conversions | HealthCheck',
+    metaTitle: 'Unit Converter | Measurement Conversions | HealthCalc',
     metaDescription:
       'Convert weight, height, volume, temperature, and energy units quickly and accurately.',
     metaKeywords:
@@ -274,7 +274,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
     ],
   },
   es: {
-    metaTitle: 'Conversor de unidades | Conversiones de medidas | HealthCheck',
+    metaTitle: 'Conversor de unidades | Conversiones de medidas | HealthCalc',
     metaDescription:
       'Convierte unidades de peso, altura, volumen, temperatura y energía de forma rápida y precisa.',
     metaKeywords:
@@ -466,7 +466,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
     ],
   },
   fr: {
-    metaTitle: "Convertisseur d'unités | Conversions de mesures | HealthCheck",
+    metaTitle: "Convertisseur d'unités | Conversions de mesures | HealthCalc",
     metaDescription:
       'Convertissez rapidement et précisément des unités de poids, taille, volume, température et énergie.',
     metaKeywords:
@@ -659,7 +659,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
     ],
   },
   de: {
-    metaTitle: 'Einheitenumrechner | Maßumrechnungen | HealthCheck',
+    metaTitle: 'Einheitenumrechner | Maßumrechnungen | HealthCalc',
     metaDescription:
       'Wandeln Sie Einheiten für Gewicht, Größe, Volumen, Temperatur und Energie schnell und präzise um.',
     metaKeywords:
@@ -845,7 +845,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
     ],
   },
   pt: {
-    metaTitle: 'Conversor de unidades | Conversões de medidas | HealthCheck',
+    metaTitle: 'Conversor de unidades | Conversões de medidas | HealthCalc',
     metaDescription:
       'Converta unidades de peso, altura, volume, temperatura e energia de forma rápida e precisa.',
     metaKeywords:
@@ -1037,7 +1037,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
     ],
   },
   zh: {
-    metaTitle: '单位换算器 | 测量单位转换 | HealthCheck',
+    metaTitle: '单位换算器 | 测量单位转换 | HealthCalc',
     metaDescription: '快速准确地换算体重、身高、体积、温度与能量等常见单位。',
     metaKeywords: '单位换算, 测量单位转换, 体重换算, 身高换算, 公制英制, kg转lb, cm转ft',
     ogAlt: '单位换算器',

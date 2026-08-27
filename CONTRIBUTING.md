@@ -1,6 +1,6 @@
-# Contributing to HealthCheck
+# Contributing to HealthCalc
 
-Thank you for your interest in contributing to HealthCheck! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to HealthCalc! This document provides guidelines and instructions for contributing to the project.
 
 ## Getting Started
 

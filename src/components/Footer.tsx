@@ -38,7 +38,7 @@ export default function Footer(): React.JSX.Element {
                   />
                 </svg>
               </span>
-              HealthCheck
+              HealthCalc
             </Link>
             <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
               {t('footer.tagline')}
@@ -160,7 +160,7 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         <div className="mt-4 border-t border-white/40 pt-4 text-center text-sm text-slate-700 dark:border-indigo-200/10 dark:text-slate-300">
-          &copy; {new Date().getFullYear()} HealthCheck. {t('footer.rightsReserved')}
+          &copy; {new Date().getFullYear()} HealthCalc. {t('footer.rightsReserved')}
         </div>
       </div>
     </footer>

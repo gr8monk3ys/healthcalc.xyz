@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: TdeeProgrammaticPageProps): P
 
   if (!data) {
     return {
-      title: 'TDEE Result Not Found | HealthCheck',
+      title: 'TDEE Result Not Found | HealthCalc',
       robots: {
         index: false,
         follow: false,

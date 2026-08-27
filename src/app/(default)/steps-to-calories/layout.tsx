@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Steps to Calories Calculator | HealthCheck',
+  title: 'Steps to Calories Calculator | HealthCalc',
   description: 'Estimate calories burned from steps using stride length and duration.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Steps to Calories Calculator | HealthCheck',
+    title: 'Steps to Calories Calculator | HealthCalc',
     description: 'Estimate calories burned from steps using stride length and duration.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Steps to Calories Calculator | HealthCheck',
+    title: 'Steps to Calories Calculator | HealthCalc',
     description: 'Estimate calories burned from steps using stride length and duration.',
     images: ['/images/calculators/steps-to-calories-calculator.jpg'],
   },

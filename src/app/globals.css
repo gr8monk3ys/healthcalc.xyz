@@ -641,7 +641,7 @@ input[type='checkbox'] {
 }
 
 .hc-share-target[data-hc-capturing='1']::before {
-  content: 'HealthCheck';
+  content: 'HealthCalc';
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;

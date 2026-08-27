@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Yoga Mats for Home Workouts in 2026 | HealthCheck Blog',
+  title: 'Best Yoga Mats for Home Workouts in 2026 | HealthCalc Blog',
   description:
     'Compare the best yoga mats for home workouts in 2026. Honest reviews of Manduka PRO, Liforme, Gaiam, Jade Harmony, and BalanceFrom with real pros and cons.',
   keywords:
     'best yoga mats 2026, yoga mats for home workouts, Manduka PRO yoga mat, Liforme yoga mat, Gaiam yoga mat, Jade Harmony yoga mat, BalanceFrom GoYoga, thick yoga mat, non-slip yoga mat',
   openGraph: {
-    title: 'Best Yoga Mats for Home Workouts in 2026 | HealthCheck Blog',
+    title: 'Best Yoga Mats for Home Workouts in 2026 | HealthCalc Blog',
     description:
       'Compare the best yoga mats for home workouts in 2026. Honest reviews of Manduka PRO, Liforme, Gaiam, Jade Harmony, and BalanceFrom.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Yoga Mats for Home Workouts in 2026 | HealthCheck Blog',
+    title: 'Best Yoga Mats for Home Workouts in 2026 | HealthCalc Blog',
     description:
       'Compare the best yoga mats for home workouts in 2026. Honest reviews of Manduka PRO, Liforme, Gaiam, Jade Harmony, and BalanceFrom.',
     images: ['/images/blog/best-yoga-mats-home-workouts.jpg'],
@@ -41,10 +41,10 @@ const jsonLd = {
     'Compare the best yoga mats for home workouts in 2026. Honest reviews of Manduka PRO, Liforme, Gaiam, Jade Harmony, and BalanceFrom.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-yoga-mats-home-workouts',

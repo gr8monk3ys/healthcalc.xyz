@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Sleep Calculator | HealthCheck',
+  title: 'Sleep Calculator | HealthCalc',
   description: 'Find ideal bedtimes or wake times based on 90-minute sleep cycles.',
   keywords: 'sleep calculator, sleep cycles, bedtime calculator, wake time calculator',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Sleep Calculator | HealthCheck',
+    title: 'Sleep Calculator | HealthCalc',
     description: 'Find ideal bedtimes or wake times based on 90-minute sleep cycles.',
     type: 'website',
     url: './',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sleep Calculator | HealthCheck',
+    title: 'Sleep Calculator | HealthCalc',
     description: 'Find ideal bedtimes or wake times based on 90-minute sleep cycles.',
     images: ['/images/calculators/sleep-calculator.jpg'],
   },

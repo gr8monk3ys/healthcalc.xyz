@@ -100,7 +100,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
           </svg>
         </button>
 
-        <h2 className="mb-1 text-xl font-bold text-[var(--foreground)]">Sign in to HealthCheck</h2>
+        <h2 className="mb-1 text-xl font-bold text-[var(--foreground)]">Sign in to HealthCalc</h2>
         <p className="mb-5 text-sm text-[var(--foreground)] opacity-70">
           Save your calculator results to the cloud so you can access them from any device.
         </p>

@@ -69,7 +69,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
 
   const embedUrl = `${SITE_URL}/api/embed/${calculatorSlug}${theme === 'dark' ? '?theme=dark' : ''}`;
 
-  const embedCode = `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" title="${calculatorTitle} - HealthCheck" style="border:none;border-radius:12px;max-width:100%;" loading="lazy"></iframe>`;
+  const embedCode = `<iframe src="${embedUrl}" width="${width}" height="${height}" frameborder="0" title="${calculatorTitle} - HealthCalc" style="border:none;border-radius:12px;max-width:100%;" loading="lazy"></iframe>`;
 
   const scheduleCopiedReset = useCallback(() => {
     if (copiedResetTimeoutRef.current !== null) {
@@ -233,7 +233,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
       <div className="text-xs text-gray-500 dark:text-gray-500 border-t border-gray-200 dark:border-gray-700 pt-3">
         <p className="font-medium mb-1">Attribution requirement</p>
         <p>
-          The embedded calculator includes a &quot;Powered by HealthCheck&quot; link. This
+          The embedded calculator includes a &quot;Powered by HealthCalc&quot; link. This
           attribution must remain visible and unmodified. By using this embed code, you agree to
           keep the attribution link intact.
         </p>

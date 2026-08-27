@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Body Composition Guide | HealthCheck',
+  title: 'Body Composition Guide | HealthCalc',
   description: 'Understand BMI, body fat percentage, and lean mass together.',
 };
 

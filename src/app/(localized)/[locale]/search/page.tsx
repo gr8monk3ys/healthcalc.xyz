@@ -24,43 +24,43 @@ type SearchCopy = {
 
 const COPY: Record<SupportedLocale, SearchCopy> = {
   en: {
-    metaTitle: 'Search | HealthCheck',
+    metaTitle: 'Search | HealthCalc',
     metaDescription:
-      'Search for health and fitness calculators, articles, and information on HealthCheck.',
+      'Search for health and fitness calculators, articles, and information on HealthCalc.',
     crumbHome: 'Home',
     crumbSearch: 'Search',
   },
   es: {
-    metaTitle: 'Buscar | HealthCheck',
+    metaTitle: 'Buscar | HealthCalc',
     metaDescription:
-      'Busca calculadoras de salud y fitness, artículos e información en HealthCheck.',
+      'Busca calculadoras de salud y fitness, artículos e información en HealthCalc.',
     crumbHome: 'Inicio',
     crumbSearch: 'Buscar',
   },
   fr: {
-    metaTitle: 'Rechercher | HealthCheck',
+    metaTitle: 'Rechercher | HealthCalc',
     metaDescription:
-      'Recherchez des calculateurs santé et fitness, des articles et des informations sur HealthCheck.',
+      'Recherchez des calculateurs santé et fitness, des articles et des informations sur HealthCalc.',
     crumbHome: 'Accueil',
     crumbSearch: 'Recherche',
   },
   de: {
-    metaTitle: 'Suche | HealthCheck',
+    metaTitle: 'Suche | HealthCalc',
     metaDescription:
-      'Suchen Sie nach Gesundheits- und Fitnessrechnern, Artikeln und Informationen auf HealthCheck.',
+      'Suchen Sie nach Gesundheits- und Fitnessrechnern, Artikeln und Informationen auf HealthCalc.',
     crumbHome: 'Startseite',
     crumbSearch: 'Suche',
   },
   pt: {
-    metaTitle: 'Buscar | HealthCheck',
+    metaTitle: 'Buscar | HealthCalc',
     metaDescription:
-      'Pesquise calculadoras de saúde e fitness, artigos e informações na HealthCheck.',
+      'Pesquise calculadoras de saúde e fitness, artigos e informações na HealthCalc.',
     crumbHome: 'Início',
     crumbSearch: 'Busca',
   },
   zh: {
-    metaTitle: '搜索 | HealthCheck',
-    metaDescription: '在 HealthCheck 上搜索健康与健身计算器、文章与信息内容。',
+    metaTitle: '搜索 | HealthCalc',
+    metaDescription: '在 HealthCalc 上搜索健康与健身计算器、文章与信息内容。',
     crumbHome: '首页',
     crumbSearch: '搜索',
   },

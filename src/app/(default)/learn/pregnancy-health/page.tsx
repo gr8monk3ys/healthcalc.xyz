@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Pregnancy Health | HealthCheck',
+  title: 'Pregnancy Health | HealthCalc',
   description: 'Key pregnancy calculators for due dates and weight gain guidance.',
 };
 

@@ -11,7 +11,7 @@ type CalorieDeficitMetaCopy = {
 
 const META: Record<SupportedLocale, CalorieDeficitMetaCopy> = {
   en: {
-    title: 'Calorie Deficit Calculator | HealthCheck',
+    title: 'Calorie Deficit Calculator | HealthCalc',
     description:
       'Estimate your weight-loss timeline using calorie deficit levels and target weight goals.',
     keywords:
@@ -19,7 +19,7 @@ const META: Record<SupportedLocale, CalorieDeficitMetaCopy> = {
     ogAlt: 'Calorie Deficit Calculator',
   },
   es: {
-    title: 'Calculadora de déficit calórico | HealthCheck',
+    title: 'Calculadora de déficit calórico | HealthCalc',
     description:
       'Estima tu cronograma de pérdida de peso usando niveles de déficit calórico y peso objetivo.',
     keywords:
@@ -27,7 +27,7 @@ const META: Record<SupportedLocale, CalorieDeficitMetaCopy> = {
     ogAlt: 'Calculadora de déficit calórico',
   },
   fr: {
-    title: 'Calculateur de déficit calorique | HealthCheck',
+    title: 'Calculateur de déficit calorique | HealthCalc',
     description:
       'Estimez votre calendrier de perte de poids selon votre déficit calorique et votre objectif de poids.',
     keywords:
@@ -35,14 +35,14 @@ const META: Record<SupportedLocale, CalorieDeficitMetaCopy> = {
     ogAlt: 'Calculateur de déficit calorique',
   },
   de: {
-    title: 'Kaloriendefizit-Rechner | HealthCheck',
+    title: 'Kaloriendefizit-Rechner | HealthCalc',
     description: 'Schätzen Sie Ihren Abnehm-Zeitplan anhand von Kaloriendefizit und Zielgewicht.',
     keywords:
       'Kaloriendefizit Rechner, Abnehmrechner, Gewichtsverlust Zeitplan, Zielgewicht Rechner',
     ogAlt: 'Kaloriendefizit-Rechner',
   },
   pt: {
-    title: 'Calculadora de déficit calórico | HealthCheck',
+    title: 'Calculadora de déficit calórico | HealthCalc',
     description:
       'Estime seu cronograma de perda de peso com níveis de déficit calórico e meta de peso.',
     keywords:
@@ -50,7 +50,7 @@ const META: Record<SupportedLocale, CalorieDeficitMetaCopy> = {
     ogAlt: 'Calculadora de déficit calórico',
   },
   zh: {
-    title: '热量缺口计算器 | HealthCheck',
+    title: '热量缺口计算器 | HealthCalc',
     description: '根据热量缺口等级与目标体重，估算你的减重时间线。',
     keywords: '热量缺口计算器, 减重计算器, 减脂时间线, 目标体重',
     ogAlt: '热量缺口计算器',

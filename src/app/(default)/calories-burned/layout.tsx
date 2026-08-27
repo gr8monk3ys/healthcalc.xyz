@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Calories Burned Calculator | HealthCheck',
+  title: 'Calories Burned Calculator | HealthCalc',
   description: 'Estimate calories burned from workouts using weight, duration, and activity.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Calories Burned Calculator | HealthCheck',
+    title: 'Calories Burned Calculator | HealthCalc',
     description: 'Estimate calories burned from workouts using weight, duration, and activity.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Calories Burned Calculator | HealthCheck',
+    title: 'Calories Burned Calculator | HealthCalc',
     description: 'Estimate calories burned from workouts using weight, duration, and activity.',
     images: ['/images/calculators/calories-burned-calculator.jpg'],
   },

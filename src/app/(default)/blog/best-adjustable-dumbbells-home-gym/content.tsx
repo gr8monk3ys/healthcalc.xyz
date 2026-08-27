@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCheck Blog',
+  title: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCalc Blog',
   description:
     'Compare the best adjustable dumbbells for home workouts in 2026. Honest reviews of Bowflex SelectTech 552, PowerBlock Elite EXP, NordicTrack Select-A-Weight, Flybird, and Amazon Basics with real pros, cons, and pricing.',
   keywords:
     'best adjustable dumbbells 2026, adjustable dumbbells home gym, Bowflex SelectTech 552, PowerBlock Elite EXP, NordicTrack Select-A-Weight, Flybird dumbbells, budget adjustable dumbbells, home gym dumbbells',
   openGraph: {
-    title: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCheck Blog',
+    title: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCalc Blog',
     description:
       'Compare the best adjustable dumbbells for home workouts in 2026. Honest reviews of Bowflex, PowerBlock, NordicTrack, Flybird, and Amazon Basics.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCheck Blog',
+    title: 'Best Adjustable Dumbbells for Your Home Gym in 2026 | HealthCalc Blog',
     description:
       'Compare the best adjustable dumbbells for home workouts in 2026. Honest reviews with real pros, cons, and pricing.',
     images: ['/images/blog/best-adjustable-dumbbells-home-gym.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

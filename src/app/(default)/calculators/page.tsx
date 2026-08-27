@@ -5,9 +5,9 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { CALCULATOR_HUBS, getCalculatorsForHub } from '@/constants/calculatorCatalog';
 
 export const metadata: Metadata = {
-  title: 'Calculator Categories | HealthCheck',
+  title: 'Calculator Categories | HealthCalc',
   description:
-    'Browse HealthCheck calculator categories for weight loss, body composition, nutrition, performance, wellness, pregnancy, and more.',
+    'Browse HealthCalc calculator categories for weight loss, body composition, nutrition, performance, wellness, pregnancy, and more.',
 };
 
 export default function CalculatorCategoriesPage() {

@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCheck Blog',
+  title: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCalc Blog',
   description:
     'Compare the best rowing machines for home cardio and strength training. Reviews of Concept2 Model D, Hydrow, Sunny Health, and more with honest pros and cons.',
   keywords:
     'best rowing machines 2026, rowing machine reviews, Concept2 Model D, home rowing machine, cardio equipment, full-body workout, indoor rowing, air rower, water rower',
   openGraph: {
-    title: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCheck Blog',
+    title: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCalc Blog',
     description:
       'Compare the best rowing machines for home cardio and strength training. Reviews of Concept2 Model D, Hydrow, Sunny Health, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCheck Blog',
+    title: 'Best Rowing Machines for Full-Body Workouts in 2026 | HealthCalc Blog',
     description: 'Compare the best rowing machines for home cardio and strength training.',
     images: ['/images/blog/best-rowing-machines-full-body.jpg'],
   },
@@ -39,10 +39,10 @@ const jsonLd = {
   description: 'Compare the best rowing machines for home cardio and strength training.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-rowing-machines-full-body',

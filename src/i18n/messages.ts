@@ -170,7 +170,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'footer.trust.reviewed': 'Content reviewed by certified health and fitness professionals',
     'footer.trust.learnProcess': 'Learn about our process',
     'footer.medicalDisclaimer':
-      'HealthCheck provides general informational content and tools only. Nothing on this website constitutes medical advice. Always consult a qualified healthcare professional before making changes to your diet, exercise, or health regimen.',
+      'HealthCalc provides general informational content and tools only. Nothing on this website constitutes medical advice. Always consult a qualified healthcare professional before making changes to your diet, exercise, or health regimen.',
     'footer.rightsReserved': 'All rights reserved.',
     'auth.login': 'Log in',
     'auth.signup': 'Sign up',
@@ -319,7 +319,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'footer.trust.reviewed': 'Contenido revisado por profesionales certificados en salud y fitness',
     'footer.trust.learnProcess': 'Conoce nuestro proceso',
     'footer.medicalDisclaimer':
-      'HealthCheck ofrece solo contenido y herramientas informativas generales. Nada en este sitio web constituye consejo médico. Consulta siempre a un profesional de la salud calificado antes de cambiar tu dieta, ejercicio o régimen de salud.',
+      'HealthCalc ofrece solo contenido y herramientas informativas generales. Nada en este sitio web constituye consejo médico. Consulta siempre a un profesional de la salud calificado antes de cambiar tu dieta, ejercicio o régimen de salud.',
     'footer.rightsReserved': 'Todos los derechos reservados.',
     'auth.login': 'Iniciar sesión',
     'auth.signup': 'Registrarse',
@@ -470,7 +470,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
       'Contenu vérifié par des professionnels certifiés de la santé et du fitness',
     'footer.trust.learnProcess': 'En savoir plus sur notre processus',
     'footer.medicalDisclaimer':
-      "HealthCheck fournit uniquement du contenu et des outils d'information générale. Rien sur ce site ne constitue un avis médical. Consultez toujours un professionnel de santé qualifié avant de modifier votre alimentation, votre exercice ou votre régime de santé.",
+      "HealthCalc fournit uniquement du contenu et des outils d'information générale. Rien sur ce site ne constitue un avis médical. Consultez toujours un professionnel de santé qualifié avant de modifier votre alimentation, votre exercice ou votre régime de santé.",
     'footer.rightsReserved': 'Tous droits réservés.',
     'auth.login': 'Se connecter',
     'auth.signup': "S'inscrire",
@@ -623,7 +623,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
       'Inhalte geprüft von zertifizierten Gesundheits- und Fitnessfachkräften',
     'footer.trust.learnProcess': 'Mehr ueber unseren Prozess',
     'footer.medicalDisclaimer':
-      'HealthCheck bietet nur allgemeine Informationsinhalte und Tools. Nichts auf dieser Website stellt medizinischen Rat dar. Konsultieren Sie immer qualifiziertes medizinisches Fachpersonal, bevor Sie Ihre Ernährung, Ihr Training oder Ihr Gesundheitsprogramm ändern.',
+      'HealthCalc bietet nur allgemeine Informationsinhalte und Tools. Nichts auf dieser Website stellt medizinischen Rat dar. Konsultieren Sie immer qualifiziertes medizinisches Fachpersonal, bevor Sie Ihre Ernährung, Ihr Training oder Ihr Gesundheitsprogramm ändern.',
     'footer.rightsReserved': 'Alle Rechte vorbehalten.',
     'auth.login': 'Anmelden',
     'auth.signup': 'Registrieren',
@@ -776,7 +776,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'footer.trust.reviewed': 'Conteudo revisado por profissionais certificados de saude e fitness',
     'footer.trust.learnProcess': 'Saiba mais sobre nosso processo',
     'footer.medicalDisclaimer':
-      'A HealthCheck fornece apenas conteudo e ferramentas informativas gerais. Nada neste site constitui aconselhamento medico. Sempre consulte um profissional de saude qualificado antes de mudar sua dieta, exercicios ou rotina de saude.',
+      'A HealthCalc fornece apenas conteudo e ferramentas informativas gerais. Nada neste site constitui aconselhamento medico. Sempre consulte um profissional de saude qualificado antes de mudar sua dieta, exercicios ou rotina de saude.',
     'footer.rightsReserved': 'Todos os direitos reservados.',
     'auth.login': 'Entrar',
     'auth.signup': 'Cadastrar-se',
@@ -925,7 +925,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'footer.trust.reviewed': '内容由认证健康和健身专业人士审核',
     'footer.trust.learnProcess': '了解我们的流程',
     'footer.medicalDisclaimer':
-      'HealthCheck 仅提供一般信息内容和工具。本站内容不构成医疗建议。在更改饮食、运动或健康方案前，请务必咨询合格的医疗专业人士。',
+      'HealthCalc 仅提供一般信息内容和工具。本站内容不构成医疗建议。在更改饮食、运动或健康方案前，请务必咨询合格的医疗专业人士。',
     'footer.rightsReserved': '保留所有权利。',
     'auth.login': '登录',
     'auth.signup': '注册',

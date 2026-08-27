@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Workout Gloves for Weightlifting in 2026 | HealthCheck Blog',
+  title: 'Best Workout Gloves for Weightlifting in 2026 | HealthCalc Blog',
   description:
     'Compare the best workout gloves for weightlifting, grip protection, and CrossFit. Reviews of Harbinger, Fit Active Sports, RIMSports, and more with honest pros and cons.',
   keywords:
     'best workout gloves 2026, weightlifting gloves, gym gloves for men, gym gloves for women, grip gloves, CrossFit gloves, Harbinger, RIMSports, Fit Active Sports',
   openGraph: {
-    title: 'Best Workout Gloves for Weightlifting in 2026 | HealthCheck Blog',
+    title: 'Best Workout Gloves for Weightlifting in 2026 | HealthCalc Blog',
     description:
       'Compare the best workout gloves for weightlifting, grip protection, and CrossFit. Reviews of Harbinger, Fit Active Sports, RIMSports, and more.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Workout Gloves for Weightlifting in 2026 | HealthCheck Blog',
+    title: 'Best Workout Gloves for Weightlifting in 2026 | HealthCalc Blog',
     description:
       'Compare the best workout gloves for weightlifting, grip protection, and CrossFit.',
     images: ['/images/blog/best-workout-gloves-weightlifting.jpg'],
@@ -40,10 +40,10 @@ const jsonLd = {
   description: 'Compare the best workout gloves for weightlifting, grip protection, and CrossFit.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-workout-gloves-weightlifting',

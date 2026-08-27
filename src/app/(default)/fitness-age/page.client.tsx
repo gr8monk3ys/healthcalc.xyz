@@ -485,7 +485,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
         {result && (
           <ResultsShareBar
             calculatorSlug="fitness-age"
-            title={`Fitness Age ${result.fitnessAge.toFixed(1)} | HealthCheck`}
+            title={`Fitness Age ${result.fitnessAge.toFixed(1)} | HealthCalc`}
             shareToken={shareToken}
             className="mt-6"
           />

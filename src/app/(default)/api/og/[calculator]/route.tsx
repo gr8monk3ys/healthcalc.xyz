@@ -29,8 +29,8 @@ function getFallbackSummary(calculator: ShareCalculatorSlug): SharedResultSummar
   return {
     calculator,
     title: FALLBACK_TITLES[calculator],
-    description: 'Calculate your personalized result on HealthCheck.',
-    primaryValue: 'HealthCheck',
+    description: 'Calculate your personalized result on HealthCalc.',
+    primaryValue: 'HealthCalc',
     secondaryValue: FALLBACK_TITLES[calculator],
     detail: 'healthcalc.xyz',
     accentColor: '#4F46E5',
@@ -93,7 +93,7 @@ export async function GET(
               background: summary.accentColor,
             }}
           />
-          HealthCheck Shared Result
+          HealthCalc Shared Result
         </div>
         <div
           style={{

@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Steps to Miles Calculator | HealthCheck',
+  title: 'Steps to Miles Calculator | HealthCalc',
   description: 'Convert daily steps into miles or kilometers.',
   alternates: {
     canonical: './',
   },
   openGraph: {
-    title: 'Steps to Miles Calculator | HealthCheck',
+    title: 'Steps to Miles Calculator | HealthCalc',
     description: 'Convert daily steps into miles or kilometers.',
     type: 'website',
     url: './',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Steps to Miles Calculator | HealthCheck',
+    title: 'Steps to Miles Calculator | HealthCalc',
     description: 'Convert daily steps into miles or kilometers.',
     images: ['/images/calculators/steps-to-miles-calculator.jpg'],
   },

@@ -22,13 +22,13 @@ type DisclaimerCopy = {
 
 const COPY: Record<SupportedLocale, DisclaimerCopy> = {
   en: {
-    metaTitle: 'Medical Disclaimer | HealthCheck',
-    metaDescription: 'Important medical disclaimer for HealthCheck calculators and content.',
+    metaTitle: 'Medical Disclaimer | HealthCalc',
+    metaDescription: 'Important medical disclaimer for HealthCalc calculators and content.',
     pageTitle: 'Medical Disclaimer',
     lastUpdatedLabel: 'Last Updated:',
     lastUpdatedDate: 'February 6, 2026',
     intro:
-      'HealthCheck content and calculators are for informational and educational use only and are not medical advice.',
+      'HealthCalc content and calculators are for informational and educational use only and are not medical advice.',
     sections: [
       {
         title: 'Not a Substitute for Professional Care',
@@ -47,16 +47,15 @@ const COPY: Record<SupportedLocale, DisclaimerCopy> = {
     contactBody: 'Questions about this disclaimer: info@healthcalc.xyz',
   },
   es: {
-    metaTitle: 'Aviso médico | HealthCheck',
-    metaDescription:
-      'Aviso médico importante sobre las calculadoras y el contenido de HealthCheck.',
+    metaTitle: 'Aviso médico | HealthCalc',
+    metaDescription: 'Aviso médico importante sobre las calculadoras y el contenido de HealthCalc.',
     pageTitle: 'Aviso médico',
     lastUpdatedLabel: 'Última actualización:',
     lastUpdatedDate: '6 de febrero de 2026',
     translationNotice:
       'Esta traducción se proporciona solo por conveniencia. En caso de conflicto, la versión en inglés prevalece.',
     intro:
-      'El contenido y las calculadoras de HealthCheck son solo para fines informativos y educativos; no constituyen consejo médico.',
+      'El contenido y las calculadoras de HealthCalc son solo para fines informativos y educativos; no constituyen consejo médico.',
     sections: [
       {
         title: 'No sustituye la atención profesional',
@@ -75,16 +74,16 @@ const COPY: Record<SupportedLocale, DisclaimerCopy> = {
     contactBody: 'Preguntas sobre este aviso: info@healthcalc.xyz',
   },
   fr: {
-    metaTitle: 'Avertissement médical | HealthCheck',
+    metaTitle: 'Avertissement médical | HealthCalc',
     metaDescription:
-      'Avertissement médical important concernant les calculateurs et le contenu de HealthCheck.',
+      'Avertissement médical important concernant les calculateurs et le contenu de HealthCalc.',
     pageTitle: 'Avertissement médical',
     lastUpdatedLabel: 'Dernière mise à jour :',
     lastUpdatedDate: '6 février 2026',
     translationNotice:
       'Cette traduction est fournie à titre de commodité. En cas de conflit, la version anglaise prévaut.',
     intro:
-      'Le contenu et les calculateurs HealthCheck sont fournis à des fins d’information et d’éducation uniquement et ne constituent pas un avis médical.',
+      'Le contenu et les calculateurs HealthCalc sont fournis à des fins d’information et d’éducation uniquement et ne constituent pas un avis médical.',
     sections: [
       {
         title: 'Ne remplace pas un professionnel de santé',
@@ -103,16 +102,15 @@ const COPY: Record<SupportedLocale, DisclaimerCopy> = {
     contactBody: 'Questions sur cet avertissement : info@healthcalc.xyz',
   },
   de: {
-    metaTitle: 'Medizinischer Hinweis | HealthCheck',
-    metaDescription:
-      'Wichtiger medizinischer Hinweis zu den Rechnern und Inhalten von HealthCheck.',
+    metaTitle: 'Medizinischer Hinweis | HealthCalc',
+    metaDescription: 'Wichtiger medizinischer Hinweis zu den Rechnern und Inhalten von HealthCalc.',
     pageTitle: 'Medizinischer Hinweis',
     lastUpdatedLabel: 'Zuletzt aktualisiert:',
     lastUpdatedDate: '6. Februar 2026',
     translationNotice:
       'Diese Übersetzung dient nur der Information. Im Falle von Abweichungen gilt die englische Version.',
     intro:
-      'Inhalte und Rechner von HealthCheck dienen ausschließlich Informations- und Bildungszwecken und stellen keine medizinische Beratung dar.',
+      'Inhalte und Rechner von HealthCalc dienen ausschließlich Informations- und Bildungszwecken und stellen keine medizinische Beratung dar.',
     sections: [
       {
         title: 'Kein Ersatz für professionelle Behandlung',
@@ -131,15 +129,15 @@ const COPY: Record<SupportedLocale, DisclaimerCopy> = {
     contactBody: 'Fragen zu diesem Hinweis: info@healthcalc.xyz',
   },
   pt: {
-    metaTitle: 'Aviso médico | HealthCheck',
-    metaDescription: 'Aviso médico importante sobre as calculadoras e o conteúdo da HealthCheck.',
+    metaTitle: 'Aviso médico | HealthCalc',
+    metaDescription: 'Aviso médico importante sobre as calculadoras e o conteúdo da HealthCalc.',
     pageTitle: 'Aviso médico',
     lastUpdatedLabel: 'Última atualização:',
     lastUpdatedDate: '6 de fevereiro de 2026',
     translationNotice:
       'Esta tradução é fornecida apenas por conveniência. Em caso de conflito, a versão em inglês prevalece.',
     intro:
-      'O conteúdo e as calculadoras da HealthCheck são apenas informativos e educacionais e não constituem aconselhamento médico.',
+      'O conteúdo e as calculadoras da HealthCalc são apenas informativos e educacionais e não constituem aconselhamento médico.',
     sections: [
       {
         title: 'Não substitui cuidados profissionais',
@@ -158,13 +156,13 @@ const COPY: Record<SupportedLocale, DisclaimerCopy> = {
     contactBody: 'Dúvidas sobre este aviso: info@healthcalc.xyz',
   },
   zh: {
-    metaTitle: '医疗免责声明 | HealthCheck',
-    metaDescription: 'HealthCheck 计算器与内容的重要医疗免责声明。',
+    metaTitle: '医疗免责声明 | HealthCalc',
+    metaDescription: 'HealthCalc 计算器与内容的重要医疗免责声明。',
     pageTitle: '医疗免责声明',
     lastUpdatedLabel: '更新日期：',
     lastUpdatedDate: '2026 年 2 月 6 日',
     translationNotice: '此翻译仅供参考。如有冲突，以英文版本为准。',
-    intro: 'HealthCheck 的内容与计算器仅用于信息与教育目的，不构成医疗建议。',
+    intro: 'HealthCalc 的内容与计算器仅用于信息与教育目的，不构成医疗建议。',
     sections: [
       {
         title: '不替代专业医疗服务',

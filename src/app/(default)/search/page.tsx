@@ -5,9 +5,9 @@ import StructuredData from '@/components/StructuredData';
 
 // Metadata for the search page
 export const metadata: Metadata = {
-  title: 'Search | HealthCheck',
+  title: 'Search | HealthCalc',
   description:
-    'Search for health and fitness calculators, articles, and information on HealthCheck.',
+    'Search for health and fitness calculators, articles, and information on HealthCalc.',
   robots: {
     index: true,
     follow: true,

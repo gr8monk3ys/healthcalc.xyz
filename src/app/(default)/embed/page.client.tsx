@@ -55,7 +55,7 @@ function CopyableEmbedCode({
 
   const embedPath = `/api/embed/${calculator.slug}${theme === 'dark' ? '?theme=dark' : ''}`;
   const embedUrl = toAbsoluteUrl(embedPath);
-  const embedCode = `<iframe src="${embedUrl}" width="100%" height="${calculator.defaultHeight}" title="${calculator.title} - HealthCheck" style="border:0;border-radius:16px;max-width:100%;min-width:320px;" loading="lazy"></iframe>`;
+  const embedCode = `<iframe src="${embedUrl}" width="100%" height="${calculator.defaultHeight}" title="${calculator.title} - HealthCalc" style="border:0;border-radius:16px;max-width:100%;min-width:320px;" loading="lazy"></iframe>`;
 
   const scheduleCopiedReset = useCallback(() => {
     if (copiedResetTimeoutRef.current !== null) {
@@ -243,7 +243,7 @@ export default function EmbedPage(): React.JSX.Element {
           </p>
           <div className="glass-panel-strong p-4 rounded-2xl">
             <p className="font-semibold text-slate-900 dark:text-white mb-1">
-              Keep the &quot;Powered by HealthCheck&quot; link visible
+              Keep the &quot;Powered by HealthCalc&quot; link visible
             </p>
             <p>
               Each embedded calculator includes a small attribution link at the bottom. This link

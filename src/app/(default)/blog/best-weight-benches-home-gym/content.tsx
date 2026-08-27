@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Weight Benches for Home Gym in 2026 | HealthCheck Blog',
+  title: 'Best Weight Benches for Home Gym in 2026 | HealthCalc Blog',
   description:
     'Compare the best weight benches for your home gym in 2026. Honest reviews of REP Fitness AB-3000, Bowflex 5.1S, Fitness Reality 1000, FLYBIRD, and Rogue Adjustable Bench 3.0 with real pros, cons, and pricing.',
   keywords:
     'best weight bench 2026, home gym bench, adjustable weight bench, REP Fitness AB-3000, Bowflex 5.1S, Fitness Reality 1000, FLYBIRD bench, Rogue Adjustable Bench, flat incline decline bench, home gym equipment',
   openGraph: {
-    title: 'Best Weight Benches for Home Gym in 2026 | HealthCheck Blog',
+    title: 'Best Weight Benches for Home Gym in 2026 | HealthCalc Blog',
     description:
       'Compare the best weight benches for your home gym in 2026. Honest reviews of REP Fitness, Bowflex, Fitness Reality, FLYBIRD, and Rogue with real pros, cons, and pricing.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Weight Benches for Home Gym in 2026 | HealthCheck Blog',
+    title: 'Best Weight Benches for Home Gym in 2026 | HealthCalc Blog',
     description:
       'Compare the best weight benches for your home gym in 2026. Honest reviews with real pros, cons, and pricing.',
     images: ['/images/blog/best-weight-benches-home-gym.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

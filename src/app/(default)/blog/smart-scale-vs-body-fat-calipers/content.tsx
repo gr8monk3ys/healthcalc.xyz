@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate? | HealthCheck Blog',
+  title: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate? | HealthCalc Blog',
   description:
     'Honest comparison of smart scales and body fat calipers for measuring body composition. Real accuracy data, cost breakdown, and when to use each method.',
   keywords:
     'smart scale vs calipers, body fat measurement, BIA accuracy, skinfold calipers, body composition, body fat percentage, Withings scale, RENPHO scale, Accu-Measure caliper',
   openGraph: {
-    title: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate? | HealthCheck Blog',
+    title: 'Smart Scale vs Body Fat Calipers: Which Is More Accurate? | HealthCalc Blog',
     description:
       'Honest comparison of smart scales and body fat calipers for measuring body composition. Real accuracy data, cost breakdown, and when to use each method.',
     type: 'article',
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

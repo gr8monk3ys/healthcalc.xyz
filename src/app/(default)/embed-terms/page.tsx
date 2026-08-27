@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
-  title: 'Embed Terms | HealthCheck',
-  description: 'Terms for embedding HealthCheck calculators on external websites.',
+  title: 'Embed Terms | HealthCalc',
+  description: 'Terms for embedding HealthCalc calculators on external websites.',
 };
 
 export default function EmbedTermsPage() {
@@ -23,7 +23,7 @@ export default function EmbedTermsPage() {
         <section>
           <h2 className="text-xl font-semibold mb-2">Attribution Required</h2>
           <p>
-            All embedded calculators must display the “Powered by HealthCheck” attribution link
+            All embedded calculators must display the “Powered by HealthCalc” attribution link
             directly beneath the widget. Removing or obscuring attribution is not permitted.
           </p>
         </section>

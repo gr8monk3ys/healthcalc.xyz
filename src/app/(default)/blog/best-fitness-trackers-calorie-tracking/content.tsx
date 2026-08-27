@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCheck Blog',
+  title: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCalc Blog',
   description:
     'Compare the top fitness trackers and smartwatches for accurate calorie burn tracking. In-depth reviews of Fitbit, Garmin, Apple Watch, and Samsung Galaxy Watch.',
   keywords:
     'fitness tracker, calorie tracker, Fitbit Charge 6, Garmin Venu, Apple Watch, Samsung Galaxy Watch, best fitness watch 2026, calorie burn tracking, TDEE tracking',
   openGraph: {
-    title: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the top fitness trackers and smartwatches for accurate calorie burn tracking. In-depth reviews of Fitbit, Garmin, Apple Watch, and Samsung Galaxy Watch.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCheck Blog',
+    title: 'Best Fitness Trackers for Calorie Tracking in 2026 | HealthCalc Blog',
     description:
       'Compare the top fitness trackers and smartwatches for accurate calorie burn tracking. In-depth reviews of Fitbit, Garmin, Apple Watch, and Samsung Galaxy Watch.',
     images: ['/images/blog/best-fitness-trackers-calorie-tracking.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-02',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

@@ -49,7 +49,7 @@ export async function generateMetadata({
   const { calculator, locale } = await params;
   if (!isSupportedShareCalculator(calculator)) {
     return {
-      title: 'Shared Result | HealthCheck',
+      title: 'Shared Result | HealthCalc',
       robots: {
         index: false,
         follow: false,
@@ -67,7 +67,7 @@ export async function generateMetadata({
       ? buildSharedResultSummary(payload)
       : {
           title: `${CALCULATOR_LABELS[calculator]} | Shared Result`,
-          description: 'Open this shared calculator result on HealthCheck.',
+          description: 'Open this shared calculator result on HealthCalc.',
           secondaryValue: CALCULATOR_LABELS[calculator],
         };
 
@@ -79,7 +79,7 @@ export async function generateMetadata({
     : `${localePrefix}/share/${calculator}`;
 
   return {
-    title: `${summary.title} | HealthCheck`,
+    title: `${summary.title} | HealthCalc`,
     description: summary.description,
     robots: {
       index: false,

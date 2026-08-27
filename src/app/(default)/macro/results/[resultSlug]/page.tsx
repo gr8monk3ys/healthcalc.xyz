@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: MacroProgrammaticPageProps): 
 
   if (!data) {
     return {
-      title: 'Macro Result Not Found | HealthCheck',
+      title: 'Macro Result Not Found | HealthCalc',
       robots: {
         index: false,
         follow: false,

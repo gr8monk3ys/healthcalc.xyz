@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Heart Rate Zones Calculator | HealthCheck',
+  title: 'Heart Rate Zones Calculator | HealthCalc',
   description:
     'Calculate personalized heart rate training zones using percent max or Karvonen method.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Heart Rate Zones Calculator | HealthCheck',
+    title: 'Heart Rate Zones Calculator | HealthCalc',
     description:
       'Calculate personalized heart rate training zones using percent max or Karvonen method.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Heart Rate Zones Calculator | HealthCheck',
+    title: 'Heart Rate Zones Calculator | HealthCalc',
     description:
       'Calculate personalized heart rate training zones using percent max or Karvonen method.',
     images: ['/images/calculators/heart-rate-zones-calculator.jpg'],

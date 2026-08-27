@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Your Fitness Goals in 2026 | HealthCheck Blog',
+  title: 'Best Supplements for Your Fitness Goals in 2026 | HealthCalc Blog',
   description:
     'Compare the best supplements for muscle building, fat loss, and overall health. In-depth reviews of Optimum Nutrition, Thorne, Nordic Naturals, and more top-rated supplements.',
   keywords:
     'best supplements 2026, whey protein, creatine monohydrate, multivitamin, omega-3, pre-workout, Optimum Nutrition Gold Standard, Thorne creatine, fitness supplements, muscle building supplements',
   openGraph: {
-    title: 'Best Supplements for Your Fitness Goals in 2026 | HealthCheck Blog',
+    title: 'Best Supplements for Your Fitness Goals in 2026 | HealthCalc Blog',
     description:
       'Compare the best supplements for muscle building, fat loss, and overall health. In-depth reviews of Optimum Nutrition, Thorne, Nordic Naturals, and more top-rated supplements.',
     type: 'article',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Supplements for Your Fitness Goals in 2026 | HealthCheck Blog',
+    title: 'Best Supplements for Your Fitness Goals in 2026 | HealthCalc Blog',
     description:
       'Compare the best supplements for muscle building, fat loss, and overall health. In-depth reviews of Optimum Nutrition, Thorne, Nordic Naturals, and more top-rated supplements.',
     images: ['/images/blog/best-supplements-fitness-goals.jpg'],
@@ -43,12 +43,12 @@ const jsonLd = {
   dateModified: '2026-02-08',
   author: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     url: 'https://www.healthcalc.xyz',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: {
       '@type': 'ImageObject',
       url: 'https://www.healthcalc.xyz/images/og-image.jpg',

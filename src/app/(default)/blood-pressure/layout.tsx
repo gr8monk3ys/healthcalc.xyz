@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Blood Pressure Calculator | HealthCheck',
+  title: 'Blood Pressure Calculator | HealthCalc',
   description:
     'Check your blood pressure category using systolic and diastolic readings. Understand normal, elevated, and hypertension ranges.',
   keywords:
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   openGraph: {
-    title: 'Blood Pressure Calculator | HealthCheck',
+    title: 'Blood Pressure Calculator | HealthCalc',
     description:
       'Check your blood pressure category using systolic and diastolic readings. Understand normal, elevated, and hypertension ranges.',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blood Pressure Calculator | HealthCheck',
+    title: 'Blood Pressure Calculator | HealthCalc',
     description: 'Check your blood pressure category using systolic and diastolic readings.',
     images: ['/images/calculators/blood-pressure-calculator.jpg'],
   },

@@ -4,13 +4,13 @@ import { Metadata } from 'next';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Best Massage Guns for Muscle Recovery in 2026 | HealthCheck Blog',
+  title: 'Best Massage Guns for Muscle Recovery in 2026 | HealthCalc Blog',
   description:
     'Compare the best percussion massage guns for post-workout recovery and muscle soreness. Reviews of Theragun Elite, Hypervolt 2, RENPHO R3, and more.',
   keywords:
     'best massage gun 2026, Theragun Elite, Hypervolt 2, RENPHO R3, Ekrin B37, Bob and Brad Q2 Mini, percussion massager, muscle recovery, workout recovery, deep tissue massage',
   openGraph: {
-    title: 'Best Massage Guns for Muscle Recovery in 2026 | HealthCheck Blog',
+    title: 'Best Massage Guns for Muscle Recovery in 2026 | HealthCalc Blog',
     description: 'Honest reviews of the best percussion massage guns for recovery.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/best-massage-guns-recovery',
@@ -37,10 +37,10 @@ const jsonLd = {
   description: 'Compare the best percussion massage guns for post-workout recovery.',
   datePublished: '2026-02-08',
   dateModified: '2026-02-08',
-  author: { '@type': 'Organization', name: 'HealthCheck', url: 'https://www.healthcalc.xyz' },
+  author: { '@type': 'Organization', name: 'HealthCalc', url: 'https://www.healthcalc.xyz' },
   publisher: {
     '@type': 'Organization',
-    name: 'HealthCheck',
+    name: 'HealthCalc',
     logo: { '@type': 'ImageObject', url: 'https://www.healthcalc.xyz/images/og-image.jpg' },
   },
   mainEntityOfPage: 'https://www.healthcalc.xyz/blog/best-massage-guns-recovery',
