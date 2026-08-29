@@ -1,7 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AdUnit from '@/components/AdUnit';
+import { useCookieConsent } from '@/components/CookieConsent';
+import { shouldLoadAdSense } from '@/lib/adsense';
 
 interface AdBlockProps {
   slot?: string;
@@ -16,7 +18,18 @@ export default function AdBlock({
   fullWidth = true,
   className = '',
 }: AdBlockProps) {
-  if (!slot) return null;
+  const { advertising } = useCookieConsent();
+
+  // AdUnit renders nothing without advertising consent or in an automated
+  // browser. Rendering the "Advertisement" label anyway left an orphan caption
+  // over empty space, which reads as a broken page. Resolve the same
+  // conditions here so the label only ever appears with an ad under it.
+  const [adsAllowed, setAdsAllowed] = useState(false);
+  useEffect(() => {
+    setAdsAllowed(shouldLoadAdSense(window));
+  }, []);
+
+  if (!slot || !advertising || !adsAllowed) return null;
 
   return (
     <aside

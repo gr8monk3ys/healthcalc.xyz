@@ -428,6 +428,33 @@ html {
   color: var(--muted-ink);
 }
 
+/* Calculator grid weighting, applied by CalculatorPageLayout.
+ *
+ * Every calculator hands the layout two grid children: the form (col-span-1)
+ * and a wide panel (col-span-2). Before a calculation exists that wide panel
+ * holds explanatory prose, so the page shipped the thing the visitor came to
+ * use as the smaller of the two elements, squeezed into a third of the width.
+ *
+ * While there is no result the grid collapses to a single column: the form
+ * leads at a comfortable measure and the explainer follows underneath at full
+ * width. The class is dropped the moment a result renders, which restores the
+ * side-by-side form/result columns. Below lg the layout is already stacked. */
+@media (min-width: 1024px) {
+  .calc-grid--form-primary {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 2rem;
+  }
+
+  .calc-grid--form-primary > .md\:col-span-1 {
+    grid-column: 1;
+    max-width: 34rem;
+  }
+
+  .calc-grid--form-primary > .md\:col-span-2 {
+    grid-column: 1;
+  }
+}
+
 /* ---------------------------------------------------------------------------
  * Form controls
  * ------------------------------------------------------------------------ */

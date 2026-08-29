@@ -243,6 +243,25 @@ async function exportReportPdf(
   doc.save(`healthcheck-report-${dateStamp}.pdf`);
 }
 
+const REPORT_STARTER_CALCULATORS = [
+  { slug: '/bmi', name: 'BMI Calculator', description: 'Body mass index and healthy weight range' },
+  {
+    slug: '/body-fat',
+    name: 'Body Fat Calculator',
+    description: 'Body fat percentage from tape measurements',
+  },
+  {
+    slug: '/tdee',
+    name: 'TDEE Calculator',
+    description: 'Daily calories burned at your activity level',
+  },
+  {
+    slug: '/blood-pressure',
+    name: 'Blood Pressure Calculator',
+    description: 'Where a reading sits against clinical categories',
+  },
+] as const;
+
 function ReportPageClientContent(): React.JSX.Element {
   const { savedResults } = useSavedResults();
   const { localizePath } = useLocale();
@@ -351,14 +370,41 @@ function ReportPageClientContent(): React.JSX.Element {
       </div>
 
       {!hasData ? (
-        <div className="glass-panel rounded-xl p-6">
-          <h2 className="mb-2 text-lg font-semibold">No saved data yet</h2>
-          <p className="mb-4 text-sm text-gray-600 dark:text-gray-300">
-            Save calculator results first, then return here to generate a printable report.
-          </p>
-          <Link href={localizePath('/saved-results')} className="ui-btn-primary inline-flex">
-            Go to Saved Results
-          </Link>
+        /* The footer is pinned to the bottom of a min-h-screen shell, so a
+           three-line empty state left several hundred pixels of blank page
+           above it and the report read as truncated. Giving the empty state
+           somewhere to send the reader fills that space with something worth
+           reading instead of padding it out. */
+        <div className="mb-4">
+          <div className="glass-panel rounded-xl p-6">
+            <h2 className="mb-2 text-lg font-semibold">No saved data yet</h2>
+            <p className="mb-4 text-sm text-gray-600 dark:text-gray-300">
+              Save calculator results first, then return here to generate a printable report.
+            </p>
+            <Link href={localizePath('/saved-results')} className="ui-btn-primary inline-flex">
+              Go to Saved Results
+            </Link>
+          </div>
+
+          <div className="mt-8">
+            <h3 className="section-eyebrow mb-3">Start with a popular calculator</h3>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {REPORT_STARTER_CALCULATORS.map(calculator => (
+                <Link
+                  key={calculator.slug}
+                  href={localizePath(calculator.slug)}
+                  className="glass-panel block rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <p className="text-sm font-medium">{calculator.name}</p>
+                  <p className="mt-1 text-xs opacity-60">{calculator.description}</p>
+                </Link>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
+              Every calculator has a Save button under its result. Save two or three and this page
+              turns them into a single printable summary.
+            </p>
+          </div>
         </div>
       ) : (
         <>
