@@ -38,7 +38,7 @@ function SavedResultsPageContent(): React.JSX.Element {
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === 'dashboard'
               ? 'bg-[var(--accent)] text-white shadow-sm'
-              : 'text-[var(--foreground)] opacity-60 hover:opacity-100'
+              : 'text-foreground opacity-60 hover:opacity-100'
           }`}
         >
           Dashboard
@@ -49,7 +49,7 @@ function SavedResultsPageContent(): React.JSX.Element {
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === 'all-results'
               ? 'bg-[var(--accent)] text-white shadow-sm'
-              : 'text-[var(--foreground)] opacity-60 hover:opacity-100'
+              : 'text-foreground opacity-60 hover:opacity-100'
           }`}
         >
           All Results
@@ -59,7 +59,7 @@ function SavedResultsPageContent(): React.JSX.Element {
       {/* Sync prompt banner */}
       {syncPromptPending && (
         <div className="glass-panel mb-6 flex flex-col gap-3 rounded-xl p-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-[var(--foreground)]">
+          <p className="text-sm text-foreground">
             You have saved results from before signing in. Sync them to your account?
           </p>
           <div className="flex gap-2">

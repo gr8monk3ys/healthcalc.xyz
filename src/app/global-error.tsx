@@ -42,7 +42,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="bg-[var(--background)] text-[var(--foreground)]">
+      <body className="bg-background text-foreground">
         <main className="min-h-screen flex items-center justify-center p-4">
           <section className="w-full max-w-xl neumorph border border-accent/10 rounded-neumorph p-8">
             <div className="flex justify-center mb-6">
