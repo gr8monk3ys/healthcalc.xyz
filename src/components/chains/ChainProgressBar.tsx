@@ -35,7 +35,7 @@ export default function ChainProgressBar({
                   {i > 0 && (
                     <div
                       className={`hidden h-0.5 w-4 sm:block ${
-                        isCompleted ? 'bg-[var(--accent)]' : 'bg-[var(--foreground)] opacity-15'
+                        isCompleted ? 'bg-[var(--accent)]' : 'bg-foreground opacity-15'
                       }`}
                     />
                   )}
@@ -45,7 +45,7 @@ export default function ChainProgressBar({
                         ? 'bg-[var(--accent)] text-white shadow-sm'
                         : isCompleted
                           ? 'bg-[var(--accent)] bg-opacity-20 text-[var(--accent)]'
-                          : 'bg-[var(--foreground)] bg-opacity-5 opacity-50'
+                          : 'bg-foreground bg-opacity-5 opacity-50'
                     }`}
                   >
                     {isCompleted && !isCurrent ? '\u2713 ' : ''}

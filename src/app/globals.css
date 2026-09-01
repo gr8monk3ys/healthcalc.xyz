@@ -1,15 +1,37 @@
 /* Tailwind CSS v4 */
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
-/* Dark mode is toggled via a `.dark` class on <html> (see PreferencesContext),
-   so the `dark:` variant must key off that class, not prefers-color-scheme. */
-@custom-variant dark (&:where(.dark, .dark *));
+/* ~/code/ui theme: warm paper, forest green, gallery language (tokens +
+   type scale + motion + paper grain). Dark mode is toggled via a `.dark`
+   class on <html> (see PreferencesContext); identity.css's own
+   `@custom-variant dark (&:is(.dark *));` covers that, so this file no
+   longer declares its own. Knobs set below the import, per the registry's
+   README: only --primary and --radius are ours to choose. */
+@import './identity.css';
+
+/* App knobs (the only two identity.css says a consumer may set). --primary
+   keeps healthcalc's existing indigo brand accent (#4d55e8 / #8b93ff dark) —
+   the color already used everywhere via --accent below — converted to HSL so
+   identity's `hsl(var(--primary))` utilities resolve correctly. --radius
+   matches the site's existing --radius-neumorph personality. */
+:root {
+  --primary: 237 77% 61%; /* #4d55e8 */
+  --radius: 1rem;
+}
+.dark {
+  --primary: 236 100% 77%; /* #8b93ff */
+}
 
 /* Custom theme values for Tailwind v4 */
 @theme {
   --radius-neumorph: 1rem;
-  --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
+  /* --surface / --surface-dark: healthcalc's own near-white "raised panel"
+     fill. Was named --primary/--primary-dark pre-adoption, which collided
+     with identity.css's real, hsl()-wrapped --primary (the brand knob
+     above) — renamed so both concepts can coexist. */
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-dark: var(--accent-dark);
@@ -58,11 +80,14 @@
 }
 
 :root {
-  /* --font-body and --font-heading are set by next/font/google via class names on <html> */
-  --background: #eef0fc;
-  --foreground: #14183a;
-  --primary: #f8f9ff;
-  --primary-dark: #e9ebfa;
+  /* --font-body / --font-display / --font-mono come from ~/code/ui's
+     fonts.ts (fontVariables), set on <html> in (default)/layout.tsx. */
+  /* --background / --foreground now come from identity.css (warm paper /
+     near-black ink) — the theme's README says the paper and ink are the
+     identity, not a per-app knob, so healthcalc's old blue-tinted
+     --background: #eef0fc / --foreground: #14183a are dropped here. */
+  --surface: #f8f9ff;
+  --surface-dark: #e9ebfa;
   --accent: #4d55e8;
   --accent-light: #7b82ff;
   --accent-dark: #3a41c9;
@@ -88,10 +113,9 @@
 
 /* Dark mode variables */
 .dark {
-  --background: #0a0e24;
-  --foreground: #e9ebff;
-  --primary: #161b3e;
-  --primary-dark: #111533;
+  /* --background / --foreground: identity.css's slate-night dark mode. */
+  --surface: #161b3e;
+  --surface-dark: #111533;
   --accent: #8b93ff;
   --accent-light: #a6acff;
   --accent-dark: #666dde;
@@ -123,12 +147,12 @@
 }
 
 body {
-  background-color: var(--background);
+  background-color: hsl(var(--background));
   background-image:
     radial-gradient(ellipse 60% 42% at 12% -4%, rgba(123, 130, 255, 0.2), transparent),
     radial-gradient(ellipse 52% 38% at 88% 4%, rgba(45, 212, 191, 0.09), transparent),
     radial-gradient(ellipse 70% 46% at 58% 104%, rgba(123, 130, 255, 0.12), transparent);
-  color: var(--foreground);
+  color: hsl(var(--foreground));
   font-family: var(--font-body);
   line-height: 1.65;
   letter-spacing: -0.002em;
@@ -146,7 +170,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   letter-spacing: -0.028em;
   line-height: 1.15;
   text-wrap: balance;
@@ -168,7 +192,7 @@ html {
 :where(button, [role='button'], input, select, textarea):focus-visible {
   outline: 2px solid transparent;
   box-shadow:
-    0 0 0 2px var(--background),
+    0 0 0 2px hsl(var(--background)),
     0 0 0 4px var(--focus-ring);
 }
 
@@ -225,7 +249,7 @@ html {
 
 @layer components {
   .prose {
-    color: var(--foreground);
+    color: hsl(var(--foreground));
     line-height: 1.75;
   }
 
@@ -258,34 +282,34 @@ html {
   }
 
   .prose h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.65em;
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.022em;
     margin-top: 2em;
     margin-bottom: 0.6em;
-    color: var(--foreground);
+    color: hsl(var(--foreground));
   }
 
   .prose h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.28em;
     font-weight: 700;
     line-height: 1.35;
     letter-spacing: -0.018em;
     margin-top: 1.7em;
     margin-bottom: 0.5em;
-    color: var(--foreground);
+    color: hsl(var(--foreground));
   }
 
   .prose h4 {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.1em;
     font-weight: 700;
     margin-top: 1.5em;
     margin-bottom: 0.4em;
-    color: var(--foreground);
+    color: hsl(var(--foreground));
   }
 
   .prose ul,
@@ -333,7 +357,7 @@ html {
 
   .prose strong {
     font-weight: 700;
-    color: var(--foreground);
+    color: hsl(var(--foreground));
   }
 
   .prose blockquote {
@@ -411,7 +435,7 @@ html {
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 0.625rem;
-  color: var(--foreground);
+  color: hsl(var(--foreground));
 }
 
 .calc-hero > p,
@@ -439,7 +463,7 @@ html {
   border: 1px solid var(--card-border);
   border-radius: 0.75rem;
   background-color: var(--glass-fill-strong);
-  color: var(--foreground);
+  color: hsl(var(--foreground));
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
@@ -648,7 +672,7 @@ input[type='checkbox'] {
   z-index: 10;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -829,14 +853,14 @@ input[type='checkbox'] {
    instead of an overlay, and the body reserves its height (below) so it never
    permanently covers the bottom of the page. */
 .consent-banner-shell {
-  background-color: color-mix(in srgb, var(--primary) 93%, transparent);
+  background-color: color-mix(in srgb, var(--surface) 93%, transparent);
   border-top: 1px solid var(--card-border);
   backdrop-filter: blur(18px);
   box-shadow: 0 -8px 32px -12px rgba(37, 45, 122, 0.24);
 }
 
 .dark .consent-banner-shell {
-  background-color: color-mix(in srgb, var(--primary-dark) 95%, transparent);
+  background-color: color-mix(in srgb, var(--surface-dark) 95%, transparent);
   box-shadow: 0 -8px 32px -12px rgba(2, 6, 23, 0.6);
 }
 
@@ -891,13 +915,17 @@ input[type='checkbox'] {
 
 @media (max-width: 768px) {
   body {
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.97), var(--background) 38%);
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.97),
+      hsl(var(--background)) 38%
+    );
     text-rendering: auto;
     transition: none;
   }
 
   .dark body {
-    background-image: linear-gradient(180deg, rgba(10, 14, 36, 0.98), var(--background) 38%);
+    background-image: linear-gradient(180deg, rgba(10, 14, 36, 0.98), hsl(var(--background)) 38%);
   }
 
   h1,

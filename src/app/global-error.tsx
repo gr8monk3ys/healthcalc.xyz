@@ -42,7 +42,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="bg-[var(--background)] text-[var(--foreground)]">
+      <body className="bg-background text-foreground">
         <main className="min-h-screen flex items-center justify-center p-4">
           <section className="w-full max-w-xl neumorph border border-accent/10 rounded-neumorph p-8">
             <div className="flex justify-center mb-6">
@@ -64,7 +64,7 @@ export default function GlobalError({
             </p>
 
             {process.env.NODE_ENV === 'development' && (
-              <div className="mb-6 p-4 rounded-lg bg-primary-dark/60">
+              <div className="mb-6 p-4 rounded-lg bg-surface-dark/60">
                 <p className="text-sm font-mono break-words">{error.message || 'Unknown error'}</p>
                 {error.digest && (
                   <p className="text-xs text-gray-600 dark:text-gray-300 mt-2">
@@ -83,7 +83,7 @@ export default function GlobalError({
               </button>
               <Link
                 href="/"
-                className="w-full rounded-lg bg-primary-dark text-center font-semibold px-4 py-3 hover:opacity-90 transition-opacity"
+                className="w-full rounded-lg bg-surface-dark text-center font-semibold px-4 py-3 hover:opacity-90 transition-opacity"
               >
                 Go Home
               </Link>

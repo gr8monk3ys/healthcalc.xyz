@@ -182,7 +182,7 @@ export default function SocialShare({
               key={platform}
               href={shareUrls[platform]}
               onClick={e => handleShare(e, platform)}
-              className="elevated-pill flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium text-[var(--foreground)] transition-all hover:-translate-y-0.5 hover:border-accent/40"
+              className="elevated-pill flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-accent/40"
               aria-label={formatTemplate(t('socialShare.ariaTemplate'), { platform: config.label })}
               rel="noopener noreferrer"
             >

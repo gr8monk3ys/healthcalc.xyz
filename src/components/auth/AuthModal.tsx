@@ -80,7 +80,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
         <button
           type="button"
           onClick={handleClose}
-          className="absolute right-4 top-4 rounded-full p-1 text-[var(--foreground)] opacity-60 transition-opacity hover:opacity-100"
+          className="absolute right-4 top-4 rounded-full p-1 text-foreground opacity-60 transition-opacity hover:opacity-100"
           aria-label="Close"
         >
           <svg
@@ -100,8 +100,8 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
           </svg>
         </button>
 
-        <h2 className="mb-1 text-xl font-bold text-[var(--foreground)]">Sign in to HealthCalc</h2>
-        <p className="mb-5 text-sm text-[var(--foreground)] opacity-70">
+        <h2 className="mb-1 text-xl font-bold text-foreground">Sign in to HealthCalc</h2>
+        <p className="mb-5 text-sm text-foreground opacity-70">
           Save your calculator results to the cloud so you can access them from any device.
         </p>
 
@@ -132,7 +132,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
             <div>
               <label
                 htmlFor="auth-email"
-                className="mb-1 block text-sm font-medium text-[var(--foreground)]"
+                className="mb-1 block text-sm font-medium text-foreground"
               >
                 Email address
               </label>
@@ -163,7 +163,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
               {status === 'sending' ? 'Sending...' : 'Send magic link'}
             </button>
 
-            <p className="text-center text-xs text-[var(--foreground)] opacity-50">
+            <p className="text-center text-xs text-foreground opacity-50">
               No password needed. We will email you a secure sign-in link.
             </p>
           </form>
