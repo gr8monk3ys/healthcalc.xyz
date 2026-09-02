@@ -105,6 +105,28 @@ describe('rateLimit', () => {
     expect(rateLimit(makeRequest('1.2.3.4'), opts).success).toBe(true);
   });
 
+  it('gives a repeat violator a fresh window of the SAME base length', () => {
+    // The removed exponential-backoff branch was unreachable: `cleanupExpired()`
+    // deleted the expired entry -- and its `violations` counter -- before the
+    // lookup that would have read it, so the multiplier was always 1. This pins
+    // the behaviour that actually shipped, so nobody reintroduces the branch
+    // believing it did something.
+    const opts = { limit: 2, windowMs: 60_000 };
+    for (let i = 0; i < 10; i++) {
+      rateLimit(makeRequest('1.2.3.4'), opts);
+    }
+
+    vi.advanceTimersByTime(61_000);
+
+    const first = rateLimit(makeRequest('1.2.3.4'), opts);
+    expect(first.success).toBe(true);
+
+    const windowLenMs = Number(first.headers['X-RateLimit-Reset']) * 1000 - Date.now();
+    // A working 8x backoff would have made this 480_000.
+    expect(windowLenMs).toBeGreaterThan(59_000);
+    expect(windowLenMs).toBeLessThan(61_000);
+  });
+
   it('should fall back to unknown when no IP info available', () => {
     const req = new NextRequest('http://localhost/api/test', {
       method: 'POST',

@@ -5,6 +5,7 @@
     "": {
       "name": "healthcalc",
       "dependencies": {
+        "@gr8monk3ys/next-kit": "https://github.com/gr8monk3ys/next-kit/archive/refs/tags/v0.1.1.tar.gz",
         "@radix-ui/react-radio-group": "^1.4.0",
         "@sentry/nextjs": "^10.57.0",
         "@supabase/ssr": "^0.9.0",
@@ -201,6 +202,8 @@
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.4.1", "", { "dependencies": { "@eslint/core": "^0.17.0", "levn": "^0.4.1" } }, "sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA=="],
 
     "@exodus/bytes": ["@exodus/bytes@1.15.1", "", { "peerDependencies": { "@noble/hashes": "^1.8.0 || ^2.0.0" }, "optionalPeers": ["@noble/hashes"] }, "sha512-S6mL0yNB/Abt9Ei4tq8gDhcczc4S3+vQ4ra7vxnAf+YHC02srtqxKKZghx2Dq6p0e66THKwR6r8N6P95wEty7Q=="],
+
+    "@gr8monk3ys/next-kit": ["@gr8monk3ys/next-kit@https://github.com/gr8monk3ys/next-kit/archive/refs/tags/v0.1.1.tar.gz", { "peerDependencies": { "@clerk/nextjs": ">=6", "next": ">=14", "stripe": ">=17" }, "optionalPeers": ["@clerk/nextjs", "next", "stripe"] }, "sha512-Tr5W5HNdYl7l38ndlKIGz5VSFsPr363kj9KQYcqlx0jI0CAhL3bCrPDNvGe1RBsma7hwWQ2XNxmROuixHUx5LQ=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.2", "", { "dependencies": { "@humanfs/types": "^0.15.0" } }, "sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA=="],
 
