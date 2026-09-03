@@ -5,6 +5,9 @@ const path = require('node:path');
 const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: path.resolve(__dirname),
+  // The kit's `import` condition points at its TypeScript source, so Next has
+  // to compile it like first-party code.
+  transpilePackages: ['@gr8monk3ys/next-kit'],
 
   // Image optimization
   images: {

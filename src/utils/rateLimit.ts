@@ -1,16 +1,5 @@
+import { MemoryStore } from '@gr8monk3ys/next-kit/rate-limit';
 import { NextRequest } from 'next/server';
-
-/**
- * Tracks the state of a single rate-limit bucket (one per IP + route combination).
- */
-interface RateLimitEntry {
-  /** Number of requests recorded in the current window. */
-  count: number;
-  /** Unix-ms timestamp when the current window expires. */
-  resetTime: number;
-  /** Number of consecutive windows where the client exceeded the limit. */
-  violations: number;
-}
 
 interface RateLimitOptions {
   /** Maximum requests per window (default: 10). */
@@ -51,36 +40,19 @@ const DEFAULT_LIMIT = 10;
 const DEFAULT_WINDOW_MS = 60_000;
 
 /**
- * Maximum exponential-backoff multiplier so that repeat offenders are not
- * banned for unreasonably long periods within a single serverless instance.
- * With a 1-minute default window and a cap of 8x, the longest effective
- * window is 8 minutes.
- */
-const MAX_BACKOFF_MULTIPLIER = 8;
-
-/**
- * In-memory store keyed by a composite of client IP and route identifier.
+ * Fixed-window counters, from `@gr8monk3ys/next-kit/rate-limit`.
  *
- * Each serverless cold-start gets its own `Map`, so this store only
- * protects against bursts that hit the **same** warm instance. For
- * sustained, cross-instance protection in production you should layer
- * an external store (Vercel KV, Upstash Redis, etc.) or rely on
- * Vercel's built-in WAF / DDoS mitigation.
+ * Replaces this module's own `Map` + `cleanupExpired()` sweeper: `MemoryStore`
+ * keeps the same `{ count, resetAt }` shape per key and drops expired entries
+ * opportunistically on write.
+ *
+ * Each serverless cold-start gets its own store, so this only protects against
+ * bursts that hit the **same** warm instance. For sustained, cross-instance
+ * protection in production you should layer an external store (Vercel KV,
+ * Upstash Redis, etc. -- the kit ships a `RedisStore` for exactly this) or rely
+ * on Vercel's built-in WAF / DDoS mitigation.
  */
-const rateLimitMap = new Map<string, RateLimitEntry>();
-
-/**
- * Remove expired entries from the in-memory store to prevent unbounded
- * growth during the lifetime of a warm serverless instance.
- */
-function cleanupExpired(): void {
-  const now = Date.now();
-  rateLimitMap.forEach((entry, key) => {
-    if (now >= entry.resetTime) {
-      rateLimitMap.delete(key);
-    }
-  });
-}
+const store = new MemoryStore();
 
 /**
  * Extract the client IP address from the incoming request.
@@ -90,6 +62,10 @@ function cleanupExpired(): void {
  *   2. Last value in `X-Forwarded-For` -- appended by the closest trusted
  *      proxy. Earlier entries are attacker-controlled and trivially spoofed.
  *   3. `'unknown'` -- safe fallback; all unknown clients share one bucket.
+ *
+ * Deliberately NOT the kit's `getClientId`: that helper also trusts
+ * `cf-connecting-ip`, which is fully client-controlled on this Vercel
+ * deployment and would let a caller mint a fresh bucket per request.
  */
 function getClientIp(request: NextRequest): string {
   const ip = (request as NextRequest & { ip?: string }).ip;
@@ -147,15 +123,13 @@ function buildHeaders(
  * **Features**
  * - Composite key: limits are tracked per IP **and** per route, so one
  *   endpoint's usage does not affect another.
- * - Exponential backoff: repeat violators see progressively longer windows
- *   (up to {@link MAX_BACKOFF_MULTIPLIER}x the base window).
  * - Standard headers: returns `X-RateLimit-*` and `Retry-After` headers
  *   that callers can attach to their responses.
  *
  * **Serverless Limitations**
  *
  * On Vercel (or any serverless platform) each cold-start creates a fresh
- * `Map`, so the rate limiter only guards against bursts that reach the same
+ * store, so the rate limiter only guards against bursts that reach the same
  * warm instance. This is still valuable -- it mitigates simple retry loops,
  * automated scanners, and misbehaving clients that happen to be routed to
  * the same instance -- but it is **not** a substitute for distributed rate
@@ -163,7 +137,8 @@ function buildHeaders(
  *
  * **Recommendations for production hardening:**
  * 1. Enable Vercel WAF / DDoS protection (available on Pro/Enterprise).
- * 2. Add Vercel KV or Upstash Redis for cross-instance counters.
+ * 2. Swap `MemoryStore` for the kit's `RedisStore` (Vercel KV / Upstash) so
+ *    counters are shared across instances.
  * 3. Use Cloudflare Rate Limiting or AWS WAF in front of the origin.
  *
  * @example
@@ -190,66 +165,18 @@ function buildHeaders(
  */
 export function rateLimit(request: NextRequest, options?: RateLimitOptions): RateLimitResult {
   const limit = options?.limit ?? DEFAULT_LIMIT;
-  const baseWindowMs = options?.windowMs ?? DEFAULT_WINDOW_MS;
+  const windowMs = options?.windowMs ?? DEFAULT_WINDOW_MS;
   const routeKey = options?.routeKey ?? 'global';
-  const now = Date.now();
 
-  cleanupExpired();
+  const key = buildKey(getClientIp(request), routeKey);
+  const { count, resetAt } = store.hit(key, windowMs);
 
-  const ip = getClientIp(request);
-  const key = buildKey(ip, routeKey);
-  const entry = rateLimitMap.get(key);
+  const blocked = count > limit;
+  const remaining = Math.max(0, limit - count);
 
-  // --- First request or window has expired -----------------------------------
-  if (!entry || now >= entry.resetTime) {
-    const violations = entry?.violations ?? 0;
-
-    // Apply exponential backoff if there were prior violations.
-    // The multiplier doubles with each consecutive violation window,
-    // capped at MAX_BACKOFF_MULTIPLIER.
-    const backoffMultiplier =
-      violations > 0 ? Math.min(2 ** violations, MAX_BACKOFF_MULTIPLIER) : 1;
-    const windowMs = baseWindowMs * backoffMultiplier;
-
-    const resetTime = now + windowMs;
-
-    rateLimitMap.set(key, {
-      count: 1,
-      resetTime,
-      violations,
-    });
-
-    const remaining = limit - 1;
-    return {
-      success: true,
-      remaining,
-      headers: buildHeaders(limit, remaining, resetTime, false),
-    };
-  }
-
-  // --- Subsequent request within the current window --------------------------
-  entry.count += 1;
-
-  if (entry.count > limit) {
-    // Increment violation counter so the *next* window is longer.
-    entry.violations = Math.min(
-      (entry.violations ?? 0) + 1,
-      // Cap at log2(MAX_BACKOFF_MULTIPLIER) so the multiplier does not
-      // exceed the maximum.
-      Math.ceil(Math.log2(MAX_BACKOFF_MULTIPLIER))
-    );
-
-    return {
-      success: false,
-      remaining: 0,
-      headers: buildHeaders(limit, 0, entry.resetTime, true),
-    };
-  }
-
-  const remaining = limit - entry.count;
   return {
-    success: true,
+    success: !blocked,
     remaining,
-    headers: buildHeaders(limit, remaining, entry.resetTime, false),
+    headers: buildHeaders(limit, remaining, resetAt, blocked),
   };
 }
