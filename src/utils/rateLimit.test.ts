@@ -127,6 +127,25 @@ describe('rateLimit', () => {
     expect(windowLenMs).toBeLessThan(61_000);
   });
 
+  it('keys on the right-most x-forwarded-for hop, not the caller-supplied left-most', () => {
+    // Every request in this suite sets a single-value `x-forwarded-for`, which
+    // cannot tell the two ends of the list apart. A multi-hop value can:
+    // 'evil, 1.2.3.4' must resolve to 1.2.3.4 -- the hop our own edge appended --
+    // so a caller that rotates the left-most entry stays in ONE bucket instead of
+    // minting a fresh one per request.
+    const opts = { limit: 2, routeKey: 'xff-hop' };
+
+    expect(rateLimit(makeRequest('1.2.3.4'), opts).success).toBe(true);
+    expect(rateLimit(makeRequest('evil, 1.2.3.4'), opts).success).toBe(true);
+
+    // Third request from the same real hop, however the caller dresses it up.
+    expect(rateLimit(makeRequest('203.0.113.99, 1.2.3.4'), opts).success).toBe(false);
+    expect(rateLimit(makeRequest('1.2.3.4'), opts).success).toBe(false);
+
+    // A different right-most hop is still a different bucket.
+    expect(rateLimit(makeRequest('1.2.3.4, 5.6.7.8'), opts).success).toBe(true);
+  });
+
   it('should fall back to unknown when no IP info available', () => {
     const req = new NextRequest('http://localhost/api/test', {
       method: 'POST',
