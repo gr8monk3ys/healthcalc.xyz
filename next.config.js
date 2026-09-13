@@ -70,6 +70,13 @@ const nextConfig = {
     ];
   },
 
+  // Inline the (small, ~24 KB) global stylesheet into the HTML instead of
+  // shipping it as a render-blocking <link>. Saves the stylesheet round trip
+  // before first paint on mobile; the CSS is a few KB gzipped per page.
+  experimental: {
+    inlineCss: true,
+  },
+
   // Compression
   compress: true,
 
