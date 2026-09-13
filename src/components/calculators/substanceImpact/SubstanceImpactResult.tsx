@@ -17,10 +17,10 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
 
   const lifespanBorderColor =
     result.totalLifespanImpact < -5
-      ? 'border-red-500'
+      ? 'border-red-500/40'
       : result.totalLifespanImpact < 0
-        ? 'border-orange-500'
-        : 'border-green-500';
+        ? 'border-orange-500/40'
+        : 'border-green-500/40';
 
   return (
     <div
@@ -31,7 +31,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
 
       {/* Total Lifespan Impact */}
       <div className="mb-6">
-        <div className={`neumorph-inset p-4 rounded-lg border-l-4 ${lifespanBorderColor}`}>
+        <div className={`neumorph-inset p-4 rounded-lg ${lifespanBorderColor}`}>
           <p className="text-sm font-medium text-gray-600 mb-1">Estimated Lifespan Impact</p>
           <p className={`text-3xl font-bold ${lifespanColor}`}>
             {result.totalLifespanImpact > 0 ? '+' : ''}
