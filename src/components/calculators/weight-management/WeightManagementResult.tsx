@@ -39,7 +39,7 @@ export default function WeightManagementResultDisplay({
   return (
     <div className="space-y-6">
       {/* Main Result Card */}
-      <Card className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
+      <Card className="p-6 bg-gradient-to-br from-accent-alt/10 to-accent/10 dark:from-accent-alt/10 dark:to-accent/15">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Your {goalTypeLabel} Plan</h2>
           <div className="flex items-center justify-center gap-6 my-6">
@@ -171,13 +171,13 @@ export default function WeightManagementResultDisplay({
         <h3 className="text-lg font-semibold mb-4">Lifestyle Recommendations</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+            <div className="text-2xl font-bold text-accent">
               {result.recommendations.waterLiters}L
             </div>
             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Water Daily</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+            <div className="text-2xl font-bold text-accent-dark dark:text-accent-light">
               {result.recommendations.sleepHours}h
             </div>
             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Sleep Nightly</div>
