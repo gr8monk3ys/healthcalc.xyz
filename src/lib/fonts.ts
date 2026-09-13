@@ -8,21 +8,23 @@ import { Fraunces, IBM_Plex_Mono, Instrument_Sans } from 'next/font/google';
  * CSS, then re-painted the heading ~2.5 s later when it arrived (LCP 3.7 s,
  * CLS 0.086 from the re-wrap). The latin subset is ~38 KB.
  *
- * `fallback` (not `swap`): a ~100 ms block period lets the preloaded file
- * land before the first paint, so the heading is painted once, in Fraunces,
- * instead of painted in the metric-adjusted fallback and re-laid-out.
+ * `optional` (not `swap`): Chrome holds the first paint briefly for a
+ * preloaded optional font and never swaps it in afterwards, so the heading is
+ * painted once, in Fraunces. `swap` and `fallback` were both measured on the
+ * Vercel preview: whenever the paint beat the font file, the heading was
+ * re-laid-out from the metric-adjusted fallback and CLS was back at 0.086.
  */
 export const displayFont = Fraunces({
   subsets: ['latin'],
-  display: 'fallback',
+  display: 'optional',
   preload: true,
   variable: '--site-font-display',
 });
 
-/** Instrument Sans — body text. Same `fallback` reasoning as the display font. */
+/** Instrument Sans — body text. Same `optional` reasoning as the display font. */
 export const bodyFont = Instrument_Sans({
   subsets: ['latin'],
-  display: 'fallback',
+  display: 'optional',
   variable: '--site-font-body',
 });
 
