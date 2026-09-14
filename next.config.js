@@ -110,6 +110,12 @@ const sentryWebpackPluginOptions = {
   webpack: {
     treeshake: {
       removeDebugLogging: true,
+      // Session Replay is not configured (no replayIntegration, no replay
+      // sample rates); drop its iframe/shadow-DOM/worker recording paths so
+      // they cannot ride along in the browser bundle.
+      excludeReplayIframe: true,
+      excludeReplayShadowDOM: true,
+      excludeReplayCompressionWorker: true,
     },
     autoInstrumentMiddleware: false,
   },
