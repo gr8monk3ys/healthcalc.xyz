@@ -11,7 +11,7 @@ export default function Footer(): React.JSX.Element {
   const footerLinkClass =
     'inline-flex min-h-6 items-center py-1 text-sm text-slate-700 hover:text-accent dark:text-slate-200';
   return (
-    <footer className="perf-defer-section px-3 pb-6 pt-4 md:px-4 md:pb-8">
+    <footer className="px-3 pb-6 pt-4 md:px-4 md:pb-8">
       <div className="glass-panel-strong container mx-auto rounded-[1.75rem] px-6 py-8 md:px-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
