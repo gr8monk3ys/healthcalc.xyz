@@ -32,9 +32,11 @@ export default function GlobalError({
     });
 
     if (hasConfiguredBrowserSentryDsn()) {
-      void import('@sentry/nextjs').then(({ captureException }) => {
-        captureException(error);
-      });
+      void import(/* webpackExports: ["captureException"] */ '@sentry/nextjs').then(
+        ({ captureException }) => {
+          captureException(error);
+        }
+      );
     } else {
       sendClientErrorReport(buildClientErrorReport(error, 'global-error'));
     }
