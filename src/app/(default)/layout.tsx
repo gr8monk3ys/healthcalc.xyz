@@ -105,6 +105,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SkipToMainLink />
           <div className="min-h-screen flex flex-col">
             <Header />
+            {/*
+              No loading.tsx for this segment on purpose. Every route here is
+              prerendered, and a loading boundary makes Next ship the spinner
+              first with the real page hidden at the end of the HTML, swapped in
+              by script. That swap is a race against first paint and produced a
+              0.32 layout shift on the footer (min-h-screen flex column pins it
+              to the first screen while the fallback is up). Without the
+              boundary the page content is in the server HTML directly.
+            */}
             <main id="main-content" className="flex-grow container mx-auto px-4 py-8">
               {children}
             </main>
