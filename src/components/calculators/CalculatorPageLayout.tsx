@@ -276,7 +276,11 @@ function CalculatorPageLayoutContent({
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 md:max-lg:grid-cols-1 md:max-lg:[&>*]:col-auto gap-8 mb-8">
+          <div
+            className={`grid grid-cols-1 md:grid-cols-3 md:max-lg:grid-cols-1 md:max-lg:[&>*]:col-auto gap-8 mb-8 ${
+              showResultsCapture ? '' : 'calc-grid--form-primary'
+            }`}
+          >
             {children}
           </div>
 

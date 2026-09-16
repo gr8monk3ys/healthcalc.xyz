@@ -313,10 +313,11 @@ function CookieConsentBanner({
       aria-label={t('cookie.banner.aria')}
       className="consent-banner-shell fixed inset-x-0 bottom-0 z-[9999] animate-slide-in-up pb-[env(safe-area-inset-bottom)]"
     >
-      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 sm:py-4">
-        {/* Expandable preferences panel */}
+      <div className="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 sm:py-3">
+        {/* Detail lives here, not in the first view: the toggles plus the full
+            cookie explanation and the TCF 2.2 note. */}
         {expanded && (
-          <div className="neumorph-inset p-4 mb-4 space-y-1">
+          <div id="cookie-preferences" className="neumorph-inset mb-3 space-y-1 p-4">
             <ToggleSwitch
               id="cookie-essential"
               checked={true}
@@ -345,30 +346,38 @@ function CookieConsentBanner({
               label={t('cookie.option.advertising.label')}
               description={t('cookie.option.advertising.desc')}
             />
+
+            <div className="border-t border-current/10 pt-3">
+              <p className="text-xs leading-snug opacity-75">{t('cookie.banner.body')}</p>
+              <p className="mt-1.5 text-[11px] leading-snug opacity-60">{t('cookie.note.tcf')}</p>
+            </div>
           </div>
         )}
 
-        {/* Message and actions sit on one row from lg up so the bar stays shallow */}
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
-          <div className="min-w-0 lg:flex-1">
-            <h2 className="text-sm font-bold">{t('cookie.banner.title')}</h2>
-            <p className="mt-0.5 text-[11px] leading-4 opacity-80 sm:hidden">
-              Choose which optional cookies to allow.
-            </p>
-            <p className="mt-0.5 hidden text-[0.8rem] leading-snug opacity-80 sm:block">
-              {t('cookie.banner.body')}
-            </p>
-            <p className="mt-1 hidden text-[11px] leading-snug opacity-60 xl:block">
-              {t('cookie.note.tcf')}
-            </p>
-          </div>
+        {/* First view is a single compact strip: one sentence, the two consent
+            actions, and a link to everything else. */}
+        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-6">
+          <p className="min-w-0 text-[0.8125rem] leading-[1.35] sm:flex-1">
+            <span className="font-semibold">{t('cookie.banner.title')}.</span>{' '}
+            <span className="opacity-80">{t('cookie.banner.summary')}</span>{' '}
+            <button
+              type="button"
+              onClick={() => setExpanded(prev => !prev)}
+              aria-expanded={expanded}
+              aria-controls="cookie-preferences"
+              className="rounded font-medium text-accent underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            >
+              {t('cookie.action.managePreferences')}
+            </button>
+          </p>
 
-          <div className="grid grid-cols-2 items-stretch gap-2 sm:flex sm:flex-row sm:items-center sm:gap-3 lg:shrink-0">
-            {/* Reject Non-Essential — equal prominence to Accept for a fair choice */}
+          {/* Reject and Accept are the same size, weight and row position --
+              rejecting must never be the harder path. */}
+          <div className="flex items-center gap-2 sm:shrink-0 sm:gap-3">
             <button
               type="button"
               onClick={onRejectNonEssential}
-              className="ui-btn-soft order-2 w-full justify-center px-4 text-sm sm:order-1 sm:w-auto"
+              className="ui-btn-soft flex-1 justify-center whitespace-nowrap px-4 py-2 text-[0.8125rem] sm:flex-none sm:text-sm"
             >
               {t('cookie.action.rejectNonEssential')}
             </button>
@@ -377,28 +386,19 @@ function CookieConsentBanner({
               <button
                 type="button"
                 onClick={() => onSavePreferences(analyticsChecked, advertisingChecked)}
-                className="ui-btn-soft order-3 w-full justify-center px-4 text-sm sm:order-2 sm:w-auto"
+                className="ui-btn-primary flex-1 justify-center whitespace-nowrap px-4 py-2 text-[0.8125rem] sm:flex-none sm:text-sm"
               >
                 {t('cookie.action.savePreferences')}
               </button>
             ) : (
               <button
                 type="button"
-                onClick={() => setExpanded(true)}
-                className="order-3 w-full rounded-[0.875rem] px-4 py-2.5 text-sm font-medium text-accent underline-offset-4 transition-colors hover:underline sm:order-2 sm:w-auto"
+                onClick={onAcceptAll}
+                className="ui-btn-primary flex-1 justify-center whitespace-nowrap px-4 py-2 text-[0.8125rem] sm:flex-none sm:text-sm"
               >
-                {t('cookie.action.managePreferences')}
+                {t('cookie.action.acceptAll')}
               </button>
             )}
-
-            {/* Accept All -- prominent */}
-            <button
-              type="button"
-              onClick={onAcceptAll}
-              className="ui-btn-primary order-1 col-span-2 w-full px-6 text-sm sm:order-3 sm:col-span-1 sm:w-auto"
-            >
-              {t('cookie.action.acceptAll')}
-            </button>
           </div>
         </div>
       </div>

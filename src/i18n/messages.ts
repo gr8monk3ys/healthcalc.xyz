@@ -73,6 +73,7 @@ export type MessageKey =
   | 'cookie.banner.aria'
   | 'cookie.banner.title'
   | 'cookie.banner.body'
+  | 'cookie.banner.summary'
   | 'cookie.option.essential.label'
   | 'cookie.option.essential.desc'
   | 'cookie.option.analytics.label'
@@ -214,6 +215,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'unit.weight.lb': 'Pounds',
     'cookie.banner.aria': 'Cookie consent',
     'cookie.banner.title': 'We value your privacy',
+    'cookie.banner.summary': 'We use cookies to run the site and to measure and personalise ads.',
     'cookie.banner.body':
       'We use cookies to improve your experience, analyse site traffic, and serve personalised ads. Essential cookies are always active. You can choose which optional cookies to allow below.',
     'cookie.option.essential.label': 'Essential',
@@ -363,6 +365,8 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'unit.weight.lb': 'Libras',
     'cookie.banner.aria': 'Consentimiento de cookies',
     'cookie.banner.title': 'Valoramos tu privacidad',
+    'cookie.banner.summary':
+      'Usamos cookies para que el sitio funcione y para medir y personalizar los anuncios.',
     'cookie.banner.body':
       'Usamos cookies para mejorar tu experiencia, analizar el tráfico del sitio y mostrar anuncios personalizados. Las cookies esenciales siempre están activas. Puedes elegir qué cookies opcionales permitir a continuación.',
     'cookie.option.essential.label': 'Esenciales',
@@ -515,6 +519,8 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'unit.weight.lb': 'Livres',
     'cookie.banner.aria': 'Consentement aux cookies',
     'cookie.banner.title': 'Nous respectons votre vie privée',
+    'cookie.banner.summary':
+      'Nous utilisons des cookies pour faire fonctionner le site et pour mesurer et personnaliser les publicités.',
     'cookie.banner.body':
       'Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic du site et afficher des publicités personnalisées. Les cookies essentiels sont toujours actifs. Vous pouvez choisir ci-dessous les cookies optionnels à autoriser.',
     'cookie.option.essential.label': 'Essentiels',
@@ -669,6 +675,8 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'unit.weight.lb': 'Pfund',
     'cookie.banner.aria': 'Cookie-Einwilligung',
     'cookie.banner.title': 'Wir respektieren Ihre Privatsphäre',
+    'cookie.banner.summary':
+      'Wir verwenden Cookies, um die Website zu betreiben sowie Werbung zu messen und zu personalisieren.',
     'cookie.banner.body':
       'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, den Website-Traffic zu analysieren und personalisierte Werbung zu zeigen. Essenzielle Cookies sind immer aktiv. Unten können Sie auswählen, welche optionalen Cookies Sie zulassen möchten.',
     'cookie.option.essential.label': 'Essenziell',
@@ -820,6 +828,8 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'unit.weight.lb': 'Libras',
     'cookie.banner.aria': 'Consentimento de cookies',
     'cookie.banner.title': 'Valorizamos sua privacidade',
+    'cookie.banner.summary':
+      'Usamos cookies para o site funcionar e para medir e personalizar anúncios.',
     'cookie.banner.body':
       'Usamos cookies para melhorar sua experiência, analisar o tráfego do site e exibir anúncios personalizados. Cookies essenciais estão sempre ativos. Você pode escolher abaixo quais cookies opcionais permitir.',
     'cookie.option.essential.label': 'Essenciais',
@@ -968,6 +978,7 @@ const MESSAGES: Record<SupportedLocale, Record<MessageKey, string>> = {
     'unit.weight.lb': '磅',
     'cookie.banner.aria': 'Cookie 同意',
     'cookie.banner.title': '我们尊重你的隐私',
+    'cookie.banner.summary': '我们使用 Cookie 来运行网站，并衡量和个性化广告。',
     'cookie.banner.body':
       '我们使用 Cookie 来提升体验、分析站点流量并提供个性化广告。必要 Cookie 始终启用。你可以在下方选择允许哪些可选 Cookie。',
     'cookie.option.essential.label': '必要',
