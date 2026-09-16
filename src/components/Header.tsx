@@ -41,7 +41,7 @@ export default function Header(): React.JSX.Element {
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 md:px-4 md:pt-4">
       <div
-        className={`glass-panel rounded-[1.6rem] px-4 py-3 md:px-6 md:py-4 ${darkMode ? 'text-white' : 'text-[var(--foreground)]'}`}
+        className={`glass-panel rounded-[1.6rem] px-4 py-3 md:px-6 md:py-4 ${darkMode ? 'text-white' : 'text-foreground'}`}
       >
         <div className="container mx-auto flex items-center justify-between gap-4">
           <Link
@@ -81,7 +81,7 @@ export default function Header(): React.JSX.Element {
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
-                    : 'text-[var(--foreground)]/80 hover:bg-[var(--surface-muted)] hover:text-accent'
+                    : 'text-foreground/80 hover:bg-[var(--surface-muted)] hover:text-accent'
                 }`}
               >
                 {link.name}

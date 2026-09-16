@@ -70,6 +70,13 @@ const nextConfig = {
     ];
   },
 
+  // Inline the (small, ~24 KB) global stylesheet into the HTML instead of
+  // shipping it as a render-blocking <link>. Saves the stylesheet round trip
+  // before first paint on mobile; the CSS is a few KB gzipped per page.
+  experimental: {
+    inlineCss: true,
+  },
+
   // Compression
   compress: true,
 
@@ -103,6 +110,12 @@ const sentryWebpackPluginOptions = {
   webpack: {
     treeshake: {
       removeDebugLogging: true,
+      // Session Replay is not configured (no replayIntegration, no replay
+      // sample rates); drop its iframe/shadow-DOM/worker recording paths so
+      // they cannot ride along in the browser bundle.
+      excludeReplayIframe: true,
+      excludeReplayShadowDOM: true,
+      excludeReplayCompressionWorker: true,
     },
     autoInstrumentMiddleware: false,
   },

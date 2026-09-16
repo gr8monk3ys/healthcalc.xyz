@@ -123,21 +123,21 @@ const EditorialProcessPageContent = (
         distinct areas:
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-        <div className="border-l-4 border-green-500 pl-4">
+        <div className="neumorph-inset rounded-lg p-4">
           <h3 className="font-semibold text-sm">Calculator Accuracy</h3>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
             Every calculator is tested against published reference values. Our automated test suite
             runs 1,300+ tests across all calculators to catch regressions and edge cases.
           </p>
         </div>
-        <div className="border-l-4 border-blue-500 pl-4">
+        <div className="neumorph-inset rounded-lg p-4">
           <h3 className="font-semibold text-sm">Educational Content</h3>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
             Blog posts and calculator explanations are checked against current clinical guidelines.
             We update articles when new research changes established recommendations.
           </p>
         </div>
-        <div className="border-l-4 border-purple-500 pl-4">
+        <div className="neumorph-inset rounded-lg p-4">
           <h3 className="font-semibold text-sm">Product Reviews</h3>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
             Product recommendations are updated when items are discontinued, pricing changes
@@ -197,7 +197,7 @@ const EditorialProcessPageContent = (
       </p>
 
       <div className="space-y-4">
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">Mifflin-St Jeor Equation (BMR and TDEE)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             Published in 1990, this equation is considered the most accurate for estimating basal
@@ -207,7 +207,7 @@ const EditorialProcessPageContent = (
           </p>
         </div>
 
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">Harris-Benedict Equation (BMR Alternative)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             One of the oldest and most widely cited BMR formulas, originally published in 1919 and
@@ -216,7 +216,7 @@ const EditorialProcessPageContent = (
           </p>
         </div>
 
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">Katch-McArdle Formula (BMR for Lean Mass)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             This formula accounts for lean body mass, making it more accurate for people who know
@@ -225,7 +225,7 @@ const EditorialProcessPageContent = (
           </p>
         </div>
 
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">U.S. Navy Body Fat Method</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             Developed by Hodgdon and Beckett at the Naval Health Research Center, this
@@ -234,7 +234,7 @@ const EditorialProcessPageContent = (
           </p>
         </div>
 
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">WHO BMI Classification</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             Our BMI calculator follows the World Health Organization classification system for
@@ -243,7 +243,7 @@ const EditorialProcessPageContent = (
           </p>
         </div>
 
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">ABSI (A Body Shape Index)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             Developed by Krakauer and Krakauer (2012), ABSI accounts for waist circumference
@@ -252,7 +252,7 @@ const EditorialProcessPageContent = (
           </p>
         </div>
 
-        <div className="border-l-4 border-accent pl-4">
+        <div className="border-l border-accent/40 pl-4">
           <h3 className="font-semibold">Heart Rate Training Zones</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             We support both the standard age-predicted maximum heart rate method (220 minus age) and
