@@ -1,6 +1,5 @@
 import '../globals.css';
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -10,20 +9,9 @@ import SkipToMainLink from '@/components/SkipToMainLink';
 import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import LayoutProviders from '@/components/LayoutProviders';
-
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
-});
-
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  display: 'swap',
-  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
-});
+// ~/code/ui theme fonts (Fraunces / Instrument Sans / IBM Plex Mono),
+// wired the same way as lscaturchio.xyz's root layout.
+import { fontVariables } from '@/lib/fonts';
 
 const siteUrl = getPublicSiteUrl();
 
@@ -93,7 +81,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${sora.variable}`} suppressHydrationWarning>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
         {/* Core Web Vitals optimizations */}
         {/* PWA and app settings */}
@@ -117,6 +105,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SkipToMainLink />
           <div className="min-h-screen flex flex-col">
             <Header />
+            {/*
+              No loading.tsx for this segment on purpose. Every route here is
+              prerendered, and a loading boundary makes Next ship the spinner
+              first with the real page hidden at the end of the HTML, swapped in
+              by script. That swap is a race against first paint and produced a
+              0.32 layout shift on the footer (min-h-screen flex column pins it
+              to the first screen while the fallback is up). Without the
+              boundary the page content is in the server HTML directly.
+            */}
             <main id="main-content" className="flex-grow container mx-auto px-4 py-8">
               {children}
             </main>

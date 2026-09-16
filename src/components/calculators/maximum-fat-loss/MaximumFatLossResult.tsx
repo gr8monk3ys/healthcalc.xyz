@@ -123,8 +123,8 @@ export default function MaximumFatLossResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Optimal ⭐</div>
           </div>
-          <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg text-center col-span-2 md:col-span-1">
-            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
+          <div className="bg-accent/10 p-4 rounded-lg text-center col-span-2 md:col-span-1">
+            <div className="text-3xl font-bold text-accent">
               {(result.recommendations.optimalProtein / result.leanMassKg).toFixed(1)}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">g per kg lean mass</div>
@@ -137,13 +137,13 @@ export default function MaximumFatLossResultDisplay({
         <h3 className="text-lg font-semibold mb-4">Recovery & Training</h3>
         <div className="grid grid-cols-3 gap-4">
           <div className="text-center">
-            <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+            <div className="text-2xl font-bold text-accent-dark dark:text-accent-light">
               {result.recommendations.strengthTrainingDays}x
             </div>
             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Strength/Week</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+            <div className="text-2xl font-bold text-accent">
               {result.recommendations.sleepHours}h
             </div>
             <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">Sleep Nightly</div>

@@ -667,8 +667,8 @@ function renderDiabetesRiskCalculatorView({
 
         {/* Calculation Error */}
         {calculationError && (
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-red-500">
-            <p className="text-red-600">{calculationError}</p>
+          <div className="neumorph-inset rounded-lg border-red-500/40 p-4" role="alert">
+            <p className="text-red-600 dark:text-red-400">{calculationError}</p>
           </div>
         )}
 

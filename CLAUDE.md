@@ -32,3 +32,17 @@ Add to `CALCULATOR_CATALOG`, create the route folder, types in `src/types/`, log
 - Playwright `getByLabel`/`getByRole` match substrings: use `{ exact: true }` for `'Age'`, `'Male'`, `'Calculate'`.
 - Vitest excludes `e2e/`; zod v4 needs `server.deps.inline: ['zod']` (already set in `vitest.config.mjs`).
 - CI is `.github/workflows/ci.yml`, one job `Code Quality & Testing` (required check); it also runs the build, smoke and E2E suites.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues on `gr8monk3ys/healthcalc.xyz`, via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five canonical roles, label string equal to role name. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.

@@ -45,10 +45,10 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
         <div
           className={`neumorph-inset p-4 rounded-lg ${
             result.isOverLimit
-              ? 'border-l-4 border-red-500'
+              ? 'border-red-500/40'
               : result.percentOfLimit > 80
-                ? 'border-l-4 border-orange-500'
-                : 'border-l-4 border-green-500'
+                ? 'border-orange-500/40'
+                : 'border-green-500/40'
           }`}
         >
           <p className="font-medium text-lg mb-1">{result.percentOfLimit}% of Safe Daily Limit</p>

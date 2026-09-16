@@ -1,11 +1,42 @@
 type BrowserSentryModule = typeof import('@sentry/nextjs');
 
+type QueuedError = {
+  error: unknown;
+  mechanism: 'onerror' | 'onunhandledrejection';
+};
+
 const BROWSER_SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN?.trim();
+
+// Errors raised before the SDK has loaded. Bounded so a tight error loop on a
+// page where the SDK never arrives cannot grow memory without limit.
+const PRE_INIT_ERROR_LIMIT = 20;
+const preInitErrors: QueuedError[] = [];
 
 let browserSentryPromise: Promise<BrowserSentryModule | null> | null = null;
 
 export function shouldEnableBrowserSentry(): boolean {
   return Boolean(BROWSER_SENTRY_DSN);
+}
+
+function queueError(event: ErrorEvent): void {
+  if (preInitErrors.length >= PRE_INIT_ERROR_LIMIT) return;
+  preInitErrors.push({ error: event.error ?? event.message, mechanism: 'onerror' });
+}
+
+function queueRejection(event: PromiseRejectionEvent): void {
+  if (preInitErrors.length >= PRE_INIT_ERROR_LIMIT) return;
+  preInitErrors.push({ error: event.reason, mechanism: 'onunhandledrejection' });
+}
+
+function flushPreInitErrors(Sentry: BrowserSentryModule): void {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('error', queueError);
+    window.removeEventListener('unhandledrejection', queueRejection);
+  }
+
+  for (const { error, mechanism } of preInitErrors.splice(0)) {
+    Sentry.captureException(error, { mechanism: { type: mechanism, handled: false } });
+  }
 }
 
 function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
@@ -14,7 +45,13 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
   }
 
   if (!browserSentryPromise) {
-    browserSentryPromise = import('@sentry/nextjs')
+    // `webpackExports` lets webpack drop the exports this file never touches
+    // (Session Replay, replay-canvas, user feedback). Without it the whole
+    // namespace is kept alive and Replay alone is ~50 KB gzipped of unused JS.
+    browserSentryPromise = import(
+      /* webpackExports: ["init", "captureException", "captureRouterTransitionStart"] */
+      '@sentry/nextjs'
+    )
       .then(Sentry => {
         Sentry.init({
           dsn: BROWSER_SENTRY_DSN,
@@ -44,6 +81,8 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
           },
         });
 
+        flushPreInitErrors(Sentry);
+
         return Sentry;
       })
       .catch(() => null);
@@ -56,9 +95,39 @@ export async function registerBrowserSentry(): Promise<BrowserSentryModule | nul
   return getBrowserSentryModule();
 }
 
-if (shouldEnableBrowserSentry()) {
-  void registerBrowserSentry();
+/**
+ * Load the SDK after the page has painted and the main thread is idle.
+ *
+ * The browser SDK is ~150 KB gzipped and nothing on the page depends on it
+ * being present at first render; firing the import at module evaluation put
+ * its download and parse on the critical path of every route. Errors thrown in
+ * the gap are captured by the queue above and replayed once `init` has run.
+ */
+export function scheduleBrowserSentry(): void {
+  if (typeof window === 'undefined' || !shouldEnableBrowserSentry()) return;
+
+  window.addEventListener('error', queueError);
+  window.addEventListener('unhandledrejection', queueRejection);
+
+  const start = (): void => {
+    void registerBrowserSentry();
+  };
+  const whenIdle = (): void => {
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(start, { timeout: 5000 });
+    } else {
+      window.setTimeout(start, 1000);
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    whenIdle();
+  } else {
+    window.addEventListener('load', whenIdle, { once: true });
+  }
 }
+
+scheduleBrowserSentry();
 
 export function onRouterTransitionStart(...args: unknown[]): void {
   void registerBrowserSentry().then(Sentry => {
