@@ -75,3 +75,6 @@ temp/
 
 # Claude Code local overrides
 .claude/settings.local.json
+
+# Lighthouse CI reports (scripts/check-lighthouse-score.mjs)
+/artifacts/
