@@ -15,14 +15,16 @@ import { spawnSync } from 'node:child_process';
 // real score improves; the ratchet only goes up.
 //
 // Measured 2026-09-16, three local runs against `next build` + `next start`:
-// every route (/, /bmi, /tdee, /calculators) scored 100/100/100/100 each time.
+// every route (/, /bmi, /tdee, /calculators) scored 100/100/100/100 each time,
+// and the first CI run (ubuntu-latest, PR #101) scored the same. Performance
+// is held at 98: two under the observed minimum.
 //
 // Runs use Lighthouse's desktop preset. Mobile devtools throttling is far too
 // noisy on shared CI runners to gate on; production mobile scores are measured
 // separately (PageSpeed Insights against https://www.healthcalc.xyz) and are
 // not what this check enforces.
 const SCORE_FLOORS = {
-  performance: 97,
+  performance: 98,
   accessibility: 100,
   bestPractices: 100,
   seo: 100,
