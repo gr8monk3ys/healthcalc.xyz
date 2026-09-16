@@ -73,7 +73,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
         <h3 className="font-medium mb-3">Macro Breakdown</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {/* Protein */}
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-blue-500">
+          <div className="neumorph-inset p-4 rounded-lg border-blue-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Protein</p>
             <p className="text-xl font-bold">
               {result.proteinMinGrams}-{result.proteinMaxGrams}g
@@ -83,7 +83,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           </div>
 
           {/* Fat */}
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-yellow-500">
+          <div className="neumorph-inset p-4 rounded-lg border-yellow-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Fat</p>
             <p className="text-xl font-bold">{result.fatGrams}g</p>
             <p className="text-xs text-gray-600">{fatCalories} kcal</p>
@@ -93,7 +93,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           </div>
 
           {/* Carbs */}
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-green-500">
+          <div className="neumorph-inset p-4 rounded-lg border-green-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Carbs</p>
             <p className="text-xl font-bold">{result.carbGrams}g</p>
             <p className="text-xs text-gray-600">{carbCalories} kcal</p>
@@ -171,10 +171,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           <h3 className="font-medium mb-2">Important Notes</h3>
           <div className="space-y-2">
             {result.warnings.map(warning => (
-              <div
-                key={warning}
-                className="neumorph-inset p-3 rounded-lg border-l-4 border-amber-500"
-              >
+              <div key={warning} className="neumorph-inset p-3 rounded-lg border-amber-500/40">
                 <p className="text-sm">{warning}</p>
               </div>
             ))}

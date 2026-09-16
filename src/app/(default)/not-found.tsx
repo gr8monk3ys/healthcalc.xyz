@@ -1,8 +1,6 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import StructuredData from '@/components/StructuredData';
+import NotFoundTracker from '@/components/NotFoundTracker';
 
 // Popular calculator links to show on the 404 page
 const popularCalculators = [
@@ -53,26 +51,32 @@ const popularBlogPosts = [
   },
 ];
 
-export default function NotFound() {
-  // Track 404 errors for SEO analysis
-  React.useEffect(() => {
-    // Only run in production and if analytics is available
-    if (
-      process.env.NODE_ENV === 'production' &&
-      typeof window !== 'undefined' &&
-      'gtag' in window
-    ) {
-      // @ts-expect-error - gtag is not typed
-      window.gtag('event', '404_error', {
-        event_category: 'error',
-        event_label: window.location.pathname,
-        non_interaction: true,
-      });
-    }
-  }, []);
+// Structured data for breadcrumb — rendered in the server HTML so crawlers
+// see it without JavaScript.
+const breadcrumbSchemaJson = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://www.healthcalc.xyz/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Page Not Found',
+      item: 'https://www.healthcalc.xyz/404',
+    },
+  ],
+}).replace(/</g, '\\u003c');
 
+export default function NotFound() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      {/* Track 404 errors for SEO analysis */}
+      <NotFoundTracker />
       <div className="text-center mb-8">
         <h1 className="text-6xl font-bold text-accent mb-4">404</h1>
         <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
@@ -164,26 +168,10 @@ export default function NotFound() {
         </Link>
       </div>
 
-      {/* Structured data for breadcrumb */}
-      <StructuredData
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: 'Home',
-              item: 'https://www.healthcalc.xyz/',
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: 'Page Not Found',
-              item: 'https://www.healthcalc.xyz/404',
-            },
-          ],
-        }}
+      <script
+        type="application/ld+json"
+        data-schema-type="BreadcrumbList"
+        dangerouslySetInnerHTML={{ __html: breadcrumbSchemaJson }}
       />
     </div>
   );

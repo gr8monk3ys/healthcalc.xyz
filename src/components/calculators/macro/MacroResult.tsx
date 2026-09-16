@@ -124,7 +124,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
         <h3 className="font-medium mb-3">Daily Macro Targets</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Protein */}
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-blue-500">
+          <div className="neumorph-inset p-4 rounded-lg border-blue-500/40">
             <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400">Protein</h4>
             <p className="text-3xl font-bold">{protein.grams}g</p>
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
@@ -134,7 +134,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
           </div>
 
           {/* Carbohydrates */}
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-green-500">
+          <div className="neumorph-inset p-4 rounded-lg border-green-500/40">
             <h4 className="text-lg font-semibold text-green-600 dark:text-green-400">Carbs</h4>
             <p className="text-3xl font-bold">{carbs.grams}g</p>
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
@@ -144,7 +144,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
           </div>
 
           {/* Fat */}
-          <div className="neumorph-inset p-4 rounded-lg border-l-4 border-yellow-500">
+          <div className="neumorph-inset p-4 rounded-lg border-yellow-500/40">
             <h4 className="text-lg font-semibold text-yellow-600 dark:text-yellow-400">Fat</h4>
             <p className="text-3xl font-bold">{fat.grams}g</p>
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">

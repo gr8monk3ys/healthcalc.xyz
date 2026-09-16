@@ -43,7 +43,7 @@ function DashboardPageClientContent(): React.JSX.Element {
 
       {syncPromptPending && (
         <div className="glass-panel mb-6 flex flex-col gap-3 rounded-xl p-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-[var(--foreground)]">
+          <p className="text-sm text-foreground">
             You have saved results from before signing in. Sync them to your account?
           </p>
           <div className="flex gap-2">

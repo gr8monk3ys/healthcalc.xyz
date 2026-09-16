@@ -57,7 +57,7 @@ const WHRResultDisplay: React.FC<WHRResultDisplayProps> = ({ result, gender }) =
         <h3 className="font-medium mb-2">Risk Category</h3>
         <div
           className="neumorph-inset p-4 rounded-lg"
-          style={{ borderLeft: `4px solid ${result.color}` }}
+          style={{ borderColor: `color-mix(in srgb, ${result.color} 45%, transparent)` }}
         >
           <p className="font-medium text-lg">{result.category}</p>
           <p className="text-sm text-gray-600 mt-1">{result.description}</p>

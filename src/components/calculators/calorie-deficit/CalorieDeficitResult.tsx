@@ -33,14 +33,12 @@ export default function CalorieDeficitResultDisplay({
   return (
     <div className="space-y-6">
       {/* Main Timeline Result */}
-      <Card className="p-6 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20">
+      <Card className="p-6 bg-gradient-to-br from-accent/10 to-accent-alt/10 dark:from-accent/15 dark:to-accent-alt/10">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Your Weight Loss Timeline</h2>
           <div className="flex items-center justify-center gap-4 my-6">
             <div>
-              <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-                {result.estimatedWeeks}
-              </div>
+              <div className="text-4xl font-bold text-accent">{result.estimatedWeeks}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">weeks</div>
             </div>
             <div className="text-2xl text-gray-400">≈</div>
@@ -154,8 +152,8 @@ export default function CalorieDeficitResultDisplay({
             <div className="text-sm text-gray-600 dark:text-gray-400">Daily Water</div>
             <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Supports metabolism</p>
           </div>
-          <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+          <div className="bg-accent/10 p-4 rounded-lg">
+            <div className="text-2xl font-bold text-accent">
               {result.recommendations.minCalories}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Minimum Calories</div>
@@ -197,7 +195,7 @@ export default function CalorieDeficitResultDisplay({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3"
-                className="text-purple-600 dark:text-purple-400"
+                className="text-accent"
               />
 
               {/* Axis labels */}
@@ -225,7 +223,7 @@ export default function CalorieDeficitResultDisplay({
       )}
 
       {/* Tips */}
-      <Card className="p-5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10">
+      <Card className="p-5 bg-gradient-to-r from-accent-alt/10 to-accent/10 dark:from-accent-alt/10 dark:to-accent/15">
         <h3 className="text-lg font-semibold mb-3">Tips for Success</h3>
         <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
           <li className="flex items-start gap-2">

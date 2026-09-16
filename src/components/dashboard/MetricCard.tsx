@@ -32,8 +32,8 @@ function getHealthColor(value: number, metric: CalculatorMetricDef): string {
 }
 
 function getTrendColor(delta: number, higherIsBetter?: boolean): string {
-  if (higherIsBetter === undefined) return 'text-[var(--foreground)] opacity-60';
-  if (delta === 0) return 'text-[var(--foreground)] opacity-60';
+  if (higherIsBetter === undefined) return 'text-foreground opacity-60';
+  if (delta === 0) return 'text-foreground opacity-60';
 
   const isPositiveChange = higherIsBetter ? delta > 0 : delta < 0;
   return isPositiveChange ? 'text-emerald-500' : 'text-red-500';
@@ -72,7 +72,7 @@ export default function MetricCard({
         className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
       >
         <p className="text-xs font-medium uppercase tracking-wide opacity-60">{metric.label}</p>
-        <p className="mt-2 text-sm text-[var(--foreground)] opacity-50">Not calculated yet</p>
+        <p className="mt-2 text-sm text-foreground opacity-50">Not calculated yet</p>
         <p className="mt-1 text-xs text-[var(--accent)] font-medium">Calculate now &rarr;</p>
       </Link>
     );

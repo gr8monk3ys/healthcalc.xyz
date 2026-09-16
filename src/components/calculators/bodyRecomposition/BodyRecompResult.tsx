@@ -182,11 +182,11 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
       </div>
 
       {/* Personalized Recommendation */}
-      <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
-        <h3 className="font-medium mb-2 text-purple-900 dark:text-purple-100">
+      <div className="bg-gradient-to-br from-accent/10 to-accent-alt/10 dark:from-accent/15 dark:to-accent-alt/10 border border-accent/40 rounded-lg p-4">
+        <h3 className="font-medium mb-2 text-accent-dark dark:text-accent-light">
           Personalized Recommendation
         </h3>
-        <p className="text-sm text-purple-800 dark:text-purple-200">{result.recommendation}</p>
+        <p className="text-sm text-slate-700 dark:text-slate-200">{result.recommendation}</p>
       </div>
 
       {/* Important Notes */}
