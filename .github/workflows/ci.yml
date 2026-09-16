@@ -90,3 +90,57 @@ jobs:
         run: |
           echo "Bundle size analysis:"
           du -sh .next/static
+
+  lighthouse:
+    # Named for what it enforces, not a number, so raising a floor does not
+    # require a branch-protection change. Floors live in
+    # scripts/check-lighthouse-score.mjs, measured on 2026-09-16.
+    name: Lighthouse (score floors)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build project
+        run: bun run build
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
+
+      - name: Start production server
+        run: |
+          bun run start > /tmp/healthcalc.log 2>&1 &
+          echo $! > /tmp/healthcalc.pid
+          for _ in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/healthcalc.log
+          exit 1
+
+      - name: Enforce Lighthouse score floors and document budget
+        run: bun run lighthouse:ci
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lighthouse-reports
+          path: artifacts/lighthouse
+          retention-days: 7
+
+      - name: Stop production server
+        if: always()
+        run: |
+          if [ -f /tmp/healthcalc.pid ]; then
+            kill "$(cat /tmp/healthcalc.pid)" || true
+          fi
