@@ -43,7 +43,6 @@
   --animate-fade-in: fadeIn 0.5s ease-in-out;
   --animate-slide-in-up: slideInUp 0.5s ease-out;
   --animate-pulse: pulse 2s infinite ease-in-out;
-  --animate-bounce: bounce 2s infinite;
   --animate-shimmer: shimmer 2s infinite;
 
   @keyframes fadeIn {
@@ -363,7 +362,7 @@ html {
   .prose blockquote {
     margin: 1.75em 0;
     padding: 0.25em 0 0.25em 1.25em;
-    border-left: 3px solid var(--accent);
+    border-left: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
     font-style: italic;
     color: var(--muted-ink);
   }
@@ -1113,10 +1112,6 @@ input[type='radio']:focus ~ div {
 
 .pulse {
   animation: pulse 2s infinite ease-in-out;
-}
-
-.bounce {
-  animation: bounce 2s infinite;
 }
 
 /* Google Translate integration */

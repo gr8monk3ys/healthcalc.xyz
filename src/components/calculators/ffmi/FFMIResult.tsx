@@ -78,7 +78,7 @@ const FFMIResultDisplay: React.FC<FFMIResultDisplayProps> = ({ result }) => {
         <h3 className="font-medium mb-2">Classification</h3>
         <div
           className="neumorph-inset p-4 rounded-lg"
-          style={{ borderLeft: `4px solid ${result.categoryColor}` }}
+          style={{ borderColor: `color-mix(in srgb, ${result.categoryColor} 45%, transparent)` }}
         >
           <p className="font-medium text-lg">{result.category}</p>
           <p className="text-sm text-gray-600 mt-1">{getCategoryDescription()}</p>

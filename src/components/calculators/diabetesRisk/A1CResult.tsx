@@ -70,8 +70,8 @@ export default function A1CResultDisplay({ result }: A1CResultProps) {
       <div className="mb-6">
         <h3 className="font-medium mb-2">Interpretation</h3>
         <div
-          className="neumorph-inset p-4 rounded-lg border-l-4"
-          style={{ borderLeftColor: categoryColor }}
+          className="neumorph-inset p-4 rounded-lg"
+          style={{ borderColor: `color-mix(in srgb, ${categoryColor} 45%, transparent)` }}
         >
           <p className="text-sm">{result.interpretation}</p>
         </div>
