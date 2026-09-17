@@ -945,6 +945,19 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
       'metabolic adaptation, weight loss plateau, adaptive thermogenesis, Biggest Loser study, diet breaks, MATADOR study, reverse dieting, NEAT suppression',
     seoTitle: 'Metabolic Adaptation and Weight Loss Plateaus | HealthCalc',
   },
+  {
+    title: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Suddenly Tracking',
+    description:
+      'VO2 max predicts long-term mortality risk better than many traditional risk factors. What the research actually shows, and how to raise yours.',
+    slug: 'vo2-max-longevity-biomarker',
+    date: 'February 20, 2026',
+    readTime: '12 min read',
+    category: 'Training',
+    image: '/images/blog/vo2-max-longevity-biomarker.jpg',
+    keywords:
+      'VO2 max, VO2 max calculator, cardiorespiratory fitness, longevity biomarker, VO2 max training, Zone 2 training, HIIT VO2 max, VO2 max norms, Rockport walk test, cardiorespiratory fitness mortality',
+    seoTitle: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Tracking | HealthCheck',
+  },
 ];
 
 // ── SEO Metadata generator ────────────────────────────────────────
