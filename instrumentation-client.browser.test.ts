@@ -12,6 +12,8 @@ describe('client instrumentation in a browser', () => {
     vi.resetModules();
     vi.unstubAllEnvs();
     vi.stubEnv('NEXT_PUBLIC_SENTRY_DSN', 'https://public@example.ingest.sentry.io/1');
+    // Deployed environments only — see src/lib/monitoring.ts.
+    vi.stubEnv('NEXT_PUBLIC_VERCEL_ENV', 'production');
   });
 
   afterEach(() => {

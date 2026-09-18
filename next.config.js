@@ -5,6 +5,16 @@ const path = require('node:path');
 const nextConfig = {
   reactStrictMode: true,
   outputFileTracingRoot: path.resolve(__dirname),
+  // The browser bundle can only read NEXT_PUBLIC_* variables, and the Sentry
+  // gate in src/lib/monitoring.ts has to reach the same verdict on the client
+  // as on the server. Vercel always sets VERCEL_ENV at build time; whether it
+  // also exposes the NEXT_PUBLIC_ alias depends on the project's "automatically
+  // expose System Environment Variables" setting, which this repo does not
+  // control. Inlining it here makes the client's value the build's value on
+  // Vercel and '' everywhere else — which is exactly what the gate wants.
+  env: {
+    NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV ?? process.env.VERCEL_ENV ?? '',
+  },
   // The kit's `import` condition points at its TypeScript source, so Next has
   // to compile it like first-party code.
   transpilePackages: ['@gr8monk3ys/next-kit'],

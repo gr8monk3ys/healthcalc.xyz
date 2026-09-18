@@ -1,3 +1,5 @@
+import { sentryEnvironmentTag, shouldReportToSentry } from '@/lib/monitoring';
+
 type BrowserSentryModule = typeof import('@sentry/nextjs');
 
 type QueuedError = {
@@ -14,8 +16,17 @@ const preInitErrors: QueuedError[] = [];
 
 let browserSentryPromise: Promise<BrowserSentryModule | null> | null = null;
 
+/**
+ * A DSN alone is not enough: the app also has to be a deployed Vercel app.
+ *
+ * The `beforeSend` below returned null when NODE_ENV was 'development', which
+ * covered `next dev` and nothing else — a local `next build && next start`
+ * runs with NODE_ENV 'production', so it initialised, sent, and spent the
+ * shared org error quota like a real deploy. See src/lib/monitoring.ts for the
+ * rule and its escape hatches.
+ */
 export function shouldEnableBrowserSentry(): boolean {
-  return Boolean(BROWSER_SENTRY_DSN);
+  return shouldReportToSentry(BROWSER_SENTRY_DSN);
 }
 
 function queueError(event: ErrorEvent): void {
@@ -57,7 +68,9 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
           dsn: BROWSER_SENTRY_DSN,
           tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
           debug: false,
-          environment: process.env.NODE_ENV,
+          // 'production' or 'preview' from Vercel, so the two deployed
+          // environments stay distinguishable in the issue stream.
+          environment: sentryEnvironmentTag(),
           ignoreErrors: [
             'Script error',
             'Script error.',
@@ -72,7 +85,8 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
           beforeSend(event) {
             if (
               process.env.NODE_ENV === 'development' &&
-              !process.env.NEXT_PUBLIC_SENTRY_DEV_ENABLED
+              !process.env.NEXT_PUBLIC_SENTRY_DEV_ENABLED &&
+              process.env.NEXT_PUBLIC_SENTRY_FORCE_ENABLE !== '1'
             ) {
               return null;
             }
