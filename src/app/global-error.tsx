@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { createLogger } from '@/utils/logger';
 import { buildClientErrorReport, sendClientErrorReport } from '@/lib/clientErrorReporting';
-import { hasConfiguredBrowserSentryDsn } from '@/lib/monitoring';
+import { shouldReportToSentry } from '@/lib/monitoring';
 
 const logger = createLogger({ component: 'GlobalError', level: 'critical' });
 
@@ -31,7 +31,10 @@ export default function GlobalError({
       digest: error.digest,
     });
 
-    if (hasConfiguredBrowserSentryDsn()) {
+    // Off a deploy there is no initialised SDK to capture into, and reporting
+    // from a laptop is what exhausted the shared org error quota — so a local
+    // build takes the first-party path below instead.
+    if (shouldReportToSentry(process.env.NEXT_PUBLIC_SENTRY_DSN)) {
       void import(/* webpackExports: ["captureException"] */ '@sentry/nextjs').then(
         ({ captureException }) => {
           captureException(error);

@@ -8,6 +8,7 @@
  */
 
 import * as Sentry from '@sentry/nextjs';
+import { sentryEnvironmentTag, shouldReportToSentry } from '@/lib/monitoring';
 
 /**
  * onRequestError is called when an unhandled error occurs in the server
@@ -21,6 +22,12 @@ export async function onRequestError(
     headers: Headers;
   }
 ) {
+  // Nothing was initialised outside a deploy, so this would be a no-op that
+  // still walks the whole event through the SDK. Skip it outright.
+  if (!shouldReportToSentry(process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN)) {
+    return;
+  }
+
   // Capture the error with Sentry
   Sentry.captureException(error, {
     contexts: {
@@ -41,12 +48,16 @@ export async function register() {
     const { init } = await import('@sentry/nextjs');
     const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
-    if (SENTRY_DSN) {
+    // Deployed Vercel apps only. NODE_ENV is 'production' for a local
+    // `next build && next start` too, so the beforeSend guard below never
+    // stopped a local production build from spending the shared org error
+    // quota. See src/lib/monitoring.ts.
+    if (shouldReportToSentry(SENTRY_DSN)) {
       init({
         dsn: SENTRY_DSN,
         tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
         debug: false,
-        environment: process.env.NODE_ENV,
+        environment: sentryEnvironmentTag(),
 
         ignoreErrors: [
           'Script error',
@@ -67,7 +78,8 @@ export async function register() {
 
           if (
             process.env.NODE_ENV === 'development' &&
-            !process.env.NEXT_PUBLIC_SENTRY_DEV_ENABLED
+            !process.env.NEXT_PUBLIC_SENTRY_DEV_ENABLED &&
+            process.env.NEXT_PUBLIC_SENTRY_FORCE_ENABLE !== '1'
           ) {
             return null;
           }
@@ -76,7 +88,7 @@ export async function register() {
         },
       });
     } else if (process.env.NODE_ENV !== 'production') {
-      console.warn('Sentry DSN not configured. Server-side error tracking is disabled.');
+      console.warn('Sentry is off here: no DSN, or this is not a deployed environment.');
     }
   }
 
@@ -85,12 +97,12 @@ export async function register() {
     const { init } = await import('@sentry/nextjs');
     const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
-    if (SENTRY_DSN) {
+    if (shouldReportToSentry(SENTRY_DSN)) {
       init({
         dsn: SENTRY_DSN,
         tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
         debug: false,
-        environment: process.env.NODE_ENV,
+        environment: sentryEnvironmentTag(),
       });
     }
   }
