@@ -14,7 +14,7 @@ describe('client instrumentation', () => {
   });
 
   afterEach(() => {
-    vi.unmock('@sentry/nextjs');
+    vi.doUnmock('@sentry/nextjs');
     vi.unstubAllEnvs();
   });
 

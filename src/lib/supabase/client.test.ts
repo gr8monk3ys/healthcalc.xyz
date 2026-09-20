@@ -11,7 +11,7 @@ describe('supabase browser client helpers', () => {
 
   afterEach(() => {
     vi.unstubAllEnvs();
-    vi.unmock('@supabase/ssr');
+    vi.doUnmock('@supabase/ssr');
   });
 
   it('returns null when Supabase is not configured', async () => {
