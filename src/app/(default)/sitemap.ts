@@ -58,6 +58,7 @@ const BLOG_SLUGS = [
   'treadmill-vs-exercise-bike-calories',
   'adjustable-dumbbells-vs-barbell-home-gym',
   'smart-scale-vs-body-fat-calipers',
+  'vo2-max-longevity-biomarker',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
