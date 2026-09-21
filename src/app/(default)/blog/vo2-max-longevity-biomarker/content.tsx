@@ -30,18 +30,16 @@ const Vo2MaxLongevityBiomarkerPageContent = (
           </li>
           <li>
             A large 2018 cohort study found that low fitness was associated with worse long-term
-            survival than several traditional risk factors combined, including smoking, diabetes,
-            and established heart disease.
+            survival than smoking, diabetes, or established heart disease, each taken individually.
           </li>
           <li>
             VO2 max is trainable, but how much it improves for a given amount of training varies a
-            lot between individuals. Twin and family studies put the heritable component at roughly
-            40-50%.
+            lot between individuals. Family studies put the heritable component at roughly 40-50%.
           </li>
           <li>
             The two training approaches with the strongest evidence are low-intensity aerobic volume
-            ("Zone 2") and structured high-intensity intervals. Combining both outperforms either
-            alone.
+            ("Zone 2") and structured high-intensity intervals. Most well-designed plans use both
+            rather than relying on either alone.
           </li>
         </ul>
       </div>
@@ -103,8 +101,8 @@ const Vo2MaxLongevityBiomarkerPageContent = (
         (Kodama et al.), which pooled 33 studies covering roughly 100,000 subjects. It found that
         each 1-MET increase in cardiorespiratory fitness (about 3.5 mL/kg/min of VO2, or roughly one
         "fitness category" of improvement) was associated with a 13% improvement in overall survival
-        and a 15% reduction in cardiovascular death risk. That is a large effect for a single
-        measurable, modifiable number.
+        and a 15% lower risk of coronary or cardiovascular events. That is a large effect for a
+        single measurable, modifiable number.
       </p>
 
       <p>
@@ -172,12 +170,12 @@ const Vo2MaxLongevityBiomarkerPageContent = (
 
       <p>
         VO2 max responds to training, but not identically for everyone. The HERITAGE Family Study
-        (Bouchard et al.), which put over 700 previously sedentary individuals through an identical
-        20-week standardized aerobic training program, remains the best evidence on this. The
-        average improvement was substantial, but the range of individual responses was enormous:
-        some participants gained very little, while others improved VO2 max by more than double the
-        group average on the exact same program. Twin and family-based analyses from that same
-        dataset estimated the heritable component of VO2 max trainability at roughly 40-50%.
+        (Bouchard et al.), which put 481 participants from 98 families through an identical 20-week
+        standardized aerobic training program, remains the best evidence on this. The average
+        improvement was substantial, but the range of individual responses was enormous: some
+        participants gained very little, while others improved VO2 max by more than double the group
+        average on the exact same program. Family-based analyses from that same dataset estimated
+        the heritable component of VO2 max trainability at roughly 40-50%.
       </p>
 
       <p>
@@ -207,19 +205,19 @@ const Vo2MaxLongevityBiomarkerPageContent = (
             trained subjects.
           </li>
           <li>
-            <strong>Combining both:</strong> A 2013 meta-analysis (Bacon et al.) pooling
-            high-intensity interval training studies found average VO2 max improvements in the range
-            of 15-20% over several weeks in previously untrained or recreationally active adults,
-            with the largest gains concentrated in people who started the least fit. Most structured
-            training plans for improving VO2 max combine a large base of easy aerobic volume with
-            one to two weekly interval sessions rather than relying on either exclusively.
+            <strong>Combining both:</strong> A 2013 meta-analysis (Bacon et al.) pooled 37 studies
+            of interval training lasting 6 to 13 weeks in untrained to recreationally active adults
+            and found a mean VO2 max gain of about 0.5 L/min. It did not analyze whether baseline
+            fitness changed the size of that gain. In practice, most structured training plans for
+            improving VO2 max combine a large base of easy aerobic volume with one to two weekly
+            interval sessions rather than relying on either exclusively.
           </li>
           <li>
-            <strong>Starting point matters:</strong> The same research consistently shows that
-            deconditioned individuals see the largest relative gains, often ahead of trained
-            athletes for whom further improvement runs into a harder physiological ceiling. If your
-            baseline is low, the initial gains from becoming consistently active are typically the
-            largest and fastest you will ever see.
+            <strong>Starting point matters:</strong> Deconditioned individuals generally see the
+            largest relative gains, often ahead of trained athletes for whom further improvement
+            runs into a harder physiological ceiling. If your baseline is low, the initial gains
+            from becoming consistently active are typically the largest and fastest you will ever
+            see.
           </li>
         </ul>
       </div>

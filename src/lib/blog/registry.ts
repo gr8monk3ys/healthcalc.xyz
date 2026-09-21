@@ -956,7 +956,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     image: '/images/blog/vo2-max-longevity-biomarker.jpg',
     keywords:
       'VO2 max, VO2 max calculator, cardiorespiratory fitness, longevity biomarker, VO2 max training, Zone 2 training, HIIT VO2 max, VO2 max norms, Rockport walk test, cardiorespiratory fitness mortality',
-    seoTitle: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Tracking | HealthCheck',
+    seoTitle: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Tracking | HealthCalc',
   },
 ];
 
