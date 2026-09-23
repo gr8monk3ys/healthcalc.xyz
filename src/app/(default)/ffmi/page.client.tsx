@@ -198,7 +198,7 @@ function renderFFMICalculatorView({
                       weight.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
                     placeholder={weight.placeholder}
-                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.weight ? 'ring-2 ring-red-500' : ''
                     }`}
                   />
@@ -229,7 +229,7 @@ function renderFFMICalculatorView({
                       height.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
                     placeholder={height.placeholder}
-                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.height ? 'ring-2 ring-red-500' : ''
                     }`}
                   />
@@ -259,7 +259,7 @@ function renderFFMICalculatorView({
                     setBodyFatPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))
                   }
                   placeholder="e.g., 15"
-                  className={`w-full neumorph-inset px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.bodyFatPercentage ? 'ring-2 ring-red-500' : ''
                   }`}
                 />

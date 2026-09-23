@@ -349,7 +349,7 @@ export default function EmbedWidgetPicker() {
           </label>
           <select
             id="embed-calculator"
-            className="ui-select w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="ui-select w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             value={selectedSlug}
             onChange={event => setSelectedSlug(event.target.value)}
           >
@@ -371,7 +371,7 @@ export default function EmbedWidgetPicker() {
             max={1400}
             value={height}
             onChange={event => setHeight(Number(event.target.value))}
-            className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
         </div>
         <div className="md:col-span-3">
@@ -426,7 +426,7 @@ export default function EmbedWidgetPicker() {
             <input
               id="embed-request-name"
               type="text"
-              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderName}
               value={requestName}
               onChange={event => setRequestName(event.target.value)}
@@ -441,7 +441,7 @@ export default function EmbedWidgetPicker() {
             <input
               id="embed-request-email"
               type="email"
-              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderEmail}
               value={requestEmail}
               onChange={event => setRequestEmail(event.target.value)}
@@ -457,7 +457,7 @@ export default function EmbedWidgetPicker() {
             <input
               id="embed-request-site"
               type="url"
-              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderWebsite}
               value={requestSite}
               onChange={event => setRequestSite(event.target.value)}
@@ -473,7 +473,7 @@ export default function EmbedWidgetPicker() {
             <textarea
               id="embed-request-notes"
               rows={3}
-              className="ui-textarea w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-textarea w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderNotes}
               value={requestNotes}
               onChange={event => setRequestNotes(event.target.value)}

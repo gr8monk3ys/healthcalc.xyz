@@ -320,7 +320,7 @@ function MeasurementConversionsView({
                 onChange={e => setInputValue(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && handleConvert()}
                 placeholder={copy.ui.valuePlaceholder}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 step="any"
               />
             </div>
@@ -331,7 +331,7 @@ function MeasurementConversionsView({
               <select
                 value={fromUnit}
                 onChange={e => setFromUnit(e.target.value)}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {categoryConfig.units.map((unit: string) => (
                   <option key={unit} value={unit}>
@@ -365,7 +365,7 @@ function MeasurementConversionsView({
               <select
                 value={toUnit}
                 onChange={e => setToUnit(e.target.value)}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {categoryConfig.units.map((unit: string) => (
                   <option key={unit} value={unit}>

@@ -115,7 +115,7 @@ export default function ContactForm() {
           name="name"
           value={name}
           onChange={e => setName(e.target.value)}
-          className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           placeholder={t('contactForm.placeholder.name')}
           autoComplete="name"
           required
@@ -134,7 +134,7 @@ export default function ContactForm() {
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           placeholder={t('contactForm.placeholder.email')}
           autoComplete="email"
           inputMode="email"
@@ -152,7 +152,7 @@ export default function ContactForm() {
           name="subject"
           value={subject}
           onChange={e => setSubject(e.target.value)}
-          className="ui-select w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-select w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           required
         >
           <option value="">{t('contactForm.subject.placeholder')}</option>
@@ -174,7 +174,7 @@ export default function ContactForm() {
           rows={5}
           value={message}
           onChange={e => setMessage(e.target.value)}
-          className="ui-textarea w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-textarea w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           placeholder={t('contactForm.placeholder.message')}
           autoComplete="off"
           enterKeyHint="send"

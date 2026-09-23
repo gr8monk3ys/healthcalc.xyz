@@ -409,7 +409,7 @@ describe('ErrorBoundary', () => {
       );
 
       const button = screen.getByRole('button', { name: /try again/i });
-      expect(button.className).toContain('focus:');
+      expect(button.className).toContain('focus-visible:');
     });
   });
 });

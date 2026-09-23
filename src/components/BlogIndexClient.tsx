@@ -360,7 +360,7 @@ function renderBlogIndexClientView({
     <>
       {/* Search */}
       <div className="mb-6">
-        <div className="glass-panel rounded-2xl flex items-center px-4 py-3">
+        <div className="glass-panel rounded-2xl flex items-center px-4 py-3 focus-within:ring-2 focus-within:ring-accent">
           <svg
             className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0"
             fill="none"

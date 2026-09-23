@@ -99,7 +99,7 @@ export default function EmbedCalculator({
         <button
           type="button"
           onClick={handleCopy}
-          className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           {copied ? 'Copied!' : 'Copy Embed Code'}
         </button>
@@ -135,7 +135,7 @@ export default function EmbedCalculator({
             <input
               id={`${calculatorSlug}-name`}
               type="text"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder="Your name"
               value={requestName}
               onChange={event =>
@@ -155,7 +155,7 @@ export default function EmbedCalculator({
             <input
               id={`${calculatorSlug}-email`}
               type="email"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder="you@example.com"
               value={requestEmail}
               onChange={event =>
@@ -175,7 +175,7 @@ export default function EmbedCalculator({
             <input
               id={`${calculatorSlug}-site`}
               type="url"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder="https://example.com"
               value={requestSite}
               onChange={event =>
@@ -195,7 +195,7 @@ export default function EmbedCalculator({
             <textarea
               id={`${calculatorSlug}-notes`}
               rows={3}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder="Tell us how you plan to use the embed."
               value={requestNotes}
               onChange={event =>
@@ -210,7 +210,7 @@ export default function EmbedCalculator({
           <div className="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <button
               type="submit"
-              className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               Request Approval
             </button>

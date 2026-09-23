@@ -419,7 +419,7 @@ function renderSubstanceImpactCalculatorView({
                 id="age"
                 value={age}
                 onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.age ? 'border border-red-500' : ''
                 }`}
                 placeholder="Enter age"
@@ -437,7 +437,7 @@ function renderSubstanceImpactCalculatorView({
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -458,7 +458,7 @@ function renderSubstanceImpactCalculatorView({
                   id="alcoholType"
                   value={alcoholType}
                   onChange={e => setAlcoholType(e.target.value as AlcoholType)}
-                  className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {Object.entries(ALCOHOL_TYPE_LABELS).map(([value, label]) => (
                     <option key={value} value={value}>
@@ -480,7 +480,7 @@ function renderSubstanceImpactCalculatorView({
                     onChange={e =>
                       setDrinksPerWeek(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.drinksPerWeek ? 'border border-red-500' : ''
                     }`}
                     placeholder="e.g. 7"
@@ -503,7 +503,7 @@ function renderSubstanceImpactCalculatorView({
                     onChange={e =>
                       setYearsOfDrinking(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.yearsOfDrinking ? 'border border-red-500' : ''
                     }`}
                     placeholder="e.g. 10"
@@ -526,7 +526,7 @@ function renderSubstanceImpactCalculatorView({
                     onChange={e =>
                       setAvgDrinkCost(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.avgDrinkCost ? 'border border-red-500' : ''
                     }`}
                     placeholder="e.g. 8"
@@ -554,7 +554,7 @@ function renderSubstanceImpactCalculatorView({
                   id="smokingType"
                   value={smokingType}
                   onChange={e => setSmokingType(e.target.value as SmokingType)}
-                  className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {Object.entries(SMOKING_TYPE_LABELS).map(([value, label]) => (
                     <option key={value} value={value}>
@@ -576,7 +576,7 @@ function renderSubstanceImpactCalculatorView({
                     onChange={e =>
                       setPerDay(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.perDay ? 'border border-red-500' : ''
                     }`}
                     placeholder="e.g. 10"
@@ -597,7 +597,7 @@ function renderSubstanceImpactCalculatorView({
                     onChange={e =>
                       setYearsOfSmoking(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.yearsOfSmoking ? 'border border-red-500' : ''
                     }`}
                     placeholder="e.g. 15"
@@ -620,7 +620,7 @@ function renderSubstanceImpactCalculatorView({
                     onChange={e =>
                       setCostPerPack(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.costPerPack ? 'border border-red-500' : ''
                     }`}
                     placeholder="e.g. 8"
