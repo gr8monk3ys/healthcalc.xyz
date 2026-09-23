@@ -840,7 +840,11 @@ export function SearchPage() {
           {results.length > 0 ? (
             <ul className="space-y-6">
               {results.map(result => (
-                <li key={`${result.type}-${result.url}`} className="neumorph p-4 rounded-lg">
+                <li
+                  key={`${result.type}-${result.url}`}
+                  // Up to 100 results: skip layout/paint for off-screen ones.
+                  className="neumorph p-4 rounded-lg [content-visibility:auto] [contain-intrinsic-size:auto_7rem]"
+                >
                   <Link
                     href={result.url.startsWith('/') ? localizePath(result.url) : result.url}
                     className="block hover:no-underline"

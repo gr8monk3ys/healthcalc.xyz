@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useReducer } from 'react';
+import React, { useMemo, useReducer, useState } from 'react';
 import { buildEmbedCode } from '@/utils/embed';
 import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
@@ -57,6 +57,7 @@ export default function EmbedCalculator({
     initialEmbedRequestState
   );
   const { copied, requestName, requestEmail, requestSite, requestNotes } = requestState;
+  const [copyFailed, setCopyFailed] = useState(false);
   const allowNavigation = useUnsavedChangesWarning(
     Boolean(requestName || requestEmail || requestSite || requestNotes)
   );
@@ -72,6 +73,7 @@ export default function EmbedCalculator({
       window.setTimeout(() => dispatchRequestState({ type: 'setCopied', value: false }), 1800);
     } catch {
       dispatchRequestState({ type: 'setCopied', value: false });
+      setCopyFailed(true);
     }
   };
 
@@ -108,8 +110,12 @@ export default function EmbedCalculator({
         >
           {copied ? 'Copied!' : 'Copy Embed Code'}
         </button>
-        <span className="sr-only" role="status">
-          {copied ? 'Embed code copied to clipboard' : ''}
+        <span className={copyFailed ? 'text-sm text-red-600' : 'sr-only'} role="status">
+          {copied
+            ? 'Embed code copied to clipboard'
+            : copyFailed
+              ? 'Couldn’t copy automatically. Select the code in the box below and copy it with Ctrl+C (⌘C on Mac).'
+              : ''}
         </span>
       </div>
 

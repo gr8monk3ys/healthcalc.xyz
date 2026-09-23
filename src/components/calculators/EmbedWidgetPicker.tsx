@@ -208,6 +208,7 @@ function useEmbedWidgetPickerState() {
   const [selectedSlug, setSelectedSlug] = useState(CALCULATOR_CATALOG[0]?.slug ?? 'bmi');
   const [height, setHeight] = useState(DEFAULT_HEIGHT);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
   const [requestName, setRequestName] = useState('');
   const [requestEmail, setRequestEmail] = useState('');
   const [requestSite, setRequestSite] = useState('');
@@ -224,6 +225,8 @@ function useEmbedWidgetPickerState() {
     setHeight,
     copied,
     setCopied,
+    copyFailed,
+    setCopyFailed,
     requestName,
     setRequestName,
     requestEmail,
@@ -248,6 +251,8 @@ export default function EmbedWidgetPicker() {
     setHeight,
     copied,
     setCopied,
+    copyFailed,
+    setCopyFailed,
     requestName,
     setRequestName,
     requestEmail,
@@ -281,10 +286,12 @@ export default function EmbedWidgetPicker() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(embedCode);
+      setCopyFailed(false);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
       setCopied(false);
+      setCopyFailed(true);
     }
   };
 
@@ -346,8 +353,12 @@ export default function EmbedWidgetPicker() {
         >
           {copied ? strings.copied : strings.copyCode}
         </button>
-        <span className="sr-only" role="status">
-          {copied ? strings.copied : ''}
+        <span className={copyFailed ? 'text-sm text-red-600' : 'sr-only'} role="status">
+          {copied
+            ? strings.copied
+            : copyFailed
+              ? 'Couldn’t copy automatically. Select the code in the box below and copy it with Ctrl+C (⌘C on Mac).'
+              : ''}
         </span>
       </div>
 
