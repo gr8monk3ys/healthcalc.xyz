@@ -134,7 +134,7 @@ export default function StepsToMilesCalculator({
               value: steps,
               onChange: setSteps,
               error: errors.steps,
-              placeholder: 'e.g. 8000',
+              placeholder: 'e.g. 8000…',
               min: 1,
             },
             {
@@ -144,7 +144,7 @@ export default function StepsToMilesCalculator({
               value: strideLength,
               onChange: setStrideLength,
               error: errors.strideLength,
-              placeholder: strideUnit === 'in' ? 'Inches' : 'Centimeters',
+              placeholder: strideUnit === 'in' ? 'e.g. 30…' : 'e.g. 75…',
               unit: strideUnit,
               unitToggle: toggleStrideUnit,
               step: '0.1',

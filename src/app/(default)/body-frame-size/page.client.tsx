@@ -156,7 +156,7 @@ export default function BodyFrameSizeCalculator({
               value: wrist,
               onChange: setWrist,
               error: errors.wrist,
-              placeholder: wristUnit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: wristUnit === 'cm' ? 'e.g. 16.5…' : 'e.g. 6.5…',
               unit: wristUnit,
               unitToggle: toggleWristUnit,
               step: '0.1',

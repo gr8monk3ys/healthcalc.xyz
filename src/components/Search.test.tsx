@@ -122,7 +122,7 @@ describe('Search', () => {
 
     it('should render default placeholder', async () => {
       await renderSearch();
-      expect(screen.getByPlaceholderText('Search calculators, articles...')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('Search calculators, articles…')).toBeInTheDocument();
     });
 
     it('should render search icon by default', async () => {

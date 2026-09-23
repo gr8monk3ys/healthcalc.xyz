@@ -11,6 +11,7 @@ import { calculateDiabetesRisk, convertA1C } from '@/utils/calculators/diabetesR
 import type { DiabetesRiskResult, A1CResult, EthnicityRisk } from '@/types/diabetesRisk';
 import { ETHNICITY_LABELS } from '@/constants/diabetesRisk';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 type ActiveMode = 'risk' | 'a1c';
 
@@ -421,7 +422,13 @@ function renderDiabetesRiskCalculatorView({
 
         {/* Risk Assessment Form */}
         {activeMode === 'risk' && (
-          <form onSubmit={handleRiskSubmit} className="neumorph p-6 rounded-lg space-y-6">
+          <form
+            onSubmit={e => {
+              handleRiskSubmit(e);
+              focusFirstInvalidField(e.currentTarget);
+            }}
+            className="neumorph p-6 rounded-lg space-y-6"
+          >
             <h2 className="text-xl font-semibold mb-4">Type 2 Diabetes Risk Assessment</h2>
 
             {/* Age */}
@@ -430,6 +437,11 @@ function renderDiabetesRiskCalculatorView({
                 Age
               </label>
               <input
+                aria-invalid={riskErrors.age ? true : undefined}
+                aria-describedby={riskErrors.age ? 'age-error' : undefined}
+                name="age"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="age"
                 value={age}
@@ -437,11 +449,15 @@ function renderDiabetesRiskCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.age ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 45"
+                placeholder="e.g. 45…"
                 min="1"
                 max="120"
               />
-              {riskErrors.age && <p className="text-red-500 text-sm mt-1">{riskErrors.age}</p>}
+              {riskErrors.age && (
+                <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {riskErrors.age}
+                </p>
+              )}
             </div>
 
             {/* Gender */}
@@ -450,6 +466,7 @@ function renderDiabetesRiskCalculatorView({
                 Gender
               </label>
               <select
+                name="gender"
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
@@ -466,6 +483,11 @@ function renderDiabetesRiskCalculatorView({
                 BMI
               </label>
               <input
+                aria-invalid={riskErrors.bmi ? true : undefined}
+                aria-describedby={riskErrors.bmi ? 'bmi-error' : undefined}
+                name="bmi"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="bmi"
                 value={bmi}
@@ -473,12 +495,16 @@ function renderDiabetesRiskCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.bmi ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 27.5"
+                placeholder="e.g. 27.5…"
                 step="0.1"
                 min="1"
                 max="100"
               />
-              {riskErrors.bmi && <p className="text-red-500 text-sm mt-1">{riskErrors.bmi}</p>}
+              {riskErrors.bmi && (
+                <p id="bmi-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {riskErrors.bmi}
+                </p>
+              )}
               <p className="text-xs text-gray-500 mt-1">
                 If you do not know your BMI, use our{' '}
                 <Link href="/bmi" className="text-accent underline">
@@ -494,6 +520,7 @@ function renderDiabetesRiskCalculatorView({
                 Ethnicity
               </label>
               <select
+                name="ethnicity"
                 id="ethnicity"
                 value={ethnicity}
                 onChange={e => setEthnicity(e.target.value as EthnicityRisk)}
@@ -514,6 +541,13 @@ function renderDiabetesRiskCalculatorView({
                 <span className="text-gray-400 font-normal">- optional</span>
               </label>
               <input
+                aria-invalid={riskErrors.waistCircumference ? true : undefined}
+                aria-describedby={
+                  riskErrors.waistCircumference ? 'waistCircumference-error' : undefined
+                }
+                name="waist"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="waist"
                 value={waistCircumference}
@@ -523,13 +557,15 @@ function renderDiabetesRiskCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.waistCircumference ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 90"
+                placeholder="e.g. 90…"
                 step="0.1"
                 min="20"
                 max="300"
               />
               {riskErrors.waistCircumference && (
-                <p className="text-red-500 text-sm mt-1">{riskErrors.waistCircumference}</p>
+                <p id="waistCircumference-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {riskErrors.waistCircumference}
+                </p>
               )}
             </div>
 
@@ -538,6 +574,7 @@ function renderDiabetesRiskCalculatorView({
               <label className="flex items-center">
                 <input
                   type="checkbox"
+                  name="familyHistory"
                   checked={familyHistory}
                   onChange={e => setFamilyHistory(e.target.checked)}
                   className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -550,6 +587,7 @@ function renderDiabetesRiskCalculatorView({
               <label className="flex items-center">
                 <input
                   type="checkbox"
+                  name="highBloodPressure"
                   checked={highBloodPressure}
                   onChange={e => setHighBloodPressure(e.target.checked)}
                   className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -562,6 +600,7 @@ function renderDiabetesRiskCalculatorView({
               <label className="flex items-center">
                 <input
                   type="checkbox"
+                  name="physicallyActive"
                   checked={physicallyActive}
                   onChange={e => setPhysicallyActive(e.target.checked)}
                   className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -577,6 +616,7 @@ function renderDiabetesRiskCalculatorView({
                   <label className="flex items-center">
                     <input
                       type="checkbox"
+                      name="gestationalDiabetes"
                       checked={gestationalDiabetes}
                       onChange={e => setGestationalDiabetes(e.target.checked)}
                       className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -587,6 +627,7 @@ function renderDiabetesRiskCalculatorView({
                   <label className="flex items-center">
                     <input
                       type="checkbox"
+                      name="polycysticOvary"
                       checked={polycysticOvary}
                       onChange={e => setPolycysticOvary(e.target.checked)}
                       className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -618,7 +659,13 @@ function renderDiabetesRiskCalculatorView({
 
         {/* A1C Converter Form */}
         {activeMode === 'a1c' && (
-          <form onSubmit={handleA1CSubmit} className="neumorph p-6 rounded-lg space-y-6">
+          <form
+            onSubmit={e => {
+              handleA1CSubmit(e);
+              focusFirstInvalidField(e.currentTarget);
+            }}
+            className="neumorph p-6 rounded-lg space-y-6"
+          >
             <h2 className="text-xl font-semibold mb-4">A1C to Estimated Average Glucose</h2>
 
             <div>
@@ -626,6 +673,11 @@ function renderDiabetesRiskCalculatorView({
                 A1C Percentage (%)
               </label>
               <input
+                aria-invalid={a1cErrors.a1c ? true : undefined}
+                aria-describedby={a1cErrors.a1c ? 'a1c-error' : undefined}
+                name="a1c"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="a1c"
                 value={a1cPercentage}
@@ -635,12 +687,16 @@ function renderDiabetesRiskCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   a1cErrors.a1c ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 5.7"
+                placeholder="e.g. 5.7…"
                 step="0.1"
                 min="3"
                 max="20"
               />
-              {a1cErrors.a1c && <p className="text-red-500 text-sm mt-1">{a1cErrors.a1c}</p>}
+              {a1cErrors.a1c && (
+                <p id="a1c-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {a1cErrors.a1c}
+                </p>
+              )}
               <p className="text-xs text-gray-500 mt-1">
                 Enter your A1C test result as a percentage (typically between 4% and 14%).
               </p>

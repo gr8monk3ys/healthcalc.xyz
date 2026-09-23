@@ -162,7 +162,7 @@ export default function WHRCalculator({ serverHeader }: { serverHeader?: React.R
         value: waist,
         onChange: setWaist,
         error: errors.waist,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 80…',
         step: '0.1',
       },
       {
@@ -172,7 +172,7 @@ export default function WHRCalculator({ serverHeader }: { serverHeader?: React.R
         value: hips,
         onChange: setHips,
         error: errors.hips,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 100…',
         step: '0.1',
       },
     ],

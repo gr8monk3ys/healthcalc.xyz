@@ -134,6 +134,9 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             Width (px)
           </label>
           <input
+            name="embed-width"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             id="embed-width"
             value={width}
@@ -149,6 +152,9 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             Height (px)
           </label>
           <input
+            name="embed-height"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             id="embed-height"
             value={height}
@@ -164,6 +170,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             Theme
           </label>
           <select
+            name="embed-theme"
             id="embed-theme"
             value={theme}
             onChange={e =>
@@ -183,6 +190,8 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
           Embed Code
         </label>
         <textarea
+          name="embed-code"
+          autoComplete="off"
           ref={codeRef}
           id="embed-code"
           readOnly

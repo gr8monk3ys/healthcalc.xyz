@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent } from 'react';
 import { useLocale } from '@/context/LocaleContext';
+import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -44,6 +45,7 @@ export default function ContactForm() {
     statusMessage,
     setStatusMessage,
   } = useContactFormState();
+  useUnsavedChangesWarning(status !== 'success' && Boolean(name || email || subject || message));
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
@@ -130,6 +132,7 @@ export default function ContactForm() {
           {t('contactForm.label.email')}
         </label>
         <input
+          spellCheck={false}
           type="email"
           id="email"
           name="email"

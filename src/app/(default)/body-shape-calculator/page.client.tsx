@@ -230,7 +230,7 @@ export default function BodyShapeCalculator({ serverHeader }: { serverHeader?: R
       value: bust,
       onChange: setBust,
       error: errors.bust,
-      placeholder: 'Centimeters',
+      placeholder: 'e.g. 95…',
       step: '0.1',
     },
     {
@@ -240,7 +240,7 @@ export default function BodyShapeCalculator({ serverHeader }: { serverHeader?: R
       value: waist,
       onChange: setWaist,
       error: errors.waist,
-      placeholder: 'Centimeters',
+      placeholder: 'e.g. 75…',
       step: '0.1',
     },
     {
@@ -250,7 +250,7 @@ export default function BodyShapeCalculator({ serverHeader }: { serverHeader?: R
       value: hips,
       onChange: setHips,
       error: errors.hips,
-      placeholder: 'Centimeters',
+      placeholder: 'e.g. 100…',
       step: '0.1',
     },
     createHeightField(height, errors.height),
@@ -262,7 +262,7 @@ export default function BodyShapeCalculator({ serverHeader }: { serverHeader?: R
       value: wristCircumference,
       onChange: setWristCircumference,
       error: errors.wrist,
-      placeholder: 'Centimeters',
+      placeholder: 'e.g. 16…',
       step: '0.1',
     },
   ];

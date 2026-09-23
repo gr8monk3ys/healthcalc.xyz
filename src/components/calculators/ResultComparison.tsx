@@ -144,6 +144,7 @@ export default function ResultComparison({
           </label>
           <select
             id={`${idPrefix}-earlier-result`}
+            name="earlierResult"
             value={leftIndex}
             onChange={e => setLeftIndex(Number(e.target.value))}
             className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm"
@@ -164,6 +165,7 @@ export default function ResultComparison({
           </label>
           <select
             id={`${idPrefix}-later-result`}
+            name="laterResult"
             value={rightIndex}
             onChange={e => setRightIndex(Number(e.target.value))}
             className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm"

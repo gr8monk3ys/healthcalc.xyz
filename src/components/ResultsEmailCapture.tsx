@@ -190,10 +190,12 @@ export function ResultsEmailCapture({
               Email address
             </label>
             <input
+              name="results-email-capture"
+              spellCheck={false}
               ref={inputRef}
               id="results-email-capture"
               type="email"
-              placeholder="you@example.com"
+              placeholder="you@example.com…"
               value={email}
               onChange={e => setEmail(e.target.value)}
               disabled={submitState.status === 'loading'}
@@ -235,7 +237,7 @@ export function ResultsEmailCapture({
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                   />
                 </svg>
-                Subscribing...
+                Subscribing…
               </span>
             ) : (
               'Get Insights'

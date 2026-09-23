@@ -11,6 +11,7 @@ import SaveResult from '@/components/SaveResult';
 import { MEDICATION_LABELS, GOAL_LABELS, ACTIVITY_LABELS } from '@/constants/glp1Calculator';
 import { useWeight, useHeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 // FAQ data for GLP-1 calculator
 const faqs = [
@@ -276,7 +277,13 @@ function renderGLP1CalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your GLP-1 Nutrition Targets</h2>
 
           {/* Weight Field */}
@@ -287,6 +294,11 @@ function renderGLP1CalculatorView({
             </label>
             <div className="flex">
               <input
+                aria-invalid={errors.weight ? true : undefined}
+                aria-describedby={errors.weight ? 'weight-error' : undefined}
+                name="weight"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="weight"
                 value={weight.value}
@@ -310,7 +322,11 @@ function renderGLP1CalculatorView({
                 {weight.unit}
               </button>
             </div>
-            {errors.weight && <p className="text-red-500 text-sm mt-1">{errors.weight}</p>}
+            {errors.weight && (
+              <p id="weight-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.weight}
+              </p>
+            )}
           </div>
 
           {/* Height Field */}
@@ -321,6 +337,11 @@ function renderGLP1CalculatorView({
             </label>
             <div className="flex">
               <input
+                aria-invalid={errors.height ? true : undefined}
+                aria-describedby={errors.height ? 'height-error' : undefined}
+                name="height"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="height"
                 value={height.value}
@@ -344,7 +365,11 @@ function renderGLP1CalculatorView({
                 {height.unit}
               </button>
             </div>
-            {errors.height && <p className="text-red-500 text-sm mt-1">{errors.height}</p>}
+            {errors.height && (
+              <p id="height-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.height}
+              </p>
+            )}
           </div>
 
           {/* Age Field */}
@@ -354,6 +379,11 @@ function renderGLP1CalculatorView({
               <span className="text-red-500 ml-1">*</span>
             </label>
             <input
+              aria-invalid={errors.age ? true : undefined}
+              aria-describedby={errors.age ? 'age-error' : undefined}
+              name="age"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="age"
               value={age}
@@ -361,11 +391,15 @@ function renderGLP1CalculatorView({
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.age ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter age (18-100)"
+              placeholder="e.g. 45 (18–100)…"
               min="18"
               max="100"
             />
-            {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
+            {errors.age && (
+              <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.age}
+              </p>
+            )}
           </div>
 
           {/* Gender Select */}
@@ -374,6 +408,7 @@ function renderGLP1CalculatorView({
               Biological Sex
             </label>
             <select
+              name="gender"
               id="gender"
               value={gender}
               onChange={e => setGender(e.target.value as Gender)}
@@ -390,6 +425,7 @@ function renderGLP1CalculatorView({
               GLP-1 Medication
             </label>
             <select
+              name="medication"
               id="medication"
               value={medication}
               onChange={e => setMedication(e.target.value as GLP1Medication)}
@@ -409,6 +445,7 @@ function renderGLP1CalculatorView({
               Primary Goal
             </label>
             <select
+              name="goal"
               id="goal"
               value={goal}
               onChange={e => setGoal(e.target.value as GLP1Goal)}
@@ -428,6 +465,7 @@ function renderGLP1CalculatorView({
               Activity Level
             </label>
             <select
+              name="activityLevel"
               id="activityLevel"
               value={activityLevel}
               onChange={e => setActivityLevel(e.target.value as ActivityLevel)}

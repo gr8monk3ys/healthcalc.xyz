@@ -128,7 +128,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
     form: {
       title: 'Enter Your Details',
       ageLabel: 'Age',
-      agePlaceholder: 'Years',
+      agePlaceholder: 'e.g. 35…',
       genderLabel: 'Gender',
       genderMale: 'Male',
       genderFemale: 'Female',

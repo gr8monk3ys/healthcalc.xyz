@@ -20,7 +20,7 @@ vi.mock('@/context/LocaleContext', () => ({
         'newsletter.button': 'Subscribe',
         'newsletter.emailPlaceholder': 'Your email address',
         'newsletter.validation.invalidEmail': 'Please enter a valid email address',
-        'newsletter.status.loading': 'Subscribing...',
+        'newsletter.status.loading': 'Subscribing…',
         'newsletter.error.generic': 'An error occurred. Please try again later.',
         'newsletter.privacy.prefix': 'By subscribing, you agree to our',
         'newsletter.privacy.privacyPolicy': 'Privacy Policy',

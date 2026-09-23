@@ -17,6 +17,7 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import LifeExpectancyResultDisplay from '@/components/calculators/lifeExpectancy/LifeExpectancyResult';
 import SaveResult from '@/components/SaveResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 const CHRONIC_CONDITIONS = [
   { value: 'diabetes', label: 'Diabetes' },
@@ -377,7 +378,13 @@ function renderLifeExpectancyCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Estimate Your Life Expectancy</h2>
 
           {/* Age and Gender */}
@@ -387,6 +394,11 @@ function renderLifeExpectancyCalculatorView({
                 Age
               </label>
               <input
+                aria-invalid={errors.age ? true : undefined}
+                aria-describedby={errors.age ? 'age-error' : undefined}
+                name="age"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="age"
                 value={age}
@@ -394,11 +406,15 @@ function renderLifeExpectancyCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.age ? 'border border-red-500' : ''
                 }`}
-                placeholder="Enter your age"
+                placeholder="e.g. 45…"
                 min="1"
                 max="120"
               />
-              {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
+              {errors.age && (
+                <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {errors.age}
+                </p>
+              )}
             </div>
 
             <div>
@@ -406,6 +422,7 @@ function renderLifeExpectancyCalculatorView({
                 Gender
               </label>
               <select
+                name="gender"
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
@@ -423,6 +440,11 @@ function renderLifeExpectancyCalculatorView({
               BMI (Body Mass Index)
             </label>
             <input
+              aria-invalid={errors.bmi ? true : undefined}
+              aria-describedby={errors.bmi ? 'bmi-error' : undefined}
+              name="bmi"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="bmi"
               value={bmi}
@@ -430,12 +452,16 @@ function renderLifeExpectancyCalculatorView({
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.bmi ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter your BMI (e.g. 22.5)"
+              placeholder="e.g. 22.5…"
               step="0.1"
               min="10"
               max="60"
             />
-            {errors.bmi && <p className="text-red-500 text-sm mt-1">{errors.bmi}</p>}
+            {errors.bmi && (
+              <p id="bmi-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.bmi}
+              </p>
+            )}
             <p className="text-xs text-gray-600 mt-1">
               Not sure of your BMI? Use our BMI calculator first.
             </p>
@@ -447,6 +473,7 @@ function renderLifeExpectancyCalculatorView({
               Smoking Status
             </label>
             <select
+              name="smokingStatus"
               id="smokingStatus"
               value={smokingStatus}
               onChange={e => setSmokingStatus(e.target.value as SmokingStatus)}
@@ -465,6 +492,7 @@ function renderLifeExpectancyCalculatorView({
               Alcohol Intake
             </label>
             <select
+              name="alcoholIntake"
               id="alcoholIntake"
               value={alcoholIntake}
               onChange={e => setAlcoholIntake(e.target.value as AlcoholIntake)}
@@ -483,6 +511,7 @@ function renderLifeExpectancyCalculatorView({
               Exercise Frequency
             </label>
             <select
+              name="exerciseFrequency"
               id="exerciseFrequency"
               value={exerciseFrequency}
               onChange={e => setExerciseFrequency(e.target.value as ExerciseFrequency)}
@@ -502,6 +531,7 @@ function renderLifeExpectancyCalculatorView({
               Diet Quality
             </label>
             <select
+              name="dietQuality"
               id="dietQuality"
               value={dietQuality}
               onChange={e => setDietQuality(e.target.value as DietQuality)}
@@ -520,6 +550,11 @@ function renderLifeExpectancyCalculatorView({
               Average Sleep (hours per night)
             </label>
             <input
+              aria-invalid={errors.sleepHours ? true : undefined}
+              aria-describedby={errors.sleepHours ? 'sleepHours-error' : undefined}
+              name="sleepHours"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="sleepHours"
               value={sleepHours}
@@ -527,12 +562,16 @@ function renderLifeExpectancyCalculatorView({
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.sleepHours ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter average hours of sleep"
+              placeholder="e.g. 7.5…"
               step="0.5"
               min="3"
               max="12"
             />
-            {errors.sleepHours && <p className="text-red-500 text-sm mt-1">{errors.sleepHours}</p>}
+            {errors.sleepHours && (
+              <p id="sleepHours-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.sleepHours}
+              </p>
+            )}
           </div>
 
           {/* Stress Level */}
@@ -541,6 +580,7 @@ function renderLifeExpectancyCalculatorView({
               Stress Level
             </label>
             <select
+              name="stressLevel"
               id="stressLevel"
               value={stressLevel}
               onChange={e => setStressLevel(e.target.value as StressLevel)}
@@ -558,6 +598,7 @@ function renderLifeExpectancyCalculatorView({
             <label className="flex items-center">
               <input
                 type="checkbox"
+                name="familyHistoryLongevity"
                 checked={familyHistoryLongevity}
                 onChange={e => setFamilyHistoryLongevity(e.target.checked)}
                 className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -580,6 +621,8 @@ function renderLifeExpectancyCalculatorView({
                   <label key={condition.value} className="flex items-center cursor-pointer">
                     <input
                       type="checkbox"
+                      name="chronicConditions"
+                      value={condition.value}
                       checked={chronicConditions.includes(condition.value)}
                       onChange={() => handleConditionToggle(condition.value)}
                       className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
@@ -597,6 +640,7 @@ function renderLifeExpectancyCalculatorView({
               Social Connections
             </label>
             <select
+              name="socialConnections"
               id="socialConnections"
               value={socialConnections}
               onChange={e => setSocialConnections(e.target.value as SocialConnection)}

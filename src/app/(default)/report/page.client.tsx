@@ -361,7 +361,7 @@ function ReportPageClientContent(): React.JSX.Element {
             disabled={!hasData || isDownloadingPdf}
             className="ui-btn-primary"
           >
-            {isDownloadingPdf ? 'Generating PDF...' : 'Download PDF'}
+            {isDownloadingPdf ? 'Generating PDF…' : 'Download PDF'}
           </button>
           <Link href={localizePath('/saved-results')} className="ui-btn-soft">
             Back to Dashboard

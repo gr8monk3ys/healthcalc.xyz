@@ -209,7 +209,7 @@ export default function MaximumFatLossCalculator({
         value: age,
         onChange: setAge,
         error: errors.age,
-        placeholder: 'Years',
+        placeholder: 'e.g. 35…',
       },
       createHeightField(height, errors.height),
       {
@@ -223,7 +223,7 @@ export default function MaximumFatLossCalculator({
         value: bodyFatPercentage,
         onChange: setBodyFatPercentage,
         error: errors.bodyFatPercentage,
-        placeholder: 'Percentage',
+        placeholder: 'e.g. 22…',
         step: '0.1',
         min: 3,
         max: 60,

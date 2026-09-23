@@ -31,7 +31,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
   switch (locale) {
     case 'es':
       return {
-        inputPlaceholder: 'Buscar calculadoras, artículos...',
+        inputPlaceholder: 'Buscar calculadoras, artículos…',
         ariaLabel: 'Buscar',
         dropdownNoResults: 'No se encontraron resultados',
         dropdownViewAllResults: 'Ver todos los resultados',
@@ -57,7 +57,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'fr':
       return {
-        inputPlaceholder: 'Rechercher des calculateurs, articles...',
+        inputPlaceholder: 'Rechercher des calculateurs, articles…',
         ariaLabel: 'Rechercher',
         dropdownNoResults: 'Aucun résultat',
         dropdownViewAllResults: 'Voir tous les résultats',
@@ -83,7 +83,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'de':
       return {
-        inputPlaceholder: 'Rechner, Artikel suchen...',
+        inputPlaceholder: 'Rechner, Artikel suchen…',
         ariaLabel: 'Suchen',
         dropdownNoResults: 'Keine Ergebnisse gefunden',
         dropdownViewAllResults: 'Alle Ergebnisse ansehen',
@@ -109,7 +109,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'pt':
       return {
-        inputPlaceholder: 'Buscar calculadoras, artigos...',
+        inputPlaceholder: 'Buscar calculadoras, artigos…',
         ariaLabel: 'Buscar',
         dropdownNoResults: 'Nenhum resultado encontrado',
         dropdownViewAllResults: 'Ver todos os resultados',
@@ -135,7 +135,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'zh':
       return {
-        inputPlaceholder: '搜索计算器、文章...',
+        inputPlaceholder: '搜索计算器、文章…',
         ariaLabel: '搜索',
         dropdownNoResults: '未找到结果',
         dropdownViewAllResults: '查看全部结果',
@@ -160,7 +160,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
     case 'en':
     default:
       return {
-        inputPlaceholder: 'Search calculators, articles...',
+        inputPlaceholder: 'Search calculators, articles…',
         ariaLabel: 'Search',
         dropdownNoResults: 'No results found',
         dropdownViewAllResults: 'View all results',
@@ -639,6 +639,7 @@ function SearchAutocompleteView({
           )}
 
           <input
+            name="q"
             ref={inputRef}
             type="search"
             className={`block w-full rounded-lg border border-gray-300 bg-white py-2 ${showIcon ? 'pl-10' : 'pl-4'} pr-4 text-gray-900 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100`}

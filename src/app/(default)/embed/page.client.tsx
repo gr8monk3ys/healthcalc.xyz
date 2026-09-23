@@ -91,6 +91,8 @@ function CopyableEmbedCode({
   return (
     <div>
       <textarea
+        name="embedCode"
+        autoComplete="off"
         ref={codeRef}
         readOnly
         value={embedCode}
@@ -173,6 +175,7 @@ export default function EmbedPage(): React.JSX.Element {
           Theme for embed codes:
         </label>
         <select
+          name="global-theme"
           id="global-theme"
           value={globalTheme}
           onChange={e => setGlobalTheme(e.target.value as 'light' | 'dark')}

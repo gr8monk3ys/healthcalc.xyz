@@ -153,7 +153,7 @@ export default function HeartRateZonesCalculator({
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
             },
             {
               name: 'method',
@@ -173,7 +173,7 @@ export default function HeartRateZonesCalculator({
               value: restingHeartRate,
               onChange: setRestingHeartRate,
               error: errors.restingHeartRate,
-              placeholder: 'Optional unless Karvonen',
+              placeholder: 'e.g. 60 (Karvonen only)…',
             },
           ]}
           submitButtonText="Calculate Zones"

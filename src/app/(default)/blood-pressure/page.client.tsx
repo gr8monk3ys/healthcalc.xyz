@@ -131,7 +131,7 @@ export default function BloodPressureCalculator({
               value: systolic,
               onChange: setSystolic,
               error: errors.systolic,
-              placeholder: 'e.g., 120',
+              placeholder: 'e.g. 120…',
             },
             {
               name: 'diastolic',
@@ -140,7 +140,7 @@ export default function BloodPressureCalculator({
               value: diastolic,
               onChange: setDiastolic,
               error: errors.diastolic,
-              placeholder: 'e.g., 80',
+              placeholder: 'e.g. 80…',
             },
           ]}
           submitButtonText="Check Category"

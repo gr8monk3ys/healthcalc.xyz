@@ -133,7 +133,7 @@ function createBodyFatFormFields({
         value: waist,
         onChange: setWaist,
         error: errors.waist,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 85…',
         step: '0.1',
       },
       {
@@ -143,7 +143,7 @@ function createBodyFatFormFields({
         value: neck,
         onChange: setNeck,
         error: errors.neck,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 38…',
         step: '0.1',
       }
     );
@@ -156,7 +156,7 @@ function createBodyFatFormFields({
         value: hips,
         onChange: setHips,
         error: errors.hips,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 95…',
         step: '0.1',
       });
     }
@@ -168,7 +168,7 @@ function createBodyFatFormFields({
       value: bodyFatPercentage,
       onChange: setBodyFatPercentage,
       error: errors.bodyFatPercentage,
-      placeholder: 'Percentage',
+      placeholder: 'e.g. 22…',
       step: '0.1',
     });
   }
@@ -192,7 +192,7 @@ function createBodyFatFormFields({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     createWeightField(weight, errors.weight),

@@ -162,7 +162,7 @@ export default function CalorieCalculator({ serverHeader }: { serverHeader?: Rea
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
               min: 10,
               max: 100,
             },

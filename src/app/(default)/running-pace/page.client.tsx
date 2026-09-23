@@ -159,7 +159,7 @@ export default function RunningPaceCalculator({
               value: distance,
               onChange: setDistance,
               error: errors.distance,
-              placeholder: 'e.g., 5',
+              placeholder: 'e.g. 5…',
             },
             {
               name: 'distanceUnit',
@@ -178,7 +178,7 @@ export default function RunningPaceCalculator({
               type: 'number',
               value: hours,
               onChange: setHours,
-              placeholder: '0',
+              placeholder: 'e.g. 0…',
             },
             {
               name: 'minutes',
@@ -186,7 +186,7 @@ export default function RunningPaceCalculator({
               type: 'number',
               value: minutes,
               onChange: setMinutes,
-              placeholder: '25',
+              placeholder: 'e.g. 25…',
               error: errors.time,
             },
             {
@@ -195,7 +195,7 @@ export default function RunningPaceCalculator({
               type: 'number',
               value: seconds,
               onChange: setSeconds,
-              placeholder: '0',
+              placeholder: 'e.g. 0…',
             },
           ]}
           submitButtonText="Calculate Pace"

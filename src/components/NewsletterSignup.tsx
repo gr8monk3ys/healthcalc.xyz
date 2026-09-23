@@ -105,6 +105,7 @@ export default function NewsletterSignup({
             {t('newsletter.emailPlaceholder')}
           </label>
           <input
+            spellCheck={false}
             id="email"
             type="email"
             placeholder={t('newsletter.emailPlaceholder')}

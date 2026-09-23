@@ -163,7 +163,7 @@ export default function LeanBodyMassCalculator({
               value: bodyFat,
               onChange: setBodyFat,
               error: errors.bodyFat,
-              placeholder: 'e.g. 20',
+              placeholder: 'e.g. 20…',
               min: 1,
               max: 70,
               step: '0.1',

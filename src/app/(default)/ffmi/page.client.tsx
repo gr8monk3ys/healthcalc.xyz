@@ -19,6 +19,7 @@ import FFMIResultDisplay from '@/components/calculators/ffmi/FFMIResult';
 import { useHeight, useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 type FFMICalculatorViewProps = {
   serverHeader?: React.ReactNode;
@@ -180,7 +181,12 @@ function renderFFMICalculatorView({
     >
       <div className="grid md:grid-cols-2 gap-6">
         <div className="neumorph p-6 rounded-lg">
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={e => {
+              handleSubmit(e);
+              focusFirstInvalidField(e.currentTarget);
+            }}
+          >
             <div className="space-y-4">
               {/* Weight Input */}
               <div>
@@ -190,6 +196,11 @@ function renderFFMICalculatorView({
                 </label>
                 <div className="flex gap-2">
                   <input
+                    aria-invalid={errors.weight ? true : undefined}
+                    aria-describedby={errors.weight ? 'weight-error' : undefined}
+                    name="weight"
+                    autoComplete="off"
+                    inputMode="decimal"
                     id="weight"
                     type="number"
                     step="0.1"
@@ -210,7 +221,11 @@ function renderFFMICalculatorView({
                     {weight.unit}
                   </button>
                 </div>
-                {errors.weight && <p className="text-red-500 text-xs mt-1">{errors.weight}</p>}
+                {errors.weight && (
+                  <p id="weight-error" role="alert" className="text-red-500 text-xs mt-1">
+                    {errors.weight}
+                  </p>
+                )}
               </div>
 
               {/* Height Input */}
@@ -221,6 +236,11 @@ function renderFFMICalculatorView({
                 </label>
                 <div className="flex gap-2">
                   <input
+                    aria-invalid={errors.height ? true : undefined}
+                    aria-describedby={errors.height ? 'height-error' : undefined}
+                    name="height"
+                    autoComplete="off"
+                    inputMode="decimal"
                     id="height"
                     type="number"
                     step="0.1"
@@ -241,7 +261,11 @@ function renderFFMICalculatorView({
                     {height.unit}
                   </button>
                 </div>
-                {errors.height && <p className="text-red-500 text-xs mt-1">{errors.height}</p>}
+                {errors.height && (
+                  <p id="height-error" role="alert" className="text-red-500 text-xs mt-1">
+                    {errors.height}
+                  </p>
+                )}
               </div>
 
               {/* Body Fat Percentage Input */}
@@ -251,6 +275,13 @@ function renderFFMICalculatorView({
                   <span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
+                  aria-invalid={errors.bodyFatPercentage ? true : undefined}
+                  aria-describedby={
+                    errors.bodyFatPercentage ? 'bodyFatPercentage-error' : undefined
+                  }
+                  name="bodyFatPercentage"
+                  autoComplete="off"
+                  inputMode="decimal"
                   id="bodyFatPercentage"
                   type="number"
                   step="0.1"
@@ -258,13 +289,19 @@ function renderFFMICalculatorView({
                   onChange={e =>
                     setBodyFatPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))
                   }
-                  placeholder="e.g., 15"
+                  placeholder="e.g. 15…"
                   className={`w-full neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.bodyFatPercentage ? 'ring-2 ring-red-500' : ''
                   }`}
                 />
                 {errors.bodyFatPercentage && (
-                  <p className="text-red-500 text-xs mt-1">{errors.bodyFatPercentage}</p>
+                  <p
+                    id="bodyFatPercentage-error"
+                    role="alert"
+                    className="text-red-500 text-xs mt-1"
+                  >
+                    {errors.bodyFatPercentage}
+                  </p>
                 )}
                 <p className="text-xs text-gray-500 mt-1">
                   If you don't know your body fat percentage, use our{' '}

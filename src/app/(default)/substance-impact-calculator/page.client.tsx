@@ -14,6 +14,7 @@ import SubstanceImpactResultDisplay from '@/components/calculators/substanceImpa
 import SaveResult from '@/components/SaveResult';
 import { ALCOHOL_TYPE_LABELS, SMOKING_TYPE_LABELS } from '@/constants/substanceImpact';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 const faqs = [
   {
@@ -383,7 +384,13 @@ function renderSubstanceImpactCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your Substance Impact</h2>
 
           {/* Mode Selector Tabs */}
@@ -415,6 +422,11 @@ function renderSubstanceImpactCalculatorView({
                 Age
               </label>
               <input
+                aria-invalid={errors.age ? true : undefined}
+                aria-describedby={errors.age ? 'age-error' : undefined}
+                name="age"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="age"
                 value={age}
@@ -422,11 +434,15 @@ function renderSubstanceImpactCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.age ? 'border border-red-500' : ''
                 }`}
-                placeholder="Enter age"
+                placeholder="e.g. 45…"
                 min="1"
                 max="120"
               />
-              {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
+              {errors.age && (
+                <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {errors.age}
+                </p>
+              )}
             </div>
 
             <div>
@@ -434,6 +450,7 @@ function renderSubstanceImpactCalculatorView({
                 Gender
               </label>
               <select
+                name="gender"
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
@@ -455,6 +472,7 @@ function renderSubstanceImpactCalculatorView({
                   Alcohol Type
                 </label>
                 <select
+                  name="alcoholType"
                   id="alcoholType"
                   value={alcoholType}
                   onChange={e => setAlcoholType(e.target.value as AlcoholType)}
@@ -474,6 +492,11 @@ function renderSubstanceImpactCalculatorView({
                     Drinks Per Week
                   </label>
                   <input
+                    aria-invalid={errors.drinksPerWeek ? true : undefined}
+                    aria-describedby={errors.drinksPerWeek ? 'drinksPerWeek-error' : undefined}
+                    name="drinksPerWeek"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="drinksPerWeek"
                     value={drinksPerWeek}
@@ -483,12 +506,14 @@ function renderSubstanceImpactCalculatorView({
                     className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.drinksPerWeek ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 7"
+                    placeholder="e.g. 7…"
                     min="0"
                     step="1"
                   />
                   {errors.drinksPerWeek && (
-                    <p className="text-red-500 text-sm mt-1">{errors.drinksPerWeek}</p>
+                    <p id="drinksPerWeek-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.drinksPerWeek}
+                    </p>
                   )}
                 </div>
 
@@ -497,6 +522,11 @@ function renderSubstanceImpactCalculatorView({
                     Years of Drinking
                   </label>
                   <input
+                    aria-invalid={errors.yearsOfDrinking ? true : undefined}
+                    aria-describedby={errors.yearsOfDrinking ? 'yearsOfDrinking-error' : undefined}
+                    name="yearsOfDrinking"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="yearsOfDrinking"
                     value={yearsOfDrinking}
@@ -506,12 +536,18 @@ function renderSubstanceImpactCalculatorView({
                     className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.yearsOfDrinking ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 10"
+                    placeholder="e.g. 10…"
                     min="0"
                     step="1"
                   />
                   {errors.yearsOfDrinking && (
-                    <p className="text-red-500 text-sm mt-1">{errors.yearsOfDrinking}</p>
+                    <p
+                      id="yearsOfDrinking-error"
+                      role="alert"
+                      className="text-red-500 text-sm mt-1"
+                    >
+                      {errors.yearsOfDrinking}
+                    </p>
                   )}
                 </div>
 
@@ -520,6 +556,11 @@ function renderSubstanceImpactCalculatorView({
                     Avg. Drink Cost ($)
                   </label>
                   <input
+                    aria-invalid={errors.avgDrinkCost ? true : undefined}
+                    aria-describedby={errors.avgDrinkCost ? 'avgDrinkCost-error' : undefined}
+                    name="avgDrinkCost"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="avgDrinkCost"
                     value={avgDrinkCost}
@@ -529,12 +570,14 @@ function renderSubstanceImpactCalculatorView({
                     className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.avgDrinkCost ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 8"
+                    placeholder="e.g. 8…"
                     min="0"
                     step="0.5"
                   />
                   {errors.avgDrinkCost && (
-                    <p className="text-red-500 text-sm mt-1">{errors.avgDrinkCost}</p>
+                    <p id="avgDrinkCost-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.avgDrinkCost}
+                    </p>
                   )}
                 </div>
               </div>
@@ -551,6 +594,7 @@ function renderSubstanceImpactCalculatorView({
                   Smoking Type
                 </label>
                 <select
+                  name="smokingType"
                   id="smokingType"
                   value={smokingType}
                   onChange={e => setSmokingType(e.target.value as SmokingType)}
@@ -570,6 +614,11 @@ function renderSubstanceImpactCalculatorView({
                     Amount Per Day
                   </label>
                   <input
+                    aria-invalid={errors.perDay ? true : undefined}
+                    aria-describedby={errors.perDay ? 'perDay-error' : undefined}
+                    name="perDay"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="perDay"
                     value={perDay}
@@ -579,11 +628,15 @@ function renderSubstanceImpactCalculatorView({
                     className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.perDay ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 10"
+                    placeholder="e.g. 10…"
                     min="0"
                     step="1"
                   />
-                  {errors.perDay && <p className="text-red-500 text-sm mt-1">{errors.perDay}</p>}
+                  {errors.perDay && (
+                    <p id="perDay-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.perDay}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -591,6 +644,11 @@ function renderSubstanceImpactCalculatorView({
                     Years of Smoking
                   </label>
                   <input
+                    aria-invalid={errors.yearsOfSmoking ? true : undefined}
+                    aria-describedby={errors.yearsOfSmoking ? 'yearsOfSmoking-error' : undefined}
+                    name="yearsOfSmoking"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="yearsOfSmoking"
                     value={yearsOfSmoking}
@@ -600,12 +658,14 @@ function renderSubstanceImpactCalculatorView({
                     className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.yearsOfSmoking ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 15"
+                    placeholder="e.g. 15…"
                     min="0"
                     step="1"
                   />
                   {errors.yearsOfSmoking && (
-                    <p className="text-red-500 text-sm mt-1">{errors.yearsOfSmoking}</p>
+                    <p id="yearsOfSmoking-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.yearsOfSmoking}
+                    </p>
                   )}
                 </div>
 
@@ -614,6 +674,11 @@ function renderSubstanceImpactCalculatorView({
                     Cost Per Pack/Pod ($)
                   </label>
                   <input
+                    aria-invalid={errors.costPerPack ? true : undefined}
+                    aria-describedby={errors.costPerPack ? 'costPerPack-error' : undefined}
+                    name="costPerPack"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="costPerPack"
                     value={costPerPack}
@@ -623,12 +688,14 @@ function renderSubstanceImpactCalculatorView({
                     className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.costPerPack ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 8"
+                    placeholder="e.g. 8…"
                     min="0"
                     step="0.5"
                   />
                   {errors.costPerPack && (
-                    <p className="text-red-500 text-sm mt-1">{errors.costPerPack}</p>
+                    <p id="costPerPack-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.costPerPack}
+                    </p>
                   )}
                 </div>
               </div>

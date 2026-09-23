@@ -31,7 +31,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
   switch (locale) {
     case 'es':
       return {
-        searchPlaceholder: 'Buscar artículos...',
+        searchPlaceholder: 'Buscar artículos…',
         searchAria: 'Buscar artículos',
         clearSearchAria: 'Borrar búsqueda',
         allLabel: 'Todas',
@@ -47,7 +47,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'fr':
       return {
-        searchPlaceholder: 'Rechercher des articles...',
+        searchPlaceholder: 'Rechercher des articles…',
         searchAria: 'Rechercher des articles',
         clearSearchAria: 'Effacer la recherche',
         allLabel: 'Tous',
@@ -63,7 +63,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'de':
       return {
-        searchPlaceholder: 'Artikel suchen...',
+        searchPlaceholder: 'Artikel suchen…',
         searchAria: 'Artikel suchen',
         clearSearchAria: 'Suche löschen',
         allLabel: 'Alle',
@@ -79,7 +79,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'pt':
       return {
-        searchPlaceholder: 'Buscar artigos...',
+        searchPlaceholder: 'Buscar artigos…',
         searchAria: 'Buscar artigos',
         clearSearchAria: 'Limpar busca',
         allLabel: 'Todos',
@@ -95,7 +95,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'zh':
       return {
-        searchPlaceholder: '搜索文章...',
+        searchPlaceholder: '搜索文章…',
         searchAria: '搜索文章',
         clearSearchAria: '清除搜索',
         allLabel: '全部',
@@ -112,7 +112,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
     case 'en':
     default:
       return {
-        searchPlaceholder: 'Search articles...',
+        searchPlaceholder: 'Search articles…',
         searchAria: 'Search articles',
         clearSearchAria: 'Clear search',
         allLabel: 'All',
@@ -376,6 +376,8 @@ function renderBlogIndexClientView({
             />
           </svg>
           <input
+            name="q"
+            autoComplete="off"
             type="text"
             placeholder={strings.searchPlaceholder}
             value={inputValue}

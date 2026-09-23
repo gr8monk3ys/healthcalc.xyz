@@ -238,7 +238,7 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     createWeightField(weight, errors.weight),
@@ -249,7 +249,7 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
       value: bodyFatPercentage,
       onChange: setBodyFatPercentage,
       error: errors.bodyFatPercentage,
-      placeholder: '% (will estimate if not provided)',
+      placeholder: 'e.g. 22 (estimated if blank)…',
       step: '0.1',
     },
     {

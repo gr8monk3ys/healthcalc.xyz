@@ -127,7 +127,7 @@ export default function MaxHeartRateCalculator({
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
               min: 10,
               max: 100,
             },
