@@ -1,6 +1,7 @@
 'use client';
 
 import React, {
+  useMemo,
   createContext,
   useContext,
   useState,
@@ -9,7 +10,6 @@ import React, {
   useRef,
   ReactNode,
 } from 'react';
-import { usePreferences } from '@/context/PreferencesContext';
 import { getAdSensePublisherId, getAdSenseScriptSrc, shouldLoadAdSense } from '@/lib/adsense';
 import { useLocale } from '@/context/LocaleContext';
 
@@ -411,12 +411,6 @@ function CookieConsentBanner({
 /* -------------------------------------------------------------------------- */
 
 export function CookieConsentProvider({ children }: { children: ReactNode }): React.JSX.Element {
-  // Read dark mode to ensure the banner inherits the correct theme.
-  // The actual dark class is applied higher in the tree by DarkModeProvider,
-  // so we don't need to do anything with this value here -- we just ensure
-  // the provider is mounted inside the preferences tree.
-  usePreferences();
-
   const [consentState, setConsentState] = useState<{
     consent: CookieConsentState;
     bannerVisible: boolean;
@@ -487,11 +481,14 @@ export function CookieConsentProvider({ children }: { children: ReactNode }): Re
     }));
   }, []);
 
-  const contextValue: CookieConsentContextValue = {
-    analytics: consent.analytics,
-    advertising: consent.advertising,
-    openConsentBanner,
-  };
+  const contextValue = useMemo<CookieConsentContextValue>(
+    () => ({
+      analytics: consent.analytics,
+      advertising: consent.advertising,
+      openConsentBanner,
+    }),
+    [consent.analytics, consent.advertising, openConsentBanner]
+  );
 
   return (
     <CookieConsentContext.Provider value={contextValue}>

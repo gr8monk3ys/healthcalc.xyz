@@ -31,7 +31,7 @@ import { buildSharedResultToken, type ShareResultContext } from '@/utils/resultS
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
   for (const [key, value] of Object.entries(vars)) {
-    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+    out = out.replaceAll(`{${key}}`, value);
   }
   return out;
 }
