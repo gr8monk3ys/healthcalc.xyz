@@ -113,6 +113,7 @@ export function ResultsEmailCapture({
             aria-hidden="true"
           >
             <svg
+              aria-hidden="true"
               className="w-5 h-5 text-green-600 dark:text-green-400"
               fill="none"
               viewBox="0 0 24 24"

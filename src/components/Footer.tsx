@@ -24,6 +24,7 @@ export default function Footer(): React.JSX.Element {
                 className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-md shadow-accent/25"
               >
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
                   fill="none"

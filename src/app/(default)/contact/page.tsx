@@ -29,6 +29,7 @@ export default function ContactPage() {
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
                   <svg
+                    aria-hidden="true"
                     className="h-5 w-5 text-accent"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -52,6 +53,7 @@ export default function ContactPage() {
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
                   <svg
+                    aria-hidden="true"
                     className="h-5 w-5 text-accent"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

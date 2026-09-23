@@ -53,6 +53,7 @@ export default function Header(): React.JSX.Element {
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-lg shadow-accent/30 transition-transform duration-300 group-hover:scale-105"
             >
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"

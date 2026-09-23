@@ -113,7 +113,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
               </p>
             </div>
             <div className="text-4xl opacity-30" aria-hidden="true">
-              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
               </svg>
             </div>
@@ -145,7 +145,13 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
               {result.nutrientPriorities.map(priority => (
                 <li key={priority} className="flex items-start gap-2 text-sm">
                   <span className="text-green-500 mt-0.5 flex-shrink-0">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      aria-hidden="true"
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"

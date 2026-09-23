@@ -236,6 +236,7 @@ function getSearchResultTypeIcon(type: string) {
     case 'calculator':
       return (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
           fill="none"
@@ -253,6 +254,7 @@ function getSearchResultTypeIcon(type: string) {
     case 'article':
       return (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
           fill="none"
@@ -270,6 +272,7 @@ function getSearchResultTypeIcon(type: string) {
     default:
       return (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
           fill="none"
@@ -618,6 +621,7 @@ function SearchAutocompleteView({
           {showIcon && (
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-gray-400 dark:text-gray-500"
                 fill="none"
@@ -649,6 +653,7 @@ function SearchAutocompleteView({
           {isLoading && (
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
               <svg
+                aria-hidden="true"
                 className="animate-spin h-5 w-5 text-gray-400"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -720,6 +725,7 @@ function SearchAutocompleteView({
               >
                 {strings.dropdownViewAllResults}
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   className="inline-block h-4 w-4 ml-1"
                   fill="none"
@@ -781,6 +787,7 @@ export function SearchPage() {
       {isLoading ? (
         <div className="flex justify-center py-12">
           <svg
+            aria-hidden="true"
             className="animate-spin h-8 w-8 text-accent"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -804,6 +811,7 @@ export function SearchPage() {
       ) : query.trim().length === 0 ? (
         <div className="neumorph p-6 rounded-lg text-center">
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="h-12 w-12 mx-auto text-gray-400 mb-4"
             fill="none"
@@ -851,6 +859,7 @@ export function SearchPage() {
                       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent mr-3">
                         {result.type === 'calculator' ? (
                           <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
                             fill="none"
@@ -866,6 +875,7 @@ export function SearchPage() {
                           </svg>
                         ) : result.type === 'article' ? (
                           <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
                             fill="none"
@@ -881,6 +891,7 @@ export function SearchPage() {
                           </svg>
                         ) : (
                           <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
                             fill="none"
@@ -931,6 +942,7 @@ export function SearchPage() {
           ) : (
             <div className="neumorph p-6 rounded-lg text-center">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-12 w-12 mx-auto text-gray-400 mb-4"
                 fill="none"

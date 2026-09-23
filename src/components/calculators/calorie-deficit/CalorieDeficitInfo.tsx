@@ -26,6 +26,7 @@ export default function CalorieDeficitInfo() {
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -49,6 +50,7 @@ export default function CalorieDeficitInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -72,6 +74,7 @@ export default function CalorieDeficitInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -95,6 +98,7 @@ export default function CalorieDeficitInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
