@@ -44,9 +44,9 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
             <span className="text-sm text-gray-600">kcal/day</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-gray-600">Baseline TDEE: {result.tdee} kcal</span>
+            <span className="text-gray-600">Baseline TDEE: {result.tdee} kcal</span>
             <span className="px-2 py-0.5 rounded bg-orange-100 text-orange-700 font-medium">
-              -{calorieReduction} kcal ({calorieReductionPercent}%)
+              -{calorieReduction} kcal ({calorieReductionPercent}%)
             </span>
           </div>
 
@@ -59,8 +59,8 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
             ></div>
           </div>
           <div className="flex justify-between text-xs mt-1 text-gray-600">
-            <span>0 kcal</span>
-            <span>TDEE: {result.tdee} kcal</span>
+            <span>0 kcal</span>
+            <span>TDEE: {result.tdee} kcal</span>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
             <p className="text-xl font-bold">
               {result.proteinMinGrams}-{result.proteinMaxGrams}g
             </p>
-            <p className="text-xs text-gray-600">{proteinCalories} kcal</p>
+            <p className="text-xs text-gray-600">{proteinCalories} kcal</p>
             <p className="text-xs text-gray-600">{result.proteinPercentage}% of calories</p>
           </div>
 
@@ -83,7 +83,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           <div className="neumorph-inset p-4 rounded-lg border-yellow-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Fat</p>
             <p className="text-xl font-bold">{result.fatGrams}g</p>
-            <p className="text-xs text-gray-600">{fatCalories} kcal</p>
+            <p className="text-xs text-gray-600">{fatCalories} kcal</p>
             <p className="text-xs text-gray-600">
               {Math.round((fatCalories / result.adjustedCalories) * 100)}% of calories
             </p>
@@ -93,7 +93,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           <div className="neumorph-inset p-4 rounded-lg border-green-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Carbs</p>
             <p className="text-xl font-bold">{result.carbGrams}g</p>
-            <p className="text-xs text-gray-600">{carbCalories} kcal</p>
+            <p className="text-xs text-gray-600">{carbCalories} kcal</p>
             <p className="text-xs text-gray-600">
               {Math.round((carbCalories / result.adjustedCalories) * 100)}% of calories
             </p>
@@ -126,11 +126,11 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
         <h3 className="font-medium mb-2">Expected Monthly Weight Loss</h3>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-xl font-bold">
-            {monthlyLossMin} - {monthlyLossMax} kg/month
+            {monthlyLossMin} - {monthlyLossMax} kg/month
           </p>
           <p className="text-xs text-gray-600 mt-1">
             Based on weekly loss of {result.expectedWeightLossPerWeek.min} -{' '}
-            {result.expectedWeightLossPerWeek.max} kg. Individual results vary based on adherence,
+            {result.expectedWeightLossPerWeek.max} kg. Individual results vary based on adherence,
             exercise, and metabolic factors.
           </p>
         </div>

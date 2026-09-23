@@ -119,7 +119,7 @@ const BestGymBagsWorkoutGearPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Gym Bags for Workout Gear in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -725,7 +725,7 @@ const BestGymBagsWorkoutGearPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Separate ventilated shoe and laundry compartment</li>
-            <li>Lightweight construction at under 1 pound</li>
+            <li>Lightweight construction at under 1 pound</li>
             <li>Front zippered valuables pocket</li>
             <li>Adjustable shoulder strap and dual carry handles</li>
             <li>Wide variety of colors and patterns</li>

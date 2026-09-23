@@ -44,7 +44,7 @@ const TDEEExplainedPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         TDEE Explained: How Many Calories Do You Really Need?
       </h1>
-      <p className="text-gray-500 italic">Published: February 20, 2025 • 10 min read</p>
+      <p className="text-gray-500 italic">Published: February 20, 2025 • 10 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -65,7 +65,7 @@ const TDEEExplainedPageContent = (
       <AdBlock format="horizontal" />
 
       <p>
-        Most calorie advice starts with a number: eat 2,000 calories, or 1,800, or 2,500. But where
+        Most calorie advice starts with a number: eat 2,000 calories, or 1,800, or 2,500. But where
         does that number come from? For any individual, it should come from Total Daily Energy
         Expenditure (TDEE). This article covers what TDEE actually is, how to calculate it, and how
         to use it without overthinking things.
@@ -265,13 +265,13 @@ const TDEEExplainedPageContent = (
               <strong>Sedentary (1.2)</strong>: Little or no exercise, desk job
             </li>
             <li>
-              <strong>Lightly active (1.375)</strong>: Light exercise 1-3 days per week
+              <strong>Lightly active (1.375)</strong>: Light exercise 1-3 days per week
             </li>
             <li>
-              <strong>Moderately active (1.55)</strong>: Moderate exercise 3-5 days per week
+              <strong>Moderately active (1.55)</strong>: Moderate exercise 3-5 days per week
             </li>
             <li>
-              <strong>Very active (1.725)</strong>: Hard exercise 6-7 days per week
+              <strong>Very active (1.725)</strong>: Hard exercise 6-7 days per week
             </li>
             <li>
               <strong>Extremely active (1.9)</strong>: Hard daily exercise and physical job or
@@ -282,8 +282,8 @@ const TDEEExplainedPageContent = (
       </ol>
 
       <p>
-        For example, if your calculated BMR is 1,500 calories and you’re moderately active, your
-        estimated TDEE would be 1,500 × 1.55 = 2,325 calories per day.
+        For example, if your calculated BMR is 1,500 calories and you’re moderately active, your
+        estimated TDEE would be 1,500 × 1.55 = 2,325 calories per day.
       </p>
 
       <p>
@@ -327,12 +327,12 @@ const TDEEExplainedPageContent = (
       <p>This is the most practical approach for most people. It skips the formulas entirely:</p>
 
       <ol className="list-decimal list-inside space-y-2 my-4">
-        <li>Track your calorie intake accurately for 2-3 weeks</li>
+        <li>Track your calorie intake accurately for 2-3 weeks</li>
         <li>Monitor your weight daily (taking a weekly average)</li>
         <li>If your weight remains stable, your average calorie intake equals your TDEE</li>
         <li>
           If your weight changes, adjust the calculation based on the rate of change (approximately
-          3,500 calories per pound of weight change)
+          3,500 calories per pound of weight change)
         </li>
       </ol>
 
@@ -442,7 +442,7 @@ const TDEEExplainedPageContent = (
 
       <p>
         A well-designed weight loss plan typically creates a deficit of 15-25% below TDEE, which for
-        most people translates to 500-750 calories per day or about 1-1.5 pounds of weight loss per
+        most people translates to 500-750 calories per day or about 1-1.5 pounds of weight loss per
         week.
       </p>
 
@@ -536,7 +536,7 @@ const TDEEExplainedPageContent = (
         <li>
           Monitor your weight and adjust as needed (aim for 0.5-1% of body weight loss per week)
         </li>
-        <li>Recalculate your TDEE every 10-15 pounds of weight loss</li>
+        <li>Recalculate your TDEE every 10-15 pounds of weight loss</li>
         <li>Include resistance training to preserve muscle mass</li>
         <li>
           Prioritize protein intake (1.6-2.2g per kg of body weight) to support satiety and muscle
@@ -597,7 +597,7 @@ const TDEEExplainedPageContent = (
       <ol className="list-decimal list-inside space-y-2 my-4">
         <li>Get an estimate (calculator, tracking method, or both)</li>
         <li>Set your calories based on your goal</li>
-        <li>Follow it for 2-3 weeks</li>
+        <li>Follow it for 2-3 weeks</li>
         <li>Check the scale and the mirror, then adjust</li>
         <li>Repeat as your body and circumstances change</li>
       </ol>

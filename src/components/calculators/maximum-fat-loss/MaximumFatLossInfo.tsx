@@ -13,7 +13,7 @@ export default function MaximumFatLossInfo() {
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           This calculator uses research-based science to determine the maximum calorie deficit you
           can sustain while primarily losing fat, not muscle. Based on Dr. Alpert’s 2005 study, your
-          body can only mobilize about 22-31 calories per pound of body fat per day.
+          body can only mobilize about 22-31 calories per pound of body fat per day.
         </p>
         <p className="text-gray-700 dark:text-gray-300">
           Enter your stats and body fat percentage to find your optimal cutting calories that

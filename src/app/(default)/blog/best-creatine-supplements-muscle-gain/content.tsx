@@ -104,7 +104,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Creatine Supplements for Muscle Gain in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -286,7 +286,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           <h3 className="text-xl font-semibold mb-3">What creatine will NOT do</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>
-              It will not make you bigger overnight. The initial 2-4 pounds of weight gain is water.
+              It will not make you bigger overnight. The initial 2-4 pounds of weight gain is water.
               Your muscles hold more water when saturated with creatine. This is normal and actually
               makes your muscles look fuller.
             </li>
@@ -315,14 +315,14 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           </p>
           <h4 className="font-semibold mb-2">Loading phase (optional)</h4>
           <p className="mb-4">
-            Take 20g per day split into four 5g doses for 5-7 days. This saturates your muscles in
+            Take 20g per day split into four 5g doses for 5-7 days. This saturates your muscles in
             about a week. The downside is that some people get bloating and stomach discomfort from
             this much creatine at once. I personally skip loading phases because the bloating annoys
             me and I am not in a rush.
           </p>
           <h4 className="font-semibold mb-2">Maintenance only (my recommendation)</h4>
           <p className="mb-4">
-            Take 3-5g per day every day. It takes about 3-4 weeks to fully saturate your muscles
+            Take 3-5g per day every day. It takes about 3-4 weeks to fully saturate your muscles
             this way. No bloating, no stomach issues, and you end up at the same level as loading.
             The only reason to load is if you need to be saturated for a competition in a week.
             Otherwise just be patient.
@@ -804,7 +804,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           </p>
           <h4 className="font-semibold mb-2">Will creatine make me look fat or bloated?</h4>
           <p className="mb-4">
-            You will gain 2-4 pounds of water weight in the first couple weeks. This water is stored
+            You will gain 2-4 pounds of water weight in the first couple weeks. This water is stored
             inside your muscle cells, not under your skin. Most people actually look more muscular,
             not bloated. If you are tracking with our{' '}
             <Link href="/lean-body-mass" className="text-accent hover:underline">

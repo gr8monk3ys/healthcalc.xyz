@@ -12,7 +12,7 @@ const BodyCompositionBeyondBMIPageContent = (
         Body Composition: Why BMI Tells You Almost Nothing Useful
       </h1>
       <p className="text-gray-500 dark:text-gray-400 italic">
-        Published: January 10, 2026 &bull; 20 min read
+        Published: January 10, 2026 &bull; 20 min read
       </p>
     </header>
 
@@ -100,7 +100,7 @@ const BodyCompositionBeyondBMIPageContent = (
 
       <p>
         This happens because BMI treats all weight as equal. It divides weight by height squared. It
-        cannot distinguish between 200 pounds of muscle and 200 pounds of fat. For anyone who has
+        cannot distinguish between 200 pounds of muscle and 200 pounds of fat. For anyone who has
         built significant muscle mass, BMI will overestimate health risk.
       </p>
 
@@ -135,8 +135,8 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        People of South Asian descent tend to carry more visceral fat at lower BMIs. A BMI of 23 in
-        a South Asian individual may carry similar metabolic risk to a BMI of 25 to 27 in a white
+        People of South Asian descent tend to carry more visceral fat at lower BMIs. A BMI of 23 in
+        a South Asian individual may carry similar metabolic risk to a BMI of 25 to 27 in a white
         European. The WHO acknowledged this in 2004 by suggesting lower BMI cutoffs for Asian
         populations, but many health systems still use the universal thresholds.
       </p>
@@ -605,7 +605,7 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        If you only have 30 seconds, measure your waist and divide by your height. If it’s under
+        If you only have 30 seconds, measure your waist and divide by your height. If it’s under
         0.5, you’re probably in a good place. If it’s over 0.5, you have a concrete target to work
         toward.
       </p>

@@ -130,7 +130,7 @@ export default function CalorieDeficitInfo() {
         <div className="space-y-3 text-sm">
           <div>
             <div className="font-medium text-blue-800 dark:text-blue-200">
-              Mild (250-500 cal/day)
+              Mild (250-500 cal/day)
             </div>
             <div className="text-blue-700 dark:text-blue-300">
               Best for sustainable weight loss and muscle preservation
@@ -138,7 +138,7 @@ export default function CalorieDeficitInfo() {
           </div>
           <div>
             <div className="font-medium text-blue-800 dark:text-blue-200">
-              Moderate (500-750 cal/day)
+              Moderate (500-750 cal/day)
             </div>
             <div className="text-blue-700 dark:text-blue-300">
               Balanced approach for steady progress
@@ -146,7 +146,7 @@ export default function CalorieDeficitInfo() {
           </div>
           <div>
             <div className="font-medium text-blue-800 dark:text-blue-200">
-              Aggressive (750-1000 cal/day)
+              Aggressive (750-1000 cal/day)
             </div>
             <div className="text-blue-700 dark:text-blue-300">
               Faster results, but requires careful monitoring

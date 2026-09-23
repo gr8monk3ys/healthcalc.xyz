@@ -758,19 +758,19 @@ function renderSubstanceImpactCalculatorView({
                 <p>
                   <strong>Financial Cost:</strong> Projected spending based on your current
                   consumption rate. Lifetime cost assumes continued use at the same rate through an
-                  average life expectancy of 80 years. Actual costs may differ due to price changes
+                  average life expectancy of 80 years. Actual costs may differ due to price changes
                   and consumption pattern shifts.
                 </p>
                 <p>
                   <strong>Recovery Timeline:</strong> Based on CDC and WHO data showing the
                   progressive health benefits of quitting. The body begins recovering almost
-                  immediately after cessation, with major milestones at 1 year, 5 years, and 10-15
+                  immediately after cessation, with major milestones at 1 year, 5 years, and 10-15
                   years.
                 </p>
                 <p>
-                  <strong>Calories from Alcohol:</strong> Alcohol contains 7 calories per gram.
+                  <strong>Calories from Alcohol:</strong> Alcohol contains 7 calories per gram.
                   These “empty calories” contribute to weight gain without providing nutritional
-                  value. The fat equivalent is calculated at 3,500 calories per pound.
+                  value. The fat equivalent is calculated at 3,500 calories per pound.
                 </p>
               </div>
             </div>

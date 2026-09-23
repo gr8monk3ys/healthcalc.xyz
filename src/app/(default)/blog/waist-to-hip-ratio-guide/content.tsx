@@ -130,7 +130,7 @@ const WaistToHipRatioGuidePageContent = (
           <p className="font-mono mb-0">WHR = Waist Circumference ÷ Hip Circumference</p>
         </div>
         <p>
-          For example, if your waist measures 30 inches (76 cm) and your hips measure 38 inches (97
+          For example, if your waist measures 30 inches (76 cm) and your hips measure 38 inches (97
           cm), your WHR would be 30 ÷ 38 = 0.79 (or 76 ÷ 97 = 0.78 using centimeters).
         </p>
         <p>
@@ -273,15 +273,15 @@ const WaistToHipRatioGuidePageContent = (
             Case Study: The Importance of WHR Beyond BMI
           </h3>
           <p>
-            Consider two women, both 5′6″ tall and weighing 150 pounds, giving them identical BMIs
+            Consider two women, both 5′6″ tall and weighing 150 pounds, giving them identical BMIs
             of 24.2 (within the “normal” range):
           </p>
           <ul>
             <li>
-              <strong>Woman A:</strong> Waist = 28 inches, Hips = 38 inches, WHR = 0.74 (Low Risk)
+              <strong>Woman A:</strong> Waist = 28 inches, Hips = 38 inches, WHR = 0.74 (Low Risk)
             </li>
             <li>
-              <strong>Woman B:</strong> Waist = 34 inches, Hips = 36 inches, WHR = 0.94 (Very High
+              <strong>Woman B:</strong> Waist = 34 inches, Hips = 36 inches, WHR = 0.94 (Very High
               Risk)
             </li>
           </ul>
@@ -340,7 +340,7 @@ const WaistToHipRatioGuidePageContent = (
           </li>
           <li>
             <strong>Quality sleep:</strong> Poor sleep is associated with increased abdominal fat.
-            Aim for 7-9 hours of quality sleep per night.
+            Aim for 7-9 hours of quality sleep per night.
           </li>
           <li>
             <strong>Limit alcohol:</strong> Excessive alcohol consumption is associated with

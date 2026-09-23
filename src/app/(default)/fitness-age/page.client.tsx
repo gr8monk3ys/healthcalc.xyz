@@ -81,7 +81,7 @@ function FitnessAgeResultCard({
               <p className="text-xs uppercase tracking-wide opacity-60">Age Gap</p>
               <p className="text-lg font-semibold">
                 {result.ageGap >= 0 ? '+' : ''}
-                {formatNumber(result.ageGap, 1)} years
+                {formatNumber(result.ageGap, 1)} years
               </p>
             </div>
             <div className="neumorph-inset rounded-lg p-3">

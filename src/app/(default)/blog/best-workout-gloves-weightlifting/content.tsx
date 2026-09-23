@@ -96,7 +96,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Workout Gloves for Weightlifting in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -280,7 +280,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
             Pro WristWrap model is their flagship, and it shows. You get leather palms with foam
             padding in the right places, integrated 12-inch wrist wraps for support during presses
             and pulls, and a pull-tab system that makes getting them on and off fast. I have been
-            using the same pair for eight months of 4-5 day per week training, and they still look
+            using the same pair for eight months of 4-5 day per week training, and they still look
             fine. The wrist wraps are the real standout here. Most gloves skip wrist support
             entirely or add flimsy straps that do nothing.
           </p>

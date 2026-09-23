@@ -106,7 +106,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Blender Bottles and Shaker Cups in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -252,7 +252,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
           <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>Mixing quality:</strong> Clumpy protein shakes are undrinkable. A good mixing
-              mechanism breaks down powder completely in 10-15 seconds of shaking.
+              mechanism breaks down powder completely in 10-15 seconds of shaking.
             </li>
             <li>
               <strong>Leak-proof seal:</strong> One bad seal and your gym bag smells like vanilla
@@ -734,7 +734,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
               mess.
             </li>
             <li>
-              <strong>Replace plastic bottles every 6 months.</strong> Even with proper care,
+              <strong>Replace plastic bottles every 6 months.</strong> Even with proper care,
               plastic shakers develop micro-scratches that trap bacteria and odors. If your bottle
               smells even after a deep clean, it is time for a new one.
             </li>

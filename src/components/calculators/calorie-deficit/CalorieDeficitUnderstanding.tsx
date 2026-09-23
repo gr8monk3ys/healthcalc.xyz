@@ -24,7 +24,7 @@ export default function CalorieDeficitUnderstanding() {
         <Accordion title="The Science Behind Weight Loss">
           <div className="space-y-4">
             <p>
-              While the old rule of “3,500 calories equals one pound of fat” is commonly cited,
+              While the old rule of “3,500 calories equals one pound of fat” is commonly cited,
               modern research shows that weight loss is more complex. Your body adapts to calorie
               restriction in several ways:
             </p>
@@ -59,28 +59,28 @@ export default function CalorieDeficitUnderstanding() {
             <div className="space-y-3">
               <div>
                 <div className="font-medium text-green-700 dark:text-green-300">
-                  Mild Deficit (250-500 cal/day) is best for:
+                  Mild Deficit (250-500 cal/day) is best for:
                 </div>
                 <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                   <li>People new to dieting</li>
-                  <li>Those with less than 10 kg (20 lbs) to lose</li>
+                  <li>Those with less than 10 kg (20 lbs) to lose</li>
                   <li>Athletes who need to maintain performance</li>
                   <li>Anyone prioritizing muscle preservation</li>
                 </ul>
               </div>
               <div>
                 <div className="font-medium text-blue-700 dark:text-blue-300">
-                  Moderate Deficit (500-750 cal/day) works well for:
+                  Moderate Deficit (500-750 cal/day) works well for:
                 </div>
                 <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
-                  <li>Most people with 10-30 kg (20-60 lbs) to lose</li>
+                  <li>Most people with 10-30 kg (20-60 lbs) to lose</li>
                   <li>Those who want steady, sustainable progress</li>
                   <li>People comfortable with tracking calories</li>
                 </ul>
               </div>
               <div>
                 <div className="font-medium text-orange-700 dark:text-orange-300">
-                  Aggressive Deficit (750-1000 cal/day) may be appropriate for:
+                  Aggressive Deficit (750-1000 cal/day) may be appropriate for:
                 </div>
                 <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                   <li>People with significant weight to lose (30+ kg / 60+ lbs)</li>
@@ -153,8 +153,8 @@ export default function CalorieDeficitUnderstanding() {
             </ul>
             <p>
               To continue losing weight, you’ll need to either reduce calories further or increase
-              physical activity. Most experts recommend recalculating your targets every 5-10 kg
-              (10-20 lbs) of weight loss.
+              physical activity. Most experts recommend recalculating your targets every 5-10 kg
+              (10-20 lbs) of weight loss.
             </p>
           </div>
         </Accordion>
@@ -186,7 +186,7 @@ export default function CalorieDeficitUnderstanding() {
               <div>
                 <div className="font-medium">4. Be Patient with Plateaus</div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Weight loss isn’t linear. Expect 1-2 week plateaus occasionally. Stay consistent.
+                  Weight loss isn’t linear. Expect 1-2 week plateaus occasionally. Stay consistent.
                 </p>
               </div>
               <div>
@@ -204,8 +204,8 @@ export default function CalorieDeficitUnderstanding() {
           <div className="space-y-4">
             <p>Recalculate your calorie targets when:</p>
             <ul className="list-disc pl-5 space-y-2">
-              <li>You’ve lost 5-10 kg (10-20 lbs) from your starting weight</li>
-              <li>Your weight hasn’t changed for 3-4 weeks despite consistent tracking</li>
+              <li>You’ve lost 5-10 kg (10-20 lbs) from your starting weight</li>
+              <li>Your weight hasn’t changed for 3-4 weeks despite consistent tracking</li>
               <li>Your activity level changes significantly</li>
               <li>You experience excessive hunger, fatigue, or other negative symptoms</li>
             </ul>

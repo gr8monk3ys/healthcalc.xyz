@@ -33,7 +33,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
           <p className="text-sm font-medium text-gray-600 mb-1">Estimated Lifespan Impact</p>
           <p className={`text-3xl font-bold ${lifespanColor}`}>
             {result.totalLifespanImpact > 0 ? '+' : ''}
-            {result.totalLifespanImpact} years
+            {result.totalLifespanImpact} years
           </p>
           {result.totalLifespanImpact < 0 && (
             <p className="text-sm text-gray-600 mt-1">
@@ -66,19 +66,19 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-gray-600">Weekly Calories</p>
-                <p className="font-semibold">{formatNumber(result.alcoholCaloriesPerWeek)} cal</p>
+                <p className="font-semibold">{formatNumber(result.alcoholCaloriesPerWeek)} cal</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Yearly Calories</p>
                 <p className="font-semibold">
-                  {formatNumber(result.alcoholCaloriesPerYear ?? 0)} cal
+                  {formatNumber(result.alcoholCaloriesPerYear ?? 0)} cal
                 </p>
               </div>
             </div>
             {result.alcoholEquivalentFatLbs !== undefined && (
               <div>
                 <p className="text-sm text-gray-600">Equivalent Fat Gain Per Year</p>
-                <p className="font-semibold">{result.alcoholEquivalentFatLbs} lbs</p>
+                <p className="font-semibold">{result.alcoholEquivalentFatLbs} lbs</p>
               </div>
             )}
             {result.alcoholLifespanImpactYears !== undefined && (
@@ -90,7 +90,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
                   }`}
                 >
                   {result.alcoholLifespanImpactYears > 0 ? '+' : ''}
-                  {result.alcoholLifespanImpactYears} years
+                  {result.alcoholLifespanImpactYears} years
                 </p>
               </div>
             )}
@@ -125,7 +125,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
                 }`}
               >
                 {result.smokingLifespanImpactYears > 0 ? '+' : ''}
-                {result.smokingLifespanImpactYears} years
+                {result.smokingLifespanImpactYears} years
               </p>
             </div>
             {result.smokingFinancialCostPerYear !== undefined && (

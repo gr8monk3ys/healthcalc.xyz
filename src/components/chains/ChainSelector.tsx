@@ -21,7 +21,7 @@ export default function ChainSelector({ chains }: ChainSelectorProps): React.JSX
           <p className="mt-1 text-sm opacity-60">{chain.description}</p>
           <div className="mt-3 flex items-center gap-2">
             <span className="rounded-full bg-[var(--accent)] px-2 py-0.5 text-xs font-medium text-white">
-              {chain.steps.length} steps
+              {chain.steps.length} steps
             </span>
             <span className="text-xs text-[var(--accent)] font-medium">Start &rarr;</span>
           </div>

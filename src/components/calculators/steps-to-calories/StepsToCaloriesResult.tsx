@@ -21,9 +21,9 @@ export default function StepsToCaloriesResult({ result }: StepsToCaloriesResultP
       <h2 className="text-xl font-semibold mb-4">Steps to Calories</h2>
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">Estimated Calories Burned</p>
-        <p className="text-3xl font-bold text-accent">{result.calories} calories</p>
+        <p className="text-3xl font-bold text-accent">{result.calories} calories</p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-          {formatNumber(result.steps)} steps • {result.durationMinutes} minutes
+          {formatNumber(result.steps)} steps • {result.durationMinutes} minutes
         </p>
       </div>
 
@@ -31,12 +31,12 @@ export default function StepsToCaloriesResult({ result }: StepsToCaloriesResultP
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Distance</p>
           <p className="text-xl font-semibold">
-            {result.distanceMiles} mi • {result.distanceKm} km
+            {result.distanceMiles} mi • {result.distanceKm} km
           </p>
         </div>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Estimated pace</p>
-          <p className="text-xl font-semibold">{result.speedMph} mph</p>
+          <p className="text-xl font-semibold">{result.speedMph} mph</p>
         </div>
       </div>
     </div>

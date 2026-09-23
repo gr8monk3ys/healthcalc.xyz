@@ -111,7 +111,7 @@ const BestFitnessTrackersPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Fitness Trackers for Calorie Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 15 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 15 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -430,7 +430,7 @@ const BestFitnessTrackersPageContent = (
             <li>Advanced workout metrics with Training Load</li>
             <li>ECG and blood oxygen monitoring</li>
             <li>Crash detection and emergency SOS</li>
-            <li>36-hour battery (72 hours in low power mode)</li>
+            <li>36-hour battery (72 hours in low power mode)</li>
             <li>Water resistant to 100m with dive computer</li>
           </ul>
 
@@ -623,35 +623,35 @@ const BestFitnessTrackersPageContent = (
               <tr>
                 <td className="border p-3">Garmin Venu 4</td>
                 <td className="border p-3 text-center">$549</td>
-                <td className="border p-3 text-center">11 days</td>
+                <td className="border p-3 text-center">11 days</td>
                 <td className="border p-3 text-center">Yes (Dual)</td>
                 <td className="border p-3 text-center">Serious athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Fitbit Charge 6</td>
                 <td className="border p-3 text-center">$159</td>
-                <td className="border p-3 text-center">7 days</td>
+                <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Most users</td>
               </tr>
               <tr>
                 <td className="border p-3">Apple Watch Ultra 2</td>
                 <td className="border p-3 text-center">$799</td>
-                <td className="border p-3 text-center">36 hours</td>
+                <td className="border p-3 text-center">36 hours</td>
                 <td className="border p-3 text-center">Yes (Dual)</td>
                 <td className="border p-3 text-center">iPhone users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Galaxy Watch 7</td>
                 <td className="border p-3 text-center">$299</td>
-                <td className="border p-3 text-center">40 hours</td>
+                <td className="border p-3 text-center">40 hours</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Android users</td>
               </tr>
               <tr>
                 <td className="border p-3">Xiaomi Mi Band 9</td>
                 <td className="border p-3 text-center">$39</td>
-                <td className="border p-3 text-center">21 days</td>
+                <td className="border p-3 text-center">21 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Budget-conscious</td>
               </tr>

@@ -119,7 +119,7 @@ const BestFitnessTrackersKidsPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Fitness Trackers for Kids in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 11 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 11 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -799,21 +799,21 @@ const BestFitnessTrackersKidsPageContent = (
               <tr>
                 <td className="border p-3">Fitbit Ace 3</td>
                 <td className="border p-3 text-center">$49</td>
-                <td className="border p-3 text-center">8 days</td>
+                <td className="border p-3 text-center">8 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Ages 6-12</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garmin Vivofit Jr 3</td>
                 <td className="border p-3 text-center">$89</td>
-                <td className="border p-3 text-center">1 year</td>
+                <td className="border p-3 text-center">1 year</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Ages 4-10</td>
               </tr>
               <tr>
                 <td className="border p-3">BIGGERFIVE Vigor 2</td>
                 <td className="border p-3 text-center">$35</td>
-                <td className="border p-3 text-center">7 days</td>
+                <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Budget pick</td>
               </tr>
@@ -827,7 +827,7 @@ const BestFitnessTrackersKidsPageContent = (
               <tr>
                 <td className="border p-3">XPLORA X6 Play</td>
                 <td className="border p-3 text-center">$169</td>
-                <td className="border p-3 text-center">2 days</td>
+                <td className="border p-3 text-center">2 days</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Phone alternative</td>
               </tr>

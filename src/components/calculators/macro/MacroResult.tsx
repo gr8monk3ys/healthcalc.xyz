@@ -128,7 +128,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
             <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400">Protein</h4>
             <p className="text-3xl font-bold">{protein.grams}g</p>
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-              <p>{protein.calories} calories</p>
+              <p>{protein.calories} calories</p>
               <p>{protein.percentage}% of total</p>
             </div>
           </div>
@@ -138,7 +138,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
             <h4 className="text-lg font-semibold text-green-600 dark:text-green-400">Carbs</h4>
             <p className="text-3xl font-bold">{carbs.grams}g</p>
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-              <p>{carbs.calories} calories</p>
+              <p>{carbs.calories} calories</p>
               <p>{carbs.percentage}% of total</p>
             </div>
           </div>
@@ -148,7 +148,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
             <h4 className="text-lg font-semibold text-yellow-600 dark:text-yellow-400">Fat</h4>
             <p className="text-3xl font-bold">{fat.grams}g</p>
             <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-              <p>{fat.calories} calories</p>
+              <p>{fat.calories} calories</p>
               <p>{fat.percentage}% of total</p>
             </div>
           </div>

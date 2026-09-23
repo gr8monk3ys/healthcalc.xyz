@@ -55,7 +55,7 @@ export default function WeightManagementResultDisplay({
             Target Date: <span className="font-semibold">{formatDate(result.targetDate)}</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            {result.weeksToGoal} weeks ({result.daysToGoal} days) •{' '}
+            {result.weeksToGoal} weeks ({result.daysToGoal} days) •{' '}
             {formatNumber(Math.abs(displayWeeklyChange), 2)} {unitLabel}/week
           </p>
           {result.adjustedTargetDate && (
@@ -144,7 +144,7 @@ export default function WeightManagementResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Protein</div>
             <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              {result.macros.proteinPercentage}% • {result.macros.proteinCalories} cal
+              {result.macros.proteinPercentage}% • {result.macros.proteinCalories} cal
             </div>
           </div>
           <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
@@ -153,7 +153,7 @@ export default function WeightManagementResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Carbohydrates</div>
             <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              {result.macros.carbsPercentage}% • {result.macros.carbsCalories} cal
+              {result.macros.carbsPercentage}% • {result.macros.carbsCalories} cal
             </div>
           </div>
           <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
@@ -162,7 +162,7 @@ export default function WeightManagementResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Fat</div>
             <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              {result.macros.fatPercentage}% • {result.macros.fatCalories} cal
+              {result.macros.fatPercentage}% • {result.macros.fatCalories} cal
             </div>
           </div>
         </div>

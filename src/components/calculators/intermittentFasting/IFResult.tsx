@@ -39,7 +39,7 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
               {formatTime12Hour(result.eatingWindowEnd)}
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {result.eatingHours} hours eating, {result.fastingHours} hours fasting
+              {result.eatingHours} hours eating, {result.fastingHours} hours fasting
             </p>
           </div>
         </div>

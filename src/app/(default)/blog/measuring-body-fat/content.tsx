@@ -103,7 +103,7 @@ const MeasuringBodyFatPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         The Pros and Cons of Different Body Fat Measurement Methods
       </h1>
-      <p className="text-gray-500 italic">Published: February 15, 2025 • 12 min read</p>
+      <p className="text-gray-500 italic">Published: February 15, 2025 • 12 min read</p>
     </div>
 
     {/* Social sharing buttons */}
@@ -212,7 +212,7 @@ const MeasuringBodyFatPageContent = (
           </li>
           <li>Provides regional body composition data (trunk, arms, legs, etc.)</li>
           <li>Measures bone density alongside body fat</li>
-          <li>Non-invasive and quick (typically 10-20 minutes)</li>
+          <li>Non-invasive and quick (typically 10-20 minutes)</li>
         </ul>
 
         <h4 className="font-semibold mt-4 mb-2">Cons:</h4>
@@ -285,7 +285,7 @@ const MeasuringBodyFatPageContent = (
         <ul className="list-disc list-inside space-y-1">
           <li>Comparable accuracy to hydrostatic weighing (±2-3% error)</li>
           <li>More comfortable and convenient than underwater weighing</li>
-          <li>Quick procedure (about 5-10 minutes)</li>
+          <li>Quick procedure (about 5-10 minutes)</li>
           <li>No radiation exposure</li>
         </ul>
 
@@ -694,7 +694,7 @@ const MeasuringBodyFatPageContent = (
         <div className="neumorph p-4 rounded-lg">
           <h4 className="font-semibold mb-2">For Competitive Athletes:</h4>
           <p>
-            Consider periodic DEXA scans (every 3-6 months) combined with more frequent monitoring
+            Consider periodic DEXA scans (every 3-6 months) combined with more frequent monitoring
             using skinfold measurements or the Navy Method.
           </p>
         </div>
@@ -758,12 +758,12 @@ const MeasuringBodyFatPageContent = (
 
         <h4 className="font-semibold mt-4 mb-2">For BIA Measurements:</h4>
         <ul className="list-disc list-inside space-y-1">
-          <li>Avoid alcohol for 24 hours before measuring</li>
-          <li>Avoid caffeine for 4 hours before measuring</li>
+          <li>Avoid alcohol for 24 hours before measuring</li>
+          <li>Avoid caffeine for 4 hours before measuring</li>
           <li>Ensure normal hydration (not dehydrated or over-hydrated)</li>
-          <li>Measure before eating or at least 2-3 hours after a meal</li>
+          <li>Measure before eating or at least 2-3 hours after a meal</li>
           <li>Empty your bladder before measuring</li>
-          <li>Avoid exercise for at least 12 hours before measuring</li>
+          <li>Avoid exercise for at least 12 hours before measuring</li>
         </ul>
 
         <h4 className="font-semibold mt-4 mb-2">For Navy Method Measurements:</h4>
@@ -780,8 +780,8 @@ const MeasuringBodyFatPageContent = (
         <ul className="list-disc list-inside space-y-1">
           <li>Use quality calipers with consistent tension</li>
           <li>Take measurements on the right side of the body</li>
-          <li>Pinch the skin about 1 cm above the measurement site</li>
-          <li>Wait 1-2 seconds after applying calipers before reading</li>
+          <li>Pinch the skin about 1 cm above the measurement site</li>
+          <li>Wait 1-2 seconds after applying calipers before reading</li>
           <li>Take each measurement 2-3 times and average the results</li>
           <li>
             Consider having a professional take initial measurements to learn proper technique

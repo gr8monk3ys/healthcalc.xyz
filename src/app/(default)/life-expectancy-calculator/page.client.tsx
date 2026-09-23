@@ -522,9 +522,9 @@ function renderLifeExpectancyCalculatorView({
               className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="sedentary">Sedentary (little to no exercise)</option>
-              <option value="light">Light (1-2 days/week)</option>
-              <option value="moderate">Moderate (3-4 days/week)</option>
-              <option value="active">Active (5-6 days/week)</option>
+              <option value="light">Light (1-2 days/week)</option>
+              <option value="moderate">Moderate (3-4 days/week)</option>
+              <option value="active">Active (5-6 days/week)</option>
               <option value="very-active">Very Active (daily intense exercise)</option>
             </select>
           </div>

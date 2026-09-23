@@ -69,7 +69,7 @@ const SmartScaleVsBodyFatCalipersContentContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Smart Scale vs Body Fat Calipers: Which Is More Accurate?
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 11 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 11 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -464,7 +464,7 @@ const SmartScaleVsBodyFatCalipersContentContent = (
               muscle. Some people consistently grab too much or too little.
             </li>
             <li>
-              <strong>Reading speed:</strong> You should read the caliper within 2-3 seconds of
+              <strong>Reading speed:</strong> You should read the caliper within 2-3 seconds of
               clamping. Hold it longer and the compressed tissue spreads, giving a thinner reading.
             </li>
             <li>

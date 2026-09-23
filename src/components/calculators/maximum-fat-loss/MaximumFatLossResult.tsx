@@ -43,7 +43,7 @@ export default function MaximumFatLossResultDisplay({
             </div>
           </div>
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            Maximum deficit: <span className="font-semibold">{result.maximumDeficit} cal/day</span>
+            Maximum deficit: <span className="font-semibold">{result.maximumDeficit} cal/day</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
             Expected fat loss: {displayWeeklyLoss} {unitLabel}/week
@@ -189,7 +189,7 @@ export default function MaximumFatLossResultDisplay({
                     <td className="text-right py-2">
                       {formatNumber(proj.projectedBodyFatPercentage, 1)}%
                     </td>
-                    <td className="text-right py-2">{proj.adjustedDeficit} cal</td>
+                    <td className="text-right py-2">{proj.adjustedDeficit} cal</td>
                   </tr>
                 ))}
               </tbody>
@@ -224,7 +224,7 @@ export default function MaximumFatLossResultDisplay({
           </li>
           <li className="flex items-start gap-2">
             <span className="text-orange-500 flex-shrink-0">✓</span>
-            <span>Get 7-9 hours of quality sleep for optimal recovery and fat loss</span>
+            <span>Get 7-9 hours of quality sleep for optimal recovery and fat loss</span>
           </li>
         </ul>
       </Card>

@@ -81,7 +81,7 @@ const BestRunningShoesWeightLossPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Running Shoes for Weight Loss in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -217,7 +217,7 @@ const BestRunningShoesWeightLossPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Why running shoes matter for weight loss</h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <p className="mb-4">
-            Running burns roughly 80-120 calories per mile depending on your body weight. You can
+            Running burns roughly 80-120 calories per mile depending on your body weight. You can
             calculate your exact number with our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
@@ -227,8 +227,8 @@ const BestRunningShoesWeightLossPageContent = (
           </p>
           <p className="mb-4">
             A proper running shoe absorbs 2-3x your body weight in impact force with each stride. If
-            you weigh 200 pounds, your knees absorb 400-600 pounds of force per step in flat
-            sneakers. Over a 3-mile run (roughly 5,000 steps), that adds up. The cushioning in the
+            you weigh 200 pounds, your knees absorb 400-600 pounds of force per step in flat
+            sneakers. Over a 3-mile run (roughly 5,000 steps), that adds up. The cushioning in the
             shoes below is not a luxury. It is what keeps you running next week instead of icing
             your knees on the couch.
           </p>
@@ -251,8 +251,8 @@ const BestRunningShoesWeightLossPageContent = (
               shoe here has at least moderate cushioning.
             </li>
             <li>
-              <strong>Durability:</strong> Cheap shoes break down after 200 miles. These all last
-              400-500 miles.
+              <strong>Durability:</strong> Cheap shoes break down after 200 miles. These all last
+              400-500 miles.
             </li>
             <li>
               <strong>Weight range:</strong> I chose shoes that perform well for runners from 150 to
@@ -314,7 +314,7 @@ const BestRunningShoesWeightLossPageContent = (
               durability (450+ miles), comfortable from the first run
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Not the lightest at 9.6 oz, some runners find it too soft for
+              <strong>Cons:</strong> Not the lightest at 9.6 oz, some runners find it too soft for
               speed work, the upper runs warm in summer
             </p>
           </div>
@@ -349,7 +349,7 @@ const BestRunningShoesWeightLossPageContent = (
           </div>
           <p className="mb-4">
             The Clifton is why HOKA became a household name. The compression-molded EVA midsole
-            looks absurdly thick, but the shoe weighs only 8.9 oz for men. That ratio of cushion to
+            looks absurdly thick, but the shoe weighs only 8.9 oz for men. That ratio of cushion to
             weight is what makes it special. Heavier runners love it because the thick midsole
             absorbs more impact than any other shoe at this price. The rocker geometry helps your
             foot roll forward naturally, which reduces stress on your Achilles tendon. If you have
@@ -376,7 +376,7 @@ const BestRunningShoesWeightLossPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Low 5mm drop feels unusual if you are used to traditional
-              shoes, outsole wears faster than competitors (350-400 miles), the platform height can
+              shoes, outsole wears faster than competitors (350-400 miles), the platform height can
               feel unstable on trails
             </p>
           </div>
@@ -500,7 +500,7 @@ const BestRunningShoesWeightLossPageContent = (
               durable outsole (500+ miles), good for heavier runners
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Heavy at 10.9 oz, not great for speed work, $160 is on the
+              <strong>Cons:</strong> Heavy at 10.9 oz, not great for speed work, $160 is on the
               expensive side, overkill if you have a neutral gait
             </p>
           </div>
@@ -562,7 +562,7 @@ const BestRunningShoesWeightLossPageContent = (
               like a sock, great wide options, improved durability in v13
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $160 price tag, slightly heavier than the Clifton at 10.1 oz,
+              <strong>Cons:</strong> $160 price tag, slightly heavier than the Clifton at 10.1 oz,
               the soft midsole can feel mushy for very fast paces
             </p>
           </div>
@@ -595,35 +595,35 @@ const BestRunningShoesWeightLossPageContent = (
               <tr>
                 <td className="border p-3">Brooks Ghost 16</td>
                 <td className="border p-3 text-center">$139.95</td>
-                <td className="border p-3 text-center">9.6 oz</td>
+                <td className="border p-3 text-center">9.6 oz</td>
                 <td className="border p-3 text-center">12mm</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">HOKA Clifton 9</td>
                 <td className="border p-3 text-center">$145.00</td>
-                <td className="border p-3 text-center">8.9 oz</td>
+                <td className="border p-3 text-center">8.9 oz</td>
                 <td className="border p-3 text-center">5mm</td>
                 <td className="border p-3 text-center">Cushioning</td>
               </tr>
               <tr>
                 <td className="border p-3">Nike Pegasus 41</td>
                 <td className="border p-3 text-center">$130.00</td>
-                <td className="border p-3 text-center">9.4 oz</td>
+                <td className="border p-3 text-center">9.4 oz</td>
                 <td className="border p-3 text-center">10mm</td>
                 <td className="border p-3 text-center">All-around</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">ASICS Gel-Kayano 31</td>
                 <td className="border p-3 text-center">$159.95</td>
-                <td className="border p-3 text-center">10.9 oz</td>
+                <td className="border p-3 text-center">10.9 oz</td>
                 <td className="border p-3 text-center">10mm</td>
                 <td className="border p-3 text-center">Stability</td>
               </tr>
               <tr>
                 <td className="border p-3">NB 1080v13</td>
                 <td className="border p-3 text-center">$159.99</td>
-                <td className="border p-3 text-center">10.1 oz</td>
+                <td className="border p-3 text-center">10.1 oz</td>
                 <td className="border p-3 text-center">6mm</td>
                 <td className="border p-3 text-center">Premium comfort</td>
               </tr>
@@ -635,8 +635,8 @@ const BestRunningShoesWeightLossPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Start with run/walk intervals:</strong> Run 2 minutes, walk 1 minute. Repeat
-              for 20-30 minutes. This is not cheating; it is how most beginners build endurance
+              <strong>Start with run/walk intervals:</strong> Run 2 minutes, walk 1 minute. Repeat
+              for 20-30 minutes. This is not cheating; it is how most beginners build endurance
               without getting hurt.
             </li>
             <li>
@@ -648,7 +648,7 @@ const BestRunningShoesWeightLossPageContent = (
               calories per mile for a 160-lb person.
             </li>
             <li>
-              <strong>Do not out-eat your runs:</strong> A 30-minute run burns 250-400 calories. A
+              <strong>Do not out-eat your runs:</strong> A 30-minute run burns 250-400 calories. A
               post-run smoothie can easily match that. Track with our{' '}
               <Link href="/calorie-deficit" className="text-accent hover:underline">
                 Calorie Deficit Calculator
@@ -656,7 +656,7 @@ const BestRunningShoesWeightLossPageContent = (
               .
             </li>
             <li>
-              <strong>Replace shoes every 400-500 miles:</strong> Once the midsole is compressed,
+              <strong>Replace shoes every 400-500 miles:</strong> Once the midsole is compressed,
               you lose cushioning and increase injury risk. Track your mileage.
             </li>
             <li>

@@ -114,14 +114,14 @@ const WeightManagementUnderstandingContent = (
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>
                   <span className="font-medium">Safe rate:</span> 0.5-1% of body weight per week
-                  (0.5-1 kg / 1-2 lbs for most people)
+                  (0.5-1 kg / 1-2 lbs for most people)
                 </li>
                 <li>
                   <span className="font-medium">Faster isn’t better:</span> Aggressive deficits
                   increase muscle loss, metabolic slowdown, and rebound risk
                 </li>
                 <li>
-                  <span className="font-medium">Minimum timeline:</span> Allow at least 4 weeks for
+                  <span className="font-medium">Minimum timeline:</span> Allow at least 4 weeks for
                   any weight loss goal
                 </li>
               </ul>
@@ -130,7 +130,7 @@ const WeightManagementUnderstandingContent = (
               <div className="font-medium">For Weight Gain:</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>
-                  <span className="font-medium">Safe rate:</span> 0.25-0.5 kg (0.5-1 lb) per week
+                  <span className="font-medium">Safe rate:</span> 0.25-0.5 kg (0.5-1 lb) per week
                   for lean muscle gain
                 </li>
                 <li>
@@ -161,7 +161,7 @@ const WeightManagementUnderstandingContent = (
           </p>
           <div className="space-y-3">
             <div>
-              <div className="font-medium text-blue-700 dark:text-blue-300">Protein (4 cal/g)</div>
+              <div className="font-medium text-blue-700 dark:text-blue-300">Protein (4 cal/g)</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Builds and repairs muscle tissue</li>
                 <li>Supports immune function and hormone production</li>
@@ -172,7 +172,7 @@ const WeightManagementUnderstandingContent = (
             </div>
             <div>
               <div className="font-medium text-green-700 dark:text-green-300">
-                Carbohydrates (4 cal/g)
+                Carbohydrates (4 cal/g)
               </div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Primary fuel source for high-intensity exercise</li>
@@ -183,7 +183,7 @@ const WeightManagementUnderstandingContent = (
               </ul>
             </div>
             <div>
-              <div className="font-medium text-yellow-700 dark:text-yellow-300">Fat (9 cal/g)</div>
+              <div className="font-medium text-yellow-700 dark:text-yellow-300">Fat (9 cal/g)</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Essential for hormone production (including testosterone)</li>
                 <li>Supports vitamin absorption (A, D, E, K)</li>
@@ -241,7 +241,7 @@ const WeightManagementUnderstandingContent = (
               <div className="font-medium text-red-700 dark:text-red-300">Problem: Plateaus</div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 <span className="font-medium">Solution:</span> Weight loss naturally slows as you
-                get lighter. Recalculate your targets every 5-10 kg lost. Consider a 1-2 week diet
+                get lighter. Recalculate your targets every 5-10 kg lost. Consider a 1-2 week diet
                 break at maintenance calories to reset hormones.
               </p>
             </div>
@@ -287,7 +287,7 @@ const WeightManagementUnderstandingContent = (
           </p>
           <div className="space-y-3">
             <div>
-              <div className="font-medium">Sleep (7-9 hours/night)</div>
+              <div className="font-medium">Sleep (7-9 hours/night)</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Poor sleep increases hunger hormones (ghrelin), decreases satiety hormones (leptin),
                 impairs insulin sensitivity, and reduces willpower. Prioritize consistent sleep
@@ -326,7 +326,7 @@ const WeightManagementUnderstandingContent = (
           <p>Recalculate or adjust when:</p>
           <ul className="list-disc pl-5 space-y-2">
             <li>You’ve lost or gained 5-10% of your body weight</li>
-            <li>Weight hasn’t changed for 3-4 weeks despite consistent adherence</li>
+            <li>Weight hasn’t changed for 3-4 weeks despite consistent adherence</li>
             <li>Your activity level changes significantly</li>
             <li>You experience persistent fatigue, poor sleep, or mood issues</li>
             <li>You’re no longer making progress in the gym (if applicable)</li>

@@ -22,7 +22,7 @@ export default function AgeResult({ result }: AgeResultProps) {
 
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-3xl font-bold text-accent">
-          {result.years} years, {result.months} months, {result.days} days
+          {result.years} years, {result.months} months, {result.days} days
         </p>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
           Total days lived: {formatNumber(result.totalDays)}

@@ -12,7 +12,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
         What the Research Actually Says About Losing Weight (and Keeping It Off)
       </h1>
       <p className="text-gray-500 dark:text-gray-400 italic">
-        Published: January 13, 2026 &bull; 22 min read
+        Published: January 13, 2026 &bull; 22 min read
       </p>
     </header>
 
@@ -76,7 +76,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       <p>
         A 2021 review in the International Journal of Obesity (Martins et al.) estimated that for
         every 100-calorie reduction in intake, total energy expenditure decreases by roughly 30 to
-        40 calories through adaptive mechanisms. Your 500-calorie deficit might shrink to a
+        40 calories through adaptive mechanisms. Your 500-calorie deficit might shrink to a
         300-calorie deficit within weeks without you changing anything about your diet.
       </p>
 
@@ -92,8 +92,8 @@ const EvidenceBasedWeightLossGuidePageContent = (
 
       <p>
         The NWCR, started in 1994 by researchers Rena Wing and James Hill, tracks over 10,000 people
-        who have lost at least 30 pounds and kept it off for at least one year. The average
-        participant has lost 66 pounds and maintained the loss for 5.5 years.
+        who have lost at least 30 pounds and kept it off for at least one year. The average
+        participant has lost 66 pounds and maintained the loss for 5.5 years.
       </p>
 
       <p>
@@ -114,7 +114,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       </p>
 
       <p>
-        <strong>62% watch less than 10 hours of television per week.</strong> Sedentary behavior
+        <strong>62% watch less than 10 hours of television per week.</strong> Sedentary behavior
         displacement matters. People who spend less time sitting tend to have higher NEAT, which
         adds up over months and years.
       </p>
@@ -158,7 +158,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       <p>
         For someone actively resistance training during a deficit, the requirement may be even
         higher. A widely cited 2018 review by Morton et al. in the British Journal of Sports
-        Medicine suggested 1.6 to 2.2 g/kg for people combining calorie restriction with resistance
+        Medicine suggested 1.6 to 2.2 g/kg for people combining calorie restriction with resistance
         exercise. Losing fat while keeping muscle is the entire point of intelligent dieting.
         Protein makes this possible.
       </p>
@@ -171,12 +171,12 @@ const EvidenceBasedWeightLossGuidePageContent = (
         Protein keeps you full longer than carbohydrates or fat, calorie for calorie. Multiple
         studies have confirmed this. A 2005 study in the American Journal of Clinical Nutrition
         (Weigle et al.) increased protein from 15% to 30% of calories while keeping the rest of the
-        diet unchanged. Participants spontaneously reduced their calorie intake by 441 calories per
+        diet unchanged. Participants spontaneously reduced their calorie intake by 441 calories per
         day. They were not told to eat less. They just felt less hungry.
       </p>
 
       <p>
-        441 calories. That is nearly a pound of fat loss per week, from a single dietary change.
+        441 calories. That is nearly a pound of fat loss per week, from a single dietary change.
       </p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
@@ -185,7 +185,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
 
       <p>
         Digesting protein costs 20-30% of its calorie content. Carbs cost 5-10%. Fat costs 0-3%.
-        Replacing 200 calories of carbs with 200 calories of protein means your body spends about 30
+        Replacing 200 calories of carbs with 200 calories of protein means your body spends about 30
         to 40 more calories just processing it. That is a small effect on any given day, but it
         compounds over weeks and months.
       </p>
@@ -210,7 +210,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       <p>
         A 2011 meta-analysis in Obesity Reviews (Thorogood et al.) examined exercise-only
         interventions (no dietary changes) and found that isolated aerobic exercise produced an
-        average weight loss of about 1.6 kg (3.5 pounds) over 6 months. That is meaningful, but it
+        average weight loss of about 1.6 kg (3.5 pounds) over 6 months. That is meaningful, but it
         is far less than most people expect from months of regular exercise.
       </p>
 
@@ -223,7 +223,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
 
       <p>
         Second, the calorie cost of exercise is smaller than most people think. A 30-minute jog
-        burns about 250 to 350 calories. A single large muffin can erase that. You cannot outrun a
+        burns about 250 to 350 calories. A single large muffin can erase that. You cannot outrun a
         bad diet. The math does not work.
       </p>
 
@@ -253,7 +253,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       <p>
         Exercise during maintenance works because it creates a larger calorie buffer. If your TDEE
         is 2,400 with exercise versus 2,000 without, you can eat 400 more calories per day and still
-        maintain your weight. That extra 400 calories makes your diet dramatically more flexible,
+        maintain your weight. That extra 400 calories makes your diet dramatically more flexible,
         sustainable, and enjoyable.
       </p>
 
@@ -318,7 +318,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
 
       <p>
         The evidence-supported sweet spot is 0.5 to 1.0% of your current body weight per week. For a
-        200-pound person, that is 1 to 2 pounds per week. For a 150-pound person, 0.75 to 1.5 pounds
+        200-pound person, that is 1 to 2 pounds per week. For a 150-pound person, 0.75 to 1.5 pounds
         per week. Our{' '}
         <Link href="/calorie-deficit" className="text-blue-600 dark:text-blue-400 hover:underline">
           calorie deficit calculator
@@ -390,7 +390,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       </h3>
 
       <p>
-        Subtract 300 to 500 calories from your estimated TDEE. This targets weight loss of 0.5 to 1
+        Subtract 300 to 500 calories from your estimated TDEE. This targets weight loss of 0.5 to 1
         pound per week for most people, which falls within the 0.5 to 1% body weight range. You can
         go slightly more aggressive if you have a significant amount of fat to lose, but I would not
         exceed a 750-calorie daily deficit.
@@ -429,7 +429,7 @@ const EvidenceBasedWeightLossGuidePageContent = (
       </p>
 
       <p>
-        Recalculate your TDEE every time you lose 10 to 15 pounds. Your needs change as you get
+        Recalculate your TDEE every time you lose 10 to 15 pounds. Your needs change as you get
         lighter. Our{' '}
         <Link
           href="/weight-management"

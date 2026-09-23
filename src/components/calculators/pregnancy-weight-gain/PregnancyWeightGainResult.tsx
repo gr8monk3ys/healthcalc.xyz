@@ -29,10 +29,10 @@ export default function PregnancyWeightGainResult({ result }: PregnancyWeightGai
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Total Pregnancy Gain</p>
           <p className="text-xl font-semibold">
-            {result.totalGain.minLb}-{result.totalGain.maxLb} lb
+            {result.totalGain.minLb}-{result.totalGain.maxLb} lb
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400">
-            ({result.totalGain.minKg}-{result.totalGain.maxKg} kg)
+            ({result.totalGain.minKg}-{result.totalGain.maxKg} kg)
           </p>
         </div>
         <div className="neumorph-inset p-4 rounded-lg">
@@ -40,10 +40,10 @@ export default function PregnancyWeightGainResult({ result }: PregnancyWeightGai
             Weekly Gain (2nd/3rd trimester)
           </p>
           <p className="text-xl font-semibold">
-            {result.weeklyGain.minLb}-{result.weeklyGain.maxLb} lb/week
+            {result.weeklyGain.minLb}-{result.weeklyGain.maxLb} lb/week
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400">
-            ({result.weeklyGain.minKg}-{result.weeklyGain.maxKg} kg/week)
+            ({result.weeklyGain.minKg}-{result.weeklyGain.maxKg} kg/week)
           </p>
         </div>
       </div>

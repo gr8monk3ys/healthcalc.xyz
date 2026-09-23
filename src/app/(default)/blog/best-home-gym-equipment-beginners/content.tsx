@@ -127,7 +127,7 @@ const BestHomeGymEquipmentPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Home Gym Equipment for Beginners in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -410,7 +410,7 @@ const BestHomeGymEquipmentPageContent = (
           <p className="mb-4">
             A quality mat is foundational for any home gym. The Manduka PRO is a professional-grade
             mat that provides exceptional cushioning and grip for everything from yoga and Pilates
-            to floor exercises and stretching. At 6mm thick and 71 inches long, it supports joints
+            to floor exercises and stretching. At 6mm thick and 71 inches long, it supports joints
             during planks, push-ups, and bodyweight movements. Manduka backs it with a lifetime
             guarantee, making it a true buy-it-once investment.
           </p>
@@ -418,7 +418,7 @@ const BestHomeGymEquipmentPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>6mm thick, high-density cushioning for joint protection</li>
-            <li>71 inches long and 26 inches wide for full coverage</li>
+            <li>71 inches long and 26 inches wide for full coverage</li>
             <li>Closed-cell surface prevents sweat absorption and bacteria</li>
             <li>OEKO-TEX certified, free from harmful chemicals</li>
             <li>Lifetime guarantee from Manduka</li>
@@ -449,7 +449,7 @@ const BestHomeGymEquipmentPageContent = (
               for multi-use, no odor from chemicals
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Premium price, heavy at 7.5 lbs (not ideal for carrying to
+              <strong>Cons:</strong> Premium price, heavy at 7.5 lbs (not ideal for carrying to
               class), requires break-in period for grip
             </p>
           </div>
@@ -488,15 +488,15 @@ const BestHomeGymEquipmentPageContent = (
           <p className="mb-4">
             If you could only buy one piece of serious strength equipment, adjustable dumbbells
             would be it. The Bowflex SelectTech 552 replaces 15 sets of weights with a single pair
-            that adjusts from 5 to 52.5 pounds in 2.5-pound increments. A simple dial mechanism lets
+            that adjusts from 5 to 52.5 pounds in 2.5-pound increments. A simple dial mechanism lets
             you switch weights in seconds, making drop sets and progressive overload straightforward
             without cluttering your space with a full rack.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Weight range: 5 to 52.5 lbs per dumbbell (pair included)</li>
-            <li>2.5 lb increments up to the first 25 lbs for fine-tuned progression</li>
+            <li>Weight range: 5 to 52.5 lbs per dumbbell (pair included)</li>
+            <li>2.5 lb increments up to the first 25 lbs for fine-tuned progression</li>
             <li>Replaces 15 sets of dumbbells, saving massive floor space</li>
             <li>Smooth dial selection mechanism for fast weight changes</li>
             <li>Durable molding around metal plates for quiet operation</li>
@@ -570,15 +570,15 @@ const BestHomeGymEquipmentPageContent = (
             Pull-ups are one of the best compound exercises you can do, and a doorway pull-up bar
             makes them accessible at home. The Iron Age Pull Up Bar uses a leverage-based mounting
             system that requires no screws or drilling - it locks securely into standard doorframes
-            using pressure and gravity. It supports up to 300 lbs and offers multiple grip positions
+            using pressure and gravity. It supports up to 300 lbs and offers multiple grip positions
             for pull-ups, chin-ups, and neutral-grip variations.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>No screws, no drilling - installs in seconds with leverage mount</li>
-            <li>Fits doorframes 26 to 36 inches wide</li>
-            <li>300 lb weight capacity</li>
+            <li>Fits doorframes 26 to 36 inches wide</li>
+            <li>300 lb weight capacity</li>
             <li>Multiple grip positions: wide, narrow, and neutral</li>
             <li>Non-slip foam grips for comfort and stability</li>
             <li>Heavy-duty steel construction</li>
@@ -657,7 +657,7 @@ const BestHomeGymEquipmentPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Solid cast iron construction with painted finish</li>
             <li>
-              Available in sizes from 10 to 60 lbs (we recommend 20-25 lbs for beginner men, 15-20
+              Available in sizes from 10 to 60 lbs (we recommend 20-25 lbs for beginner men, 15-20
               lbs for beginner women)
             </li>
             <li>Wide, textured handle for secure one- and two-handed grip</li>
@@ -669,7 +669,7 @@ const BestHomeGymEquipmentPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Beginners who want a single tool that covers both strength and cardio. Kettlebell swings
-            alone can burn over 400 calories in 30 minutes while building posterior chain strength.
+            alone can burn over 400 calories in 30 minutes while building posterior chain strength.
             If you learn just five kettlebell exercises - swings, goblet squats, presses, rows, and
             Turkish get-ups - you have a complete training program.
           </p>
@@ -732,7 +732,7 @@ const BestHomeGymEquipmentPageContent = (
           <p className="mb-4">
             Jumping rope is one of the most efficient forms of cardio, burning more calories per
             minute than running, cycling, or swimming. The Crossrope Get Lean Set includes two
-            weighted ropes (1/4 lb and 1/2 lb) with a fast-clip connection system that lets you swap
+            weighted ropes (1/4 lb and 1/2 lb) with a fast-clip connection system that lets you swap
             ropes in seconds. The weighted design provides a smoother rotation than cheap ropes,
             making it easier for beginners to find their rhythm while adding an upper body workout
             component.
@@ -740,7 +740,7 @@ const BestHomeGymEquipmentPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Two weighted ropes: 1/4 lb (speed) and 1/2 lb (power)</li>
+            <li>Two weighted ropes: 1/4 lb (speed) and 1/2 lb (power)</li>
             <li>Fast-clip connection system for instant rope swapping</li>
             <li>Slim, ergonomic handles with ball-bearing mechanism</li>
             <li>Connects to the Crossrope app for guided workouts and tracking</li>
@@ -752,7 +752,7 @@ const BestHomeGymEquipmentPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Anyone who wants high-efficiency cardio in a small space. Ten minutes of jump rope can
-            match 30 minutes of jogging in calorie burn. The weighted ropes also engage shoulders,
+            match 30 minutes of jogging in calorie burn. The weighted ropes also engage shoulders,
             forearms, and core more than traditional ropes, giving you a full-body cardio session.
             Perfect for HIIT workouts and warm-ups.
           </p>

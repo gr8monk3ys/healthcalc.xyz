@@ -21,7 +21,7 @@ export default function BloodPressureResult({ result }: BloodPressureResultProps
     <div className="neumorph p-6 rounded-lg" id="blood-pressure-result">
       <h2 className="text-xl font-semibold mb-2">Blood Pressure Result</h2>
       <p className="text-3xl font-bold text-accent">
-        {result.systolic}/{result.diastolic} mmHg
+        {result.systolic}/{result.diastolic} mmHg
       </p>
 
       <div className="mt-4">

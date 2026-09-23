@@ -115,7 +115,7 @@ const WHRUnderstanding: React.FC = () => {
         </li>
         <li>
           <span className="font-medium">Quality sleep:</span> Poor sleep is associated with
-          increased abdominal fat. Aim for 7-9 hours of quality sleep per night.
+          increased abdominal fat. Aim for 7-9 hours of quality sleep per night.
         </li>
         <li>
           <span className="font-medium">Limit alcohol:</span> Excessive alcohol consumption is

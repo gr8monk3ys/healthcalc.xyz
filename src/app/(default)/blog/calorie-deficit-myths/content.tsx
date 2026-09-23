@@ -44,7 +44,7 @@ const CalorieDeficitMythsPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         5 Myths About Calorie Deficits Debunked
       </h1>
-      <p className="text-gray-500 italic">Published: February 25, 2025 • 8 min read</p>
+      <p className="text-gray-500 italic">Published: February 25, 2025 • 8 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -52,7 +52,7 @@ const CalorieDeficitMythsPageContent = (
         <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
         <ul className="space-y-2">
           <li>
-            The “3,500 calorie deficit equals 1 pound” rule is an oversimplification that doesn’t
+            The “3,500 calorie deficit equals 1 pound” rule is an oversimplification that doesn’t
             account for metabolic adaptation
           </li>
           <li>
@@ -85,15 +85,15 @@ const CalorieDeficitMythsPageContent = (
       </h2>
 
       <p>
-        You’ve probably heard this one: cut 3,500 calories and you’ll lose exactly one pound of fat.
-        The math looks clean. Cut 500 calories per day, lose precisely one pound per week (500 x 7 =
+        You’ve probably heard this one: cut 3,500 calories and you’ll lose exactly one pound of fat.
+        The math looks clean. Cut 500 calories per day, lose precisely one pound per week (500 x 7 =
         3,500).
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-2">The Reality:</h3>
         <p>
-          A pound of fat does contain roughly 3,500 calories. But this formula ignores how your
+          A pound of fat does contain roughly 3,500 calories. But this formula ignores how your
           metabolism actually works. Research by Dr. Kevin Hall at the National Institutes of Health
           shows that as you lose weight, your body needs fewer calories to function. The
           3,500-calorie rule gets less accurate the longer you diet.
@@ -150,7 +150,7 @@ const CalorieDeficitMythsPageContent = (
 
       <p>
         Instead of focusing on daily or even weekly weight changes, look at trends over longer
-        periods (3-4 weeks) and consider using additional metrics like body measurements, how
+        periods (3-4 weeks) and consider using additional metrics like body measurements, how
         clothes fit, or progress photos.
       </p>
 
@@ -357,7 +357,7 @@ const CalorieDeficitMythsPageContent = (
             Suppl 1:S47-S55.
           </li>
           <li>
-            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
+            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
             competition. Obesity. 2016;24(8):1612-1619.
           </li>
           <li>

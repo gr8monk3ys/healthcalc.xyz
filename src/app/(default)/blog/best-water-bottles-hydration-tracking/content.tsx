@@ -119,7 +119,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Water Bottles for Hydration Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -287,7 +287,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </li>
           <li>
             <strong>Appetite:</strong> Thirst often disguises itself as hunger. Drinking water
-            before meals can reduce calorie intake by 75-90 calories per meal
+            before meals can reduce calorie intake by 75-90 calories per meal
           </li>
           <li>
             <strong>Exercise performance:</strong> A 2% loss in body water reduces endurance by up
@@ -351,7 +351,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             <li>Syncs with Apple Health, Fitbit, and Garmin</li>
             <li>Double-wall vacuum insulated stainless steel</li>
             <li>32oz capacity with measurement markings</li>
-            <li>Rechargeable battery lasts about 2 weeks</li>
+            <li>Rechargeable battery lasts about 2 weeks</li>
             <li>Personalized daily hydration goals based on your stats</li>
           </ul>
 
@@ -372,7 +372,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
               reminders, solid insulation, app integrations with major fitness platforms
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Battery needs charging every 10-14 days, straw lid is fiddly to
+              <strong>Cons:</strong> Battery needs charging every 10-14 days, straw lid is fiddly to
               clean, app can be buggy after updates, pricey for a water bottle
             </p>
           </div>
@@ -497,7 +497,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </p>
 
           <p className="mb-4">
-            The double-wall vacuum insulation keeps cold drinks cold for up to 24 hours and hot
+            The double-wall vacuum insulation keeps cold drinks cold for up to 24 hours and hot
             drinks hot for up to 12. The stainless steel does not retain flavors, so you can switch
             between water, coffee, and smoothies without any ghosting. The powder coat finish gives
             it a nice grip and it does not sweat, which means no puddles on your desk.
@@ -513,7 +513,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>TempShield double-wall vacuum insulation</li>
-            <li>Keeps drinks cold 24 hours, hot 12 hours</li>
+            <li>Keeps drinks cold 24 hours, hot 12 hours</li>
             <li>18/8 pro-grade stainless steel</li>
             <li>No flavor transfer between drinks</li>
             <li>Sweat-free exterior with powder coat</li>
@@ -793,7 +793,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           <h4 className="font-semibold mb-2">1. Start before you are thirsty</h4>
           <p className="mb-4">
             By the time you feel thirsty, you are already mildly dehydrated. Drink a full glass of
-            water first thing in the morning before coffee. Your body has gone 7-8 hours without
+            water first thing in the morning before coffee. Your body has gone 7-8 hours without
             water. It needs it.
           </p>
 
@@ -806,7 +806,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
 
           <h4 className="font-semibold mb-2">3. Set refill goals, not sip goals</h4>
           <p className="mb-4">
-            Trying to sip water every 15 minutes is annoying and unsustainable. Instead, aim to
+            Trying to sip water every 15 minutes is annoying and unsustainable. Instead, aim to
             empty and refill your 32oz bottle a specific number of times per day. Use our{' '}
             <Link href="/water-intake" className="text-accent hover:underline">
               Water Intake Calculator

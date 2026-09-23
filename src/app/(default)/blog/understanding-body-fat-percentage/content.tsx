@@ -85,7 +85,7 @@ const BlogPostPageContent = (
         <h2>What Is Body Fat Percentage?</h2>
         <p>
           Body fat percentage is exactly what it sounds like: the percentage of your total body
-          weight that is fat. If you weigh 150 pounds and have 30 pounds of fat, your body fat
+          weight that is fat. If you weigh 150 pounds and have 30 pounds of fat, your body fat
           percentage is 20%.
         </p>
         <p>Body fat does real work in your body:</p>
@@ -224,10 +224,10 @@ const BlogPostPageContent = (
         </p>
 
         <h2>Why Body Fat Percentage Matters More Than Weight</h2>
-        <p>Weight alone can be misleading. Take two people who both weigh 170 pounds at 5′10″:</p>
+        <p>Weight alone can be misleading. Take two people who both weigh 170 pounds at 5′10″:</p>
         <ul>
-          <li>Person A has 15% body fat (25.5 pounds of fat, 144.5 pounds of lean mass)</li>
-          <li>Person B has 30% body fat (51 pounds of fat, 119 pounds of lean mass)</li>
+          <li>Person A has 15% body fat (25.5 pounds of fat, 144.5 pounds of lean mass)</li>
+          <li>Person B has 30% body fat (51 pounds of fat, 119 pounds of lean mass)</li>
         </ul>
         <p>
           Same weight, same BMI, very different bodies. Person A has more muscle mass and less fat,

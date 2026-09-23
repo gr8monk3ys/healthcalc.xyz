@@ -90,7 +90,7 @@ const CountingCaloriesVsTrackingMacrosContentContent = (
 
           <p>
             Let me be clear upfront. I’m not here to sell you on one method over the other. I’ve
-            seen people lose 50 pounds counting only calories. I’ve also watched people completely
+            seen people lose 50 pounds counting only calories. I’ve also watched people completely
             transform their body composition by tracking macros down to the gram. And I’ve met
             plenty of folks who succeeded with neither because they found something else entirely.
           </p>
@@ -129,7 +129,7 @@ const CountingCaloriesVsTrackingMacrosContentContent = (
 
           <p>
             But here’s where it gets limited. Calorie counting tells you nothing about body
-            composition. You could lose 20 pounds, but if half of that is muscle, you’re not going
+            composition. You could lose 20 pounds, but if half of that is muscle, you’re not going
             to like how you look. Your metabolism will slow more than it should. You’ll feel weaker.
             And when you stop the deficit, the weight comes back faster because you’ve lost the
             metabolically active tissue that burns calories at rest.
@@ -213,7 +213,7 @@ const CountingCaloriesVsTrackingMacrosContentContent = (
           </p>
 
           <p>
-            I’m talking about someone who wants to drop 15 pounds for health reasons. Someone who’s
+            I’m talking about someone who wants to drop 15 pounds for health reasons. Someone who’s
             very overweight and needs to lose significant fat. Someone who’s just starting their
             fitness journey and doesn’t want to get overwhelmed.
           </p>
@@ -226,9 +226,9 @@ const CountingCaloriesVsTrackingMacrosContentContent = (
 
           <p>
             And honestly, most people who start with calorie counting naturally gravitate toward
-            higher-protein, more filling foods anyway. You quickly learn that 400 calories of
-            chicken and vegetables keeps you full for hours, while 400 calories of chips leaves you
-            hungry in 30 minutes. The learning happens organically.
+            higher-protein, more filling foods anyway. You quickly learn that 400 calories of
+            chicken and vegetables keeps you full for hours, while 400 calories of chips leaves you
+            hungry in 30 minutes. The learning happens organically.
           </p>
 
           <h2>When Macro Tracking Actually Matters</h2>
@@ -292,7 +292,7 @@ const CountingCaloriesVsTrackingMacrosContentContent = (
           <p>
             If I had to give someone advice with zero context about their situation, I’d say start
             with calorie counting. Learn the basics. Build the tracking habit. See if you can stick
-            with it for 4-6 weeks.
+            with it for 4-6 weeks.
           </p>
 
           <p>
@@ -316,7 +316,7 @@ const CountingCaloriesVsTrackingMacrosContentContent = (
           <p>
             The biggest mistake I see people make is starting with the most complicated approach
             because they think “more tracking equals better results.” But if you burn out after two
-            weeks because you spent 90 minutes planning every meal, you’ve lost. Consistency is the
+            weeks because you spent 90 minutes planning every meal, you’ve lost. Consistency is the
             actual variable that determines success.
           </p>
 

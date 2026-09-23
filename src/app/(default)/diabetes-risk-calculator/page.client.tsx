@@ -610,7 +610,7 @@ function renderDiabetesRiskCalculatorView({
                   className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
-                  Physically active (at least 150 min/week of moderate exercise)
+                  Physically active (at least 150 min/week of moderate exercise)
                 </span>
               </label>
 

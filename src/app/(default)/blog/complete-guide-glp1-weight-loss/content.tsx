@@ -11,7 +11,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         GLP-1 Medications for Weight Loss: What the Research Actually Shows
       </h1>
-      <p className="text-gray-500 italic">Published: January 5, 2026 &bull; 18 min read</p>
+      <p className="text-gray-500 italic">Published: January 5, 2026 &bull; 18 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -73,8 +73,8 @@ const CompleteGuideGLP1WeightLossPageContent = (
       </p>
 
       <p>
-        Natural GLP-1 breaks down in your body within about 2 minutes. The pharmaceutical versions
-        are engineered to last much longer. Semaglutide has a half-life of roughly 7 days, which is
+        Natural GLP-1 breaks down in your body within about 2 minutes. The pharmaceutical versions
+        are engineered to last much longer. Semaglutide has a half-life of roughly 7 days, which is
         why it works as a weekly injection. The drug attaches to albumin in your blood, which
         shields it from the enzymes that would normally chew it up.
       </p>
@@ -125,10 +125,10 @@ const CompleteGuideGLP1WeightLossPageContent = (
       </p>
 
       <p>
-        Participants received either weekly semaglutide 2.4 mg or placebo, plus lifestyle
-        counseling. After 68 weeks, the semaglutide group lost an average of 14.9% of their body
+        Participants received either weekly semaglutide 2.4 mg or placebo, plus lifestyle
+        counseling. After 68 weeks, the semaglutide group lost an average of 14.9% of their body
         weight, compared to 2.4% in the placebo group. For a 220-pound person, that is about 33
-        pounds versus 5 pounds.
+        pounds versus 5 pounds.
       </p>
 
       <p>
@@ -139,7 +139,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
 
       <p>
         STEP 2 looked at semaglutide in people with type 2 diabetes. Weight loss was lower (about
-        9.6% at 68 weeks), which tells us something important: diabetes changes the metabolic
+        9.6% at 68 weeks), which tells us something important: diabetes changes the metabolic
         equation. People with insulin resistance tend to lose less weight on these medications.
       </p>
 
@@ -151,7 +151,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
       </p>
 
       <p>
-        STEP 5 extended the treatment to 104 weeks (2 years). Average weight loss was 15.2%, and it
+        STEP 5 extended the treatment to 104 weeks (2 years). Average weight loss was 15.2%, and it
         held for the duration of treatment. The medication keeps working as long as you keep taking
         it.
       </p>
@@ -165,9 +165,9 @@ const CompleteGuideGLP1WeightLossPageContent = (
       </p>
 
       <p>
-        The results stood out. At the highest dose (15 mg), participants lost an average of 22.5% of
-        their body weight over 72 weeks. At the middle dose (10 mg), it was 21.4%. At the lowest
-        dose (5 mg), 15%.
+        The results stood out. At the highest dose (15 mg), participants lost an average of 22.5% of
+        their body weight over 72 weeks. At the middle dose (10 mg), it was 21.4%. At the lowest
+        dose (5 mg), 15%.
       </p>
 
       <p>
@@ -195,51 +195,51 @@ const CompleteGuideGLP1WeightLossPageContent = (
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
             <tr>
               <td className="px-4 py-3">STEP 1</td>
-              <td className="px-4 py-3">Semaglutide 2.4 mg</td>
+              <td className="px-4 py-3">Semaglutide 2.4 mg</td>
               <td className="px-4 py-3">Non-diabetic, BMI 30+</td>
-              <td className="px-4 py-3">68 weeks</td>
+              <td className="px-4 py-3">68 weeks</td>
               <td className="px-4 py-3 font-semibold">14.9%</td>
             </tr>
             <tr>
               <td className="px-4 py-3">STEP 2</td>
-              <td className="px-4 py-3">Semaglutide 2.4 mg</td>
+              <td className="px-4 py-3">Semaglutide 2.4 mg</td>
               <td className="px-4 py-3">Type 2 diabetes, BMI 27+</td>
-              <td className="px-4 py-3">68 weeks</td>
+              <td className="px-4 py-3">68 weeks</td>
               <td className="px-4 py-3 font-semibold">9.6%</td>
             </tr>
             <tr>
               <td className="px-4 py-3">STEP 3</td>
-              <td className="px-4 py-3">Semaglutide 2.4 mg + IBT</td>
+              <td className="px-4 py-3">Semaglutide 2.4 mg + IBT</td>
               <td className="px-4 py-3">Non-diabetic, BMI 30+</td>
-              <td className="px-4 py-3">68 weeks</td>
+              <td className="px-4 py-3">68 weeks</td>
               <td className="px-4 py-3 font-semibold">16.0%</td>
             </tr>
             <tr>
               <td className="px-4 py-3">STEP 5</td>
-              <td className="px-4 py-3">Semaglutide 2.4 mg</td>
+              <td className="px-4 py-3">Semaglutide 2.4 mg</td>
               <td className="px-4 py-3">Non-diabetic, BMI 30+</td>
-              <td className="px-4 py-3">104 weeks</td>
+              <td className="px-4 py-3">104 weeks</td>
               <td className="px-4 py-3 font-semibold">15.2%</td>
             </tr>
             <tr>
               <td className="px-4 py-3">SURMOUNT-1</td>
-              <td className="px-4 py-3">Tirzepatide 15 mg</td>
+              <td className="px-4 py-3">Tirzepatide 15 mg</td>
               <td className="px-4 py-3">Non-diabetic, BMI 30+</td>
-              <td className="px-4 py-3">72 weeks</td>
+              <td className="px-4 py-3">72 weeks</td>
               <td className="px-4 py-3 font-semibold">22.5%</td>
             </tr>
             <tr>
               <td className="px-4 py-3">SURMOUNT-1</td>
-              <td className="px-4 py-3">Tirzepatide 10 mg</td>
+              <td className="px-4 py-3">Tirzepatide 10 mg</td>
               <td className="px-4 py-3">Non-diabetic, BMI 30+</td>
-              <td className="px-4 py-3">72 weeks</td>
+              <td className="px-4 py-3">72 weeks</td>
               <td className="px-4 py-3 font-semibold">21.4%</td>
             </tr>
             <tr>
               <td className="px-4 py-3">SURMOUNT-2</td>
-              <td className="px-4 py-3">Tirzepatide 15 mg</td>
+              <td className="px-4 py-3">Tirzepatide 15 mg</td>
               <td className="px-4 py-3">Type 2 diabetes, BMI 27+</td>
-              <td className="px-4 py-3">72 weeks</td>
+              <td className="px-4 py-3">72 weeks</td>
               <td className="px-4 py-3 font-semibold">14.7%</td>
             </tr>
           </tbody>
@@ -271,14 +271,14 @@ const CompleteGuideGLP1WeightLossPageContent = (
 
       <p>
         One strong predictor: early response. A 2023 analysis published in Lancet Diabetes &amp;
-        Endocrinology found that weight loss at 12 weeks was a reliable predictor of weight loss at
-        68 weeks. If you have lost at least 5% of your body weight by week 12, you are likely to be
+        Endocrinology found that weight loss at 12 weeks was a reliable predictor of weight loss at
+        68 weeks. If you have lost at least 5% of your body weight by week 12, you are likely to be
         a strong responder. If you have lost less than 2%, your long-term results are likely to be
         modest.
       </p>
 
       <p>
-        This matters for practical decision-making. If after 3 months at a therapeutic dose you are
+        This matters for practical decision-making. If after 3 months at a therapeutic dose you are
         seeing minimal results, it may be worth discussing alternatives with your doctor rather than
         assuming the drug just needs more time.
       </p>
@@ -293,14 +293,14 @@ const CompleteGuideGLP1WeightLossPageContent = (
         The STEP 1 trial extension study, published in the journal Diabetes, Obesity and Metabolism
         in 2022, followed participants for one year after they stopped taking semaglutide. The
         results were sobering. Participants regained approximately two-thirds of the weight they had
-        lost within 52 weeks of discontinuation. They also lost the cardiometabolic improvements
+        lost within 52 weeks of discontinuation. They also lost the cardiometabolic improvements
         they had achieved (improvements in blood pressure, blood sugar, and lipids partially
         reversed).
       </p>
 
       <p>
         SURMOUNT-4 showed a nearly identical pattern with tirzepatide. Participants who switched
-        from tirzepatide to placebo regained about half their lost weight in 52 weeks, and the
+        from tirzepatide to placebo regained about half their lost weight in 52 weeks, and the
         trajectory suggested further regain would continue.
       </p>
 
@@ -357,13 +357,13 @@ const CompleteGuideGLP1WeightLossPageContent = (
       <p>
         Why does this matter? Muscle mass is your metabolic engine. It determines how many calories
         you burn at rest, it protects your joints, it keeps you functional as you age. Losing 30
-        pounds of fat and 15 pounds of muscle leaves you lighter but metabolically worse off than
-        losing 40 pounds of fat and 5 pounds of muscle.
+        pounds of fat and 15 pounds of muscle leaves you lighter but metabolically worse off than
+        losing 40 pounds of fat and 5 pounds of muscle.
       </p>
 
       <p>
         The fix is straightforward in theory: eat enough protein (at least 1.2 grams per kilogram of
-        body weight, ideally 1.6-2.0 g/kg) and do resistance training at least twice a week. In
+        body weight, ideally 1.6-2.0 g/kg) and do resistance training at least twice a week. In
         practice, when nausea is making it hard to eat a full meal, hitting 120+ grams of protein
         daily feels like a second job.
       </p>
@@ -416,7 +416,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
         </li>
         <li>
           <strong>Pregnancy or planning pregnancy.</strong> These medications should be stopped at
-          least 2 months before trying to conceive, given semaglutide’s long half-life.
+          least 2 months before trying to conceive, given semaglutide’s long half-life.
         </li>
         <li>
           <strong>Severe gastroparesis.</strong> Since GLP-1s slow gastric emptying, they can worsen
@@ -518,7 +518,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
 
       <p>
         The trials also documented: lower hemoglobin A1c (even in non-diabetic patients), blood
-        pressure reductions averaging 4-6 mmHg systolic, better triglycerides and HDL cholesterol,
+        pressure reductions averaging 4-6 mmHg systolic, better triglycerides and HDL cholesterol,
         lower C-reactive protein (a marker of systemic inflammation), and reduced liver fat content
         (relevant for people with fatty liver disease).
       </p>
@@ -540,7 +540,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
       <p>
         <strong>Protein first, always.</strong> Aim for 1.2 to 2.0 grams per kilogram of body weight
         daily. At every meal, eat your protein source before anything else. When your appetite is
-        suppressed and you can only eat 1,200 calories, those calories need to be mostly protein.
+        suppressed and you can only eat 1,200 calories, those calories need to be mostly protein.
         Use our{' '}
         <Link href="/glp1-calculator" className="text-blue-600 dark:text-blue-400 hover:underline">
           GLP-1 nutrition calculator
@@ -608,7 +608,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
             NEJM, 2021. (STEP 1)
           </li>
           <li>
-            Davies M, et al. “Semaglutide 2.4 mg once a week in adults with overweight or obesity,
+            Davies M, et al. “Semaglutide 2.4 mg once a week in adults with overweight or obesity,
             and type 2 diabetes.” Lancet, 2021. (STEP 2)
           </li>
           <li>

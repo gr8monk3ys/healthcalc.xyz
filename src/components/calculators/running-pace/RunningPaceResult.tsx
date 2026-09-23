@@ -28,7 +28,7 @@ export default function RunningPaceResult({ result }: RunningPaceResultProps) {
       </div>
       <div className="mt-4 text-sm text-gray-600">
         <p>
-          Speed: {result.speedMph} mph ({result.speedKph} kph)
+          Speed: {result.speedMph} mph ({result.speedKph} kph)
         </p>
       </div>
     </div>
