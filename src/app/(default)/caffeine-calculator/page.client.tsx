@@ -1,12 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback, useRef } from 'react';
 import { processCaffeineCalculation } from '@/utils/calculators/caffeineCalculator';
 import { CaffeineResult, CaffeineSource, SensitivityLevel } from '@/types/caffeineCalculator';
 import { validateWeight, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CaffeineResultDisplay from '@/components/calculators/caffeineCalculator/CaffeineResult';
-import SaveResult from '@/components/SaveResult';
 import {
   CAFFEINE_SOURCE_LABELS,
   CAFFEINE_CONTENT,
@@ -15,6 +15,9 @@ import {
 import { useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for Caffeine calculator
 const faqs = [

@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import IdealWeightResult from '@/components/calculators/ideal-weight/IdealWeightResult';
 import IdealWeightInfo from '@/components/calculators/ideal-weight/IdealWeightInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateHeight } from '@/utils/validation';
 import { calculateIdealWeight } from '@/utils/calculators/idealWeight';
 import type { IdealWeightResult as IdealWeightResultType } from '@/types/idealWeight';
@@ -15,6 +14,10 @@ import type { Gender } from '@/types/common';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

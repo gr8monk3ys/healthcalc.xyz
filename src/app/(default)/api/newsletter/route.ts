@@ -7,6 +7,7 @@ import {
   isSubmissionPersistenceStrictModeEnabled,
   saveNewsletterSubmission,
 } from '@/lib/db/submissions';
+import { runAfterResponse } from '@/lib/afterResponse';
 
 /**
  * Newsletter subscription API endpoint
@@ -153,13 +154,15 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
       }
 
       logger.error('Mailchimp error', { error });
-      await persistSubmissionOrFail({
-        email,
-        source,
-        provider: 'mailchimp',
-        status: 'failed',
-        error: JSON.stringify(error),
-      });
+      runAfterResponse(() =>
+        persistSubmissionOrFail({
+          email,
+          source,
+          provider: 'mailchimp',
+          status: 'failed',
+          error: JSON.stringify(error),
+        })
+      );
       return NextResponse.json(
         {
           success: false,
@@ -204,13 +207,15 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
       logger.error('ConvertKit error', {
         responseBody,
       });
-      await persistSubmissionOrFail({
-        email,
-        source,
-        provider: 'convertkit',
-        status: 'failed',
-        error: responseBody,
-      });
+      runAfterResponse(() =>
+        persistSubmissionOrFail({
+          email,
+          source,
+          provider: 'convertkit',
+          status: 'failed',
+          error: responseBody,
+        })
+      );
       return NextResponse.json(
         {
           success: false,
@@ -253,13 +258,15 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
 
       const responseBody = await response.text();
       logger.error('Resend error', { responseBody });
-      await persistSubmissionOrFail({
-        email,
-        source,
-        provider: 'resend',
-        status: 'failed',
-        error: responseBody,
-      });
+      runAfterResponse(() =>
+        persistSubmissionOrFail({
+          email,
+          source,
+          provider: 'resend',
+          status: 'failed',
+          error: responseBody,
+        })
+      );
       return NextResponse.json(
         {
           success: false,
@@ -295,13 +302,15 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
     logger.warn(
       'Newsletter subscription received but no email provider configured. Please set up Mailchimp, ConvertKit, or Resend.'
     );
-    await persistSubmissionOrFail({
-      email,
-      source,
-      provider: 'none',
-      status: 'unavailable',
-      error: 'No newsletter provider configured',
-    });
+    runAfterResponse(() =>
+      persistSubmissionOrFail({
+        email,
+        source,
+        provider: 'none',
+        status: 'unavailable',
+        error: 'No newsletter provider configured',
+      })
+    );
 
     return NextResponse.json(
       {

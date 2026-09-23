@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { calculateLifeExpectancy } from '@/utils/calculators/lifeExpectancy';
 import {
@@ -15,9 +16,11 @@ import {
 import { validateAge, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import LifeExpectancyResultDisplay from '@/components/calculators/lifeExpectancy/LifeExpectancyResult';
-import SaveResult from '@/components/SaveResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const CHRONIC_CONDITIONS = [
   { value: 'diabetes', label: 'Diabetes' },

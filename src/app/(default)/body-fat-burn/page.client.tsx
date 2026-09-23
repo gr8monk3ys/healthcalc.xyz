@@ -17,7 +17,6 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatBurnResultDisplay from '@/components/calculators/bodyFatBurn/BodyFatBurnResult';
 import BodyFatBurnInfo from '@/components/calculators/bodyFatBurn/BodyFatBurnInfo';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -25,6 +24,9 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // Dynamic imports for below-the-fold components
 const BodyFatBurnUnderstanding = dynamic(

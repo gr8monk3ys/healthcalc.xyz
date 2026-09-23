@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import CaloriesBurnedSwimmingResult from '@/components/calculators/calories-burned-swimming/CaloriesBurnedSwimmingResult';
 import CaloriesBurnedSwimmingInfo from '@/components/calculators/calories-burned-swimming/CaloriesBurnedSwimmingInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import {
   calculateCaloriesBurnedSwimming,
   type SwimmingIntensity,
@@ -16,6 +15,10 @@ import { validateDuration, validateWeight } from '@/utils/validation';
 import type { CaloriesBurnedSwimmingResult as CaloriesBurnedSwimmingResultType } from '@/types/caloriesBurnedSwimming';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

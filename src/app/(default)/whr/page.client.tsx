@@ -11,8 +11,10 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WHRResultDisplay from '@/components/calculators/whr/WHRResult';
 import WHRInfo from '@/components/calculators/whr/WHRInfo';
-import SaveResult from '@/components/SaveResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // Dynamic imports for below-the-fold components
 const WHRUnderstanding = dynamic(() => import('@/components/calculators/whr/WHRUnderstanding'));

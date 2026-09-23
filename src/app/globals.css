@@ -229,6 +229,12 @@ html[data-units='imperial'] .unit-toggle-option[data-unit='imperial'] {
   color: var(--accent);
 }
 
+/* Embed iframes (?embed=1): hide the full calculator layout until React swaps
+   in the embed layout, instead of flashing page chrome inside the iframe. */
+html[data-embed='1'] [data-calculator-page] {
+  visibility: hidden;
+}
+
 /* Numbers in tables line up column by column. */
 :where(table) {
   font-variant-numeric: tabular-nums;

@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import {
@@ -14,7 +15,6 @@ import { isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import IFResult from '@/components/calculators/intermittentFasting/IFResult';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -22,6 +22,9 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const faqs = [
   {

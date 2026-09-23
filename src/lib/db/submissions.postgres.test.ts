@@ -191,8 +191,11 @@ describe('Submission store (Postgres)', () => {
     expect(result.success).toBe(false);
     expect(result.driver).toBe('postgres');
     expect(result.error).toContain('database unavailable');
-    expect(sentry.withScope).toHaveBeenCalled();
-    expect(sentry.captureException).toHaveBeenCalled();
+    // Reported after the response (next/server after()), not inline.
+    await vi.waitFor(() => {
+      expect(sentry.withScope).toHaveBeenCalled();
+      expect(sentry.captureException).toHaveBeenCalled();
+    });
   });
 
   it('reports strict-mode state from environment values', async () => {

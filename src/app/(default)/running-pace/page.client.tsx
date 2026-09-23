@@ -1,17 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import RunningPaceResult from '@/components/calculators/running-pace/RunningPaceResult';
 import RunningPaceInfo from '@/components/calculators/running-pace/RunningPaceInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty } from '@/utils/validation';
 import { calculateRunningPace } from '@/utils/calculators/runningPace';
 import type { RunningPaceResult as RunningPaceResultType, DistanceUnit } from '@/types/runningPace';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

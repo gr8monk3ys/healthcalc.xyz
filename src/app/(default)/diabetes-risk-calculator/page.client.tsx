@@ -1,17 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import DiabetesRiskResultDisplay from '@/components/calculators/diabetesRisk/DiabetesRiskResult';
 import A1CResultDisplay from '@/components/calculators/diabetesRisk/A1CResult';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateAge } from '@/utils/validation';
 import { calculateDiabetesRisk, convertA1C } from '@/utils/calculators/diabetesRisk';
 import type { DiabetesRiskResult, A1CResult, EthnicityRisk } from '@/types/diabetesRisk';
 import { ETHNICITY_LABELS } from '@/constants/diabetesRisk';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 type ActiveMode = 'risk' | 'a1c';
 

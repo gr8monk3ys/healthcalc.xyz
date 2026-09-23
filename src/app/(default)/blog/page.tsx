@@ -2,7 +2,22 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import BlogIndexClient from '@/components/BlogIndexClient';
-import { BLOG_REGISTRY as BLOG_POSTS } from '@/lib/blog/registry';
+import { BLOG_REGISTRY } from '@/lib/blog/registry';
+
+// Only the fields the client index renders cross the RSC boundary (keywords,
+// SEO titles and affiliate data stay on the server).
+const BLOG_POSTS = BLOG_REGISTRY.map(
+  ({ title, description, slug, date, readTime, category, image, featured }) => ({
+    title,
+    description,
+    slug,
+    date,
+    readTime,
+    category,
+    image,
+    featured,
+  })
+);
 
 export const metadata: Metadata = {
   title: 'Health & Fitness Blog | HealthCalc',

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -39,10 +39,16 @@ function formatTemplate(template: string, vars: Record<string, string>): string 
 const EMPTY_HASHTAGS: string[] = [];
 
 function readIsEmbedFromLocation(): boolean {
-  if (typeof window === 'undefined') {
-    return false;
-  }
   return new URLSearchParams(window.location.search).get('embed') === '1';
+}
+
+function readIsEmbedOnServer(): boolean {
+  return false;
+}
+
+function subscribeToHistory(onChange: () => void): () => void {
+  window.addEventListener('popstate', onChange);
+  return () => window.removeEventListener('popstate', onChange);
 }
 
 /**
@@ -171,7 +177,15 @@ function CalculatorPageLayoutContent({
   const { localizePath, t } = useLocale();
   const { trackEvent } = useFunnelTracking();
   const { chainState, isInChain, exitChain } = useChainState();
-  const [isEmbed, setIsEmbed] = useState(false);
+  // ?embed=1 (third-party iframes). The prerendered HTML is the full page; the
+  // pre-paint bootstrap script marks <html data-embed> so CSS keeps that full
+  // layout hidden until this switches to the embed layout, avoiding a flash
+  // of page chrome inside the iframe.
+  const isEmbed = useSyncExternalStore(
+    subscribeToHistory,
+    readIsEmbedFromLocation,
+    readIsEmbedOnServer
+  );
   const hasTrackedResultRef = useRef(false);
 
   // Determine if this calculator is the current chain step
@@ -187,18 +201,6 @@ function CalculatorPageLayoutContent({
     if (!shareResultContext) return undefined;
     return buildSharedResultToken(shareResultContext);
   }, [shareResultContext]);
-
-  useEffect(() => {
-    const syncEmbedFlag = () => {
-      setIsEmbed(readIsEmbedFromLocation());
-    };
-
-    syncEmbedFlag();
-    window.addEventListener('popstate', syncEmbedFlag);
-    return () => {
-      window.removeEventListener('popstate', syncEmbedFlag);
-    };
-  }, []);
 
   useEffect(() => {
     if (isEmbed) return;
@@ -220,7 +222,11 @@ function CalculatorPageLayoutContent({
     const poweredByTemplate = t('calculator.embed.poweredBy');
     const token = '{brand}';
     const brandLink = (
-      <Link href={localizePath(`/${calculatorSlug}`)} className="text-accent hover:underline">
+      <Link
+        href={localizePath(`/${calculatorSlug}`)}
+        className="text-accent hover:underline"
+        translate="no"
+      >
         HealthCalc
       </Link>
     );
@@ -261,7 +267,7 @@ function CalculatorPageLayoutContent({
   return (
     <ErrorBoundary>
       <ResultsShareProvider>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto" data-calculator-page="">
           {isCurrentChainStep && chainState && (
             <ChainProgressBar chainState={chainState} onExit={exitChain} />
           )}

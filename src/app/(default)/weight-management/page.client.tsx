@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+import React, { useState, useSyncExternalStore } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { WeightManagementResult, DietType, GoalType } from '@/types/weightManagement';
 import { calculateWeightManagement } from '@/app/api/weightManagement';
@@ -13,7 +14,6 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WeightManagementResultDisplay from '@/components/calculators/weight-management/WeightManagementResult';
 import WeightManagementInfo from '@/components/calculators/weight-management/WeightManagementInfo';
 import WeightManagementUnderstanding from '@/components/calculators/weight-management/WeightManagementUnderstanding';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -21,6 +21,9 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -100,6 +103,24 @@ function useWeightManagementCalculatorState() {
     setDietType,
   };
 }
+
+function subscribeNever(): () => void {
+  return () => {};
+}
+
+/** yyyy-mm-dd for tomorrow in local time (the format <input type="date"> expects). */
+function getTomorrowIsoDate(): string {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+  const day = String(tomorrow.getDate()).padStart(2, '0');
+  return `${tomorrow.getFullYear()}-${month}-${day}`;
+}
+
+function getNoDate(): undefined {
+  return undefined;
+}
+
 export default function WeightManagementCalculator({
   serverHeader,
 }: {
@@ -232,11 +253,9 @@ export default function WeightManagementCalculator({
     });
 
   // Calculate minimum date (tomorrow)
-  const getMinDate = () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split('T')[0];
-  };
+  // Tomorrow in the visitor's own time zone. Read on the client only: the
+  // prerendered HTML has no min, so the build date never leaks into it.
+  const minGoalDate = useSyncExternalStore(subscribeNever, getTomorrowIsoDate, getNoDate);
 
   // Wrap the weight toggle to also convert goalWeight
   const toggleWeightUnitWithGoal = () => {
@@ -309,7 +328,7 @@ export default function WeightManagementCalculator({
       value: targetDate,
       onChange: setTargetDate,
       error: errors.targetDate,
-      min: getMinDate(),
+      min: minGoalDate,
     },
     {
       name: 'activity',

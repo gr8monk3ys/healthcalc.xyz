@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { KetoResult, KetoGoal, KetoType } from '@/types/ketoCalculator';
@@ -16,7 +17,6 @@ import {
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import KetoResultDisplay from '@/components/calculators/ketoCalculator/KetoResult';
-import SaveResult from '@/components/SaveResult';
 import Card from '@/components/ui/Card';
 import {
   useHeight,
@@ -25,6 +25,9 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [
