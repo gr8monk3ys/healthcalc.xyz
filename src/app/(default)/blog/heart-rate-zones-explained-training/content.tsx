@@ -81,7 +81,7 @@ const HeartRateZonesExplainedPageContent = (
             Heart rate zones divide exercise intensity into five distinct training zones, each with
             specific physiological benefits
           </li>
-          <li>Zone 2 cardio builds aerobic base and fat-burning capacity but isn't magic</li>
+          <li>Zone 2 cardio builds aerobic base and fat-burning capacity but isn’t magic</li>
           <li>
             The Karvonen method accounts for resting heart rate and is more personalized than simple
             percentage of max HR
@@ -96,15 +96,15 @@ const HeartRateZonesExplainedPageContent = (
       <AdBlock format="horizontal" />
 
       <p>
-        I spent years training wrong. I'd put on my running shoes, hit the road, and run at whatever
-        pace felt "hard." Some days I'd push. Other days I'd ease off. I figured effort was effort,
+        I spent years training wrong. I’d put on my running shoes, hit the road, and run at whatever
+        pace felt “hard.” Some days I’d push. Other days I’d ease off. I figured effort was effort,
         right? Wrong. My fitness plateaued. My race times stalled. Then I bought a heart rate
         monitor and learned about training zones. Within three months, my 5K time dropped by two
         minutes. Not because I trained harder. Because I trained smarter.
       </p>
 
       <p>
-        Heart rate training isn't complicated. It's just systematic. In this article, I'll explain
+        Heart rate training isn’t complicated. It’s just systematic. In this article, I’ll explain
         what heart rate zones actually are, what each zone trains, and how to apply this knowledge
         to your own training. No pseudoscience. No hype. Just what the research says and what works
         in practice.
@@ -115,14 +115,14 @@ const HeartRateZonesExplainedPageContent = (
       <p>
         Heart rate zones are ranges of heartbeats per minute that correspond to different exercise
         intensities and trigger different physiological adaptations. Think of them as gears on a
-        bike. Each gear serves a purpose. You wouldn't ride uphill in your highest gear, and you
-        wouldn't ride on flat ground in your lowest.
+        bike. Each gear serves a purpose. You wouldn’t ride uphill in your highest gear, and you
+        wouldn’t ride on flat ground in your lowest.
       </p>
 
       <p>
         Most training systems divide heart rate into five zones, though some use three or seven. The
         five-zone model is the most practical for most people because it balances simplicity with
-        specificity. Here's what matters: each zone targets different energy systems, recruits
+        specificity. Here’s what matters: each zone targets different energy systems, recruits
         different muscle fibers, and produces different training adaptations.
       </p>
 
@@ -136,7 +136,7 @@ const HeartRateZonesExplainedPageContent = (
       </div>
 
       <p>
-        The zones aren't arbitrary. They're based on measurable physiological thresholds like your
+        The zones aren’t arbitrary. They’re based on measurable physiological thresholds like your
         aerobic threshold (the point where lactate production starts to exceed clearance) and your
         anaerobic threshold (the point where lactate accumulation accelerates rapidly). These
         thresholds determine how long you can sustain different intensities and what adaptations
@@ -153,7 +153,7 @@ const HeartRateZonesExplainedPageContent = (
         <p className="font-semibold mb-2">What it feels like:</p>
         <p>
           You could carry on a full conversation without any difficulty. Your breathing is barely
-          elevated. It feels almost too easy. If you're a runner, this is slower than your normal
+          elevated. It feels almost too easy. If you’re a runner, this is slower than your normal
           easy pace. You might even feel silly moving this slowly.
         </p>
 
@@ -166,8 +166,8 @@ const HeartRateZonesExplainedPageContent = (
 
         <p className="font-semibold mt-4 mb-2">When to use it:</p>
         <p>
-          Recovery days after hard training sessions. Warm-ups and cool-downs. Days when you're
-          tired but want to move. Zone 1 isn't about building fitness. It's about not interfering
+          Recovery days after hard training sessions. Warm-ups and cool-downs. Days when you’re
+          tired but want to move. Zone 1 isn’t about building fitness. It’s about not interfering
           with recovery while staying active.
         </p>
       </div>
@@ -177,15 +177,15 @@ const HeartRateZonesExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-4">
         <p className="font-semibold mb-2">What it feels like:</p>
         <p>
-          You can talk in full sentences but you'd rather not have long conversations. Your
+          You can talk in full sentences but you’d rather not have long conversations. Your
           breathing is noticeable but controlled. You could sustain this pace for hours.
-          Importantly, you should feel like you're holding yourself back. If you let your mind
-          wander, you'll naturally drift faster.
+          Importantly, you should feel like you’re holding yourself back. If you let your mind
+          wander, you’ll naturally drift faster.
         </p>
 
         <p className="font-semibold mt-4 mb-2">What it trains:</p>
         <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Mitochondrial density (your cellular "engines" for aerobic energy)</li>
+          <li>Mitochondrial density (your cellular “engines” for aerobic energy)</li>
           <li>Capillary density (blood vessel networks in muscles)</li>
           <li>Fat oxidation capacity (using fat for fuel)</li>
           <li>Aerobic enzyme activity</li>
@@ -208,8 +208,8 @@ const HeartRateZonesExplainedPageContent = (
         <p className="font-semibold mb-2">What it feels like:</p>
         <p>
           You can speak in short sentences only. Your breathing is labored but controlled. This pace
-          feels "moderately hard." You could hold it for maybe 30-60 minutes if you really pushed.
-          It's not quite comfortable but not quite hard.
+          feels “moderately hard.” You could hold it for maybe 30-60 minutes if you really pushed.
+          It’s not quite comfortable but not quite hard.
         </p>
 
         <p className="font-semibold mt-4 mb-2">What it trains:</p>
@@ -221,16 +221,16 @@ const HeartRateZonesExplainedPageContent = (
 
         <p className="font-semibold mt-4 mb-2">The problem with Zone 3:</p>
         <p>
-          Most recreational athletes spend too much time here by accident. It's hard enough to
+          Most recreational athletes spend too much time here by accident. It’s hard enough to
           create fatigue and interfere with recovery, but not hard enough to provide the maximum
-          stimulus. Exercise scientists call this the "gray zone" because it's neither easy enough
-          for recovery nor hard enough for optimal adaptation. You're stuck in the middle,
+          stimulus. Exercise scientists call this the “gray zone” because it’s neither easy enough
+          for recovery nor hard enough for optimal adaptation. You’re stuck in the middle,
           accumulating fatigue without maximum benefit.
         </p>
 
         <p className="font-semibold mt-4 mb-2">When to use it:</p>
         <p>
-          Tempo runs (sustained efforts at a "comfortably hard" pace). Race-pace work for events
+          Tempo runs (sustained efforts at a “comfortably hard” pace). Race-pace work for events
           lasting 30-90 minutes. Use this zone sparingly and intentionally, not as your default
           training intensity.
         </p>
@@ -242,7 +242,7 @@ const HeartRateZonesExplainedPageContent = (
         <p className="font-semibold mb-2">What it feels like:</p>
         <p>
           You can only speak a few words at a time. Your breathing is heavy. This is hard but
-          sustainable. You're right at the edge of your lactate threshold. You could hold this for
+          sustainable. You’re right at the edge of your lactate threshold. You could hold this for
           maybe 20-30 minutes maximum. Every minute requires mental focus to maintain the pace.
         </p>
 
@@ -267,8 +267,8 @@ const HeartRateZonesExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-4">
         <p className="font-semibold mb-2">What it feels like:</p>
         <p>
-          You can't speak. Your breathing is maximal. This is very hard. You can only sustain this
-          for a few minutes at a time. Your legs burn. Your lungs burn. You're counting the seconds
+          You can’t speak. Your breathing is maximal. This is very hard. You can only sustain this
+          for a few minutes at a time. Your legs burn. Your lungs burn. You’re counting the seconds
           until you can stop.
         </p>
 
@@ -285,7 +285,7 @@ const HeartRateZonesExplainedPageContent = (
         <p>
           Short intervals of 30 seconds to 5 minutes with adequate recovery. Hill repeats. Sprint
           work. This zone is potent but brutal. It creates maximum stimulus but also maximum fatigue
-          and injury risk. Use it once per week, maybe twice if you're very fit and have built a
+          and injury risk. Use it once per week, maybe twice if you’re very fit and have built a
           solid aerobic base first.
         </p>
       </div>
@@ -297,14 +297,14 @@ const HeartRateZonesExplainedPageContent = (
       <p>
         Zone 2 training has become trendy, particularly after several popular podcasters and
         longevity advocates started promoting it. Some people act like Zone 2 is a magic bullet for
-        health and fitness. It's not. But it is important.
+        health and fitness. It’s not. But it is important.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">What Zone 2 Actually Does</h3>
 
       <p>
         Zone 2 training builds your aerobic base by increasing mitochondrial density and
-        capillarization. These adaptations improve your body's ability to generate energy
+        capillarization. These adaptations improve your body’s ability to generate energy
         aerobically, which means you can work harder without accumulating lactate and fatiguing.
         Research shows that high-volume Zone 2 training improves fat oxidation, enhances metabolic
         flexibility, and increases cardiac output.
@@ -316,35 +316,35 @@ const HeartRateZonesExplainedPageContent = (
         Zone 2 compared to higher intensities. This volume drives adaptation.
       </p>
 
-      <h3 className="text-xl font-semibold mt-6 mb-3">What Zone 2 Doesn't Do</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-3">What Zone 2 Doesn’t Do</h3>
 
-      <p>Here's what the hype gets wrong:</p>
+      <p>Here’s what the hype gets wrong:</p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-3">
           <li>
-            <strong>It's not sufficient by itself.</strong> Elite endurance athletes do spend most
+            <strong>It’s not sufficient by itself.</strong> Elite endurance athletes do spend most
             of their training time in Zone 2, but they also do high-intensity work. A study of
             Olympic cross-country skiers found they spent about 75% of training time at low
             intensity (Zone 1-2) but 15-20% at high intensity (Zone 4-5). The combination matters.
           </li>
           <li>
-            <strong>It's not categorically better than other training.</strong> For improving VO2
+            <strong>It’s not categorically better than other training.</strong> For improving VO2
             max, high-intensity interval training is more time-efficient than Zone 2 work. For most
             people with limited time, a mix of training intensities produces better results than
             Zone 2 alone.
           </li>
           <li>
-            <strong>It's not the only way to burn fat.</strong> Yes, the percentage of calories from
+            <strong>It’s not the only way to burn fat.</strong> Yes, the percentage of calories from
             fat is highest at low intensities. But total calorie burn matters more for body
             composition than fuel source during exercise. Higher intensity work burns more total
             calories.
           </li>
           <li>
-            <strong>It's not "easy" if you're doing it right.</strong> True Zone 2 is slower than
-            most people's comfortable training pace. It requires discipline to stay slow enough. If
-            your Zone 2 sessions feel effortless, you're probably not pushing hard enough. If they
-            feel moderately challenging, you're probably in Zone 3.
+            <strong>It’s not “easy” if you’re doing it right.</strong> True Zone 2 is slower than
+            most people’s comfortable training pace. It requires discipline to stay slow enough. If
+            your Zone 2 sessions feel effortless, you’re probably not pushing hard enough. If they
+            feel moderately challenging, you’re probably in Zone 3.
           </li>
         </ul>
       </div>
@@ -354,7 +354,7 @@ const HeartRateZonesExplainedPageContent = (
       <p>
         Zone 2 training is valuable, particularly for endurance athletes and people focused on
         long-term cardiovascular health. It builds the foundation that supports higher-intensity
-        work. But it's not magic, and it's not sufficient alone. The polarized training model
+        work. But it’s not magic, and it’s not sufficient alone. The polarized training model
         (mostly easy, some hard, little moderate) works better than only easy training for most
         people.
       </p>
@@ -383,7 +383,7 @@ const HeartRateZonesExplainedPageContent = (
         Two people with the same max heart rate but different resting heart rates have different
         fitness levels and different heart rate reserves to work with. A person with a resting heart
         rate of 50 bpm is likely more aerobically fit than someone with a resting heart rate of 80
-        bpm. The simple percentage method doesn't account for this.
+        bpm. The simple percentage method doesn’t account for this.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Karvonen Method (Heart Rate Reserve)</h3>
@@ -408,14 +408,14 @@ const HeartRateZonesExplainedPageContent = (
 
       <p>
         Notice the difference. Simple percentage method gave us 108-126 bpm for Zone 2. Karvonen
-        method gives us 132-144 bpm. That's a significant difference in actual training intensity.
+        method gives us 132-144 bpm. That’s a significant difference in actual training intensity.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Which Method Should You Use?</h3>
 
       <p>
         For most people, I recommend the Karvonen method because it accounts for individual fitness
-        differences. However, the simple percentage method isn't wrong. It just represents a
+        differences. However, the simple percentage method isn’t wrong. It just represents a
         different reference point. What matters most is consistency. Pick one method, calculate your
         zones, and use those zones consistently.
       </p>
@@ -423,7 +423,7 @@ const HeartRateZonesExplainedPageContent = (
       <p>
         Importantly, both methods are estimates. Your actual physiological thresholds might differ
         from calculated zones. Lab testing with lactate measurement or gas exchange analysis
-        provides more accuracy, but it's expensive and unnecessary for most people.
+        provides more accuracy, but it’s expensive and unnecessary for most people.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">
@@ -458,7 +458,7 @@ const HeartRateZonesExplainedPageContent = (
       </div>
 
       <p>
-        These formulas give you a starting point. If you're 30 years old, the classic formula gives
+        These formulas give you a starting point. If you’re 30 years old, the classic formula gives
         you 190 bpm. The newer formulas give you 187-192 bpm. Close enough for a ballpark estimate,
         but your actual max could be 175 or 205.
       </p>
@@ -467,7 +467,7 @@ const HeartRateZonesExplainedPageContent = (
 
       <p>
         To find your true max heart rate, you need to actually push yourself to maximum effort. This
-        requires good cardiovascular health and preferably medical clearance if you're over 40 or
+        requires good cardiovascular health and preferably medical clearance if you’re over 40 or
         have risk factors.
       </p>
 
@@ -486,8 +486,8 @@ const HeartRateZonesExplainedPageContent = (
             <strong>Recover for 3 minutes</strong> at an easy pace
           </li>
           <li>
-            <strong>Perform a 1-minute all-out effort</strong> giving absolutely everything you've
-            got. Go hard until you physically can't go any harder.
+            <strong>Perform a 1-minute all-out effort</strong> giving absolutely everything you’ve
+            got. Go hard until you physically can’t go any harder.
           </li>
           <li>
             <strong>Check your heart rate monitor</strong> during the final 30 seconds and
@@ -500,7 +500,7 @@ const HeartRateZonesExplainedPageContent = (
 
         <p className="mt-4">
           You can do this test running, cycling, rowing, or with any sustained cardio activity.
-          Choose the activity you'll be training with. Your max heart rate can vary slightly between
+          Choose the activity you’ll be training with. Your max heart rate can vary slightly between
           activities.
         </p>
       </div>
@@ -555,7 +555,7 @@ const HeartRateZonesExplainedPageContent = (
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Practical Weekly Structure</h3>
 
-      <p>Here's what polarized training might look like for different training volumes:</p>
+      <p>Here’s what polarized training might look like for different training volumes:</p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <p className="font-semibold mb-3">3 Days Per Week:</p>
@@ -580,26 +580,26 @@ const HeartRateZonesExplainedPageContent = (
         </ul>
       </div>
 
-      <h3 className="text-xl font-semibold mt-6 mb-3">How to Know If You're Training Right</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-3">How to Know If You’re Training Right</h3>
 
-      <p>Signs you're doing it correctly:</p>
+      <p>Signs you’re doing it correctly:</p>
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>Your easy days feel genuinely easy, almost frustratingly slow</li>
         <li>You finish most runs feeling like you could do more</li>
         <li>Your hard sessions are actually hard, requiring mental focus to complete</li>
-        <li>You're recovering well between hard sessions</li>
+        <li>You’re recovering well between hard sessions</li>
         <li>Your fitness is improving over weeks and months</li>
       </ul>
 
-      <p>Signs you're training in the gray zone too much:</p>
+      <p>Signs you’re training in the gray zone too much:</p>
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>Your easy days feel moderately challenging</li>
-        <li>You're always somewhat tired but never fully recovered</li>
-        <li>Your hard sessions don't feel much harder than your easy sessions</li>
+        <li>You’re always somewhat tired but never fully recovered</li>
+        <li>Your hard sessions don’t feel much harder than your easy sessions</li>
         <li>Your fitness has plateaued</li>
-        <li>You're frequently getting minor injuries or illnesses</li>
+        <li>You’re frequently getting minor injuries or illnesses</li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Common Mistakes in Heart Rate Training</h2>
@@ -618,9 +618,9 @@ const HeartRateZonesExplainedPageContent = (
 
       <div className="neumorph p-6 rounded-lg my-4">
         <p>
-          This is the most common mistake. True Zone 2 feels slower than most people's comfortable
-          pace. You should feel like you're holding yourself back. Your ego might resist. Running
-          "slow" feels wrong. But it's what drives aerobic adaptation and prevents overtraining.
+          This is the most common mistake. True Zone 2 feels slower than most people’s comfortable
+          pace. You should feel like you’re holding yourself back. Your ego might resist. Running
+          “slow” feels wrong. But it’s what drives aerobic adaptation and prevents overtraining.
         </p>
       </div>
 
@@ -628,9 +628,9 @@ const HeartRateZonesExplainedPageContent = (
 
       <div className="neumorph p-6 rounded-lg my-4">
         <p>
-          If you're accumulating fatigue from running too hard on easy days, you won't have the
+          If you’re accumulating fatigue from running too hard on easy days, you won’t have the
           energy to truly push on hard days. Interval sessions should feel challenging, almost
-          brutal. If they just feel "kinda hard," you're probably not in the right zone.
+          brutal. If they just feel “kinda hard,” you’re probably not in the right zone.
         </p>
       </div>
 
@@ -649,7 +649,7 @@ const HeartRateZonesExplainedPageContent = (
 
       <div className="neumorph p-6 rounded-lg my-4">
         <p>
-          Aerobic adaptation takes time. You won't see dramatic changes in two weeks. Most people
+          Aerobic adaptation takes time. You won’t see dramatic changes in two weeks. Most people
           need 8-12 weeks of consistent training to see significant improvements in aerobic
           capacity. Trust the process. Track your data. Look for trends over months, not days.
         </p>
@@ -680,12 +680,12 @@ const HeartRateZonesExplainedPageContent = (
 
       <p>
         Heart rate training is a tool, not a religion. The zones provide structure and prevent the
-        common mistakes of always running at the same moderate intensity. But they're not perfect.
+        common mistakes of always running at the same moderate intensity. But they’re not perfect.
         Use them as guidelines. Pay attention to how you feel. Track your progress. Adjust based on
         results.
       </p>
 
-      <p>Here's what actually matters:</p>
+      <p>Here’s what actually matters:</p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <ol className="list-decimal list-inside space-y-3">
@@ -721,15 +721,15 @@ const HeartRateZonesExplainedPageContent = (
       </div>
 
       <p>
-        I learned this the hard way. Years of training at "moderate" intensity produced moderate
+        I learned this the hard way. Years of training at “moderate” intensity produced moderate
         results. When I finally committed to polarized training, keeping my easy days truly easy and
         my hard days genuinely hard, my fitness improved more in three months than it had in the
         previous year.
       </p>
 
       <p>
-        The zones aren't complicated. The execution is. It requires discipline to run slow when you
-        feel good. It requires effort to push hard when you're tired. But that's what separates
+        The zones aren’t complicated. The execution is. It requires discipline to run slow when you
+        feel good. It requires effort to push hard when you’re tired. But that’s what separates
         systematic training from just going out and running. And systematic training is what
         produces results.
       </p>
@@ -791,7 +791,7 @@ const HeartRateZonesExplainedPageContent = (
             2014;5:33.
           </li>
           <li>
-            Robergs RA, Landwehr R. The surprising history of the "HRmax=220-age" equation. Journal
+            Robergs RA, Landwehr R. The surprising history of the “HRmax=220-age” equation. Journal
             of Exercise Physiology. 2002;5(2):1-10.
           </li>
           <li>

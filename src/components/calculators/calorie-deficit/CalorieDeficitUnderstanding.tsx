@@ -24,7 +24,7 @@ export default function CalorieDeficitUnderstanding() {
         <Accordion title="The Science Behind Weight Loss">
           <div className="space-y-4">
             <p>
-              While the old rule of "3,500 calories equals one pound of fat" is commonly cited,
+              While the old rule of “3,500 calories equals one pound of fat” is commonly cited,
               modern research shows that weight loss is more complex. Your body adapts to calorie
               restriction in several ways:
             </p>
@@ -42,8 +42,8 @@ export default function CalorieDeficitUnderstanding() {
                 and leptin) change, affecting appetite and energy levels
               </li>
               <li>
-                <span className="font-medium">Non-Linear Progress:</span> Weight loss isn't
-                constant; you'll experience plateaus and fluctuations
+                <span className="font-medium">Non-Linear Progress:</span> Weight loss isn’t
+                constant; you’ll experience plateaus and fluctuations
               </li>
             </ul>
             <p>
@@ -152,7 +152,7 @@ export default function CalorieDeficitUnderstanding() {
               </li>
             </ul>
             <p>
-              To continue losing weight, you'll need to either reduce calories further or increase
+              To continue losing weight, you’ll need to either reduce calories further or increase
               physical activity. Most experts recommend recalculating your targets every 5-10 kg
               (10-20 lbs) of weight loss.
             </p>
@@ -186,7 +186,7 @@ export default function CalorieDeficitUnderstanding() {
               <div>
                 <div className="font-medium">4. Be Patient with Plateaus</div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Weight loss isn't linear. Expect 1-2 week plateaus occasionally. Stay consistent.
+                  Weight loss isn’t linear. Expect 1-2 week plateaus occasionally. Stay consistent.
                 </p>
               </div>
               <div>
@@ -204,8 +204,8 @@ export default function CalorieDeficitUnderstanding() {
           <div className="space-y-4">
             <p>Recalculate your calorie targets when:</p>
             <ul className="list-disc pl-5 space-y-2">
-              <li>You've lost 5-10 kg (10-20 lbs) from your starting weight</li>
-              <li>Your weight hasn't changed for 3-4 weeks despite consistent tracking</li>
+              <li>You’ve lost 5-10 kg (10-20 lbs) from your starting weight</li>
+              <li>Your weight hasn’t changed for 3-4 weeks despite consistent tracking</li>
               <li>Your activity level changes significantly</li>
               <li>You experience excessive hunger, fatigue, or other negative symptoms</li>
             </ul>

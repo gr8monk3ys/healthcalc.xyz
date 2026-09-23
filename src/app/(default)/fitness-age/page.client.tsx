@@ -587,7 +587,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
     <ResultsShareProvider>
       <div className="mx-auto max-w-5xl">
         <Breadcrumb />
-        <h1 className="mb-2 text-3xl font-bold">What&apos;s Your Fitness Age?</h1>
+        <h1 className="mb-2 text-3xl font-bold">What’s Your Fitness Age?</h1>
         <p className="mb-8 text-gray-600 dark:text-gray-400">
           This estimate combines cardio capacity, resting heart rate, body composition, and movement
           habits into a single age-style score.

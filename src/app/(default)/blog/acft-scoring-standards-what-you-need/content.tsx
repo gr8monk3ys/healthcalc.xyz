@@ -712,7 +712,7 @@ const ACFTScoringStandardsPageContent = (
         , which accounts for these variations.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">What "Gold" and "Black" Standards Mean</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">What “Gold” and “Black” Standards Mean</h2>
 
       <p>
         The ACFT uses a color-coded category system to classify overall performance beyond just
@@ -787,7 +787,7 @@ const ACFTScoringStandardsPageContent = (
       </div>
 
       <p>
-        The "Black" designation for the minimum passing tier is worth understanding. It is not
+        The “Black” designation for the minimum passing tier is worth understanding. It is not
         explicitly a negative mark, but in a competitive promotion environment, scoring in the Black
         tier while your peers are Silver and Gold puts you at a disadvantage. Senior leaders notice.
         If you are sitting at 380, your goal should be to get above 420 as quickly as possible.
@@ -1288,16 +1288,16 @@ const ACFTScoringStandardsPageContent = (
           <li>Army Regulation 350-1: Army Training and Leader Development (2022).</li>
           <li>Army Regulation 600-8-19: Enlisted Promotions and Reductions.</li>
           <li>
-            Military.com. &quot;Nearly Half of Female Soldiers Still Failing New Army Fitness Test,
-            While Males Pass Easily.&quot; May 2021.
+            Military.com. “Nearly Half of Female Soldiers Still Failing New Army Fitness Test, While
+            Males Pass Easily.” May 2021.
           </li>
           <li>
-            Military.com. &quot;More Female Soldiers Are Passing the ACFT, But Their Scores Still
-            Trail Men&apos;s.&quot; May 2021.
+            Military.com. “More Female Soldiers Are Passing the ACFT, But Their Scores Still Trail
+            Men’s.” May 2021.
           </li>
           <li>
-            Army Times. &quot;New data shows performance divide on Army Combat Fitness Test.&quot;
-            November 2019.
+            Army Times. “New data shows performance divide on Army Combat Fitness Test.” November
+            2019.
           </li>
         </ul>
       </div>

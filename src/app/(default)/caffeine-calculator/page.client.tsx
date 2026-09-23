@@ -50,7 +50,7 @@ const faqs = [
   {
     question: 'Are coffee and energy drinks the same?',
     answer:
-      "No. While both contain caffeine, they differ significantly. Coffee (8oz) contains ~95mg caffeine plus antioxidants and beneficial compounds. Energy drinks (8.4oz can) contain ~80mg caffeine plus high sugar content (often 27g+), artificial ingredients, and additional stimulants like taurine and guarana. Coffee is associated with health benefits (reduced risk of type 2 diabetes, liver disease, Parkinson's), while energy drinks are linked to increased heart rate, blood pressure spikes, and potential cardiovascular issues, especially when combined with alcohol. Energy drinks also cause rapid blood sugar spikes followed by crashes. For sustained energy, black coffee or tea is a healthier choice than sugar-laden energy drinks.",
+      'No. While both contain caffeine, they differ significantly. Coffee (8oz) contains ~95mg caffeine plus antioxidants and beneficial compounds. Energy drinks (8.4oz can) contain ~80mg caffeine plus high sugar content (often 27g+), artificial ingredients, and additional stimulants like taurine and guarana. Coffee is associated with health benefits (reduced risk of type 2 diabetes, liver disease, Parkinson’s), while energy drinks are linked to increased heart rate, blood pressure spikes, and potential cardiovascular issues, especially when combined with alcohol. Energy drinks also cause rapid blood sugar spikes followed by crashes. For sustained energy, black coffee or tea is a healthier choice than sugar-laden energy drinks.',
   },
 ];
 

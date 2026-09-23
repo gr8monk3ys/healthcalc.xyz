@@ -92,7 +92,7 @@ const ABSIResultDisplay: React.FC<ABSIResultDisplayProps> = ({ result }) => {
         <h3 className="font-medium mb-2">What This Means</h3>
         <p className="mb-2">
           ABSI (A Body Shape Index) measures the health risk associated with your waist
-          circumference relative to your height and weight. It's particularly useful for assessing
+          circumference relative to your height and weight. It’s particularly useful for assessing
           the risks of central obesity (excess abdominal fat).
         </p>
         <p className="mb-2">

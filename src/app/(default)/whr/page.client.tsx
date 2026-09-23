@@ -30,7 +30,7 @@ const faqs = [
   {
     question: 'How do I accurately measure my waist and hips for WHR?',
     answer:
-      "For accurate WHR measurements: 1) Waist - Stand upright, locate the narrowest point between your ribs and hip bones (usually at navel level), wrap tape measure around horizontally, breathe normally and measure at the end of exhale. 2) Hips - Measure around the widest part of your buttocks and hips, keeping tape parallel to floor. 3) Use a flexible measuring tape, don't compress skin, take 2-3 measurements and average them. Measure in the morning before eating, wear minimal clothing, and use the same measuring spots each time for consistency.",
+      'For accurate WHR measurements: 1) Waist - Stand upright, locate the narrowest point between your ribs and hip bones (usually at navel level), wrap tape measure around horizontally, breathe normally and measure at the end of exhale. 2) Hips - Measure around the widest part of your buttocks and hips, keeping tape parallel to floor. 3) Use a flexible measuring tape, don’t compress skin, take 2-3 measurements and average them. Measure in the morning before eating, wear minimal clothing, and use the same measuring spots each time for consistency.',
   },
   {
     question: 'Why is WHR more useful than BMI for health assessment?',
@@ -40,7 +40,7 @@ const faqs = [
   {
     question: 'Do men and women have different WHR standards?',
     answer:
-      "Yes, biological sex significantly affects WHR norms due to hormonal differences in fat storage. Women naturally store more fat in hips and thighs (gynoid pattern) due to estrogen, resulting in lower WHR (typically 0.70-0.80). Men store more fat around the abdomen (android pattern) due to testosterone patterns, resulting in higher WHR (typically 0.85-0.95). Health risk thresholds reflect these differences: women's risk increases above 0.85, men's above 0.95. These differences exist across all ethnic groups, though specific thresholds may vary slightly by ethnicity.",
+      'Yes, biological sex significantly affects WHR norms due to hormonal differences in fat storage. Women naturally store more fat in hips and thighs (gynoid pattern) due to estrogen, resulting in lower WHR (typically 0.70-0.80). Men store more fat around the abdomen (android pattern) due to testosterone patterns, resulting in higher WHR (typically 0.85-0.95). Health risk thresholds reflect these differences: women’s risk increases above 0.85, men’s above 0.95. These differences exist across all ethnic groups, though specific thresholds may vary slightly by ethnicity.',
   },
   {
     question: 'How can I reduce my waist-to-hip ratio?',

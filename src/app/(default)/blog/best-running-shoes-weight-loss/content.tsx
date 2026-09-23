@@ -233,9 +233,9 @@ const BestRunningShoesWeightLossPageContent = (
             your knees on the couch.
           </p>
           <p>
-            I am not going to tell you which shoe is &quot;best.&quot; Feet are different. I will
-            tell you what each shoe does well, what it does poorly, and who it suits based on body
-            weight, gait, and running surface. If you are starting a{' '}
+            I am not going to tell you which shoe is “best.” Feet are different. I will tell you
+            what each shoe does well, what it does poorly, and who it suits based on body weight,
+            gait, and running surface. If you are starting a{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               calorie deficit
             </Link>{' '}
@@ -291,9 +291,8 @@ const BestRunningShoesWeightLossPageContent = (
             everybody. The DNA LOFT v2 midsole is soft enough for comfort but firm enough that you
             do not feel like you are running on a mattress. The 12mm heel-to-toe drop feels natural
             if you are transitioning from walking shoes or casual sneakers. I recommend this shoe to
-            anyone who asks &quot;what running shoe should I get?&quot; without knowing their
-            pronation type, because it handles neutral gaits without issue and mild overpronation
-            without complaint.
+            anyone who asks “what running shoe should I get?” without knowing their pronation type,
+            because it handles neutral gaits without issue and mild overpronation without complaint.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -476,10 +475,10 @@ const BestRunningShoesWeightLossPageContent = (
             Kayano is the one most physical therapists and running stores recommend. The 4D Guidance
             System in the midsole does not aggressively correct your gait like old-school motion
             control shoes did. Instead, it gently guides your foot through a more neutral path. The
-            FF BLAST PLUS Eco cushioning is ASICS&apos;s softest midsole material, so you get
-            stability without sacrificing comfort. Heavier runners who overpronate get the worst of
-            both worlds with neutral shoes: joint pain from overpronation and joint pain from
-            impact. This shoe addresses both.
+            FF BLAST PLUS Eco cushioning is ASICS’s softest midsole material, so you get stability
+            without sacrificing comfort. Heavier runners who overpronate get the worst of both
+            worlds with neutral shoes: joint pain from overpronation and joint pain from impact.
+            This shoe addresses both.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -535,13 +534,13 @@ const BestRunningShoesWeightLossPageContent = (
             <span className="text-2xl font-bold text-accent">$159.99</span>
           </div>
           <p className="mb-4">
-            The 1080 is New Balance&apos;s flagship daily trainer and it feels like it. The Fresh
-            Foam X midsole is plush on landing but returns more energy than you would expect from
-            something this soft. The Hypoknit upper adapts to your foot shape better than any
-            engineered mesh on this list. Where the HOKA Clifton is pure cushion and the Nike
-            Pegasus is pure versatility, the 1080 splits the difference. It is the shoe I would buy
-            if I could only own one pair. The v13 updated the outsole with more rubber coverage,
-            which fixed the durability issue the v12 had.
+            The 1080 is New Balance’s flagship daily trainer and it feels like it. The Fresh Foam X
+            midsole is plush on landing but returns more energy than you would expect from something
+            this soft. The Hypoknit upper adapts to your foot shape better than any engineered mesh
+            on this list. Where the HOKA Clifton is pure cushion and the Nike Pegasus is pure
+            versatility, the 1080 splits the difference. It is the shoe I would buy if I could only
+            own one pair. The v13 updated the outsole with more rubber coverage, which fixed the
+            durability issue the v12 had.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">

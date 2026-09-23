@@ -27,8 +27,8 @@ const GLP1SideEffectsWhatToExpectPageContent = (
             smaller meals, and specific dietary adjustments
           </li>
           <li>
-            &quot;Ozempic face&quot; is not a drug side effect per se. It is what rapid weight loss
-            looks like on anyone&apos;s face, especially over age 40.
+            “Ozempic face” is not a drug side effect per se. It is what rapid weight loss looks like
+            on anyone’s face, especially over age 40.
           </li>
           <li>
             The thyroid cancer signal seen in rodent studies has not been confirmed in human data
@@ -234,11 +234,11 @@ const GLP1SideEffectsWhatToExpectPageContent = (
 
       <AdBlock format="horizontal" />
 
-      <h2 className="text-2xl font-bold mt-10 mb-4">&quot;Ozempic Face&quot; and Muscle Loss</h2>
+      <h2 className="text-2xl font-bold mt-10 mb-4">“Ozempic Face” and Muscle Loss</h2>
 
       <p>
-        The term "Ozempic face" went viral in 2023 and has caused more anxiety than it probably
-        should have. What people call "Ozempic face" is not a drug-specific side effect. It is what
+        The term “Ozempic face” went viral in 2023 and has caused more anxiety than it probably
+        should have. What people call “Ozempic face” is not a drug-specific side effect. It is what
         happens when anyone loses 15-25% of their body weight relatively quickly: the fat pads in
         the face deflate, and the skin (especially in people over 40 whose skin has less elasticity)
         sags.
@@ -621,7 +621,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       </p>
 
       <p>
-        <strong>The "last meal" phenomenon.</strong> Some people find that their ability to enjoy
+        <strong>The “last meal” phenomenon.</strong> Some people find that their ability to enjoy
         certain foods disappears entirely. Foods they used to love become nauseating. This is
         usually temporary, but in some cases, specific food aversions persist for the duration of
         treatment.
@@ -663,34 +663,34 @@ const GLP1SideEffectsWhatToExpectPageContent = (
         <h2 className="text-xl font-semibold mb-4">Sources</h2>
         <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
           <li>
-            Wilding JPH, et al. &quot;Once-Weekly Semaglutide in Adults with Overweight or
-            Obesity.&quot; NEJM, 2021. (STEP 1 safety data)
+            Wilding JPH, et al. “Once-Weekly Semaglutide in Adults with Overweight or Obesity.”
+            NEJM, 2021. (STEP 1 safety data)
           </li>
           <li>
-            Jastreboff AM, et al. &quot;Tirzepatide Once Weekly for the Treatment of Obesity.&quot;
-            NEJM, 2022. (SURMOUNT-1 safety data)
+            Jastreboff AM, et al. “Tirzepatide Once Weekly for the Treatment of Obesity.” NEJM,
+            2022. (SURMOUNT-1 safety data)
           </li>
           <li>Wegovy (semaglutide) Prescribing Information. Novo Nordisk, 2024 revision.</li>
           <li>Zepbound (tirzepatide) Prescribing Information. Eli Lilly, 2024 revision.</li>
           <li>
-            Sodhi M, et al. &quot;Risk of Gastrointestinal Adverse Events Associated With
-            Glucagon-Like Peptide-1 Receptor Agonists for Weight Loss.&quot; JAMA, 2023.
+            Sodhi M, et al. “Risk of Gastrointestinal Adverse Events Associated With Glucagon-Like
+            Peptide-1 Receptor Agonists for Weight Loss.” JAMA, 2023.
           </li>
           <li>
-            European Medicines Agency. &quot;GLP-1 receptor agonists: reports of suicidal ideation
-            and self-harm.&quot; EMA Review, 2023.
+            European Medicines Agency. “GLP-1 receptor agonists: reports of suicidal ideation and
+            self-harm.” EMA Review, 2023.
           </li>
           <li>
-            FDA. &quot;Update on FDA&apos;s ongoing evaluation of reports of suicidal thoughts or
-            actions in patients taking GLP-1 receptor agonists.&quot; 2024.
+            FDA. “Update on FDA’s ongoing evaluation of reports of suicidal thoughts or actions in
+            patients taking GLP-1 receptor agonists.” 2024.
           </li>
           <li>
-            American Society of Anesthesiologists. &quot;Consensus-Based Guidance on Preoperative
-            Management of Patients on GLP-1 Receptor Agonists.&quot; 2023.
+            American Society of Anesthesiologists. “Consensus-Based Guidance on Preoperative
+            Management of Patients on GLP-1 Receptor Agonists.” 2023.
           </li>
           <li>
-            Wharton S, et al. &quot;Semaglutide, Alcohol Consumption, and Alcohol Use
-            Disorder.&quot; JCEM, 2023.
+            Wharton S, et al. “Semaglutide, Alcohol Consumption, and Alcohol Use Disorder.” JCEM,
+            2023.
           </li>
         </ul>
       </div>

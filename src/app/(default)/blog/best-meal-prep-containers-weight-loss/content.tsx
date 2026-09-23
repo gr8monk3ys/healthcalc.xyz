@@ -149,7 +149,7 @@ const BestMealPrepContainersPageContent = (
         </div>
 
         <p>
-          I've been meal prepping for years, and I can tell you right now: the container you choose
+          I’ve been meal prepping for years, and I can tell you right now: the container you choose
           matters more than you think. A leaky lid ruins your lunch. A warped plastic container
           makes your food taste weird. The wrong size throws off your portions, which throws off
           your{' '}
@@ -164,15 +164,15 @@ const BestMealPrepContainersPageContent = (
           <Link href="/macro" className="text-accent hover:underline">
             Macro Calculator
           </Link>
-          , I realized that consistent portion sizes were half the battle. You can't eyeball 6
-          ounces of chicken every single day and expect accuracy. That's where good meal prep
+          , I realized that consistent portion sizes were half the battle. You can’t eyeball 6
+          ounces of chicken every single day and expect accuracy. That’s where good meal prep
           containers come in.
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
           <h3 className="text-xl font-semibold mb-3">Why Meal Prep Works for Weight Loss</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Meal prepping isn't just about convenience. It removes decision fatigue, prevents
+            Meal prepping isn’t just about convenience. It removes decision fatigue, prevents
             impulsive food choices, and makes portion control automatic.
           </p>
           <div className="space-y-2">
@@ -217,7 +217,7 @@ const BestMealPrepContainersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Borosilicate glass - won't shatter from temperature changes</li>
+            <li>Borosilicate glass - won’t shatter from temperature changes</li>
             <li>3-compartment design for balanced meals (protein, carbs, veggies)</li>
             <li>BPA-free snap-lock lids with silicone seals</li>
             <li>Microwave, oven, freezer, and dishwasher safe</li>
@@ -227,13 +227,13 @@ const BestMealPrepContainersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Real-World Performance:</h4>
           <p>
-            I've had my set for 18 months. No broken containers (and I'm not gentle). The lids still
+            I’ve had my set for 18 months. No broken containers (and I’m not gentle). The lids still
             seal properly. Food reheats evenly. The compartments make it easy to hit your macros
             without thinking too hard about it.
           </p>
 
           <p className="mt-3">
-            The weight is the only downside. If you're carrying these in a bag all day, they add up.
+            The weight is the only downside. If you’re carrying these in a bag all day, they add up.
             But for home meal prep? Perfect. Use these with our{' '}
             <Link href="/macro" className="text-accent hover:underline">
               Macro Calculator
@@ -279,8 +279,8 @@ const BestMealPrepContainersPageContent = (
           </div>
 
           <p className="mb-4">
-            Fifteen containers for under $15. That's less than a dollar each. If you're new to meal
-            prep and don't want to drop $30+ on containers you might not use, start here.
+            Fifteen containers for under $15. That’s less than a dollar each. If you’re new to meal
+            prep and don’t want to drop $30+ on containers you might not use, start here.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -289,20 +289,20 @@ const BestMealPrepContainersPageContent = (
             <li>BPA-free plastic</li>
             <li>Microwave, dishwasher, and freezer safe</li>
             <li>Stackable to save fridge space</li>
-            <li>Clear lids so you can see what's inside</li>
+            <li>Clear lids so you can see what’s inside</li>
             <li>15 containers in one pack</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">Real-World Performance:</h4>
           <p>
-            These won't last forever. After 4-6 months of regular use, some lids start getting
+            These won’t last forever. After 4-6 months of regular use, some lids start getting
             loose. But at this price, who cares? Buy a new set.
           </p>
 
           <p className="mt-3">
             The compartments are smaller than the Prep Naturals, which actually works better if
-            you're eating at a calorie deficit. Smaller portions look fuller in smaller containers.
-            Psychology matters when you're trying to stick to your{' '}
+            you’re eating at a calorie deficit. Smaller portions look fuller in smaller containers.
+            Psychology matters when you’re trying to stick to your{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               calorie deficit plan
             </Link>
@@ -364,13 +364,13 @@ const BestMealPrepContainersPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Real-World Performance:</h4>
           <p>
             The difference between these and the Freshware containers is immediately obvious when
-            you hold them. Thicker plastic, tighter seals, better construction. They don't feel
+            you hold them. Thicker plastic, tighter seals, better construction. They don’t feel
             cheap.
           </p>
 
           <p className="mt-3">
             I like the portion sizes here. The main compartment fits about 6 oz of protein, which is
-            perfect if you're hitting{' '}
+            perfect if you’re hitting{' '}
             <Link href="/protein" className="text-accent hover:underline">
               0.8-1g of protein per pound
             </Link>
@@ -484,8 +484,8 @@ const BestMealPrepContainersPageContent = (
           </div>
 
           <p className="mb-4">
-            If you're prepping meals with sauces, dressings, or anything liquid, you need leak-proof
-            containers. Rubbermaid Brilliance has a 4-latch system that seals completely. I've never
+            If you’re prepping meals with sauces, dressings, or anything liquid, you need leak-proof
+            containers. Rubbermaid Brilliance has a 4-latch system that seals completely. I’ve never
             had one leak, even upside down in my bag.
           </p>
 
@@ -502,7 +502,7 @@ const BestMealPrepContainersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Real-World Performance:</h4>
           <p>
-            The seal is genuinely impressive. I've done the shake test with soup. Nothing comes out.
+            The seal is genuinely impressive. I’ve done the shake test with soup. Nothing comes out.
             The clarity of the plastic makes these feel premium without the weight of glass.
           </p>
 
@@ -513,7 +513,7 @@ const BestMealPrepContainersPageContent = (
           </p>
 
           <p className="mt-3">
-            These work great if you're doing{' '}
+            These work great if you’re doing{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               high-protein meal prep
             </Link>{' '}
@@ -558,14 +558,14 @@ const BestMealPrepContainersPageContent = (
             <li>You carry meals in a backpack or gym bag</li>
             <li>You need lightweight containers for travel</li>
             <li>You want more containers for less money</li>
-            <li>You don't mind replacing them every 6-12 months</li>
+            <li>You don’t mind replacing them every 6-12 months</li>
           </ul>
         </div>
 
         <h2 className="text-2xl font-bold mt-8 mb-4">Portion Control Tips</h2>
 
         <p>
-          The whole point of meal prep is consistent portions. Here's how I make it work without
+          The whole point of meal prep is consistent portions. Here’s how I make it work without
           weighing every single meal:
         </p>
 
@@ -582,11 +582,11 @@ const BestMealPrepContainersPageContent = (
               <Link href="/macro" className="text-accent hover:underline">
                 Macro Calculator
               </Link>
-              , then divide by the number of meals you're prepping.
+              , then divide by the number of meals you’re prepping.
             </li>
             <li>
               <strong>Cook in bulk, portion immediately:</strong> As soon as food is cooked, divide
-              it into containers while it's still hot. This prevents picking and snacking while you
+              it into containers while it’s still hot. This prevents picking and snacking while you
               prep.
             </li>
             <li>
@@ -654,7 +654,7 @@ const BestMealPrepContainersPageContent = (
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
             <strong>New to meal prep?</strong> Start with the <strong>Freshware 15-Pack</strong>.
-            It's cheap enough that you won't feel bad if meal prep doesn't stick.
+            It’s cheap enough that you won’t feel bad if meal prep doesn’t stick.
           </li>
           <li>
             <strong>Serious about weight loss?</strong> Get the{' '}
@@ -662,7 +662,7 @@ const BestMealPrepContainersPageContent = (
             consistent eating easy.
           </li>
           <li>
-            <strong>Want the best?</strong> Go glass with <strong>Prep Naturals</strong>. They'll
+            <strong>Want the best?</strong> Go glass with <strong>Prep Naturals</strong>. They’ll
             last forever and never affect food taste.
           </li>
           <li>
@@ -676,7 +676,7 @@ const BestMealPrepContainersPageContent = (
           <p>
             I own all of these except the Bentgo. My daily rotation is Fitpacker for regular meals
             and Rubbermaid Brilliance for anything with sauce. The glass containers stay at home for
-            storing leftovers or meals I'll eat right away.
+            storing leftovers or meals I’ll eat right away.
           </p>
           <p className="mt-3">
             If I could only buy one set? Fitpacker. The $22 price point is reasonable, the quality

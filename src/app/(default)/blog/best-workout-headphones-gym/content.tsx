@@ -404,11 +404,10 @@ const BestWorkoutHeadphonesGymPageContent = (
           </p>
           <p className="mb-4">
             Sound quality is a step up from the Beats, honestly. The bass is punchy without being
-            muddy, and Jabra&apos;s app lets you customize the EQ to your preferences. I bump up the
-            low end for running and flatten it for podcasts. The HearThrough mode (Jabra&apos;s
-            version of transparency) is the best I have used. It sounds natural, not robotic.
-            Important when you need to hear traffic on a morning run. Track your running calorie
-            burn with our{' '}
+            muddy, and Jabra’s app lets you customize the EQ to your preferences. I bump up the low
+            end for running and flatten it for podcasts. The HearThrough mode (Jabra’s version of
+            transparency) is the best I have used. It sounds natural, not robotic. Important when
+            you need to hear traffic on a morning run. Track your running calorie burn with our{' '}
             <Link href="/body-fat-burn" className="text-accent hover:underline">
               Body Fat Burn Calculator
             </Link>{' '}
@@ -561,8 +560,8 @@ const BestWorkoutHeadphonesGymPageContent = (
             These are completely different from everything else on this list. The Shokz OpenRun Pro
             sits on your cheekbones in front of your ears and sends sound through bone conduction.
             Your ear canals stay completely open. You hear your music and you hear everything around
-            you. Cars. Bikes. Dogs. People yelling &quot;on your left.&quot; For outdoor runners,
-            this is not a compromise. It is a safety feature.
+            you. Cars. Bikes. Dogs. People yelling “on your left.” For outdoor runners, this is not
+            a compromise. It is a safety feature.
           </p>
           <p className="mb-4">
             I run roads at 5:30 AM when it is still dark. I tried running with noise-cancelling
@@ -651,12 +650,12 @@ const BestWorkoutHeadphonesGymPageContent = (
             disappears, nothing else comes close.
           </p>
           <p className="mb-4">
-            Sound quality is the best here by a wide margin. Sony&apos;s Integrated Processor V2 and
-            LDAC codec deliver actual high-resolution audio. I normally would not care about this
-            for gym use, but I noticed the difference during long treadmill sessions where I listen
-            to music for 45-60 minutes straight. The soundstage is wider, the bass is tighter, and
-            vocals sit clearly in the mix. If you also use your earbuds outside the gym for
-            commuting, work, or calls, the XM5 punches way above what gym-specific earbuds can do.
+            Sound quality is the best here by a wide margin. Sony’s Integrated Processor V2 and LDAC
+            codec deliver actual high-resolution audio. I normally would not care about this for gym
+            use, but I noticed the difference during long treadmill sessions where I listen to music
+            for 45-60 minutes straight. The soundstage is wider, the bass is tighter, and vocals sit
+            clearly in the mix. If you also use your earbuds outside the gym for commuting, work, or
+            calls, the XM5 punches way above what gym-specific earbuds can do.
           </p>
           <p className="mb-4">
             Here is the honest part. The XM5 was not designed for the gym. Sony rates it IPX4, same

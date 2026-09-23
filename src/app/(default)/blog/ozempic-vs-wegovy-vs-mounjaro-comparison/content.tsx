@@ -43,8 +43,8 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       </div>
 
       <p>
-        The question I get most often about GLP-1 medications is some version of "which one is
-        best?" It depends on your situation. But that does not mean all three options are
+        The question I get most often about GLP-1 medications is some version of “which one is
+        best?” It depends on your situation. But that does not mean all three options are
         interchangeable. The differences are real, measurable, and worth understanding.
       </p>
 
@@ -73,7 +73,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <p>
         Ozempic is approved for type 2 diabetes management. Its maximum dose is 2.0 mg per week (a
         1.0 mg dose is also available). Wegovy is approved for chronic weight management. Its target
-        maintenance dose is 2.4 mg per week, which is 20% higher than Ozempic&apos;s maximum.
+        maintenance dose is 2.4 mg per week, which is 20% higher than Ozempic’s maximum.
       </p>
 
       <p>
@@ -259,8 +259,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
         and slightly different timeframes. The gold-standard comparison (randomized, double-blind,
         same patients) is being done in the ongoing SURMOUNT-5 trial, which directly compares
         tirzepatide 15 mg against semaglutide 2.4 mg. Initial results announced in late 2024
-        confirmed tirzepatide&apos;s superiority, with a roughly 5 percentage point greater weight
-        loss.
+        confirmed tirzepatide’s superiority, with a roughly 5 percentage point greater weight loss.
       </p>
 
       <AdBlock format="horizontal" />
@@ -331,10 +330,10 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       </p>
 
       <p>
-        Ozempic&apos;s titration is somewhat more flexible because it is a diabetes drug where
-        dosing is titrated based on blood sugar response, not weight loss. Many people on Ozempic
-        for weight loss stay at 1.0 mg and never go to 2.0 mg, which means they are getting less
-        than half the dose that was studied for weight loss in the STEP trials.
+        Ozempic’s titration is somewhat more flexible because it is a diabetes drug where dosing is
+        titrated based on blood sugar response, not weight loss. Many people on Ozempic for weight
+        loss stay at 1.0 mg and never go to 2.0 mg, which means they are getting less than half the
+        dose that was studied for weight loss in the STEP trials.
       </p>
 
       <p>
@@ -499,8 +498,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
         oversight. Compounding pharmacies are regulated by state boards of pharmacy, with varying
         levels of oversight. Testing by independent labs has found that some compounded semaglutide
         products contain less active ingredient than labeled, and some have contained impurities.
-        Others have tested accurately. You are relying on the specific pharmacy&apos;s quality
-        control.
+        Others have tested accurately. You are relying on the specific pharmacy’s quality control.
       </p>
 
       <p>
@@ -593,7 +591,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <h2 className="text-2xl font-bold mt-10 mb-4">The Decision Framework</h2>
 
       <p>
-        No single medication is "best" for everyone. But the data points toward some reasonably
+        No single medication is “best” for everyone. But the data points toward some reasonably
         clear recommendations depending on your situation.
       </p>
 
@@ -734,32 +732,32 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
         <h2 className="text-xl font-semibold mb-4">Sources</h2>
         <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
           <li>
-            Wilding JPH, et al. &quot;Once-Weekly Semaglutide in Adults with Overweight or
-            Obesity.&quot; NEJM, 2021. (STEP 1)
+            Wilding JPH, et al. “Once-Weekly Semaglutide in Adults with Overweight or Obesity.”
+            NEJM, 2021. (STEP 1)
           </li>
           <li>
-            Jastreboff AM, et al. &quot;Tirzepatide Once Weekly for the Treatment of Obesity.&quot;
-            NEJM, 2022. (SURMOUNT-1)
+            Jastreboff AM, et al. “Tirzepatide Once Weekly for the Treatment of Obesity.” NEJM,
+            2022. (SURMOUNT-1)
           </li>
           <li>
-            Frias JP, et al. &quot;Tirzepatide versus Semaglutide Once Weekly in Patients with Type
-            2 Diabetes.&quot; NEJM, 2021. (SURPASS-2)
+            Frias JP, et al. “Tirzepatide versus Semaglutide Once Weekly in Patients with Type 2
+            Diabetes.” NEJM, 2021. (SURPASS-2)
           </li>
           <li>
-            Lincoff AM, et al. &quot;Semaglutide and Cardiovascular Outcomes in Obesity without
-            Diabetes.&quot; NEJM, 2023. (SELECT)
+            Lincoff AM, et al. “Semaglutide and Cardiovascular Outcomes in Obesity without
+            Diabetes.” NEJM, 2023. (SELECT)
           </li>
           <li>
-            Jastreboff AM, et al. &quot;Triple-hormone-receptor agonist retatrutide for
-            obesity.&quot; NEJM, 2023.
+            Jastreboff AM, et al. “Triple-hormone-receptor agonist retatrutide for obesity.” NEJM,
+            2023.
           </li>
           <li>
-            Wharton S, et al. &quot;Orforglipron, a non-peptide oral GLP-1 receptor agonist, in
-            adults with obesity.&quot; Nature Medicine, 2023.
+            Wharton S, et al. “Orforglipron, a non-peptide oral GLP-1 receptor agonist, in adults
+            with obesity.” Nature Medicine, 2023.
           </li>
           <li>
-            Knop FK, et al. &quot;Oral Semaglutide 50 mg Taken Once Daily in Adults with Overweight
-            or Obesity.&quot; Lancet, 2023. (OASIS 1)
+            Knop FK, et al. “Oral Semaglutide 50 mg Taken Once Daily in Adults with Overweight or
+            Obesity.” Lancet, 2023. (OASIS 1)
           </li>
           <li>Ozempic (semaglutide) Prescribing Information. Novo Nordisk, 2024.</li>
           <li>Wegovy (semaglutide) Prescribing Information. Novo Nordisk, 2024.</li>

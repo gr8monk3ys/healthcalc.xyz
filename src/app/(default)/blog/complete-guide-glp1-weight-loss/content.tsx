@@ -88,7 +88,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
 
       <p>
         This is not a willpower drug. It is changing the hormonal signaling in your brain. People on
-        these medications consistently report that "food noise," the constant background chatter
+        these medications consistently report that “food noise,” the constant background chatter
         about what to eat next, goes quiet. That is a neurological effect, not a psychological one.
       </p>
 
@@ -159,7 +159,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
       <h3 className="text-xl font-semibold mt-8 mb-3">Tirzepatide: The SURMOUNT Trial Program</h3>
 
       <p>
-        The SURMOUNT trials tested tirzepatide (Eli Lilly's dual GLP-1/GIP agonist) for weight loss.
+        The SURMOUNT trials tested tirzepatide (Eli Lilly’s dual GLP-1/GIP agonist) for weight loss.
         SURMOUNT-1, published in the New England Journal of Medicine in 2022, enrolled 2,539 adults
         without diabetes.
       </p>
@@ -248,7 +248,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
 
       <AdBlock format="horizontal" />
 
-      <h2 className="text-2xl font-bold mt-10 mb-4">Who Responds Best (and Who Doesn&apos;t)</h2>
+      <h2 className="text-2xl font-bold mt-10 mb-4">Who Responds Best (and Who Doesn’t)</h2>
 
       <p>
         Not everyone loses the same amount. Post-hoc analyses from the STEP trials have identified
@@ -416,7 +416,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
         </li>
         <li>
           <strong>Pregnancy or planning pregnancy.</strong> These medications should be stopped at
-          least 2 months before trying to conceive, given semaglutide&apos;s long half-life.
+          least 2 months before trying to conceive, given semaglutide’s long half-life.
         </li>
         <li>
           <strong>Severe gastroparesis.</strong> Since GLP-1s slow gastric emptying, they can worsen
@@ -432,7 +432,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
 
       <h2 className="text-2xl font-bold mt-10 mb-4">The Cost Reality</h2>
 
-      <p>Let&apos;s talk money, because this is where the rubber meets the road for most people.</p>
+      <p>Let’s talk money, because this is where the rubber meets the road for most people.</p>
 
       <div className="overflow-x-auto my-8">
         <table className="min-w-full text-sm border border-gray-200 dark:border-gray-700">
@@ -483,7 +483,7 @@ const CompleteGuideGLP1WeightLossPageContent = (
       <p>
         The compounded semaglutide market exploded in 2023-2024 while brand-name drugs were in
         shortage. Compounding pharmacies were legally allowed to produce semaglutide because the FDA
-        had listed it as "in shortage." As shortages resolve, the FDA has moved to restrict
+        had listed it as “in shortage.” As shortages resolve, the FDA has moved to restrict
         compounding, creating a gray area. Compounded versions are cheaper but come with questions
         about quality control, dosing accuracy, and legal status that change month to month.
       </p>
@@ -604,40 +604,40 @@ const CompleteGuideGLP1WeightLossPageContent = (
         <h2 className="text-xl font-semibold mb-4">Sources</h2>
         <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
           <li>
-            Wilding JPH, et al. &quot;Once-Weekly Semaglutide in Adults with Overweight or
-            Obesity.&quot; NEJM, 2021. (STEP 1)
+            Wilding JPH, et al. “Once-Weekly Semaglutide in Adults with Overweight or Obesity.”
+            NEJM, 2021. (STEP 1)
           </li>
           <li>
-            Davies M, et al. &quot;Semaglutide 2.4 mg once a week in adults with overweight or
-            obesity, and type 2 diabetes.&quot; Lancet, 2021. (STEP 2)
+            Davies M, et al. “Semaglutide 2.4 mg once a week in adults with overweight or obesity,
+            and type 2 diabetes.” Lancet, 2021. (STEP 2)
           </li>
           <li>
-            Wadden TA, et al. &quot;Effect of Subcutaneous Semaglutide vs Placebo as an Adjunct to
-            Intensive Behavioral Therapy on Body Weight.&quot; JAMA, 2021. (STEP 3)
+            Wadden TA, et al. “Effect of Subcutaneous Semaglutide vs Placebo as an Adjunct to
+            Intensive Behavioral Therapy on Body Weight.” JAMA, 2021. (STEP 3)
           </li>
           <li>
-            Garvey WT, et al. &quot;Two-year effects of semaglutide in adults with overweight or
-            obesity.&quot; Nature Medicine, 2022. (STEP 5)
+            Garvey WT, et al. “Two-year effects of semaglutide in adults with overweight or
+            obesity.” Nature Medicine, 2022. (STEP 5)
           </li>
           <li>
-            Jastreboff AM, et al. &quot;Tirzepatide Once Weekly for the Treatment of Obesity.&quot;
-            NEJM, 2022. (SURMOUNT-1)
+            Jastreboff AM, et al. “Tirzepatide Once Weekly for the Treatment of Obesity.” NEJM,
+            2022. (SURMOUNT-1)
           </li>
           <li>
-            Garvey WT, et al. &quot;Tirzepatide Once Weekly for the Treatment of Obesity in People
-            with Type 2 Diabetes.&quot; NEJM, 2023. (SURMOUNT-2)
+            Garvey WT, et al. “Tirzepatide Once Weekly for the Treatment of Obesity in People with
+            Type 2 Diabetes.” NEJM, 2023. (SURMOUNT-2)
           </li>
           <li>
-            Wilding JPH, et al. &quot;Weight regain and cardiometabolic effects after withdrawal of
-            semaglutide.&quot; Diabetes, Obesity and Metabolism, 2022. (STEP 1 extension)
+            Wilding JPH, et al. “Weight regain and cardiometabolic effects after withdrawal of
+            semaglutide.” Diabetes, Obesity and Metabolism, 2022. (STEP 1 extension)
           </li>
           <li>
-            Lincoff AM, et al. &quot;Semaglutide and Cardiovascular Outcomes in Obesity without
-            Diabetes.&quot; NEJM, 2023. (SELECT)
+            Lincoff AM, et al. “Semaglutide and Cardiovascular Outcomes in Obesity without
+            Diabetes.” NEJM, 2023. (SELECT)
           </li>
           <li>
-            Perkovic V, et al. &quot;Effects of Semaglutide on Chronic Kidney Disease in Patients
-            with Type 2 Diabetes.&quot; NEJM, 2024. (FLOW)
+            Perkovic V, et al. “Effects of Semaglutide on Chronic Kidney Disease in Patients with
+            Type 2 Diabetes.” NEJM, 2024. (FLOW)
           </li>
         </ul>
       </div>

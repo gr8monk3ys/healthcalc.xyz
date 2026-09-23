@@ -44,7 +44,7 @@ const faqs = [
   {
     question: 'Can I lose weight faster by increasing exercise intensity?',
     answer:
-      "Yes, increasing exercise intensity typically burns more calories in the same amount of time. However, it's important to balance intensity with sustainability. Very high-intensity workouts may be difficult to maintain regularly and could increase injury risk. A combination of moderate and high-intensity exercise often provides the best long-term results.",
+      'Yes, increasing exercise intensity typically burns more calories in the same amount of time. However, it’s important to balance intensity with sustainability. Very high-intensity workouts may be difficult to maintain regularly and could increase injury risk. A combination of moderate and high-intensity exercise often provides the best long-term results.',
   },
   {
     question: 'Why does the calculator ask for my gender and age?',
@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'How does the calculator estimate time to reach my weight loss goal?',
     answer:
-      "The calculator estimates time to reach your goal by dividing your weight loss goal (in calories) by your weekly calorie deficit from exercise. It assumes that 1 pound (0.45 kg) of fat equals approximately 3,500 calories. The estimate assumes consistent exercise and doesn't account for dietary changes or metabolic adaptations that may occur during weight loss.",
+      'The calculator estimates time to reach your goal by dividing your weight loss goal (in calories) by your weekly calorie deficit from exercise. It assumes that 1 pound (0.45 kg) of fat equals approximately 3,500 calories. The estimate assumes consistent exercise and doesn’t account for dietary changes or metabolic adaptations that may occur during weight loss.',
   },
   {
     question: 'Should I rely solely on exercise for weight loss?',
@@ -68,7 +68,7 @@ const blogArticles = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
     slug: 'tdee-explained',
     date: 'February 20, 2025',
     readTime: '10 min read',
@@ -77,7 +77,7 @@ const blogArticles = [
   {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
     slug: 'calorie-deficit-myths',
     date: 'February 25, 2025',
     readTime: '8 min read',

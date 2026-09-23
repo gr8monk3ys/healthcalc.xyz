@@ -38,10 +38,10 @@ const EditorialProcessPageContent = (
         credible science.
       </p>
       <p>
-        Health content is classified as &quot;Your Money or Your Life&quot; (YMYL) by major search
-        engines because it can directly affect a person&apos;s health and safety. That
-        classification drives our editorial standards: we hold ourselves to the same rigor you would
-        expect from a clinical reference, while keeping the language accessible to everyone.
+        Health content is classified as “Your Money or Your Life” (YMYL) by major search engines
+        because it can directly affect a person’s health and safety. That classification drives our
+        editorial standards: we hold ourselves to the same rigor you would expect from a clinical
+        reference, while keeping the language accessible to everyone.
       </p>
     </div>
 
@@ -146,8 +146,8 @@ const EditorialProcessPageContent = (
         </div>
       </div>
       <p className="text-sm text-gray-600 dark:text-gray-400">
-        Each piece of reviewed content shows a &quot;Last reviewed&quot; date. If you believe
-        something needs updating, please{' '}
+        Each piece of reviewed content shows a “Last reviewed” date. If you believe something needs
+        updating, please{' '}
         <Link href="/contact" className="text-accent hover:underline">
           let us know
         </Link>
@@ -365,28 +365,28 @@ const EditorialProcessPageContent = (
       </p>
       <ul className="list-disc pl-6 space-y-2 text-sm text-gray-700 dark:text-gray-300">
         <li>
-          Mifflin MD, St Jeor ST, et al. &quot;A new predictive equation for resting energy
-          expenditure in healthy individuals.&quot; Am J Clin Nutr. 1990;51(2):241-247.
+          Mifflin MD, St Jeor ST, et al. “A new predictive equation for resting energy expenditure
+          in healthy individuals.” Am J Clin Nutr. 1990;51(2):241-247.
         </li>
         <li>
-          Roza AM, Shizgal HM. &quot;The Harris Benedict equation reevaluated.&quot; Am J Clin Nutr.
+          Roza AM, Shizgal HM. “The Harris Benedict equation reevaluated.” Am J Clin Nutr.
           1984;40(1):168-182.
         </li>
         <li>
-          Hodgdon JA, Beckett MB. &quot;Prediction of percent body fat for U.S. Navy men and women
-          from body circumferences and height.&quot; Naval Health Research Center. 1984.
+          Hodgdon JA, Beckett MB. “Prediction of percent body fat for U.S. Navy men and women from
+          body circumferences and height.” Naval Health Research Center. 1984.
         </li>
         <li>
-          Krakauer NY, Krakauer JC. &quot;A new body shape index predicts mortality hazard
-          independently of body mass index.&quot; PLoS One. 2012;7(7):e39504.
+          Krakauer NY, Krakauer JC. “A new body shape index predicts mortality hazard independently
+          of body mass index.” PLoS One. 2012;7(7):e39504.
         </li>
         <li>
-          World Health Organization. &quot;Obesity: preventing and managing the global
-          epidemic.&quot; WHO Technical Report Series 894. 2000.
+          World Health Organization. “Obesity: preventing and managing the global epidemic.” WHO
+          Technical Report Series 894. 2000.
         </li>
         <li>
-          American College of Sports Medicine. &quot;ACSM&apos;s Guidelines for Exercise Testing and
-          Prescription.&quot; 11th Edition. 2021.
+          American College of Sports Medicine. “ACSM’s Guidelines for Exercise Testing and
+          Prescription.” 11th Edition. 2021.
         </li>
       </ul>
     </div>

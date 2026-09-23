@@ -25,8 +25,8 @@ const BodyCompositionBeyondBMIPageContent = (
             health assessment
           </li>
           <li>
-            &quot;Normal weight obesity&quot; (normal BMI but high body fat) carries higher
-            cardiovascular risk than BMI alone would suggest
+            “Normal weight obesity” (normal BMI but high body fat) carries higher cardiovascular
+            risk than BMI alone would suggest
           </li>
           <li>
             Waist-to-hip ratio and ABSI predict mortality risk better than BMI in most research
@@ -44,9 +44,9 @@ const BodyCompositionBeyondBMIPageContent = (
           BMI calculator
         </Link>{' '}
         for this site, and I think BMI is one of the least useful health metrics a person can track.
-        That&apos;s not a contradiction. BMI is widespread, people search for it, and it gives you a
+        That’s not a contradiction. BMI is widespread, people search for it, and it gives you a
         number you can use as a rough screening tool. But the moment you start treating it as a
-        meaningful indicator of individual health, you&apos;ve gone wrong.
+        meaningful indicator of individual health, you’ve gone wrong.
       </p>
 
       <p>
@@ -60,9 +60,9 @@ const BodyCompositionBeyondBMIPageContent = (
 
       <p>
         BMI was not created by a doctor. It was created by a Belgian astronomer and statistician
-        named Adolphe Quetelet in the 1830s. Quetelet was interested in defining &quot;the average
-        man&quot; as a statistical concept. He noticed that body weight scaled roughly with the
-        square of height across populations, and he described this mathematical relationship.
+        named Adolphe Quetelet in the 1830s. Quetelet was interested in defining “the average man”
+        as a statistical concept. He noticed that body weight scaled roughly with the square of
+        height across populations, and he described this mathematical relationship.
       </p>
 
       <p>
@@ -73,10 +73,9 @@ const BodyCompositionBeyondBMIPageContent = (
 
       <p>
         The formula sat mostly unused for over a century until Ancel Keys published a paper in 1972
-        that dubbed it the &quot;Body Mass Index&quot; and argued it was useful for epidemiological
-        studies. Keys himself was explicit that BMI was meant for population research, not
-        individual diagnosis. He wrote that it was &quot;not fully satisfactory&quot; and
-        acknowledged its limitations.
+        that dubbed it the “Body Mass Index” and argued it was useful for epidemiological studies.
+        Keys himself was explicit that BMI was meant for population research, not individual
+        diagnosis. He wrote that it was “not fully satisfactory” and acknowledged its limitations.
       </p>
 
       <p>
@@ -94,9 +93,9 @@ const BodyCompositionBeyondBMIPageContent = (
 
       <p>
         The most commonly cited failure of BMI is with athletes. Dwayne Johnson has a BMI of roughly
-        34, which classifies him as &quot;obese.&quot; Most NFL running backs are
-        &quot;overweight&quot; or &quot;obese&quot; by BMI. Competitive CrossFit athletes, gymnasts,
-        and sprinters routinely fall outside the &quot;normal&quot; range.
+        34, which classifies him as “obese.” Most NFL running backs are “overweight” or “obese” by
+        BMI. Competitive CrossFit athletes, gymnasts, and sprinters routinely fall outside the
+        “normal” range.
       </p>
 
       <p>
@@ -120,11 +119,10 @@ const BodyCompositionBeyondBMIPageContent = (
 
       <p>
         Multiple studies, including a 2014 analysis in the Annals of Internal Medicine, have shown
-        that the &quot;optimal&quot; BMI for mortality risk shifts higher with age. Elderly adults
-        with BMIs of 25 to 30 (classified as &quot;overweight&quot;) actually have lower mortality
-        rates than those with &quot;normal&quot; BMIs. This is sometimes called the obesity paradox,
-        and it probably reflects the fact that some of that extra weight is protective muscle mass
-        or metabolic reserve.
+        that the “optimal” BMI for mortality risk shifts higher with age. Elderly adults with BMIs
+        of 25 to 30 (classified as “overweight”) actually have lower mortality rates than those with
+        “normal” BMIs. This is sometimes called the obesity paradox, and it probably reflects the
+        fact that some of that extra weight is protective muscle mass or metabolic reserve.
       </p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
@@ -161,9 +159,9 @@ const BodyCompositionBeyondBMIPageContent = (
       </h2>
 
       <p>
-        This is where BMI&apos;s failures become genuinely dangerous. &quot;Normal weight
-        obesity&quot; describes people who have a BMI in the normal range (18.5 to 24.9) but carry
-        an unhealthy amount of body fat.
+        This is where BMI’s failures become genuinely dangerous. “Normal weight obesity” describes
+        people who have a BMI in the normal range (18.5 to 24.9) but carry an unhealthy amount of
+        body fat.
       </p>
 
       <p>
@@ -177,18 +175,18 @@ const BodyCompositionBeyondBMIPageContent = (
       <p>
         A follow-up analysis using NHANES data (De Lorenzo et al., 2013) found that normal weight
         obese women had cardiovascular risk profiles similar to women classified as obese by BMI.
-        Their BMI said &quot;healthy.&quot; Their body composition said otherwise.
+        Their BMI said “healthy.” Their body composition said otherwise.
       </p>
 
       <p>
         This matters because these people fall through the screening cracks. Their doctor checks
         BMI, sees a normal number, and moves on. No one investigates further. The patient feels fine
-        because the metric says they&apos;re fine. Meanwhile, their visceral fat is accumulating
-        around their organs, driving inflammation and insulin resistance.
+        because the metric says they’re fine. Meanwhile, their visceral fat is accumulating around
+        their organs, driving inflammation and insulin resistance.
       </p>
 
       <p>
-        I think this is the strongest argument against relying on BMI alone. It&apos;s not just
+        I think this is the strongest argument against relying on BMI alone. It’s not just
         inaccurate for athletes. It misses people who are genuinely at risk.
       </p>
 
@@ -260,7 +258,7 @@ const BodyCompositionBeyondBMIPageContent = (
         Measuring Body Fat: Methods Compared
       </h2>
 
-      <p>I&apos;ve organized these from most to least accurate, with practical notes on each.</p>
+      <p>I’ve organized these from most to least accurate, with practical notes on each.</p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
         DEXA Scan (Dual-Energy X-ray Absorptiometry)
@@ -291,8 +289,8 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        It&apos;s uncomfortable, requires you to fully exhale while submerged, and is only available
-        at universities and specialized facilities. Not practical for regular tracking.
+        It’s uncomfortable, requires you to fully exhale while submerged, and is only available at
+        universities and specialized facilities. Not practical for regular tracking.
       </p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
@@ -309,16 +307,16 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        Accuracy is within 3-4% of DEXA for most people. It&apos;s free, requires only a tape
-        measure, and is reasonably repeatable if you measure consistently. The main weakness is that
-        it assumes fat distribution follows a standard pattern. If you carry fat differently than
-        the average Navy recruit from the 1980s, it may be less accurate for you.
+        Accuracy is within 3-4% of DEXA for most people. It’s free, requires only a tape measure,
+        and is reasonably repeatable if you measure consistently. The main weakness is that it
+        assumes fat distribution follows a standard pattern. If you carry fat differently than the
+        average Navy recruit from the 1980s, it may be less accurate for you.
       </p>
 
       <p>
-        For regular at-home tracking, I think this is the best option. Not because it&apos;s the
-        most accurate, but because you can do it weekly with consistent conditions and track trends
-        over time. The trend matters more than the absolute number.
+        For regular at-home tracking, I think this is the best option. Not because it’s the most
+        accurate, but because you can do it weekly with consistent conditions and track trends over
+        time. The trend matters more than the absolute number.
       </p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
@@ -332,10 +330,10 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        The problem: BIA is wildly affected by hydration. If you&apos;re dehydrated, it
-        overestimates body fat. If you just drank a liter of water, it underestimates. Time of day,
-        recent meals, recent exercise, and even skin temperature all influence the reading. Error
-        margins of 5-8% are common, which makes a single reading nearly meaningless.
+        The problem: BIA is wildly affected by hydration. If you’re dehydrated, it overestimates
+        body fat. If you just drank a liter of water, it underestimates. Time of day, recent meals,
+        recent exercise, and even skin temperature all influence the reading. Error margins of 5-8%
+        are common, which makes a single reading nearly meaningless.
       </p>
 
       <p>
@@ -498,8 +496,8 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        A tape measure around your waist and knowledge of your height. That&apos;s all you need for
-        a metric that outperforms BMI in nearly every study that compares them.
+        A tape measure around your waist and knowledge of your height. That’s all you need for a
+        metric that outperforms BMI in nearly every study that compares them.
       </p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
@@ -560,15 +558,15 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        <strong>Calculate waist-to-height ratio.</strong> If it&apos;s under 0.5, your abdominal fat
-        is likely in a healthy range. If it&apos;s above 0.5, focus on reducing it through calorie
+        <strong>Calculate waist-to-height ratio.</strong> If it’s under 0.5, your abdominal fat is
+        likely in a healthy range. If it’s above 0.5, focus on reducing it through calorie
         management and exercise.
       </p>
 
       <p>
         <strong>Use the Navy method for body fat estimation.</strong> Measure neck, waist, and hips
-        consistently, at the same time of day, once a week. Don&apos;t obsess over the absolute
-        number. Watch the trend.
+        consistently, at the same time of day, once a week. Don’t obsess over the absolute number.
+        Watch the trend.
       </p>
 
       <p>
@@ -587,7 +585,7 @@ const BodyCompositionBeyondBMIPageContent = (
       <p>
         <strong>Stop obsessing over BMI.</strong> Know it. Check it. Then move on to measurements
         that actually matter for your health. BMI is a screening tool for populations. It was never
-        designed to describe you as an individual, and it doesn&apos;t do that job well.
+        designed to describe you as an individual, and it doesn’t do that job well.
       </p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
@@ -597,7 +595,7 @@ const BodyCompositionBeyondBMIPageContent = (
       <p>
         Your body composition is more than a single number. BMI is a quick and easy metric, but it
         cannot distinguish fat from muscle, it fails across ethnicities and age groups, and it
-        misses the &quot;normal weight obese&quot; population entirely.
+        misses the “normal weight obese” population entirely.
       </p>
 
       <p>
@@ -607,9 +605,9 @@ const BodyCompositionBeyondBMIPageContent = (
       </p>
 
       <p>
-        If you only have 30 seconds, measure your waist and divide by your height. If it&apos;s
-        under 0.5, you&apos;re probably in a good place. If it&apos;s over 0.5, you have a concrete
-        target to work toward.
+        If you only have 30 seconds, measure your waist and divide by your height. If it’s under
+        0.5, you’re probably in a good place. If it’s over 0.5, you have a concrete target to work
+        toward.
       </p>
 
       <div className="neumorph-card rounded-xl p-6 my-8">
@@ -658,33 +656,33 @@ const BodyCompositionBeyondBMIPageContent = (
 
       <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
         <li>
-          Keys A, et al. &quot;Indices of relative weight and obesity.&quot; Journal of Chronic
-          Diseases, 1972.
+          Keys A, et al. “Indices of relative weight and obesity.” Journal of Chronic Diseases,
+          1972.
         </li>
         <li>
-          Romero-Corral A, et al. &quot;Normal weight obesity: a risk factor for cardiometabolic
-          dysregulation and cardiovascular mortality.&quot; European Heart Journal, 2008.
+          Romero-Corral A, et al. “Normal weight obesity: a risk factor for cardiometabolic
+          dysregulation and cardiovascular mortality.” European Heart Journal, 2008.
         </li>
         <li>
-          De Lorenzo A, et al. &quot;New obesity classification criteria as a tool for bariatric
-          surgery indication.&quot; World Journal of Gastroenterology, 2016.
+          De Lorenzo A, et al. “New obesity classification criteria as a tool for bariatric surgery
+          indication.” World Journal of Gastroenterology, 2016.
         </li>
         <li>
-          Czernichow S, et al. &quot;Body mass index, waist circumference and waist-hip ratio: which
-          is the better discriminator of cardiovascular disease mortality risk?&quot; International
-          Journal of Epidemiology, 2011.
+          Czernichow S, et al. “Body mass index, waist circumference and waist-hip ratio: which is
+          the better discriminator of cardiovascular disease mortality risk?” International Journal
+          of Epidemiology, 2011.
         </li>
         <li>
-          Krakauer NY, Krakauer JC. &quot;A new body shape index predicts mortality hazard
-          independently of body mass index.&quot; PLOS ONE, 2012.
+          Krakauer NY, Krakauer JC. “A new body shape index predicts mortality hazard independently
+          of body mass index.” PLOS ONE, 2012.
         </li>
         <li>
-          Ashwell M, et al. &quot;Waist-to-height ratio is a better screening tool than waist
-          circumference and BMI for adult cardiometabolic risk factors.&quot; Obesity Reviews, 2012.
+          Ashwell M, et al. “Waist-to-height ratio is a better screening tool than waist
+          circumference and BMI for adult cardiometabolic risk factors.” Obesity Reviews, 2012.
         </li>
         <li>
-          Flegal KM, et al. &quot;Association of all-cause mortality with overweight and obesity
-          using standard body mass index categories.&quot; JAMA, 2013.
+          Flegal KM, et al. “Association of all-cause mortality with overweight and obesity using
+          standard body mass index categories.” JAMA, 2013.
         </li>
       </ul>
     </div>

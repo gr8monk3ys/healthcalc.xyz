@@ -103,7 +103,7 @@ const WaistToHipRatioGuidePageContent = (
               circumference to your hip circumference.
             </li>
             <li>
-              WHR helps identify whether you have an "apple" shape (higher WHR) or "pear" shape
+              WHR helps identify whether you have an “apple” shape (higher WHR) or “pear” shape
               (lower WHR).
             </li>
             <li>
@@ -123,7 +123,7 @@ const WaistToHipRatioGuidePageContent = (
         <h2>What is Waist-to-Hip Ratio?</h2>
         <p>
           Waist-to-Hip Ratio (WHR) is a simple measurement that compares the circumference of your
-          waist to that of your hips. It's calculated by dividing your waist measurement by your hip
+          waist to that of your hips. It’s calculated by dividing your waist measurement by your hip
           measurement:
         </p>
         <div className="neumorph-inset p-4 rounded-lg my-6 text-center">
@@ -135,13 +135,13 @@ const WaistToHipRatioGuidePageContent = (
         </p>
         <p>
           This simple ratio provides valuable information about your body shape and potential health
-          risks. It's been used by health professionals for decades and is recognized by the World
+          risks. It’s been used by health professionals for decades and is recognized by the World
           Health Organization (WHO) as an indicator of health risk.
         </p>
 
         <h2>Apple vs. Pear: Why Body Shape Matters</h2>
         <p>
-          You've probably heard people described as having an "apple-shaped" or "pear-shaped" body.
+          You’ve probably heard people described as having an “apple-shaped” or “pear-shaped” body.
           These descriptions refer to where fat tends to be distributed:
         </p>
         <ul>
@@ -157,7 +157,7 @@ const WaistToHipRatioGuidePageContent = (
           </li>
         </ul>
         <p>
-          The distinction between these body shapes isn't just about aesthetics—it has significant
+          The distinction between these body shapes isn’t just about aesthetics—it has significant
           implications for health. Research has consistently shown that central obesity (excess
           abdominal fat) is a stronger predictor of certain health conditions than overall body
           weight or BMI alone.
@@ -189,7 +189,7 @@ const WaistToHipRatioGuidePageContent = (
 
         <h2>How to Measure Your Waist and Hips Correctly</h2>
         <p>
-          Accurate measurement is crucial for calculating your WHR. Here's how to do it properly:
+          Accurate measurement is crucial for calculating your WHR. Here’s how to do it properly:
         </p>
 
         <h3>Waist Measurement</h3>
@@ -201,7 +201,7 @@ const WaistToHipRatioGuidePageContent = (
             navel).
           </li>
           <li>Wrap the tape around your waist, keeping it parallel to the floor.</li>
-          <li>Measure after breathing out normally (don't suck in your stomach).</li>
+          <li>Measure after breathing out normally (don’t suck in your stomach).</li>
           <li>Ensure the tape is snug but not digging into your skin.</li>
         </ol>
 
@@ -273,8 +273,8 @@ const WaistToHipRatioGuidePageContent = (
             Case Study: The Importance of WHR Beyond BMI
           </h3>
           <p>
-            Consider two women, both 5'6" tall and weighing 150 pounds, giving them identical BMIs
-            of 24.2 (within the "normal" range):
+            Consider two women, both 5′6″ tall and weighing 150 pounds, giving them identical BMIs
+            of 24.2 (within the “normal” range):
           </p>
           <ul>
             <li>
@@ -287,7 +287,7 @@ const WaistToHipRatioGuidePageContent = (
           </ul>
           <p>
             Despite having the same BMI, these women have very different health risk profiles based
-            on their WHR. Woman B's higher WHR indicates significant central obesity and potentially
+            on their WHR. Woman B’s higher WHR indicates significant central obesity and potentially
             higher risk for metabolic disorders, cardiovascular disease, and other health issues.
           </p>
           <p className="mb-0">
@@ -344,11 +344,11 @@ const WaistToHipRatioGuidePageContent = (
           </li>
           <li>
             <strong>Limit alcohol:</strong> Excessive alcohol consumption is associated with
-            increased abdominal fat ("beer belly").
+            increased abdominal fat (“beer belly”).
           </li>
         </ul>
         <p>
-          It's important to note that spot reduction (targeting fat loss from specific areas) isn't
+          It’s important to note that spot reduction (targeting fat loss from specific areas) isn’t
           possible. When you lose fat, it comes from all over your body, though some areas may lose
           more than others based on genetics and hormones.
         </p>
@@ -358,10 +358,10 @@ const WaistToHipRatioGuidePageContent = (
         <ul>
           <li>
             <strong>BMI (Body Mass Index):</strong> Measures overall weight relative to height, but
-            doesn't distinguish between fat and muscle or consider fat distribution.
+            doesn’t distinguish between fat and muscle or consider fat distribution.
           </li>
           <li>
-            <strong>Waist Circumference:</strong> Measures abdominal fat directly, but doesn't
+            <strong>Waist Circumference:</strong> Measures abdominal fat directly, but doesn’t
             account for overall body size or frame.
           </li>
           <li>
@@ -374,11 +374,11 @@ const WaistToHipRatioGuidePageContent = (
           </li>
           <li>
             <strong>Body Fat Percentage:</strong> Measures the actual proportion of fat in your
-            body, regardless of where it's distributed.
+            body, regardless of where it’s distributed.
           </li>
         </ul>
         <p>
-          Each metric has strengths and limitations. WHR is particularly valuable because it's easy
+          Each metric has strengths and limitations. WHR is particularly valuable because it’s easy
           to measure and provides insight into fat distribution patterns that BMI alone cannot
           capture.
         </p>
@@ -390,7 +390,7 @@ const WaistToHipRatioGuidePageContent = (
 
         <h2>Genetic Factors and Body Shape</h2>
         <p>
-          It's important to note that body fat distribution is influenced by genetics, age, sex
+          It’s important to note that body fat distribution is influenced by genetics, age, sex
           hormones, and other factors beyond your control. Some people naturally tend toward an
           apple or pear shape.
         </p>
@@ -404,7 +404,7 @@ const WaistToHipRatioGuidePageContent = (
           of testosterone and lower estrogen levels.
         </p>
         <p>
-          While you can't change your genetic predisposition, you can still take steps to improve
+          While you can’t change your genetic predisposition, you can still take steps to improve
           your WHR and reduce health risks through diet, exercise, and lifestyle changes.
         </p>
 
@@ -415,7 +415,7 @@ const WaistToHipRatioGuidePageContent = (
           information that BMI alone misses.
         </p>
         <p>
-          If your WHR indicates an increased risk, don't be discouraged. Even modest improvements in
+          If your WHR indicates an increased risk, don’t be discouraged. Even modest improvements in
           WHR can significantly reduce health risks. Focus on healthy behaviors rather than
           achieving a specific body shape, and remember that health encompasses many factors beyond
           WHR alone.
@@ -478,10 +478,10 @@ const WaistToHipRatioGuidePageContent = (
         <Link href="/blog/understanding-body-fat-percentage" className="block">
           <div className="neumorph h-full p-6 rounded-lg transition hover:shadow-neumorph-inset">
             <h4 className="text-lg font-semibold mb-2">
-              Understanding Body Fat Percentage: What's Healthy and Why It Matters
+              Understanding Body Fat Percentage: What’s Healthy and Why It Matters
             </h4>
             <p className="text-gray-600 mb-2">
-              Learn what body fat percentage really means, how it's measured, and what ranges are
+              Learn what body fat percentage really means, how it’s measured, and what ranges are
               considered healthy.
             </p>
             <span className="text-accent font-medium">Read Article →</span>

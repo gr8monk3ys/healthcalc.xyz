@@ -9,7 +9,7 @@ const WHRInfo: React.FC = () => {
     <InfoSection title="About Waist-to-Hip Ratio (WHR)">
       <p>
         Waist-to-Hip Ratio (WHR) is a simple measurement that compares the circumference of your
-        waist to that of your hips. It's an important indicator of how your body fat is distributed
+        waist to that of your hips. It’s an important indicator of how your body fat is distributed
         and can help assess your risk for certain health conditions.
       </p>
 

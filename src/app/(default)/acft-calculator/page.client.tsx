@@ -19,7 +19,7 @@ const faqs = [
   {
     question: 'What is the ACFT and how is it scored?',
     answer:
-      "The Army Combat Fitness Test (ACFT) is the U.S. Army's official fitness assessment, replacing the older APFT. It consists of 6 events: 3 Repetition Maximum Deadlift, Standing Power Throw, Hand Release Push-Ups, Sprint-Drag-Carry, Plank, and 2-Mile Run. Each event is scored from 0-100 points, for a maximum total of 600. A minimum of 60 points per event is required to pass, and the overall minimum passing score is 360. Soldiers who score 540+ earn Gold tier, 480+ Silver, and 420+ Bronze.",
+      'The Army Combat Fitness Test (ACFT) is the U.S. Army’s official fitness assessment, replacing the older APFT. It consists of 6 events: 3 Repetition Maximum Deadlift, Standing Power Throw, Hand Release Push-Ups, Sprint-Drag-Carry, Plank, and 2-Mile Run. Each event is scored from 0-100 points, for a maximum total of 600. A minimum of 60 points per event is required to pass, and the overall minimum passing score is 360. Soldiers who score 540+ earn Gold tier, 480+ Silver, and 420+ Bronze.',
   },
   {
     question: 'What are the minimum passing standards for the ACFT?',

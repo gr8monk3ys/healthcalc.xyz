@@ -79,9 +79,9 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         Stuart Phillips, one of the leading protein researchers at McMaster University, has
-        published extensively on this topic. His group&apos;s work consistently lands in the 1.6 to
-        2.2 g/kg range for active individuals. For someone weighing 80 kg (176 pounds), that is 128
-        to 176 grams of protein per day.
+        published extensively on this topic. His group’s work consistently lands in the 1.6 to 2.2
+        g/kg range for active individuals. For someone weighing 80 kg (176 pounds), that is 128 to
+        176 grams of protein per day.
       </p>
 
       <p>
@@ -105,9 +105,8 @@ const CompleteGuideToMacronutrientsPageContent = (
       </h3>
 
       <p>
-        For years, the fitness industry insisted on a narrow &quot;anabolic window&quot; after
-        training. You had to consume protein within 30 to 60 minutes of your workout, or the session
-        was wasted.
+        For years, the fitness industry insisted on a narrow “anabolic window” after training. You
+        had to consume protein within 30 to 60 minutes of your workout, or the session was wasted.
       </p>
 
       <p>
@@ -194,9 +193,9 @@ const CompleteGuideToMacronutrientsPageContent = (
       </h3>
 
       <p>
-        Carbohydrates are your body&apos;s preferred fuel source for high-intensity exercise.
-        Glycogen (stored carbohydrate in muscle and liver) powers sprinting, heavy lifting, HIIT,
-        and any activity above about 70% of maximum effort.
+        Carbohydrates are your body’s preferred fuel source for high-intensity exercise. Glycogen
+        (stored carbohydrate in muscle and liver) powers sprinting, heavy lifting, HIIT, and any
+        activity above about 70% of maximum effort.
       </p>
 
       <p>
@@ -526,40 +525,39 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
         <li>
-          Morton RW, et al. &quot;A systematic review, meta-analysis and meta-regression of the
-          effect of protein supplementation on resistance training-induced gains in muscle mass and
-          strength.&quot; British Journal of Sports Medicine, 2018.
+          Morton RW, et al. “A systematic review, meta-analysis and meta-regression of the effect of
+          protein supplementation on resistance training-induced gains in muscle mass and strength.”
+          British Journal of Sports Medicine, 2018.
         </li>
         <li>
-          Bauer J, et al. &quot;Evidence-based recommendations for optimal dietary protein intake in
-          older people: a position paper from the PROT-AGE study group.&quot; Journal of the
-          American Medical Directors Association, 2013.
+          Bauer J, et al. “Evidence-based recommendations for optimal dietary protein intake in
+          older people: a position paper from the PROT-AGE study group.” Journal of the American
+          Medical Directors Association, 2013.
         </li>
         <li>
-          Schoenfeld BJ, Aragon AA, Krieger JW. &quot;The effect of protein timing on muscle
-          strength and hypertrophy: a meta-analysis.&quot; Journal of the International Society of
-          Sports Nutrition, 2013.
+          Schoenfeld BJ, Aragon AA, Krieger JW. “The effect of protein timing on muscle strength and
+          hypertrophy: a meta-analysis.” Journal of the International Society of Sports Nutrition,
+          2013.
         </li>
         <li>
-          Hall KD, et al. &quot;Energy expenditure and body composition changes after an isocaloric
-          ketogenic diet in overweight and obese men.&quot; American Journal of Clinical Nutrition,
-          2016.
+          Hall KD, et al. “Energy expenditure and body composition changes after an isocaloric
+          ketogenic diet in overweight and obese men.” American Journal of Clinical Nutrition, 2016.
         </li>
         <li>
-          Hall KD, et al. &quot;Effect of a plant-based, low-fat diet versus an animal-based,
-          ketogenic diet on ad libitum energy intake.&quot; Nature Medicine, 2021.
+          Hall KD, et al. “Effect of a plant-based, low-fat diet versus an animal-based, ketogenic
+          diet on ad libitum energy intake.” Nature Medicine, 2021.
         </li>
         <li>
-          Reynolds A, et al. &quot;Carbohydrate quality and human health: a series of systematic
-          reviews and meta-analyses.&quot; The Lancet, 2019.
+          Reynolds A, et al. “Carbohydrate quality and human health: a series of systematic reviews
+          and meta-analyses.” The Lancet, 2019.
         </li>
         <li>
-          Whittaker J, Harris M. &quot;Low-fat diets and testosterone in men.&quot; Journal of
-          Steroid Biochemistry and Molecular Biology, 2021.
+          Whittaker J, Harris M. “Low-fat diets and testosterone in men.” Journal of Steroid
+          Biochemistry and Molecular Biology, 2021.
         </li>
         <li>
-          Hooper L, et al. &quot;Reduction in saturated fat intake for cardiovascular disease.&quot;
-          Cochrane Database of Systematic Reviews, 2020.
+          Hooper L, et al. “Reduction in saturated fat intake for cardiovascular disease.” Cochrane
+          Database of Systematic Reviews, 2020.
         </li>
       </ul>
     </div>

@@ -163,7 +163,7 @@ const MealDeliveryServicesPageContent = (
         </div>
 
         <p>
-          You've calculated your{' '}
+          You’ve calculated your{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE
           </Link>{' '}
@@ -241,7 +241,7 @@ const MealDeliveryServicesPageContent = (
         </div>
 
         <p>
-          In this guide, we'll review the best meal delivery services specifically for weight loss
+          In this guide, we’ll review the best meal delivery services specifically for weight loss
           and calorie control, comparing their nutrition info, taste, convenience, and value.
         </p>
 
@@ -250,14 +250,14 @@ const MealDeliveryServicesPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Portion Control:</strong> Pre-portioned meals eliminate the "just one more
-              bite" trap
+              <strong>Portion Control:</strong> Pre-portioned meals eliminate the “just one more
+              bite” trap
             </li>
             <li>
               <strong>Accurate Calories:</strong> Every meal has nutritional info - no guessing
             </li>
             <li>
-              <strong>Decision Fatigue:</strong> Removes daily "what should I eat?" stress
+              <strong>Decision Fatigue:</strong> Removes daily “what should I eat?” stress
             </li>
             <li>
               <strong>Time Savings:</strong> No meal planning, grocery shopping, or extensive
@@ -277,7 +277,7 @@ const MealDeliveryServicesPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Factor</h3>
             </div>
@@ -286,7 +286,7 @@ const MealDeliveryServicesPageContent = (
 
           <p className="mb-4">
             Factor (owned by HelloFresh) delivers chef-prepared, ready-to-eat meals that just need
-            reheating. Their "Calorie Smart" menu features meals under 550 calories, perfect for
+            reheating. Their “Calorie Smart” menu features meals under 550 calories, perfect for
             maintaining a deficit without sacrificing taste.
           </p>
 
@@ -345,8 +345,8 @@ const MealDeliveryServicesPageContent = (
           </div>
 
           <p className="mb-4">
-            HelloFresh delivers fresh ingredients with step-by-step recipes. Their "Calorie Smart"
-            and "Fit & Wholesome" menus feature recipes under 650 calories per serving, with full
+            HelloFresh delivers fresh ingredients with step-by-step recipes. Their “Calorie Smart”
+            and “Fit & Wholesome” menus feature recipes under 650 calories per serving, with full
             nutritional breakdowns.
           </p>
 
@@ -421,7 +421,7 @@ const MealDeliveryServicesPageContent = (
             <Link href="/maximum-fat-loss" className="text-accent hover:underline">
               Maximum Fat Loss Calculator
             </Link>{' '}
-            who need precise macro control. Trifecta's protein-focused meals help preserve muscle
+            who need precise macro control. Trifecta’s protein-focused meals help preserve muscle
             during aggressive cuts.
           </p>
 
@@ -471,7 +471,7 @@ const MealDeliveryServicesPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
           <p>
-            The customizable macros make MealPro perfect for users who've calculated specific
+            The customizable macros make MealPro perfect for users who’ve calculated specific
             targets with our{' '}
             <Link href="/weight-management" className="text-accent hover:underline">
               Weight Management Calculator

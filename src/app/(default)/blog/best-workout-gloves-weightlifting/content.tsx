@@ -512,7 +512,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Designed specifically for women's hand proportions</li>
+            <li>Designed specifically for women’s hand proportions</li>
             <li>Lightweight padding in palm and fingers</li>
             <li>Microfiber and mesh construction for breathability</li>
             <li>Adjustable wrist support straps</li>
@@ -761,7 +761,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
           <li>
             <strong>Best for women or smaller hands:</strong>{' '}
             <strong>Trideer Padded gloves at $12</strong> are designed for proper fit instead of
-            being scaled-down men's gloves.
+            being scaled-down men’s gloves.
           </li>
         </ul>
 

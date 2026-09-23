@@ -56,7 +56,7 @@ export default function Error({
           </h1>
 
           <p className="text-gray-600 text-center mb-6">
-            We encountered an unexpected error while loading this page. Don't worry, your data is
+            We encountered an unexpected error while loading this page. Don’t worry, your data is
             safe.
           </p>
 

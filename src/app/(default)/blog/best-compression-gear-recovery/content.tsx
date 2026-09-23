@@ -78,7 +78,7 @@ const productListJsonLd = {
     {
       '@type': 'ListItem',
       position: 5,
-      item: { '@type': 'Product', name: "CompressionZ Men's Leggings" },
+      item: { '@type': 'Product', name: 'CompressionZ Men’s Leggings' },
     },
   ],
 };
@@ -119,8 +119,8 @@ const BestCompressionGearRecoveryPageContent = (
               panels, stabilizes knees and hips
             </li>
             <li>
-              <strong>Best Value:</strong> CompressionZ Men&apos;s Leggings ($22) - Surprisingly
-              durable, mild compression
+              <strong>Best Value:</strong> CompressionZ Men’s Leggings ($22) - Surprisingly durable,
+              mild compression
             </li>
           </ul>
         </div>
@@ -150,7 +150,7 @@ const BestCompressionGearRecoveryPageContent = (
             </li>
             <li>
               <Link href="#compressionz" className="text-accent hover:underline">
-                CompressionZ Men&apos;s Leggings
+                CompressionZ Men’s Leggings
               </Link>
             </li>
           </ul>
@@ -306,13 +306,13 @@ const BestCompressionGearRecoveryPageContent = (
             <span className="text-2xl font-bold text-accent">$120</span>
           </div>
           <p className="mb-4">
-            2XU stands for &quot;two times you&quot; and their Muscle Containment Stamping (MCS)
-            technology is the only compression system with independent clinical validation. They map
-            over 400 muscles and apply different compression zones based on where force is generated
-            during running. The result is 20-25 mmHg compression that feels supportive without
-            restricting movement. I wore these for 3 hours after a marathon and felt noticeably less
-            stiff the next day compared to foam rolling alone. The PWX compression fabric holds
-            tension after 50+ washes, which is rare.
+            2XU stands for “two times you” and their Muscle Containment Stamping (MCS) technology is
+            the only compression system with independent clinical validation. They map over 400
+            muscles and apply different compression zones based on where force is generated during
+            running. The result is 20-25 mmHg compression that feels supportive without restricting
+            movement. I wore these for 3 hours after a marathon and felt noticeably less stiff the
+            next day compared to foam rolling alone. The PWX compression fabric holds tension after
+            50+ washes, which is rare.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -536,7 +536,7 @@ const BestCompressionGearRecoveryPageContent = (
 
         {/* Product 5 */}
         <h2 id="compressionz" className="text-2xl font-bold mt-8 mb-4">
-          5. CompressionZ Men&apos;s Leggings - Best Value
+          5. CompressionZ Men’s Leggings - Best Value
         </h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <div className="flex justify-between items-start mb-4">
@@ -544,7 +544,7 @@ const BestCompressionGearRecoveryPageContent = (
               <span className="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mb-2">
                 Best Value
               </span>
-              <h3 className="text-xl font-semibold">CompressionZ Men&apos;s Leggings</h3>
+              <h3 className="text-xl font-semibold">CompressionZ Men’s Leggings</h3>
               <p className="text-sm text-yellow-600 mt-1">
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
@@ -727,8 +727,8 @@ const BestCompressionGearRecoveryPageContent = (
           </li>
           <li>
             <strong>Testing compression for the first time:</strong>{' '}
-            <strong>CompressionZ Men&apos;s Leggings at $22</strong> offer real compression without
-            the premium price tag.
+            <strong>CompressionZ Men’s Leggings at $22</strong> offer real compression without the
+            premium price tag.
           </li>
         </ul>
 

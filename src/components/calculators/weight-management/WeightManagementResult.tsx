@@ -291,7 +291,7 @@ export default function WeightManagementResultDisplay({
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>Get adequate sleep - it's crucial for weight management and recovery</span>
+            <span>Get adequate sleep - it’s crucial for weight management and recovery</span>
           </li>
           {result.goalType === 'gain' && (
             <li className="flex items-start gap-2">

@@ -139,9 +139,9 @@ const BestMassageGunsRecoveryPageContent = (
 
         <p>
           I ignored massage guns for two years because they seemed overpriced and overhyped. Then I
-          borrowed a friend&apos;s Hypervolt after a hard leg day and spent 15 minutes on my quads
-          and IT bands. The next morning I woke up sore, but not the kind of sore where you walk
-          down stairs sideways. The kind where you can still train. That is the point of percussion
+          borrowed a friend’s Hypervolt after a hard leg day and spent 15 minutes on my quads and IT
+          bands. The next morning I woke up sore, but not the kind of sore where you walk down
+          stairs sideways. The kind where you can still train. That is the point of percussion
           massage. It will not eliminate soreness, but it reduces the severity and shortens the
           recovery window. Use our{' '}
           <Link href="/body-fat-burn" className="text-accent hover:underline">

@@ -362,7 +362,7 @@ export default function BodyRecompositionCalculator({
             </p>
             <p className="mb-4">
               This calculator provides personalized calorie and macro targets based on your training
-              experience, body composition, and goals. You'll get specific recommendations for
+              experience, body composition, and goals. You’ll get specific recommendations for
               training days and rest days to optimize your body recomposition progress.
             </p>
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-4">

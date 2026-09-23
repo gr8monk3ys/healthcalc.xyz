@@ -48,7 +48,7 @@ const faqs = [
   {
     question: 'When is the best time to eat protein?',
     answer:
-      'Research suggests distributing protein evenly across 3-5 meals (20-40g per meal) optimizes muscle protein synthesis throughout the day. The "anabolic window" after workouts is real but less critical than total daily intake. Eating protein within 2-3 hours post-workout is beneficial, but missing this window does not significantly impact results if daily protein targets are met. For overnight fasting, a protein-rich dinner or casein before bed can support overnight muscle recovery.',
+      'Research suggests distributing protein evenly across 3-5 meals (20-40g per meal) optimizes muscle protein synthesis throughout the day. The “anabolic window” after workouts is real but less critical than total daily intake. Eating protein within 2-3 hours post-workout is beneficial, but missing this window does not significantly impact results if daily protein targets are met. For overnight fasting, a protein-rich dinner or casein before bed can support overnight muscle recovery.',
   },
   {
     question: 'What are the best sources of protein?',
@@ -63,7 +63,7 @@ const faqs = [
   {
     question: 'How does age affect protein needs?',
     answer:
-      "Older adults (65+) have higher protein requirements due to 'anabolic resistance' - reduced ability to synthesize muscle protein from dietary protein. The PROT-AGE study group recommends 1.0-1.2g/kg for healthy older adults, and even higher (1.2-1.5g/kg) for those with acute or chronic diseases. This helps prevent sarcopenia (age-related muscle loss) which increases fall risk and reduces quality of life. The calculator automatically adjusts recommendations for age.",
+      'Older adults (65+) have higher protein requirements due to ‘anabolic resistance’ - reduced ability to synthesize muscle protein from dietary protein. The PROT-AGE study group recommends 1.0-1.2g/kg for healthy older adults, and even higher (1.2-1.5g/kg) for those with acute or chronic diseases. This helps prevent sarcopenia (age-related muscle loss) which increases fall risk and reduces quality of life. The calculator automatically adjusts recommendations for age.',
   },
 ];
 

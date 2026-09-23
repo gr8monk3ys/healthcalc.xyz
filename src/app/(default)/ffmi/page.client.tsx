@@ -309,7 +309,7 @@ function renderFFMICalculatorView({
                   </p>
                 )}
                 <p className="text-xs text-gray-500 mt-1">
-                  If you don't know your body fat percentage, use our{' '}
+                  If you don’t know your body fat percentage, use our{' '}
                   <Link href={localizePath('/body-fat')} className="text-accent hover:underline">
                     Body Fat Calculator
                   </Link>{' '}
@@ -377,10 +377,10 @@ function renderFFMICalculatorView({
             </li>
             <li>
               The adjusted FFMI accounts for height differences, normalizing all values to a 1.8m
-              (5'11") reference height.
+              (5′11″) reference height.
             </li>
             <li>
-              While FFMI is a useful indicator, it's not a definitive test for steroid use.
+              While FFMI is a useful indicator, it’s not a definitive test for steroid use.
               Exceptional genetic outliers and measurement errors can affect results.
             </li>
             <li>
@@ -408,7 +408,7 @@ function renderFFMICalculatorView({
             <p className="text-sm text-gray-600">
               BMI measures total body mass relative to height, while FFMI measures only lean mass
               (muscle, bone, organs) relative to height. FFMI is more useful for assessing muscle
-              development and doesn't penalize muscular individuals like BMI does.
+              development and doesn’t penalize muscular individuals like BMI does.
             </p>
           </div>
 

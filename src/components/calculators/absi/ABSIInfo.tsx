@@ -14,14 +14,14 @@ const ABSIInfo: React.FC = () => {
 
       <h3 className="font-medium mt-4">Why ABSI Matters</h3>
       <p className="mb-2">
-        BMI doesn't tell you anything about fat distribution. Two people with the same BMI can have
-        very different body shapes—one might have an "apple-shaped" body (fat concentrated around
-        the waist) while another has a "pear-shaped" body (fat concentrated in the hips and thighs).
+        BMI doesn’t tell you anything about fat distribution. Two people with the same BMI can have
+        very different body shapes—one might have an “apple-shaped” body (fat concentrated around
+        the waist) while another has a “pear-shaped” body (fat concentrated in the hips and thighs).
       </p>
       <p className="mb-2">
         Research has shown that abdominal fat (measured by waist circumference) is more strongly
         linked to health risks than fat in other areas of the body. ABSI was developed to address
-        this limitation of BMI by incorporating waist circumference relative to a person's height
+        this limitation of BMI by incorporating waist circumference relative to a person’s height
         and BMI.
       </p>
       <p>
@@ -32,7 +32,7 @@ const ABSIInfo: React.FC = () => {
 
       <h3 className="font-medium mt-4">How to Measure Waist Circumference</h3>
       <p className="mb-2">
-        It's very important to take an accurate waist measurement for calculating ABSI:
+        It’s very important to take an accurate waist measurement for calculating ABSI:
       </p>
       <ol className="list-decimal pl-5 space-y-1">
         <li>Stand up straight and breathe normally</li>
@@ -41,7 +41,7 @@ const ABSIInfo: React.FC = () => {
           Place the measuring tape midway between these points (usually at the level of your navel)
         </li>
         <li>Wrap the tape around your waist, keeping it parallel to the floor</li>
-        <li>Measure after breathing out normally (don't suck in your stomach)</li>
+        <li>Measure after breathing out normally (don’t suck in your stomach)</li>
         <li>Ensure the tape is snug but not digging into your skin</li>
       </ol>
       <p className="mt-2 text-sm text-gray-600">

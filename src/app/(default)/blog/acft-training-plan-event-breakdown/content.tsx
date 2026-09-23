@@ -226,8 +226,8 @@ const ACFTTrainingPlanPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">Event 3: Hand-Release Push-Ups (HRP)</h2>
 
       <p>
-        This is where I disagree with most ACFT training advice. The standard recommendation is "do
-        more push-ups." That is lazy coaching. If you are stuck at 25 hand-release push-ups and you
+        This is where I disagree with most ACFT training advice. The standard recommendation is “do
+        more push-ups.” That is lazy coaching. If you are stuck at 25 hand-release push-ups and you
         just do more sets of 25, you will stay stuck at 25. You need to build the muscles that
         perform the push-up and train the endurance of those muscles separately.
       </p>
@@ -284,8 +284,8 @@ const ACFTTrainingPlanPageContent = (
         <p>
           Soldiers who go fast in the first 30 seconds typically get 5-8 fewer reps than soldiers
           who pace themselves. My recommendation: aim for one rep every 2 seconds for the first
-          minute (30 reps), then push harder in the second minute. This prevents the "arms turn to
-          jelly at 45 seconds" phenomenon that kills scores.
+          minute (30 reps), then push harder in the second minute. This prevents the “arms turn to
+          jelly at 45 seconds” phenomenon that kills scores.
         </p>
       </div>
 
@@ -293,7 +293,7 @@ const ACFTTrainingPlanPageContent = (
 
       <p>
         The SDC is the event that separates soldiers who train specifically from soldiers who just
-        "work out." General fitness helps, but if you have not practiced dragging a sled, carrying
+        “work out.” General fitness helps, but if you have not practiced dragging a sled, carrying
         kettlebells at speed, and performing lateral shuffles while exhausted, you will be slower
         than you should be.
       </p>
@@ -329,7 +329,7 @@ const ACFTTrainingPlanPageContent = (
             important training data point.
           </li>
           <li>
-            On separate days, do "SDC intervals": pick two phases of the SDC (like sled drag and
+            On separate days, do “SDC intervals”: pick two phases of the SDC (like sled drag and
             sprint) and alternate them for 5 rounds with 90 seconds rest. This builds event-specific
             conditioning.
           </li>
@@ -439,7 +439,7 @@ const ACFTTrainingPlanPageContent = (
         <ul className="list-disc list-inside space-y-1">
           <li>
             3 runs per week. Two easy runs at conversational pace (you should be able to talk in
-            full sentences), one tempo run at a "comfortably hard" pace for 15-20 minutes.
+            full sentences), one tempo run at a “comfortably hard” pace for 15-20 minutes.
           </li>
           <li>
             Easy run distance: 2-3 miles. Do not worry about pace. These runs build your aerobic
@@ -742,8 +742,8 @@ const ACFTTrainingPlanPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">The Bottom Line</h2>
 
       <p>
-        The ACFT rewards structured, specific training over general fitness. You cannot just "work
-        out" and expect to excel. Each event requires targeted training methods, and your program
+        The ACFT rewards structured, specific training over general fitness. You cannot just “work
+        out” and expect to excel. Each event requires targeted training methods, and your program
         needs to account for the fact that you perform all six events sequentially under fatigue.
       </p>
 
@@ -766,7 +766,7 @@ const ACFTTrainingPlanPageContent = (
             Haff, G. G., &amp; Triplett, N. T. (2016). Essentials of Strength Training and
             Conditioning (4th ed.). National Strength and Conditioning Association.
           </li>
-          <li>Daniels, J. (2013). Daniels&apos; Running Formula (3rd ed.). Human Kinetics.</li>
+          <li>Daniels, J. (2013). Daniels’ Running Formula (3rd ed.). Human Kinetics.</li>
           <li>
             Mujika, I., &amp; Padilla, S. (2003). Scientific bases for precompetition tapering
             strategies. Medicine and Science in Sports and Exercise, 35(7), 1182-1187.

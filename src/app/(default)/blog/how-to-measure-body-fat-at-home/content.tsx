@@ -115,7 +115,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       <p>
         Beyond aesthetics, body fat percentage is a better health indicator than weight alone.
         Research consistently links excess body fat to cardiovascular disease, type 2 diabetes, and
-        metabolic syndrome. Meanwhile, someone with a &quot;high&quot;{' '}
+        metabolic syndrome. Meanwhile, someone with a “high”{' '}
         <Link href="/bmi" className="text-blue-600 dark:text-blue-400 hover:underline">
           BMI
         </Link>{' '}
@@ -162,8 +162,8 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <ol className="space-y-3">
         <li>
-          <strong>Neck circumference.</strong> Measure just below the larynx (Adam&apos;s apple).
-          Keep the tape level and snug but not tight. Look straight ahead.
+          <strong>Neck circumference.</strong> Measure just below the larynx (Adam’s apple). Keep
+          the tape level and snug but not tight. Look straight ahead.
         </li>
         <li>
           <strong>Waist circumference.</strong> Measure at the navel, or at the narrowest point of
@@ -359,9 +359,9 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       <p>
         <strong>Accuracy:</strong> Skinfold calipers are accurate to roughly +/- 3 percent when used
         by an experienced tester. That is about as good as the Navy method, sometimes slightly
-        better. The catch is that the keyword there is &quot;experienced.&quot; If you are new to
-        calipers, expect higher variability until you develop a consistent technique. Practicing on
-        yourself for a few weeks before trusting the numbers is smart.
+        better. The catch is that the keyword there is “experienced.” If you are new to calipers,
+        expect higher variability until you develop a consistent technique. Practicing on yourself
+        for a few weeks before trusting the numbers is smart.
       </p>
 
       <p>
@@ -463,9 +463,8 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </p>
 
       <p>
-        Visual estimation is not going to give you &quot;I am at 17.3% body fat.&quot; But it will
-        tell you &quot;I am clearly leaner than I was two months ago.&quot; For a lot of people,
-        that is all that matters.
+        Visual estimation is not going to give you “I am at 17.3% body fat.” But it will tell you “I
+        am clearly leaner than I was two months ago.” For a lot of people, that is all that matters.
       </p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
@@ -699,11 +698,11 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </h3>
 
       <p>
-        This method works on Archimedes&apos; principle: fat is less dense than water, so people
-        with more fat are more buoyant. You sit on a scale submerged in water, exhale all the air
-        from your lungs, and hold still while the scale records your underwater weight. The
-        difference between your land weight and water weight, adjusted for water density and
-        residual lung volume, gives a very accurate body fat estimate.
+        This method works on Archimedes’ principle: fat is less dense than water, so people with
+        more fat are more buoyant. You sit on a scale submerged in water, exhale all the air from
+        your lungs, and hold still while the scale records your underwater weight. The difference
+        between your land weight and water weight, adjusted for water density and residual lung
+        volume, gives a very accurate body fat estimate.
       </p>
 
       <p>
@@ -778,8 +777,8 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <p>
         And remember: the number itself is less important than the direction it is moving. A body
-        fat reading of 22% that used to be 28% is a massive win, regardless of whether the
-        &quot;true&quot; number is 20% or 24%.
+        fat reading of 22% that used to be 28% is a massive win, regardless of whether the “true”
+        number is 20% or 24%.
       </p>
 
       <p>

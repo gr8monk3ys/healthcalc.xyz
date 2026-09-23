@@ -540,7 +540,7 @@ const BestSleepTrackersRecoveryPageContent = (
 
           <p className="mb-4">
             The EDA sensor is what separates the Sense 2 from cheaper Fitbits. It measures
-            electrodermal activity, basically tiny changes in your skin's electrical conductivity
+            electrodermal activity, basically tiny changes in your skin’s electrical conductivity
             that correlate with stress responses. It runs passively throughout the day and flags
             when your body is showing signs of stress. I found it moderately useful. It correctly
             identified high-stress days, but it also triggered sometimes during nothing stressful at
@@ -627,7 +627,7 @@ const BestSleepTrackersRecoveryPageContent = (
           </p>
 
           <p className="mb-4">
-            The Body Battery feature is Garmin's version of a recovery score, and after using it for
+            The Body Battery feature is Garmin’s version of a recovery score, and after using it for
             several months, I think it is one of the best implementations. It starts at 100 when you
             are fully charged and drains throughout the day based on activity, stress, and heart
             rate. Sleep recharges it. It is intuitive in a way that raw HRV numbers are not. When my

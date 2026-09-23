@@ -300,7 +300,7 @@ const whyReasons = [
     chip: 'bg-gradient-to-br from-emerald-500/18 via-emerald-500/10 to-transparent text-emerald-600 dark:text-emerald-300',
     title: 'Completely Free',
     description:
-      'No paywalls, no premium tiers, no "unlock full results" gates. Ads keep the tools free — your numbers never sit behind one.',
+      'No paywalls, no premium tiers, no “unlock full results” gates. Ads keep the tools free — your numbers never sit behind one.',
   },
   {
     icon: whyIcons.transparent,

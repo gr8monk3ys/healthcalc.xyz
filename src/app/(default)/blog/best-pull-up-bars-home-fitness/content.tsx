@@ -183,8 +183,8 @@ const BestPullUpBarsHomeFitnessPageContent = (
         <p>
           The problem is that Amazon has about a thousand pull-up bars and most of them look
           identical. Some are great. Some will fall off your doorframe. I have owned three different
-          types over the past few years and tested several at friends&apos; houses, so here is what
-          I actually recommend.
+          types over the past few years and tested several at friends’ houses, so here is what I
+          actually recommend.
         </p>
 
         {/* Toolkit */}
@@ -469,7 +469,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
             capacity jumps to 440 lbs. That is not just marketing. You can feel the difference when
             you grab it. No flex, no creaking. It holds a US patent on the locking mechanism, which
             uses an inner and outer bar system that tightens as you add weight. I tried this one at
-            a buddy&apos;s apartment and was impressed by how solid it felt compared to my Iron Gym.
+            a buddy’s apartment and was impressed by how solid it felt compared to my Iron Gym.
           </p>
           <p className="mb-4">
             It also has wider grip options than most doorway bars at this price. The angled ends let
@@ -633,12 +633,12 @@ const BestPullUpBarsHomeFitnessPageContent = (
             you busy for years.
           </p>
           <p className="mb-4">
-            I trained on a friend&apos;s Sportsroyals tower for a month when I was between
-            apartments. The pull-up bar itself is wide and comfortable. The dip handles are at a
-            good angle for chest dips. And the vertical knee raise station with arm pads is
-            genuinely useful for core work. The whole thing is stable enough that I never felt like
-            it would tip, even during aggressive dip sets. It did wobble slightly during kipping
-            pull-ups, but for strict reps it was totally fine.
+            I trained on a friend’s Sportsroyals tower for a month when I was between apartments.
+            The pull-up bar itself is wide and comfortable. The dip handles are at a good angle for
+            chest dips. And the vertical knee raise station with arm pads is genuinely useful for
+            core work. The whole thing is stable enough that I never felt like it would tip, even
+            during aggressive dip sets. It did wobble slightly during kipping pull-ups, but for
+            strict reps it was totally fine.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">

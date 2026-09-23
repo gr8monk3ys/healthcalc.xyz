@@ -67,7 +67,7 @@ const BodyRecompInfo: React.FC = () => {
               </li>
               <li>
                 <strong>Returning Trainees:</strong> Those returning after a training break can
-                experience "muscle memory" effects and rapid recomposition.
+                experience “muscle memory” effects and rapid recomposition.
               </li>
               <li>
                 <strong>Natural Lifters:</strong> Those not using performance-enhancing drugs

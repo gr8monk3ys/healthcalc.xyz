@@ -18,7 +18,7 @@ const BodyFatUnderstanding: React.FC = () => {
 
       <h3 className="font-medium mt-4">Body Fat vs. Weight</h3>
       <p className="mb-2">
-        Weight loss doesn't always mean fat loss. When you lose weight, you might be losing:
+        Weight loss doesn’t always mean fat loss. When you lose weight, you might be losing:
       </p>
       <ul className="list-disc pl-5 space-y-1">
         <li>Body fat (the goal for most people)</li>
@@ -27,7 +27,7 @@ const BodyFatUnderstanding: React.FC = () => {
         <li>Glycogen stores (carbohydrates stored in muscles and liver)</li>
       </ul>
       <p className="mt-2">
-        By tracking body fat percentage instead of just weight, you can ensure you're losing fat
+        By tracking body fat percentage instead of just weight, you can ensure you’re losing fat
         while preserving muscle mass, which is crucial for long-term metabolic health.
       </p>
 
@@ -46,8 +46,8 @@ const BodyFatUnderstanding: React.FC = () => {
         </li>
       </ul>
       <p className="mt-2">
-        People with an "apple" body shape (fat concentrated around the abdomen) typically have more
-        visceral fat and higher health risks than those with a "pear" shape (fat concentrated in
+        People with an “apple” body shape (fat concentrated around the abdomen) typically have more
+        visceral fat and higher health risks than those with a “pear” shape (fat concentrated in
         hips and thighs).
       </p>
 
@@ -84,7 +84,7 @@ const BodyFatUnderstanding: React.FC = () => {
           3-5%
         </li>
         <li>
-          Skinfold measurements require proper technique and can vary based on the tester's skill
+          Skinfold measurements require proper technique and can vary based on the tester’s skill
         </li>
         <li>Even DEXA scans (considered the gold standard) have a margin of error of 1-2%</li>
       </ul>

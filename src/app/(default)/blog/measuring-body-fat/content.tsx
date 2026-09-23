@@ -59,7 +59,7 @@ const blogArticles = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and how to use it for weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and how to use it for weight management.',
     slug: 'tdee-explained',
     date: 'February 20, 2025',
     readTime: '10 min read',
@@ -68,7 +68,7 @@ const blogArticles = [
   {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
     slug: 'calorie-deficit-myths',
     date: 'February 25, 2025',
     readTime: '8 min read',
@@ -240,8 +240,8 @@ const MeasuringBodyFatPageContent = (
 
       <div className="neumorph p-6 rounded-lg my-4">
         <p>
-          Hydrostatic weighing is based on Archimedes' principle: fat tissue is less dense than
-          water, while lean tissue is more dense. By comparing a person's normal weight to their
+          Hydrostatic weighing is based on Archimedes’ principle: fat tissue is less dense than
+          water, while lean tissue is more dense. By comparing a person’s normal weight to their
           weight when fully submerged in water, technicians can calculate body density and estimate
           body fat percentage.
         </p>
@@ -378,7 +378,7 @@ const MeasuringBodyFatPageContent = (
         <h4 className="font-semibold mt-4 mb-2">Pros:</h4>
         <ul className="list-disc list-inside space-y-1">
           <li>Relatively inexpensive (quality calipers $20-50, professional assessment $15-50)</li>
-          <li>Portable and doesn't require electricity</li>
+          <li>Portable and doesn’t require electricity</li>
           <li>Can be reasonably accurate when performed by a skilled practitioner</li>
           <li>Provides site-specific data that can track changes in fat distribution</li>
         </ul>
@@ -441,7 +441,7 @@ const MeasuringBodyFatPageContent = (
         <h4 className="font-semibold mt-4 mb-2">Cons:</h4>
         <ul className="list-disc list-inside space-y-1">
           <li>Less accurate for individuals with atypical fat distribution</li>
-          <li>Doesn't account for differences in muscle mass</li>
+          <li>Doesn’t account for differences in muscle mass</li>
           <li>Requires precise measurement technique</li>
           <li>Not as accurate for very lean or obese individuals</li>
         </ul>
@@ -463,7 +463,7 @@ const MeasuringBodyFatPageContent = (
         <p>
           Visual estimation involves comparing your appearance to reference images or descriptions
           of different body fat percentages. While highly subjective, it can provide a rough
-          estimate when other methods aren't available.
+          estimate when other methods aren’t available.
         </p>
 
         <h4 className="font-semibold mt-4 mb-2">Pros:</h4>
@@ -589,7 +589,7 @@ const MeasuringBodyFatPageContent = (
               <td className="py-3 px-4">±2-3%</td>
               <td className="py-3 px-4">$40-100</td>
               <td className="py-3 px-4">Low</td>
-              <td className="py-3 px-4">Those who can't do underwater weighing</td>
+              <td className="py-3 px-4">Those who can’t do underwater weighing</td>
             </tr>
             <tr className="border-b">
               <td className="py-3 px-4">Professional BIA</td>
@@ -770,7 +770,7 @@ const MeasuringBodyFatPageContent = (
         <ul className="list-disc list-inside space-y-1">
           <li>Use a flexible but non-stretching tape measure</li>
           <li>Measure waist at the narrowest point (or at the navel if no obvious narrowing)</li>
-          <li>Measure neck just below the larynx (Adam's apple)</li>
+          <li>Measure neck just below the larynx (Adam’s apple)</li>
           <li>For women, measure hips at the widest point</li>
           <li>Keep the tape measure snug but not tight</li>
           <li>Take each measurement 2-3 times and average the results</li>
