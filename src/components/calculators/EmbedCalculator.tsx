@@ -96,7 +96,7 @@ export default function EmbedCalculator({
   };
 
   return (
-    <section className={className} aria-labelledby="embed-heading">
+    <section className={className}>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Add this calculator to your site and keep the attribution link for SEO value.
@@ -108,6 +108,9 @@ export default function EmbedCalculator({
         >
           {copied ? 'Copied!' : 'Copy Embed Code'}
         </button>
+        <span className="sr-only" role="status">
+          {copied ? 'Embed code copied to clipboard' : ''}
+        </span>
       </div>
 
       <div>
@@ -131,9 +134,9 @@ export default function EmbedCalculator({
       </div>
 
       <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
-        <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
           Request Embed Approval
-        </h4>
+        </h3>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleRequestSubmit}>
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor={`${calculatorSlug}-name`}>

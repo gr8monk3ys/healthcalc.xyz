@@ -123,9 +123,25 @@ function SupplementalDisclosure({
   className?: string;
 }): React.ReactElement {
   return (
-    <details className={`glass-panel rounded-2xl ${className}`}>
-      <summary className="cursor-pointer list-none px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden dark:text-white">
+    <details className={`group glass-panel rounded-2xl ${className}`}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-2xl px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden hover:bg-[var(--surface-muted)] dark:text-white">
         {summary}
+        <svg
+          aria-hidden="true"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+        >
+          <path
+            d="M4 6l4 4 4-4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </summary>
       <div className="px-5 pb-5">{children}</div>
     </details>
@@ -290,6 +306,11 @@ function CalculatorPageLayoutContent({
             {children}
           </div>
 
+          {/* Always mounted so screen readers announce when results appear. */}
+          <p className="sr-only" role="status" aria-live="polite">
+            {showResultsCapture ? t('calculator.results.announcement') : ''}
+          </p>
+
           {showResultsCapture && <div id="results" className="sr-only" aria-hidden="true" />}
           {showResultsCapture && (
             <ResultsShareBar
@@ -375,24 +396,26 @@ function CalculatorPageLayoutContent({
 
           {understandingSection ? (
             <SupplementalDisclosure
-              summary={`Learn more about ${title.replace(' Calculator', '')}`}
+              summary={`Learn More About ${title.replace(' Calculator', '')}`}
               className="perf-defer-section my-8"
             >
               {understandingSection}
             </SupplementalDisclosure>
           ) : null}
 
-          <SupplementalDisclosure
-            summary={t('calculator.relatedArticles.title')}
-            className="perf-defer-section my-8"
-          >
-            <RelatedArticles
-              currentSlug=""
-              articles={relatedArticles}
-              title={t('calculator.relatedArticles.title')}
-              className="my-0"
-            />
-          </SupplementalDisclosure>
+          {relatedArticles && relatedArticles.length > 0 ? (
+            <SupplementalDisclosure
+              summary={t('calculator.relatedArticles.title')}
+              className="perf-defer-section my-8"
+            >
+              <RelatedArticles
+                currentSlug=""
+                articles={relatedArticles}
+                title={t('calculator.relatedArticles.title')}
+                className="my-0"
+              />
+            </SupplementalDisclosure>
+          ) : null}
 
           <SupplementalDisclosure
             summary={newsletterTitle ?? 'Newsletter'}
@@ -413,7 +436,7 @@ function CalculatorPageLayoutContent({
               url: toAbsoluteUrl(localizePath(`/${calculatorSlug}`)),
             })}
           />
-          <StructuredData data={createFAQSchema(faqs)} />
+          {faqs.length > 0 ? <StructuredData data={createFAQSchema(faqs)} /> : null}
         </div>
       </ResultsShareProvider>
     </ErrorBoundary>

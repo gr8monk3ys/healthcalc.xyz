@@ -346,6 +346,9 @@ export default function EmbedWidgetPicker() {
         >
           {copied ? strings.copied : strings.copyCode}
         </button>
+        <span className="sr-only" role="status">
+          {copied ? strings.copied : ''}
+        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
@@ -398,9 +401,7 @@ export default function EmbedWidgetPicker() {
           />
         </div>
         <div className="md:col-span-3">
-          <label className="block text-sm font-medium mb-1" htmlFor="embed-preview">
-            {strings.labelLivePreview}
-          </label>
+          <p className="block text-sm font-medium mb-1">{strings.labelLivePreview}</p>
           <div className="glass-panel rounded-2xl p-4">
             <iframe
               id="embed-preview"

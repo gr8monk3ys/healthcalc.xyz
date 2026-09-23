@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import { CALCULATOR_METRICS, extractMetricValue } from '@/constants/calculatorMetrics';
 import type { SavedResult } from '@/context/SavedResultsContext';
+import { formatDisplayDate, formatNumber } from '@/utils/formatNumber';
 
 interface ProgressTimelineProps {
   savedResults: SavedResult[];
@@ -23,11 +24,7 @@ function toDayKey(dateString: string): string {
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) return dateString;
-  return date.toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  return formatDisplayDate(date);
 }
 
 function daysBetween(a: string, b: string): number {
@@ -41,8 +38,7 @@ function daysBetween(a: string, b: string): number {
 }
 
 function formatValue(value: number): string {
-  if (Number.isInteger(value)) return String(value);
-  return value.toFixed(1);
+  return formatNumber(value, Number.isInteger(value) ? 0 : 1);
 }
 
 export default function ProgressTimeline({

@@ -19,10 +19,22 @@ import type {
   EnergyUnit,
 } from '@/types/common';
 import { useLocale } from '@/context/LocaleContext';
+import { useUrlSearchParam } from '@/hooks/useUrlSearchParam';
 import { toAbsoluteUrl } from '@/lib/site';
 import type { ConversionsPageCopy } from '@/i18n/pages/conversions';
+import { formatNumber } from '@/utils/formatNumber';
 
 type ConversionCategory = 'weight' | 'height' | 'volume' | 'temperature' | 'energy';
+
+const CONVERSION_CATEGORIES = new Set<string>([
+  'weight',
+  'height',
+  'volume',
+  'temperature',
+  'energy',
+]);
+const isConversionCategory = (value: string): value is ConversionCategory =>
+  CONVERSION_CATEGORIES.has(value);
 
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
@@ -33,10 +45,19 @@ function formatTemplate(template: string, vars: Record<string, string>): string 
 }
 
 function useMeasurementConversionsClientState(copy: ConversionsPageCopy) {
-  const [category, setCategory] = useState<ConversionCategory>('weight');
+  // ?category= deep-links the selected converter.
+  const [category, setCategory] = useUrlSearchParam<ConversionCategory>(
+    'category',
+    'weight',
+    isConversionCategory
+  );
   const [inputValue, setInputValue] = useState<string>('');
-  const [fromUnit, setFromUnit] = useState<string>(copy.categories.weight.units[0] ?? 'kg');
-  const [toUnit, setToUnit] = useState<string>(copy.categories.weight.units[1] ?? 'lb');
+  const [selectedFromUnit, setFromUnit] = useState<string>(copy.categories.weight.units[0] ?? 'kg');
+  const [selectedToUnit, setToUnit] = useState<string>(copy.categories.weight.units[1] ?? 'lb');
+  // Derive units valid for the current category (e.g. when it came from the URL).
+  const units = copy.categories[category].units;
+  const fromUnit = units.includes(selectedFromUnit) ? selectedFromUnit : units[0];
+  const toUnit = units.includes(selectedToUnit) ? selectedToUnit : (units[1] ?? units[0]);
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState<string>('');
 
@@ -292,7 +313,9 @@ function MeasurementConversionsView({
             {Object.entries(copy.categories).map(([key, config]) => (
               <button
                 key={key}
+                type="button"
                 onClick={() => handleCategoryChange(key as ConversionCategory)}
+                aria-pressed={category === key}
                 className={`w-full p-3 rounded-lg text-left transition ${
                   category === key
                     ? 'bg-accent text-white shadow-lg'
@@ -407,29 +430,34 @@ function MeasurementConversionsView({
 
             {/* Error Message */}
             {error && (
-              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+              <div
+                className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+                role="alert"
+              >
                 <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
               </div>
             )}
 
-            {/* Result */}
-            {result !== null && (
-              <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg text-center">
-                <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                  {copy.ui.resultLabel}
+            {/* Result (announced when it appears or changes) */}
+            <div aria-live="polite">
+              {result !== null && (
+                <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg text-center">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    {copy.ui.resultLabel}
+                  </div>
+                  <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    {formatNumber(result, 4)}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    {categoryConfig.labels[toUnit]}
+                  </div>
+                  <div className="mt-4 text-sm text-gray-500 dark:text-gray-500">
+                    {inputValue} {categoryConfig.labels[fromUnit]} = {formatNumber(result, 4)}{' '}
+                    {categoryConfig.labels[toUnit]}
+                  </div>
                 </div>
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  {result.toFixed(4)}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {categoryConfig.labels[toUnit]}
-                </div>
-                <div className="mt-4 text-sm text-gray-500 dark:text-gray-500">
-                  {inputValue} {categoryConfig.labels[fromUnit]} = {result.toFixed(4)}{' '}
-                  {categoryConfig.labels[toUnit]}
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </Card>
 

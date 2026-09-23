@@ -12,6 +12,7 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import { Gender } from '@/types/common';
+import { formatNumber } from '@/utils/formatNumber';
 
 type FitnessAgeFormState = {
   age: number | '';
@@ -58,7 +59,7 @@ function FitnessAgeResultCard({
       {result ? (
         <>
           <p className="text-sm text-gray-600 dark:text-gray-300">Estimated Fitness Age</p>
-          <p className="text-5xl font-bold leading-tight">{result.fitnessAge.toFixed(1)}</p>
+          <p className="text-5xl font-bold leading-tight">{formatNumber(result.fitnessAge, 1)}</p>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{result.summary}</p>
 
           <div className="mt-4">
@@ -79,7 +80,7 @@ function FitnessAgeResultCard({
               <p className="text-xs uppercase tracking-wide opacity-60">Age Gap</p>
               <p className="text-lg font-semibold">
                 {result.ageGap >= 0 ? '+' : ''}
-                {result.ageGap.toFixed(1)} years
+                {formatNumber(result.ageGap, 1)} years
               </p>
             </div>
             <div className="neumorph-inset rounded-lg p-3">
@@ -91,12 +92,12 @@ function FitnessAgeResultCard({
           <div className="mt-5 space-y-2 text-sm">
             <p className="font-medium">Component breakdown (years)</p>
             <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-              <li>Aerobic capacity: {result.components.aerobicAdjustment.toFixed(1)}</li>
-              <li>Resting HR: {result.components.heartRateAdjustment.toFixed(1)}</li>
-              <li>Training volume: {result.components.trainingAdjustment.toFixed(1)}</li>
-              <li>Mobility/balance: {result.components.mobilityAdjustment.toFixed(1)}</li>
-              <li>BMI penalty: {result.components.bmiPenalty.toFixed(1)}</li>
-              <li>Body-fat penalty: {result.components.bodyFatPenalty.toFixed(1)}</li>
+              <li>Aerobic capacity: {formatNumber(result.components.aerobicAdjustment, 1)}</li>
+              <li>Resting HR: {formatNumber(result.components.heartRateAdjustment, 1)}</li>
+              <li>Training volume: {formatNumber(result.components.trainingAdjustment, 1)}</li>
+              <li>Mobility/balance: {formatNumber(result.components.mobilityAdjustment, 1)}</li>
+              <li>BMI penalty: {formatNumber(result.components.bmiPenalty, 1)}</li>
+              <li>Body-fat penalty: {formatNumber(result.components.bodyFatPenalty, 1)}</li>
             </ul>
           </div>
         </>
@@ -345,7 +346,10 @@ function FitnessAgeFormCard({
         </div>
 
         {error ? (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+          <div
+            className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700"
+            role="alert"
+          >
             {error}
           </div>
         ) : null}
@@ -507,7 +511,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
         {result && (
           <ResultsShareBar
             calculatorSlug="fitness-age"
-            title={`Fitness Age ${result.fitnessAge.toFixed(1)} | HealthCalc`}
+            title={`Fitness Age ${formatNumber(result.fitnessAge, 1)} | HealthCalc`}
             shareToken={shareToken}
             className="mt-6"
           />

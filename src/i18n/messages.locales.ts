@@ -50,6 +50,7 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.relatedGuides.title': 'Guías relacionadas',
     'calculator.relatedGuides.explore': 'Explorar guía →',
     'calculator.relatedArticles.title': 'Artículos relacionados',
+    'calculator.results.announcement': 'Tus resultados están listos abajo.',
     'calculator.relatedArticles.viewAll': 'Ver todos los artículos →',
     'calculator.faq.titleTemplate': 'Preguntas frecuentes sobre {topic}',
     'calculator.resultsShare.title': 'Comparte tus resultados',
@@ -61,6 +62,10 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.resultsShare.exporting': 'Exportando…',
     'calculator.resultsShare.enableHint': 'Realiza un cálculo para habilitar la exportación',
     'calculator.resultsShare.tipPrefix': 'Consejo: al compartir en redes, incluye esta URL:',
+    'calculator.resultsShare.exportFailed':
+      'Couldn’t create the image. Try again, or take a screenshot instead.',
+    'calculator.resultsShare.copyFailed':
+      'Couldn’t copy the link. Select the URL below and copy it manually.',
     'calculatorForm.submit': 'Calcular',
     'calculatorForm.reset': 'Restablecer',
     'calculatorForm.embedToggle': 'Incrustar esta calculadora',
@@ -125,6 +130,8 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'savedResults.toast.removed': 'Resultado eliminado',
     'savedResults.toast.removeError': 'Error al eliminar el resultado',
     'savedResults.toast.cleared': 'Se borraron todos los resultados',
+    'savedResults.toast.restored': 'Resultado restaurado',
+    'savedResults.toast.undo': 'Deshacer',
     'savedResults.confirm.clearAll': '¿Seguro que quieres borrar todos los resultados guardados?',
     'savedResults.list.emptyTitle': 'Resultados guardados',
     'savedResults.list.emptyBody': 'Aún no has guardado resultados de calculadoras.',
@@ -203,6 +210,7 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.relatedGuides.title': 'Guides associés',
     'calculator.relatedGuides.explore': 'Explorer le guide →',
     'calculator.relatedArticles.title': 'Articles associés',
+    'calculator.results.announcement': 'Vos résultats sont prêts ci-dessous.',
     'calculator.relatedArticles.viewAll': 'Voir tous les articles →',
     'calculator.faq.titleTemplate': 'Questions fréquentes sur {topic}',
     'calculator.resultsShare.title': 'Partagez vos résultats',
@@ -215,6 +223,10 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.resultsShare.enableHint': "Lancez un calcul pour activer l'export d'image",
     'calculator.resultsShare.tipPrefix':
       'Astuce : en partageant sur les réseaux, incluez cette URL :',
+    'calculator.resultsShare.exportFailed':
+      'Couldn’t create the image. Try again, or take a screenshot instead.',
+    'calculator.resultsShare.copyFailed':
+      'Couldn’t copy the link. Select the URL below and copy it manually.',
     'calculatorForm.submit': 'Calculer',
     'calculatorForm.reset': 'Réinitialiser',
     'calculatorForm.embedToggle': 'Intégrer ce calculateur',
@@ -279,6 +291,8 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'savedResults.toast.removed': 'Résultat supprimé',
     'savedResults.toast.removeError': 'Erreur lors de la suppression du résultat',
     'savedResults.toast.cleared': 'Tous les résultats ont été effacés',
+    'savedResults.toast.restored': 'Résultat restauré',
+    'savedResults.toast.undo': 'Annuler',
     'savedResults.confirm.clearAll':
       'Voulez-vous vraiment effacer tous les résultats enregistrés ?',
     'savedResults.list.emptyTitle': 'Résultats enregistrés',
@@ -358,6 +372,7 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.relatedGuides.title': 'Verwandte Guides',
     'calculator.relatedGuides.explore': 'Guide ansehen →',
     'calculator.relatedArticles.title': 'Ähnliche Artikel',
+    'calculator.results.announcement': 'Deine Ergebnisse stehen unten bereit.',
     'calculator.relatedArticles.viewAll': 'Alle Artikel anzeigen →',
     'calculator.faq.titleTemplate': 'Häufige Fragen zu {topic}',
     'calculator.resultsShare.title': 'Ergebnisse teilen',
@@ -371,6 +386,10 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
       'Fuehren Sie zuerst eine Berechnung durch, um den Bildexport zu aktivieren',
     'calculator.resultsShare.tipPrefix':
       'Tipp: Beim Teilen in sozialen Netzwerken diese URL einfuegen:',
+    'calculator.resultsShare.exportFailed':
+      'Couldn’t create the image. Try again, or take a screenshot instead.',
+    'calculator.resultsShare.copyFailed':
+      'Couldn’t copy the link. Select the URL below and copy it manually.',
     'calculatorForm.submit': 'Berechnen',
     'calculatorForm.reset': 'Zurücksetzen',
     'calculatorForm.embedToggle': 'Diesen Rechner einbetten',
@@ -435,6 +454,8 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'savedResults.toast.removed': 'Ergebnis entfernt',
     'savedResults.toast.removeError': 'Fehler beim Entfernen des Ergebnisses',
     'savedResults.toast.cleared': 'Alle Ergebnisse wurden gelöscht',
+    'savedResults.toast.restored': 'Ergebnis wiederhergestellt',
+    'savedResults.toast.undo': 'Rückgängig',
     'savedResults.confirm.clearAll': 'Möchten Sie wirklich alle gespeicherten Ergebnisse löschen?',
     'savedResults.list.emptyTitle': 'Gespeicherte Ergebnisse',
     'savedResults.list.emptyBody': 'Sie haben noch keine Rechner-Ergebnisse gespeichert.',
@@ -513,6 +534,7 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.relatedGuides.title': 'Guias relacionados',
     'calculator.relatedGuides.explore': 'Explorar guia →',
     'calculator.relatedArticles.title': 'Artigos relacionados',
+    'calculator.results.announcement': 'Seus resultados estão prontos abaixo.',
     'calculator.relatedArticles.viewAll': 'Ver todos os artigos →',
     'calculator.faq.titleTemplate': 'Perguntas frequentes sobre {topic}',
     'calculator.resultsShare.title': 'Compartilhe seus resultados',
@@ -524,6 +546,10 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.resultsShare.exporting': 'Exportando…',
     'calculator.resultsShare.enableHint': 'Faça um cálculo para habilitar a exportação da imagem',
     'calculator.resultsShare.tipPrefix': 'Dica: ao compartilhar nas redes, inclua esta URL:',
+    'calculator.resultsShare.exportFailed':
+      'Couldn’t create the image. Try again, or take a screenshot instead.',
+    'calculator.resultsShare.copyFailed':
+      'Couldn’t copy the link. Select the URL below and copy it manually.',
     'calculatorForm.submit': 'Calcular',
     'calculatorForm.reset': 'Redefinir',
     'calculatorForm.embedToggle': 'Incorporar esta calculadora',
@@ -587,6 +613,8 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'savedResults.toast.removed': 'Resultado removido',
     'savedResults.toast.removeError': 'Erro ao remover o resultado',
     'savedResults.toast.cleared': 'Todos os resultados foram limpos',
+    'savedResults.toast.restored': 'Resultado restaurado',
+    'savedResults.toast.undo': 'Desfazer',
     'savedResults.confirm.clearAll': 'Tem certeza de que deseja limpar todos os resultados salvos?',
     'savedResults.list.emptyTitle': 'Resultados salvos',
     'savedResults.list.emptyBody': 'Você ainda não salvou nenhum resultado de calculadora.',
@@ -664,6 +692,7 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.relatedGuides.title': '相关指南',
     'calculator.relatedGuides.explore': '查看指南 →',
     'calculator.relatedArticles.title': '相关文章',
+    'calculator.results.announcement': '结果已在下方生成。',
     'calculator.relatedArticles.viewAll': '查看全部文章 →',
     'calculator.faq.titleTemplate': '关于{topic}的常见问题',
     'calculator.resultsShare.title': '分享你的结果',
@@ -674,6 +703,10 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculator.resultsShare.exporting': '导出中…',
     'calculator.resultsShare.enableHint': '先完成一次计算后才能导出图片',
     'calculator.resultsShare.tipPrefix': '提示：在社交平台分享时，可附上此链接：',
+    'calculator.resultsShare.exportFailed':
+      'Couldn’t create the image. Try again, or take a screenshot instead.',
+    'calculator.resultsShare.copyFailed':
+      'Couldn’t copy the link. Select the URL below and copy it manually.',
     'calculatorForm.submit': '计算',
     'calculatorForm.reset': '重置',
     'calculatorForm.embedToggle': '嵌入此计算器',
@@ -732,6 +765,8 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'savedResults.toast.removed': '结果已移除',
     'savedResults.toast.removeError': '移除结果时出错',
     'savedResults.toast.cleared': '已清空所有结果',
+    'savedResults.toast.restored': '结果已恢复',
+    'savedResults.toast.undo': '撤销',
     'savedResults.confirm.clearAll': '确定要清空所有已保存的结果吗？',
     'savedResults.list.emptyTitle': '已保存的结果',
     'savedResults.list.emptyBody': '你还没有保存任何计算结果。',

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { StepsToCaloriesResult } from '@/types/stepsToCalories';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface StepsToCaloriesResultProps {
   result: StepsToCaloriesResult | null;
@@ -22,7 +23,7 @@ export default function StepsToCaloriesResult({ result }: StepsToCaloriesResultP
         <p className="text-sm text-gray-500 dark:text-gray-400">Estimated Calories Burned</p>
         <p className="text-3xl font-bold text-accent">{result.calories} calories</p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-          {result.steps.toLocaleString()} steps • {result.durationMinutes} minutes
+          {formatNumber(result.steps)} steps • {result.durationMinutes} minutes
         </p>
       </div>
 

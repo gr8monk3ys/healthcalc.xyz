@@ -256,7 +256,10 @@ export default function ABSICalculator({ serverHeader }: { serverHeader?: React.
 
         {/* User-facing error state */}
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}

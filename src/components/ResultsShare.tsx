@@ -87,6 +87,7 @@ export function ResultsShareBar({
   const { localizePath, t } = useLocale();
   const { trackEvent } = useFunnelTracking();
   const [copied, setCopied] = React.useState(false);
+  const [shareStatus, setShareStatus] = React.useState('');
   const [downloading, setDownloading] = React.useState(false);
 
   const shareUrl = useMemo(() => {
@@ -109,25 +110,22 @@ export function ResultsShareBar({
   const handleCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(shareUrl);
+      setShareStatus(t('calculator.resultsShare.linkCopied'));
       setCopied(true);
       trackEvent('results_share_copy_link', { calculator: calculatorSlug });
       window.setTimeout(() => setCopied(false), 1800);
     } catch (error) {
       logger.logError('Failed to copy share URL', error);
       setCopied(false);
+      setShareStatus(t('calculator.resultsShare.copyFailed'));
     }
-  }, [calculatorSlug, shareUrl, trackEvent]);
+  }, [calculatorSlug, shareUrl, t, trackEvent]);
 
-  const handlePlatformShare = useCallback(
+  const trackPlatformShare = useCallback(
     (platform: keyof typeof shareIntents) => {
-      const url = shareIntents[platform];
-      const popup = window.open(url, `share-${platform}`, 'width=720,height=560,resizable=yes');
-      if (!popup) {
-        window.location.href = url;
-      }
       trackEvent('results_share_platform', { calculator: calculatorSlug, platform });
     },
-    [calculatorSlug, shareIntents, trackEvent]
+    [calculatorSlug, trackEvent]
   );
 
   const handleDownload = useCallback(async () => {
@@ -162,6 +160,7 @@ export function ResultsShareBar({
       trackEvent('results_share_download_image', { calculator: calculatorSlug });
     } catch (error) {
       logger.logError('Failed to export results image', error, { calculatorSlug });
+      setShareStatus(t('calculator.resultsShare.exportFailed'));
     } finally {
       if (target) {
         delete target.dataset.hcCapturing;
@@ -171,7 +170,7 @@ export function ResultsShareBar({
       }
       setDownloading(false);
     }
-  }, [calculatorSlug, downloading, target, title, trackEvent]);
+  }, [calculatorSlug, downloading, t, target, title, trackEvent]);
 
   useEffect(() => {
     if (target) return;
@@ -201,38 +200,46 @@ export function ResultsShareBar({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <button
-            type="button"
+          <a
+            href={shareIntents.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ui-btn-soft"
-            onClick={() => handlePlatformShare('twitter')}
+            onClick={() => trackPlatformShare('twitter')}
             aria-label="Share result on Twitter"
           >
             {t('socialShare.platform.twitter')}
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href={shareIntents.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ui-btn-soft"
-            onClick={() => handlePlatformShare('facebook')}
+            onClick={() => trackPlatformShare('facebook')}
             aria-label="Share result on Facebook"
           >
             {t('socialShare.platform.facebook')}
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href={shareIntents.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ui-btn-soft"
-            onClick={() => handlePlatformShare('linkedin')}
+            onClick={() => trackPlatformShare('linkedin')}
             aria-label="Share result on LinkedIn"
           >
             {t('socialShare.platform.linkedin')}
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href={shareIntents.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ui-btn-soft"
-            onClick={() => handlePlatformShare('whatsapp')}
+            onClick={() => trackPlatformShare('whatsapp')}
             aria-label="Share result on WhatsApp"
           >
             WhatsApp
-          </button>
+          </a>
           <button type="button" className="ui-btn-soft" onClick={handleCopy}>
             {copied
               ? t('calculator.resultsShare.linkCopied')
@@ -252,8 +259,14 @@ export function ResultsShareBar({
         </div>
       </div>
 
+      <p className="mt-2 text-xs text-slate-500 dark:text-slate-400" role="status">
+        {shareStatus}
+      </p>
       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-        {t('calculator.resultsShare.tipPrefix')} <span className="font-mono">{shareUrl}</span>
+        {t('calculator.resultsShare.tipPrefix')}{' '}
+        <span className="font-mono break-all" translate="no">
+          {shareUrl}
+        </span>
       </p>
     </section>
   );

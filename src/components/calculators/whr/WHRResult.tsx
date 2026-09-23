@@ -3,6 +3,7 @@
 import React from 'react';
 import { WHRResult } from '@/types/whr';
 import { WHR_HEALTH_RISKS } from '@/constants/whr';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface WHRResultDisplayProps {
   result: WHRResult;
@@ -11,7 +12,7 @@ interface WHRResultDisplayProps {
 
 const WHRResultDisplay: React.FC<WHRResultDisplayProps> = ({ result, gender }) => {
   // Format WHR value to 2 decimal places
-  const formattedWHR = result.whr.toFixed(2);
+  const formattedWHR = formatNumber(result.whr, 2);
 
   // Get gender-specific threshold
   const threshold = gender === 'male' ? 0.95 : 0.8;

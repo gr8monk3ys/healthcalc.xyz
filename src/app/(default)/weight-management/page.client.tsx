@@ -21,6 +21,7 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { formatNumber } from '@/utils/formatNumber';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -443,7 +444,7 @@ function renderWeightManagementCalculatorView({
                   carbsGrams: result.macros.carbsGrams,
                   fatGrams: result.macros.fatGrams,
                   targetDate: targetDate,
-                  weightToChange: `${Math.abs(typeof weight.value === 'number' && typeof goalWeight === 'number' ? weight.value - goalWeight : 0).toFixed(1)} ${weight.unit}`,
+                  weightToChange: `${formatNumber(Math.abs(typeof weight.value === 'number' && typeof goalWeight === 'number' ? weight.value - goalWeight : 0), 1)} ${weight.unit}`,
                 }}
               />
 

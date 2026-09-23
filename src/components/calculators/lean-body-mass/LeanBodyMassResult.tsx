@@ -1,5 +1,6 @@
 import React from 'react';
 import type { LeanBodyMassResult } from '@/types/leanBodyMass';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface LeanBodyMassResultProps {
   result: LeanBodyMassResult | null;
@@ -35,7 +36,9 @@ export default function LeanBodyMassResult({ result }: LeanBodyMassResultProps) 
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Body Fat %</p>
           <p className="text-xl font-semibold">
-            {result.bodyFatPercentage ? `${result.bodyFatPercentage.toFixed(1)}%` : 'Estimated'}
+            {result.bodyFatPercentage
+              ? `${formatNumber(result.bodyFatPercentage, 1)}%`
+              : 'Estimated'}
           </p>
         </div>
       </div>

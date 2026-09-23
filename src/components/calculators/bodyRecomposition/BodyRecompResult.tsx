@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface BodyRecompResultProps {
   result: {
@@ -76,7 +77,7 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               <div className="text-right">
                 <p className="text-xl font-bold">{result.proteinGrams}g</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {(((result.proteinGrams * 4) / result.dailyCalories) * 100).toFixed(0)}% of
+                  {formatNumber(((result.proteinGrams * 4) / result.dailyCalories) * 100, 0)}% of
                   calories
                 </p>
               </div>
@@ -100,7 +101,8 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               <div className="text-right">
                 <p className="text-xl font-bold">{result.fatGrams}g</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {(((result.fatGrams * 9) / result.dailyCalories) * 100).toFixed(0)}% of calories
+                  {formatNumber(((result.fatGrams * 9) / result.dailyCalories) * 100, 0)}% of
+                  calories
                 </p>
               </div>
             </div>
@@ -123,7 +125,8 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               <div className="text-right">
                 <p className="text-xl font-bold">{result.carbGrams}g</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {(((result.carbGrams * 4) / result.dailyCalories) * 100).toFixed(0)}% of calories
+                  {formatNumber(((result.carbGrams * 4) / result.dailyCalories) * 100, 0)}% of
+                  calories
                 </p>
               </div>
             </div>
@@ -147,10 +150,10 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               Estimated Fat Loss
             </h4>
             <p className="text-2xl font-bold">
-              {result.estimatedWeeklyFatLoss.toFixed(2)} lbs/week
+              {formatNumber(result.estimatedWeeklyFatLoss, 2)} lbs/week
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              ~{(result.estimatedWeeklyFatLoss * 4).toFixed(1)} lbs per month
+              ~{formatNumber(result.estimatedWeeklyFatLoss * 4, 1)} lbs per month
             </p>
           </div>
 
@@ -159,7 +162,7 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               Estimated Muscle Gain
             </h4>
             <p className="text-2xl font-bold">
-              {result.estimatedMonthlyMuscleGain.toFixed(2)} lbs/month
+              {formatNumber(result.estimatedMonthlyMuscleGain, 2)} lbs/month
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               Based on training experience

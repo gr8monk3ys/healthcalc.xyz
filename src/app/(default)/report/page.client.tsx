@@ -11,6 +11,7 @@ import { CALCULATOR_METRICS, extractMetricValue } from '@/constants/calculatorMe
 import { createLogger } from '@/utils/logger';
 import { estimateMetricPercentile } from '@/utils/metricPercentiles';
 import { latestTwoByDate } from '@/utils/latestByDate';
+import { formatDisplayDate, formatNumber, formatOrdinal } from '@/utils/formatNumber';
 
 interface ReportSectionConfig {
   id: string;
@@ -67,16 +68,11 @@ const REPORT_SECTIONS: ReportSectionConfig[] = [
 function formatDate(value: string): string {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  return formatDisplayDate(date);
 }
 
 function formatValue(value: number): string {
-  if (Number.isInteger(value)) return String(value);
-  return value.toFixed(1);
+  return formatNumber(value, Number.isInteger(value) ? 0 : 1);
 }
 
 function toHealthyRangeText(slug: string, value: number): string {
@@ -195,7 +191,7 @@ async function exportReportPdf(
           ? `${row.trendDelta >= 0 ? '+' : ''}${formatValue(row.trendDelta)}${row.unit ? ` ${row.unit}` : ''}`
           : 'No prior value';
       const percentileText =
-        typeof row.percentile === 'number' ? `${row.percentile}th` : 'Unavailable';
+        typeof row.percentile === 'number' ? formatOrdinal(row.percentile) : 'Unavailable';
 
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(11);
@@ -463,7 +459,9 @@ function ReportPageClientContent(): React.JSX.Element {
                                 : '—'}
                             </td>
                             <td className="py-2 pr-3">
-                              {typeof row.percentile === 'number' ? `${row.percentile}th` : '—'}
+                              {typeof row.percentile === 'number'
+                                ? formatOrdinal(row.percentile)
+                                : '—'}
                             </td>
                             <td className="py-2 pr-3">{row.healthyRangeText}</td>
                             <td className="py-2">{formatDate(row.lastUpdated)}</td>
