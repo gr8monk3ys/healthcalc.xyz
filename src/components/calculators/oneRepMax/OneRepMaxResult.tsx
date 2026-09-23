@@ -18,10 +18,7 @@ interface OneRepMaxResultDisplayProps {
  */
 const OneRepMaxResultDisplay: React.FC<OneRepMaxResultDisplayProps> = ({ result }) => {
   return (
-    <div
-      id="one-rep-max-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="one-rep-max-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your One Rep Max Results</h2>
 
       {/* Primary 1RM Result */}

@@ -15,7 +15,7 @@ const AuthControls = dynamic(() => import('@/components/AuthControls'), {
   loading: () => (
     <Link
       href="/saved-results"
-      className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
+      className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
     >
       Account
     </Link>
@@ -78,7 +78,7 @@ export default function Header(): React.JSX.Element {
                 key={link.path}
                 href={localizePath(link.path)}
                 aria-current={normalizedPathname === link.path ? 'page' : undefined}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
                     : 'text-foreground/80 hover:bg-[var(--surface-muted)] hover:text-accent'
@@ -100,7 +100,7 @@ export default function Header(): React.JSX.Element {
               onClick={() => {
                 setOpenMenuPathname(prev => (prev === pathname ? null : pathname));
               }}
-              className="relative z-20 lg:hidden elevated-pill p-2 transition-all hover:-translate-y-0.5"
+              className="relative z-20 lg:hidden elevated-pill p-2 transition hover:-translate-y-0.5"
               aria-label={mobileMenuOpen ? t('header.closeMenu') : t('header.openMenu')}
               aria-expanded={mobileMenuOpen}
             >
@@ -156,7 +156,7 @@ export default function Header(): React.JSX.Element {
                   setOpenMenuPathname(null);
                 }}
                 aria-current={normalizedPathname === link.path ? 'page' : undefined}
-                className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-all ${
+                className={`block rounded-xl px-4 py-3 text-sm font-semibold transition ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
                     : darkMode

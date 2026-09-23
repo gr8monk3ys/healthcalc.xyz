@@ -52,7 +52,7 @@ export default function QuickActions({ savedResults }: QuickActionsProps): React
           <Link
             key={calc.slug}
             href={`/${calc.slug}`}
-            className="glass-panel rounded-xl p-3 text-center transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            className="glass-panel rounded-xl p-3 text-center transition hover:-translate-y-0.5 hover:shadow-lg"
           >
             <p className="text-sm font-medium">{calc.title.replace(' Calculator', '')}</p>
             <p className="mt-1 text-xs text-[var(--accent)]">Try it &rarr;</p>
@@ -63,7 +63,7 @@ export default function QuickActions({ savedResults }: QuickActionsProps): React
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <Link
           href="/fitness-age"
-          className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          className="glass-panel rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
         >
           <p className="text-sm font-semibold">Fitness Age Quiz</p>
           <p className="mt-1 text-xs text-gray-600 dark:text-gray-300">
@@ -72,7 +72,7 @@ export default function QuickActions({ savedResults }: QuickActionsProps): React
         </Link>
         <Link
           href="/report"
-          className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          className="glass-panel rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
         >
           <p className="text-sm font-semibold">Printable Health Report</p>
           <p className="mt-1 text-xs text-gray-600 dark:text-gray-300">

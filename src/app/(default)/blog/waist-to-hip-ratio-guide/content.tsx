@@ -461,7 +461,7 @@ const WaistToHipRatioGuidePageContent = (
       <h3 className="text-xl font-semibold mb-4">Related Articles</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Link href="/blog/understanding-absi" className="block">
-          <div className="neumorph h-full p-6 rounded-lg transition-all hover:shadow-neumorph-inset">
+          <div className="neumorph h-full p-6 rounded-lg transition hover:shadow-neumorph-inset">
             <h4 className="text-lg font-semibold mb-2">
               Understanding ABSI: Beyond BMI for Health Risk Assessment
             </h4>
@@ -474,7 +474,7 @@ const WaistToHipRatioGuidePageContent = (
         </Link>
 
         <Link href="/blog/understanding-body-fat-percentage" className="block">
-          <div className="neumorph h-full p-6 rounded-lg transition-all hover:shadow-neumorph-inset">
+          <div className="neumorph h-full p-6 rounded-lg transition hover:shadow-neumorph-inset">
             <h4 className="text-lg font-semibold mb-2">
               Understanding Body Fat Percentage: What's Healthy and Why It Matters
             </h4>
@@ -495,7 +495,7 @@ const WaistToHipRatioGuidePageContent = (
       </p>
       <Link
         href="/whr"
-        className="inline-block px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition-all"
+        className="inline-block px-6 py-3 neumorph rounded-lg text-accent font-medium hover:shadow-neumorph-inset transition"
       >
         Go to WHR Calculator
       </Link>

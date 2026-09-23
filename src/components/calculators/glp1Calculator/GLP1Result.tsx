@@ -22,10 +22,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
   const monthlyLossMax = Math.round(result.expectedWeightLossPerWeek.max * 4.3 * 10) / 10;
 
   return (
-    <div
-      id="glp1-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="glp1-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your GLP-1 Nutrition Targets</h2>
 
       {/* Medication & Goal */}
@@ -55,7 +52,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
 
           <div className="relative h-4 neumorph-inset rounded-full overflow-hidden mt-3">
             <div
-              className="h-full bg-gradient-to-r from-blue-400 to-green-400 transition-all duration-500"
+              className="h-full bg-gradient-to-r from-blue-400 to-green-400"
               style={{
                 width: `${Math.round((result.adjustedCalories / result.tdee) * 100)}%`,
               }}

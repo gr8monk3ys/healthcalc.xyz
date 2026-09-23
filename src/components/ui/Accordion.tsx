@@ -48,7 +48,7 @@ export default function Accordion({
         aria-labelledby={buttonId}
         aria-hidden={!isOpen}
         inert={!isOpen ? true : undefined}
-        className={`overflow-hidden transition-all duration-300 ${
+        className={`overflow-hidden transition-opacity duration-300 ${
           isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >

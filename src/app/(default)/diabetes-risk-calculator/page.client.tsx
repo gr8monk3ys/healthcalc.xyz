@@ -400,7 +400,7 @@ function renderDiabetesRiskCalculatorView({
             onClick={() => {
               setActiveMode('risk');
             }}
-            className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+            className={`flex-1 px-4 py-3 rounded-lg font-medium transition duration-200 ${
               activeMode === 'risk' ? 'neumorph-inset text-accent' : 'neumorph hover:shadow-lg'
             }`}
           >
@@ -411,7 +411,7 @@ function renderDiabetesRiskCalculatorView({
             onClick={() => {
               setActiveMode('a1c');
             }}
-            className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+            className={`flex-1 px-4 py-3 rounded-lg font-medium transition duration-200 ${
               activeMode === 'a1c' ? 'neumorph-inset text-accent' : 'neumorph hover:shadow-lg'
             }`}
           >
@@ -601,14 +601,14 @@ function renderDiabetesRiskCalculatorView({
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Assess Risk
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Reset
               </button>
@@ -650,14 +650,14 @@ function renderDiabetesRiskCalculatorView({
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Convert A1C
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Reset
               </button>

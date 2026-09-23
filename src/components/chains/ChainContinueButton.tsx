@@ -44,7 +44,7 @@ export default function ChainContinueButton({
       <button
         type="button"
         onClick={handleContinue}
-        className="glass-panel w-full rounded-xl p-4 text-left ring-2 ring-[var(--accent)] ring-opacity-40 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+        className="glass-panel w-full rounded-xl p-4 text-left ring-2 ring-[var(--accent)] ring-opacity-40 transition hover:-translate-y-0.5 hover:shadow-lg"
       >
         <div className="flex items-center justify-between">
           <div>

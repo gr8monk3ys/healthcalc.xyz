@@ -15,7 +15,7 @@ export default function ChainSelector({ chains }: ChainSelectorProps): React.JSX
         <Link
           key={chain.id}
           href={`/chains?start=${chain.id}`}
-          className="glass-panel rounded-xl p-4 text-left transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          className="glass-panel rounded-xl p-4 text-left transition hover:-translate-y-0.5 hover:shadow-lg"
         >
           <h4 className="font-semibold">{chain.name}</h4>
           <p className="mt-1 text-sm opacity-60">{chain.description}</p>

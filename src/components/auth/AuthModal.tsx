@@ -158,7 +158,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
             <button
               type="submit"
               disabled={status === 'sending' || !email.trim()}
-              className="w-full rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/40 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/40 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === 'sending' ? 'Sending...' : 'Send magic link'}
             </button>

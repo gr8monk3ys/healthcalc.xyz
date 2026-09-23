@@ -302,7 +302,7 @@ const BlogPostPageContent = (
       <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Link href="/blog/measuring-body-fat" className="block">
-          <div className="neumorph p-4 rounded-lg transition-all hover:shadow-neumorph-inset">
+          <div className="neumorph p-4 rounded-lg transition hover:shadow-neumorph-inset">
             <h3 className="font-medium">
               The Pros and Cons of Different Body Fat Measurement Methods
             </h3>
@@ -314,7 +314,7 @@ const BlogPostPageContent = (
         </Link>
 
         <Link href="/blog/tdee-explained" className="block">
-          <div className="neumorph p-4 rounded-lg transition-all hover:shadow-neumorph-inset">
+          <div className="neumorph p-4 rounded-lg transition hover:shadow-neumorph-inset">
             <h3 className="font-medium">TDEE Explained: How Many Calories Do You Really Need?</h3>
             <p className="text-sm text-gray-600 mt-1">
               Understand the components of Total Daily Energy Expenditure and why it matters.

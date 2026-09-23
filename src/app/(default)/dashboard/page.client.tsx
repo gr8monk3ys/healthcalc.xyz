@@ -50,14 +50,14 @@ function DashboardPageClientContent(): React.JSX.Element {
             <button
               type="button"
               onClick={confirmSync}
-              className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+              className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
             >
               Sync now
             </button>
             <button
               type="button"
               onClick={dismissSync}
-              className="elevated-pill rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:-translate-y-0.5"
+              className="elevated-pill rounded-lg px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5"
             >
               Dismiss
             </button>
@@ -74,7 +74,7 @@ function DashboardPageClientContent(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setAuthModalOpen(true)}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
           >
             Sign in with email
           </button>

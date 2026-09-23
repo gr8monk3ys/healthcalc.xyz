@@ -23,10 +23,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
         : 'border-green-500/40';
 
   return (
-    <div
-      id="substance-impact-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="substance-impact-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Substance Impact Results</h2>
 
       {/* Total Lifespan Impact */}

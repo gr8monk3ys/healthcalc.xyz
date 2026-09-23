@@ -16,10 +16,7 @@ export default function TargetHeartRateResult({ result }: TargetHeartRateResultP
   }
 
   return (
-    <div
-      id="target-heart-rate-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="target-heart-rate-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Target Heart Rate Zone</h2>
 
       <div className="neumorph-inset p-5 rounded-lg mb-4">

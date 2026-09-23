@@ -16,10 +16,7 @@ export default function MaxHeartRateResult({ result }: MaxHeartRateResultProps) 
   }
 
   return (
-    <div
-      id="max-heart-rate-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="max-heart-rate-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Max Heart Rate Estimates</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

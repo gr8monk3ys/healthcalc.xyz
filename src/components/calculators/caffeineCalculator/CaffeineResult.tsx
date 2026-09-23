@@ -9,10 +9,7 @@ interface CaffeineResultDisplayProps {
 
 const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result }) => {
   return (
-    <div
-      id="caffeine-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="caffeine-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Caffeine Intake Results</h2>
 
       <div className="mb-6">
@@ -23,7 +20,7 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
 
         <div className="relative h-6 neumorph-inset rounded-full overflow-hidden mb-1">
           <div
-            className={`h-full transition-all duration-500 ${
+            className={`h-full ${
               result.isOverLimit
                 ? 'bg-gradient-to-r from-orange-400 to-red-500'
                 : result.percentOfLimit > 80

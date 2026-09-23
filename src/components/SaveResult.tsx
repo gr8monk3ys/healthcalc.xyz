@@ -47,7 +47,7 @@ function SaveResultContent({
         <button
           onClick={handleRemoveResult}
           type="button"
-          className="neumorph-btn flex items-center gap-2 px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
+          className="neumorph-btn flex items-center gap-2 px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
           aria-label={t('savedResults.list.deleteAria')}
         >
           <svg
@@ -64,7 +64,7 @@ function SaveResultContent({
         <button
           onClick={handleSaveResult}
           type="button"
-          className="neumorph-btn flex items-center gap-2 bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-70"
+          className="neumorph-btn flex items-center gap-2 bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition hover:-translate-y-0.5 hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-70"
           aria-label={t('savedResults.button.save')}
         >
           <svg

@@ -197,14 +197,14 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
       <div className="flex flex-wrap gap-3 mb-4">
         <button
           onClick={handleCopy}
-          className="px-4 py-2 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
+          className="px-4 py-2 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
           aria-label="Copy embed code to clipboard"
         >
           {copied ? 'Copied!' : 'Copy to Clipboard'}
         </button>
         <button
           onClick={() => dispatchUiState({ type: 'togglePreview' })}
-          className="px-4 py-2 neumorph text-gray-600 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
+          className="px-4 py-2 neumorph text-gray-600 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
           aria-expanded={showPreview}
           aria-controls="embed-preview"
         >

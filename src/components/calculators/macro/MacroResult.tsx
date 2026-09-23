@@ -51,7 +51,7 @@ const MacroResult: React.FC<MacroResultProps> = ({ result }) => {
   return (
     <div
       id="macro-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
+      className="neumorph p-6 rounded-lg animate-fade-in"
       tabIndex={-1}
       aria-live="polite"
       role="region"

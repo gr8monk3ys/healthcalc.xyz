@@ -395,7 +395,7 @@ function renderSubstanceImpactCalculatorView({
                   key={option.value}
                   type="button"
                   onClick={() => setMode(option.value)}
-                  className={`flex-1 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+                  className={`flex-1 px-4 py-2 rounded-lg font-medium text-sm transition duration-200 ${
                     mode === option.value
                       ? 'neumorph-inset text-accent'
                       : 'neumorph hover:shadow-lg'
@@ -639,14 +639,14 @@ function renderSubstanceImpactCalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate Impact
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>

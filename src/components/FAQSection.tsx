@@ -67,8 +67,8 @@ export default function FAQSection({
 
             <div
               id={`faq-answer-${index}`}
-              className={`mt-2 transition-all duration-200 overflow-hidden ${
-                openIndex === index ? 'max-h-96' : 'max-h-0'
+              className={`mt-2 transition-opacity duration-200 overflow-hidden ${
+                openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
               <div className="prose prose-sm max-w-none text-gray-600">{faq.answer}</div>

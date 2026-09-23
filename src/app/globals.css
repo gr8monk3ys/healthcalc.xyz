@@ -930,7 +930,11 @@ input[type='checkbox'] {
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-ambient);
   padding: 0.5rem 1rem;
-  transition: all 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .neumorph-btn:hover,

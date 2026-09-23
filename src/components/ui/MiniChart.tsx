@@ -170,7 +170,6 @@ export default function MiniChart({
               fill={color}
               stroke="var(--glass-fill, #fff)"
               strokeWidth="1.5"
-              className="transition-all duration-150"
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

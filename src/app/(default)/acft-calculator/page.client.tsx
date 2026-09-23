@@ -632,14 +632,14 @@ function renderACFTCalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate ACFT Score
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>

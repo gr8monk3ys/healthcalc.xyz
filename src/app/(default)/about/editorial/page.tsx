@@ -437,13 +437,13 @@ const EditorialProcessPageContent = (
       <div className="flex flex-wrap gap-3">
         <Link
           href="/contact"
-          className="rounded-full bg-accent px-6 py-3 font-semibold text-white transition-all hover:bg-accent-dark"
+          className="rounded-full bg-accent px-6 py-3 font-semibold text-white transition hover:bg-accent-dark"
         >
           Contact us
         </Link>
         <Link
           href="/about"
-          className="rounded-full border border-accent/20 bg-white dark:bg-gray-800 px-6 py-3 font-semibold text-accent transition-all hover:border-accent hover:bg-accent/5"
+          className="rounded-full border border-accent/20 bg-white dark:bg-gray-800 px-6 py-3 font-semibold text-accent transition hover:border-accent hover:bg-accent/5"
         >
           About HealthCalc
         </Link>
