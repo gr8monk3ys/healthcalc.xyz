@@ -204,7 +204,7 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
             {product.description}
           </p>
           <div className="flex items-center justify-between mt-2">
-            {product.rating && <StarRating rating={product.rating} />}
+            {product.rating != null ? <StarRating rating={product.rating} /> : null}
             {product.price && (
               <span className="text-sm font-medium text-accent">{product.price}</span>
             )}

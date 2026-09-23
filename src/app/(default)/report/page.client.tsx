@@ -10,6 +10,7 @@ import { useLocale } from '@/context/LocaleContext';
 import { CALCULATOR_METRICS, extractMetricValue } from '@/constants/calculatorMetrics';
 import { createLogger } from '@/utils/logger';
 import { estimateMetricPercentile } from '@/utils/metricPercentiles';
+import { latestTwoByDate } from '@/utils/latestByDate';
 
 interface ReportSectionConfig {
   id: string;
@@ -286,11 +287,8 @@ function ReportPageClientContent(): React.JSX.Element {
         const points = groupedBySlug.get(slug);
         if (!points || points.length === 0) continue;
 
-        const sorted = points.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-        const latest = sorted[0];
-        const previous = sorted[1];
+        const [latest, previous] = latestTwoByDate(points);
+        if (!latest) continue;
         const metric = CALCULATOR_METRICS[slug];
 
         rows.push({

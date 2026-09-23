@@ -161,7 +161,8 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         <div className="mt-4 border-t border-white/40 pt-4 text-center text-sm text-slate-700 dark:border-indigo-200/10 dark:text-slate-300">
-          &copy; {new Date().getFullYear()} HealthCalc. {t('footer.rightsReserved')}
+          &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span>{' '}
+          <span translate="no">HealthCalc</span>. {t('footer.rightsReserved')}
         </div>
       </div>
     </footer>

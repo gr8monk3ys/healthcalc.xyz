@@ -6,6 +6,12 @@ import Link from 'next/link';
 import AuthSavedResultsProviders from '@/components/providers/AuthSavedResultsProviders';
 import { useLocale } from '@/context/LocaleContext';
 
+// Lazy-load comparison and chart components. Declared at module scope so the
+// component types stay stable across renders (a lazy() call inside render
+// would remount them, and reset their state, on every parent update).
+const ResultComparison = React.lazy(() => import('@/components/calculators/ResultComparison'));
+const MiniChart = React.lazy(() => import('@/components/ui/MiniChart'));
+
 interface SaveResultProps {
   calculatorType: string;
   calculatorName: string;
@@ -226,10 +232,6 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
     );
   }
 
-  // Lazy-load comparison and chart components
-  const ResultComparison = React.lazy(() => import('@/components/calculators/ResultComparison'));
-  const MiniChart = React.lazy(() => import('@/components/ui/MiniChart'));
-
   return (
     <div className={`space-y-6 ${className}`}>
       {/* Header with actions */}
@@ -270,16 +272,15 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
 
         // Build chart data from numeric values in results
         const chartData = group.results
-          .map(r => {
-            const keys = Object.keys(r.data);
-            for (const key of keys) {
-              if (typeof r.data[key] === 'number') {
-                return { date: r.date, value: r.data[key] as number, label: formatKey(key) };
+          .flatMap(r => {
+            for (const key of Object.keys(r.data)) {
+              const value = r.data[key];
+              if (typeof value === 'number') {
+                return [{ date: r.date, value, label: formatKey(key) }];
               }
             }
-            return null;
+            return [];
           })
-          .filter((d): d is { date: string; value: number; label: string } => d !== null)
           .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
         return (

@@ -54,7 +54,7 @@ const FALLBACK_COPY: BMIPageCopy['result'] = {
 function formatTemplate(template: string, vars: Record<string, string | number>): string {
   let output = template;
   for (const [key, value] of Object.entries(vars)) {
-    output = output.replace(new RegExp(`\\{${key}\\}`, 'g'), String(value));
+    output = output.replaceAll(`{${key}}`, String(value));
   }
   return output;
 }

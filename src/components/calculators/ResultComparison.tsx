@@ -97,13 +97,11 @@ export default function ResultComparison({
     const primaryKey = getPrimaryNumericKey(sorted[0].data);
     if (!primaryKey) return [];
 
-    return sorted
-      .map(r => {
-        const val = getNumericValue(r.data[primaryKey]);
-        if (val === null) return null;
-        return { date: r.date, value: val, label: formatKey(primaryKey) };
-      })
-      .filter((d): d is { date: string; value: number; label: string } => d !== null);
+    const label = formatKey(primaryKey);
+    return sorted.flatMap(r => {
+      const val = getNumericValue(r.data[primaryKey]);
+      return val === null ? [] : [{ date: r.date, value: val, label }];
+    });
   }, [sorted]);
 
   const allKeys = useMemo(() => {
