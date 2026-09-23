@@ -10,6 +10,10 @@ import React, {
 } from 'react';
 import { useLocalStorage, LocalStorageError } from '@/hooks/useLocalStorage';
 
+// Page background (identity.css --background) for <meta name="theme-color">.
+const THEME_COLOR_LIGHT = '#f9f8f5';
+const THEME_COLOR_DARK = '#111318';
+
 // Define the types for our preferences
 interface UserPreferences {
   darkMode: boolean;
@@ -113,6 +117,11 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     } else {
       document.documentElement.classList.remove('dark');
     }
+    // Keep the browser chrome color in step with the page background
+    // (identity.css --background, light and dark).
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', darkMode ? THEME_COLOR_DARK : THEME_COLOR_LIGHT);
   }, [darkMode, setStoredDarkMode]);
 
   // Dark mode: detect system preference

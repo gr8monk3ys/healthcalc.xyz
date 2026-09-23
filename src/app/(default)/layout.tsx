@@ -15,7 +15,7 @@ import { fontVariables } from '@/lib/fonts';
 
 const siteUrl = getPublicSiteUrl();
 
-const darkModeBootstrapScript = `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode)document.documentElement.classList.add('dark')}catch(e){}})()`;
+const darkModeBootstrapScript = `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode){document.documentElement.classList.add('dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#111318')}}catch(e){}})()`;
 const organizationSchemaJson = JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c');
 const websiteSchemaJson = JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c');
 
@@ -86,7 +86,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Core Web Vitals optimizations */}
         {/* PWA and app settings */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#4f46e5" />
+        <meta name="theme-color" content="#f9f8f5" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
         {/* Mobile web app settings - updated for modern standards */}

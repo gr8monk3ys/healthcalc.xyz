@@ -182,6 +182,42 @@ li {
 
 html {
   scroll-behavior: smooth;
+  /* Light paper by default; .dark (set before paint by the bootstrap script)
+     switches native scrollbars and form controls to their dark rendering. */
+  color-scheme: light;
+  /* The header is sticky (~5rem tall): keep anchor jumps and focus scrolling
+     clear of it so the focused element is never hidden underneath. */
+  scroll-padding-top: 6rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Remove the 300ms double-tap-zoom delay on controls without disabling
+   pinch zoom. */
+:where(a, button, input, select, textarea, label, summary, [role='button']) {
+  touch-action: manipulation;
+}
+
+:where(h1, h2, h3, h4, h5, h6)[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Native <select>: explicit colors so Windows dark mode does not render a
+   light dropdown on a dark page (or the reverse). */
+@layer base {
+  select,
+  select option {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Numbers in tables line up column by column. */
+:where(table) {
+  font-variant-numeric: tabular-nums;
 }
 
 ::selection {
