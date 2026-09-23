@@ -198,12 +198,12 @@ const BestHomeGymEquipmentPageContent = (
         </div>
 
         <p>
-          Building a home gym doesn't require thousands of dollars or a dedicated room. Whether
-          you've just calculated your{' '}
+          Building a home gym doesn’t require thousands of dollars or a dedicated room. Whether
+          you’ve just calculated your{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE
           </Link>{' '}
-          and want to increase your activity level, or you're using our{' '}
+          and want to increase your activity level, or you’re using our{' '}
           <Link href="/calories-burned" className="text-accent hover:underline">
             Calories Burned Calculator
           </Link>{' '}
@@ -277,7 +277,7 @@ const BestHomeGymEquipmentPageContent = (
         </div>
 
         <p>
-          In this guide, we'll review six essential pieces of home gym equipment that cover every
+          In this guide, we’ll review six essential pieces of home gym equipment that cover every
           major movement pattern - pushing, pulling, hinging, squatting, and cardio. Each pick was
           chosen for its quality, beginner-friendliness, and value for money.
         </p>
@@ -331,7 +331,7 @@ const BestHomeGymEquipmentPageContent = (
           <p className="mb-4">
             Resistance bands are the single best piece of equipment for anyone starting out. The Fit
             Simplify set includes five color-coded bands with different resistance levels, from
-            extra light to extra heavy. They're small enough to toss in a drawer or suitcase, yet
+            extra light to extra heavy. They’re small enough to toss in a drawer or suitcase, yet
             versatile enough to train every muscle group in your body.
           </p>
 
@@ -345,7 +345,7 @@ const BestHomeGymEquipmentPageContent = (
             <li>Lightweight and portable for travel workouts</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Absolute beginners, travelers, people recovering from injury, and anyone who wants to
             add resistance training without heavy weights. These bands are also excellent for
@@ -426,7 +426,7 @@ const BestHomeGymEquipmentPageContent = (
             <li>Dense enough for stability during standing poses and exercises</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Anyone doing floor-based workouts including yoga, bodyweight circuits, ab work,
             stretching, and mobility routines. If you do any exercise at home that involves being on
@@ -475,7 +475,7 @@ const BestHomeGymEquipmentPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor&apos;s Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Bowflex SelectTech 552 Adjustable Dumbbells</h3>
               <div className="text-yellow-500 mt-1" aria-label="4.7 out of 5 stars">
@@ -503,7 +503,7 @@ const BestHomeGymEquipmentPageContent = (
             <li>Compatible with the Bowflex SelectTech app for guided workouts</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Beginners who want room to grow in strength without buying new equipment every few
             months. The 5-pound starting weight is approachable for total beginners, while the
@@ -585,11 +585,11 @@ const BestHomeGymEquipmentPageContent = (
             <li>Can also be used for hanging leg raises and stretching</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
-            Anyone who wants to build upper body and back strength at home. Even if you can't do a
+            Anyone who wants to build upper body and back strength at home. Even if you can’t do a
             pull-up yet, you can use the bar for dead hangs, negative reps, and band-assisted
-            pull-ups (pair with the Fit Simplify bands above). It's also great for hanging leg
+            pull-ups (pair with the Fit Simplify bands above). It’s also great for hanging leg
             raises to build core strength.
           </p>
 
@@ -666,7 +666,7 @@ const BestHomeGymEquipmentPageContent = (
             <li>Corrosion-resistant enamel finish</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Beginners who want a single tool that covers both strength and cardio. Kettlebell swings
             alone can burn over 400 calories in 30 minutes while building posterior chain strength.
@@ -749,7 +749,7 @@ const BestHomeGymEquipmentPageContent = (
             <li>30-day satisfaction guarantee</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Anyone who wants high-efficiency cardio in a small space. Ten minutes of jump rope can
             match 30 minutes of jogging in calorie burn. The weighted ropes also engage shoulders,
@@ -885,7 +885,7 @@ const BestHomeGymEquipmentPageContent = (
             </li>
             <li>
               <strong>Longevity:</strong> These are durable products that will last years with
-              normal use, not cheap gear you'll replace in months
+              normal use, not cheap gear you’ll replace in months
             </li>
           </ul>
         </div>
@@ -952,7 +952,7 @@ const BestHomeGymEquipmentPageContent = (
         </ul>
 
         <p>
-          The most important piece of equipment is the one you'll actually use. Start with whatever
+          The most important piece of equipment is the one you’ll actually use. Start with whatever
           excites you most, build the habit, and expand from there. Combined with our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
@@ -961,7 +961,7 @@ const BestHomeGymEquipmentPageContent = (
           <Link href="/bmi" className="text-accent hover:underline">
             BMI Calculator
           </Link>{' '}
-          for tracking progress, you'll have everything you need for a successful fitness journey
+          for tracking progress, you’ll have everything you need for a successful fitness journey
           from home.
         </p>
 

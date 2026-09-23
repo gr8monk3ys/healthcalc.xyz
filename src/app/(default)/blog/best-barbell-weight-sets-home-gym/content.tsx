@@ -290,7 +290,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               to grip but not tear up your hands? Will it bend under heavy loads?
             </li>
             <li>
-              <strong>Plate accuracy:</strong> Cheap plates can be off by several pounds. A "45-lb"
+              <strong>Plate accuracy:</strong> Cheap plates can be off by several pounds. A “45-lb”
               plate that actually weighs 42 lbs throws off your entire training program.
             </li>
             <li>

@@ -34,7 +34,7 @@ const faqs = [
   {
     question: 'How many calories are in alcoholic drinks?',
     answer:
-      'Alcohol contains 7 calories per gram, making it the second most calorie-dense macronutrient after fat. A standard beer (12 oz) has about 153 calories, a glass of wine (5 oz) has about 125 calories, a shot of spirits (1.5 oz) has about 97 calories, and a mixed cocktail averages around 200 calories. These "empty calories" provide no nutritional value and can contribute significantly to weight gain over time.',
+      'Alcohol contains 7 calories per gram, making it the second most calorie-dense macronutrient after fat. A standard beer (12 oz) has about 153 calories, a glass of wine (5 oz) has about 125 calories, a shot of spirits (1.5 oz) has about 97 calories, and a mixed cocktail averages around 200 calories. These “empty calories” provide no nutritional value and can contribute significantly to weight gain over time.',
   },
   {
     question: 'What are the health benefits of quitting smoking?',
@@ -769,7 +769,7 @@ function renderSubstanceImpactCalculatorView({
                 </p>
                 <p>
                   <strong>Calories from Alcohol:</strong> Alcohol contains 7 calories per gram.
-                  These "empty calories" contribute to weight gain without providing nutritional
+                  These “empty calories” contribute to weight gain without providing nutritional
                   value. The fat equivalent is calculated at 3,500 calories per pound.
                 </p>
               </div>

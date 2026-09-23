@@ -23,7 +23,7 @@ export default function WeightManagementInfo() {
       </Card>
 
       <Card className="p-6">
-        <h3 className="text-lg font-semibold mb-3">What You'll Get</h3>
+        <h3 className="text-lg font-semibold mb-3">What You’ll Get</h3>
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <svg

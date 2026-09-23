@@ -243,20 +243,19 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <p>
-        Seiler&apos;s 2010 paper in the International Journal of Sports Physiology and Performance
-        showed that this polarized distribution was common among Olympic-level athletes across
-        multiple disciplines. A 2014 meta-analysis by Stoggl and Sperlich in Frontiers in Physiology
-        compared polarized training to threshold training (more time in Zone 3) and high-intensity
-        training (more time in Zone 4-5). Polarized training produced the best improvements in
-        endurance performance measures.
+        Seiler’s 2010 paper in the International Journal of Sports Physiology and Performance showed
+        that this polarized distribution was common among Olympic-level athletes across multiple
+        disciplines. A 2014 meta-analysis by Stoggl and Sperlich in Frontiers in Physiology compared
+        polarized training to threshold training (more time in Zone 3) and high-intensity training
+        (more time in Zone 4-5). Polarized training produced the best improvements in endurance
+        performance measures.
       </p>
 
       <p>
         The reason Zone 3 is minimized in this model is important. Zone 3 is hard enough to generate
         significant fatigue but not intense enough to produce the specific high-intensity
-        adaptations that Zones 4 and 5 develop. Seiler calls it the &quot;black hole&quot; of
-        training: too hard to recover from easily, too easy to drive meaningful intensity-specific
-        adaptation.
+        adaptations that Zones 4 and 5 develop. Seiler calls it the “black hole” of training: too
+        hard to recover from easily, too easy to drive meaningful intensity-specific adaptation.
       </p>
 
       <p>
@@ -376,7 +375,7 @@ const HeartRateTrainingSciencePageContent = (
       <p>
         Average resting heart rate for adults is 60 to 100 bpm. Well-trained endurance athletes
         often have RHRs in the 40s or even 30s. This reflects a more efficient heart that pumps more
-        blood per beat, requiring fewer beats per minute to meet the body&apos;s resting needs.
+        blood per beat, requiring fewer beats per minute to meet the body’s resting needs.
       </p>
 
       <p>
@@ -507,9 +506,9 @@ const HeartRateTrainingSciencePageContent = (
 
       <p>
         <strong>Training too hard too often.</strong> The most common error I see is people who
-        never go truly easy. Every run is at a &quot;moderate&quot; pace. Every cycling session is
-        &quot;decent effort.&quot; They are chronically training in Zone 3, accumulating fatigue
-        without the recovery benefits of Zone 2 or the intensity benefits of Zone 4-5.
+        never go truly easy. Every run is at a “moderate” pace. Every cycling session is “decent
+        effort.” They are chronically training in Zone 3, accumulating fatigue without the recovery
+        benefits of Zone 2 or the intensity benefits of Zone 4-5.
       </p>
 
       <p>
@@ -602,34 +601,32 @@ const HeartRateTrainingSciencePageContent = (
 
       <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
         <li>
-          Robergs RA, Landwehr R. &quot;The surprising history of the &apos;HRmax=220-age&apos;
-          equation.&quot; Journal of Exercise Physiology Online, 2002.
+          Robergs RA, Landwehr R. “The surprising history of the ‘HRmax=220-age’ equation.” Journal
+          of Exercise Physiology Online, 2002.
         </li>
         <li>
-          Tanaka H, Monahan KD, Seals DR. &quot;Age-predicted maximal heart rate revisited.&quot;
-          Journal of the American College of Cardiology, 2001.
+          Tanaka H, Monahan KD, Seals DR. “Age-predicted maximal heart rate revisited.” Journal of
+          the American College of Cardiology, 2001.
         </li>
         <li>
-          Gulati M, et al. &quot;Heart rate response to exercise stress testing in asymptomatic
-          women.&quot; Circulation, 2010.
+          Gulati M, et al. “Heart rate response to exercise stress testing in asymptomatic women.”
+          Circulation, 2010.
         </li>
         <li>
-          Seiler S. &quot;What is best practice for training intensity and duration distribution in
-          endurance athletes?&quot; International Journal of Sports Physiology and Performance,
-          2010.
+          Seiler S. “What is best practice for training intensity and duration distribution in
+          endurance athletes?” International Journal of Sports Physiology and Performance, 2010.
         </li>
         <li>
-          Stoggl T, Sperlich B. &quot;Polarized training has greater impact on key endurance
-          variables than threshold, high intensity, or high volume training.&quot; Frontiers in
-          Physiology, 2014.
+          Stoggl T, Sperlich B. “Polarized training has greater impact on key endurance variables
+          than threshold, high intensity, or high volume training.” Frontiers in Physiology, 2014.
         </li>
         <li>
-          Plews DJ, et al. &quot;Training adaptation and heart rate variability in elite endurance
-          athletes: opening the door to effective monitoring.&quot; Sports Medicine, 2013.
+          Plews DJ, et al. “Training adaptation and heart rate variability in elite endurance
+          athletes: opening the door to effective monitoring.” Sports Medicine, 2013.
         </li>
         <li>
-          Reimers AK, Knapp G, Reimers CD. &quot;Effects of exercise on the resting heart rate: a
-          systematic review and meta-analysis of interventional studies.&quot; Journal of Clinical
+          Reimers AK, Knapp G, Reimers CD. “Effects of exercise on the resting heart rate: a
+          systematic review and meta-analysis of interventional studies.” Journal of Clinical
           Medicine, 2018.
         </li>
       </ul>

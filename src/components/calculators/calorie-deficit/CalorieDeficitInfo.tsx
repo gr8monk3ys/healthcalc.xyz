@@ -22,7 +22,7 @@ export default function CalorieDeficitInfo() {
       </Card>
 
       <Card className="p-6">
-        <h3 className="text-lg font-semibold mb-3">What You'll Get</h3>
+        <h3 className="text-lg font-semibold mb-3">What You’ll Get</h3>
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <svg
@@ -44,7 +44,7 @@ export default function CalorieDeficitInfo() {
                 Weight Loss Timeline
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                See exactly when you'll reach your goal weight
+                See exactly when you’ll reach your goal weight
               </div>
             </div>
           </li>

@@ -26,7 +26,7 @@ const faqs = [
   {
     question: 'How often should I check my blood pressure?',
     answer:
-      "If you have no history of high blood pressure, check at least once a year. If you are monitoring hypertension, follow your healthcare provider's guidance.",
+      'If you have no history of high blood pressure, check at least once a year. If you are monitoring hypertension, follow your healthcare provider’s guidance.',
   },
   {
     question: 'Does one high reading mean I have hypertension?',

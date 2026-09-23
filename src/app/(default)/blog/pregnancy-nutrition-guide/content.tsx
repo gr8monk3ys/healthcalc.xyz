@@ -31,7 +31,7 @@ const PregnancyNutritionGuidePageContent = (
             vitamins lack adequate DHA and choline.
           </li>
           <li>
-            The "eating for two" concept is misleading. The additional calorie needs are roughly
+            The “eating for two” concept is misleading. The additional calorie needs are roughly
             equivalent to a small extra snack, not a second meal.
           </li>
           <li>
@@ -91,7 +91,7 @@ const PregnancyNutritionGuidePageContent = (
       </div>
 
       <p>
-        I want to emphasize how small these increases are, because the "eating for two" myth
+        I want to emphasize how small these increases are, because the “eating for two” myth
         persists and causes real harm. Excessive weight gain during pregnancy increases the risk of
         gestational diabetes, preeclampsia, C-section delivery, and postpartum weight retention.
         Goldstein et al. published a 2017 meta-analysis in JAMA showing that excessive gestational
@@ -279,7 +279,7 @@ const PregnancyNutritionGuidePageContent = (
           </li>
           <li>
             <strong>Vitamin B6 (pyridoxine):</strong> 10-25 mg three times daily reduces nausea in
-            many women. This is ACOG's other first-line recommendation. It is available over the
+            many women. This is ACOG’s other first-line recommendation. It is available over the
             counter.
           </li>
           <li>
@@ -302,7 +302,7 @@ const PregnancyNutritionGuidePageContent = (
 
       <p>
         One important reassurance: mild to moderate nausea during the first trimester, even if it
-        limits food intake, is not harmful to the baby. The embryo's calorie needs at this stage are
+        limits food intake, is not harmful to the baby. The embryo’s calorie needs at this stage are
         minimal (remember: no extra calories needed in the first trimester). Focus on staying
         hydrated and eating whatever you can tolerate. Nutritional perfection is not the goal during
         weeks 6-12. Survival is.
@@ -373,7 +373,7 @@ const PregnancyNutritionGuidePageContent = (
       </h2>
 
       <p>
-        The list of "foods to avoid during pregnancy" has expanded far beyond what the evidence
+        The list of “foods to avoid during pregnancy” has expanded far beyond what the evidence
         supports, creating unnecessary anxiety. Let me separate the evidence-based restrictions from
         the overcautious ones.
       </p>
@@ -444,7 +444,7 @@ const PregnancyNutritionGuidePageContent = (
       </h2>
 
       <p>
-        Exercise during pregnancy is not just safe for most women, it is actively beneficial. ACOG's
+        Exercise during pregnancy is not just safe for most women, it is actively beneficial. ACOG’s
         2020 Committee Opinion (Number 804) recommends that pregnant women with uncomplicated
         pregnancies get at least 150 minutes of moderate-intensity aerobic activity per week.
       </p>

@@ -169,7 +169,7 @@ const BestFitnessTrackersPageContent = (
         </div>
 
         <p>
-          If you've used our{' '}
+          If you’ve used our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}
@@ -268,7 +268,7 @@ const BestFitnessTrackersPageContent = (
 
         <p>
           A good fitness tracker monitors your movement throughout the day, capturing that crucial
-          NEAT component that's often underestimated. This gives you a more complete picture of your
+          NEAT component that’s often underestimated. This gives you a more complete picture of your
           actual calorie burn.
         </p>
 
@@ -280,7 +280,7 @@ const BestFitnessTrackersPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Garmin Venu 4</h3>
             </div>
@@ -355,7 +355,7 @@ const BestFitnessTrackersPageContent = (
           </div>
 
           <p className="mb-4">
-            The Fitbit Charge 6 offers the best balance of accuracy, features, and price. Fitbit's
+            The Fitbit Charge 6 offers the best balance of accuracy, features, and price. Fitbit’s
             calorie algorithms have been refined over years and integrate seamlessly with the
             MyFitnessPal food database.
           </p>
@@ -419,7 +419,7 @@ const BestFitnessTrackersPageContent = (
 
           <p className="mb-4">
             For iPhone users, the Apple Watch Ultra 2 offers unmatched integration with the iOS
-            ecosystem. The Activity app's calorie tracking is refined and integrates with Apple
+            ecosystem. The Activity app’s calorie tracking is refined and integrates with Apple
             Health, where you can see your complete health picture.
           </p>
 
@@ -501,7 +501,7 @@ const BestFitnessTrackersPageContent = (
             <Link href="/body-fat" className="text-accent hover:underline">
               Body Fat Calculator
             </Link>
-            . Compare the watch's BIA readings with our Navy method calculations.
+            . Compare the watch’s BIA readings with our Navy method calculations.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -542,8 +542,8 @@ const BestFitnessTrackersPageContent = (
           </div>
 
           <p className="mb-4">
-            Don't let the price fool you - the Mi Band 9 offers surprisingly accurate step and
-            calorie tracking for a fraction of the cost. It's perfect for those just starting their
+            Don’t let the price fool you - the Mi Band 9 offers surprisingly accurate step and
+            calorie tracking for a fraction of the cost. It’s perfect for those just starting their
             fitness journey.
           </p>
 
@@ -598,7 +598,7 @@ const BestFitnessTrackersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Tips for Better Accuracy:</h4>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Enter accurate height, weight, and age in your tracker's profile</li>
+            <li>Enter accurate height, weight, and age in your tracker’s profile</li>
             <li>Update your weight regularly as it changes</li>
             <li>Wear the tracker consistently - same wrist, proper fit</li>
             <li>Use heart rate-based calorie tracking when available</li>

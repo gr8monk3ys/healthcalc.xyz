@@ -19,11 +19,11 @@ const MetabolicAdaptationPlateausPageContent = (
         <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
         <ul className="space-y-2">
           <li>
-            Metabolic adaptation is real, but "starvation mode" as popularly understood is a myth.
-            Your metabolism does not "shut down" at any calorie level.
+            Metabolic adaptation is real, but “starvation mode” as popularly understood is a myth.
+            Your metabolism does not “shut down” at any calorie level.
           </li>
           <li>
-            The Biggest Loser study (Fothergill 2016) found that contestants' metabolic rates were
+            The Biggest Loser study (Fothergill 2016) found that contestants’ metabolic rates were
             still suppressed by an average of 500 calories per day six years after the show, even
             among those who regained most of the weight.
           </li>
@@ -36,7 +36,7 @@ const MetabolicAdaptationPlateausPageContent = (
             greater fat loss and less metabolic slowing than continuous dieting.
           </li>
           <li>
-            Most "plateaus" are actually scale fluctuations from water retention. A true plateau
+            Most “plateaus” are actually scale fluctuations from water retention. A true plateau
             requires 3-4 weeks of stable weight with consistent intake.
           </li>
         </ul>
@@ -54,15 +54,15 @@ const MetabolicAdaptationPlateausPageContent = (
       </p>
 
       <p>
-        This is one of the most frustrating topics in weight management, because the answer to "why
-        did my diet stop working?" is genuinely complicated. But the research has given us a much
+        This is one of the most frustrating topics in weight management, because the answer to “why
+        did my diet stop working?” is genuinely complicated. But the research has given us a much
         clearer picture in the past decade, and some of it is surprisingly hopeful.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">What Metabolic Adaptation Actually Is</h2>
 
       <p>
-        Let me start with what metabolic adaptation is not. It is not "starvation mode" in the
+        Let me start with what metabolic adaptation is not. It is not “starvation mode” in the
         popular sense, where your body supposedly hoards every calorie and stops burning fat. That
         version is a myth. People in actual starvation (the Minnesota Starvation Experiment, POW
         camps, famine) continue to lose weight. They do not reach some magical calorie floor where
@@ -84,7 +84,7 @@ const MetabolicAdaptationPlateausPageContent = (
             <strong>Reduced basal metabolic rate (BMR):</strong> As you lose weight, you have less
             tissue to maintain, so your BMR naturally drops. But adaptive thermogenesis causes it to
             drop further than the weight loss alone would predict. If you lose 20 pounds and your
-            BMR "should" be 1,600 calories, adaptive thermogenesis might push it to 1,450. That
+            BMR “should” be 1,600 calories, adaptive thermogenesis might push it to 1,450. That
             150-calorie gap is the adaptation.
           </li>
           <li>
@@ -162,7 +162,7 @@ const MetabolicAdaptationPlateausPageContent = (
           </li>
           <li>
             Leptin levels, which had crashed during the show, remained suppressed even in those who
-            regained most of the weight. Their bodies were hormonally signaling "still starving"
+            regained most of the weight. Their bodies were hormonally signaling “still starving”
             even at their original weight.
           </li>
         </ul>
@@ -193,16 +193,16 @@ const MetabolicAdaptationPlateausPageContent = (
       <h3 className="text-xl font-semibold mt-6 mb-3">Leptin</h3>
       <p>
         Leptin, produced by fat cells, signals energy availability to the brain. As you lose fat,
-        leptin levels drop, sometimes disproportionately to the fat lost. Low leptin signals "energy
-        deficit" to the hypothalamus, which responds by increasing hunger, reducing metabolic rate,
-        and decreasing motivation for physical activity. Leibel and Rosenbaum's research at Columbia
+        leptin levels drop, sometimes disproportionately to the fat lost. Low leptin signals “energy
+        deficit” to the hypothalamus, which responds by increasing hunger, reducing metabolic rate,
+        and decreasing motivation for physical activity. Leibel and Rosenbaum’s research at Columbia
         University showed that even moderate fat loss produces significant leptin reductions and
         corresponding increases in hunger.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Ghrelin</h3>
       <p>
-        Ghrelin, the "hunger hormone" produced primarily by the stomach, increases during caloric
+        Ghrelin, the “hunger hormone” produced primarily by the stomach, increases during caloric
         restriction. Sumithran et al. published a 2011 study in the New England Journal of Medicine
         showing that ghrelin levels remained elevated for at least 12 months after weight loss, even
         when weight was partially regained. The authors concluded that the hormonal changes that
@@ -274,7 +274,7 @@ const MetabolicAdaptationPlateausPageContent = (
       <p>
         The proposed mechanism is that the maintenance-calorie periods partially reverse the
         hormonal and metabolic adaptations that occur during dieting. Leptin recovers somewhat. NEAT
-        increases. Thyroid function normalizes. The body gets a signal that the "famine" is
+        increases. Thyroid function normalizes. The body gets a signal that the “famine” is
         temporary, reducing the urgency of the adaptive response.
       </p>
 
@@ -316,7 +316,7 @@ const MetabolicAdaptationPlateausPageContent = (
       <p>
         Reverse dieting is the practice of gradually increasing calories after a diet, adding 50-100
         calories per week over several weeks or months, rather than jumping straight back to
-        maintenance. The idea is that a slow increase allows your metabolism to "ramp up" gradually,
+        maintenance. The idea is that a slow increase allows your metabolism to “ramp up” gradually,
         minimizing fat regain.
       </p>
 
@@ -344,7 +344,7 @@ const MetabolicAdaptationPlateausPageContent = (
 
       <p>
         Before assuming metabolic adaptation has stalled your progress, consider the possibility
-        that your "plateau" is actually scale noise. Here is why this matters.
+        that your “plateau” is actually scale noise. Here is why this matters.
       </p>
 
       <p>
@@ -400,7 +400,7 @@ const MetabolicAdaptationPlateausPageContent = (
         <ol className="list-decimal list-inside space-y-4">
           <li>
             <strong>Audit your intake first.</strong> Track every single thing you eat for one week,
-            including oils, sauces, drinks, and "bites" while cooking. Research consistently shows
+            including oils, sauces, drinks, and “bites” while cooking. Research consistently shows
             that untracked calories creep up over time. This alone solves many plateaus.
           </li>
           <li>
@@ -553,7 +553,7 @@ const MetabolicAdaptationPlateausPageContent = (
         <h3 className="text-xl font-semibold mb-4">References</h3>
         <ul className="space-y-3 text-sm text-gray-600">
           <li>
-            Fothergill E, et al. Persistent metabolic adaptation 6 years after "The Biggest Loser"
+            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
             competition. Obesity. 2016;24(8):1612-1619.
           </li>
           <li>

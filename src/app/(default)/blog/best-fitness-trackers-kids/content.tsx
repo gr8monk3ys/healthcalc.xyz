@@ -188,11 +188,11 @@ const BestFitnessTrackersKidsPageContent = (
         </p>
 
         <p>
-          Since then I have tested over a dozen kids' trackers across my own family and with
-          friends' children. The market has gotten a lot better. There are now devices actually
+          Since then I have tested over a dozen kids’ trackers across my own family and with
+          friends’ children. The market has gotten a lot better. There are now devices actually
           designed for children, not just smaller versions of grown-up watches. Some turn activity
           into adventure games. Others let you message your kid without giving them a full
-          smartphone. The range is wide, and picking the right one depends on your child's age and
+          smartphone. The range is wide, and picking the right one depends on your child’s age and
           what problem you are actually trying to solve.
         </p>
 
@@ -201,7 +201,7 @@ const BestFitnessTrackersKidsPageContent = (
           <Link href="/bmi" className="text-accent hover:underline">
             BMI Calculator
           </Link>{' '}
-          to check on your child's growth, or our{' '}
+          to check on your child’s growth, or our{' '}
           <Link href="/steps-to-calories" className="text-accent hover:underline">
             Steps to Calories Calculator
           </Link>{' '}
@@ -212,7 +212,7 @@ const BestFitnessTrackersKidsPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <h2 className="text-2xl font-bold mb-3">Activity tracking toolkit for families</h2>
           <p className="text-gray-600 dark:text-gray-400">
-            Pair your kid's tracker data with these calculators to keep tabs on activity levels.
+            Pair your kid’s tracker data with these calculators to keep tabs on activity levels.
           </p>
           <div className="flex flex-wrap gap-3 mt-4">
             <Link href="/steps-to-calories" className="text-accent hover:underline font-medium">
@@ -240,7 +240,7 @@ const BestFitnessTrackersKidsPageContent = (
         </p>
 
         <p>
-          That said, every kid is different. My neighbor's six-year-old is obsessed with her step
+          That said, every kid is different. My neighbor’s six-year-old is obsessed with her step
           count, while my nine-year-old nephew could not care less. You know your child better than
           any buying guide does.
         </p>
@@ -277,7 +277,7 @@ const BestFitnessTrackersKidsPageContent = (
           <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>COPPA compliance:</strong> In the US, apps collecting data from children under
-              13 must comply with the Children's Online Privacy Protection Act. Fitbit and Garmin
+              13 must comply with the Children’s Online Privacy Protection Act. Fitbit and Garmin
               both have COPPA-compliant child accounts. Cheaper brands may not.
             </li>
             <li>
@@ -286,9 +286,9 @@ const BestFitnessTrackersKidsPageContent = (
               matters.
             </li>
             <li>
-              <strong>GPS tracking:</strong> Devices with GPS let you see your child's location.
+              <strong>GPS tracking:</strong> Devices with GPS let you see your child’s location.
               That is a powerful safety tool, but it also means the company storing that data has
-              access to your kid's movements. Make sure the company encrypts location data.
+              access to your kid’s movements. Make sure the company encrypts location data.
             </li>
             <li>
               <strong>Social features:</strong> Some trackers let kids connect with friends. Make
@@ -305,7 +305,7 @@ const BestFitnessTrackersKidsPageContent = (
 
         <p>
           I will be honest: the privacy policies from Fitbit (now Google) and Garmin are not
-          perfect. No tech company's are. But they are substantially better than what you will find
+          perfect. No tech company’s are. But they are substantially better than what you will find
           from some of the no-name brands on Amazon. If privacy is a top concern, stick with the
           established brands on this list.
         </p>
@@ -317,7 +317,7 @@ const BestFitnessTrackersKidsPageContent = (
               <Link href="/steps-to-calories" className="text-accent hover:underline">
                 Steps to Calories Calculator
               </Link>{' '}
-              to see how your kid's daily steps translate to calories burned.
+              to see how your kid’s daily steps translate to calories burned.
             </li>
             <li>
               <Link href="/steps-to-miles" className="text-accent hover:underline">
@@ -342,7 +342,7 @@ const BestFitnessTrackersKidsPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Fitbit Ace 3</h3>
             </div>
@@ -359,7 +359,7 @@ const BestFitnessTrackersKidsPageContent = (
 
           <p className="mb-4">
             My daughter actually kept wearing this one. The animated clock faces helped. She picked
-            a character that "grows" as she moves more throughout the day, and that was the
+            a character that “grows” as she moves more throughout the day, and that was the
             motivation she needed. It is not the most feature-packed tracker on this list, but it
             nails the basics in a way that kids actually respond to.
           </p>
@@ -381,7 +381,7 @@ const BestFitnessTrackersKidsPageContent = (
             <Link href="/steps-to-calories" className="text-accent hover:underline">
               Steps to Calories Calculator
             </Link>{' '}
-            to get a more accurate picture of your child's daily energy burn. You can also use our{' '}
+            to get a more accurate picture of your child’s daily energy burn. You can also use our{' '}
             <Link href="/steps-to-miles" className="text-accent hover:underline">
               Steps to Miles Calculator
             </Link>{' '}
@@ -441,7 +441,7 @@ const BestFitnessTrackersKidsPageContent = (
 
           <p className="mb-4">
             The parent app also lets you assign chores and set up rewards. You can create tasks like
-            "brush teeth" or "clean room" and kids check them off on the watch. It turns the tracker
+            “brush teeth” or “clean room” and kids check them off on the watch. It turns the tracker
             into a household management tool, which is honestly pretty clever.
           </p>
 
@@ -458,7 +458,7 @@ const BestFitnessTrackersKidsPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
           <p>
-            The quest system encourages sustained daily activity. Track your child's progress over
+            The quest system encourages sustained daily activity. Track your child’s progress over
             time with our{' '}
             <Link href="/steps-to-miles" className="text-accent hover:underline">
               Steps to Miles Calculator
@@ -513,8 +513,8 @@ const BestFitnessTrackersKidsPageContent = (
           <p className="mb-4">
             The trade-off is build quality and app experience. The companion app works fine but it
             is not as polished as what you get from Fitbit or Garmin. And the parental controls are
-            basically nonexistent. There is no family account system. It is more of a "here is a
-            fitness band" situation. For responsible older kids who just want to track their
+            basically nonexistent. There is no family account system. It is more of a “here is a
+            fitness band” situation. For responsible older kids who just want to track their
             activity, that might be perfectly fine.
           </p>
 
@@ -532,7 +532,7 @@ const BestFitnessTrackersKidsPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
           <p>
             With heart rate data, your child can get more accurate calorie estimates. Cross-
-            reference the tracker's calorie count with our{' '}
+            reference the tracker’s calorie count with our{' '}
             <Link href="/steps-to-calories" className="text-accent hover:underline">
               Steps to Calories Calculator
             </Link>{' '}
@@ -578,15 +578,15 @@ const BestFitnessTrackersKidsPageContent = (
 
           <p className="mb-4">
             The Garmin Bounce is for parents who want the safety features of a phone without
-            actually giving their kid a phone. It has GPS tracking so you can see your child's
+            actually giving their kid a phone. It has GPS tracking so you can see your child’s
             location in real time. You can set up geofence alerts that ping you when they leave or
-            arrive at specific locations like school or a friend's house. And kids can send and
+            arrive at specific locations like school or a friend’s house. And kids can send and
             receive pre-approved text messages right from the watch.
           </p>
 
           <p className="mb-4">
             There is an optional LTE plan if you want the watch to work independently without a
-            nearby phone. That turns it into a genuinely useful communication device. My friend's
+            nearby phone. That turns it into a genuinely useful communication device. My friend’s
             ten-year-old uses one instead of a phone, and it works well for their family. He can
             text his parents and they can see where he is, but he is not sitting on YouTube or
             TikTok all day.
@@ -617,7 +617,7 @@ const BestFitnessTrackersKidsPageContent = (
               Steps to Miles Calculator
             </Link>{' '}
             to compare the GPS distance with step-based estimates and see how accurate the step
-            counter is for your child's stride length.
+            counter is for your child’s stride length.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -661,7 +661,7 @@ const BestFitnessTrackersKidsPageContent = (
             The XPLORA X6 Play goes further than the Garmin Bounce as a phone replacement. It can
             make and receive actual phone calls, not just text messages. It has a camera for quick
             photos. And it has a dedicated SOS button that calls your number immediately when
-            pressed and sends your child's GPS location.
+            pressed and sends your child’s GPS location.
           </p>
 
           <p className="mb-4">
@@ -725,7 +725,7 @@ const BestFitnessTrackersKidsPageContent = (
         </div>
 
         <h2 className="text-2xl font-bold mt-8 mb-4">
-          What to Look for in a Kids' Fitness Tracker
+          What to Look for in a Kids’ Fitness Tracker
         </h2>
 
         <div className="neumorph p-6 rounded-lg my-6">
@@ -742,7 +742,7 @@ const BestFitnessTrackersKidsPageContent = (
             </li>
             <li>
               <strong>Motivation system:</strong> Steps alone bore most kids. Gamification like
-              Garmin's adventure quests or Fitbit's animated clock faces makes the difference
+              Garmin’s adventure quests or Fitbit’s animated clock faces makes the difference
               between a tracker they wear and one they forget about.
             </li>
             <li>
@@ -752,7 +752,7 @@ const BestFitnessTrackersKidsPageContent = (
             </li>
             <li>
               <strong>Comfortable fit:</strong> A tracker that pinches or slides around will get
-              taken off immediately. Check that the band adjusts small enough for your child's
+              taken off immediately. Check that the band adjusts small enough for your child’s
               wrist.
             </li>
           </ul>
@@ -769,12 +769,12 @@ const BestFitnessTrackersKidsPageContent = (
         <p>
           What is helpful is tracking activity levels. Steps, active minutes, and general movement
           patterns give you useful information without attaching numbers to food. That is why I like
-          the approach Fitbit and Garmin take with their kids' devices. They focus on movement
+          the approach Fitbit and Garmin take with their kids’ devices. They focus on movement
           goals, not calorie deficits.
         </p>
 
         <p>
-          If you have concerns about your child's weight, talk to their pediatrician. Our{' '}
+          If you have concerns about your child’s weight, talk to their pediatrician. Our{' '}
           <Link href="/bmi" className="text-accent hover:underline">
             BMI Calculator
           </Link>{' '}
@@ -860,7 +860,7 @@ const BestFitnessTrackersKidsPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final Recommendations</h2>
 
         <p>
-          There is no single best answer here. It depends on your kid's age, your budget, and
+          There is no single best answer here. It depends on your kid’s age, your budget, and
           whether you need communication features or just activity tracking.
         </p>
 

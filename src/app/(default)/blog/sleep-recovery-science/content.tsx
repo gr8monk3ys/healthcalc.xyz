@@ -132,12 +132,12 @@ const SleepRecoverySciencePageContent = (
         Matthew Walker, the neuroscientist at UC Berkeley and author of Why We Sleep, has been vocal
         about the cognitive effects of sleep restriction. His research shows that after 10 days of
         sleeping 6 hours per night, cognitive impairment is equivalent to going 24 hours without
-        sleep. The insidious part? Subjects in these studies consistently report feeling "fine." You
+        sleep. The insidious part? Subjects in these studies consistently report feeling “fine.” You
         lose the ability to accurately judge your own impairment.
       </p>
 
       <p>
-        For athletes, the data is even more compelling. Cheri Mah's landmark 2011 study at Stanford
+        For athletes, the data is even more compelling. Cheri Mah’s landmark 2011 study at Stanford
         had basketball players extend their sleep to 10 hours per night for 5-7 weeks. The results
         were remarkable: sprint times improved by 4%, free throw accuracy increased by 9%, and
         three-point accuracy increased by 9.2%. Reaction times improved across the board. These are
@@ -193,15 +193,15 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         The study concluded that ad libitum weekend recovery sleep is not an effective strategy for
-        reversing the metabolic effects of workweek sleep restriction. In other words, the "I will
-        sleep in on Saturday" plan is not fixing what you think it is fixing.
+        reversing the metabolic effects of workweek sleep restriction. In other words, the “I will
+        sleep in on Saturday” plan is not fixing what you think it is fixing.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Sleep and Weight: The Hormonal Connection</h2>
 
       <p>
         This is where the research gets particularly convincing, and where I think most people
-        underestimate sleep's role in body composition.
+        underestimate sleep’s role in body composition.
       </p>
 
       <p>
@@ -279,7 +279,7 @@ const SleepRecoverySciencePageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">Sleep Hygiene That Actually Has Evidence</h2>
 
       <p>
-        Most "sleep hygiene" advice is well-intentioned but vague. I want to focus specifically on
+        Most “sleep hygiene” advice is well-intentioned but vague. I want to focus specifically on
         interventions where the research is strong.
       </p>
 
@@ -287,7 +287,7 @@ const SleepRecoverySciencePageContent = (
       <p>
         Your core body temperature needs to drop by about 1-1.5C (2-3F) to initiate sleep. This is
         not optional; it is a prerequisite for sleep onset. A 1999 study in the journal Nature by
-        Krauchi et al. showed that the rate of heat loss from the body's core, particularly through
+        Krauchi et al. showed that the rate of heat loss from the body’s core, particularly through
         the hands and feet, was the strongest physiological predictor of sleep onset latency.
       </p>
       <p>
@@ -360,14 +360,14 @@ const SleepRecoverySciencePageContent = (
             <strong>Sleep staging:</strong> Consumer devices are poor at distinguishing deep sleep
             from light sleep and moderately unreliable for REM detection. They use accelerometry and
             heart rate as proxies for what polysomnography measures directly via brain waves. Do not
-            obsess over your "deep sleep score."
+            obsess over your “deep sleep score.”
           </li>
           <li>
             <strong>Single-night data:</strong> Night-to-night variability is high. A bad sleep
             score on one night is rarely meaningful. Look at 7-14 day averages instead.
           </li>
           <li>
-            <strong>Recovery scores:</strong> The composite "recovery" or "readiness" scores are
+            <strong>Recovery scores:</strong> The composite “recovery” or “readiness” scores are
             proprietary algorithms with limited published validation. They can be directionally
             useful but should not dictate your training.
           </li>
@@ -400,7 +400,7 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         Drake et al. published a 2013 study in the Journal of Clinical Sleep Medicine that tested
-        caffeine's effects at different times before bed. Taking 400mg of caffeine even 6 hours
+        caffeine’s effects at different times before bed. Taking 400mg of caffeine even 6 hours
         before bed significantly reduced total sleep time by over an hour and reduced sleep
         efficiency. Critically, many participants were unaware their sleep had been disrupted.
       </p>
@@ -458,7 +458,7 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         I am not going to tell you never to drink. But if you are serious about recovery, be honest
-        with yourself about the tradeoff. Two beers with dinner is not "harmless" from a sleep
+        with yourself about the tradeoff. Two beers with dinner is not “harmless” from a sleep
         perspective, even if you feel fine the next morning.
       </p>
 
@@ -469,7 +469,7 @@ const SleepRecoverySciencePageContent = (
       <p>
         A 2010 study by Waterhouse et al. in the Journal of Sports Sciences found that a 30-minute
         nap after a night of sleep restriction improved sprint performance and alertness in
-        athletes. NASA's Fatigue Countermeasures Program found that a 26-minute nap improved
+        athletes. NASA’s Fatigue Countermeasures Program found that a 26-minute nap improved
         alertness by 54% and performance by 34% in pilots.
       </p>
 
@@ -620,7 +620,7 @@ const SleepRecoverySciencePageContent = (
             performance and delayed circadian and sleep/wake timing. Sci Rep. 2017;7:3216.
           </li>
           <li>
-            Fothergill E, et al. Persistent metabolic adaptation 6 years after "The Biggest Loser"
+            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
             competition. Obesity. 2016;24(8):1612-1619.
           </li>
         </ul>

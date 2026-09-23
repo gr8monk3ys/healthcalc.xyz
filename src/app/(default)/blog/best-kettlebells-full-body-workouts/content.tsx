@@ -414,7 +414,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             is about as straightforward as it gets. No fancy coating, no marketing jargon. Just a
             solid chunk of cast iron with a handle. For the price, the quality is respectable. The
             handle is wide enough for two-handed swings and the base sits flat. I have trained with
-            a CAP 35-pounder at a friend&apos;s garage gym and it does the job.
+            a CAP 35-pounder at a friend’s garage gym and it does the job.
           </p>
 
           <p className="mb-4">
@@ -586,7 +586,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             <li>E-coat finish with semi-gloss surface and natural texture</li>
             <li>Single-cast with absolutely no handle seams</li>
             <li>Available from 9 to 88 lbs in 12 weight increments</li>
-            <li>Handle diameter: 1.2&quot; (light) to 1.5&quot; (heavy)</li>
+            <li>Handle diameter: 1.2″ (light) to 1.5″ (heavy)</li>
             <li>Made in the USA</li>
           </ul>
 
@@ -606,8 +606,8 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Most expensive option on this list, primarily sold through
-              Rogue&apos;s own site so shipping can take longer, e-coat shows scratches more than
-              powder coat, limited weight increment jumps compared to Kettlebell Kings
+              Rogue’s own site so shipping can take longer, e-coat shows scratches more than powder
+              coat, limited weight increment jumps compared to Kettlebell Kings
             </p>
           </div>
           <div className="mt-4">

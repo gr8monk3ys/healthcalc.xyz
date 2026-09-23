@@ -250,7 +250,7 @@ export default function EmbedPage(): React.JSX.Element {
           </p>
           <div className="glass-panel-strong p-4 rounded-2xl">
             <p className="font-semibold text-slate-900 dark:text-white mb-1">
-              Keep the &quot;Powered by HealthCalc&quot; link visible
+              Keep the “Powered by HealthCalc” link visible
             </p>
             <p>
               Each embedded calculator includes a small attribution link at the bottom. This link

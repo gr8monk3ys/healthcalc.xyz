@@ -85,15 +85,15 @@ const TDEEExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-3">
           <li>
-            If you consume <strong>fewer calories than your TDEE</strong>, you'll be in a calorie
+            If you consume <strong>fewer calories than your TDEE</strong>, you’ll be in a calorie
             deficit and lose weight
           </li>
           <li>
-            If you consume <strong>more calories than your TDEE</strong>, you'll be in a calorie
+            If you consume <strong>more calories than your TDEE</strong>, you’ll be in a calorie
             surplus and gain weight
           </li>
           <li>
-            If you consume <strong>calories equal to your TDEE</strong>, you'll maintain your
+            If you consume <strong>calories equal to your TDEE</strong>, you’ll maintain your
             current weight
           </li>
         </ul>
@@ -218,7 +218,7 @@ const TDEEExplainedPageContent = (
           <li>Typing</li>
           <li>Gardening</li>
           <li>Shopping</li>
-          <li>Any other physical activity that isn't structured exercise</li>
+          <li>Any other physical activity that isn’t structured exercise</li>
         </ul>
         <p className="mt-4">
           NEAT varies enormously between people. A desk worker might get 15% of their TDEE from
@@ -250,7 +250,7 @@ const TDEEExplainedPageContent = (
               people
             </li>
             <li>
-              <strong>Harris-Benedict Equation</strong>: An older formula that's still widely used
+              <strong>Harris-Benedict Equation</strong>: An older formula that’s still widely used
             </li>
             <li>
               <strong>Katch-McArdle Formula</strong>: Incorporates lean body mass for greater
@@ -282,7 +282,7 @@ const TDEEExplainedPageContent = (
       </ol>
 
       <p>
-        For example, if your calculated BMR is 1,500 calories and you're moderately active, your
+        For example, if your calculated BMR is 1,500 calories and you’re moderately active, your
         estimated TDEE would be 1,500 × 1.55 = 2,325 calories per day.
       </p>
 
@@ -303,7 +303,7 @@ const TDEEExplainedPageContent = (
         <li>
           <strong>Doubly Labeled Water (DLW)</strong>: Considered the gold standard for measuring
           energy expenditure outside of a laboratory setting. This method involves drinking water
-          containing special isotopes and measuring how quickly they're eliminated from the body.
+          containing special isotopes and measuring how quickly they’re eliminated from the body.
         </li>
         <li>
           <strong>Indirect Calorimetry</strong>: Measures oxygen consumption and carbon dioxide
@@ -479,7 +479,7 @@ const TDEEExplainedPageContent = (
           Misconception #1: TDEE Calculators Are Perfectly Accurate
         </h3>
         <p>
-          While TDEE calculators provide useful estimates, they're just that—estimates. Individual
+          While TDEE calculators provide useful estimates, they’re just that—estimates. Individual
           variations in metabolism, activity levels, and other factors mean that calculator results
           may be off by 10-20% for some people. Use calculator results as a starting point, then
           adjust based on your actual results.
@@ -511,7 +511,7 @@ const TDEEExplainedPageContent = (
           Misconception #4: You Need to Calculate TDEE Precisely
         </h3>
         <p>
-          While understanding TDEE is valuable, obsessing over precise numbers isn't necessary or
+          While understanding TDEE is valuable, obsessing over precise numbers isn’t necessary or
           helpful for most people. The tracking method—monitoring intake and weight changes—often
           provides more practical guidance than complex calculations.
         </p>
@@ -580,7 +580,7 @@ const TDEEExplainedPageContent = (
         <li>Monitor weight regularly and make small adjustments as needed</li>
         <li>Focus on sustainable dietary and exercise habits</li>
         <li>
-          Consider periodic "diet breaks" at maintenance calories during extended weight loss phases
+          Consider periodic “diet breaks” at maintenance calories during extended weight loss phases
         </li>
       </ol>
 

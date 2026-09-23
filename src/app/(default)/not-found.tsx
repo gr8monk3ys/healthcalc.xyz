@@ -81,7 +81,7 @@ export default function NotFound() {
         <h1 className="text-6xl font-bold text-accent mb-4">404</h1>
         <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
         <p className="text-gray-600 mb-6">
-          The page you are looking for doesn't exist or has been moved.
+          The page you are looking for doesn’t exist or has been moved.
         </p>
         <Link
           href="/"
@@ -149,7 +149,7 @@ export default function NotFound() {
 
       <div className="mt-12 p-6 neumorph rounded-lg">
         <h3 className="text-xl font-semibold mb-4">Looking for Something Specific?</h3>
-        <p className="mb-4">If you can't find what you're looking for, try one of these options:</p>
+        <p className="mb-4">If you can’t find what you’re looking for, try one of these options:</p>
         <ul className="list-disc list-inside space-y-2 mb-6">
           <li>Check the URL for typos</li>
           <li>Use the navigation menu at the top of the page</li>

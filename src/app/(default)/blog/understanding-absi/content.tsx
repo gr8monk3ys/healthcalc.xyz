@@ -110,7 +110,7 @@ const UnderstandingABSIPageContent = (
             </li>
             <li>
               People with normal BMI but high ABSI may still have significant health risks that BMI
-              alone doesn't capture.
+              alone doesn’t capture.
             </li>
             <li>
               Using multiple metrics (BMI, ABSI, body fat percentage) together gives a fuller
@@ -148,9 +148,9 @@ const UnderstandingABSIPageContent = (
           documented:
         </p>
         <ul>
-          <li>It doesn't distinguish between fat and muscle mass</li>
-          <li>It doesn't account for fat distribution</li>
-          <li>It doesn't consider age, sex, or ethnicity</li>
+          <li>It doesn’t distinguish between fat and muscle mass</li>
+          <li>It doesn’t account for fat distribution</li>
+          <li>It doesn’t consider age, sex, or ethnicity</li>
         </ul>
         <p>
           The second limitation matters most here. Where you carry your fat may matter as much as
@@ -164,7 +164,7 @@ const UnderstandingABSIPageContent = (
 
         <div className="neumorph p-6 rounded-lg my-8">
           <h3 className="text-xl font-semibold mb-4">Case Study: Normal BMI but High ABSI</h3>
-          <p>Consider two individuals with the same BMI of 24 (within the "normal" range):</p>
+          <p>Consider two individuals with the same BMI of 24 (within the “normal” range):</p>
           <ul>
             <li>
               <strong>Person A:</strong> Has a relatively small waist and carries more weight in
@@ -178,7 +178,7 @@ const UnderstandingABSIPageContent = (
           <p>
             According to BMI alone, both individuals would be classified as having the same health
             risk. However, Person B would have a higher ABSI, reflecting their increased abdominal
-            fat and potentially higher health risk despite having a "normal" BMI.
+            fat and potentially higher health risk despite having a “normal” BMI.
           </p>
           <p className="mb-0">BMI would flag both as equal risk. ABSI would not.</p>
         </div>
@@ -307,10 +307,10 @@ const UnderstandingABSIPageContent = (
         <ul>
           <li>
             <strong>BMI (Body Mass Index):</strong> Measures overall weight relative to height, but
-            doesn't distinguish between fat and muscle or consider fat distribution.
+            doesn’t distinguish between fat and muscle or consider fat distribution.
           </li>
           <li>
-            <strong>Waist Circumference:</strong> Measures abdominal fat directly, but doesn't
+            <strong>Waist Circumference:</strong> Measures abdominal fat directly, but doesn’t
             account for overall body size.
           </li>
           <li>
@@ -323,7 +323,7 @@ const UnderstandingABSIPageContent = (
           </li>
           <li>
             <strong>Body Fat Percentage:</strong> Measures the actual proportion of fat in your
-            body, regardless of where it's distributed.
+            body, regardless of where it’s distributed.
           </li>
         </ul>
         <p>
@@ -386,10 +386,10 @@ const UnderstandingABSIPageContent = (
         <Link href="/blog/understanding-body-fat-percentage" className="block">
           <div className="neumorph h-full p-6 rounded-lg transition hover:shadow-neumorph-inset">
             <h4 className="text-lg font-semibold mb-2">
-              Understanding Body Fat Percentage: What's Healthy and Why It Matters
+              Understanding Body Fat Percentage: What’s Healthy and Why It Matters
             </h4>
             <p className="text-gray-600 mb-2">
-              Learn what body fat percentage really means, how it's measured, and what ranges are
+              Learn what body fat percentage really means, how it’s measured, and what ranges are
               considered healthy.
             </p>
             <span className="text-accent font-medium">Read Article →</span>

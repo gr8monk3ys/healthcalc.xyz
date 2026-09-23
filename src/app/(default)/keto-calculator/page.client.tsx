@@ -55,7 +55,7 @@ const faqs = [
   {
     question: 'How do I avoid the keto flu?',
     answer:
-      'The "keto flu" occurs during the first few days of transitioning to ketosis as your body adjusts. Prevent it by staying hydrated and supplementing electrolytes: sodium (3000-5000mg), potassium (1000-3500mg), and magnesium (300-500mg). Drink bone broth, salt your food liberally, eat potassium-rich low-carb foods like avocados and spinach, and consider a magnesium supplement. Symptoms typically resolve within 3-7 days.',
+      'The “keto flu” occurs during the first few days of transitioning to ketosis as your body adjusts. Prevent it by staying hydrated and supplementing electrolytes: sodium (3000-5000mg), potassium (1000-3500mg), and magnesium (300-500mg). Drink bone broth, salt your food liberally, eat potassium-rich low-carb foods like avocados and spinach, and consider a magnesium supplement. Symptoms typically resolve within 3-7 days.',
   },
   {
     question: 'How long does it take to get into ketosis?',

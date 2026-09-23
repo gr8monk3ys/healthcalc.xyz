@@ -91,8 +91,8 @@ const CardioVsWeightsFatLossContentContent = (
 
     <div className="prose prose-lg dark:prose-invert max-w-none">
       <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-        I'm going to settle this debate once and for all. Or at least give you enough information to
-        make your own informed decision, because the answer isn't as simple as you'd hope.
+        I’m going to settle this debate once and for all. Or at least give you enough information to
+        make your own informed decision, because the answer isn’t as simple as you’d hope.
       </p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
@@ -100,26 +100,26 @@ const CardioVsWeightsFatLossContentContent = (
       </h2>
 
       <p>
-        Here's what most people think: cardio burns more calories, so it's better for fat loss.
+        Here’s what most people think: cardio burns more calories, so it’s better for fat loss.
         Seems logical. A 30-minute run might burn 300 calories. A 30-minute weight session? Maybe
         150.
       </p>
 
       <p>
-        But that's only looking at what happens during the workout. And honestly, that's the least
+        But that’s only looking at what happens during the workout. And honestly, that’s the least
         interesting part of the equation.
       </p>
 
       <p>
         When you finish a cardio session, your calorie burn drops back to baseline pretty quickly.
-        Maybe an hour or two of slightly elevated metabolism, then you're done. With resistance
+        Maybe an hour or two of slightly elevated metabolism, then you’re done. With resistance
         training, something different happens.
       </p>
 
       <p>
-        Your body spends the next 24 to 48 hours repairing muscle tissue. That costs energy. It's
+        Your body spends the next 24 to 48 hours repairing muscle tissue. That costs energy. It’s
         called EPOC (excess post-exercise oxygen consumption), though everyone just calls it the
-        "afterburn effect."
+        “afterburn effect.”
       </p>
 
       <div className="neumorph-card rounded-xl p-6 my-8 bg-blue-50 dark:bg-blue-900/20">
@@ -139,19 +139,19 @@ const CardioVsWeightsFatLossContentContent = (
 
       <p>
         The total calorie difference over 48 hours? Not as dramatic as the supplement companies want
-        you to believe, but it exists. You're looking at maybe an extra 50-100 calories from a hard
+        you to believe, but it exists. You’re looking at maybe an extra 50-100 calories from a hard
         resistance training session.
       </p>
 
-      <p>That's not nothing, but it's also not magic.</p>
+      <p>That’s not nothing, but it’s also not magic.</p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
         What Research Actually Shows About EPOC
       </h2>
 
       <p>
-        I've read through dozens of studies on this, and here's what the data consistently shows:
-        EPOC is real, but it's been oversold.
+        I’ve read through dozens of studies on this, and here’s what the data consistently shows:
+        EPOC is real, but it’s been oversold.
       </p>
 
       <p>
@@ -166,20 +166,20 @@ const CardioVsWeightsFatLossContentContent = (
       </p>
 
       <p>
-        But here's where it gets interesting. The same research shows that the more intense the
+        But here’s where it gets interesting. The same research shows that the more intense the
         workout, the longer and higher the afterburn. Circuit training with short rest periods?
         Significant EPOC. Traditional bodybuilding splits with 3-minute rest periods? Not so much.
       </p>
 
       <p>
         Interval training splits the difference. You get decent calorie burn during the workout and
-        respectable afterburn afterward. That's why HIIT became so popular. It actually delivers on
+        respectable afterburn afterward. That’s why HIIT became so popular. It actually delivers on
         both fronts.
       </p>
 
       <p>
-        Still, if we're being honest, the EPOC effect alone isn't going to be the difference between
-        success and failure in your fat loss journey. It's a nice bonus, not the main event.
+        Still, if we’re being honest, the EPOC effect alone isn’t going to be the difference between
+        success and failure in your fat loss journey. It’s a nice bonus, not the main event.
       </p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
@@ -187,8 +187,8 @@ const CardioVsWeightsFatLossContentContent = (
       </h2>
 
       <p>
-        This is where people get really confused. You've probably heard that muscle burns more
-        calories than fat, and that building muscle will "rev up your metabolism."
+        This is where people get really confused. You’ve probably heard that muscle burns more
+        calories than fat, and that building muscle will “rev up your metabolism.”
       </p>
 
       <p>Both true. Also both overstated.</p>
@@ -196,14 +196,14 @@ const CardioVsWeightsFatLossContentContent = (
       <p>
         A pound of muscle burns about 6 calories per day at rest. A pound of fat burns about 2. So
         if you gain 10 pounds of muscle (which would take most people 6-12 months of serious
-        training), you'd increase your resting metabolic rate by about 40 calories per day.
+        training), you’d increase your resting metabolic rate by about 40 calories per day.
       </p>
 
-      <p>That's one small apple. Not exactly game-changing.</p>
+      <p>That’s one small apple. Not exactly game-changing.</p>
 
       <p>
-        But wait, there's more to this story. Those numbers only account for the muscle tissue
-        itself sitting there doing nothing. They don't account for what happens when you actually
+        But wait, there’s more to this story. Those numbers only account for the muscle tissue
+        itself sitting there doing nothing. They don’t account for what happens when you actually
         use that muscle.
       </p>
 
@@ -249,7 +249,7 @@ const CardioVsWeightsFatLossContentContent = (
       </h2>
 
       <p>
-        Here's the part that actually matters most: what happens when you're in a{' '}
+        Here’s the part that actually matters most: what happens when you’re in a{' '}
         <Link href="/calorie-deficit" className="text-blue-600 dark:text-blue-400 hover:underline">
           calorie deficit
         </Link>
@@ -257,20 +257,20 @@ const CardioVsWeightsFatLossContentContent = (
       </p>
 
       <p>
-        When you eat less than you burn, your body doesn't just burn fat. It burns whatever it can
-        get away with burning. Fat, muscle, that fancy protein powder you bought… your body doesn't
+        When you eat less than you burn, your body doesn’t just burn fat. It burns whatever it can
+        get away with burning. Fat, muscle, that fancy protein powder you bought… your body doesn’t
         care about your aesthetic goals.
       </p>
 
       <p>
-        If you're not giving your body a reason to keep muscle around, it won't. Muscle is
+        If you’re not giving your body a reason to keep muscle around, it won’t. Muscle is
         metabolically expensive. When food is scarce (or deliberately restricted), your body sees
         muscle as a liability.
       </p>
 
       <p>
-        Resistance training changes that equation. It signals to your body: "We need this muscle.
-        We're still using it. Don't burn it for fuel."
+        Resistance training changes that equation. It signals to your body: “We need this muscle.
+        We’re still using it. Don’t burn it for fuel.”
       </p>
 
       <p>
@@ -291,8 +291,8 @@ const CardioVsWeightsFatLossContentContent = (
       </p>
 
       <p>
-        Same scale weight. Completely different body composition. That's why I always tell people:
-        the scale doesn't tell you the whole story. Check your{' '}
+        Same scale weight. Completely different body composition. That’s why I always tell people:
+        the scale doesn’t tell you the whole story. Check your{' '}
         <Link href="/body-fat" className="text-blue-600 dark:text-blue-400 hover:underline">
           body fat percentage
         </Link>{' '}
@@ -304,15 +304,15 @@ const CardioVsWeightsFatLossContentContent = (
       </h2>
 
       <p>
-        I know you wanted me to pick a winner. And if I absolutely had to choose one, I'd pick
+        I know you wanted me to pick a winner. And if I absolutely had to choose one, I’d pick
         resistance training for fat loss. Better body composition, metabolic advantages, and you
         look better at the end.
       </p>
 
-      <p>But that's not the whole truth.</p>
+      <p>But that’s not the whole truth.</p>
 
       <p>
-        Cardio has benefits that weights can't replicate. Heart health. Cardiovascular endurance.
+        Cardio has benefits that weights can’t replicate. Heart health. Cardiovascular endurance.
         Mental clarity. Stress relief. The ability to eat an extra 300-500 calories per day without
         gaining weight.
       </p>
@@ -331,16 +331,16 @@ const CardioVsWeightsFatLossContentContent = (
       <p>
         The best fat loss program is the one you can actually stick to for months. If you hate
         cardio, do mostly weights and diet harder. If you hate weights, do cardio and accept that
-        your body composition won't be as good.
+        your body composition won’t be as good.
       </p>
 
-      <p>But if you can manage both? That's the sweet spot.</p>
+      <p>But if you can manage both? That’s the sweet spot.</p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
         Practical Training Splits Based on Goals
       </h2>
 
-      <p>Enough theory. Here's what I actually recommend based on different situations.</p>
+      <p>Enough theory. Here’s what I actually recommend based on different situations.</p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
         Maximum Fat Loss, Preserve Muscle
@@ -403,35 +403,35 @@ const CardioVsWeightsFatLossContentContent = (
       </div>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
-        The Best Exercise Is the One You'll Actually Do
+        The Best Exercise Is the One You’ll Actually Do
       </h2>
 
       <p>
-        I've given you all the science. I've shown you the optimal approaches. Now I'm going to tell
+        I’ve given you all the science. I’ve shown you the optimal approaches. Now I’m going to tell
         you something that contradicts most of it.
       </p>
 
-      <p>None of this matters if you don't actually do it.</p>
+      <p>None of this matters if you don’t actually do it.</p>
 
       <p>
         The theoretically perfect program that you do inconsistently will always lose to the
-        "suboptimal" program that you do religiously.
+        “suboptimal” program that you do religiously.
       </p>
 
       <p>
-        If you love running and hate weights, do mostly running. Yes, you'll lose some muscle. Yes,
-        your body composition won't be as good. But you'll actually lose the fat because you'll
+        If you love running and hate weights, do mostly running. Yes, you’ll lose some muscle. Yes,
+        your body composition won’t be as good. But you’ll actually lose the fat because you’ll
         stick with it.
       </p>
 
       <p>
-        If you love lifting and hate cardio, do mostly lifting. Yes, you'll have less cardiovascular
-        fitness. Yes, you'll have to diet a bit harder. But you'll build strength and muscle while
-        losing fat because you'll be consistent.
+        If you love lifting and hate cardio, do mostly lifting. Yes, you’ll have less cardiovascular
+        fitness. Yes, you’ll have to diet a bit harder. But you’ll build strength and muscle while
+        losing fat because you’ll be consistent.
       </p>
 
       <p>
-        The program you'll do five days a week beats the program you'll quit after two weeks. Every
+        The program you’ll do five days a week beats the program you’ll quit after two weeks. Every
         single time.
       </p>
 
@@ -454,7 +454,7 @@ const CardioVsWeightsFatLossContentContent = (
 
       <ol className="space-y-3">
         <li>
-          <strong>Resistance training preserves muscle during fat loss.</strong> That's its
+          <strong>Resistance training preserves muscle during fat loss.</strong> That’s its
           superpower. Everything else is secondary.
         </li>
         <li>
@@ -462,8 +462,8 @@ const CardioVsWeightsFatLossContentContent = (
           more food while still losing fat.
         </li>
         <li>
-          <strong>Consistency beats optimization.</strong> The program you'll stick with for six
-          months beats the perfect program you'll quit after two weeks.
+          <strong>Consistency beats optimization.</strong> The program you’ll stick with for six
+          months beats the perfect program you’ll quit after two weeks.
         </li>
       </ol>
 
@@ -473,12 +473,12 @@ const CardioVsWeightsFatLossContentContent = (
       </p>
 
       <p>
-        Start with what you enjoy. Add the other when you're ready. Track your progress honestly.
-        Adjust based on what's actually working, not what the internet says should work.
+        Start with what you enjoy. Add the other when you’re ready. Track your progress honestly.
+        Adjust based on what’s actually working, not what the internet says should work.
       </p>
 
       <p>
-        And remember: the goal isn't to win a debate about training methods. The goal is to lose
+        And remember: the goal isn’t to win a debate about training methods. The goal is to lose
         fat, keep muscle, and build a body that makes you feel good. However you get there is the
         right way.
       </p>

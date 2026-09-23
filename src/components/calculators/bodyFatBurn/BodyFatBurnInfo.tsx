@@ -71,12 +71,12 @@ export default function BodyFatBurnInfo() {
         <ul className="list-disc list-inside space-y-2">
           <li>Individual variations in metabolism and efficiency of movement</li>
           <li>
-            The body's adaptation to regular exercise (you may burn fewer calories doing the same
+            The body’s adaptation to regular exercise (you may burn fewer calories doing the same
             activity over time)
           </li>
           <li>Changes in diet that may accompany exercise programs</li>
           <li>
-            The "afterburn effect" (excess post-exercise oxygen consumption) is not included in
+            The “afterburn effect” (excess post-exercise oxygen consumption) is not included in
             these calculations
           </li>
           <li>

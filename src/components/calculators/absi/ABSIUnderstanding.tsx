@@ -21,12 +21,12 @@ const ABSIUnderstanding: React.FC = () => {
       <ul className="list-disc pl-5 space-y-2">
         <li>
           <span className="font-medium">BMI (Body Mass Index):</span> Measures overall weight
-          relative to height, but doesn't distinguish between fat and muscle or consider fat
+          relative to height, but doesn’t distinguish between fat and muscle or consider fat
           distribution
         </li>
         <li>
           <span className="font-medium">Waist Circumference:</span> Measures abdominal fat directly,
-          but doesn't account for overall body size
+          but doesn’t account for overall body size
         </li>
         <li>
           <span className="font-medium">Waist-to-Hip Ratio:</span> Compares waist and hip
@@ -38,7 +38,7 @@ const ABSIUnderstanding: React.FC = () => {
         </li>
         <li>
           <span className="font-medium">Body Fat Percentage:</span> Measures the actual proportion
-          of fat in your body, regardless of where it's distributed
+          of fat in your body, regardless of where it’s distributed
         </li>
       </ul>
 

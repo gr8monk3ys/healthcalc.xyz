@@ -592,7 +592,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
               feet together.
             </li>
             <li>
-              <strong>Neck:</strong> Measure just below the larynx (Adam&apos;s apple), tape angled
+              <strong>Neck:</strong> Measure just below the larynx (Adam’s apple), tape angled
               slightly downward at the front.
             </li>
             <li>

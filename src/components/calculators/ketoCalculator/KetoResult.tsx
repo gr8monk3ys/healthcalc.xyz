@@ -210,9 +210,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>
-              Drink plenty of water and supplement electrolytes to avoid the &quot;keto flu&quot;
-            </span>
+            <span>Drink plenty of water and supplement electrolytes to avoid the “keto flu”</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
@@ -220,9 +218,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>
-              Focus on whole, nutrient-dense foods rather than processed &quot;keto&quot; products
-            </span>
+            <span>Focus on whole, nutrient-dense foods rather than processed “keto” products</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>

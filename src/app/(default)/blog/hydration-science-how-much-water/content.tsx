@@ -19,7 +19,7 @@ const HydrationSciencePageContent = (
         <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
         <ul className="space-y-2">
           <li>
-            The "8 glasses a day" rule has no scientific basis. It likely originated from a
+            The “8 glasses a day” rule has no scientific basis. It likely originated from a
             misreading of a 1945 government report.
           </li>
           <li>
@@ -54,19 +54,19 @@ const HydrationSciencePageContent = (
         of fluids is its own problem. Let me walk through what the evidence actually says.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">The Origin of "8 Glasses a Day"</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">The Origin of “8 Glasses a Day”</h2>
 
       <p>
         In 2002, Heinz Valtin, a kidney physiologist at Dartmouth Medical School, published a paper
-        in the American Journal of Physiology titled "Drink at least eight glasses of water a day.
-        Really? Is there scientific evidence for 8x8?" After a thorough review of the literature, he
+        in the American Journal of Physiology titled “Drink at least eight glasses of water a day.
+        Really? Is there scientific evidence for 8x8?” After a thorough review of the literature, he
         could find no scientific basis for this recommendation.
       </p>
 
       <p>
         The likely origin? A 1945 report from the U.S. Food and Nutrition Board recommended 2.5
-        liters of daily water intake. The very next sentence noted that "most of this quantity is
-        contained in prepared foods." That second sentence was apparently forgotten, and the 2.5
+        liters of daily water intake. The very next sentence noted that “most of this quantity is
+        contained in prepared foods.” That second sentence was apparently forgotten, and the 2.5
         liters (roughly eight 8-ounce glasses) became gospel.
       </p>
 
@@ -109,16 +109,16 @@ const HydrationSciencePageContent = (
       </div>
 
       <p>
-        The IOM also made an important statement that often gets overlooked: "The vast majority of
+        The IOM also made an important statement that often gets overlooked: “The vast majority of
         healthy people adequately meet their daily hydration needs by letting thirst be their
-        guide." For healthy adults in temperate climates with moderate activity, thirst is a
+        guide.” For healthy adults in temperate climates with moderate activity, thirst is a
         surprisingly reliable signal. Your body is not bad at telling you when it needs water.
       </p>
 
       <p>
         That said, thirst is less reliable in two specific populations: older adults (whose thirst
         sensitivity declines with age) and people exercising intensely in heat (where fluid losses
-        can outpace the thirst response). For everyone else, the "drink before you are thirsty"
+        can outpace the thirst response). For everyone else, the “drink before you are thirsty”
         advice is not well-supported.
       </p>
 
@@ -231,7 +231,7 @@ const HydrationSciencePageContent = (
       <p>
         Severe hyponatremia can cause confusion, seizures, coma, and death. There have been
         documented fatalities in marathon runners, military trainees, and fraternity hazing
-        incidents. The message that "more water is always better" is genuinely dangerous.
+        incidents. The message that “more water is always better” is genuinely dangerous.
       </p>
 
       <p>
@@ -338,7 +338,7 @@ const HydrationSciencePageContent = (
         That said, the effect depends on concentration and volume. Beer (4-5% alcohol) is only
         mildly dehydrating because the large volume of water partially compensates. Spirits (40%+)
         are significantly dehydrating. The practical solution is not complicated: if you drink
-        alcohol, also drink water. The old advice of "one glass of water for every alcoholic drink"
+        alcohol, also drink water. The old advice of “one glass of water for every alcoholic drink”
         is reasonable, even if it is rarely followed.
       </p>
 
@@ -412,7 +412,7 @@ const HydrationSciencePageContent = (
         What you need is to drink fluids when you are thirsty, pay attention to your urine color,
         and be more intentional about hydration around exercise. If you are an endurance athlete
         training in heat, the stakes are higher and more precision is warranted. For everyone else,
-        your body's built-in hydration sensor (thirst) works remarkably well.
+        your body’s built-in hydration sensor (thirst) works remarkably well.
       </p>
 
       <p>
@@ -459,8 +459,8 @@ const HydrationSciencePageContent = (
         <h3 className="text-xl font-semibold mb-4">References</h3>
         <ul className="space-y-3 text-sm text-gray-600">
           <li>
-            Valtin H. "Drink at least eight glasses of water a day." Really? Is there scientific
-            evidence for "8x8"? Am J Physiol Regul Integr Comp Physiol. 2002;283(5):R993-1004.
+            Valtin H. “Drink at least eight glasses of water a day.” Really? Is there scientific
+            evidence for “8x8”? Am J Physiol Regul Integr Comp Physiol. 2002;283(5):R993-1004.
           </li>
           <li>
             Institute of Medicine. Dietary Reference Intakes for Water, Potassium, Sodium, Chloride,

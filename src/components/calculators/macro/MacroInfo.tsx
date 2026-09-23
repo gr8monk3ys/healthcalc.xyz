@@ -23,9 +23,9 @@ const MacroInfo: React.FC = () => {
           meat, fish, eggs, dairy, legumes, and tofu.
         </li>
         <li>
-          <strong>Carbohydrates (4 calories per gram):</strong> Your body&apos;s primary energy
-          source. They fuel your brain, muscles, and organs. Found in grains, fruits, vegetables,
-          and legumes.
+          <strong>Carbohydrates (4 calories per gram):</strong> Your body’s primary energy source.
+          They fuel your brain, muscles, and organs. Found in grains, fruits, vegetables, and
+          legumes.
         </li>
         <li>
           <strong>Fat (9 calories per gram):</strong> Essential for hormone production, nutrient

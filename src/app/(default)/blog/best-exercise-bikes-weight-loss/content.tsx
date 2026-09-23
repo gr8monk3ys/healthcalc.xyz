@@ -184,21 +184,21 @@ const BestExerciseBikesWeightLossPageContent = (
           I bought my first exercise bike during a January sale five years ago. It was cheap. It was
           loud. My downstairs neighbors hated me. I rode it maybe ten times before it became an
           expensive clothes rack. So when I started testing bikes for this review, I already knew
-          what I didn't want. I wanted something quiet enough to ride at 6 AM, smooth enough to keep
+          what I didn’t want. I wanted something quiet enough to ride at 6 AM, smooth enough to keep
           me engaged, and sturdy enough to survive daily use for more than three months.
         </p>
 
         <p>
-          Here's what most bike reviews won't tell you: the bike itself doesn't make you lose
+          Here’s what most bike reviews won’t tell you: the bike itself doesn’t make you lose
           weight. Your calorie deficit does. An exercise bike is just a really convenient way to
           burn 400 to 600 calories per hour without leaving your house, without worrying about
-          weather, and without needing any coordination. That's the real appeal. If you've run the
+          weather, and without needing any coordination. That’s the real appeal. If you’ve run the
           numbers with our{' '}
           <Link href="/calories-burned" className="text-accent hover:underline">
             Calories Burned Calculator
           </Link>
           , you already know that cycling sits in a sweet spot between intensity and sustainability.
-          It's hard enough to burn serious calories but easy enough on your joints to do it every
+          It’s hard enough to burn serious calories but easy enough on your joints to do it every
           single day.
         </p>
 
@@ -239,17 +239,17 @@ const BestExerciseBikesWeightLossPageContent = (
         </h2>
 
         <p>
-          Running burns more calories per hour. That's true. But I know exactly one person who
+          Running burns more calories per hour. That’s true. But I know exactly one person who
           started running for weight loss and actually stuck with it past month three. Exercise
-          bikes have a staying power that treadmills and outdoor running just don't, especially for
-          people carrying extra weight. Your knees don't ache. Your ankles don't swell. You can
+          bikes have a staying power that treadmills and outdoor running just don’t, especially for
+          people carrying extra weight. Your knees don’t ache. Your ankles don’t swell. You can
           watch Netflix while you pedal and genuinely enjoy the session instead of counting down the
           minutes.
         </p>
 
         <p>
           The numbers back this up. A 180-pound person cycling at moderate intensity burns roughly
-          500 calories per hour. Push into high intensity intervals and you're looking at 700 or
+          500 calories per hour. Push into high intensity intervals and you’re looking at 700 or
           more. You can verify this yourself with our{' '}
           <Link href="/calories-burned" className="text-accent hover:underline">
             Calories Burned Calculator
@@ -282,7 +282,7 @@ const BestExerciseBikesWeightLossPageContent = (
         <p>
           The catch is that cheap bikes feel terrible to ride. The resistance is jerky, the seat
           hurts, the pedals wobble. You stop riding because the experience is miserable, not because
-          you lost motivation. That's why picking the right bike matters more than people think.
+          you lost motivation. That’s why picking the right bike matters more than people think.
         </p>
 
         <h2 id="schwinn-ic4" className="text-2xl font-bold mt-8 mb-4">
@@ -293,7 +293,7 @@ const BestExerciseBikesWeightLossPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Schwinn IC4 Indoor Cycling Bike</h3>
             </div>
@@ -301,11 +301,11 @@ const BestExerciseBikesWeightLossPageContent = (
           </div>
 
           <p className="mb-4">
-            The IC4 is the bike I'd buy if I could only have one. It hits that rare sweet spot where
+            The IC4 is the bike I’d buy if I could only have one. It hits that rare sweet spot where
             the build quality justifies the price without crossing into luxury territory. Magnetic
-            resistance means it's whisper-quiet, which matters a lot more than you'd think at 5:30
+            resistance means it’s whisper-quiet, which matters a lot more than you’d think at 5:30
             in the morning. And with 100 resistance levels, you can fine-tune your workout intensity
-            instead of jumping between vague "easy" and "hard" settings like cheaper bikes force you
+            instead of jumping between vague “easy” and “hard” settings like cheaper bikes force you
             to do.
           </p>
 
@@ -324,7 +324,7 @@ const BestExerciseBikesWeightLossPageContent = (
             The Bluetooth connectivity is what separates the IC4 from bikes twice its price. You can
             pair it with the Peloton app (at $13/month, way cheaper than a Peloton bike) and get
             instructor-led classes that actually make you push harder. I burned 15% more calories
-            during guided rides compared to solo sessions. That's not willpower. That's just having
+            during guided rides compared to solo sessions. That’s not willpower. That’s just having
             someone yell at you through a screen.
           </p>
 
@@ -346,7 +346,7 @@ const BestExerciseBikesWeightLossPageContent = (
               included HR strap, near-silent magnetic resistance, SPD-compatible pedals
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> No built-in screen (you'll need a tablet), assembly takes about
+              <strong>Cons:</strong> No built-in screen (you’ll need a tablet), assembly takes about
               90 minutes, seat can be uncomfortable for longer rides without a gel cover
             </p>
           </div>
@@ -379,9 +379,9 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <p className="mb-4">
             Sunny Health has been making affordable fitness equipment for years, and the SF-B1805 is
-            their best indoor bike. It doesn't have Bluetooth. It doesn't have a fancy screen. What
+            their best indoor bike. It doesn’t have Bluetooth. It doesn’t have a fancy screen. What
             it has is a 44-pound flywheel that makes every pedal stroke feel smooth and natural,
-            which is honestly what matters most when you're trying to ride four or five times a
+            which is honestly what matters most when you’re trying to ride four or five times a
             week.
           </p>
 
@@ -399,21 +399,21 @@ const BestExerciseBikesWeightLossPageContent = (
           <p>
             This bike punches way above its weight class. I expected the ride quality to feel cheap
             at $399, but that heavy flywheel genuinely delivers. The momentum carries through the
-            dead spots in your pedal stroke in a way that lighter flywheels just can't replicate. If
-            you've never ridden a bike with a flywheel under 30 pounds, trust me, the difference is
+            dead spots in your pedal stroke in a way that lighter flywheels just can’t replicate. If
+            you’ve never ridden a bike with a flywheel under 30 pounds, trust me, the difference is
             night and day.
           </p>
 
           <p className="mt-2">
-            The trade-off is obvious: no connectivity. You can't sync this with Peloton or Zwift or
+            The trade-off is obvious: no connectivity. You can’t sync this with Peloton or Zwift or
             track your metrics through an app. You get a basic LCD display that shows speed,
             distance, time, and calories (those calorie numbers are wildly inaccurate, by the way,
             so ignore them and use our{' '}
             <Link href="/calories-burned" className="text-accent hover:underline">
               Calories Burned Calculator
             </Link>{' '}
-            instead). If you're the kind of person who just wants to hop on, crank up a podcast, and
-            ride, the lack of tech features won't bother you at all.
+            instead). If you’re the kind of person who just wants to hop on, crank up a podcast, and
+            ride, the lack of tech features won’t bother you at all.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -454,10 +454,10 @@ const BestExerciseBikesWeightLossPageContent = (
           </div>
 
           <p className="mb-4">
-            I'll be straight with you. $1,700 is a lot of money for an exercise bike. The VeloCore
+            I’ll be straight with you. $1,700 is a lot of money for an exercise bike. The VeloCore
             knows this, and it tries very hard to justify the price tag. The 16-inch HD touchscreen
             is gorgeous. The JRNY app integration is seamless. And the leaning mode, where the
-            entire bike tilts side to side as you ride, is genuinely unlike anything else I've
+            entire bike tilts side to side as you ride, is genuinely unlike anything else I’ve
             tested.
           </p>
 
@@ -473,20 +473,20 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Is it worth the money?</h4>
           <p>
-            That depends entirely on whether you'll actually use the leaning mode. If you lock the
-            bike upright, you're basically paying $1,700 for features you can get on the Schwinn IC4
+            That depends entirely on whether you’ll actually use the leaning mode. If you lock the
+            bike upright, you’re basically paying $1,700 for features you can get on the Schwinn IC4
             with a $200 tablet. But in lean mode, the VeloCore becomes something different entirely.
             Turning the bike side to side during sprints fires up your obliques and stabilizer
             muscles in a way that standard cycling never touches. After a 45-minute lean ride, my
-            core was sore in places I didn't know could get sore from cycling.
+            core was sore in places I didn’t know could get sore from cycling.
           </p>
 
           <p className="mt-2">
             The JRNY app has solid programming. The adaptive workouts adjust difficulty based on
             your fitness level, and the virtual ride-through courses are entertaining enough to make
             an hour fly by. But the app requires a subscription ($149/year after your trial ends),
-            which is worth noting. The built-in screen also means you're not squinting at a phone
-            propped against the handlebars, which sounds trivial until you've done it for six months
+            which is worth noting. The built-in screen also means you’re not squinting at a phone
+            propped against the handlebars, which sounds trivial until you’ve done it for six months
             on a cheaper bike.
           </p>
 
@@ -530,8 +530,8 @@ const BestExerciseBikesWeightLossPageContent = (
           <p className="mb-4">
             Not everyone has a spare room or a garage for gym equipment. I tested this in a studio
             apartment, and it genuinely disappears when you fold it up. Half the footprint of a
-            standard bike. Slide it behind the couch or into a closet and forget it's there until
-            tomorrow's ride.
+            standard bike. Slide it behind the couch or into a closet and forget it’s there until
+            tomorrow’s ride.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -546,15 +546,15 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Who this is really for:</h4>
           <p>
-            Let me be clear about what this bike is and what it isn't. This is a semi-recumbent bike
-            with 8 resistance levels. It's not going to give you the intense indoor cycling
+            Let me be clear about what this bike is and what it isn’t. This is a semi-recumbent bike
+            with 8 resistance levels. It’s not going to give you the intense indoor cycling
             experience of a Schwinn IC4 or a Peloton. The resistance maxes out at a level that a fit
-            person would consider moderate. If you're already in decent shape and want brutal
-            interval training, this isn't your bike.
+            person would consider moderate. If you’re already in decent shape and want brutal
+            interval training, this isn’t your bike.
           </p>
 
           <p className="mt-2">
-            But if you're just starting your weight loss journey, or if you have joint issues that
+            But if you’re just starting your weight loss journey, or if you have joint issues that
             make upright cycling uncomfortable, or if you simply need something that fits in a small
             apartment, the Exerpeutic is hard to beat at $199. The reclined seating position is much
             easier on your lower back than traditional cycling posture. I know several people over
@@ -605,8 +605,8 @@ const BestExerciseBikesWeightLossPageContent = (
           </div>
 
           <p className="mb-4">
-            YOSUDA is one of those brands you've never heard of until you start reading exercise
-            bike reviews, and then you see it everywhere. There's a reason for that. At $279, this
+            YOSUDA is one of those brands you’ve never heard of until you start reading exercise
+            bike reviews, and then you see it everywhere. There’s a reason for that. At $279, this
             bike delivers a ride quality that feels like it should cost $500. The 35-pound flywheel
             is heavier than what most sub-$300 bikes offer, and it makes a real difference in how
             natural the pedaling feels.
@@ -628,17 +628,17 @@ const BestExerciseBikesWeightLossPageContent = (
             pressing against the flywheel) instead of magnetic resistance. This means it will make
             some noise during high-resistance intervals. Not loud enough to wake someone sleeping in
             the next room, but noticeably louder than the Schwinn IC4 or Sunny Health. The felt pad
-            will also wear down over time and eventually need replacing, though that's a $15 fix.
+            will also wear down over time and eventually need replacing, though that’s a $15 fix.
           </p>
 
           <p className="mt-2">
-            That said, friction resistance has one advantage that magnetic resistance doesn't: you
+            That said, friction resistance has one advantage that magnetic resistance doesn’t: you
             get infinite adjustment. Instead of clicking between set levels, you turn the knob to
             any position you want. Some people actually prefer this because you can find exactly the
             resistance that matches the effort you want for any given interval. I used this bike for
-            HIIT sessions where I'd alternate between light spinning and maximum resistance every 30
+            HIIT sessions where I’d alternate between light spinning and maximum resistance every 30
             seconds, and the friction knob let me dial in the transitions faster than clicking
-            through digital levels. For the price, I genuinely can't complain.
+            through digital levels. For the price, I genuinely can’t complain.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -670,13 +670,13 @@ const BestExerciseBikesWeightLossPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <p>
             Owning a bike is step one. Using it consistently is the part where most people fail. I
-            lost 22 pounds over six months of indoor cycling, and here's the approach that worked
-            for me. It's not complicated.
+            lost 22 pounds over six months of indoor cycling, and here’s the approach that worked
+            for me. It’s not complicated.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Start with three rides per week</h4>
           <p>
-            Don't commit to riding every day. You'll burn out by week three. Three 30-minute
+            Don’t commit to riding every day. You’ll burn out by week three. Three 30-minute
             sessions per week is enough to build the habit, and you can add volume later once it
             feels automatic. Run your numbers through our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
@@ -687,7 +687,7 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Mix up your intensity</h4>
           <p>
-            Don't just sit and pedal at the same pace for 30 minutes. Do two steady-state rides and
+            Don’t just sit and pedal at the same pace for 30 minutes. Do two steady-state rides and
             one interval ride per week. For intervals, try 30 seconds hard followed by 60 seconds
             easy, repeated for 20 minutes. Monitor your heart rate zones to keep the effort honest.
             Our{' '}
@@ -701,7 +701,7 @@ const BestExerciseBikesWeightLossPageContent = (
             Track your calorie deficit, not just your rides
           </h4>
           <p>
-            A 45-minute ride might burn 400 calories. That's less than a Chipotle burrito. The bike
+            A 45-minute ride might burn 400 calories. That’s less than a Chipotle burrito. The bike
             creates a calorie deficit, but your diet determines whether that deficit actually
             exists. Use our{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
@@ -714,7 +714,7 @@ const BestExerciseBikesWeightLossPageContent = (
           <p>
             This is the part nobody talks about. Save your favorite TV show exclusively for bike
             time. Queue up a podcast you only listen to while riding. Make the bike the most
-            entertaining part of your day, and you'll actually look forward to it instead of
+            entertaining part of your day, and you’ll actually look forward to it instead of
             dreading it.
           </p>
         </div>
@@ -782,21 +782,21 @@ const BestExerciseBikesWeightLossPageContent = (
             strap is a genuine bonus.
           </li>
           <li>
-            <strong>If you're watching your budget:</strong> The{' '}
+            <strong>If you’re watching your budget:</strong> The{' '}
             <strong>Sunny Health SF-B1805</strong> delivers a surprisingly premium ride feel thanks
             to that heavy 44lb flywheel. You lose the app connectivity, but you gain a bike that
             will last for years at half the cost.
           </li>
           <li>
-            <strong>If money isn't the constraint:</strong> The <strong>Bowflex VeloCore</strong> is
-            the most engaging indoor cycling experience I've tested. The leaning mode turns passive
+            <strong>If money isn’t the constraint:</strong> The <strong>Bowflex VeloCore</strong> is
+            the most engaging indoor cycling experience I’ve tested. The leaning mode turns passive
             pedaling into a full-body workout. Just be ready for the subscription cost on top of the
             purchase price.
           </li>
           <li>
             <strong>If you live in a small apartment:</strong> The{' '}
             <strong>Exerpeutic Folding Magnetic</strong> is the only bike on this list that
-            genuinely disappears when you're done. At $199, it's an easy entry point for anyone just
+            genuinely disappears when you’re done. At $199, it’s an easy entry point for anyone just
             getting started.
           </li>
           <li>
@@ -809,7 +809,7 @@ const BestExerciseBikesWeightLossPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <h3 className="text-xl font-semibold mb-3">Track your progress</h3>
           <p>
-            The scale alone won't tell you the full story. Use our{' '}
+            The scale alone won’t tell you the full story. Use our{' '}
             <Link href="/calories-burned" className="text-accent hover:underline">
               Calories Burned Calculator
             </Link>{' '}

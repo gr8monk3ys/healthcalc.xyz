@@ -43,7 +43,7 @@ const CalorieCountingPageContent = (
 
       <p>
         Few topics in nutrition generate as much argument as calorie counting. On one side, you have
-        the "calories are all that matter" crowd who treat energy balance like a religion. On the
+        the “calories are all that matter” crowd who treat energy balance like a religion. On the
         other, you have people insisting that calories are irrelevant and it is all about food
         quality, hormones, or timing.
       </p>
@@ -51,8 +51,8 @@ const CalorieCountingPageContent = (
       <p>
         Both positions are wrong, but for different reasons. The truth is that calorie counting is a
         useful tool that is almost impossible to do accurately, works well for some people in some
-        contexts, and causes genuine harm in others. That is a harder story to tell than "just track
-        your macros," but it is the honest one.
+        contexts, and causes genuine harm in others. That is a harder story to tell than “just track
+        your macros,” but it is the honest one.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">The Energy Balance Model Is Correct</h2>
@@ -64,8 +64,8 @@ const CalorieCountingPageContent = (
       </p>
 
       <p>
-        Where people go wrong is conflating "energy balance determines weight change" with "counting
-        calories is an effective weight loss strategy." These are very different claims. The first
+        Where people go wrong is conflating “energy balance determines weight change” with “counting
+        calories is an effective weight loss strategy.” These are very different claims. The first
         is a statement about physics. The second is a statement about human behavior, food
         measurement accuracy, and the practicalities of translating numbers on a label into actual
         metabolizable energy.
@@ -179,7 +179,7 @@ const CalorieCountingPageContent = (
       <p>
         This is the most damning problem, and the research is remarkably consistent. In a famous
         1992 study by Lichtman et al. published in the New England Journal of Medicine,
-        self-described "diet-resistant" obese subjects who claimed to eat only 1,200 calories per
+        self-described “diet-resistant” obese subjects who claimed to eat only 1,200 calories per
         day were found, through doubly labeled water analysis, to actually be consuming an average
         of 2,081 calories. They underreported intake by 47% and overreported physical activity by
         51%.
@@ -246,15 +246,15 @@ const CalorieCountingPageContent = (
         Calorie counting can become compulsive. A 2017 study by Simpson and Mazzeo in Eating
         Behaviors found that calorie tracking app usage was significantly associated with eating
         disorder symptoms, including restraint and concern with eating, in a sample of college
-        students. The relationship was particularly strong among users who tracked "all or almost
-        all" of their food.
+        students. The relationship was particularly strong among users who tracked “all or almost
+        all” of their food.
       </p>
 
       <p>
-        Orthorexia (an obsessive focus on "clean" or "correct" eating) can be amplified by calorie
+        Orthorexia (an obsessive focus on “clean” or “correct” eating) can be amplified by calorie
         tracking, especially when combined with the social media environment of fitness culture. If
         you find yourself anxious about eating at restaurants because you cannot accurately track,
-        if you avoid social situations involving food, or if a "bad" food day causes
+        if you avoid social situations involving food, or if a “bad” food day causes
         disproportionate distress, tracking is doing more harm than good.
       </p>
 
@@ -267,8 +267,8 @@ const CalorieCountingPageContent = (
       </p>
 
       <p>
-        The question is not "can calorie counting produce weight loss?" (it can), but "can the
-        average person sustain calorie counting long enough for it to matter?" For most people, the
+        The question is not “can calorie counting produce weight loss?” (it can), but “can the
+        average person sustain calorie counting long enough for it to matter?” For most people, the
         answer is no.
       </p>
 

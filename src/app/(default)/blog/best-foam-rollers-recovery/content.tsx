@@ -228,7 +228,7 @@ const BestFoamRollersRecoveryPageContent = (
 
         {/* Product 1 */}
         <h2 id="triggerpoint" className="text-2xl font-bold mt-8 mb-4">
-          1. TriggerPoint GRID Foam Roller (13&quot;) - Best Overall
+          1. TriggerPoint GRID Foam Roller (13″) - Best Overall
         </h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <div className="flex justify-between items-start mb-4">
@@ -245,11 +245,11 @@ const BestFoamRollersRecoveryPageContent = (
           </div>
           <p className="mb-4">
             The GRID is the foam roller that most gyms and physical therapy offices stock. The
-            surface has three different texture zones that mimic the feel of a massage
-            therapist&apos;s hands, fingers, and palms. The hollow core means it will not deform or
-            flatten over time like solid foam rollers do. At 13 inches long, it is portable enough
-            for a gym bag but large enough for most rolling positions. I have had mine for three
-            years and it looks the same as the day I bought it.
+            surface has three different texture zones that mimic the feel of a massage therapist’s
+            hands, fingers, and palms. The hollow core means it will not deform or flatten over time
+            like solid foam rollers do. At 13 inches long, it is portable enough for a gym bag but
+            large enough for most rolling positions. I have had mine for three years and it looks
+            the same as the day I bought it.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -288,7 +288,7 @@ const BestFoamRollersRecoveryPageContent = (
 
         {/* Product 2 */}
         <h2 id="luxfit-hd" className="text-2xl font-bold mt-8 mb-4">
-          2. LuxFit High Density Foam Roller (36&quot;) - Best Budget
+          2. LuxFit High Density Foam Roller (36″) - Best Budget
         </h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <div className="flex justify-between items-start mb-4">
@@ -347,7 +347,7 @@ const BestFoamRollersRecoveryPageContent = (
 
         {/* Product 3 */}
         <h2 id="luxfit-speckled" className="text-2xl font-bold mt-8 mb-4">
-          3. LuxFit Speckled Foam Roller (36&quot;) - Best Value
+          3. LuxFit Speckled Foam Roller (36″) - Best Value
         </h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <div className="flex justify-between items-start mb-4">
@@ -544,21 +544,21 @@ const BestFoamRollersRecoveryPageContent = (
                 <td className="border p-3">TriggerPoint GRID</td>
                 <td className="border p-3 text-center">$36.99</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
-                <td className="border p-3 text-center">Textured 13&quot;</td>
+                <td className="border p-3 text-center">Textured 13″</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">LuxFit HD</td>
                 <td className="border p-3 text-center">$19.99</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
-                <td className="border p-3 text-center">Solid 36&quot;</td>
+                <td className="border p-3 text-center">Solid 36″</td>
                 <td className="border p-3 text-center">Budget</td>
               </tr>
               <tr>
                 <td className="border p-3">LuxFit Speckled</td>
                 <td className="border p-3 text-center">$24.95</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
-                <td className="border p-3 text-center">Multi-density 36&quot;</td>
+                <td className="border p-3 text-center">Multi-density 36″</td>
                 <td className="border p-3 text-center">Value</td>
               </tr>
               <tr className="bg-gray-50">

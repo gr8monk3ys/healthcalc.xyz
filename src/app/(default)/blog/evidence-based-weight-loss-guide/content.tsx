@@ -21,8 +21,8 @@ const EvidenceBasedWeightLossGuidePageContent = (
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Key Takeaways</h2>
         <ul className="space-y-2 text-gray-700 dark:text-gray-300">
           <li>
-            Energy balance is real, but your body actively changes the &quot;calories out&quot; side
-            of the equation as you diet
+            Energy balance is real, but your body actively changes the “calories out” side of the
+            equation as you diet
           </li>
           <li>
             Protein is the single most important macronutrient during weight loss for preserving
@@ -37,11 +37,10 @@ const EvidenceBasedWeightLossGuidePageContent = (
       </div>
 
       <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-        Most weight loss advice falls into two camps. The first says it&apos;s simple: eat less,
-        move more. The second says it&apos;s complicated and sells you a proprietary system. Neither
-        is entirely honest. The physics of weight loss is straightforward. The biology and
-        psychology that sit on top of it make the whole thing much harder than a simple equation
-        suggests.
+        Most weight loss advice falls into two camps. The first says it’s simple: eat less, move
+        more. The second says it’s complicated and sells you a proprietary system. Neither is
+        entirely honest. The physics of weight loss is straightforward. The biology and psychology
+        that sit on top of it make the whole thing much harder than a simple equation suggests.
       </p>
 
       <p>
@@ -55,23 +54,23 @@ const EvidenceBasedWeightLossGuidePageContent = (
       </h2>
 
       <p>
-        Let&apos;s get this out of the way: you cannot gain fat without consuming more energy than
-        you expend. This is the first law of thermodynamics applied to biology. Every metabolic ward
+        Let’s get this out of the way: you cannot gain fat without consuming more energy than you
+        expend. This is the first law of thermodynamics applied to biology. Every metabolic ward
         study ever conducted confirms it. People placed in precisely measured calorie deficits lose
         weight. Always. No exceptions.
       </p>
 
       <p>
-        The confusion starts when people treat energy balance as a static equation. &quot;My TDEE is
-        2,400. I&apos;ll eat 1,900. That&apos;s 500 deficit. I&apos;ll lose a pound a week.&quot;
+        The confusion starts when people treat energy balance as a static equation. “My TDEE is
+        2,400. I’ll eat 1,900. That’s 500 deficit. I’ll lose a pound a week.”
       </p>
 
       <p>
         And for the first few weeks, that might hold. But then it stops holding, because the
-        &quot;calories out&quot; side of the equation is not fixed. Your body responds to calorie
-        restriction by reducing expenditure. Metabolic rate drops. NEAT decreases (you fidget less,
-        move less, stand less, often without realizing it). Workout intensity falls because you have
-        less energy. The thermic effect of food decreases because you are eating less food.
+        “calories out” side of the equation is not fixed. Your body responds to calorie restriction
+        by reducing expenditure. Metabolic rate drops. NEAT decreases (you fidget less, move less,
+        stand less, often without realizing it). Workout intensity falls because you have less
+        energy. The thermic effect of food decreases because you are eating less food.
       </p>
 
       <p>
@@ -340,8 +339,8 @@ const EvidenceBasedWeightLossGuidePageContent = (
       <p>
         The restrict-binge cycle is extremely common. A person sets rigid dietary rules. They follow
         them strictly for days or weeks. Then they break a rule (eat a slice of pizza, have dessert,
-        go over their calorie target). The psychological response is catastrophic: &quot;I blew it.
-        The day is ruined. I might as well eat whatever I want.&quot;
+        go over their calorie target). The psychological response is catastrophic: “I blew it. The
+        day is ruined. I might as well eat whatever I want.”
       </p>
 
       <p>
@@ -537,51 +536,49 @@ const EvidenceBasedWeightLossGuidePageContent = (
 
       <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
         <li>
-          Martins C, et al. &quot;Metabolic adaptation is not a major barrier to weight-loss
-          maintenance.&quot; International Journal of Obesity, 2021.
+          Martins C, et al. “Metabolic adaptation is not a major barrier to weight-loss
+          maintenance.” International Journal of Obesity, 2021.
         </li>
         <li>
-          Weigle DS, et al. &quot;A high-protein diet induces sustained reductions in appetite, ad
-          libitum caloric intake, and body weight.&quot; American Journal of Clinical Nutrition,
-          2005.
+          Weigle DS, et al. “A high-protein diet induces sustained reductions in appetite, ad
+          libitum caloric intake, and body weight.” American Journal of Clinical Nutrition, 2005.
         </li>
         <li>
-          Hector AJ, Phillips SM. &quot;Protein recommendations for weight loss in elite
-          athletes.&quot; Advances in Nutrition, 2018.
+          Hector AJ, Phillips SM. “Protein recommendations for weight loss in elite athletes.”
+          Advances in Nutrition, 2018.
         </li>
         <li>
-          Morton RW, et al. &quot;A systematic review, meta-analysis and meta-regression of the
-          effect of protein supplementation on resistance training-induced gains in muscle mass and
-          strength.&quot; British Journal of Sports Medicine, 2018.
+          Morton RW, et al. “A systematic review, meta-analysis and meta-regression of the effect of
+          protein supplementation on resistance training-induced gains in muscle mass and strength.”
+          British Journal of Sports Medicine, 2018.
         </li>
         <li>
-          Thorogood A, et al. &quot;Isolated aerobic exercise and weight loss.&quot; Obesity
-          Reviews, 2011.
+          Thorogood A, et al. “Isolated aerobic exercise and weight loss.” Obesity Reviews, 2011.
         </li>
         <li>
-          Church TS, et al. &quot;Changes in weight, waist circumference and compensatory responses
-          with different doses of exercise.&quot; PLOS ONE, 2009.
+          Church TS, et al. “Changes in weight, waist circumference and compensatory responses with
+          different doses of exercise.” PLOS ONE, 2009.
         </li>
         <li>
-          Garthe I, et al. &quot;Effect of two different weight-loss rates on body composition and
-          strength and power-related performance in elite athletes.&quot; International Journal of
-          Sport Nutrition and Exercise Metabolism, 2011.
+          Garthe I, et al. “Effect of two different weight-loss rates on body composition and
+          strength and power-related performance in elite athletes.” International Journal of Sport
+          Nutrition and Exercise Metabolism, 2011.
         </li>
         <li>
-          Sacks FM, et al. &quot;Comparison of weight-loss diets with different compositions of fat,
-          protein, and carbohydrates.&quot; New England Journal of Medicine, 2009.
+          Sacks FM, et al. “Comparison of weight-loss diets with different compositions of fat,
+          protein, and carbohydrates.” New England Journal of Medicine, 2009.
         </li>
         <li>
-          Johnston BC, et al. &quot;Comparison of weight loss among named diet programs in
-          overweight and obese adults.&quot; JAMA, 2014.
+          Johnston BC, et al. “Comparison of weight loss among named diet programs in overweight and
+          obese adults.” JAMA, 2014.
         </li>
         <li>
-          Ostendorf DM, et al. &quot;Physical activity energy expenditure and total daily energy
-          expenditure in successful weight loss maintainers.&quot; Obesity, 2019.
+          Ostendorf DM, et al. “Physical activity energy expenditure and total daily energy
+          expenditure in successful weight loss maintainers.” Obesity, 2019.
         </li>
         <li>
-          Wing RR, Phelan S. &quot;Long-term weight loss maintenance.&quot; American Journal of
-          Clinical Nutrition, 2005. (National Weight Control Registry data.)
+          Wing RR, Phelan S. “Long-term weight loss maintenance.” American Journal of Clinical
+          Nutrition, 2005. (National Weight Control Registry data.)
         </li>
       </ul>
     </div>

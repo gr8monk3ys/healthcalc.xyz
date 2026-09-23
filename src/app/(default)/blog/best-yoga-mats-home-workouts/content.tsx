@@ -264,9 +264,8 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               surfaces repel moisture. Open-cell surfaces absorb it and can grip better when damp.
             </li>
             <li>
-              <strong>Size:</strong> Standard mats are 68 inches long. If you are over
-              5&apos;10&quot;, get a 71 or 74 inch mat. Width is usually 24 inches, which is fine
-              for most people.
+              <strong>Size:</strong> Standard mats are 68 inches long. If you are over 5′10″, get a
+              71 or 74 inch mat. Width is usually 24 inches, which is fine for most people.
             </li>
             <li>
               <strong>Weight:</strong> Matters more than you think if you carry your mat to class.
@@ -386,10 +385,10 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             that you can glance down and immediately correct your positioning.
           </p>
           <p className="mb-4">
-            The grip is outstanding from day one, no break-in needed. Liforme calls it
-            &quot;GripForMe&quot; technology, which is just their name for a polyurethane top layer
-            that gets grippier when wet. Hot yoga, sweaty vinyasa, it handles all of it. The mat is
-            4.2mm thick, which is thinner than the Manduka but still comfortable for kneeling poses.
+            The grip is outstanding from day one, no break-in needed. Liforme calls it “GripForMe”
+            technology, which is just their name for a polyurethane top layer that gets grippier
+            when wet. Hot yoga, sweaty vinyasa, it handles all of it. The mat is 4.2mm thick, which
+            is thinner than the Manduka but still comfortable for kneeling poses.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -461,9 +460,9 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             <span className="text-2xl font-bold text-accent">$20</span>
           </div>
           <p className="mb-4">
-            At $20, the Gaiam Essentials is the mat I recommend to anyone who says &quot;I want to
-            try yoga but I am not sure I will stick with it.&quot; It is 10mm thick, which is double
-            the standard thickness, and that extra padding is immediately noticeable. Kneeling poses
+            At $20, the Gaiam Essentials is the mat I recommend to anyone who says “I want to try
+            yoga but I am not sure I will stick with it.” It is 10mm thick, which is double the
+            standard thickness, and that extra padding is immediately noticeable. Kneeling poses
             feel comfortable. Lying on your back does not press your spine into the floor. If joint
             comfort is your priority and you are mostly doing gentle or restorative yoga, this
             thickness is a real advantage.

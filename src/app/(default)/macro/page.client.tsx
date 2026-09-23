@@ -56,7 +56,7 @@ const faqs = [
   {
     question: 'Can I eat whatever I want if it fits my macros?',
     answer:
-      "The 'If It Fits Your Macros' (IIFYM) approach suggests that as long as you hit your macro targets, food sources don't matter. While this is partially true for body composition, food quality still matters for: 1) Micronutrients (vitamins, minerals) from whole foods, 2) Fiber for digestive health (aim for 25-35g daily), 3) Satiety - whole foods keep you fuller longer, 4) Long-term health outcomes. A practical approach: aim for 80% whole, minimally processed foods and 20% flexibility. This balances health, sustainability, and enjoyment of food.",
+      'The ‘If It Fits Your Macros’ (IIFYM) approach suggests that as long as you hit your macro targets, food sources don’t matter. While this is partially true for body composition, food quality still matters for: 1) Micronutrients (vitamins, minerals) from whole foods, 2) Fiber for digestive health (aim for 25-35g daily), 3) Satiety - whole foods keep you fuller longer, 4) Long-term health outcomes. A practical approach: aim for 80% whole, minimally processed foods and 20% flexibility. This balances health, sustainability, and enjoyment of food.',
   },
   {
     question: 'How accurate are macro calculators?',

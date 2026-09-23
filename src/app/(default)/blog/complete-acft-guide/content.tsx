@@ -292,7 +292,7 @@ const CompleteACFTGuidePageContent = (
             the ground.
           </li>
           <li>
-            Lift both hands clearly off the ground. This is the "hand release." Your hands must
+            Lift both hands clearly off the ground. This is the “hand release.” Your hands must
             visibly leave the surface.
           </li>
           <li>Place your hands back down and push up to the starting position. That is one rep.</li>
@@ -311,7 +311,7 @@ const CompleteACFTGuidePageContent = (
           <li>Full arm extension at the top. Your elbows must lock out completely.</li>
           <li>
             The hand release must be clear. Do not just wiggle your fingers. Lift your palms off the
-            ground visibly. Some soldiers extend their arms to the side in a "T" position for
+            ground visibly. Some soldiers extend their arms to the side in a “T” position for
             clarity.
           </li>
           <li>
@@ -529,8 +529,8 @@ const CompleteACFTGuidePageContent = (
             your neck neutral.
           </li>
           <li>
-            When it gets hard (and it will), mentally break the time into 30-second chunks. "Just 30
-            more seconds" is more manageable than "I still have a minute left."
+            When it gets hard (and it will), mentally break the time into 30-second chunks. “Just 30
+            more seconds” is more manageable than “I still have a minute left.”
           </li>
         </ul>
       </div>
@@ -823,7 +823,7 @@ const CompleteACFTGuidePageContent = (
         <p>
           The hand release must be obvious. Barely lifting your pinky finger is not going to cut it.
           Graders want to see daylight between your palms and the ground. Some soldiers find it
-          helpful to extend their arms out to the sides in a "T" position for maximum clarity.
+          helpful to extend their arms out to the sides in a “T” position for maximum clarity.
         </p>
       </div>
 
@@ -948,7 +948,7 @@ const CompleteACFTGuidePageContent = (
 
       <p>
         The good news is that with focused training, most soldiers can pass the ACFT comfortably
-        within 8-12 weeks. The bad news is that "focused" means actually addressing your weaknesses
+        within 8-12 weeks. The bad news is that “focused” means actually addressing your weaknesses
         instead of doing more of what you are already good at. If your deadlift is strong but your
         run is weak, you need to run more, not deadlift more. That sounds obvious, but I watch
         soldiers ignore it constantly.
@@ -969,12 +969,12 @@ const CompleteACFTGuidePageContent = (
             Training.
           </li>
           <li>
-            Military.com. &quot;Nearly Half of Female Soldiers Still Failing New Army Fitness
-            Test.&quot; May 2021.
+            Military.com. “Nearly Half of Female Soldiers Still Failing New Army Fitness Test.” May
+            2021.
           </li>
           <li>
-            Army Times. &quot;New data shows performance divide on Army Combat Fitness Test.&quot;
-            November 2019.
+            Army Times. “New data shows performance divide on Army Combat Fitness Test.” November
+            2019.
           </li>
         </ul>
       </div>

@@ -202,7 +202,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </Link>{' '}
           and realizing I was hitting maybe half of what my body actually needs. The right water
           bottle made a real difference for me. Not in some life-changing, Instagram-transformation
-          way. Just in a quiet, consistent &quot;oh, I actually feel better&quot; kind of way.
+          way. Just in a quiet, consistent “oh, I actually feel better” kind of way.
         </p>
 
         <p className="mt-4">
@@ -324,10 +324,9 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </div>
 
           <p className="mb-4">
-            I was skeptical about a &quot;smart&quot; water bottle. It felt like one of those
-            products that exists just because it can, not because it should. Then the bottle glowed
-            at me during a long work session and I realized I had not had a sip in three hours. OK.
-            Point taken.
+            I was skeptical about a “smart” water bottle. It felt like one of those products that
+            exists just because it can, not because it should. Then the bottle glowed at me during a
+            long work session and I realized I had not had a sip in three hours. OK. Point taken.
           </p>
 
           <p className="mb-4">
@@ -508,7 +507,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             For tracking, you are relying on the volume markings on the inside of the bottle (not as
             visible as the Nalgene) or just counting refills. The straw lid version has a small
             window that helps you estimate where you are. It is not precise, but if your tracking
-            method is &quot;I need to empty this bottle three times today,&quot; it works fine.
+            method is “I need to empty this bottle three times today,” it works fine.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -587,11 +586,11 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </p>
 
           <p className="mb-4">
-            The downside is that it only works if you start at the &quot;right&quot; time. If you
-            sleep in and fill it at 10 AM instead of 7, the markers are off for the rest of the day.
-            Also, you only get 32 ounces from one fill, so you still need to refill at least once if
-            you are aiming for the standard 64oz recommendation. But for under fifteen bucks, it is
-            a hard deal to argue with.
+            The downside is that it only works if you start at the “right” time. If you sleep in and
+            fill it at 10 AM instead of 7, the markers are off for the rest of the day. Also, you
+            only get 32 ounces from one fill, so you still need to refill at least once if you are
+            aiming for the standard 64oz recommendation. But for under fifteen bucks, it is a hard
+            deal to argue with.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -786,8 +785,8 @@ const BestWaterBottlesHydrationTrackingPageContent = (
         </h2>
 
         <p>
-          I have tried a lot of hydration &quot;hacks&quot; over the years. Most of them are
-          overthinking a simple problem. Here is what has actually worked for me:
+          I have tried a lot of hydration “hacks” over the years. Most of them are overthinking a
+          simple problem. Here is what has actually worked for me:
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">

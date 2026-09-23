@@ -55,7 +55,7 @@ export default function CalorieDeficitResultDisplay({
             <span className="font-semibold">{formatTargetDate(result.targetDate)}</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-            You'll lose approximately {formatNumber(displayWeeklyLoss, 2)} {unitLabel}/week
+            You’ll lose approximately {formatNumber(displayWeeklyLoss, 2)} {unitLabel}/week
           </p>
         </div>
       </Card>
@@ -159,7 +159,7 @@ export default function CalorieDeficitResultDisplay({
               {result.recommendations.minCalories}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Minimum Calories</div>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Don't go below this</p>
+            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Don’t go below this</p>
           </div>
         </div>
       </Card>

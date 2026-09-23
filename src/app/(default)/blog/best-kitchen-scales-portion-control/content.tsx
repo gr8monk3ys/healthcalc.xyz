@@ -164,13 +164,13 @@ const BestKitchenScalesPageContent = (
         </div>
 
         <p>
-          Here's the truth about calorie tracking: without a food scale, you're probably eating more
+          Here’s the truth about calorie tracking: without a food scale, you’re probably eating more
           than you think. Studies show people underestimate portions by 30-50% when eyeballing. If
-          you've calculated your daily calories with our{' '}
+          you’ve calculated your daily calories with our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}
-          but aren't seeing results, inaccurate portions could be why.
+          but aren’t seeing results, inaccurate portions could be why.
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
@@ -246,7 +246,7 @@ const BestKitchenScalesPageContent = (
               <tr className="bg-gray-100">
                 <th className="p-2 text-left">Food</th>
                 <th className="p-2 text-center">Serving Size</th>
-                <th className="p-2 text-center">Typical "Eyeball"</th>
+                <th className="p-2 text-center">Typical “Eyeball”</th>
                 <th className="p-2 text-center">Calorie Difference</th>
               </tr>
             </thead>
@@ -278,7 +278,7 @@ const BestKitchenScalesPageContent = (
             </tbody>
           </table>
           <p className="mt-4 text-sm text-gray-600">
-            These "small" differences can add up to 500+ extra calories per day - enough to
+            These “small” differences can add up to 500+ extra calories per day - enough to
             completely eliminate your deficit.
           </p>
         </div>
@@ -291,7 +291,7 @@ const BestKitchenScalesPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Chef's Choice
+                Chef’s Choice
               </span>
               <h3 className="text-xl font-semibold">OXO Good Grips Food Scale</h3>
             </div>
@@ -361,7 +361,7 @@ const BestKitchenScalesPageContent = (
           </div>
 
           <p className="mb-4">
-            With over 140,000 Amazon reviews and a 4.7-star rating, the Etekcity is the people's
+            With over 140,000 Amazon reviews and a 4.7-star rating, the Etekcity is the people’s
             choice. It does everything you need at an unbeatable price.
           </p>
 
@@ -438,11 +438,11 @@ const BestKitchenScalesPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
           <p>
-            Great for users who've calculated their targets with our{' '}
+            Great for users who’ve calculated their targets with our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
             </Link>{' '}
-            but don't want to use a phone app. All-in-one nutrition tracking.
+            but don’t want to use a phone app. All-in-one nutrition tracking.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -620,7 +620,7 @@ const BestKitchenScalesPageContent = (
 
         <p>
           A food scale is the single most impactful purchase for anyone serious about hitting their
-          calorie goals. Combined with our calculators, you'll have everything needed for successful
+          calorie goals. Combined with our calculators, you’ll have everything needed for successful
           weight management.
         </p>
 
