@@ -372,7 +372,7 @@ function renderACFTCalculatorView({
               id="gender"
               value={gender}
               onChange={e => setGender(e.target.value as 'male' | 'female')}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -388,7 +388,7 @@ function renderACFTCalculatorView({
               id="ageGroup"
               value={ageGroup}
               onChange={e => setAgeGroup(e.target.value as ACFTAgeGroup)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {(Object.entries(AGE_GROUP_LABELS) as [ACFTAgeGroup, string][]).map(
                 ([value, label]) => (
@@ -412,7 +412,7 @@ function renderACFTCalculatorView({
               onChange={e =>
                 setDeadliftWeight(e.target.value === '' ? '' : parseFloat(e.target.value))
               }
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.deadliftWeight ? 'border border-red-500' : ''
               }`}
               placeholder="Enter weight in lbs"
@@ -437,7 +437,7 @@ function renderACFTCalculatorView({
               onChange={e =>
                 setStandingPowerThrow(e.target.value === '' ? '' : parseFloat(e.target.value))
               }
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.standingPowerThrow ? 'border border-red-500' : ''
               }`}
               placeholder="Enter distance in meters"
@@ -462,7 +462,7 @@ function renderACFTCalculatorView({
               onChange={e =>
                 setHandReleasePushups(e.target.value === '' ? '' : parseInt(e.target.value, 10))
               }
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.handReleasePushups ? 'border border-red-500' : ''
               }`}
               placeholder="Enter number of reps"
@@ -492,7 +492,7 @@ function renderACFTCalculatorView({
                   onChange={e =>
                     setSdcMinutes(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.sprintDragCarry ? 'border border-red-500' : ''
                   }`}
                   placeholder="min"
@@ -513,7 +513,7 @@ function renderACFTCalculatorView({
                   onChange={e =>
                     setSdcSeconds(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.sprintDragCarry ? 'border border-red-500' : ''
                   }`}
                   placeholder="sec"
@@ -543,7 +543,7 @@ function renderACFTCalculatorView({
                   onChange={e =>
                     setPlankMinutes(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.plank ? 'border border-red-500' : ''
                   }`}
                   placeholder="min"
@@ -564,7 +564,7 @@ function renderACFTCalculatorView({
                   onChange={e =>
                     setPlankSeconds(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.plank ? 'border border-red-500' : ''
                   }`}
                   placeholder="sec"
@@ -594,7 +594,7 @@ function renderACFTCalculatorView({
                   onChange={e =>
                     setTmrMinutes(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.twoMileRun ? 'border border-red-500' : ''
                   }`}
                   placeholder="min"
@@ -615,7 +615,7 @@ function renderACFTCalculatorView({
                   onChange={e =>
                     setTmrSeconds(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.twoMileRun ? 'border border-red-500' : ''
                   }`}
                   placeholder="sec"

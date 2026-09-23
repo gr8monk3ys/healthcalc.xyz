@@ -637,7 +637,7 @@ function SearchAutocompleteView({
           <input
             ref={inputRef}
             type="search"
-            className={`block w-full rounded-lg border border-gray-300 bg-white py-2 ${showIcon ? 'pl-10' : 'pl-4'} pr-4 text-gray-900 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100`}
+            className={`block w-full rounded-lg border border-gray-300 bg-white py-2 ${showIcon ? 'pl-10' : 'pl-4'} pr-4 text-gray-900 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100`}
             placeholder={resolvedPlaceholder}
             value={query}
             onChange={handleInputChange}

@@ -293,7 +293,7 @@ function renderGLP1CalculatorView({
                 onChange={e =>
                   weight.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.weight ? 'border border-red-500' : ''
                 }`}
                 placeholder={weight.placeholder}
@@ -327,7 +327,7 @@ function renderGLP1CalculatorView({
                 onChange={e =>
                   height.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.height ? 'border border-red-500' : ''
                 }`}
                 placeholder={height.placeholder}
@@ -358,7 +358,7 @@ function renderGLP1CalculatorView({
               id="age"
               value={age}
               onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.age ? 'border border-red-500' : ''
               }`}
               placeholder="Enter age (18-100)"
@@ -377,7 +377,7 @@ function renderGLP1CalculatorView({
               id="gender"
               value={gender}
               onChange={e => setGender(e.target.value as Gender)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -393,7 +393,7 @@ function renderGLP1CalculatorView({
               id="medication"
               value={medication}
               onChange={e => setMedication(e.target.value as GLP1Medication)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {Object.entries(MEDICATION_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -412,7 +412,7 @@ function renderGLP1CalculatorView({
               id="goal"
               value={goal}
               onChange={e => setGoal(e.target.value as GLP1Goal)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {Object.entries(GOAL_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -431,7 +431,7 @@ function renderGLP1CalculatorView({
               id="activityLevel"
               value={activityLevel}
               onChange={e => setActivityLevel(e.target.value as ActivityLevel)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {Object.entries(ACTIVITY_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>

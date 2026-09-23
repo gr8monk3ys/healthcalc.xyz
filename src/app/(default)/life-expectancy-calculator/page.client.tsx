@@ -391,7 +391,7 @@ function renderLifeExpectancyCalculatorView({
                 id="age"
                 value={age}
                 onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.age ? 'border border-red-500' : ''
                 }`}
                 placeholder="Enter your age"
@@ -409,7 +409,7 @@ function renderLifeExpectancyCalculatorView({
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -427,7 +427,7 @@ function renderLifeExpectancyCalculatorView({
               id="bmi"
               value={bmi}
               onChange={e => setBmi(e.target.value === '' ? '' : parseFloat(e.target.value))}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.bmi ? 'border border-red-500' : ''
               }`}
               placeholder="Enter your BMI (e.g. 22.5)"
@@ -450,7 +450,7 @@ function renderLifeExpectancyCalculatorView({
               id="smokingStatus"
               value={smokingStatus}
               onChange={e => setSmokingStatus(e.target.value as SmokingStatus)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="never">Never Smoked</option>
               <option value="former">Former Smoker</option>
@@ -468,7 +468,7 @@ function renderLifeExpectancyCalculatorView({
               id="alcoholIntake"
               value={alcoholIntake}
               onChange={e => setAlcoholIntake(e.target.value as AlcoholIntake)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="none">None</option>
               <option value="light">Light (1-7 drinks/week)</option>
@@ -486,7 +486,7 @@ function renderLifeExpectancyCalculatorView({
               id="exerciseFrequency"
               value={exerciseFrequency}
               onChange={e => setExerciseFrequency(e.target.value as ExerciseFrequency)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="sedentary">Sedentary (little to no exercise)</option>
               <option value="light">Light (1-2 days/week)</option>
@@ -505,7 +505,7 @@ function renderLifeExpectancyCalculatorView({
               id="dietQuality"
               value={dietQuality}
               onChange={e => setDietQuality(e.target.value as DietQuality)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="poor">Poor (high processed food, low fruits/vegetables)</option>
               <option value="average">Average (mixed diet)</option>
@@ -524,7 +524,7 @@ function renderLifeExpectancyCalculatorView({
               id="sleepHours"
               value={sleepHours}
               onChange={e => setSleepHours(e.target.value === '' ? '' : parseFloat(e.target.value))}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.sleepHours ? 'border border-red-500' : ''
               }`}
               placeholder="Enter average hours of sleep"
@@ -544,7 +544,7 @@ function renderLifeExpectancyCalculatorView({
               id="stressLevel"
               value={stressLevel}
               onChange={e => setStressLevel(e.target.value as StressLevel)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="low">Low</option>
               <option value="moderate">Moderate</option>
@@ -560,7 +560,7 @@ function renderLifeExpectancyCalculatorView({
                 type="checkbox"
                 checked={familyHistoryLongevity}
                 onChange={e => setFamilyHistoryLongevity(e.target.checked)}
-                className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
               />
               <span className="text-sm font-medium">Family History of Longevity</span>
             </label>
@@ -582,7 +582,7 @@ function renderLifeExpectancyCalculatorView({
                       type="checkbox"
                       checked={chronicConditions.includes(condition.value)}
                       onChange={() => handleConditionToggle(condition.value)}
-                      className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                      className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                     <span className="text-sm">{condition.label}</span>
                   </label>
@@ -600,7 +600,7 @@ function renderLifeExpectancyCalculatorView({
               id="socialConnections"
               value={socialConnections}
               onChange={e => setSocialConnections(e.target.value as SocialConnection)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="isolated">Isolated (few or no close relationships)</option>
               <option value="some">Some (a few close friends/family)</option>

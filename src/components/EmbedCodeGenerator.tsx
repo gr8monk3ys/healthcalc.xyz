@@ -141,7 +141,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             min={MIN_WIDTH}
             max={MAX_WIDTH}
             step={10}
-            className="w-full p-2 neumorph-inset rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 neumorph-inset rounded-lg text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
         </div>
         <div>
@@ -156,7 +156,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             min={MIN_HEIGHT}
             max={MAX_HEIGHT}
             step={10}
-            className="w-full p-2 neumorph-inset rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 neumorph-inset rounded-lg text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
         </div>
         <div>
@@ -169,7 +169,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             onChange={e =>
               dispatchUiState({ type: 'setTheme', value: e.target.value as EmbedTheme })
             }
-            className="w-full p-2 neumorph-inset rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 neumorph-inset rounded-lg text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <option value="light">Light</option>
             <option value="dark">Dark</option>
@@ -188,7 +188,7 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
           readOnly
           value={embedCode}
           rows={3}
-          className="w-full p-3 neumorph-inset rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+          className="w-full p-3 neumorph-inset rounded-lg text-sm font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent resize-none"
           onClick={e => (e.target as HTMLTextAreaElement).select()}
         />
       </div>

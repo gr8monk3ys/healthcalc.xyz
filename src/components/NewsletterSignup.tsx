@@ -110,7 +110,7 @@ export default function NewsletterSignup({
             placeholder={t('newsletter.emailPlaceholder')}
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="ui-input w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="ui-input w-full px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent"
             disabled={loading}
             autoComplete="email"
             inputMode="email"

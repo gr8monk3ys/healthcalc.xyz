@@ -143,7 +143,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                   onChange={e =>
                     field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     field.error ? 'border border-red-500' : ''
                   }`}
                   placeholder={resolvedPlaceholder}
@@ -173,7 +173,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                 onChange={e =>
                   field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   field.error ? 'border border-red-500' : ''
                 }`}
                 placeholder={resolvedPlaceholder}
@@ -234,7 +234,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               id={field.name}
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
               aria-invalid={field.error ? true : undefined}
@@ -286,7 +286,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               id={field.name}
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
               min={field.min as string}
@@ -318,7 +318,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               id={field.name}
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
               min={field.min}

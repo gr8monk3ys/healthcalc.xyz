@@ -184,7 +184,7 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
           category: product.category,
         })
       }
-      className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+      className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
       aria-label={`View ${product.name} - ${product.price || 'Check price'}`}
     >
       <div className="flex items-start gap-3">
@@ -229,7 +229,7 @@ function GuideCard({ title, description, href, category, calculatorType }: Guide
           category,
         })
       }
-      className="glass-panel block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+      className="glass-panel block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">

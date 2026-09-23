@@ -273,7 +273,7 @@ function renderCaffeineCalculatorView({
                 onChange={e =>
                   weight.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.weight ? 'border border-red-500' : ''
                 }`}
                 placeholder="Enter weight"
@@ -317,7 +317,7 @@ function renderCaffeineCalculatorView({
                             e.target.value as CaffeineSource
                           )
                         }
-                        className="w-full px-3 py-2 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-sm"
+                        className="w-full px-3 py-2 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm"
                       >
                         {Object.entries(CAFFEINE_SOURCE_LABELS).map(([value, label]) => (
                           <option key={value} value={value}>
@@ -349,7 +349,7 @@ function renderCaffeineCalculatorView({
                               parseFloat(e.target.value) || 0
                             )
                           }
-                          className="flex-1 px-3 py-2 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-sm"
+                          className="flex-1 px-3 py-2 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm"
                           placeholder="Servings"
                         />
                         {sources.length > 1 && (
@@ -408,7 +408,7 @@ function renderCaffeineCalculatorView({
               id="sensitivityLevel"
               value={sensitivityLevel}
               onChange={e => setSensitivityLevel(e.target.value as SensitivityLevel)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="low">Low (Fast Metabolizer)</option>
               <option value="normal">Normal (Average)</option>
@@ -426,7 +426,7 @@ function renderCaffeineCalculatorView({
                 type="checkbox"
                 checked={preWorkoutTiming}
                 onChange={e => setPreWorkoutTiming(e.target.checked)}
-                className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
               />
               <span className="text-sm font-medium">Pre-Workout Timing</span>
             </label>

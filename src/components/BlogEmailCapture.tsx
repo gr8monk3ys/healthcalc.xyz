@@ -135,7 +135,7 @@ export function BlogEmailCapture({
               value={email}
               onChange={e => setEmail(e.target.value)}
               disabled={submitState.status === 'loading'}
-              className="w-full px-4 py-2 rounded-lg neumorph-inset focus:outline-none focus:ring-2 focus:ring-accent text-sm disabled:opacity-60"
+              className="w-full px-4 py-2 rounded-lg neumorph-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm disabled:opacity-60"
               aria-required="true"
               aria-invalid={submitState.status === 'error' ? true : undefined}
               aria-describedby={

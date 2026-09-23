@@ -1033,9 +1033,9 @@ input[type='checkbox'] {
     background-color: rgba(13, 17, 42, 0.9);
   }
 
-  .neumorph-input:focus,
-  .neumorph-select:focus,
-  .neumorph-inset:focus {
+  .neumorph-input:focus-visible,
+  .neumorph-select:focus-visible,
+  .neumorph-inset:focus-visible {
     box-shadow: 0 0 0 3px var(--focus-ring);
   }
 }
@@ -1061,7 +1061,7 @@ input[type='checkbox'] {
     box-shadow 0.15s ease;
 }
 
-.neumorph-input:focus {
+.neumorph-input:focus-visible {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--focus-ring);
@@ -1083,7 +1083,7 @@ input[type='checkbox'] {
     box-shadow 0.15s ease;
 }
 
-.neumorph-select:focus {
+.neumorph-select:focus-visible {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--focus-ring);
@@ -1128,7 +1128,7 @@ input[type='radio']:checked ~ div .radio-dot {
   transform: scale(1);
 }
 
-input[type='radio']:focus ~ div {
+input[type='radio']:focus-visible ~ div {
   box-shadow: 0 0 0 2px var(--accent);
 }
 

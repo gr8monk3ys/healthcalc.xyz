@@ -434,7 +434,7 @@ function renderDiabetesRiskCalculatorView({
                 id="age"
                 value={age}
                 onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.age ? 'border border-red-500' : ''
                 }`}
                 placeholder="e.g., 45"
@@ -453,7 +453,7 @@ function renderDiabetesRiskCalculatorView({
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -470,7 +470,7 @@ function renderDiabetesRiskCalculatorView({
                 id="bmi"
                 value={bmi}
                 onChange={e => setBmi(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.bmi ? 'border border-red-500' : ''
                 }`}
                 placeholder="e.g., 27.5"
@@ -497,7 +497,7 @@ function renderDiabetesRiskCalculatorView({
                 id="ethnicity"
                 value={ethnicity}
                 onChange={e => setEthnicity(e.target.value as EthnicityRisk)}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {Object.entries(ETHNICITY_LABELS).map(([value, label]) => (
                   <option key={value} value={value}>
@@ -520,7 +520,7 @@ function renderDiabetesRiskCalculatorView({
                 onChange={e =>
                   setWaistCircumference(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.waistCircumference ? 'border border-red-500' : ''
                 }`}
                 placeholder="e.g., 90"
@@ -540,7 +540,7 @@ function renderDiabetesRiskCalculatorView({
                   type="checkbox"
                   checked={familyHistory}
                   onChange={e => setFamilyHistory(e.target.checked)}
-                  className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                  className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
                   Family history of diabetes (parent, sibling)
@@ -552,7 +552,7 @@ function renderDiabetesRiskCalculatorView({
                   type="checkbox"
                   checked={highBloodPressure}
                   onChange={e => setHighBloodPressure(e.target.checked)}
-                  className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                  className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
                   High blood pressure (or taking medication for it)
@@ -564,7 +564,7 @@ function renderDiabetesRiskCalculatorView({
                   type="checkbox"
                   checked={physicallyActive}
                   onChange={e => setPhysicallyActive(e.target.checked)}
-                  className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                  className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
                   Physically active (at least 150 min/week of moderate exercise)
@@ -579,7 +579,7 @@ function renderDiabetesRiskCalculatorView({
                       type="checkbox"
                       checked={gestationalDiabetes}
                       onChange={e => setGestationalDiabetes(e.target.checked)}
-                      className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                      className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                     <span className="text-sm font-medium">History of gestational diabetes</span>
                   </label>
@@ -589,7 +589,7 @@ function renderDiabetesRiskCalculatorView({
                       type="checkbox"
                       checked={polycysticOvary}
                       onChange={e => setPolycysticOvary(e.target.checked)}
-                      className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                      className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                     <span className="text-sm font-medium">Polycystic ovary syndrome (PCOS)</span>
                   </label>
@@ -632,7 +632,7 @@ function renderDiabetesRiskCalculatorView({
                 onChange={e =>
                   setA1cPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   a1cErrors.a1c ? 'border border-red-500' : ''
                 }`}
                 placeholder="e.g., 5.7"
