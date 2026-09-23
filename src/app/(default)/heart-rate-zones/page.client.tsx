@@ -15,6 +15,7 @@ import type {
 } from '@/types/heartRateZones';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -110,7 +111,7 @@ export default function HeartRateZonesCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('heart-rate-zones-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

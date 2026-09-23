@@ -52,7 +52,7 @@ function DashboardPageClientContent(): React.JSX.Element {
               onClick={confirmSync}
               className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
             >
-              Sync now
+              Sync Now
             </button>
             <button
               type="button"
@@ -67,7 +67,7 @@ function DashboardPageClientContent(): React.JSX.Element {
 
       {supabaseEnabled && !isAuthenticated && (
         <div className="neumorph mb-6 rounded-lg p-6">
-          <h2 className="mb-2 text-xl font-semibold">Sign in to sync your dashboard</h2>
+          <h2 className="mb-2 text-xl font-semibold">Sign In to Sync Your Dashboard</h2>
           <p className="mb-4 text-gray-700 dark:text-gray-300">
             Save your trends to the cloud and keep your dashboard in sync across devices.
           </p>
@@ -76,7 +76,7 @@ function DashboardPageClientContent(): React.JSX.Element {
             onClick={() => setAuthModalOpen(true)}
             className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
           >
-            Sign in with email
+            Sign In with Email
           </button>
           <AuthModal open={authModalOpen} onClose={() => setAuthModalOpen(false)} />
         </div>
@@ -86,7 +86,7 @@ function DashboardPageClientContent(): React.JSX.Element {
         <HealthDashboard />
       ) : (
         <div className="neumorph rounded-lg p-6">
-          <h2 className="mb-2 text-xl font-semibold">No dashboard data yet</h2>
+          <h2 className="mb-2 text-xl font-semibold">No Dashboard Data Yet</h2>
           <p className="mb-4 text-gray-700 dark:text-gray-300">
             Use calculators and save results to unlock trend tracking and milestones.
           </p>
@@ -94,7 +94,7 @@ function DashboardPageClientContent(): React.JSX.Element {
             href={localizePath('/calculators')}
             className="text-accent font-medium hover:underline"
           >
-            Browse calculators <span aria-hidden="true">&rarr;</span>
+            Browse Calculators <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       )}

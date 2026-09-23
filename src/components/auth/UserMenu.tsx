@@ -45,7 +45,7 @@ export default function UserMenu(): React.JSX.Element {
           onClick={() => setModalOpen(true)}
           className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
         >
-          Sign in
+          Sign In
         </button>
         <AuthModal open={modalOpen} onClose={() => setModalOpen(false)} />
       </>
@@ -80,7 +80,7 @@ export default function UserMenu(): React.JSX.Element {
             onClick={handleSignOut}
             className="mt-2 w-full rounded-lg px-3 py-2 text-left text-sm text-foreground opacity-80 transition hover:bg-red-100 hover:text-red-700 hover:opacity-100 dark:hover:bg-red-900/30 dark:hover:text-red-300"
           >
-            Sign out
+            Sign Out
           </button>
         </div>
       )}

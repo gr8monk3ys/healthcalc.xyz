@@ -12,6 +12,7 @@ import { validateDuration, validateSpeed, validateWeight } from '@/utils/validat
 import type { CaloriesBurnedCyclingResult as CaloriesBurnedCyclingResultType } from '@/types/caloriesBurnedCycling';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -108,7 +109,7 @@ export default function CaloriesBurnedCyclingCalculator({
         );
         setTimeout(() => {
           const element = document.getElementById('calories-burned-cycling-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

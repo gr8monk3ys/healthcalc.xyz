@@ -10,6 +10,7 @@ import CarbIntakeInfo from '@/components/calculators/carb-intake/CarbIntakeInfo'
 import { calculateCarbIntake } from '@/utils/calculators/carbIntake';
 import type { CarbIntakeResult as CarbIntakeResultType } from '@/types/carbIntake';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -77,7 +78,7 @@ export default function CarbIntakeCalculator({ serverHeader }: { serverHeader?: 
         const calculated = calculateCarbIntake(calories as number, carbPercent as number);
         setTimeout(() => {
           const element = document.getElementById('carb-intake-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

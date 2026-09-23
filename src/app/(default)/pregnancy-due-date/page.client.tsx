@@ -14,6 +14,7 @@ import type {
   PregnancyDueDateMethod,
 } from '@/types/pregnancyDueDate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -69,7 +70,7 @@ export default function PregnancyDueDateCalculator({
         const calculated = calculatePregnancyDueDate(date, method);
         setTimeout(() => {
           const element = document.getElementById('pregnancy-due-date-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

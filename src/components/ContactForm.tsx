@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, FormEvent } from 'react';
+import React, { useRef, useState, FormEvent } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
@@ -45,6 +45,7 @@ export default function ContactForm() {
     statusMessage,
     setStatusMessage,
   } = useContactFormState();
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
   useUnsavedChangesWarning(status !== 'success' && Boolean(name || email || subject || message));
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
@@ -63,6 +64,9 @@ export default function ContactForm() {
 
       if (data.success) {
         setStatus('success');
+        // The form is replaced by the confirmation; move focus there instead
+        // of letting it drop to <body>.
+        requestAnimationFrame(() => successHeadingRef.current?.focus());
         setStatusMessage(data.message);
         setName('');
         setEmail('');
@@ -95,7 +99,9 @@ export default function ContactForm() {
             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 className="text-xl font-semibold mb-2">{t('contactForm.success.title')}</h3>
+        <h3 ref={successHeadingRef} tabIndex={-1} className="text-xl font-semibold mb-2">
+          {t('contactForm.success.title')}
+        </h3>
         <p className="text-gray-600 mb-4" role="status" aria-live="polite">
           {statusMessage}
         </p>

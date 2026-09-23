@@ -19,6 +19,7 @@ import {
 } from '@/hooks/useCalculatorUnits';
 import { TDEE_FORMULAS } from '@/constants/tdee';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -116,7 +117,7 @@ export default function BMRCalculator({ serverHeader }: { serverHeader?: React.R
         });
         setTimeout(() => {
           const element = document.getElementById('bmr-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

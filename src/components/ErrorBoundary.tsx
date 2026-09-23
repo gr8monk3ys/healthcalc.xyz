@@ -90,7 +90,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             </div>
             <div className="ml-3 flex-1">
               <h3 className="text-sm font-medium text-red-800 dark:text-red-300">
-                Something went wrong
+                Something Went Wrong
               </h3>
               <div className="mt-2 text-sm text-red-700 dark:text-red-400">
                 <p>An error occurred while rendering this component.</p>
@@ -104,7 +104,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                   onClick={this.handleReset}
                   className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-red-700 dark:text-red-300 bg-red-100 dark:bg-red-900/40 hover:bg-red-200 dark:hover:bg-red-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-red-500 transition-colors"
                 >
-                  Try again
+                  Try Again
                 </button>
               </div>
             </div>

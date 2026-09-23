@@ -11,6 +11,7 @@ import { calculateStepsToMiles } from '@/utils/calculators/stepsToMiles';
 import { convertLength } from '@/utils/conversions';
 import type { StepsToMilesResult as StepsToMilesResultType } from '@/types/stepsToMiles';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -92,7 +93,7 @@ export default function StepsToMilesCalculator({
         );
         setTimeout(() => {
           const element = document.getElementById('steps-to-miles-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

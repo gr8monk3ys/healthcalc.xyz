@@ -225,7 +225,7 @@ export default function LearnIndexPage() {
 
       <div className="mt-10 glass-panel rounded-3xl p-6 text-center">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-          Prefer to jump straight to a number?
+          Prefer to Jump Straight to a Number?
         </h2>
         <p className="mx-auto mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-300">
           Every guide links to the relevant tools, but you can also browse the full calculator

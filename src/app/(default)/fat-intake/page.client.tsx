@@ -10,6 +10,7 @@ import FatIntakeInfo from '@/components/calculators/fat-intake/FatIntakeInfo';
 import { calculateFatIntake } from '@/utils/calculators/fatIntake';
 import type { FatIntakeResult as FatIntakeResultType } from '@/types/fatIntake';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -78,7 +79,7 @@ export default function FatIntakeCalculator({ serverHeader }: { serverHeader?: R
         const calculated = calculateFatIntake(calories as number, fatPercent as number);
         setTimeout(() => {
           const element = document.getElementById('fat-intake-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

@@ -290,18 +290,25 @@ function CookieConsentBanner({
     const node = bannerRef.current;
     if (!node) return undefined;
 
-    const reserveSpace = () => {
-      document.body.style.paddingBottom = `${node.offsetHeight}px`;
+    const reserveSpace = (height: number) => {
+      document.body.style.paddingBottom = `${height}px`;
+      // Also keep focus scrolling clear of the banner, so a focused field or
+      // link is never hidden underneath it.
+      document.documentElement.style.scrollPaddingBottom = `${height}px`;
     };
 
-    reserveSpace();
+    reserveSpace(node.offsetHeight);
 
-    const observer = new ResizeObserver(reserveSpace);
+    const observer = new ResizeObserver(entries => {
+      const size = entries[0]?.borderBoxSize?.[0];
+      reserveSpace(size ? size.blockSize : node.offsetHeight);
+    });
     observer.observe(node);
 
     return () => {
       observer.disconnect();
       document.body.style.paddingBottom = '';
+      document.documentElement.style.scrollPaddingBottom = '';
     };
   }, []);
 
@@ -317,7 +324,10 @@ function CookieConsentBanner({
         {/* Detail lives here, not in the first view: the toggles plus the full
             cookie explanation and the TCF 2.2 note. */}
         {expanded && (
-          <div id="cookie-preferences" className="neumorph-inset mb-3 space-y-1 p-4">
+          <div
+            id="cookie-preferences"
+            className="neumorph-inset mb-3 max-h-[60dvh] space-y-1 overflow-y-auto overscroll-contain p-4"
+          >
             <ToggleSwitch
               id="cookie-essential"
               checked={true}

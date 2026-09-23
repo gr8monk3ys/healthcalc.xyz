@@ -873,12 +873,14 @@ input[type='checkbox'] {
   box-shadow: var(--shadow-raised);
 }
 
+/* Decorative hero float: one gentle cycle, kept under 5s so there is no
+   endless background motion without a pause control. */
 .animate-float-slow {
-  animation: heroFloat 7s ease-in-out infinite;
+  animation: heroFloat 4.5s ease-in-out 1;
 }
 
 .animate-float-slower {
-  animation: heroFloat 9s ease-in-out 1.2s infinite;
+  animation: heroFloat 4s ease-in-out 0.5s 1;
 }
 
 @keyframes heroFloat {

@@ -22,6 +22,7 @@ import {
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { formatNumber } from '@/utils/formatNumber';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -239,7 +240,7 @@ export default function WeightManagementCalculator({
           setTimeout(() => {
             const resultElement = document.getElementById('weight-management-result');
             if (resultElement) {
-              resultElement.scrollIntoView({ behavior: 'smooth' });
+              resultElement.scrollIntoView({ behavior: scrollBehavior() });
             }
           }, 100);
 

@@ -15,6 +15,7 @@ import { validateDuration, validateWeight } from '@/utils/validation';
 import type { CaloriesBurnedSwimmingResult as CaloriesBurnedSwimmingResultType } from '@/types/caloriesBurnedSwimming';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -104,7 +105,7 @@ export default function CaloriesBurnedSwimmingCalculator({
         );
         setTimeout(() => {
           const element = document.getElementById('calories-burned-swimming-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

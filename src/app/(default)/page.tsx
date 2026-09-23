@@ -409,13 +409,13 @@ const HomeContent = (
               href="/calculators"
               className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition hover:-translate-y-0.5 hover:bg-accent-dark"
             >
-              Browse calculators
+              Browse Calculators
             </Link>
             <Link
               href="/blog"
               className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/45"
             >
-              Read the guides
+              Read the Guides
             </Link>
           </div>
 
@@ -549,7 +549,7 @@ const HomeContent = (
         <div>
           <p className="section-eyebrow">Start here</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
-            Most popular calculators
+            Most Popular Calculators
           </h2>
           <p className="mt-2 text-slate-600 dark:text-slate-300">
             Quickly jump into the tools users rely on most.
@@ -559,7 +559,7 @@ const HomeContent = (
           href="/calculators"
           className="hidden shrink-0 text-sm font-semibold text-accent hover:underline sm:block"
         >
-          View all categories &rarr;
+          View All Categories &rarr;
         </Link>
       </div>
 
@@ -624,7 +624,7 @@ const HomeContent = (
                 {chain.steps.length} steps
               </span>
               <span className="font-semibold text-accent">
-                Get started{' '}
+                Get Started{' '}
                 <span
                   aria-hidden="true"
                   className="inline-block transition-transform duration-200 group-hover:translate-x-1"
@@ -695,7 +695,7 @@ const HomeContent = (
             </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{post.excerpt}</p>
             <p className="mt-4 text-sm font-semibold text-accent">
-              Read article{' '}
+              Read Article{' '}
               <span
                 aria-hidden="true"
                 className="inline-block transition-transform duration-200 group-hover:translate-x-1"
@@ -712,7 +712,7 @@ const HomeContent = (
           href="/blog"
           className="elevated-pill inline-flex rounded-full px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/40"
         >
-          Explore all guides and articles
+          Explore All Guides and Articles
         </Link>
       </div>
     </section>
@@ -725,7 +725,7 @@ const HomeContent = (
       />
       <div className="relative mx-auto max-w-2xl">
         <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
-          Ready to run your numbers?
+          Ready to Run Your Numbers?
         </h2>
         <p className="mt-3 text-base text-indigo-100 md:text-lg">
           It takes less than a minute. No sign-up, no data stored, no paywall — just answers.
@@ -735,7 +735,7 @@ const HomeContent = (
             href="/bmi"
             className="rounded-full bg-white px-7 py-3 font-bold text-accent-dark shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
           >
-            Try the BMI calculator
+            Try the BMI Calculator
           </Link>
           <Link
             href="/calculators"

@@ -14,6 +14,7 @@ import type { ArmyBodyFatResult as ArmyBodyFatResultType } from '@/types/armyBod
 import { Gender } from '@/types/common';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -130,7 +131,7 @@ export default function ArmyBodyFatCalculator({
 
         setTimeout(() => {
           const element = document.getElementById('army-body-fat-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
 
         return calculated;

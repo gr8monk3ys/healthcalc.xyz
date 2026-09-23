@@ -19,6 +19,7 @@ vi.mock('@/context/LocaleContext', () => ({
           'Get the latest health and fitness tips, calculator updates, and exclusive content delivered to your inbox.',
         'newsletter.button': 'Subscribe',
         'newsletter.emailPlaceholder': 'Your email address',
+        'newsletter.emailLabel': 'Email address',
         'newsletter.validation.invalidEmail': 'Please enter a valid email address',
         'newsletter.status.loading': 'Subscribing…',
         'newsletter.error.generic': 'An error occurred. Please try again later.',

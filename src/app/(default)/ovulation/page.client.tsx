@@ -11,6 +11,7 @@ import { isEmpty, validateCycleLength } from '@/utils/validation';
 import { calculateOvulation } from '@/utils/calculators/ovulation';
 import type { OvulationResult as OvulationResultType } from '@/types/ovulation';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -73,7 +74,7 @@ export default function OvulationCalculator({ serverHeader }: { serverHeader?: R
         const calculated = calculateOvulation(lastPeriodDate, cycleLength as number);
         setTimeout(() => {
           const element = document.getElementById('ovulation-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

@@ -13,6 +13,7 @@ import { isEmpty, validateHeight, validateWaist } from '@/utils/validation';
 import type { WaistToHeightRatioResult as WaistToHeightRatioResultType } from '@/types/waistToHeightRatio';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -101,7 +102,7 @@ export default function WaistToHeightRatioCalculator({
 
         setTimeout(() => {
           const element = document.getElementById('waist-to-height-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
 
         return calculated;

@@ -11,6 +11,7 @@ import { isEmpty, validateSystolic, validateDiastolic } from '@/utils/validation
 import { calculateBloodPressure } from '@/utils/calculators/bloodPressure';
 import type { BloodPressureResult as BloodPressureResultType } from '@/types/bloodPressure';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -90,7 +91,7 @@ export default function BloodPressureCalculator({
         const calculated = calculateBloodPressure(systolic as number, diastolic as number);
         setTimeout(() => {
           const element = document.getElementById('blood-pressure-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

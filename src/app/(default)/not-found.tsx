@@ -126,7 +126,7 @@ export default function NotFound() {
           </ul>
           <div className="mt-6">
             <Link href="/blog" className="text-accent hover:underline flex items-center">
-              View all articles
+              View All Articles
               <svg
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"

@@ -12,6 +12,7 @@ import type { DiabetesRiskResult, A1CResult, EthnicityRisk } from '@/types/diabe
 import { ETHNICITY_LABELS } from '@/constants/diabetesRisk';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -243,7 +244,7 @@ export default function DiabetesRiskCalculator({
 
       setTimeout(() => {
         const element = document.getElementById('diabetes-risk-result');
-        element?.scrollIntoView({ behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
 
       return result;
@@ -277,7 +278,7 @@ export default function DiabetesRiskCalculator({
 
       setTimeout(() => {
         const element = document.getElementById('a1c-result');
-        element?.scrollIntoView({ behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
 
       return result;

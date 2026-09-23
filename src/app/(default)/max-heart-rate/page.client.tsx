@@ -12,6 +12,7 @@ import { calculateMaxHeartRate } from '@/utils/calculators/maxHeartRate';
 import type { MaxHeartRateResult as MaxHeartRateResultType } from '@/types/maxHeartRate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -86,7 +87,7 @@ export default function MaxHeartRateCalculator({
         const calculated = calculateMaxHeartRate(age as number);
         setTimeout(() => {
           const element = document.getElementById('max-heart-rate-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

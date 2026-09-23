@@ -17,6 +17,7 @@ export default function Footer(): React.JSX.Element {
           <div>
             <Link
               href={localizePath('/')}
+              translate="no"
               className="notranslate inline-flex items-center gap-2 text-xl font-black tracking-tight text-accent"
             >
               <span

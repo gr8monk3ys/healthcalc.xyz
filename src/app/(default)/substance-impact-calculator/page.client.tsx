@@ -15,6 +15,7 @@ import SubstanceImpactResultDisplay from '@/components/calculators/substanceImpa
 import { ALCOHOL_TYPE_LABELS, SMOKING_TYPE_LABELS } from '@/constants/substanceImpact';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -275,7 +276,7 @@ export default function SubstanceImpactCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('substance-impact-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

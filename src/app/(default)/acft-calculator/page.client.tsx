@@ -10,6 +10,7 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import ACFTResultDisplay from '@/components/calculators/acftCalculator/ACFTResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -255,7 +256,7 @@ export default function ACFTCalculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('acft-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -509,10 +510,10 @@ function renderACFTCalculatorView({
           </div>
 
           {/* Sprint-Drag-Carry */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
+          <fieldset>
+            <legend className="block text-sm font-medium mb-1">
               {EVENT_NAMES.sprintDragCarry} (time)
-            </label>
+            </legend>
             <div className="flex gap-3">
               <div className="flex-1">
                 <label htmlFor="sdcMinutes" className="block text-xs text-gray-600 mb-1">
@@ -571,11 +572,11 @@ function renderACFTCalculatorView({
                 {errors.sprintDragCarry}
               </p>
             )}
-          </div>
+          </fieldset>
 
           {/* Plank */}
-          <div>
-            <label className="block text-sm font-medium mb-1">{EVENT_NAMES.plank} (time)</label>
+          <fieldset>
+            <legend className="block text-sm font-medium mb-1">{EVENT_NAMES.plank} (time)</legend>
             <div className="flex gap-3">
               <div className="flex-1">
                 <label htmlFor="plankMinutes" className="block text-xs text-gray-600 mb-1">
@@ -634,13 +635,13 @@ function renderACFTCalculatorView({
                 {errors.plank}
               </p>
             )}
-          </div>
+          </fieldset>
 
           {/* Two-Mile Run */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
+          <fieldset>
+            <legend className="block text-sm font-medium mb-1">
               {EVENT_NAMES.twoMileRun} (time)
-            </label>
+            </legend>
             <div className="flex gap-3">
               <div className="flex-1">
                 <label htmlFor="tmrMinutes" className="block text-xs text-gray-600 mb-1">
@@ -699,7 +700,7 @@ function renderACFTCalculatorView({
                 {errors.twoMileRun}
               </p>
             )}
-          </div>
+          </fieldset>
 
           {/* Buttons */}
           <div className="flex gap-4">

@@ -74,7 +74,7 @@ function SavedResultsPageContent(): React.JSX.Element {
               onClick={confirmSync}
               className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
             >
-              Sync now
+              Sync Now
             </button>
             <button
               type="button"
@@ -90,7 +90,7 @@ function SavedResultsPageContent(): React.JSX.Element {
       {/* Sign-in prompt for Supabase-enabled but unauthenticated users */}
       {supabaseEnabled && !isAuthenticated && (
         <div className="neumorph mb-6 rounded-lg p-6">
-          <h2 className="mb-2 text-xl font-semibold">Sign in to sync your results</h2>
+          <h2 className="mb-2 text-xl font-semibold">Sign In to Sync Your Results</h2>
           <p className="mb-4 text-gray-700 dark:text-gray-300">
             Create an account to save your calculator results to the cloud. Access them from any
             device, any time.
@@ -100,7 +100,7 @@ function SavedResultsPageContent(): React.JSX.Element {
             onClick={() => setAuthModalOpen(true)}
             className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
           >
-            Sign in with email
+            Sign In with Email
           </button>
           <AuthModal open={authModalOpen} onClose={() => setAuthModalOpen(false)} />
         </div>

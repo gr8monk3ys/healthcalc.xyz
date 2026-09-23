@@ -12,6 +12,7 @@ import { MEDICATION_LABELS, GOAL_LABELS, ACTIVITY_LABELS } from '@/constants/glp
 import { useWeight, useHeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -195,7 +196,7 @@ export default function GLP1Calculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('glp1-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

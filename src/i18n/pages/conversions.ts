@@ -116,7 +116,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       valuePlaceholder: 'e.g. 100…',
       fromLabel: 'From',
       toLabel: 'To',
-      swapUnitsTitle: 'Swap units',
+      swapUnitsTitle: 'Swap Units',
       convertButton: 'Convert',
       errorInvalidNumber: 'Please enter a valid number',
       errorNonNegative: 'Please enter a value greater than or equal to 0',

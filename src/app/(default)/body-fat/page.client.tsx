@@ -39,6 +39,7 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
@@ -504,7 +505,7 @@ export default function BodyFatCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('body-fat-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

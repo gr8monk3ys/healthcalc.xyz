@@ -22,6 +22,7 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Dynamic imports for below-the-fold components
 const TDEEUnderstanding = dynamic(() => import('@/components/calculators/tdee/TDEEUnderstanding'));
@@ -425,7 +426,7 @@ export default function TDEECalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('tdee-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

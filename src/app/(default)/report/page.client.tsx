@@ -371,7 +371,7 @@ function ReportPageClientContent(): React.JSX.Element {
            reading instead of padding it out. */
         <div className="mb-4">
           <div className="glass-panel rounded-xl p-6">
-            <h2 className="mb-2 text-lg font-semibold">No saved data yet</h2>
+            <h2 className="mb-2 text-lg font-semibold">No Saved Data Yet</h2>
             <p className="mb-4 text-sm text-gray-600 dark:text-gray-300">
               Save calculator results first, then return here to generate a printable report.
             </p>
@@ -381,7 +381,7 @@ function ReportPageClientContent(): React.JSX.Element {
           </div>
 
           <div className="mt-8">
-            <h3 className="section-eyebrow mb-3">Start with a popular calculator</h3>
+            <h3 className="section-eyebrow mb-3">Start with a Popular Calculator</h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {REPORT_STARTER_CALCULATORS.map(calculator => (
                 <Link

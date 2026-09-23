@@ -32,6 +32,7 @@ import {
 } from '@/hooks/useSharedResultPrefill';
 import type { BMIPageCopy } from '@/i18n/pages/bmi';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 const logger = createLogger({ component: 'BMICalculatorClient' });
 
@@ -373,7 +374,7 @@ function submitBMIForm({
     setTimeout(() => {
       const resultElement = document.getElementById('bmi-result');
       if (resultElement) {
-        resultElement.scrollIntoView({ behavior: 'smooth' });
+        resultElement.scrollIntoView({ behavior: scrollBehavior() });
         resultElement.focus({ preventScroll: true });
       }
     }, 100);

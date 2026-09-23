@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import ChainSelector from '@/components/chains/ChainSelector';
 import { CALCULATOR_CHAINS, getChainById } from '@/constants/calculatorChains';
@@ -12,29 +13,25 @@ interface ChainsPageClientProps {
 }
 
 function WorkflowStartCard({ chainId }: { chainId: string }) {
-  const router = useRouter();
   const { startChain } = useChainState();
   const chain = getChainById(chainId);
 
-  if (!chain) {
+  if (!chain || chain.steps.length === 0) {
     return null;
   }
-
-  const handleStart = () => {
-    const firstSlug = startChain(chainId);
-    if (firstSlug) {
-      router.push(`/${firstSlug}`);
-    }
-  };
 
   return (
     <div className="mb-8 rounded-2xl border border-accent/25 bg-accent/5 p-5">
       <p className="text-xs font-semibold uppercase tracking-wide text-accent">Workflow ready</p>
       <h2 className="mt-2 text-xl font-semibold">{chain.name}</h2>
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{chain.description}</p>
-      <button className="ui-btn-primary mt-4" type="button" onClick={handleStart}>
-        Start {chain.steps.length}-step workflow
-      </button>
+      <Link
+        className="ui-btn-primary mt-4"
+        href={`/${chain.steps[0].slug}`}
+        onClick={() => startChain(chainId)}
+      >
+        Start {chain.steps.length}-Step Workflow
+      </Link>
     </div>
   );
 }
@@ -72,7 +69,7 @@ export default function ChainsPageClient({
       <ChainSelector chains={CALCULATOR_CHAINS} />
 
       <div className="mt-12 glass-panel rounded-xl p-6">
-        <h2 className="text-lg font-semibold mb-2">How it works</h2>
+        <h2 className="text-lg font-semibold mb-2">How It Works</h2>
         <ol className="list-decimal list-inside space-y-2 text-sm text-gray-600 dark:text-gray-400">
           <li>Choose a workflow that matches your goal</li>
           <li>Complete each calculator in sequence — your inputs carry forward automatically</li>

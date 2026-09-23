@@ -195,7 +195,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -274,7 +273,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -308,7 +306,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -342,7 +339,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}

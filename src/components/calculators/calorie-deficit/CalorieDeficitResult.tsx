@@ -169,7 +169,12 @@ export default function CalorieDeficitResultDisplay({
         <Card className="p-5">
           <h3 className="text-lg font-semibold mb-4">Weight Loss Projection</h3>
           <div className="relative h-64">
-            <svg aria-hidden="true" className="w-full h-full" viewBox="0 0 600 250">
+            <svg
+              role="img"
+              aria-label={`Projected weight loss of ${formatNumber(displayWeightToLose, 1)} ${unitLabel} over about ${result.estimatedWeeks} weeks, about ${formatNumber(displayWeeklyLoss, 1)} ${unitLabel} per week.`}
+              className="w-full h-full"
+              viewBox="0 0 600 250"
+            >
               {/* Grid lines */}
               {[50, 90, 130, 170, 210].map(lineY => (
                 <line

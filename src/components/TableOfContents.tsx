@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 interface TOCItem {
   id: string;
@@ -116,7 +117,7 @@ export default function TableOfContents({
                   }`}
                   onClick={() => {
                     document.getElementById(item.id)?.scrollIntoView({
-                      behavior: 'smooth',
+                      behavior: scrollBehavior(),
                     });
                   }}
                 >
