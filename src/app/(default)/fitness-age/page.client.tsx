@@ -157,6 +157,9 @@ function FitnessAgeFormCard({
           <label className="text-sm">
             <span className="mb-1 block font-medium">Age</span>
             <input
+              name="age"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               className="w-full rounded-lg p-3 neumorph-inset"
               value={form.age}
@@ -168,7 +171,7 @@ function FitnessAgeFormCard({
                   age: e.target.value === '' ? '' : Number(e.target.value),
                 }))
               }
-              placeholder="Years"
+              placeholder="e.g. 35…"
             />
           </label>
 
@@ -178,6 +181,8 @@ function FitnessAgeFormCard({
               {(['female', 'male'] as const).map(value => (
                 <label key={value} className="text-sm">
                   <input
+                    name="gender"
+                    value={value}
                     type="radio"
                     className="mr-2"
                     checked={form.gender === value}
@@ -193,6 +198,9 @@ function FitnessAgeFormCard({
         <label className="text-sm">
           <span className="mb-1 block font-medium">VO2 Max (ml/kg/min)</span>
           <input
+            name="vo2Max"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             className="w-full rounded-lg p-3 neumorph-inset"
             value={form.vo2Max}
@@ -211,6 +219,9 @@ function FitnessAgeFormCard({
         <label className="text-sm">
           <span className="mb-1 block font-medium">Resting Heart Rate (bpm)</span>
           <input
+            name="restingHeartRate"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             className="w-full rounded-lg p-3 neumorph-inset"
             value={form.restingHeartRate}
@@ -229,6 +240,9 @@ function FitnessAgeFormCard({
           <label className="text-sm">
             <span className="mb-1 block font-medium">BMI</span>
             <input
+              name="bmi"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               className="w-full rounded-lg p-3 neumorph-inset"
               value={form.bmi}
@@ -247,6 +261,9 @@ function FitnessAgeFormCard({
           <label className="text-sm">
             <span className="mb-1 block font-medium">Body Fat (%)</span>
             <input
+              name="bodyFatPercentage"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               className="w-full rounded-lg p-3 neumorph-inset"
               value={form.bodyFatPercentage}
@@ -266,6 +283,9 @@ function FitnessAgeFormCard({
         <label className="text-sm">
           <span className="mb-1 block font-medium">Training Days per Week</span>
           <input
+            name="weeklyTrainingDays"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             className="w-full rounded-lg p-3 neumorph-inset"
             value={form.weeklyTrainingDays}
@@ -284,6 +304,7 @@ function FitnessAgeFormCard({
           <label className="text-sm">
             <span className="mb-1 block font-medium">Balance Self-Rating (1-5)</span>
             <select
+              name="balanceScore"
               className="w-full rounded-lg p-3 neumorph-inset"
               value={form.balanceScore}
               onChange={e =>
@@ -304,6 +325,7 @@ function FitnessAgeFormCard({
           <label className="text-sm">
             <span className="mb-1 block font-medium">Flexibility Self-Rating (1-5)</span>
             <select
+              name="flexibilityScore"
               className="w-full rounded-lg p-3 neumorph-inset"
               value={form.flexibilityScore}
               onChange={e =>

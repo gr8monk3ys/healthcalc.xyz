@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { MedicalDisclaimer } from '@/components/MedicalDisclaimer';
 import { useLocale } from '@/context/LocaleContext';
 import type { MessageKey } from '@/i18n/messages';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 const EmbedCodeGenerator = dynamic(() =>
   import('@/components/EmbedCodeGenerator').then(module => module.EmbedCodeGenerator)
@@ -139,6 +140,9 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                 <input
                   type="number"
                   id={field.name}
+                  name={field.name}
+                  inputMode="decimal"
+                  autoComplete="off"
                   value={field.value}
                   onChange={e =>
                     field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
@@ -169,6 +173,9 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <input
                 type="number"
                 id={field.name}
+                name={field.name}
+                inputMode="decimal"
+                autoComplete="off"
                 value={field.value}
                 onChange={e =>
                   field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
@@ -232,6 +239,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             </label>
             <select
               id={field.name}
+              name={field.name}
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
@@ -284,6 +292,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             <input
               type="date"
               id={field.name}
+              name={field.name}
+              autoComplete="off"
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
@@ -316,6 +326,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             <input
               type="time"
               id={field.name}
+              name={field.name}
+              autoComplete="off"
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
@@ -348,7 +360,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
     <div className="neumorph rounded-2xl p-6">
       <h2 className="mb-5 text-xl font-bold tracking-tight">{title}</h2>
 
-      <form onSubmit={onSubmit} className="space-y-4" data-calculator-form="1">
+      <form
+        onSubmit={e => {
+          onSubmit(e);
+          focusFirstInvalidField(e.currentTarget);
+        }}
+        className="space-y-4"
+        data-calculator-form="1"
+      >
         {fields.map(renderField)}
 
         <div className="flex gap-3 pt-2">

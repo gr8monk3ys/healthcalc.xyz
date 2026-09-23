@@ -137,11 +137,13 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
                 Email address
               </label>
               <input
+                name="auth-email"
+                spellCheck={false}
                 id="auth-email"
                 type="email"
                 required
                 autoComplete="email"
-                placeholder="you@example.com"
+                placeholder="you@example.com…"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="neumorph-input w-full rounded-xl px-4 py-3 text-sm"
@@ -160,7 +162,7 @@ export default function AuthModal({ open, onClose }: AuthModalProps): React.JSX.
               disabled={status === 'sending' || !email.trim()}
               className="w-full rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/40 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {status === 'sending' ? 'Sending...' : 'Send magic link'}
+              {status === 'sending' ? 'Sending…' : 'Send magic link'}
             </button>
 
             <p className="text-center text-xs text-foreground opacity-50">

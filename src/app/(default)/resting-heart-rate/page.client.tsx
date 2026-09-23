@@ -108,7 +108,7 @@ export default function RestingHeartRateCalculator({
               value: restingHeartRate,
               onChange: setRestingHeartRate,
               error: errors.restingHeartRate,
-              placeholder: 'e.g. 65',
+              placeholder: 'e.g. 65…',
               min: 30,
               max: 120,
             },

@@ -192,7 +192,7 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
         value: age,
         onChange: setAge,
         error: errors.age,
-        placeholder: 'Years',
+        placeholder: 'e.g. 35…',
       },
       {
         name: 'gender',

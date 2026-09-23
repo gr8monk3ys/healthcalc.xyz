@@ -172,7 +172,7 @@ export default function BMRCalculator({ serverHeader }: { serverHeader?: React.R
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
             },
             createHeightField(height, errors.height),
             createWeightField(weight, errors.weight),
@@ -195,7 +195,7 @@ export default function BMRCalculator({ serverHeader }: { serverHeader?: React.R
               value: bodyFat,
               onChange: setBodyFat,
               error: errors.bodyFat,
-              placeholder: 'Only for Katch-McArdle',
+              placeholder: 'e.g. 20 (Katch-McArdle only)…',
             },
           ]}
           submitButtonText="Calculate BMR"

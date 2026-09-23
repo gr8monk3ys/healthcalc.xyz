@@ -9,6 +9,7 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import ACFTResultDisplay from '@/components/calculators/acftCalculator/ACFTResult';
 import SaveResult from '@/components/SaveResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 const faqs = [
   {
@@ -360,7 +361,13 @@ function renderACFTCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your ACFT Score</h2>
 
           {/* Gender */}
@@ -369,6 +376,7 @@ function renderACFTCalculatorView({
               Gender
             </label>
             <select
+              name="gender"
               id="gender"
               value={gender}
               onChange={e => setGender(e.target.value as 'male' | 'female')}
@@ -385,6 +393,7 @@ function renderACFTCalculatorView({
               Age Group
             </label>
             <select
+              name="ageGroup"
               id="ageGroup"
               value={ageGroup}
               onChange={e => setAgeGroup(e.target.value as ACFTAgeGroup)}
@@ -406,6 +415,11 @@ function renderACFTCalculatorView({
               {EVENT_NAMES.deadlift} (lbs)
             </label>
             <input
+              aria-invalid={errors.deadliftWeight ? true : undefined}
+              aria-describedby={errors.deadliftWeight ? 'deadliftWeight-error' : undefined}
+              name="deadliftWeight"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="deadliftWeight"
               value={deadliftWeight}
@@ -415,13 +429,15 @@ function renderACFTCalculatorView({
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.deadliftWeight ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter weight in lbs"
+              placeholder="e.g. 200 (lbs)…"
               min="0"
               max="600"
               step="5"
             />
             {errors.deadliftWeight && (
-              <p className="text-red-500 text-sm mt-1">{errors.deadliftWeight}</p>
+              <p id="deadliftWeight-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.deadliftWeight}
+              </p>
             )}
           </div>
 
@@ -431,6 +447,11 @@ function renderACFTCalculatorView({
               {EVENT_NAMES.standingPowerThrow} (meters)
             </label>
             <input
+              aria-invalid={errors.standingPowerThrow ? true : undefined}
+              aria-describedby={errors.standingPowerThrow ? 'standingPowerThrow-error' : undefined}
+              name="standingPowerThrow"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="standingPowerThrow"
               value={standingPowerThrow}
@@ -440,13 +461,15 @@ function renderACFTCalculatorView({
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.standingPowerThrow ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter distance in meters"
+              placeholder="e.g. 9.5 (meters)…"
               min="0"
               max="15"
               step="0.1"
             />
             {errors.standingPowerThrow && (
-              <p className="text-red-500 text-sm mt-1">{errors.standingPowerThrow}</p>
+              <p id="standingPowerThrow-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.standingPowerThrow}
+              </p>
             )}
           </div>
 
@@ -456,6 +479,11 @@ function renderACFTCalculatorView({
               {EVENT_NAMES.handReleasePushups} (reps)
             </label>
             <input
+              aria-invalid={errors.handReleasePushups ? true : undefined}
+              aria-describedby={errors.handReleasePushups ? 'handReleasePushups-error' : undefined}
+              name="handReleasePushups"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="handReleasePushups"
               value={handReleasePushups}
@@ -465,13 +493,15 @@ function renderACFTCalculatorView({
               className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.handReleasePushups ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter number of reps"
+              placeholder="e.g. 30…"
               min="0"
               max="100"
               step="1"
             />
             {errors.handReleasePushups && (
-              <p className="text-red-500 text-sm mt-1">{errors.handReleasePushups}</p>
+              <p id="handReleasePushups-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.handReleasePushups}
+              </p>
             )}
           </div>
 
@@ -486,6 +516,11 @@ function renderACFTCalculatorView({
                   Minutes
                 </label>
                 <input
+                  aria-invalid={errors.sprintDragCarry ? true : undefined}
+                  aria-describedby={errors.sprintDragCarry ? 'sprintDragCarry-error' : undefined}
+                  name="sdcMinutes"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="sdcMinutes"
                   value={sdcMinutes}
@@ -495,7 +530,7 @@ function renderACFTCalculatorView({
                   className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.sprintDragCarry ? 'border border-red-500' : ''
                   }`}
-                  placeholder="min"
+                  placeholder="e.g. 2…"
                   min="0"
                   max="10"
                   step="1"
@@ -507,6 +542,11 @@ function renderACFTCalculatorView({
                   Seconds
                 </label>
                 <input
+                  aria-invalid={errors.sprintDragCarry ? true : undefined}
+                  aria-describedby={errors.sprintDragCarry ? 'sprintDragCarry-error' : undefined}
+                  name="sdcSeconds"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="sdcSeconds"
                   value={sdcSeconds}
@@ -516,7 +556,7 @@ function renderACFTCalculatorView({
                   className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.sprintDragCarry ? 'border border-red-500' : ''
                   }`}
-                  placeholder="sec"
+                  placeholder="e.g. 30…"
                   min="0"
                   max="59"
                   step="1"
@@ -524,7 +564,9 @@ function renderACFTCalculatorView({
               </div>
             </div>
             {errors.sprintDragCarry && (
-              <p className="text-red-500 text-sm mt-1">{errors.sprintDragCarry}</p>
+              <p id="sprintDragCarry-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.sprintDragCarry}
+              </p>
             )}
           </div>
 
@@ -537,6 +579,11 @@ function renderACFTCalculatorView({
                   Minutes
                 </label>
                 <input
+                  aria-invalid={errors.plank ? true : undefined}
+                  aria-describedby={errors.plank ? 'plank-error' : undefined}
+                  name="plankMinutes"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="plankMinutes"
                   value={plankMinutes}
@@ -546,7 +593,7 @@ function renderACFTCalculatorView({
                   className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.plank ? 'border border-red-500' : ''
                   }`}
-                  placeholder="min"
+                  placeholder="e.g. 2…"
                   min="0"
                   max="10"
                   step="1"
@@ -558,6 +605,11 @@ function renderACFTCalculatorView({
                   Seconds
                 </label>
                 <input
+                  aria-invalid={errors.plank ? true : undefined}
+                  aria-describedby={errors.plank ? 'plank-error' : undefined}
+                  name="plankSeconds"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="plankSeconds"
                   value={plankSeconds}
@@ -567,14 +619,18 @@ function renderACFTCalculatorView({
                   className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.plank ? 'border border-red-500' : ''
                   }`}
-                  placeholder="sec"
+                  placeholder="e.g. 30…"
                   min="0"
                   max="59"
                   step="1"
                 />
               </div>
             </div>
-            {errors.plank && <p className="text-red-500 text-sm mt-1">{errors.plank}</p>}
+            {errors.plank && (
+              <p id="plank-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.plank}
+              </p>
+            )}
           </div>
 
           {/* Two-Mile Run */}
@@ -588,6 +644,11 @@ function renderACFTCalculatorView({
                   Minutes
                 </label>
                 <input
+                  aria-invalid={errors.twoMileRun ? true : undefined}
+                  aria-describedby={errors.twoMileRun ? 'twoMileRun-error' : undefined}
+                  name="tmrMinutes"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="tmrMinutes"
                   value={tmrMinutes}
@@ -597,7 +658,7 @@ function renderACFTCalculatorView({
                   className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.twoMileRun ? 'border border-red-500' : ''
                   }`}
-                  placeholder="min"
+                  placeholder="e.g. 2…"
                   min="0"
                   max="40"
                   step="1"
@@ -609,6 +670,11 @@ function renderACFTCalculatorView({
                   Seconds
                 </label>
                 <input
+                  aria-invalid={errors.twoMileRun ? true : undefined}
+                  aria-describedby={errors.twoMileRun ? 'twoMileRun-error' : undefined}
+                  name="tmrSeconds"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="tmrSeconds"
                   value={tmrSeconds}
@@ -618,14 +684,18 @@ function renderACFTCalculatorView({
                   className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.twoMileRun ? 'border border-red-500' : ''
                   }`}
-                  placeholder="sec"
+                  placeholder="e.g. 30…"
                   min="0"
                   max="59"
                   step="1"
                 />
               </div>
             </div>
-            {errors.twoMileRun && <p className="text-red-500 text-sm mt-1">{errors.twoMileRun}</p>}
+            {errors.twoMileRun && (
+              <p id="twoMileRun-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.twoMileRun}
+              </p>
+            )}
           </div>
 
           {/* Buttons */}

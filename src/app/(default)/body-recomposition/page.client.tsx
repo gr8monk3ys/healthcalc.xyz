@@ -232,7 +232,7 @@ export default function BodyRecompositionCalculator({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     {
       name: 'gender',
@@ -254,7 +254,7 @@ export default function BodyRecompositionCalculator({
       value: bodyFatPercentage,
       onChange: setBodyFatPercentage,
       error: errors.bodyFatPercentage,
-      placeholder: '%',
+      placeholder: 'e.g. 22…',
       step: '0.1',
     },
     {

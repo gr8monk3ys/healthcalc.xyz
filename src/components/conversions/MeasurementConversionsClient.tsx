@@ -313,8 +313,14 @@ function MeasurementConversionsView({
           <div className="space-y-4">
             {/* Input Value */}
             <div>
-              <label className="block text-sm font-medium mb-2">{copy.ui.valueLabel}</label>
+              <label htmlFor="conversion-value" className="block text-sm font-medium mb-2">
+                {copy.ui.valueLabel}
+              </label>
               <input
+                id="conversion-value"
+                name="value"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
@@ -327,8 +333,12 @@ function MeasurementConversionsView({
 
             {/* From Unit */}
             <div>
-              <label className="block text-sm font-medium mb-2">{copy.ui.fromLabel}</label>
+              <label htmlFor="conversion-from" className="block text-sm font-medium mb-2">
+                {copy.ui.fromLabel}
+              </label>
               <select
+                id="conversion-from"
+                name="from"
                 value={fromUnit}
                 onChange={e => setFromUnit(e.target.value)}
                 className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -344,10 +354,11 @@ function MeasurementConversionsView({
             {/* Swap Button */}
             <div className="flex justify-center">
               <button
+                type="button"
                 onClick={handleSwapUnits}
                 className="p-3 neumorph rounded-lg hover:shadow-neumorph-inset transition"
-                type="button"
                 title={copy.ui.swapUnitsTitle}
+                aria-label={copy.ui.swapUnitsTitle}
               >
                 <svg
                   aria-hidden="true"
@@ -356,7 +367,6 @@ function MeasurementConversionsView({
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                aria-label={copy.ui.swapUnitsTitle}
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -369,8 +379,12 @@ function MeasurementConversionsView({
 
             {/* To Unit */}
             <div>
-              <label className="block text-sm font-medium mb-2">{copy.ui.toLabel}</label>
+              <label htmlFor="conversion-to" className="block text-sm font-medium mb-2">
+                {copy.ui.toLabel}
+              </label>
               <select
+                id="conversion-to"
+                name="to"
                 value={toUnit}
                 onChange={e => setToUnit(e.target.value)}
                 className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"

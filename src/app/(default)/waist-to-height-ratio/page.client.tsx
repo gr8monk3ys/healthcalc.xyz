@@ -161,7 +161,7 @@ export default function WaistToHeightRatioCalculator({
               value: waist,
               onChange: setWaist,
               error: errors.waist,
-              placeholder: waistUnit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: waistUnit === 'cm' ? 'e.g. 80…' : 'e.g. 32…',
               unit: waistUnit,
               unitToggle: toggleWaistUnit,
               step: '0.1',

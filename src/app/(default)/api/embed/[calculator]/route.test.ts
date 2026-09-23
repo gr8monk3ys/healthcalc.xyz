@@ -56,7 +56,7 @@ describe('GET /api/embed/[calculator]', () => {
     expect(res.status).toBe(404);
     expect(res.headers.get('Content-Type')).toContain('text/html');
     expect(html).toContain('&lt;img src=x onerror=alert(1)&gt;');
-    expect(html).toContain('Available: bmi, tdee, body-fat, calorie-deficit');
+    expect(html).toContain('Use one of: bmi, tdee, body-fat, calorie-deficit');
   });
 
   it('keeps the embedded BMR snippet in sync with the canonical implementation', () => {

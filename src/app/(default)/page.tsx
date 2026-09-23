@@ -441,7 +441,7 @@ const HomeContent = (
                 />
               </svg>
               <span className="text-sm text-slate-500 dark:text-slate-300 sm:text-base">
-                Search calculators, guides, and blog posts...
+                Search calculators, guides, and blog posts…
               </span>
             </div>
           </Link>

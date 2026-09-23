@@ -182,7 +182,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
             },
             createWeightField(weight, errors.weight),
             {
@@ -192,7 +192,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
               value: walkTime,
               onChange: setWalkTime,
               error: errors.walkTime,
-              placeholder: 'e.g., 15.5',
+              placeholder: 'e.g. 15.5…',
             },
             {
               name: 'heartRate',
@@ -201,7 +201,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
               value: heartRate,
               onChange: setHeartRate,
               error: errors.heartRate,
-              placeholder: 'e.g., 130',
+              placeholder: 'e.g. 130…',
             },
           ]}
           submitButtonText="Calculate VO2 Max"

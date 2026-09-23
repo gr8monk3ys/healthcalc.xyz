@@ -258,8 +258,8 @@ const CardioVsWeightsFatLossContentContent = (
 
       <p>
         When you eat less than you burn, your body doesn't just burn fat. It burns whatever it can
-        get away with burning. Fat, muscle, that fancy protein powder you bought... your body
-        doesn't care about your aesthetic goals.
+        get away with burning. Fat, muscle, that fancy protein powder you bought… your body doesn't
+        care about your aesthetic goals.
       </p>
 
       <p>

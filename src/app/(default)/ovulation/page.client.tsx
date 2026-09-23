@@ -122,7 +122,7 @@ export default function OvulationCalculator({ serverHeader }: { serverHeader?: R
               value: cycleLength,
               onChange: setCycleLength,
               error: errors.cycleLength,
-              placeholder: 'e.g., 28',
+              placeholder: 'e.g. 28…',
             },
           ]}
           submitButtonText="Calculate Ovulation"

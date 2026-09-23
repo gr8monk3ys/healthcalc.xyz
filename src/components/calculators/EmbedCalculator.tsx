@@ -2,6 +2,7 @@
 
 import React, { useMemo, useReducer } from 'react';
 import { buildEmbedCode } from '@/utils/embed';
+import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
 interface EmbedCalculatorProps {
   calculatorSlug: string;
@@ -56,6 +57,9 @@ export default function EmbedCalculator({
     initialEmbedRequestState
   );
   const { copied, requestName, requestEmail, requestSite, requestNotes } = requestState;
+  const allowNavigation = useUnsavedChangesWarning(
+    Boolean(requestName || requestEmail || requestSite || requestNotes)
+  );
 
   const iframeCode = useMemo(() => {
     return buildEmbedCode({ slug: calculatorSlug, title, height });
@@ -87,6 +91,7 @@ export default function EmbedCalculator({
       subject
     )}&body=${encodeURIComponent(body)}`;
 
+    allowNavigation();
     window.location.href = mailto;
   };
 
@@ -113,6 +118,8 @@ export default function EmbedCalculator({
           Embed Code
         </label>
         <textarea
+          name="embedCode"
+          autoComplete="off"
           id={`${calculatorSlug}-embed-code`}
           readOnly
           className="w-full h-32 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/40 text-xs font-mono"
@@ -133,10 +140,12 @@ export default function EmbedCalculator({
               Name
             </label>
             <input
+              name="name"
+              autoComplete="name"
               id={`${calculatorSlug}-name`}
               type="text"
               className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              placeholder="Your name"
+              placeholder="Jane Smith…"
               value={requestName}
               onChange={event =>
                 dispatchRequestState({
@@ -153,10 +162,13 @@ export default function EmbedCalculator({
               Email
             </label>
             <input
+              autoComplete="email"
+              spellCheck={false}
+              name="email"
               id={`${calculatorSlug}-email`}
               type="email"
               className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              placeholder="you@example.com"
+              placeholder="you@example.com…"
               value={requestEmail}
               onChange={event =>
                 dispatchRequestState({
@@ -173,10 +185,13 @@ export default function EmbedCalculator({
               Website URL
             </label>
             <input
+              autoComplete="url"
+              spellCheck={false}
+              name="website"
               id={`${calculatorSlug}-site`}
               type="url"
               className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              placeholder="https://example.com"
+              placeholder="https://example.com…"
               value={requestSite}
               onChange={event =>
                 dispatchRequestState({
@@ -193,10 +208,12 @@ export default function EmbedCalculator({
               Notes (optional)
             </label>
             <textarea
+              name="notes"
+              autoComplete="off"
               id={`${calculatorSlug}-notes`}
               rows={3}
               className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              placeholder="Tell us how you plan to use the embed."
+              placeholder="e.g. A sidebar widget on our clinic’s blog…"
               value={requestNotes}
               onChange={event =>
                 dispatchRequestState({

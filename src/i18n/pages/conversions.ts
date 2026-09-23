@@ -113,7 +113,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       conversionCategory: 'Conversion Category',
       categoryConverterTitleTemplate: '{category} Converter',
       valueLabel: 'Value',
-      valuePlaceholder: 'Enter value',
+      valuePlaceholder: 'e.g. 100…',
       fromLabel: 'From',
       toLabel: 'To',
       swapUnitsTitle: 'Swap units',

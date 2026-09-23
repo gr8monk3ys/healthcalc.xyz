@@ -14,6 +14,7 @@ import {
 } from '@/constants/caffeineCalculator';
 import { useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 // FAQ data for Caffeine calculator
 const faqs = [
@@ -257,7 +258,13 @@ function renderCaffeineCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your Caffeine Intake</h2>
 
           {/* Weight Field */}
@@ -267,6 +274,11 @@ function renderCaffeineCalculatorView({
             </label>
             <div className="flex">
               <input
+                aria-invalid={errors.weight ? true : undefined}
+                aria-describedby={errors.weight ? 'weight-error' : undefined}
+                name="weight"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="weight"
                 value={weight.value}
@@ -276,7 +288,7 @@ function renderCaffeineCalculatorView({
                 className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.weight ? 'border border-red-500' : ''
                 }`}
-                placeholder="Enter weight"
+                placeholder={weight.placeholder}
                 step="0.1"
                 min="1"
                 max="600"
@@ -290,7 +302,11 @@ function renderCaffeineCalculatorView({
                 {weight.unit}
               </button>
             </div>
-            {errors.weight && <p className="text-red-500 text-sm mt-1">{errors.weight}</p>}
+            {errors.weight && (
+              <p id="weight-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.weight}
+              </p>
+            )}
           </div>
 
           {/* Caffeine Sources */}
@@ -309,6 +325,7 @@ function renderCaffeineCalculatorView({
                       </label>
                       <select
                         id={`caffeine-source-${sourceItem.id}`}
+                        name={`caffeine-source-${sourceItem.id}`}
                         value={sourceItem.source}
                         onChange={e =>
                           handleUpdateSource(
@@ -336,7 +353,10 @@ function renderCaffeineCalculatorView({
                       </label>
                       <div className="flex gap-2">
                         <input
+                          autoComplete="off"
+                          inputMode="decimal"
                           id={`caffeine-servings-${sourceItem.id}`}
+                          name={`caffeine-servings-${sourceItem.id}`}
                           type="number"
                           min="0"
                           max="20"
@@ -350,7 +370,7 @@ function renderCaffeineCalculatorView({
                             )
                           }
                           className="flex-1 px-3 py-2 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm"
-                          placeholder="Servings"
+                          placeholder="e.g. 2…"
                         />
                         {sources.length > 1 && (
                           <button
@@ -360,12 +380,12 @@ function renderCaffeineCalculatorView({
                             aria-label="Remove source"
                           >
                             <svg
+                              aria-hidden="true"
                               className="w-5 h-5 text-red-500"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                             >
-                              aria-hidden="true"
                               <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -412,6 +432,7 @@ function renderCaffeineCalculatorView({
               Caffeine Sensitivity
             </label>
             <select
+              name="sensitivityLevel"
               id="sensitivityLevel"
               value={sensitivityLevel}
               onChange={e => setSensitivityLevel(e.target.value as SensitivityLevel)}
@@ -431,6 +452,7 @@ function renderCaffeineCalculatorView({
             <label className="flex items-center">
               <input
                 type="checkbox"
+                name="preWorkoutTiming"
                 checked={preWorkoutTiming}
                 onChange={e => setPreWorkoutTiming(e.target.checked)}
                 className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"

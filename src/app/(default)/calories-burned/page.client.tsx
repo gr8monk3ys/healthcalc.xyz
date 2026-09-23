@@ -143,7 +143,7 @@ export default function CaloriesBurnedCalculator({
               value: duration,
               onChange: setDuration,
               error: errors.duration,
-              placeholder: 'Minutes',
+              placeholder: 'e.g. 30…',
               min: 1,
               max: 1440,
             },
