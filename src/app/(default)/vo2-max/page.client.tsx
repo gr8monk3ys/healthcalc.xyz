@@ -54,13 +54,15 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
 
   const chainPrefill = useChainPrefill('vo2-max');
 
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
     if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
       setGender(chainPrefill.gender as Gender);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, setAge, setGender, weight]);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, setWeightValue]);
 
   const chainResultData = useMemo(() => {
     const weightKg = weight.toKg();

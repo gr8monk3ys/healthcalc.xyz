@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import DarkModeToggle from '@/components/ui/DarkModeToggle';
 import UnitToggle from '@/components/ui/UnitToggle';
-import { usePreferences } from '@/context/PreferencesContext';
 import { useLocale } from '@/context/LocaleContext';
 import { stripLocaleFromPathname } from '@/i18n/config';
 
@@ -24,9 +23,7 @@ const AuthControls = dynamic(() => import('@/components/AuthControls'), {
 
 export default function Header(): React.JSX.Element {
   const pathname = usePathname();
-  const { preferences } = usePreferences();
   const { localizePath, t } = useLocale();
-  const { darkMode } = preferences;
   const [openMenuPathname, setOpenMenuPathname] = useState<string | null>(null);
   const mobileMenuOpen = openMenuPathname === pathname;
   const normalizedPathname = stripLocaleFromPathname(pathname);
@@ -41,7 +38,7 @@ export default function Header(): React.JSX.Element {
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 md:px-4 md:pt-4">
       <div
-        className={`glass-panel rounded-[1.6rem] px-4 py-3 md:px-6 md:py-4 ${darkMode ? 'text-white' : 'text-foreground'}`}
+        className={`glass-panel rounded-[1.6rem] px-4 py-3 md:px-6 md:py-4 text-foreground dark:text-white`}
       >
         <div className="container mx-auto flex items-center justify-between gap-4">
           <Link
@@ -160,9 +157,7 @@ export default function Header(): React.JSX.Element {
                 className={`block rounded-xl px-4 py-3 text-sm font-semibold transition ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
-                    : darkMode
-                      ? 'elevated-pill hover:border-accent/60'
-                      : 'elevated-pill hover:border-accent/40'
+                    : 'elevated-pill hover:border-accent/40 dark:hover:border-accent/60'
                 }`}
               >
                 {link.name}

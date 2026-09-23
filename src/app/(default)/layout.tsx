@@ -15,7 +15,7 @@ import { fontVariables } from '@/lib/fonts';
 
 const siteUrl = getPublicSiteUrl();
 
-const darkModeBootstrapScript = `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode){document.documentElement.classList.add('dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#111318')}}catch(e){}})()`;
+const preferencesBootstrapScript = `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences:v1')||localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode){document.documentElement.classList.add('dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#111318')}var u=JSON.parse(localStorage.getItem('unit-system-preferences:v1')||localStorage.getItem('unit-system-preferences'));if(u&&u.unitSystem==='imperial')document.documentElement.dataset.units='imperial'}catch(e){}})()`;
 const organizationSchemaJson = JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c');
 const websiteSchemaJson = JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c');
 
@@ -95,9 +95,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="HealthCalc" />
 
-        {/* Blocking script to apply dark mode before first paint (prevents FOUC) */}
+        {/* Blocking script to apply dark mode and unit preference before first paint (prevents FOUC) */}
         <Script id="dark-mode-bootstrap" strategy="beforeInteractive">
-          {darkModeBootstrapScript}
+          {preferencesBootstrapScript}
         </Script>
       </head>
       <body>

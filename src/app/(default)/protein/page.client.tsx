@@ -104,10 +104,12 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
 
   const chainPrefill = useChainPrefill('protein');
 
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, weight]);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setWeightValue]);
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<ProteinResultType>({

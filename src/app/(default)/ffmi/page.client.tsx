@@ -46,13 +46,17 @@ export default function FFMICalculator({ serverHeader }: { serverHeader?: React.
 
   const chainPrefill = useChainPrefill('ffmi');
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
     if (typeof chainPrefill.bodyFatPercentage === 'number')
       setBodyFatPercentage(chainPrefill.bodyFatPercentage);
-  }, [chainPrefill, height, weight, setBodyFatPercentage]);
+  }, [chainPrefill, setHeightValue, setWeightValue, setBodyFatPercentage]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();

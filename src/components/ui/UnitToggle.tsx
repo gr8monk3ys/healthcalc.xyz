@@ -23,26 +23,19 @@ export default function UnitToggle({ className = '' }: UnitToggleProps): React.J
   return (
     <div className={`flex items-center ${className}`}>
       <span className="mr-2 text-sm font-medium text-slate-600 dark:text-slate-300">Units:</span>
+      {/* Which option is highlighted comes from <html data-units> (set before
+          first paint from stored preferences), so it never flashes. */}
       <button
+        type="button"
         onClick={toggleUnitSystem}
-        className="elevated-pill flex items-center rounded-full px-3 py-1 text-sm"
+        className="elevated-pill flex items-center rounded-full px-3 py-1 text-sm hover:border-accent/40"
         aria-label={`Switch to ${unitSystem === 'metric' ? 'imperial' : 'metric'} units`}
       >
-        <span
-          className={
-            unitSystem === 'metric' ? 'font-bold text-accent' : 'text-slate-500 dark:text-slate-400'
-          }
-        >
+        <span className="unit-toggle-option" data-unit="metric">
           Metric
         </span>
         <span className="mx-2 text-slate-400 dark:text-slate-500">|</span>
-        <span
-          className={
-            unitSystem === 'imperial'
-              ? 'font-bold text-accent'
-              : 'text-slate-500 dark:text-slate-400'
-          }
-        >
+        <span className="unit-toggle-option" data-unit="imperial">
           Imperial
         </span>
       </button>

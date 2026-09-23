@@ -325,6 +325,10 @@ export default function BodyFatCalculator({
   const sharedPrefill = initialSharedPrefill ?? querySharedPrefill;
   const hasAppliedSharedPrefill = useRef(false);
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     dispatchState({
@@ -336,9 +340,9 @@ export default function BodyFatCalculator({
           : {}),
       },
     });
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, height, weight]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setHeightValue, setWeightValue]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;

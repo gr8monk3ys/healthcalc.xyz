@@ -215,6 +215,20 @@ html.dark {
   }
 }
 
+/* Header units toggle: the active option follows <html data-units>, which the
+   pre-paint bootstrap script sets from stored preferences. */
+.unit-toggle-option {
+  color: rgb(100 116 139);
+}
+.dark .unit-toggle-option {
+  color: rgb(148 163 184);
+}
+html:not([data-units='imperial']) .unit-toggle-option[data-unit='metric'],
+html[data-units='imperial'] .unit-toggle-option[data-unit='imperial'] {
+  font-weight: 700;
+  color: var(--accent);
+}
+
 /* Numbers in tables line up column by column. */
 :where(table) {
   font-variant-numeric: tabular-nums;
