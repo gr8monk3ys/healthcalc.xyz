@@ -412,9 +412,9 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <div className="neumorph-card rounded-xl p-6 my-8 bg-blue-50 dark:bg-blue-900/20">
-        <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
           Sample Week (4-5 sessions)
-        </h4>
+        </h3>
         <div className="space-y-3 text-gray-700 dark:text-gray-300">
           <p>
             <strong>Monday:</strong> Zone 2, 40-60 minutes. Easy run, bike, or swim. Should feel

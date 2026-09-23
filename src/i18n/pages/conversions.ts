@@ -235,7 +235,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       {
         question: 'Which weight unit system should I use for fitness tracking?',
         answer:
-          "Use whichever system you're most familiar with, but be consistent. Metric (kg) is used internationally and in scientific contexts, with finer precision for small changes (0.1 kg = 0.22 lb). Imperial (lb) is common in the US and UK. Stones are primarily British. For detailed tracking, kilograms are often preferred because 0.1 kg increments are easier to track than 0.2 lb increments. What matters most is consistency - don't switch systems mid-tracking, as this introduces conversion errors and makes trends harder to spot.",
+          'Use whichever system you’re most familiar with, but be consistent. Metric (kg) is used internationally and in scientific contexts, with finer precision for small changes (0.1 kg = 0.22 lb). Imperial (lb) is common in the US and UK. Stones are primarily British. For detailed tracking, kilograms are often preferred because 0.1 kg increments are easier to track than 0.2 lb increments. What matters most is consistency - don’t switch systems mid-tracking, as this introduces conversion errors and makes trends harder to spot.',
       },
       {
         question: 'Are the conversion factors in this tool accurate enough for medical use?',

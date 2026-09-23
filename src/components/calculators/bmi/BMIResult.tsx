@@ -8,7 +8,7 @@ import NextSteps from '@/components/calculators/NextSteps';
 import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
-import { formatNumber } from '@/utils/formatNumber';
+import { formatNumber, formatOrdinal } from '@/utils/formatNumber';
 
 interface BMIResultDisplayProps {
   result: BMIResult;
@@ -30,10 +30,10 @@ const FALLBACK_COPY: BMIPageCopy['result'] = {
   },
   classificationAdult: 'BMI Classification',
   classificationChild: 'BMI Percentile Classification',
-  percentileTemplate: '{percentile}th Percentile - {category}',
+  percentileTemplate: '{ordinal} Percentile - {category}',
   healthyWeightRangeTitle: 'Healthy Weight Range for Your Height',
   whatThisMeansTitle: 'What This Means',
-  childIntroTemplate: "Your child's BMI is at the {percentile}th percentile for their age and sex.",
+  childIntroTemplate: 'Your child’s BMI is at the {ordinal} percentile for their age and sex.',
   childUnderweight:
     'This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.',
   childHealthy: 'This is within the healthy weight range.',
@@ -105,7 +105,7 @@ function getBMINextSteps(
   if (isChild) {
     return {
       insight:
-        "BMI percentiles for children are interpreted differently than adult BMI. Talk to your pediatrician about your child's growth pattern.",
+        'BMI percentiles for children are interpreted differently than adult BMI. Talk to your pediatrician about your child’s growth pattern.',
       steps: [
         {
           label: 'Calorie Calculator',
@@ -234,6 +234,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
     isChild && result.percentile !== undefined
       ? formatTemplate(content.percentileTemplate, {
           percentile: result.percentile,
+          ordinal: formatOrdinal(result.percentile),
           category: result.category,
         })
       : result.category;
@@ -328,7 +329,10 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
         <p className="mb-2">
           {isChild && result.percentile !== undefined ? (
             <>
-              {formatTemplate(content.childIntroTemplate, { percentile: result.percentile })}
+              {formatTemplate(content.childIntroTemplate, {
+                percentile: result.percentile,
+                ordinal: formatOrdinal(result.percentile),
+              })}
               {result.percentile < 5
                 ? ` ${content.childUnderweight}`
                 : result.percentile >= 5 && result.percentile < 85

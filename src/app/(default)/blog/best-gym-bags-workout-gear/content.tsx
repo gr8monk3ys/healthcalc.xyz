@@ -838,35 +838,35 @@ const BestGymBagsWorkoutGearPageContent = (
         </h2>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h4 className="font-semibold mb-2">1. Always separate your shoes</h4>
+          <h3 className="font-semibold mb-2">1. Always separate your shoes</h3>
           <p className="mb-4">
             Even if your bag does not have a dedicated shoe pocket, use a plastic bag or shoe sack.
             Shoes touching your clean clothes is how gym bags start smelling bad. Every bag on this
             list has some form of shoe separation, which is one reason I picked them.
           </p>
 
-          <h4 className="font-semibold mb-2">2. Air it out after every session</h4>
+          <h3 className="font-semibold mb-2">2. Air it out after every session</h3>
           <p className="mb-4">
             The single biggest mistake people make with gym bags is zipping them shut after a
             workout and leaving them in a trunk or closet. Open the bag when you get home. Let it
             breathe. Take out wet clothes immediately. This alone will double the life of any bag.
           </p>
 
-          <h4 className="font-semibold mb-2">3. Pack the night before</h4>
+          <h3 className="font-semibold mb-2">3. Pack the night before</h3>
           <p className="mb-4">
             I have skipped workouts because I forgot to pack socks or a lock. It sounds ridiculous,
             but small friction adds up. Packing your bag the night before removes one excuse from
             your morning routine.
           </p>
 
-          <h4 className="font-semibold mb-2">4. Size matters more than you think</h4>
+          <h3 className="font-semibold mb-2">4. Size matters more than you think</h3>
           <p className="mb-4">
             A bag that is too big gets heavy and annoying. A bag that is too small means you are
             cramming things in and breaking zippers. Think about what you actually bring to the gym
             on a typical day and pick the size that fits that with a little room to spare.
           </p>
 
-          <h4 className="font-semibold mb-2">5. Wash your bag monthly</h4>
+          <h3 className="font-semibold mb-2">5. Wash your bag monthly</h3>
           <p>
             Most of these bags are machine washable or can be wiped down with a damp cloth. Do it at
             least once a month. The Vooray Burner can go straight in the machine, which is one of

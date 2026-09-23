@@ -790,21 +790,21 @@ const BestWaterBottlesHydrationTrackingPageContent = (
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h4 className="font-semibold mb-2">1. Start before you are thirsty</h4>
+          <h3 className="font-semibold mb-2">1. Start before you are thirsty</h3>
           <p className="mb-4">
             By the time you feel thirsty, you are already mildly dehydrated. Drink a full glass of
             water first thing in the morning before coffee. Your body has gone 7-8 hours without
             water. It needs it.
           </p>
 
-          <h4 className="font-semibold mb-2">2. Keep your bottle visible</h4>
+          <h3 className="font-semibold mb-2">2. Keep your bottle visible</h3>
           <p className="mb-4">
             This sounds too simple to work but it does. A bottle sitting on your desk where you can
             see it leads to more drinking than one stashed in a bag. Out of sight, out of mind is
             real.
           </p>
 
-          <h4 className="font-semibold mb-2">3. Set refill goals, not sip goals</h4>
+          <h3 className="font-semibold mb-2">3. Set refill goals, not sip goals</h3>
           <p className="mb-4">
             Trying to sip water every 15 minutes is annoying and unsustainable. Instead, aim to
             empty and refill your 32oz bottle a specific number of times per day. Use our{' '}
@@ -814,7 +814,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             to figure out how many refills that is for your body weight and activity level.
           </p>
 
-          <h4 className="font-semibold mb-2">4. Drink more when you exercise</h4>
+          <h3 className="font-semibold mb-2">4. Drink more when you exercise</h3>
           <p className="mb-4">
             Add 16-20oz of water for every hour of exercise. If you are using our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
@@ -823,7 +823,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             and working out regularly, your hydration needs go up with your activity level.
           </p>
 
-          <h4 className="font-semibold mb-2">5. Make it taste good</h4>
+          <h3 className="font-semibold mb-2">5. Make it taste good</h3>
           <p>
             If plain water bores you, add lemon, cucumber, or frozen berries. A wide-mouth bottle
             like the Nalgene or Hydro Flask makes this easy. You are more likely to drink something

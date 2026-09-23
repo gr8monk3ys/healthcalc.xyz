@@ -362,9 +362,9 @@ const ScienceOfTDEEPageContent = (
       </p>
 
       <div className="neumorph-card rounded-xl p-6 my-8 bg-red-50 dark:bg-red-900/20">
-        <h4 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
           What Metabolic Adaptation Looks Like in Practice
-        </h4>
+        </h3>
         <div className="space-y-2 text-gray-700 dark:text-gray-300">
           <p>
             <strong>Week 1:</strong> You cut 500 calories. You lose weight as expected.

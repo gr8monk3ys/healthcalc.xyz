@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { LifeExpectancyResult } from '@/types/lifeExpectancy';
+import { formatOrdinal } from '@/utils/formatNumber';
 
 interface LifeExpectancyResultDisplayProps {
   result: LifeExpectancyResult;
@@ -82,8 +83,8 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
           </span>
         </div>
         <p className="text-xs text-gray-600 mt-2">
-          You rank in the {result.percentileRank}th percentile compared to the general population
-          for your gender.
+          You rank in the {formatOrdinal(result.percentileRank)} percentile compared to the general
+          population for your gender.
         </p>
       </div>
 

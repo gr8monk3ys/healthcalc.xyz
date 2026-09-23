@@ -185,7 +185,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
         summaryNone: query => `No results found for "${query}"`,
         noResultsPanelTitle: 'No results found',
         noResultsPanelBody: query =>
-          `We couldn't find any matches for "${query}". Please try another search.`,
+          `We couldn’t find any matches for “${query}”. Try a shorter or different search term.`,
         popularTitle: 'Popular Calculators',
         popularCalculators: [
           { href: '/bmi', label: 'BMI Calculator' },
