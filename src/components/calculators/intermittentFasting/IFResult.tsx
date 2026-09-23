@@ -1,5 +1,6 @@
 import React from 'react';
 import { IFResult as IFResultType } from '@/types/intermittentFasting';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface IFResultProps {
   result: IFResultType;
@@ -232,14 +233,14 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
                     <td className="py-2 px-3 text-gray-900 dark:text-white">{projection.week}</td>
                     <td className="text-right py-2 px-3 text-gray-900 dark:text-white">
                       {weightUnit === 'lb'
-                        ? (projection.projectedWeight * 2.20462).toFixed(1)
-                        : projection.projectedWeight.toFixed(1)}
+                        ? formatNumber(projection.projectedWeight * 2.20462, 1)
+                        : formatNumber(projection.projectedWeight, 1)}
                     </td>
                     <td className="text-right py-2 px-3 text-green-600 dark:text-green-400 font-medium">
                       -
                       {weightUnit === 'lb'
-                        ? (projection.cumulativeWeightLoss * 2.20462).toFixed(1)
-                        : projection.cumulativeWeightLoss.toFixed(1)}
+                        ? formatNumber(projection.cumulativeWeightLoss * 2.20462, 1)
+                        : formatNumber(projection.cumulativeWeightLoss, 1)}
                     </td>
                   </tr>
                 ))}

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { AgeResult } from '@/types/age';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface AgeResultProps {
   result: AgeResult | null;
@@ -24,7 +25,7 @@ export default function AgeResult({ result }: AgeResultProps) {
           {result.years} years, {result.months} months, {result.days} days
         </p>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-          Total days lived: {result.totalDays.toLocaleString()}
+          Total days lived: {formatNumber(result.totalDays)}
         </p>
       </div>
     </div>

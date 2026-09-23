@@ -326,7 +326,7 @@ function renderFFMICalculatorView({
 
               {/* Calculation Error */}
               {calculationError && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4" role="alert">
                   <p className="text-red-600 text-sm">{calculationError}</p>
                 </div>
               )}

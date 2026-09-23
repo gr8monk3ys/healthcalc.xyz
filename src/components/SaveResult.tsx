@@ -30,8 +30,16 @@ function SaveResultContent({
   className = '',
 }: SaveResultProps) {
   // Rule: Move localStorage logic to dedicated hooks/utilities
-  const { saveResult, removeResultByData, isResultSaved, canSaveResults, message, showMessage } =
-    useSavedResultsManager();
+  const {
+    saveResult,
+    removeResultByData,
+    isResultSaved,
+    canSaveResults,
+    message,
+    showMessage,
+    canUndo,
+    undoRemove,
+  } = useSavedResultsManager();
   const { t } = useLocale();
 
   // Check if this result is already saved
@@ -54,7 +62,7 @@ function SaveResultContent({
           onClick={handleRemoveResult}
           type="button"
           className="neumorph-btn flex items-center gap-2 px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
-          aria-label={t('savedResults.list.deleteAria')}
+          aria-pressed={true}
         >
           <svg
             aria-hidden="true"
@@ -72,7 +80,7 @@ function SaveResultContent({
           onClick={handleSaveResult}
           type="button"
           className="neumorph-btn flex items-center gap-2 bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition hover:-translate-y-0.5 hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-70"
-          aria-label={t('savedResults.button.save')}
+          aria-pressed={false}
         >
           <svg
             aria-hidden="true"
@@ -97,9 +105,46 @@ function SaveResultContent({
         <p className="mt-2 text-xs text-gray-600">{t('savedResults.helper.loginInstruction')}</p>
       )}
 
-      {showMessage && (
-        <div className="mt-2 p-2 bg-gray-100 text-gray-800 text-sm rounded-lg" role="alert">
-          {message}
+      <SavedResultsToast
+        show={showMessage}
+        message={message}
+        canUndo={canUndo}
+        onUndo={undoRemove}
+        undoLabel={t('savedResults.toast.undo')}
+      />
+    </div>
+  );
+}
+
+/** Status toast for save/remove, with an Undo action right after a removal. */
+function SavedResultsToast({
+  show,
+  message,
+  canUndo,
+  onUndo,
+  undoLabel,
+}: {
+  show: boolean;
+  message: string;
+  canUndo: boolean;
+  onUndo: () => void;
+  undoLabel: string;
+}): React.JSX.Element {
+  // The live region stays mounted so screen readers announce each message.
+  return (
+    <div role="status" aria-live="polite">
+      {show && (
+        <div className="mt-2 flex items-center justify-between gap-3 rounded-lg bg-gray-100 p-2 text-sm text-gray-800 dark:bg-gray-800 dark:text-gray-100">
+          <span>{message}</span>
+          {canUndo && (
+            <button
+              type="button"
+              onClick={onUndo}
+              className="rounded px-2 py-1 font-semibold text-accent hover:bg-black/5 dark:hover:bg-white/10"
+            >
+              {undoLabel}
+            </button>
+          )}
         </div>
       )}
     </div>
@@ -196,7 +241,16 @@ function downloadCsv(content: string, filename: string): void {
  */
 export function SavedResultsList({ className = '' }: { className?: string }) {
   // Rule: Move localStorage logic to dedicated hooks/utilities
-  const { savedResults, clearAllResults, removeResult, formatDate } = useSavedResultsManager();
+  const {
+    savedResults,
+    clearAllResults,
+    removeResult,
+    formatDate,
+    message,
+    showMessage,
+    canUndo,
+    undoRemove,
+  } = useSavedResultsManager();
   const { localizePath, t } = useLocale();
   const [comparingType, setComparingType] = React.useState<string | null>(null);
   const [expandedGroups, setExpandedGroups] = React.useState<Set<string>>(new Set());
@@ -257,6 +311,7 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
             </span>
           </button>
           <button
+            type="button"
             onClick={clearAllResults}
             className="text-sm font-semibold text-danger hover:opacity-90 px-3 py-2"
           >
@@ -264,6 +319,14 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
           </button>
         </div>
       </div>
+
+      <SavedResultsToast
+        show={showMessage}
+        message={message}
+        canUndo={canUndo}
+        onUndo={undoRemove}
+        undoLabel={t('savedResults.toast.undo')}
+      />
 
       {/* Grouped sections */}
       {groups.map(group => {
@@ -285,64 +348,60 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
 
         return (
           <section key={group.type} className="glass-panel rounded-2xl overflow-hidden">
-            {/* Section header */}
-            <button
-              type="button"
-              onClick={() => toggleGroup(group.type)}
-              className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <h3 className="text-base font-bold">{group.name}</h3>
-                <span className="elevated-pill rounded-full px-2.5 py-0.5 text-xs font-semibold tabular-nums">
-                  {group.results.length}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                {group.results.length >= 2 && (
-                  <span
-                    role="button"
-                    tabIndex={0}
-                    onClick={e => {
-                      e.stopPropagation();
-                      setComparingType(isComparing ? null : group.type);
-                      if (!expandedGroups.has(group.type)) {
-                        setExpandedGroups(prev => {
-                          const next = new Set(Array.from(prev));
-                          next.add(group.type);
-                          return next;
-                        });
-                      }
-                    }}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setComparingType(isComparing ? null : group.type);
-                      }
-                    }}
-                    className="text-accent text-xs font-semibold hover:underline"
-                  >
-                    {isComparing ? 'Hide comparison' : 'Compare'}
-                  </span>
-                )}
-                <svg
-                  aria-hidden="true"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+            {/* Section header: the heading holds the disclosure button; Compare
+                is a separate sibling button (no interactive nesting). */}
+            <div className="flex items-center gap-2 px-5 py-4 transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]">
+              <h3 className="min-w-0 flex-1 text-base font-bold">
+                <button
+                  type="button"
+                  onClick={() => toggleGroup(group.type)}
+                  aria-expanded={isExpanded}
+                  className="flex w-full items-center justify-between gap-3 text-left"
                 >
-                  <path
-                    d="M4 6l4 4 4-4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
+                  <span className="flex min-w-0 items-center gap-3">
+                    <span className="truncate">{group.name}</span>
+                    <span className="elevated-pill rounded-full px-2.5 py-0.5 text-xs font-semibold tabular-nums">
+                      {group.results.length}
+                    </span>
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    className={`shrink-0 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                  >
+                    <path
+                      d="M4 6l4 4 4-4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </h3>
+              {group.results.length >= 2 && (
+                <button
+                  type="button"
+                  aria-pressed={isComparing}
+                  onClick={() => {
+                    setComparingType(isComparing ? null : group.type);
+                    if (!expandedGroups.has(group.type)) {
+                      setExpandedGroups(prev => {
+                        const next = new Set(Array.from(prev));
+                        next.add(group.type);
+                        return next;
+                      });
+                    }
+                  }}
+                  className="rounded px-2 py-1 text-xs font-semibold text-accent hover:underline"
+                >
+                  {isComparing ? 'Hide Comparison' : 'Compare'}
+                </button>
+              )}
+            </div>
 
             {/* Mini chart for groups with 2+ results */}
             {isExpanded && chartData.length >= 2 && (
@@ -380,6 +439,7 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
                         <p className="text-sm font-medium">{formatDate(result.date)}</p>
                       </div>
                       <button
+                        type="button"
                         onClick={() => removeResult(result.id)}
                         className="text-gray-400 hover:text-red-600 transition-colors"
                         aria-label={t('savedResults.list.deleteAria')}
@@ -406,10 +466,12 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
                       {Object.entries(result.data).map(([key, value]) => (
                         <div
                           key={key}
-                          className="flex justify-between py-1 border-b border-gray-100 dark:border-gray-800 last:border-0"
+                          className="flex justify-between gap-3 py-1 border-b border-gray-100 dark:border-gray-800 last:border-0"
                         >
-                          <span className="text-gray-600 dark:text-gray-400">{formatKey(key)}</span>
-                          <span className="font-medium">
+                          <span className="shrink-0 text-gray-600 dark:text-gray-400">
+                            {formatKey(key)}
+                          </span>
+                          <span className="min-w-0 break-words text-right font-medium">
                             {typeof value === 'object' ? JSON.stringify(value) : String(value)}
                           </span>
                         </div>

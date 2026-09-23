@@ -27,6 +27,7 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { formatNumber } from '@/utils/formatNumber';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -335,7 +336,7 @@ function CalorieDeficitContent({
                   estimatedWeeks: result.estimatedWeeks,
                   weightToLose: `${
                     typeof weight.value === 'number' && typeof goalWeight === 'number'
-                      ? (weight.value - goalWeight).toFixed(1)
+                      ? formatNumber(weight.value - goalWeight, 1)
                       : 0
                   } ${weight.unit}`,
                 }}

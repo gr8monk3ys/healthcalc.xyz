@@ -10,6 +10,7 @@ import { formatTargetDate, getDeficitSafetyMessage } from '@/app/api/calorieDefi
 import NextSteps from '@/components/calculators/NextSteps';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface CalorieDeficitResultDisplayProps {
   result: CalorieDeficitResult;
@@ -54,7 +55,7 @@ export default function CalorieDeficitResultDisplay({
             <span className="font-semibold">{formatTargetDate(result.targetDate)}</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-            You'll lose approximately {displayWeeklyLoss.toFixed(2)} {unitLabel}/week
+            You'll lose approximately {formatNumber(displayWeeklyLoss, 2)} {unitLabel}/week
           </p>
         </div>
       </Card>
@@ -95,8 +96,8 @@ export default function CalorieDeficitResultDisplay({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ResultCard
           title="Goal Weight"
-          value={`${displayGoalWeight.toFixed(1)} ${unitLabel}`}
-          description={`Total to lose: ${displayWeightToLose.toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(displayGoalWeight, 1)} ${unitLabel}`}
+          description={`Total to lose: ${formatNumber(displayWeightToLose, 1)} ${unitLabel}`}
         />
         <ResultCard
           title="Daily Calorie Target"

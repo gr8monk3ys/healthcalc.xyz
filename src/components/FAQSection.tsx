@@ -27,8 +27,11 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex(current => (current === index ? null : index));
   };
+
+  // Nothing to show: no heading over an empty list, no empty FAQ schema.
+  if (faqs.length === 0) return null;
 
   return (
     <div className={`neumorph p-6 rounded-lg my-8 ${className}`}>
@@ -41,8 +44,9 @@ export default function FAQSection({
             className="border-b border-gray-200 pb-4 last:border-0 last:pb-0"
           >
             <button
+              type="button"
               onClick={() => toggleFAQ(index)}
-              className="flex justify-between items-center w-full text-left font-medium py-2 focus-visible:outline-none"
+              className="flex justify-between items-center w-full text-left font-medium py-2 hover:text-accent"
               aria-expanded={openIndex === index}
               aria-controls={`faq-answer-${index}`}
             >
@@ -66,11 +70,12 @@ export default function FAQSection({
               </svg>
             </button>
 
+            {/* hidden (not just visually collapsed) when closed: out of the tab
+                order and the accessibility tree, and never clipped when open. */}
             <div
               id={`faq-answer-${index}`}
-              className={`mt-2 transition-opacity duration-200 overflow-hidden ${
-                openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}
+              hidden={openIndex !== index}
+              className="mt-2 animate-fade-in"
             >
               <div className="prose prose-sm max-w-none text-gray-600">{faq.answer}</div>
             </div>

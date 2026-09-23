@@ -32,6 +32,8 @@ interface SavedResultsContextState {
     data: Record<string, unknown>
   ) => boolean;
   removeResult: (id: string) => void;
+  /** Put a just-removed result back exactly as it was (undo). */
+  restoreResult: (result: SavedResult) => void;
   clearAllResults: () => void;
   isResultSaved: (id: string) => boolean;
   syncPromptPending: boolean;
@@ -384,6 +386,26 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
     [isAuthenticated, setSavedResultsByUser, supabaseEnabled, userKey]
   );
 
+  const restoreResult = useCallback(
+    (result: SavedResult): void => {
+      setSavedResultsByUser(prev => {
+        const bucket = prev[userKey] ?? [];
+        if (bucket.some(existing => existing.id === result.id)) return prev;
+        const restored = [result, ...bucket].sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        return { ...prev, [userKey]: restored.slice(0, 30) };
+      });
+
+      if (isAuthenticated && user && supabaseEnabled) {
+        void upsertResultToSupabase(result, user.id);
+      } else if (user) {
+        void syncResultToServer(result);
+      }
+    },
+    [isAuthenticated, setSavedResultsByUser, supabaseEnabled, user, userKey]
+  );
+
   const clearAllResults = useCallback((): void => {
     setSavedResultsByUser(prev => ({
       ...prev,
@@ -412,6 +434,7 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
       canSaveResults: canSave,
       saveResult,
       removeResult,
+      restoreResult,
       clearAllResults,
       isResultSaved,
       syncPromptPending,
@@ -423,6 +446,7 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
       canSave,
       saveResult,
       removeResult,
+      restoreResult,
       clearAllResults,
       isResultSaved,
       syncPromptPending,

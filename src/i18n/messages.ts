@@ -40,6 +40,7 @@ export type MessageKey =
   | 'calculator.relatedGuides.title'
   | 'calculator.relatedGuides.explore'
   | 'calculator.relatedArticles.title'
+  | 'calculator.results.announcement'
   | 'calculator.relatedArticles.viewAll'
   | 'calculator.faq.titleTemplate'
   | 'calculator.resultsShare.title'
@@ -50,6 +51,8 @@ export type MessageKey =
   | 'calculator.resultsShare.exporting'
   | 'calculator.resultsShare.enableHint'
   | 'calculator.resultsShare.tipPrefix'
+  | 'calculator.resultsShare.exportFailed'
+  | 'calculator.resultsShare.copyFailed'
   | 'calculatorForm.submit'
   | 'calculatorForm.reset'
   | 'calculatorForm.embedToggle'
@@ -106,6 +109,8 @@ export type MessageKey =
   | 'savedResults.toast.removed'
   | 'savedResults.toast.removeError'
   | 'savedResults.toast.cleared'
+  | 'savedResults.toast.restored'
+  | 'savedResults.toast.undo'
   | 'savedResults.confirm.clearAll'
   | 'savedResults.list.emptyTitle'
   | 'savedResults.list.emptyBody'
@@ -187,6 +192,7 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'calculator.relatedGuides.title': 'Related Guides',
   'calculator.relatedGuides.explore': 'Explore guide →',
   'calculator.relatedArticles.title': 'Related Articles',
+  'calculator.results.announcement': 'Your results are ready below.',
   'calculator.relatedArticles.viewAll': 'View all articles →',
   'calculator.faq.titleTemplate': 'Frequently Asked Questions About {topic}',
   'calculator.resultsShare.title': 'Share your results',
@@ -198,6 +204,10 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'calculator.resultsShare.exporting': 'Exporting…',
   'calculator.resultsShare.enableHint': 'Run a calculation to enable image export',
   'calculator.resultsShare.tipPrefix': 'Tip: When sharing on social, include this URL:',
+  'calculator.resultsShare.exportFailed':
+    'Couldn’t create the image. Try again, or take a screenshot instead.',
+  'calculator.resultsShare.copyFailed':
+    'Couldn’t copy the link. Select the URL below and copy it manually.',
   'calculatorForm.submit': 'Calculate',
   'calculatorForm.reset': 'Reset',
   'calculatorForm.embedToggle': 'Embed this calculator',
@@ -256,10 +266,13 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'savedResults.toast.alreadySaved': 'This result is already saved',
   'savedResults.toast.loginRequired': 'Sign in required to save results',
   'savedResults.toast.saved': 'Result saved successfully',
-  'savedResults.toast.saveError': 'Error saving result',
+  'savedResults.toast.saveError':
+    'Couldn’t save this result. Allow site storage in your browser settings, then try again.',
   'savedResults.toast.removed': 'Result removed',
-  'savedResults.toast.removeError': 'Error removing result',
+  'savedResults.toast.removeError': 'Couldn’t remove this result. Reload the page and try again.',
   'savedResults.toast.cleared': 'All results cleared',
+  'savedResults.toast.restored': 'Result restored',
+  'savedResults.toast.undo': 'Undo',
   'savedResults.confirm.clearAll': 'Are you sure you want to clear all saved results?',
   'savedResults.list.emptyTitle': 'Saved Results',
   'savedResults.list.emptyBody': "You haven't saved any calculator results yet.",

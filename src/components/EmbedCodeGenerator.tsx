@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useReducer, useCallback, useRef, useEffect } from 'react';
+import React, { useReducer, useCallback, useRef, useEffect, useState } from 'react';
 import { getPublicSiteUrl } from '@/lib/site';
 
 interface EmbedCodeGeneratorProps {
@@ -105,18 +105,31 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
     };
   }, []);
 
-  const handleWidthChange = useCallback((value: string) => {
+  // Let people clear and retype a size: keep the raw text while typing and
+  // clamp into range when the field loses focus.
+  const [widthDraft, setWidthDraft] = useState<string | null>(null);
+  const [heightDraft, setHeightDraft] = useState<string | null>(null);
+
+  const commitWidth = useCallback((value: string) => {
     const num = parseInt(value, 10);
-    if (!isNaN(num) && num >= MIN_WIDTH && num <= MAX_WIDTH) {
-      dispatchUiState({ type: 'setWidth', value: num });
+    if (!isNaN(num)) {
+      dispatchUiState({
+        type: 'setWidth',
+        value: Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, num)),
+      });
     }
+    setWidthDraft(null);
   }, []);
 
-  const handleHeightChange = useCallback((value: string) => {
+  const commitHeight = useCallback((value: string) => {
     const num = parseInt(value, 10);
-    if (!isNaN(num) && num >= MIN_HEIGHT && num <= MAX_HEIGHT) {
-      dispatchUiState({ type: 'setHeight', value: num });
+    if (!isNaN(num)) {
+      dispatchUiState({
+        type: 'setHeight',
+        value: Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, num)),
+      });
     }
+    setHeightDraft(null);
   }, []);
 
   return (
@@ -139,8 +152,15 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             inputMode="decimal"
             type="number"
             id="embed-width"
-            value={width}
-            onChange={e => handleWidthChange(e.target.value)}
+            value={widthDraft ?? width}
+            onChange={e => {
+              setWidthDraft(e.target.value);
+              const num = parseInt(e.target.value, 10);
+              if (!isNaN(num) && num >= MIN_WIDTH && num <= MAX_WIDTH) {
+                dispatchUiState({ type: 'setWidth', value: num });
+              }
+            }}
+            onBlur={e => commitWidth(e.target.value)}
             min={MIN_WIDTH}
             max={MAX_WIDTH}
             step={10}
@@ -157,8 +177,15 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             inputMode="decimal"
             type="number"
             id="embed-height"
-            value={height}
-            onChange={e => handleHeightChange(e.target.value)}
+            value={heightDraft ?? height}
+            onChange={e => {
+              setHeightDraft(e.target.value);
+              const num = parseInt(e.target.value, 10);
+              if (!isNaN(num) && num >= MIN_HEIGHT && num <= MAX_HEIGHT) {
+                dispatchUiState({ type: 'setHeight', value: num });
+              }
+            }}
+            onBlur={e => commitHeight(e.target.value)}
             min={MIN_HEIGHT}
             max={MAX_HEIGHT}
             step={10}
@@ -205,13 +232,17 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
       {/* Action Buttons */}
       <div className="flex flex-wrap gap-3 mb-4">
         <button
+          type="button"
           onClick={handleCopy}
           className="px-4 py-2 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
-          aria-label="Copy embed code to clipboard"
         >
           {copied ? 'Copied!' : 'Copy to Clipboard'}
         </button>
+        <span className="sr-only" role="status">
+          {copied ? 'Embed code copied to clipboard' : ''}
+        </span>
         <button
+          type="button"
           onClick={() => dispatchUiState({ type: 'togglePreview' })}
           className="px-4 py-2 neumorph text-gray-600 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
           aria-expanded={showPreview}

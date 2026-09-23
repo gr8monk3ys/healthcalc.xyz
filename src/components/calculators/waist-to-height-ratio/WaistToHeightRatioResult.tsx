@@ -1,5 +1,6 @@
 import React from 'react';
 import type { WaistToHeightRatioResult } from '@/types/waistToHeightRatio';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface WaistToHeightRatioResultProps {
   result: WaistToHeightRatioResult | null;
@@ -21,7 +22,7 @@ export default function WaistToHeightRatioResult({ result }: WaistToHeightRatioR
 
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">Your Ratio</p>
-        <p className="text-3xl font-bold text-accent">{result.ratio.toFixed(2)}</p>
+        <p className="text-3xl font-bold text-accent">{formatNumber(result.ratio, 2)}</p>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{result.category}</p>
       </div>
 

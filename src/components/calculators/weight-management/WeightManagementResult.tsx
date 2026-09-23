@@ -7,6 +7,7 @@ import Card from '@/components/ui/Card';
 import ResultCard from '@/components/ui/ResultCard';
 import { WeightManagementResult } from '@/types/weightManagement';
 import { formatDate, getGoalTypeMessage } from '@/app/api/weightManagement';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface WeightManagementResultDisplayProps {
   result: WeightManagementResult;
@@ -55,7 +56,7 @@ export default function WeightManagementResultDisplay({
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             {result.weeksToGoal} weeks ({result.daysToGoal} days) •{' '}
-            {Math.abs(displayWeeklyChange).toFixed(2)} {unitLabel}/week
+            {formatNumber(Math.abs(displayWeeklyChange), 2)} {unitLabel}/week
           </p>
           {result.adjustedTargetDate && (
             <p className="text-sm text-orange-600 dark:text-orange-400 mt-2">
@@ -108,12 +109,12 @@ export default function WeightManagementResultDisplay({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ResultCard
           title="Current Weight"
-          value={`${displayCurrentWeight.toFixed(1)} ${unitLabel}`}
-          description={`Goal: ${displayGoalWeight.toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(displayCurrentWeight, 1)} ${unitLabel}`}
+          description={`Goal: ${formatNumber(displayGoalWeight, 1)} ${unitLabel}`}
         />
         <ResultCard
           title="Weight Change Needed"
-          value={`${Math.abs(displayWeightChange).toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(Math.abs(displayWeightChange), 1)} ${unitLabel}`}
           description={result.goalType === 'lose' ? 'to lose' : 'to gain'}
         />
         <ResultCard

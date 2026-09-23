@@ -8,6 +8,7 @@ import NextSteps from '@/components/calculators/NextSteps';
 import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface BMIResultDisplayProps {
   result: BMIResult;
@@ -123,7 +124,7 @@ function getBMINextSteps(
 
   if (bmi < 18.5) {
     return {
-      insight: `Your BMI of ${bmi.toFixed(1)} falls in the underweight category. Building a calorie surplus with balanced nutrition can help you reach a healthier weight.`,
+      insight: `Your BMI of ${formatNumber(bmi, 1)} falls in the underweight category. Building a calorie surplus with balanced nutrition can help you reach a healthier weight.`,
       steps: [
         {
           label: 'Calorie Calculator',
@@ -147,7 +148,7 @@ function getBMINextSteps(
 
   if (bmi < 25) {
     return {
-      insight: `Your BMI of ${bmi.toFixed(1)} is in the normal range. Staying active and eating well will help you maintain this healthy weight.`,
+      insight: `Your BMI of ${formatNumber(bmi, 1)} is in the normal range. Staying active and eating well will help you maintain this healthy weight.`,
       steps: [
         {
           label: 'TDEE Calculator',
@@ -171,7 +172,7 @@ function getBMINextSteps(
 
   if (bmi < 30) {
     return {
-      insight: `Your BMI of ${bmi.toFixed(1)} puts you in the overweight category. A moderate calorie deficit combined with regular exercise is an effective path forward.`,
+      insight: `Your BMI of ${formatNumber(bmi, 1)} puts you in the overweight category. A moderate calorie deficit combined with regular exercise is an effective path forward.`,
       steps: [
         {
           label: 'Calorie Deficit Calculator',
@@ -194,7 +195,7 @@ function getBMINextSteps(
   }
 
   return {
-    insight: `Your BMI of ${bmi.toFixed(1)} is in the obese category. Working with a healthcare provider alongside tracking your nutrition can make a real difference.`,
+    insight: `Your BMI of ${formatNumber(bmi, 1)} is in the obese category. Working with a healthcare provider alongside tracking your nutrition can make a real difference.`,
     steps: [
       {
         label: 'Calorie Deficit Calculator',
@@ -258,7 +259,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
             <p
               className={`mt-1 text-5xl font-extrabold leading-none tracking-tight tabular-nums ${tone.value}`}
             >
-              {result.bmi.toFixed(1)}
+              {formatNumber(result.bmi, 1)}
             </p>
           </div>
           <div className="text-right">
@@ -312,7 +313,8 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
           {content.healthyWeightRangeTitle}
         </h3>
         <p className="shrink-0 text-lg font-bold tabular-nums">
-          {result.healthyWeightRange.min.toFixed(1)} - {result.healthyWeightRange.max.toFixed(1)}{' '}
+          {formatNumber(result.healthyWeightRange.min, 1)} -{' '}
+          {formatNumber(result.healthyWeightRange.max, 1)}{' '}
           <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
             {weightUnit}
           </span>

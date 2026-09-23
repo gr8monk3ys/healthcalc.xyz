@@ -102,12 +102,16 @@ function CopyableEmbedCode({
         aria-label={`Embed code for ${calculator.title}`}
       />
       <button
+        type="button"
         onClick={handleCopy}
         className="ui-btn-soft text-xs"
-        aria-label={`Copy ${calculator.title} embed code`}
+        aria-label={copied ? undefined : `Copy ${calculator.title} embed code`}
       >
         {copied ? 'Copied!' : 'Copy Code'}
       </button>
+      <span className="sr-only" role="status">
+        {copied ? 'Embed code copied to clipboard' : ''}
+      </span>
     </div>
   );
 }

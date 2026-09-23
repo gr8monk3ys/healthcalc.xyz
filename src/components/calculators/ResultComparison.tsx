@@ -3,6 +3,7 @@
 import React, { useId, useMemo, useState } from 'react';
 import type { SavedResult } from '@/context/SavedResultsContext';
 import MiniChart from '@/components/ui/MiniChart';
+import { formatDisplayDate, formatNumber } from '@/utils/formatNumber';
 
 interface ResultComparisonProps {
   results: SavedResult[];
@@ -11,12 +12,7 @@ interface ResultComparisonProps {
 }
 
 function formatDateLabel(dateString: string): string {
-  const d = new Date(dateString);
-  return d.toLocaleDateString(undefined, {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
+  return formatDisplayDate(dateString);
 }
 
 function formatKey(key: string): string {
@@ -70,7 +66,7 @@ function DiffIndicator({
         <path d="M5 2 L8 6 L2 6 Z" fill="currentColor" />
       </svg>
       {isPositive ? '+' : ''}
-      {diff.toFixed(1)}
+      {formatNumber(diff, 1)}
     </span>
   );
 }
