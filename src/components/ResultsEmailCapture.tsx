@@ -27,7 +27,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Submits to the existing /api/newsletter endpoint.
  */
 export function ResultsEmailCapture({
-  headline = 'Get personalized health insights',
+  headline = 'Get Personalized Health Insights',
   description = 'Track your progress and stay informed with evidence-based tips.',
   className = '',
   source = 'calculator',
@@ -125,7 +125,7 @@ export function ResultsEmailCapture({
           </div>
           <div>
             <h3 className="font-semibold text-lg text-slate-900 dark:text-white">
-              You are all set
+              You Are All Set
             </h3>
             <p className="text-slate-600 dark:text-slate-300 text-sm mt-1">{submitState.message}</p>
           </div>

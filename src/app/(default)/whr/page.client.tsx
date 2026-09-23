@@ -12,6 +12,7 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WHRResultDisplay from '@/components/calculators/whr/WHRResult';
 import WHRInfo from '@/components/calculators/whr/WHRInfo';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -127,7 +128,7 @@ export default function WHRCalculator({ serverHeader }: { serverHeader?: React.R
         setTimeout(() => {
           const resultElement = document.getElementById('whr-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

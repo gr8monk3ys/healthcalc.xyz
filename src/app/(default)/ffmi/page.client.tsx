@@ -20,6 +20,7 @@ import { useHeight, useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 type FFMICalculatorViewProps = {
   serverHeader?: React.ReactNode;
@@ -126,7 +127,7 @@ export default function FFMICalculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('ffmi-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
           }
         }, 100);
 

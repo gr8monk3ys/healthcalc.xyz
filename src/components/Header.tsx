@@ -43,6 +43,7 @@ export default function Header(): React.JSX.Element {
         <div className="container mx-auto flex items-center justify-between gap-4">
           <Link
             href={localizePath('/')}
+            translate="no"
             className="notranslate group inline-flex items-center gap-2.5 text-2xl font-black tracking-tight text-accent"
           >
             <span
@@ -142,7 +143,7 @@ export default function Header(): React.JSX.Element {
 
       {mobileMenuOpen && (
         <nav aria-label={t('header.mobileNavAria')} className="lg:hidden px-3 pb-3 md:px-4 md:pb-4">
-          <div className="glass-panel mx-auto mt-2 max-w-6xl space-y-2 rounded-2xl p-4">
+          <div className="glass-panel mx-auto mt-2 max-h-[calc(100dvh-7rem)] max-w-6xl space-y-2 overflow-y-auto overscroll-contain rounded-2xl p-4">
             <div className="py-1 sm:hidden">
               <UnitToggle />
             </div>

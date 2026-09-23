@@ -25,7 +25,8 @@ export default function Accordion({
     <div className={`neumorph rounded-lg overflow-hidden ${className}`}>
       <button
         id={buttonId}
-        className="w-full p-4 text-left font-medium flex justify-between items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        type="button"
+        className="w-full p-4 text-left font-medium flex justify-between items-center hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls={panelId}

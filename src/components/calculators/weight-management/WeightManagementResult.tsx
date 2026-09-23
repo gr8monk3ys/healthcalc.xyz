@@ -204,7 +204,12 @@ export default function WeightManagementResultDisplay({
         <Card className="p-5">
           <h3 className="text-lg font-semibold mb-4">Weight Projection Timeline</h3>
           <div className="relative h-64">
-            <svg aria-hidden="true" className="w-full h-full" viewBox="0 0 600 250">
+            <svg
+              role="img"
+              aria-label={`Projected weight from ${formatNumber(displayCurrentWeight, 1)} to ${formatNumber(displayGoalWeight, 1)} ${unitLabel} over ${result.weeklyProjections.length - 1} weeks.`}
+              className="w-full h-full"
+              viewBox="0 0 600 250"
+            >
               {/* Grid lines */}
               {[50, 90, 130, 170, 210].map(lineY => (
                 <line

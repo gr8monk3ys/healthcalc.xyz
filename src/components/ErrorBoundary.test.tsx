@@ -77,7 +77,7 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.queryByText('Something went wrong')).not.toBeInTheDocument();
+      expect(screen.queryByText('Something Went Wrong')).not.toBeInTheDocument();
       expect(screen.queryByRole('button', { name: /try again/i })).not.toBeInTheDocument();
     });
   });
@@ -90,7 +90,7 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
     });
 
     it('should display default fallback UI when error occurs', () => {
@@ -100,7 +100,7 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
       expect(
         screen.getByText('An error occurred while rendering this component.')
       ).toBeInTheDocument();
@@ -165,7 +165,7 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.queryByText('Something went wrong')).not.toBeInTheDocument();
+      expect(screen.queryByText('Something Went Wrong')).not.toBeInTheDocument();
       expect(screen.queryByRole('button', { name: /try again/i })).not.toBeInTheDocument();
     });
 
@@ -198,7 +198,7 @@ describe('ErrorBoundary', () => {
 
       // When fallback is null (falsy), the default fallback UI is shown
       // because the check is `if (this.props.fallback)` which is false for null
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
     });
   });
 
@@ -296,7 +296,7 @@ describe('ErrorBoundary', () => {
       );
 
       // Verify error state
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
 
       // Fix the component
       shouldThrow = false;
@@ -324,12 +324,12 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
 
       await user.click(screen.getByRole('button', { name: /try again/i }));
 
       // Should still show error since component still throws
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
     });
   });
 
@@ -453,7 +453,7 @@ describe('withErrorBoundary HOC', () => {
 
       render(<WrappedThrowing />);
 
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
     });
   });
 
@@ -472,7 +472,7 @@ describe('withErrorBoundary HOC', () => {
 
       render(<WrappedThrowing />);
 
-      expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+      expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
       expect(screen.getByRole('button', { name: /try again/i })).toBeInTheDocument();
     });
   });
@@ -606,7 +606,7 @@ describe('Integration', () => {
     );
 
     // First boundary shows error
-    expect(screen.getByText('Something went wrong')).toBeInTheDocument();
+    expect(screen.getByText('Something Went Wrong')).toBeInTheDocument();
 
     // Second boundary renders normally
     expect(screen.getByTestId('sibling')).toBeInTheDocument();

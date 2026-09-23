@@ -90,6 +90,7 @@ export type MessageKey =
   | 'newsletter.description'
   | 'newsletter.button'
   | 'newsletter.emailPlaceholder'
+  | 'newsletter.emailLabel'
   | 'newsletter.validation.invalidEmail'
   | 'newsletter.status.loading'
   | 'newsletter.error.generic'
@@ -181,8 +182,8 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'footer.medicalDisclaimer':
     'HealthCalc provides general informational content and tools only. Nothing on this website constitutes medical advice. Always consult a qualified healthcare professional before making changes to your diet, exercise, or health regimen.',
   'footer.rightsReserved': 'All rights reserved.',
-  'auth.login': 'Log in',
-  'auth.signup': 'Sign up',
+  'auth.login': 'Sign In',
+  'auth.signup': 'Sign Up',
   'breadcrumb.home': 'Home',
   'breadcrumb.aria': 'Breadcrumb',
   'calculatorCard.cta': 'Use Calculator',
@@ -190,17 +191,17 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'calculator.embed.poweredBy': 'Powered by {brand}',
   'calculator.relatedCalculators.title': 'Related Calculators',
   'calculator.relatedGuides.title': 'Related Guides',
-  'calculator.relatedGuides.explore': 'Explore guide →',
+  'calculator.relatedGuides.explore': 'Explore Guide →',
   'calculator.relatedArticles.title': 'Related Articles',
   'calculator.results.announcement': 'Your results are ready below.',
-  'calculator.relatedArticles.viewAll': 'View all articles →',
+  'calculator.relatedArticles.viewAll': 'View All Articles →',
   'calculator.faq.titleTemplate': 'Frequently Asked Questions About {topic}',
-  'calculator.resultsShare.title': 'Share your results',
+  'calculator.resultsShare.title': 'Share Your Results',
   'calculator.resultsShare.description':
     'Copy a link to this calculator or export your result as an image.',
-  'calculator.resultsShare.copyLink': 'Copy link',
-  'calculator.resultsShare.linkCopied': 'Link copied',
-  'calculator.resultsShare.downloadImage': 'Download image',
+  'calculator.resultsShare.copyLink': 'Copy Link',
+  'calculator.resultsShare.linkCopied': 'Link Copied',
+  'calculator.resultsShare.downloadImage': 'Download Image',
   'calculator.resultsShare.exporting': 'Exporting…',
   'calculator.resultsShare.enableHint': 'Run a calculation to enable image export',
   'calculator.resultsShare.tipPrefix': 'Tip: When sharing on social, include this URL:',
@@ -210,7 +211,7 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
     'Couldn’t copy the link. Select the URL below and copy it manually.',
   'calculatorForm.submit': 'Calculate',
   'calculatorForm.reset': 'Reset',
-  'calculatorForm.embedToggle': 'Embed this calculator',
+  'calculatorForm.embedToggle': 'Embed This Calculator',
   'calculatorForm.unitToggleAriaTemplate': 'Toggle {field} unit, currently {unit}',
   'socialShare.label': 'Share this page:',
   'socialShare.ariaTemplate': 'Share on {platform}',
@@ -250,6 +251,7 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
     'Get the latest health and fitness tips, calculator updates, and exclusive content delivered to your inbox.',
   'newsletter.button': 'Subscribe',
   'newsletter.emailPlaceholder': 'you@example.com…',
+  'newsletter.emailLabel': 'Email address',
   'newsletter.validation.invalidEmail': 'Please enter a valid email address',
   'newsletter.status.loading': 'Subscribing…',
   'newsletter.error.generic': 'An error occurred. Please try again later.',
@@ -260,7 +262,7 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'newsletter.privacy.suffix': ". We'll never share your email with anyone else.",
   'savedResults.button.saved': 'Saved',
   'savedResults.button.save': 'Save Result',
-  'savedResults.button.loginToSave': 'Log in to Save',
+  'savedResults.button.loginToSave': 'Sign In to Save',
   'savedResults.helper.loginInstruction':
     'Sign in from the top-right account button to save and sync results on this browser.',
   'savedResults.toast.alreadySaved': 'This result is already saved',
@@ -279,16 +281,16 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'savedResults.list.title': 'Saved Results',
   'savedResults.list.clearAll': 'Clear All',
   'savedResults.list.deleteAria': 'Delete result',
-  'savedResults.list.goToCalculator': 'Go to calculator',
+  'savedResults.list.goToCalculator': 'Go to Calculator',
   'savedResults.page.title': 'Saved Results',
   'savedResults.page.subtitle':
     "Keep your favorite calculator outputs here so you can revisit them any time. When you're signed in, saved results can sync across devices.",
   'savedResults.page.signedOut.title': 'You are not signed in',
   'savedResults.page.signedOut.body':
     "Use the Sign In button in the header to sign in or create an account. You'll be able to save results and access them later.",
-  'savedResults.page.signedOut.cta': 'Go back home',
+  'savedResults.page.signedOut.cta': 'Go Back Home',
   'contactForm.success.title': 'Message Sent!',
-  'contactForm.success.button': 'Send another message',
+  'contactForm.success.button': 'Send Another Message',
   'contactForm.label.name': 'Name',
   'contactForm.label.email': 'Email',
   'contactForm.label.subject': 'Subject',

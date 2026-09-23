@@ -11,6 +11,7 @@ import { isEmpty } from '@/utils/validation';
 import { calculateSleepTimes } from '@/utils/calculators/sleep';
 import type { SleepResult as SleepResultType, SleepMode } from '@/types/sleep';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -63,7 +64,7 @@ export default function SleepCalculator({ serverHeader }: { serverHeader?: React
         const calculated = calculateSleepTimes(time, mode);
         setTimeout(() => {
           const element = document.getElementById('sleep-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

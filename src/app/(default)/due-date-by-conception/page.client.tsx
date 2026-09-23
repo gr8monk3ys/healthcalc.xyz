@@ -10,6 +10,7 @@ import DueDateByConceptionInfo from '@/components/calculators/due-date-by-concep
 import { calculateDueDateByConception } from '@/utils/calculators/dueDateByConception';
 import type { DueDateByConceptionResult as DueDateByConceptionResultType } from '@/types/dueDateByConception';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -61,7 +62,7 @@ export default function DueDateByConceptionCalculator({
         const calculated = calculateDueDateByConception(conceptionDate);
         setTimeout(() => {
           const element = document.getElementById('due-date-by-conception-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

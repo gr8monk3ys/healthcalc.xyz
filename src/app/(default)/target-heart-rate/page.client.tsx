@@ -11,6 +11,7 @@ import { calculateTargetHeartRate } from '@/utils/calculators/targetHeartRate';
 import { validateAge, validateHeartRate } from '@/utils/validation';
 import type { TargetHeartRateResult as TargetHeartRateResultType } from '@/types/targetHeartRate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -102,7 +103,7 @@ export default function TargetHeartRateCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('target-heart-rate-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

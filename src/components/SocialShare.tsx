@@ -162,13 +162,19 @@ export default function SocialShare({
 
   // Handle share click
   const handleShare = (e: React.MouseEvent<HTMLAnchorElement>, platform: string) => {
-    e.preventDefault();
-
-    // For email, use default behavior
-    if (platform === 'email') {
-      window.location.href = shareUrls[platform as keyof typeof shareUrls];
+    // Modified or non-primary clicks (Cmd/Ctrl/Shift, middle-click) keep the
+    // browser's native link behavior (new tab/window); email always does.
+    if (
+      platform === 'email' ||
+      e.button !== 0 ||
+      e.metaKey ||
+      e.ctrlKey ||
+      e.shiftKey ||
+      e.altKey
+    ) {
       return;
     }
+    e.preventDefault();
 
     // For other platforms, open in a popup window
     const url = shareUrls[platform as keyof typeof shareUrls];

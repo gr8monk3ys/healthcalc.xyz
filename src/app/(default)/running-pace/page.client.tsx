@@ -11,6 +11,7 @@ import { isEmpty } from '@/utils/validation';
 import { calculateRunningPace } from '@/utils/calculators/runningPace';
 import type { RunningPaceResult as RunningPaceResultType, DistanceUnit } from '@/types/runningPace';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -115,7 +116,7 @@ export default function RunningPaceCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('running-pace-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

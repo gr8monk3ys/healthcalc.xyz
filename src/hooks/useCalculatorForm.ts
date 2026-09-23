@@ -1,5 +1,6 @@
 import { useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import { createLogger } from '@/utils/logger';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 const logger = createLogger({ component: 'useCalculatorForm' });
 
@@ -153,7 +154,7 @@ export function useCalculatorFormWithState<T extends Record<string, unknown>, R>
       setTimeout(() => {
         const resultElement = document.getElementById(resultElementId);
         if (resultElement) {
-          resultElement.scrollIntoView({ behavior: 'smooth' });
+          resultElement.scrollIntoView({ behavior: scrollBehavior() });
         }
       }, 100);
     }

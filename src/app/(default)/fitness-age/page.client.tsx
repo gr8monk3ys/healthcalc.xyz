@@ -13,6 +13,7 @@ import {
 } from '@/hooks/useSharedResultPrefill';
 import { Gender } from '@/types/common';
 import { formatNumber } from '@/utils/formatNumber';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 type FitnessAgeFormState = {
   age: number | '';
@@ -113,19 +114,28 @@ function FitnessAgeResultCard({
           Improve Inputs
         </h3>
         <div className="grid grid-cols-2 gap-2 text-sm">
-          <Link href={localizePath('/vo2-max')} className="glass-panel rounded-lg px-3 py-2">
+          <Link
+            href={localizePath('/vo2-max')}
+            className="glass-panel rounded-lg px-3 py-2 transition hover:border-accent/40 hover:text-accent"
+          >
             VO2 Max
           </Link>
           <Link
             href={localizePath('/resting-heart-rate')}
-            className="glass-panel rounded-lg px-3 py-2"
+            className="glass-panel rounded-lg px-3 py-2 transition hover:border-accent/40 hover:text-accent"
           >
             Resting HR
           </Link>
-          <Link href={localizePath('/bmi')} className="glass-panel rounded-lg px-3 py-2">
+          <Link
+            href={localizePath('/bmi')}
+            className="glass-panel rounded-lg px-3 py-2 transition hover:border-accent/40 hover:text-accent"
+          >
             BMI
           </Link>
-          <Link href={localizePath('/body-fat')} className="glass-panel rounded-lg px-3 py-2">
+          <Link
+            href={localizePath('/body-fat')}
+            className="glass-panel rounded-lg px-3 py-2 transition hover:border-accent/40 hover:text-accent"
+          >
             Body Fat
           </Link>
         </div>
@@ -134,8 +144,38 @@ function FitnessAgeResultCard({
   );
 }
 
+type NumericField =
+  'age' | 'vo2Max' | 'restingHeartRate' | 'bmi' | 'bodyFatPercentage' | 'weeklyTrainingDays';
+
+type FieldErrors = Partial<Record<NumericField, string>>;
+
+const FIELD_RULES: Record<NumericField, { label: string; min: number; max: number }> = {
+  age: { label: 'your age', min: 14, max: 95 },
+  vo2Max: { label: 'your VO2 max', min: 10, max: 85 },
+  restingHeartRate: { label: 'your resting heart rate', min: 35, max: 130 },
+  bmi: { label: 'your BMI', min: 12, max: 60 },
+  bodyFatPercentage: { label: 'your body fat percentage', min: 3, max: 65 },
+  weeklyTrainingDays: { label: 'training days per week', min: 0, max: 7 },
+};
+
+/** Per-field messages that say how to fix the value, shown next to each input. */
+function validateFitnessAgeForm(form: FitnessAgeFormState): FieldErrors {
+  const errors: FieldErrors = {};
+  for (const field of Object.keys(FIELD_RULES) as NumericField[]) {
+    const { label, min, max } = FIELD_RULES[field];
+    const value = form[field];
+    if (typeof value !== 'number') {
+      errors[field] = `Enter ${label}.`;
+    } else if (value < min || value > max) {
+      errors[field] = `Enter ${label} between ${min} and ${max}.`;
+    }
+  }
+  return errors;
+}
+
 type FitnessAgeFormCardProps = {
   error: string | null;
+  fieldErrors: FieldErrors;
   form: FitnessAgeFormState;
   handleCalculate: (event: React.FormEvent<HTMLFormElement>) => void;
   handleReset: () => void;
@@ -144,6 +184,7 @@ type FitnessAgeFormCardProps = {
 
 function FitnessAgeFormCard({
   error,
+  fieldErrors,
   form,
   handleCalculate,
   handleReset,
@@ -159,6 +200,8 @@ function FitnessAgeFormCard({
             <span className="mb-1 block font-medium">Age</span>
             <input
               name="age"
+              aria-invalid={fieldErrors.age ? true : undefined}
+              aria-describedby={fieldErrors.age ? 'fitness-age-error' : undefined}
               autoComplete="off"
               inputMode="decimal"
               type="number"
@@ -174,6 +217,15 @@ function FitnessAgeFormCard({
               }
               placeholder="e.g. 35…"
             />
+            {fieldErrors.age ? (
+              <span
+                id="fitness-age-error"
+                role="alert"
+                className="mt-1 block text-xs text-red-600 dark:text-red-400"
+              >
+                {fieldErrors.age}
+              </span>
+            ) : null}
           </label>
 
           <fieldset>
@@ -200,6 +252,8 @@ function FitnessAgeFormCard({
           <span className="mb-1 block font-medium">VO2 Max (ml/kg/min)</span>
           <input
             name="vo2Max"
+            aria-invalid={fieldErrors.vo2Max ? true : undefined}
+            aria-describedby={fieldErrors.vo2Max ? 'fitness-vo2Max-error' : undefined}
             autoComplete="off"
             inputMode="decimal"
             type="number"
@@ -215,12 +269,25 @@ function FitnessAgeFormCard({
               }))
             }
           />
+          {fieldErrors.vo2Max ? (
+            <span
+              id="fitness-vo2Max-error"
+              role="alert"
+              className="mt-1 block text-xs text-red-600 dark:text-red-400"
+            >
+              {fieldErrors.vo2Max}
+            </span>
+          ) : null}
         </label>
 
         <label className="text-sm">
           <span className="mb-1 block font-medium">Resting Heart Rate (bpm)</span>
           <input
             name="restingHeartRate"
+            aria-invalid={fieldErrors.restingHeartRate ? true : undefined}
+            aria-describedby={
+              fieldErrors.restingHeartRate ? 'fitness-restingHeartRate-error' : undefined
+            }
             autoComplete="off"
             inputMode="decimal"
             type="number"
@@ -235,6 +302,15 @@ function FitnessAgeFormCard({
               }))
             }
           />
+          {fieldErrors.restingHeartRate ? (
+            <span
+              id="fitness-restingHeartRate-error"
+              role="alert"
+              className="mt-1 block text-xs text-red-600 dark:text-red-400"
+            >
+              {fieldErrors.restingHeartRate}
+            </span>
+          ) : null}
         </label>
 
         <div className="grid grid-cols-2 gap-3">
@@ -242,6 +318,8 @@ function FitnessAgeFormCard({
             <span className="mb-1 block font-medium">BMI</span>
             <input
               name="bmi"
+              aria-invalid={fieldErrors.bmi ? true : undefined}
+              aria-describedby={fieldErrors.bmi ? 'fitness-bmi-error' : undefined}
               autoComplete="off"
               inputMode="decimal"
               type="number"
@@ -257,12 +335,25 @@ function FitnessAgeFormCard({
                 }))
               }
             />
+            {fieldErrors.bmi ? (
+              <span
+                id="fitness-bmi-error"
+                role="alert"
+                className="mt-1 block text-xs text-red-600 dark:text-red-400"
+              >
+                {fieldErrors.bmi}
+              </span>
+            ) : null}
           </label>
 
           <label className="text-sm">
             <span className="mb-1 block font-medium">Body Fat (%)</span>
             <input
               name="bodyFatPercentage"
+              aria-invalid={fieldErrors.bodyFatPercentage ? true : undefined}
+              aria-describedby={
+                fieldErrors.bodyFatPercentage ? 'fitness-bodyFatPercentage-error' : undefined
+              }
               autoComplete="off"
               inputMode="decimal"
               type="number"
@@ -278,6 +369,15 @@ function FitnessAgeFormCard({
                 }))
               }
             />
+            {fieldErrors.bodyFatPercentage ? (
+              <span
+                id="fitness-bodyFatPercentage-error"
+                role="alert"
+                className="mt-1 block text-xs text-red-600 dark:text-red-400"
+              >
+                {fieldErrors.bodyFatPercentage}
+              </span>
+            ) : null}
           </label>
         </div>
 
@@ -285,6 +385,10 @@ function FitnessAgeFormCard({
           <span className="mb-1 block font-medium">Training Days per Week</span>
           <input
             name="weeklyTrainingDays"
+            aria-invalid={fieldErrors.weeklyTrainingDays ? true : undefined}
+            aria-describedby={
+              fieldErrors.weeklyTrainingDays ? 'fitness-weeklyTrainingDays-error' : undefined
+            }
             autoComplete="off"
             inputMode="decimal"
             type="number"
@@ -299,6 +403,15 @@ function FitnessAgeFormCard({
               }))
             }
           />
+          {fieldErrors.weeklyTrainingDays ? (
+            <span
+              id="fitness-weeklyTrainingDays-error"
+              role="alert"
+              className="mt-1 block text-xs text-red-600 dark:text-red-400"
+            >
+              {fieldErrors.weeklyTrainingDays}
+            </span>
+          ) : null}
         </label>
 
         <div className="grid grid-cols-2 gap-3">
@@ -372,6 +485,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
   const [form, setForm] = useState<FitnessAgeFormState>(INITIAL_STATE);
   const [result, setResult] = useState<FitnessAgeResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const sharedPrefill = useSharedResultPrefill('fitness-age');
   const hasAppliedSharedPrefill = useRef(false);
 
@@ -432,7 +546,10 @@ export default function FitnessAgePageClient(): React.JSX.Element {
     event.preventDefault();
     setError(null);
 
+    const nextFieldErrors = validateFitnessAgeForm(form);
+    setFieldErrors(nextFieldErrors);
     if (
+      Object.keys(nextFieldErrors).length > 0 ||
       typeof form.age !== 'number' ||
       typeof form.vo2Max !== 'number' ||
       typeof form.restingHeartRate !== 'number' ||
@@ -440,25 +557,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
       typeof form.bodyFatPercentage !== 'number' ||
       typeof form.weeklyTrainingDays !== 'number'
     ) {
-      setError('Please complete all numeric fields before calculating.');
-      return;
-    }
-
-    if (
-      form.age < 14 ||
-      form.age > 95 ||
-      form.vo2Max < 10 ||
-      form.vo2Max > 85 ||
-      form.restingHeartRate < 35 ||
-      form.restingHeartRate > 130 ||
-      form.bmi < 12 ||
-      form.bmi > 60 ||
-      form.bodyFatPercentage < 3 ||
-      form.bodyFatPercentage > 65 ||
-      form.weeklyTrainingDays < 0 ||
-      form.weeklyTrainingDays > 7
-    ) {
-      setError('One or more values are outside supported ranges. Please adjust and try again.');
+      focusFirstInvalidField(event.currentTarget);
       return;
     }
 
@@ -481,6 +580,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
     setForm(INITIAL_STATE);
     setResult(null);
     setError(null);
+    setFieldErrors({});
   };
 
   return (
@@ -496,6 +596,7 @@ export default function FitnessAgePageClient(): React.JSX.Element {
         <div className="grid gap-8 md:grid-cols-2">
           <FitnessAgeFormCard
             error={error}
+            fieldErrors={fieldErrors}
             form={form}
             handleCalculate={handleCalculate}
             handleReset={handleReset}

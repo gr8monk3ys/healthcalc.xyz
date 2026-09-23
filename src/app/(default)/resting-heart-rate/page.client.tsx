@@ -11,6 +11,7 @@ import { validateHeartRate } from '@/utils/validation';
 import { calculateRestingHeartRate } from '@/utils/calculators/restingHeartRate';
 import type { RestingHeartRateResult as RestingHeartRateResultType } from '@/types/restingHeartRate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -68,7 +69,7 @@ export default function RestingHeartRateCalculator({
         const calculated = calculateRestingHeartRate(restingHeartRate as number);
         setTimeout(() => {
           const element = document.getElementById('resting-heart-rate-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

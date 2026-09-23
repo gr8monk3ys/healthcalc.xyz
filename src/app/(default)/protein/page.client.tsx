@@ -14,6 +14,7 @@ import ProteinInfo from '@/components/calculators/protein/ProteinInfo';
 import { useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -161,7 +162,7 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
         setTimeout(() => {
           const resultElement = document.getElementById('protein-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

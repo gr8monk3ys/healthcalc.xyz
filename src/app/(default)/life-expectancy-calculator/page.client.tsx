@@ -18,6 +18,7 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import LifeExpectancyResultDisplay from '@/components/calculators/lifeExpectancy/LifeExpectancyResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -260,7 +261,7 @@ export default function LifeExpectancyCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('life-expectancy-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

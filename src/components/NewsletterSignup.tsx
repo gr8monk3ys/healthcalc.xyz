@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
@@ -12,6 +12,8 @@ interface NewsletterSignupProps {
   className?: string;
   onSubmit?: (email: string) => Promise<{ success: boolean; message: string }>;
 }
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * Newsletter signup component for email capture
@@ -27,6 +29,13 @@ export default function NewsletterSignup({
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+  const [fieldError, setFieldError] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+  // Unique per instance: this form can render more than once on a page.
+  const baseId = useId();
+  const inputId = `${baseId}-email`;
+  const errorId = `${baseId}-email-error`;
+  const privacyNoteId = `${baseId}-privacy-note`;
   const { trackEvent } = useFunnelTracking();
   const { localizePath, t } = useLocale();
   const resolvedTitle = title ?? t('newsletter.title');
@@ -37,11 +46,14 @@ export default function NewsletterSignup({
     e.preventDefault();
 
     // Basic email validation
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setMessage({ text: t('newsletter.validation.invalidEmail'), type: 'error' });
+    if (!email || !EMAIL_PATTERN.test(email)) {
+      // Inline, next to the field, and focus the field so it can be fixed.
+      setFieldError(t('newsletter.validation.invalidEmail'));
+      inputRef.current?.focus();
       return;
     }
 
+    setFieldError('');
     setLoading(true);
     setMessage(null);
 
@@ -101,16 +113,20 @@ export default function NewsletterSignup({
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="sr-only">
-            {t('newsletter.emailPlaceholder')}
+          <label htmlFor={inputId} className="sr-only">
+            {t('newsletter.emailLabel')}
           </label>
           <input
+            ref={inputRef}
             spellCheck={false}
-            id="email"
+            id={inputId}
             type="email"
             placeholder={t('newsletter.emailPlaceholder')}
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => {
+              setEmail(e.target.value);
+              if (fieldError) setFieldError('');
+            }}
             className="ui-input w-full px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent"
             disabled={loading}
             autoComplete="email"
@@ -119,8 +135,14 @@ export default function NewsletterSignup({
             name="email"
             required
             aria-required="true"
-            aria-describedby="newsletter-privacy-note"
+            aria-invalid={fieldError ? true : undefined}
+            aria-describedby={fieldError ? `${errorId} ${privacyNoteId}` : privacyNoteId}
           />
+          {fieldError && (
+            <p id={errorId} role="alert" className="mt-1 text-sm text-red-600 dark:text-red-400">
+              {fieldError}
+            </p>
+          )}
         </div>
 
         <button
@@ -149,7 +171,7 @@ export default function NewsletterSignup({
         </div>
       )}
 
-      <p id="newsletter-privacy-note" className="text-xs text-gray-500 dark:text-gray-400 mt-4">
+      <p id={privacyNoteId} className="text-xs text-gray-500 dark:text-gray-400 mt-4">
         {t('newsletter.privacy.prefix')}{' '}
         <Link href={localizePath('/privacy')} className="text-accent hover:underline">
           {t('newsletter.privacy.privacyPolicy')}

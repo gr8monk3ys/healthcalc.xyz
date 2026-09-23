@@ -52,7 +52,7 @@ export default function Error({
 
           {/* Error Message */}
           <h1 className="text-2xl font-bold text-gray-900 text-center mb-4">
-            Oops! Something went wrong
+            Oops! Something Went Wrong
           </h1>
 
           <p className="text-gray-600 text-center mb-6">

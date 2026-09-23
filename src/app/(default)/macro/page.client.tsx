@@ -25,6 +25,7 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const SaveResult = dynamic(() => import('@/components/SaveResult'));
@@ -521,7 +522,7 @@ export default function MacroCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('macro-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
