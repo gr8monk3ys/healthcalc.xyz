@@ -48,9 +48,9 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
               {t('footer.section.calculators')}
-            </h3>
+            </h2>
             <ul className="space-y-2">
               <li>
                 <Link href={localizePath('/bmi')} className={footerLinkClass}>
@@ -76,9 +76,9 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
               {t('footer.section.company')}
-            </h3>
+            </h2>
             <ul className="space-y-2">
               <li>
                 <Link href={localizePath('/about')} className={footerLinkClass}>
@@ -104,9 +104,9 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
               {t('footer.section.legal')}
-            </h3>
+            </h2>
             <ul className="space-y-2">
               <li>
                 <Link href={localizePath('/privacy')} className={footerLinkClass}>

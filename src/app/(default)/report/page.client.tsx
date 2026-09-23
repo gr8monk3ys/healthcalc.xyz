@@ -263,6 +263,7 @@ function ReportPageClientContent(): React.JSX.Element {
   const { savedResults } = useSavedResults();
   const { localizePath } = useLocale();
   const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [pdfError, setPdfError] = useState('');
 
   const reportRowsBySection = useMemo<ReportSection[]>(() => {
     const groupedBySlug = new Map<string, { value: number; date: string }[]>();
@@ -322,10 +323,12 @@ function ReportPageClientContent(): React.JSX.Element {
     if (!hasData || isDownloadingPdf) return;
 
     setIsDownloadingPdf(true);
+    setPdfError('');
     try {
       await exportReportPdf(summary, reportRowsBySection);
     } catch (error) {
       logger.logError('Failed to export report PDF', error);
+      setPdfError('Couldn’t create the PDF. Try again, or use your browser’s Print → Save as PDF.');
     } finally {
       setIsDownloadingPdf(false);
     }
@@ -357,6 +360,9 @@ function ReportPageClientContent(): React.JSX.Element {
           >
             {isDownloadingPdf ? 'Generating PDF…' : 'Download PDF'}
           </button>
+          <p role="status" className={pdfError ? 'self-center text-sm text-red-600' : 'sr-only'}>
+            {pdfError}
+          </p>
           <Link href={localizePath('/saved-results')} className="ui-btn-soft">
             Back to Dashboard
           </Link>
