@@ -674,7 +674,7 @@ const BestExerciseBikesWeightLossPageContent = (
             for me. It’s not complicated.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Start with three rides per week</h4>
+          <h3 className="font-semibold mt-4 mb-2">Start with three rides per week</h3>
           <p>
             Don’t commit to riding every day. You’ll burn out by week three. Three 30-minute
             sessions per week is enough to build the habit, and you can add volume later once it
@@ -685,7 +685,7 @@ const BestExerciseBikesWeightLossPageContent = (
             to understand how those sessions fit into your overall calorie balance.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Mix up your intensity</h4>
+          <h3 className="font-semibold mt-4 mb-2">Mix up your intensity</h3>
           <p>
             Don’t just sit and pedal at the same pace for 30 minutes. Do two steady-state rides and
             one interval ride per week. For intervals, try 30 seconds hard followed by 60 seconds
@@ -697,9 +697,9 @@ const BestExerciseBikesWeightLossPageContent = (
             will show you the targets.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">
+          <h3 className="font-semibold mt-4 mb-2">
             Track your calorie deficit, not just your rides
-          </h4>
+          </h3>
           <p>
             A 45-minute ride might burn 400 calories. That’s less than a Chipotle burrito. The bike
             creates a calorie deficit, but your diet determines whether that deficit actually
@@ -710,7 +710,7 @@ const BestExerciseBikesWeightLossPageContent = (
             to figure out the right daily target, and let the bike help you get there.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Make it enjoyable</h4>
+          <h3 className="font-semibold mt-4 mb-2">Make it enjoyable</h3>
           <p>
             This is the part nobody talks about. Save your favorite TV show exclusively for bike
             time. Queue up a podcast you only listen to while riding. Make the bike the most

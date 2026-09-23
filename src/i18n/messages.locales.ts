@@ -231,7 +231,7 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'calculatorForm.submit': 'Calculer',
     'calculatorForm.reset': 'Réinitialiser',
     'calculatorForm.embedToggle': 'Intégrer ce calculateur',
-    'calculatorForm.unitToggleAriaTemplate': "Changer l'unité de {field}, actuellement {unit}",
+    'calculatorForm.unitToggleAriaTemplate': 'Changer l’unité de {field}, actuellement {unit}',
     'socialShare.label': 'Partager cette page :',
     'socialShare.ariaTemplate': 'Partager sur {platform}',
     'socialShare.platform.twitter': 'Twitter',

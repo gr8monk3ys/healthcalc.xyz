@@ -66,7 +66,7 @@ export default function ChainsPageClient({
 
       {initialChainId ? <WorkflowStartCard chainId={initialChainId} /> : null}
 
-      <ChainSelector chains={CALCULATOR_CHAINS} />
+      <ChainSelector chains={CALCULATOR_CHAINS} headingLevel={2} />
 
       <div className="mt-12 glass-panel rounded-xl p-6">
         <h2 className="text-lg font-semibold mb-2">How It Works</h2>

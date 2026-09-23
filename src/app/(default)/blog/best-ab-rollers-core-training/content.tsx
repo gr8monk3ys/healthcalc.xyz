@@ -599,26 +599,26 @@ const BestAbRollersPageContent = (
             rush these phases. Bad form on ab rollouts can wreck your lower back.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Phase 1: Wall Rollouts (Weeks 1-2)</h4>
+          <h3 className="font-semibold mt-4 mb-2">Phase 1: Wall Rollouts (Weeks 1-2)</h3>
           <p>
             Start by rolling out to a wall. This limits your range of motion and prevents you from
             overextending. Do 3 sets of 10 reps with perfect form before progressing.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Phase 2: Knee Rollouts (Weeks 3-8)</h4>
+          <h3 className="font-semibold mt-4 mb-2">Phase 2: Knee Rollouts (Weeks 3-8)</h3>
           <p>
             Roll out from your knees with no wall assistance. Focus on keeping your hips extended,
             not letting your lower back sag. Work up to 3 sets of 15 clean reps.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Phase 3: Standing Rollouts (Week 9+)</h4>
+          <h3 className="font-semibold mt-4 mb-2">Phase 3: Standing Rollouts (Week 9+)</h3>
           <p>
             Once knee rollouts feel easy, try standing rollouts. Start with a limited range of
             motion and gradually increase as your core gets stronger. Even elite athletes struggle
             with full standing rollouts.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Form checklist:</h4>
+          <h3 className="font-semibold mt-4 mb-2">Form checklist:</h3>
           <ul className="list-disc list-inside mt-2 space-y-1">
             <li>Keep your core braced like someone’s about to punch your stomach</li>
             <li>Don’t let your hips sag or your lower back arch</li>

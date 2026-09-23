@@ -545,7 +545,7 @@ const BestMealPrepContainersPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Glass vs Plastic: The Real Difference</h2>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h4 className="font-semibold mb-3">Choose Glass If:</h4>
+          <h3 className="font-semibold mb-3">Choose Glass If:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>You mostly eat at home or have a short commute</li>
             <li>You reheat in the oven or want to avoid plastic in the microwave</li>
@@ -553,7 +553,7 @@ const BestMealPrepContainersPageContent = (
             <li>You want containers that last years without degrading</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-3">Choose Plastic If:</h4>
+          <h3 className="font-semibold mt-4 mb-3">Choose Plastic If:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>You carry meals in a backpack or gym bag</li>
             <li>You need lightweight containers for travel</li>
@@ -570,7 +570,7 @@ const BestMealPrepContainersPageContent = (
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h4 className="font-semibold mb-3">Prep Strategy:</h4>
+          <h3 className="font-semibold mb-3">Prep Strategy:</h3>
           <ol className="list-decimal list-inside space-y-3">
             <li>
               <strong>Weigh once, repeat forever:</strong> Weigh your protein, carbs, and veggies

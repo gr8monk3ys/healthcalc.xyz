@@ -72,7 +72,7 @@ export const MEASUREMENT_INSTRUCTIONS = {
     'Find the top of your hip bones and the bottom of your ribs',
     'Place the measuring tape midway between these points (usually at the level of your navel)',
     'Wrap the tape around your waist, keeping it parallel to the floor',
-    "Measure after breathing out normally (don't suck in your stomach)",
+    'Measure after breathing out normally (don’t suck in your stomach)',
     'Ensure the tape is snug but not digging into your skin',
   ],
   hips: [

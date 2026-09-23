@@ -48,7 +48,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
-    seoTitle: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
+    seoTitle: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc',
   },
   {
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',

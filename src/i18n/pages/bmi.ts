@@ -152,11 +152,10 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
       },
       classificationAdult: 'BMI Classification',
       classificationChild: 'BMI Percentile Classification',
-      percentileTemplate: '{percentile}th Percentile - {category}',
+      percentileTemplate: '{ordinal} Percentile - {category}',
       healthyWeightRangeTitle: 'Healthy Weight Range for Your Height',
       whatThisMeansTitle: 'What This Means',
-      childIntroTemplate:
-        "Your child's BMI is at the {percentile}th percentile for their age and sex.",
+      childIntroTemplate: 'Your child’s BMI is at the {ordinal} percentile for their age and sex.',
       childUnderweight:
         'This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.',
       childHealthy: 'This is within the healthy weight range.',
@@ -177,7 +176,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
     info: {
       title: 'About BMI',
       intro:
-        "Body Mass Index (BMI) is a simple calculation using a person's height and weight. The formula is BMI = kg/m² where kg is a person's weight in kilograms and m² is their height in meters squared.",
+        'Body Mass Index (BMI) is a simple calculation using a person’s height and weight. The formula is BMI = kg/m² where kg is a person’s weight in kilograms and m² is their height in meters squared.',
       adultCategoriesTitle: 'BMI Categories for Adults:',
       adultCategories: [
         { label: 'Underweight:', body: 'BMI less than 18.5' },

@@ -596,7 +596,7 @@ const BestFitnessTrackersPageContent = (
             trends over time is valuable.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Tips for Better Accuracy:</h4>
+          <h3 className="font-semibold mt-4 mb-2">Tips for Better Accuracy:</h3>
           <ul className="list-disc list-inside mt-2 space-y-1">
             <li>Enter accurate height, weight, and age in your tracker’s profile</li>
             <li>Update your weight regularly as it changes</li>
