@@ -1,18 +1,21 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import MaxHeartRateResult from '@/components/calculators/max-heart-rate/MaxHeartRateResult';
 import MaxHeartRateInfo from '@/components/calculators/max-heart-rate/MaxHeartRateInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { validateAge } from '@/utils/validation';
 import { calculateMaxHeartRate } from '@/utils/calculators/maxHeartRate';
 import type { MaxHeartRateResult as MaxHeartRateResultType } from '@/types/maxHeartRate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

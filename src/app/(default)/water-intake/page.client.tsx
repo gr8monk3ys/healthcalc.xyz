@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import WaterIntakeResult from '@/components/calculators/water-intake/WaterIntakeResult';
 import WaterIntakeInfo from '@/components/calculators/water-intake/WaterIntakeInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateWeight } from '@/utils/validation';
 import { calculateWaterIntake } from '@/utils/calculators/waterIntake';
 import type { WaterIntakeResult as WaterIntakeResultType } from '@/types/waterIntake';
@@ -15,6 +14,10 @@ import { WATER_INTAKE_ACTIVITY_OPTIONS, type WaterIntakeActivity } from '@/const
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

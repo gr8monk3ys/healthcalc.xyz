@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import AdjustedBodyWeightResult from '@/components/calculators/adjusted-body-weight/AdjustedBodyWeightResult';
 import AdjustedBodyWeightInfo from '@/components/calculators/adjusted-body-weight/AdjustedBodyWeightInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateAdjustedBodyWeight } from '@/utils/calculators/adjustedBodyWeight';
 import { validateHeight, validateWeight } from '@/utils/validation';
 import type { AdjustedBodyWeightResult as AdjustedBodyWeightResultType } from '@/types/adjustedBodyWeight';
@@ -19,6 +18,10 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

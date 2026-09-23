@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useMemo } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { MaximumFatLossResult } from '@/types/maximumFatLoss';
@@ -11,7 +12,6 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import MaximumFatLossResultDisplay from '@/components/calculators/maximum-fat-loss/MaximumFatLossResult';
 import MaximumFatLossInfo from '@/components/calculators/maximum-fat-loss/MaximumFatLossInfo';
 import MaximumFatLossUnderstanding from '@/components/calculators/maximum-fat-loss/MaximumFatLossUnderstanding';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -19,6 +19,9 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [

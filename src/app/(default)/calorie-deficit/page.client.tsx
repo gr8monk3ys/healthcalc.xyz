@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { CalorieDeficitResult as CalorieDeficitResultType } from '@/types/calorieDeficit';
@@ -13,7 +14,6 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalorieDeficitResultDisplay from '@/components/calculators/calorie-deficit/CalorieDeficitResult';
 import CalorieDeficitInfo from '@/components/calculators/calorie-deficit/CalorieDeficitInfo';
 import CalorieDeficitUnderstanding from '@/components/calculators/calorie-deficit/CalorieDeficitUnderstanding';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -27,6 +27,9 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [

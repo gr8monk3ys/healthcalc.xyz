@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { calculateSubstanceImpact } from '@/utils/calculators/substanceImpact';
 import {
@@ -11,10 +12,12 @@ import {
 import { isEmpty, validateAge } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import SubstanceImpactResultDisplay from '@/components/calculators/substanceImpact/SubstanceImpactResult';
-import SaveResult from '@/components/SaveResult';
 import { ALCOHOL_TYPE_LABELS, SMOKING_TYPE_LABELS } from '@/constants/substanceImpact';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const faqs = [
   {

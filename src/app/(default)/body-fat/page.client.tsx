@@ -26,7 +26,6 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatResultDisplay from '@/components/calculators/body-fat/BodyFatResult';
 import BodyFatInfo from '@/components/calculators/body-fat/BodyFatInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -40,6 +39,9 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // Dynamic imports for below-the-fold components
 const BodyFatUnderstanding = dynamic(

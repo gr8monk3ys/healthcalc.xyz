@@ -1,16 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import DueDateByConceptionResult from '@/components/calculators/due-date-by-conception/DueDateByConceptionResult';
 import DueDateByConceptionInfo from '@/components/calculators/due-date-by-conception/DueDateByConceptionInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateDueDateByConception } from '@/utils/calculators/dueDateByConception';
 import type { DueDateByConceptionResult as DueDateByConceptionResultType } from '@/types/dueDateByConception';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

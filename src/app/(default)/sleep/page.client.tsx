@@ -1,17 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import SleepResult from '@/components/calculators/sleep/SleepResult';
 import SleepInfo from '@/components/calculators/sleep/SleepInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty } from '@/utils/validation';
 import { calculateSleepTimes } from '@/utils/calculators/sleep';
 import type { SleepResult as SleepResultType, SleepMode } from '@/types/sleep';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

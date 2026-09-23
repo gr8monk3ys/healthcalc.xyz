@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useMemo, useCallback } from 'react';
 import {
   processOneRepMaxCalculation,
@@ -14,9 +15,11 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import OneRepMaxResultDisplay from '@/components/calculators/oneRepMax/OneRepMaxResult';
 import OneRepMaxInfo from '@/components/calculators/oneRepMax/OneRepMaxInfo';
-import SaveResult from '@/components/SaveResult';
 import { ONE_REP_MAX_FORMULAS } from '@/constants/oneRepMax';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for 1RM calculator
 const faqs = [

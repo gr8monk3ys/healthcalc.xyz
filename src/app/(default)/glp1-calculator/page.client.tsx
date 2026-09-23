@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { processGLP1Calculation } from '@/utils/calculators/glp1Calculator';
 import { GLP1Result, GLP1Medication, GLP1Goal } from '@/types/glp1Calculator';
@@ -7,11 +8,13 @@ import { Gender, ActivityLevel } from '@/types/common';
 import { validateWeight, validateHeight, validateAge, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import GLP1ResultDisplay from '@/components/calculators/glp1Calculator/GLP1Result';
-import SaveResult from '@/components/SaveResult';
 import { MEDICATION_LABELS, GOAL_LABELS, ACTIVITY_LABELS } from '@/constants/glp1Calculator';
 import { useWeight, useHeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for GLP-1 calculator
 const faqs = [

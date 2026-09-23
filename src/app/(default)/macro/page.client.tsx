@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useReducer, useRef } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { MacroGoal, MacroResult as MacroResultType } from '@/types/macro';
@@ -11,8 +12,6 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import MacroResult from '@/components/calculators/macro/MacroResult';
 import MacroInfo from '@/components/calculators/macro/MacroInfo';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -26,6 +25,10 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // FAQ data for Macro calculator
 const faqs = [

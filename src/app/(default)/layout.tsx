@@ -15,7 +15,9 @@ import { fontVariables } from '@/lib/fonts';
 
 const siteUrl = getPublicSiteUrl();
 
-const preferencesBootstrapScript = `(function(){try{var d=JSON.parse(localStorage.getItem('dark-mode-preferences:v1')||localStorage.getItem('dark-mode-preferences'));if(d&&d.darkMode){document.documentElement.classList.add('dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#111318')}var u=JSON.parse(localStorage.getItem('unit-system-preferences:v1')||localStorage.getItem('unit-system-preferences'));if(u&&u.unitSystem==='imperial')document.documentElement.dataset.units='imperial'}catch(e){}})()`;
+// Runs before first paint. Each step is isolated so a bad value in one key
+// cannot skip the others.
+const preferencesBootstrapScript = `(function(){var h=document.documentElement;function read(k,l){try{var ls=window.localStorage;return JSON.parse(ls.getItem(k)||ls.getItem(l))}catch(e){return null}}var d=read('dark-mode-preferences:v1','dark-mode-preferences');if(d&&d.darkMode===true){h.classList.add('dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#111318')}var u=read('unit-system-preferences:v1','unit-system-preferences');if(u&&u.unitSystem==='imperial')h.dataset.units='imperial';try{if(new URLSearchParams(location.search).get('embed')==='1')h.dataset.embed='1'}catch(e){}})()`;
 const organizationSchemaJson = JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c');
 const websiteSchemaJson = JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c');
 
@@ -125,12 +127,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </LayoutProviders>
 
         {/* Global structured data — SSR so crawlers see it in initial HTML */}
-        <Script id="organization-schema" type="application/ld+json">
-          {organizationSchemaJson}
-        </Script>
-        <Script id="website-schema" type="application/ld+json">
-          {websiteSchemaJson}
-        </Script>
+        <script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: organizationSchemaJson }}
+        />
+        <script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: websiteSchemaJson }}
+        />
       </body>
     </html>
   );

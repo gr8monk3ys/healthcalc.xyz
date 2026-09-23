@@ -1,17 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import StepsToMilesResult from '@/components/calculators/steps-to-miles/StepsToMilesResult';
 import StepsToMilesInfo from '@/components/calculators/steps-to-miles/StepsToMilesInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateStepsToMiles } from '@/utils/calculators/stepsToMiles';
 import { convertLength } from '@/utils/conversions';
 import type { StepsToMilesResult as StepsToMilesResultType } from '@/types/stepsToMiles';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 type StrideUnit = 'in' | 'cm';
 

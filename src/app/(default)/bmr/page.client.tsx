@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import BMRResult from '@/components/calculators/bmr/BMRResult';
 import BMRInfo from '@/components/calculators/bmr/BMRInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateAge, validateHeight, validateWeight } from '@/utils/validation';
 import { calculateBMRResult } from '@/utils/calculators/bmr';
 import type { BMRResult as BMRResultType } from '@/types/bmr';
@@ -20,6 +19,10 @@ import {
 } from '@/hooks/useCalculatorUnits';
 import { TDEE_FORMULAS } from '@/constants/tdee';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {

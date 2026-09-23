@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { Activity, useState } from 'react';
 import Link from 'next/link';
 import AuthSavedResultsProviders from '@/components/providers/AuthSavedResultsProviders';
 import { SavedResultsList } from '@/components/SaveResult';
@@ -9,15 +9,19 @@ import { useSavedResults } from '@/context/SavedResultsContext';
 import { useLocale } from '@/context/LocaleContext';
 import AuthModal from '@/components/auth/AuthModal';
 import HealthDashboard from '@/components/dashboard/HealthDashboard';
+import { useUrlSearchParam } from '@/hooks/useUrlSearchParam';
 
 type Tab = 'dashboard' | 'all-results';
+
+const isTab = (value: string): value is Tab => value === 'dashboard' || value === 'all-results';
 
 function SavedResultsPageContent(): React.JSX.Element {
   const { isAuthenticated, supabaseEnabled } = useAuth();
   const { savedResults, syncPromptPending, confirmSync, dismissSync } = useSavedResults();
   const { localizePath, t } = useLocale();
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<Tab>('dashboard');
+  // ?tab=all-results deep-links the second tab.
+  const [activeTab, setActiveTab] = useUrlSearchParam<Tab>('tab', 'dashboard', isTab);
 
   // When Supabase is enabled, show results for both guest and authenticated users.
   // The sign-in prompt appears alongside the results rather than replacing them.
@@ -35,6 +39,7 @@ function SavedResultsPageContent(): React.JSX.Element {
         <button
           type="button"
           onClick={() => setActiveTab('dashboard')}
+          aria-pressed={activeTab === 'dashboard'}
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === 'dashboard'
               ? 'bg-[var(--accent)] text-white shadow-sm'
@@ -46,6 +51,7 @@ function SavedResultsPageContent(): React.JSX.Element {
         <button
           type="button"
           onClick={() => setActiveTab('all-results')}
+          aria-pressed={activeTab === 'all-results'}
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === 'all-results'
               ? 'bg-[var(--accent)] text-white shadow-sm'
@@ -100,11 +106,13 @@ function SavedResultsPageContent(): React.JSX.Element {
         </div>
       )}
 
-      {/* Dashboard tab */}
-      {activeTab === 'dashboard' && <HealthDashboard />}
+      {/* Dashboard tab: Activity keeps its state and DOM while hidden. */}
+      <Activity mode={activeTab === 'dashboard' ? 'visible' : 'hidden'}>
+        <HealthDashboard />
+      </Activity>
 
       {/* All Results tab */}
-      {activeTab === 'all-results' && (
+      <Activity mode={activeTab === 'all-results' ? 'visible' : 'hidden'}>
         <>
           {showResults ? (
             <SavedResultsList />
@@ -126,7 +134,7 @@ function SavedResultsPageContent(): React.JSX.Element {
             </div>
           )}
         </>
-      )}
+      </Activity>
     </div>
   );
 }

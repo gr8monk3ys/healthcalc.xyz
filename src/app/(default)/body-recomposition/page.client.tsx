@@ -21,8 +21,6 @@ import {
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyRecompResult from '@/components/calculators/bodyRecomposition/BodyRecompResult';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -30,6 +28,10 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // Dynamic imports for below-the-fold components
 const BodyRecompInfo = dynamic(

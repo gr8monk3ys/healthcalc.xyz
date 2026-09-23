@@ -1,17 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import BloodPressureResult from '@/components/calculators/blood-pressure/BloodPressureResult';
 import BloodPressureInfo from '@/components/calculators/blood-pressure/BloodPressureInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateSystolic, validateDiastolic } from '@/utils/validation';
 import { calculateBloodPressure } from '@/utils/calculators/bloodPressure';
 import type { BloodPressureResult as BloodPressureResultType } from '@/types/bloodPressure';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
