@@ -61,6 +61,7 @@ function DiffIndicator({
       className={`ml-1 inline-flex items-center text-xs font-semibold ${isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-500 dark:text-red-400'}`}
     >
       <svg
+        aria-hidden="true"
         width="10"
         height="10"
         viewBox="0 0 10 10"

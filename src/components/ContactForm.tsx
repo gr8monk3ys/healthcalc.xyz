@@ -80,6 +80,7 @@ export default function ContactForm() {
     return (
       <div className="neumorph p-6 rounded-lg text-center">
         <svg
+          aria-hidden="true"
           className="mx-auto h-12 w-12 text-green-500 mb-4"
           fill="none"
           viewBox="0 0 24 24"

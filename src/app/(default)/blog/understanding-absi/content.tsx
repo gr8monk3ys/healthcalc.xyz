@@ -40,6 +40,7 @@ const UnderstandingABSIPageContent = (
     <div className="mb-8">
       <Link href="/blog" className="text-accent hover:underline flex items-center">
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4 mr-1"
           fill="none"
@@ -78,6 +79,7 @@ const UnderstandingABSIPageContent = (
         <div className="neumorph p-6 rounded-lg mb-8">
           <div className="flex items-center gap-3 mb-4 text-accent">
             <svg
+              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
               fill="none"

@@ -55,6 +55,7 @@ export default function MaximumFatLossResultDisplay({
         <Card className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
           <div className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"

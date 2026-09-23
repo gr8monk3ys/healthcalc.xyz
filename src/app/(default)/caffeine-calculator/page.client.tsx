@@ -365,6 +365,7 @@ function renderCaffeineCalculatorView({
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                             >
+                              aria-hidden="true"
                               <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -385,7 +386,13 @@ function renderCaffeineCalculatorView({
                   onClick={handleAddSource}
                   className="w-full neumorph px-4 py-2 rounded-lg hover:shadow-lg transition duration-200 flex items-center justify-center gap-2"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    aria-hidden="true"
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

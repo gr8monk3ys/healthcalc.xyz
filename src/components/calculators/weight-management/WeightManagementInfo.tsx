@@ -27,6 +27,7 @@ export default function WeightManagementInfo() {
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -50,6 +51,7 @@ export default function WeightManagementInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -73,6 +75,7 @@ export default function WeightManagementInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -96,6 +99,7 @@ export default function WeightManagementInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"

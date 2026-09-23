@@ -9,6 +9,7 @@ export const metadata = {
 const icons = {
   calories: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -21,6 +22,7 @@ const icons = {
   ),
   macros: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -37,6 +39,7 @@ const icons = {
   ),
   heart: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -49,6 +52,7 @@ const icons = {
   ),
   composition: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -65,6 +69,7 @@ const icons = {
   ),
   walking: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -81,6 +86,7 @@ const icons = {
   ),
   pregnancy: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"

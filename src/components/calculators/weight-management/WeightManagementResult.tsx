@@ -70,6 +70,7 @@ export default function WeightManagementResultDisplay({
         <Card className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
           <div className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -202,7 +203,7 @@ export default function WeightManagementResultDisplay({
         <Card className="p-5">
           <h3 className="text-lg font-semibold mb-4">Weight Projection Timeline</h3>
           <div className="relative h-64">
-            <svg className="w-full h-full" viewBox="0 0 600 250">
+            <svg aria-hidden="true" className="w-full h-full" viewBox="0 0 600 250">
               {/* Grid lines */}
               {[50, 90, 130, 170, 210].map(lineY => (
                 <line

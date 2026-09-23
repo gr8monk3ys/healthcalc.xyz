@@ -346,9 +346,17 @@ function MeasurementConversionsView({
               <button
                 onClick={handleSwapUnits}
                 className="p-3 neumorph rounded-lg hover:shadow-neumorph-inset transition"
+                type="button"
                 title={copy.ui.swapUnitsTitle}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  aria-hidden="true"
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                aria-label={copy.ui.swapUnitsTitle}
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

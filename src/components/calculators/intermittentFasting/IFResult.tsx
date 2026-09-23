@@ -261,6 +261,7 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
           {result.benefits.map(benefit => (
             <li key={benefit} className="flex items-start">
               <svg
+                aria-hidden="true"
                 className="w-5 h-5 text-green-500 dark:text-green-400 mr-2 flex-shrink-0 mt-0.5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -286,6 +287,7 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
           {result.tips.map(tip => (
             <li key={tip} className="flex items-start">
               <svg
+                aria-hidden="true"
                 className="w-5 h-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-0.5"
                 fill="currentColor"
                 viewBox="0 0 20 20"

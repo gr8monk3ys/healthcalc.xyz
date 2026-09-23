@@ -128,6 +128,7 @@ export default function NotFound() {
             <Link href="/blog" className="text-accent hover:underline flex items-center">
               View all articles
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 ml-1"
                 fill="none"

@@ -51,6 +51,7 @@ function SaveResultContent({
           aria-label={t('savedResults.list.deleteAria')}
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
             fill="currentColor"
@@ -68,6 +69,7 @@ function SaveResultContent({
           aria-label={t('savedResults.button.save')}
         >
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
             fill="none"
@@ -240,7 +242,7 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
             className="elevated-pill rounded-full px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
           >
             <span className="flex items-center gap-1.5">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path
                   d="M7 1v8m0 0L4 6.5M7 9l3-2.5M2 11h10"
                   stroke="currentColor"
@@ -323,6 +325,7 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
                   </span>
                 )}
                 <svg
+                  aria-hidden="true"
                   width="16"
                   height="16"
                   viewBox="0 0 16 16"
@@ -381,6 +384,7 @@ export function SavedResultsList({ className = '' }: { className?: string }) {
                         aria-label={t('savedResults.list.deleteAria')}
                       >
                         <svg
+                          aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-4 w-4"
                           fill="none"
