@@ -26,10 +26,7 @@ export default function DiabetesRiskResultDisplay({ result }: DiabetesRiskResult
   const badgeLabel = RISK_LEVEL_LABELS[result.riskLevel];
 
   return (
-    <div
-      id="diabetes-risk-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="diabetes-risk-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Risk Assessment Result</h2>
 
       {/* Risk Level Badge */}
@@ -53,7 +50,7 @@ export default function DiabetesRiskResultDisplay({ result }: DiabetesRiskResult
         </div>
         <div className="relative h-4 neumorph-inset rounded-full overflow-hidden">
           <div
-            className="h-full transition-all duration-500 rounded-full"
+            className="h-full rounded-full"
             style={{
               width: `${Math.min((result.riskScore / MAX_RISK_SCORE) * 100, 100)}%`,
               backgroundColor: badgeColor,

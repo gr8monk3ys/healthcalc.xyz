@@ -68,7 +68,7 @@ function FitnessAgeResultCard({
             </div>
             <div className="h-3 rounded-full bg-slate-200 dark:bg-slate-700">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500 transition-all duration-500"
+                className="h-full rounded-full bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500"
                 style={{ width: `${scorePercent}%` }}
               />
             </div>

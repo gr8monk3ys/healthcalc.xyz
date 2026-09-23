@@ -901,21 +901,21 @@ const BestFitnessTrackersKidsPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/steps-to-calories"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Steps to Calories Calculator</h4>
               <p className="text-sm text-gray-600">Convert your daily steps to calories burned</p>
             </Link>
             <Link
               href="/steps-to-miles"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Steps to Miles Calculator</h4>
               <p className="text-sm text-gray-600">See how far those steps really take you</p>
             </Link>
             <Link
               href="/bmi"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">BMI Calculator</h4>
               <p className="text-sm text-gray-600">Check healthy growth ranges for children</p>

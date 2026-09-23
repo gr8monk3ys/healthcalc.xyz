@@ -880,21 +880,21 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/one-rep-max"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">One Rep Max Calculator</h4>
               <p className="text-sm text-gray-600">Track your strength progress</p>
             </Link>
             <Link
               href="/lean-body-mass"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Lean Body Mass Calculator</h4>
               <p className="text-sm text-gray-600">Separate muscle gains from water weight</p>
             </Link>
             <Link
               href="/protein"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Protein Calculator</h4>
               <p className="text-sm text-gray-600">Dial in your daily protein needs</p>

@@ -11,10 +11,7 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
   const netPositive = result.netEffect >= 0;
 
   return (
-    <div
-      id="life-expectancy-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="life-expectancy-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-6">Your Life Expectancy Results</h2>
 
       {/* Estimated Life Expectancy - Hero Number */}
@@ -69,7 +66,7 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
           <div className="flex-1">
             <div className="relative h-4 neumorph-inset rounded-full overflow-hidden">
               <div
-                className={`h-full transition-all duration-700 rounded-full ${
+                className={`h-full rounded-full ${
                   result.percentileRank >= 70
                     ? 'bg-gradient-to-r from-green-400 to-emerald-500'
                     : result.percentileRank >= 40
@@ -102,13 +99,13 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
             <div className="relative h-6 neumorph-inset rounded-full overflow-hidden">
               <div className="absolute inset-0 flex">
                 <div
-                  className="h-full bg-gradient-to-r from-green-400 to-green-500 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-green-400 to-green-500"
                   style={{
                     width: `${result.yearsAdded + result.yearsLost > 0 ? (result.yearsAdded / (result.yearsAdded + result.yearsLost)) * 100 : 50}%`,
                   }}
                 ></div>
                 <div
-                  className="h-full bg-gradient-to-r from-red-400 to-red-500 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-red-400 to-red-500"
                   style={{
                     width: `${result.yearsAdded + result.yearsLost > 0 ? (result.yearsLost / (result.yearsAdded + result.yearsLost)) * 100 : 50}%`,
                   }}

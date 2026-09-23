@@ -17,10 +17,7 @@ const ProteinResult: React.FC<ProteinResultProps> = ({ result, weightUnit }) => 
   );
 
   return (
-    <div
-      id="protein-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="protein-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Daily Protein Needs</h2>
 
       {/* Main Result */}

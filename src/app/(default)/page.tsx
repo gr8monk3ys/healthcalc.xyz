@@ -393,13 +393,13 @@ const HomeContent = (
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href="/calculators"
-              className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
+              className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition hover:-translate-y-0.5 hover:bg-accent-dark"
             >
               Browse calculators
             </Link>
             <Link
               href="/blog"
-              className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
+              className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/45"
             >
               Read the guides
             </Link>
@@ -408,7 +408,7 @@ const HomeContent = (
           {/* Search Bar */}
           <Link
             href="/search"
-            className="hero-search-shell mt-6 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+            className="hero-search-shell mt-6 block rounded-2xl p-3 transition hover:-translate-y-0.5 hover:border-accent/40"
           >
             <div className="flex items-center gap-3 rounded-xl border border-white/50 bg-white/35 px-4 py-3 dark:border-indigo-200/10 dark:bg-indigo-100/5">
               <svg
@@ -666,7 +666,7 @@ const HomeContent = (
           <Link
             key={post.href}
             href={post.href}
-            className="group rounded-2xl border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(229,233,255,0.7))] p-5 transition-all hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_14px_30px_rgba(66,72,182,0.22)] dark:border-indigo-200/10 dark:bg-[linear-gradient(180deg,rgba(28,32,69,0.82),rgba(17,20,49,0.74))]"
+            className="group rounded-2xl border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(229,233,255,0.7))] p-5 transition hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_14px_30px_rgba(66,72,182,0.22)] dark:border-indigo-200/10 dark:bg-[linear-gradient(180deg,rgba(28,32,69,0.82),rgba(17,20,49,0.74))]"
           >
             <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
               {post.category}
@@ -691,7 +691,7 @@ const HomeContent = (
       <div className="mt-8 text-center">
         <Link
           href="/blog"
-          className="elevated-pill inline-flex rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/40"
+          className="elevated-pill inline-flex rounded-full px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/40"
         >
           Explore all guides and articles
         </Link>
@@ -714,13 +714,13 @@ const HomeContent = (
         <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
           <Link
             href="/bmi"
-            className="rounded-full bg-white px-7 py-3 font-bold text-accent-dark shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+            className="rounded-full bg-white px-7 py-3 font-bold text-accent-dark shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
           >
             Try the BMI calculator
           </Link>
           <Link
             href="/calculators"
-            className="rounded-full border border-white/40 bg-white/10 px-7 py-3 font-semibold text-white backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20"
+            className="rounded-full border border-white/40 bg-white/10 px-7 py-3 font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
           >
             See all calculators
           </Link>

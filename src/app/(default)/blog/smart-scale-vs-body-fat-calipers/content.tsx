@@ -977,35 +977,35 @@ const SmartScaleVsBodyFatCalipersContentContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/body-fat"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Calculator</h4>
               <p className="text-sm text-gray-600">Estimate body fat with the Navy method</p>
             </Link>
             <Link
               href="/bmi"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">BMI Calculator</h4>
               <p className="text-sm text-gray-600">Quick weight-to-height benchmark</p>
             </Link>
             <Link
               href="/lean-body-mass"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Lean Body Mass Calculator</h4>
               <p className="text-sm text-gray-600">See how much muscle you carry</p>
             </Link>
             <Link
               href="/absi"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">ABSI Calculator</h4>
               <p className="text-sm text-gray-600">Assess visceral fat risk</p>
             </Link>
             <Link
               href="/whr"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Waist-to-Hip Ratio</h4>
               <p className="text-sm text-gray-600">Another visceral fat indicator</p>

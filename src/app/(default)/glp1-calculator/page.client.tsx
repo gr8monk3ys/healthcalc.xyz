@@ -304,7 +304,7 @@ function renderGLP1CalculatorView({
               <button
                 type="button"
                 onClick={weight.toggle}
-                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
+                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition"
                 aria-label={`Toggle weight unit, currently ${weight.unit}`}
               >
                 {weight.unit}
@@ -338,7 +338,7 @@ function renderGLP1CalculatorView({
               <button
                 type="button"
                 onClick={height.toggle}
-                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
+                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition"
                 aria-label={`Toggle height unit, currently ${height.unit}`}
               >
                 {height.unit}
@@ -445,14 +445,14 @@ function renderGLP1CalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate Nutrition Targets
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>

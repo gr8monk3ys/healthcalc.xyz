@@ -156,7 +156,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                 <button
                   type="button"
                   onClick={field.unitToggle}
-                  className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   aria-label={formatTemplate(t('calculatorForm.unitToggleAriaTemplate'), {
                     field: resolvedLabel,
                     unit: field.unit ?? '',

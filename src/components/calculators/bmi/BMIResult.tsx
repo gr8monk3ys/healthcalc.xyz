@@ -240,7 +240,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
   return (
     <div
       id="bmi-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
+      className="neumorph p-6 rounded-lg animate-fade-in"
       tabIndex={-1}
       aria-live="polite"
       role="region"
@@ -292,7 +292,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
           </div>
 
           <div
-            className="absolute -top-0.5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white bg-slate-900 shadow-md transition-all duration-500 dark:border-slate-900 dark:bg-white"
+            className="absolute -top-0.5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white bg-slate-900 shadow-md dark:border-slate-900 dark:bg-white"
             style={{
               left: `${Math.min(Math.max(((result.bmi - 10) / 30) * 100, 0), 100)}%`,
             }}

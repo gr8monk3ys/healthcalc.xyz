@@ -33,7 +33,7 @@ function AuthControlsContent(): React.JSX.Element {
     <div className="flex items-center gap-2">
       <Link
         href="/saved-results"
-        className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
+        className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
       >
         {t('auth.login')}
       </Link>

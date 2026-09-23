@@ -339,7 +339,7 @@ function CalculatorPageLayoutContent({
                   <Link
                     key={chain.id}
                     href={`/chains?start=${chain.id}`}
-                    className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+                    className="glass-panel rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg block"
                   >
                     <p className="font-medium text-sm">{chain.name}</p>
                     <p className="mt-1 text-xs opacity-60">{chain.description}</p>

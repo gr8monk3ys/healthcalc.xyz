@@ -16,10 +16,7 @@ export default function BodySurfaceAreaResult({ result }: BodySurfaceAreaResultP
   }
 
   return (
-    <div
-      id="body-surface-area-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="body-surface-area-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Body Surface Area Result</h2>
       <div className="neumorph-inset p-5 rounded-lg">
         <p className="text-sm text-gray-500 dark:text-gray-400">Estimated BSA</p>

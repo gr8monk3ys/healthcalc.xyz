@@ -293,7 +293,7 @@ function MeasurementConversionsView({
               <button
                 key={key}
                 onClick={() => handleCategoryChange(key as ConversionCategory)}
-                className={`w-full p-3 rounded-lg text-left transition-all ${
+                className={`w-full p-3 rounded-lg text-left transition ${
                   category === key
                     ? 'bg-accent text-white shadow-lg'
                     : 'neumorph hover:shadow-neumorph-inset'
@@ -345,7 +345,7 @@ function MeasurementConversionsView({
             <div className="flex justify-center">
               <button
                 onClick={handleSwapUnits}
-                className="p-3 neumorph rounded-lg hover:shadow-neumorph-inset transition-all"
+                className="p-3 neumorph rounded-lg hover:shadow-neumorph-inset transition"
                 title={copy.ui.swapUnitsTitle}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -378,7 +378,7 @@ function MeasurementConversionsView({
             {/* Convert Button */}
             <button
               onClick={handleConvert}
-              className="w-full py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="w-full py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition"
             >
               {copy.ui.convertButton}
             </button>

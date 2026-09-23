@@ -227,7 +227,7 @@ export default function LearnIndexPage() {
         </p>
         <Link
           href="/calculators"
-          className="elevated-pill mt-5 inline-flex rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/40"
+          className="elevated-pill mt-5 inline-flex rounded-full px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/40"
         >
           Browse all calculators
         </Link>

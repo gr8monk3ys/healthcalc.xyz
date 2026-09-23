@@ -189,7 +189,7 @@
 }
 
 @utility cta-primary {
-  @apply inline-flex items-center justify-center font-semibold transition-all;
+  @apply inline-flex items-center justify-center font-semibold transition;
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
   border: 1px solid hsl(var(--primary) / 0.42);
@@ -225,7 +225,7 @@
 }
 
 @utility cta-secondary {
-  @apply inline-flex items-center justify-center font-medium transition-all;
+  @apply inline-flex items-center justify-center font-medium transition;
   color: hsl(var(--foreground));
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));

@@ -32,10 +32,7 @@ export default function BodyShapeResultDisplay({ result }: BodyShapeResultDispla
   }
 
   return (
-    <div
-      id="body-shape-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="body-shape-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Body Shape Results</h2>
 
       {/* Body Shape */}

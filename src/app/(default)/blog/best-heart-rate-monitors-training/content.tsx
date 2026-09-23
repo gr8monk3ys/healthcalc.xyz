@@ -963,7 +963,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/heart-rate-zones"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Heart Rate Zones Calculator</h4>
               <p className="text-sm text-gray-600">
@@ -972,14 +972,14 @@ const BestHeartRateMonitorsTrainingPageContent = (
             </Link>
             <Link
               href="/max-heart-rate"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Max Heart Rate Calculator</h4>
               <p className="text-sm text-gray-600">Find your estimated maximum heart rate</p>
             </Link>
             <Link
               href="/target-heart-rate"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Target Heart Rate Calculator</h4>
               <p className="text-sm text-gray-600">

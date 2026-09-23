@@ -393,7 +393,7 @@ function ReportPageClientContent(): React.JSX.Element {
                 <Link
                   key={calculator.slug}
                   href={localizePath(calculator.slug)}
-                  className="glass-panel block rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  className="glass-panel block rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   <p className="text-sm font-medium">{calculator.name}</p>
                   <p className="mt-1 text-xs opacity-60">{calculator.description}</p>

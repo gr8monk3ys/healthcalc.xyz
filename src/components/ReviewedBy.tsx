@@ -44,7 +44,7 @@ const ReviewedBy: React.FC<ReviewedByProps> = ({ reviewer, lastReviewed, classNa
   return (
     <Link
       href="/about/editorial"
-      className={`group mt-6 flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white/50 px-4 py-3 backdrop-blur-sm transition-all duration-200 hover:border-accent/30 hover:bg-white/70 dark:border-slate-700/50 dark:bg-slate-800/40 dark:hover:border-accent/30 dark:hover:bg-slate-800/60 ${className}`}
+      className={`group mt-6 flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white/50 px-4 py-3 backdrop-blur-sm transition duration-200 hover:border-accent/30 hover:bg-white/70 dark:border-slate-700/50 dark:bg-slate-800/40 dark:hover:border-accent/30 dark:hover:bg-slate-800/60 ${className}`}
       aria-label={`Reviewed by ${reviewer.name}. Learn about our editorial process.`}
     >
       {/* Reviewer avatar or initials */}

@@ -18,7 +18,7 @@ export default function DarkModeToggle({ className = '' }: DarkModeToggleProps):
   return (
     <button
       onClick={toggleDarkMode}
-      className={`elevated-pill rounded-full p-2 transition-all hover:-translate-y-0.5 ${
+      className={`elevated-pill rounded-full p-2 transition hover:-translate-y-0.5 ${
         darkMode ? 'text-yellow-200' : 'text-slate-700'
       } ${className}`}
       aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}

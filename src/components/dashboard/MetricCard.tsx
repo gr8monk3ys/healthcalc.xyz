@@ -69,7 +69,7 @@ export default function MetricCard({
     return (
       <Link
         href={`/${calculatorSlug}`}
-        className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+        className="glass-panel rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg block"
       >
         <p className="text-xs font-medium uppercase tracking-wide opacity-60">{metric.label}</p>
         <p className="mt-2 text-sm text-foreground opacity-50">Not calculated yet</p>
