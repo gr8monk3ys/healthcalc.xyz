@@ -6,6 +6,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
+  useMemo,
   ReactNode,
 } from 'react';
 import { useLocalStorage, LocalStorageError } from '@/hooks/useLocalStorage';
@@ -13,6 +14,43 @@ import { useLocalStorage, LocalStorageError } from '@/hooks/useLocalStorage';
 // Page background (identity.css --background) for <meta name="theme-color">.
 const THEME_COLOR_LIGHT = '#f9f8f5';
 const THEME_COLOR_DARK = '#111318';
+
+/** Also read by the pre-paint bootstrap script in (default)/layout.tsx. */
+export const DARK_MODE_STORAGE_KEY = 'dark-mode-preferences:v1';
+
+function applyDarkModeToDocument(enabled: boolean): void {
+  document.documentElement.classList.toggle('dark', enabled);
+  // Keep the browser chrome color in step with the page background.
+  document
+    .querySelector('meta[name="theme-color"]')
+    ?.setAttribute('content', enabled ? THEME_COLOR_DARK : THEME_COLOR_LIGHT);
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return !!value && typeof value === 'object';
+}
+
+function isDarkModePreferences(value: unknown): value is DarkModePreferences {
+  return isRecord(value) && typeof value.darkMode === 'boolean';
+}
+
+function isUnitSystemPreferences(value: unknown): value is UnitSystemPreferences {
+  return (
+    isRecord(value) &&
+    (value.unitSystem === 'metric' || value.unitSystem === 'imperial') &&
+    (value.heightUnit === 'cm' || value.heightUnit === 'ft') &&
+    (value.weightUnit === 'kg' || value.weightUnit === 'lb') &&
+    (value.energyUnit === 'kcal' || value.energyUnit === 'kj')
+  );
+}
+
+function isAdditionalPreferences(value: unknown): value is AdditionalPreferences {
+  return (
+    isRecord(value) &&
+    typeof value.saveHistory === 'boolean' &&
+    typeof value.notificationsEnabled === 'boolean'
+  );
+}
 
 // Define the types for our preferences
 interface UserPreferences {
@@ -81,48 +119,41 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     setDisplayedError(error);
   }, []);
 
-  // Dark mode state
+  // Dark mode state. The <html class="dark"> itself is applied before first
+  // paint by the bootstrap script in the root layout; after that it only
+  // changes in the setters below, never in an effect.
   const [storedDarkMode, setStoredDarkMode, , darkModeStorageError] =
-    useLocalStorage<DarkModePreferences>('dark-mode-preferences', defaultDarkMode, {
+    useLocalStorage<DarkModePreferences>(DARK_MODE_STORAGE_KEY, defaultDarkMode, {
       onError: handleStorageError,
+      legacyKeys: ['dark-mode-preferences'],
+      validate: isDarkModePreferences,
     });
-  const [darkMode, setDarkModeState] = useState<boolean>(storedDarkMode.darkMode);
+  const darkMode = storedDarkMode.darkMode;
   const [isSystemDarkMode, setIsSystemDarkMode] = useState(false);
 
   // Unit system state
   const [storedUnits, setStoredUnits, , unitStorageError] = useLocalStorage<UnitSystemPreferences>(
-    'unit-system-preferences',
+    'unit-system-preferences:v1',
     defaultUnits,
     {
       onError: handleStorageError,
+      legacyKeys: ['unit-system-preferences'],
+      validate: isUnitSystemPreferences,
     }
   );
 
   // Additional preferences state
   const [storedAdditional, setStoredAdditional, , additionalStorageError] =
-    useLocalStorage<AdditionalPreferences>('additional-preferences', defaultAdditional, {
+    useLocalStorage<AdditionalPreferences>('additional-preferences:v1', defaultAdditional, {
       onError: handleStorageError,
+      legacyKeys: ['additional-preferences'],
+      validate: isAdditionalPreferences,
     });
 
   // Dismiss all storage errors
   const dismissStorageError = useCallback(() => {
     setDisplayedError(null);
   }, []);
-
-  // Dark mode: sync to localStorage + DOM
-  useEffect(() => {
-    setStoredDarkMode({ darkMode });
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    // Keep the browser chrome color in step with the page background
-    // (identity.css --background, light and dark).
-    document
-      .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', darkMode ? THEME_COLOR_DARK : THEME_COLOR_LIGHT);
-  }, [darkMode, setStoredDarkMode]);
 
   // Dark mode: detect system preference
   useEffect(() => {
@@ -133,12 +164,21 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
-  // Setters
-  const setDarkMode = useCallback((enabled: boolean) => setDarkModeState(enabled), []);
-  const toggleDarkMode = useCallback(() => setDarkModeState(prev => !prev), []);
+  // Setters: persist and apply in the same event, no state→effect hop.
+  const setDarkMode = useCallback(
+    (enabled: boolean) => {
+      setStoredDarkMode({ darkMode: enabled });
+      applyDarkModeToDocument(enabled);
+    },
+    [setStoredDarkMode]
+  );
+  const toggleDarkMode = useCallback(() => {
+    setDarkMode(!document.documentElement.classList.contains('dark'));
+  }, [setDarkMode]);
 
   const setUnitSystem = useCallback(
     (system: 'metric' | 'imperial') => {
+      document.documentElement.dataset.units = system;
       setStoredUnits(prev => ({
         ...prev,
         unitSystem: system,
@@ -188,39 +228,60 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
   );
 
   const resetPreferences = useCallback(() => {
-    setDarkModeState(false);
+    setDarkMode(false);
+    document.documentElement.dataset.units = defaultUnits.unitSystem;
     setStoredUnits(defaultUnits);
     setStoredAdditional(defaultAdditional);
-  }, [setStoredUnits, setStoredAdditional]);
+  }, [setDarkMode, setStoredUnits, setStoredAdditional]);
 
-  const preferences: UserPreferences = {
-    darkMode,
-    unitSystem: storedUnits.unitSystem,
-    heightUnit: storedUnits.heightUnit,
-    weightUnit: storedUnits.weightUnit,
-    energyUnit: storedUnits.energyUnit,
-    saveHistory: storedAdditional.saveHistory,
-    notificationsEnabled: storedAdditional.notificationsEnabled,
-  };
+  const preferences = useMemo<UserPreferences>(
+    () => ({
+      darkMode,
+      unitSystem: storedUnits.unitSystem,
+      heightUnit: storedUnits.heightUnit,
+      weightUnit: storedUnits.weightUnit,
+      energyUnit: storedUnits.energyUnit,
+      saveHistory: storedAdditional.saveHistory,
+      notificationsEnabled: storedAdditional.notificationsEnabled,
+    }),
+    [darkMode, storedUnits, storedAdditional]
+  );
 
   const combinedStorageError =
     displayedError || darkModeStorageError || unitStorageError || additionalStorageError;
 
-  const contextValue: PreferencesContextType = {
-    preferences,
-    setDarkMode,
-    toggleDarkMode,
-    setUnitSystem,
-    setHeightUnit,
-    setWeightUnit,
-    setEnergyUnit,
-    setSaveHistory,
-    setNotificationsEnabled,
-    resetPreferences,
-    isSystemDarkMode,
-    storageError: combinedStorageError,
-    dismissStorageError,
-  };
+  const contextValue = useMemo<PreferencesContextType>(
+    () => ({
+      preferences,
+      setDarkMode,
+      toggleDarkMode,
+      setUnitSystem,
+      setHeightUnit,
+      setWeightUnit,
+      setEnergyUnit,
+      setSaveHistory,
+      setNotificationsEnabled,
+      resetPreferences,
+      isSystemDarkMode,
+      storageError: combinedStorageError,
+      dismissStorageError,
+    }),
+    [
+      preferences,
+      setDarkMode,
+      toggleDarkMode,
+      setUnitSystem,
+      setHeightUnit,
+      setWeightUnit,
+      setEnergyUnit,
+      setSaveHistory,
+      setNotificationsEnabled,
+      resetPreferences,
+      isSystemDarkMode,
+      combinedStorageError,
+      dismissStorageError,
+    ]
+  );
 
   return (
     <PreferencesContext.Provider value={contextValue}>

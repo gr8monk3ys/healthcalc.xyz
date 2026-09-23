@@ -63,12 +63,14 @@ export default function IdealWeightCalculator({
 
   const chainPrefill = useChainPrefill('ideal-weight');
 
+  const setHeightValue = height.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
       setGender(chainPrefill.gender as Gender);
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-  }, [chainPrefill, setGender, height]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+  }, [chainPrefill, setGender, setHeightValue]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();
