@@ -371,7 +371,7 @@ function CalculatorPageLayoutContent({
                     <p className="font-medium text-sm">{chain.name}</p>
                     <p className="mt-1 text-xs opacity-60">{chain.description}</p>
                     <p className="mt-2 text-xs text-[var(--accent)] font-medium">
-                      {chain.steps.length} steps &middot; Start workflow &rarr;
+                      {chain.steps.length} steps &middot; Start workflow &rarr;
                     </p>
                   </Link>
                 ))}

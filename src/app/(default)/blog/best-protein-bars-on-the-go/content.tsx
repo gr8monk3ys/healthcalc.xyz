@@ -90,7 +90,7 @@ const BestProteinBarsOnTheGoPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Protein Bars for On-the-Go Nutrition in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 13 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 13 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -114,7 +114,7 @@ const BestProteinBarsOnTheGoPageContent = (
               Doughnut
             </li>
             <li>
-              <strong>Best Low Calorie:</strong> Built Bar ($34.99/18ct) - 130 calories,
+              <strong>Best Low Calorie:</strong> Built Bar ($34.99/18ct) - 130 calories,
               chocolate-coated
             </li>
           </ul>
@@ -292,14 +292,14 @@ const BestProteinBarsOnTheGoPageContent = (
             keto-friendly and come in over a dozen flavors. The Chocolate Chip Cookie Dough flavor
             is still one of the best-selling protein bars in the country for a reason. The texture
             is dense and chewy. Some people love it. Others find it too stiff. If you microwave one
-            for 15 seconds, the texture improves noticeably.
+            for 15 seconds, the texture improves noticeably.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>20g protein, 1g sugar, 14g fiber per bar</li>
             <li>Keto-friendly and gluten-free</li>
             <li>12 flavors in the variety pack</li>
-            <li>190-200 calories per bar depending on flavor</li>
+            <li>190-200 calories per bar depending on flavor</li>
             <li>Uses milk protein isolate and whey protein isolate</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -362,7 +362,7 @@ const BestProteinBarsOnTheGoPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>20g protein, no added sugar</li>
             <li>Candy-bar-like texture with chocolate coating</li>
-            <li>200-230 calories per bar</li>
+            <li>200-230 calories per bar</li>
             <li>Flavors: Cookies and Cream, Caramel Cashew, Chocolate Dough, Salty Peanut</li>
             <li>GMO-free and palm oil free</li>
           </ul>
@@ -427,7 +427,7 @@ const BestProteinBarsOnTheGoPageContent = (
             <li>12g protein from egg whites (no protein powder)</li>
             <li>Whole food ingredients: egg whites, nuts, dates</li>
             <li>No added sugar, artificial flavors, or preservatives</li>
-            <li>210 calories per bar</li>
+            <li>210 calories per bar</li>
             <li>Gluten-free, soy-free, dairy-free</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -493,7 +493,7 @@ const BestProteinBarsOnTheGoPageContent = (
             <li>
               Dessert-inspired flavors: Birthday Cake, Maple Glazed Doughnut, Peanut Butter Pie
             </li>
-            <li>220 calories per bar</li>
+            <li>220 calories per bar</li>
             <li>12 bars per variety pack</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -546,7 +546,7 @@ const BestProteinBarsOnTheGoPageContent = (
           </div>
           <p className="mb-4">
             Built Bars have a different texture from every other protein bar. The inside is a
-            marshmallow-like, puff-style texture coated in real chocolate. At 130 calories and 17g
+            marshmallow-like, puff-style texture coated in real chocolate. At 130 calories and 17g
             protein per bar, the calorie-to-protein ratio is the best on this list. If you are in an
             aggressive{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
@@ -557,7 +557,7 @@ const BestProteinBarsOnTheGoPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>17g protein, 130 calories per bar</li>
+            <li>17g protein, 130 calories per bar</li>
             <li>Real chocolate coating</li>
             <li>Marshmallow-like puff texture</li>
             <li>4g sugar, low fat</li>
@@ -570,8 +570,8 @@ const BestProteinBarsOnTheGoPageContent = (
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               Calorie Deficit Calculator
             </Link>{' '}
-            has you at 1,500 calories, every food choice matters. Built Bars give you 17g protein
-            for only 130 calories.
+            has you at 1,500 calories, every food choice matters. Built Bars give you 17g protein
+            for only 130 calories.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
@@ -658,7 +658,7 @@ const BestProteinBarsOnTheGoPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Between meals:</strong> When you need to bridge a 4-5 hour gap and do not have
+              <strong>Between meals:</strong> When you need to bridge a 4-5 hour gap and do not have
               access to real food.
             </li>
             <li>

@@ -517,11 +517,11 @@ function renderCaffeineCalculatorView({
                 </p>
                 <p>
                   <strong>Pre-Workout Dose:</strong> For performance enhancement, research
-                  recommends 3-6mg per kg body weight, taken 30-60 minutes before exercise. This
+                  recommends 3-6mg per kg body weight, taken 30-60 minutes before exercise. This
                   improves endurance, power, and focus.
                 </p>
                 <p>
-                  <strong>Half-Life & Clearance:</strong> Caffeine half-life varies from 3-7 hours
+                  <strong>Half-Life & Clearance:</strong> Caffeine half-life varies from 3-7 hours
                   based on genetics and metabolism. Full clearance takes about 5 half-lives. Avoid
                   caffeine 6+ hours before bedtime for better sleep.
                 </p>

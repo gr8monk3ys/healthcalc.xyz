@@ -77,7 +77,7 @@ const BestMassageGunsRecoveryPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Massage Guns for Muscle Recovery in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -96,7 +96,7 @@ const BestMassageGunsRecoveryPageContent = (
               <strong>Best Budget:</strong> RENPHO R3 ($99) - 5 speeds, 20 speeds, solid performance
             </li>
             <li>
-              <strong>Best Battery Life:</strong> Ekrin B37 ($229) - 8 hour battery, 56 lbs stall
+              <strong>Best Battery Life:</strong> Ekrin B37 ($229) - 8 hour battery, 56 lbs stall
               force
             </li>
             <li>
@@ -139,7 +139,7 @@ const BestMassageGunsRecoveryPageContent = (
 
         <p>
           I ignored massage guns for two years because they seemed overpriced and overhyped. Then I
-          borrowed a friend’s Hypervolt after a hard leg day and spent 15 minutes on my quads and IT
+          borrowed a friend’s Hypervolt after a hard leg day and spent 15 minutes on my quads and IT
           bands. The next morning I woke up sore, but not the kind of sore where you walk down
           stairs sideways. The kind where you can still train. That is the point of percussion
           massage. It will not eliminate soreness, but it reduces the severity and shortens the
@@ -242,7 +242,7 @@ const BestMassageGunsRecoveryPageContent = (
           </div>
           <p className="mb-4">
             The Theragun Elite is the professional-grade option. It has 16mm amplitude (one of the
-            deepest in the category), 40 lbs of stall force, and an OLED screen that shows speed and
+            deepest in the category), 40 lbs of stall force, and an OLED screen that shows speed and
             force level in real time. The rotating arm lets you reach your back without contorting,
             and the motor is quieter than earlier Theragun models. It comes with 5 attachment heads
             and a hard carrying case. At $399 it is expensive, but if you train seriously and
@@ -250,7 +250,7 @@ const BestMassageGunsRecoveryPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>16mm amplitude, 40 lbs stall force</li>
+            <li>16mm amplitude, 40 lbs stall force</li>
             <li>5 speed settings (1750-2400 percussions per minute)</li>
             <li>OLED screen shows speed and force</li>
             <li>Rotating arm with 4 ergonomic positions</li>
@@ -268,7 +268,7 @@ const BestMassageGunsRecoveryPageContent = (
               quietest Theragun model, 2 batteries included
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $399 is a lot for a massage gun, heavy at 2.2 lbs, Bluetooth
+              <strong>Cons:</strong> $399 is a lot for a massage gun, heavy at 2.2 lbs, Bluetooth
               app is not essential
             </p>
           </div>
@@ -306,12 +306,12 @@ const BestMassageGunsRecoveryPageContent = (
             speeds and 12mm amplitude, it is not as powerful as the Theragun Elite, but it is half
             the price and still delivers effective percussion. The HyperSmart app has guided
             routines for pre-workout warm-up and post-workout recovery, which is helpful if you are
-            new to percussion massage. The battery lasts 3 hours and charges via USB-C. This is the
+            new to percussion massage. The battery lasts 3 hours and charges via USB-C. This is the
             sweet spot between price and performance for most people.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>12mm amplitude, 30 lbs stall force</li>
+            <li>12mm amplitude, 30 lbs stall force</li>
             <li>3 speed settings (1800-3200 percussions per minute)</li>
             <li>Quiet Glide technology (quieter than Gen 1)</li>
             <li>5 attachment heads included</li>
@@ -366,7 +366,7 @@ const BestMassageGunsRecoveryPageContent = (
             The RENPHO R3 is the best massage gun under $100. It has 5 speed levels, 20 different
             speeds total, and 5 attachment heads. The amplitude is 10mm, which is shallower than
             premium models but still effective for most muscle groups. It is louder than the
-            Hypervolt or Theragun, but at $99 that is expected. The battery lasts 6 hours, which is
+            Hypervolt or Theragun, but at $99 that is expected. The battery lasts 6 hours, which is
             longer than most budget guns. This is a good first massage gun if you are not sure how
             often you will use it.
           </p>
@@ -376,7 +376,7 @@ const BestMassageGunsRecoveryPageContent = (
             <li>5 attachment heads included</li>
             <li>6-hour battery life, USB-C charging</li>
             <li>LED display shows speed level</li>
-            <li>Weighs 1.8 lbs</li>
+            <li>Weighs 1.8 lbs</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -425,19 +425,19 @@ const BestMassageGunsRecoveryPageContent = (
           <p className="mb-4">
             The Ekrin B37 has an 8-hour battery life, which is the longest on this list. If you
             forget to charge your massage gun for a week and then need it, this is the one that will
-            still turn on. It also has 56 lbs of stall force, which is higher than the Theragun
+            still turn on. It also has 56 lbs of stall force, which is higher than the Theragun
             Elite. The amplitude is 12mm and it has 5 speed settings. The build quality is solid and
             it comes with a lifetime warranty on the motor. This is the massage gun for people who
             want something reliable and powerful without paying $400.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>12mm amplitude, 56 lbs stall force</li>
+            <li>12mm amplitude, 56 lbs stall force</li>
             <li>5 speed settings (1200-3200 percussions per minute)</li>
             <li>8-hour battery life, USB-C charging</li>
             <li>6 attachment heads included</li>
             <li>Lifetime warranty on motor</li>
-            <li>Weighs 2.2 lbs</li>
+            <li>Weighs 2.2 lbs</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -446,7 +446,7 @@ const BestMassageGunsRecoveryPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> 8-hour battery, 56 lbs stall force, lifetime motor warranty,
+              <strong>Pros:</strong> 8-hour battery, 56 lbs stall force, lifetime motor warranty,
               solid build, 6 heads included
             </p>
             <p className="text-sm mt-2">
@@ -487,14 +487,14 @@ const BestMassageGunsRecoveryPageContent = (
             The Q2 Mini is the smallest and cheapest massage gun on this list. It fits in a gym bag,
             weighs less than a pound, and is TSA approved for carry-on luggage. The amplitude is
             only 7mm and the stall force is lower than full-sized guns, but it is effective for
-            targeted muscle knots and light recovery work. The battery lasts 2 hours and charges via
+            targeted muscle knots and light recovery work. The battery lasts 2 hours and charges via
             USB-C. This is not a replacement for a full-power massage gun, but it is the best
             portable option for travel.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>7mm amplitude, 3 speed settings</li>
-            <li>Weighs 0.9 lbs, fits in any bag</li>
+            <li>Weighs 0.9 lbs, fits in any bag</li>
             <li>2-hour battery life, USB-C charging</li>
             <li>4 attachment heads included</li>
             <li>TSA approved for carry-on</li>
@@ -502,7 +502,7 @@ const BestMassageGunsRecoveryPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Frequent travelers, people who need a second massage gun for the office or gym bag, and
-            anyone who wants light percussion without carrying a 2 lb device.
+            anyone who wants light percussion without carrying a 2 lb device.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
@@ -546,7 +546,7 @@ const BestMassageGunsRecoveryPageContent = (
                 <td className="border p-3 text-center">$399</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.7</td>
                 <td className="border p-3 text-center">16mm</td>
-                <td className="border p-3 text-center">120 min</td>
+                <td className="border p-3 text-center">120 min</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
@@ -554,7 +554,7 @@ const BestMassageGunsRecoveryPageContent = (
                 <td className="border p-3 text-center">$199</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">12mm</td>
-                <td className="border p-3 text-center">180 min</td>
+                <td className="border p-3 text-center">180 min</td>
                 <td className="border p-3 text-center">Mid-range</td>
               </tr>
               <tr>
@@ -562,7 +562,7 @@ const BestMassageGunsRecoveryPageContent = (
                 <td className="border p-3 text-center">$99</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">10mm</td>
-                <td className="border p-3 text-center">360 min</td>
+                <td className="border p-3 text-center">360 min</td>
                 <td className="border p-3 text-center">Budget</td>
               </tr>
               <tr className="bg-gray-50">
@@ -570,7 +570,7 @@ const BestMassageGunsRecoveryPageContent = (
                 <td className="border p-3 text-center">$229</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
                 <td className="border p-3 text-center">12mm</td>
-                <td className="border p-3 text-center">480 min</td>
+                <td className="border p-3 text-center">480 min</td>
                 <td className="border p-3 text-center">Battery life</td>
               </tr>
               <tr>
@@ -578,7 +578,7 @@ const BestMassageGunsRecoveryPageContent = (
                 <td className="border p-3 text-center">$59</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">7mm</td>
-                <td className="border p-3 text-center">120 min</td>
+                <td className="border p-3 text-center">120 min</td>
                 <td className="border p-3 text-center">Travel</td>
               </tr>
             </tbody>
@@ -601,7 +601,7 @@ const BestMassageGunsRecoveryPageContent = (
               tendons, ligaments, or bony areas.
             </li>
             <li>
-              <strong>10-15 minutes is enough:</strong> Hit your quads, hamstrings, glutes, calves,
+              <strong>10-15 minutes is enough:</strong> Hit your quads, hamstrings, glutes, calves,
               and back. That covers the major muscle groups.
             </li>
             <li>
@@ -660,7 +660,7 @@ const BestMassageGunsRecoveryPageContent = (
             option. Good for trying percussion massage without spending $200+.
           </li>
           <li>
-            <strong>Best for long battery:</strong> <strong>Ekrin B37 at $229</strong> lasts 8 hours
+            <strong>Best for long battery:</strong> <strong>Ekrin B37 at $229</strong> lasts 8 hours
             and has a lifetime motor warranty. Great for frequent travelers.
           </li>
           <li>

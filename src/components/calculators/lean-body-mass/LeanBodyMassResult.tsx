@@ -23,7 +23,7 @@ export default function LeanBodyMassResult({ result }: LeanBodyMassResultProps) 
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">Estimated Lean Mass</p>
         <p className="text-3xl font-bold text-accent">
-          {result.leanMassKg} kg ({result.leanMassLb} lb)
+          {result.leanMassKg} kg ({result.leanMassLb} lb)
         </p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">Formula: {result.formula}</p>
       </div>
@@ -31,7 +31,7 @@ export default function LeanBodyMassResult({ result }: LeanBodyMassResultProps) 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Estimated Fat Mass</p>
-          <p className="text-xl font-semibold">{result.fatMassKg} kg</p>
+          <p className="text-xl font-semibold">{result.fatMassKg} kg</p>
         </div>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Body Fat %</p>

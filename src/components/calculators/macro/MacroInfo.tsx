@@ -18,17 +18,17 @@ const MacroInfo: React.FC = () => {
       <h3 className="font-medium">The Three Macronutrients:</h3>
       <ul className="list-disc pl-5 space-y-2">
         <li>
-          <strong>Protein (4 calories per gram):</strong> Essential for building and repairing
+          <strong>Protein (4 calories per gram):</strong> Essential for building and repairing
           muscle tissue, producing enzymes and hormones, and supporting immune function. Found in
           meat, fish, eggs, dairy, legumes, and tofu.
         </li>
         <li>
-          <strong>Carbohydrates (4 calories per gram):</strong> Your body’s primary energy source.
+          <strong>Carbohydrates (4 calories per gram):</strong> Your body’s primary energy source.
           They fuel your brain, muscles, and organs. Found in grains, fruits, vegetables, and
           legumes.
         </li>
         <li>
-          <strong>Fat (9 calories per gram):</strong> Essential for hormone production, nutrient
+          <strong>Fat (9 calories per gram):</strong> Essential for hormone production, nutrient
           absorption, and cell structure. Provides long-lasting energy. Found in oils, nuts, seeds,
           avocados, and fatty fish.
         </li>

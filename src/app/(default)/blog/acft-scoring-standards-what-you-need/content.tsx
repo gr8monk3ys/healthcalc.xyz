@@ -11,7 +11,7 @@ const ACFTScoringStandardsPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         ACFT Scoring Standards 2026: Passing, Excelling, and Maxing Out
       </h1>
-      <p className="text-gray-500 italic">Published: January 22, 2026 &bull; 19 min read</p>
+      <p className="text-gray-500 italic">Published: January 22, 2026 &bull; 19 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -927,10 +927,10 @@ const ACFTScoringStandardsPageContent = (
                 Time to administer
               </td>
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-2">
-                ~45 min per group
+                ~45 min per group
               </td>
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-2">
-                ~90-120 min per group
+                ~90-120 min per group
               </td>
             </tr>
             <tr className="bg-gray-50 dark:bg-gray-800/50">
@@ -989,7 +989,7 @@ const ACFTScoringStandardsPageContent = (
 
         <p className="font-semibold mb-1">Deadlift, Power Throw, SDC: Lower failure rates</p>
         <p>
-          These events have relatively low failure rates. The deadlift minimum (200 lbs for men, 130
+          These events have relatively low failure rates. The deadlift minimum (200 lbs for men, 130
           lbs for women) is achievable for most soldiers who have spent any time in a gym. The power
           throw and SDC favor raw athleticism, which most young soldiers possess.
         </p>
@@ -1031,11 +1031,11 @@ const ACFTScoringStandardsPageContent = (
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
                 MDL
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">200 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">230 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">260 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">300 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">340 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">200 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">230 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">260 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">300 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">340 lbs</td>
             </tr>
             <tr className="bg-gray-50 dark:bg-gray-800/50">
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
@@ -1123,11 +1123,11 @@ const ACFTScoringStandardsPageContent = (
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
                 MDL
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">130 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">150 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">170 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">190 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">210 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">130 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">150 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">170 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">190 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">210 lbs</td>
             </tr>
             <tr className="bg-gray-50 dark:bg-gray-800/50">
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">

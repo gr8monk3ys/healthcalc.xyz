@@ -53,7 +53,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
                   Fat: {result.fatGrams}g ({result.fatPercentage}%)
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {result.fatCalories} calories
+                  {result.fatCalories} calories
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
                   Protein: {result.proteinGrams}g ({result.proteinPercentage}%)
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {result.proteinCalories} calories
+                  {result.proteinCalories} calories
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
                   Net Carbs: {result.netCarbGrams}g ({result.netCarbPercentage}%)
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {result.netCarbCalories} calories
+                  {result.netCarbCalories} calories
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
             <span>
-              Track your macros carefully during the first 2-4 weeks until you learn portion sizes
+              Track your macros carefully during the first 2-4 weeks until you learn portion sizes
             </span>
           </li>
           <li className="flex items-start gap-2">
@@ -222,7 +222,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>Give your body 2-4 weeks to fully adapt before judging results</span>
+            <span>Give your body 2-4 weeks to fully adapt before judging results</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>

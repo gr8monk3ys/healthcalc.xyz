@@ -371,8 +371,8 @@ export default function BodyRecompositionCalculator({
                 <li>Consistent progressive resistance training 3-5x per week</li>
                 <li>High protein intake (1g per lb bodyweight) daily</li>
                 <li>Calorie cycling between training and rest days</li>
-                <li>Adequate sleep (7-9 hours) for recovery</li>
-                <li>Patience - visible results take 8-12 weeks</li>
+                <li>Adequate sleep (7-9 hours) for recovery</li>
+                <li>Patience - visible results take 8-12 weeks</li>
               </ul>
             </div>
           </div>

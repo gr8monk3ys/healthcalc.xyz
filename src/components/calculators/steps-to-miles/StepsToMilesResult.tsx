@@ -20,9 +20,9 @@ export default function StepsToMilesResult({ result }: StepsToMilesResultProps) 
       <h2 className="text-xl font-semibold mb-4">Distance Covered</h2>
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">Miles</p>
-        <p className="text-3xl font-bold text-accent">{result.miles} miles</p>
+        <p className="text-3xl font-bold text-accent">{result.miles} miles</p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-          {result.kilometers} km total
+          {result.kilometers} km total
         </p>
       </div>
     </div>

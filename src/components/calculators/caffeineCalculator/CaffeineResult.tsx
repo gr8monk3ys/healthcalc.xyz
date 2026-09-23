@@ -97,7 +97,7 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="font-medium text-lg mb-1">{result.preWorkoutDose}mg</p>
           <p className="text-sm text-gray-600">
-            Optimal dose for performance enhancement (take 30-60 minutes before exercise)
+            Optimal dose for performance enhancement (take 30-60 minutes before exercise)
           </p>
         </div>
       </div>
@@ -107,7 +107,7 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
         <div className="neumorph-inset p-4 rounded-lg space-y-2">
           <div className="flex justify-between">
             <span className="text-sm text-gray-600">Half-Life:</span>
-            <span className="font-medium">{result.halfLifeHours} hours</span>
+            <span className="font-medium">{result.halfLifeHours} hours</span>
           </div>
           <div className="flex justify-between">
             <span className="text-sm text-gray-600">Full Clearance Time:</span>

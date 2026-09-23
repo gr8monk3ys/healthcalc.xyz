@@ -71,7 +71,7 @@ const HowFastCanYouBuildMusclePageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           How Fast Can You Build Muscle? Realistic Expectations
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -79,14 +79,14 @@ const HowFastCanYouBuildMusclePageContent = (
           <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
           <ul className="space-y-2">
             <li>
-              Beginners can gain 1-2 lbs of muscle per month (12-24 lbs in the first year) with
+              Beginners can gain 1-2 lbs of muscle per month (12-24 lbs in the first year) with
               proper training and nutrition
             </li>
             <li>
-              Intermediate lifters (1-2 years of training) see gains slow to 0.5-1 lb per month
+              Intermediate lifters (1-2 years of training) see gains slow to 0.5-1 lb per month
             </li>
             <li>
-              Advanced lifters are lucky to gain 0.25-0.5 lb of muscle monthly, often requiring
+              Advanced lifters are lucky to gain 0.25-0.5 lb of muscle monthly, often requiring
               years for noticeable progress
             </li>
             <li>
@@ -139,18 +139,18 @@ const HowFastCanYouBuildMusclePageContent = (
             <tbody>
               <tr className="border-b">
                 <td className="py-2">Beginner (Year 1)</td>
-                <td className="py-2">1-2 lbs/month</td>
-                <td className="py-2">12-24 lbs</td>
+                <td className="py-2">1-2 lbs/month</td>
+                <td className="py-2">12-24 lbs</td>
               </tr>
               <tr className="border-b">
                 <td className="py-2">Intermediate (Years 2-3)</td>
-                <td className="py-2">0.5-1 lb/month</td>
-                <td className="py-2">6-12 lbs</td>
+                <td className="py-2">0.5-1 lb/month</td>
+                <td className="py-2">6-12 lbs</td>
               </tr>
               <tr>
                 <td className="py-2">Advanced (Year 4+)</td>
-                <td className="py-2">0.25-0.5 lb/month</td>
-                <td className="py-2">3-6 lbs</td>
+                <td className="py-2">0.25-0.5 lb/month</td>
+                <td className="py-2">3-6 lbs</td>
               </tr>
             </tbody>
           </table>
@@ -195,7 +195,7 @@ const HowFastCanYouBuildMusclePageContent = (
             </li>
             <li>
               <strong>Muscle protein synthesis stays elevated longer:</strong> After a workout,
-              beginners maintain elevated protein synthesis for 48+ hours versus 24-36 hours for
+              beginners maintain elevated protein synthesis for 48+ hours versus 24-36 hours for
               trained individuals
             </li>
             <li>
@@ -211,7 +211,7 @@ const HowFastCanYouBuildMusclePageContent = (
 
         <p>
           In my first year of serious training (after messing around in the gym for months with no
-          plan), I gained about 18 pounds of muscle. I went from looking like I’d never touched a
+          plan), I gained about 18 pounds of muscle. I went from looking like I’d never touched a
           weight to looking like someone who clearly lifted. That single year created more visible
           change than the next four years combined.
         </p>
@@ -234,8 +234,8 @@ const HowFastCanYouBuildMusclePageContent = (
         </p>
 
         <p>
-          During years two and three of training, you’re looking at roughly 6-12 pounds of muscle
-          gain per year if everything goes well. That’s 0.5-1 lb per month. Consider that a pound of
+          During years two and three of training, you’re looking at roughly 6-12 pounds of muscle
+          gain per year if everything goes well. That’s 0.5-1 lb per month. Consider that a pound of
           muscle spread across your entire body is basically invisible. You need several months of
           consistent gains before you’ll notice a visible difference.
         </p>
@@ -275,9 +275,9 @@ const HowFastCanYouBuildMusclePageContent = (
 
         <p>
           Once you’ve been training seriously for four or more years, you enter the advanced phase.
-          At this point, you’re looking at 3-6 pounds of muscle per year. That’s 0.25-0.5 lbs per
+          At this point, you’re looking at 3-6 pounds of muscle per year. That’s 0.25-0.5 lbs per
           month. Half a pound per month. You could go an entire quarter of the year and gain maybe
-          1.5 pounds of muscle.
+          1.5 pounds of muscle.
         </p>
 
         <p>
@@ -293,7 +293,7 @@ const HowFastCanYouBuildMusclePageContent = (
             still apply, but the margin for error is razor thin:
           </p>
           <ul className="list-disc list-inside mt-4">
-            <li>You might need to gain 10-15 pounds of body weight to add 3 pounds of muscle</li>
+            <li>You might need to gain 10-15 pounds of body weight to add 3 pounds of muscle</li>
             <li>A single bad week of sleep can kill weeks of potential progress</li>
             <li>
               Your training needs to be precisely periodized with attention to volume, intensity,
@@ -308,7 +308,7 @@ const HowFastCanYouBuildMusclePageContent = (
 
         <p>
           I’m honest about where I am: somewhere between intermediate and advanced. After seven
-          years of consistent training, my muscle gains have slowed to maybe 4-5 pounds per year.
+          years of consistent training, my muscle gains have slowed to maybe 4-5 pounds per year.
           Some years I gain more fat than muscle during a bulking phase. Some years I spin my wheels
           entirely.
         </p>
@@ -355,7 +355,7 @@ const HowFastCanYouBuildMusclePageContent = (
           <p className="mt-4">
             That doesn’t mean you can’t build muscle after 30, 40, or 50. You absolutely can. But
             the rate will likely be on the lower end of the ranges I mentioned. Someone starting at
-            45 might gain 8-10 pounds in their first year instead of 18-20.
+            45 might gain 8-10 pounds in their first year instead of 18-20.
           </p>
         </div>
 
@@ -366,8 +366,8 @@ const HowFastCanYouBuildMusclePageContent = (
             hours per night consistently, you’re leaving gains on the table. Period.
           </p>
           <p className="mt-4">
-            I’ve tracked this in my own training. When I average 8 hours of sleep, I make steady
-            progress. When life gets busy and I’m down to 6 hours, my strength stalls even with
+            I’ve tracked this in my own training. When I average 8 hours of sleep, I make steady
+            progress. When life gets busy and I’m down to 6 hours, my strength stalls even with
             identical training and nutrition. Your body doesn’t build muscle in the gym. It builds
             muscle while you sleep.
           </p>
@@ -381,7 +381,7 @@ const HowFastCanYouBuildMusclePageContent = (
             additional benefits (despite what supplement companies tell you).
           </p>
           <p className="mt-4">
-            For me at 180 pounds, that’s 125-180 grams daily. I aim for about 150 grams most days.
+            For me at 180 pounds, that’s 125-180 grams daily. I aim for about 150 grams most days.
             That’s not hard to hit if you’re eating whole foods with decent protein content at each
             meal. Our{' '}
             <Link href="/protein" className="text-accent hover:underline">
@@ -431,11 +431,11 @@ const HowFastCanYouBuildMusclePageContent = (
           </p>
           <ul className="list-disc list-inside mt-4">
             <li>
-              <strong>Add weight:</strong> If you benched 135 lbs for 8 reps last week, try 140 lbs
+              <strong>Add weight:</strong> If you benched 135 lbs for 8 reps last week, try 140 lbs
               for 8 reps this week
             </li>
             <li>
-              <strong>Add reps:</strong> If you did 135 lbs for 8 reps last week, try for 9 or 10
+              <strong>Add reps:</strong> If you did 135 lbs for 8 reps last week, try for 9 or 10
               reps this week
             </li>
             <li>
@@ -447,7 +447,7 @@ const HowFastCanYouBuildMusclePageContent = (
               the eccentric better
             </li>
             <li>
-              <strong>Reduce rest time:</strong> If you rested 3 minutes between sets, try 2.5
+              <strong>Reduce rest time:</strong> If you rested 3 minutes between sets, try 2.5
               minutes with the same performance
             </li>
           </ul>
@@ -456,7 +456,7 @@ const HowFastCanYouBuildMusclePageContent = (
         <p>
           I keep a training log (just a simple notebook) where I write down every set, rep, and
           weight. Before each workout, I look at what I did last time and try to beat it in some
-          small way. Some weeks I add 5 pounds. Some weeks I just get one extra rep. Some weeks I
+          small way. Some weeks I add 5 pounds. Some weeks I just get one extra rep. Some weeks I
           maintain the same numbers but with better form.
         </p>
 
@@ -517,14 +517,14 @@ const HowFastCanYouBuildMusclePageContent = (
 
         <p>
           I’m not saying dramatic transformations never happen naturally. They do, especially for
-          complete beginners who are also overweight. Losing 20 pounds of fat while gaining 10
+          complete beginners who are also overweight. Losing 20 pounds of fat while gaining 10
           pounds of muscle in your first year can create a striking visual change.
         </p>
 
         <p>
-          But those 12-week transformations where someone gains 25 pounds of muscle and gets
+          But those 12-week transformations where someone gains 25 pounds of muscle and gets
           shredded? That’s not happening naturally. The math doesn’t work. Even a beginner with
-          perfect genetics might gain 6-8 pounds of muscle in 12 weeks, and that’s while gaining
+          perfect genetics might gain 6-8 pounds of muscle in 12 weeks, and that’s while gaining
           some fat too.
         </p>
 
@@ -572,7 +572,7 @@ const HowFastCanYouBuildMusclePageContent = (
             <li>
               <strong>Scale weight trends:</strong> Weigh yourself daily and look at the weekly
               average. If you’re trying to gain muscle, that average should increase by roughly
-              0.5-1 lb per week for beginners, less for advanced lifters.
+              0.5-1 lb per week for beginners, less for advanced lifters.
             </li>
             <li>
               <strong>Body fat percentage estimates:</strong> Use calipers or DEXA scans (if
@@ -600,7 +600,7 @@ const HowFastCanYouBuildMusclePageContent = (
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}
-          to establish your maintenance calories, then add 200-300 calories for a controlled bulk.
+          to establish your maintenance calories, then add 200-300 calories for a controlled bulk.
           Our{' '}
           <Link href="/macro" className="text-accent hover:underline">
             Macro Calculator
@@ -614,8 +614,8 @@ const HowFastCanYouBuildMusclePageContent = (
 
         <p>
           After everything I’ve written, the message is simple: building muscle naturally is slow.
-          If you’re a beginner, you might gain 15-20 pounds in your first year. If you’re
-          intermediate, maybe 6-10 pounds per year. If you’re advanced, you’ll be lucky to add 3-5
+          If you’re a beginner, you might gain 15-20 pounds in your first year. If you’re
+          intermediate, maybe 6-10 pounds per year. If you’re advanced, you’ll be lucky to add 3-5
           pounds annually.
         </p>
 
@@ -633,8 +633,8 @@ const HowFastCanYouBuildMusclePageContent = (
         </p>
 
         <p>
-          I’ve been training for seven years. I’ve gained somewhere around 35-40 pounds of muscle in
-          that time. That’s an average of 5-6 pounds per year. Some years were better than others.
+          I’ve been training for seven years. I’ve gained somewhere around 35-40 pounds of muscle in
+          that time. That’s an average of 5-6 pounds per year. Some years were better than others.
           Some years I gained mostly fat and had to diet it back off. But the trend line over time
           is up.
         </p>

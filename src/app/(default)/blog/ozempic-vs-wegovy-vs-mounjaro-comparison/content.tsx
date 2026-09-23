@@ -11,7 +11,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         Ozempic vs Wegovy vs Mounjaro: An Honest Comparison
       </h1>
-      <p className="text-gray-500 italic">Published: January 19, 2026 &bull; 17 min read</p>
+      <p className="text-gray-500 italic">Published: January 19, 2026 &bull; 17 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -71,9 +71,9 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <p>The differences are dosing and FDA-approved indication.</p>
 
       <p>
-        Ozempic is approved for type 2 diabetes management. Its maximum dose is 2.0 mg per week (a
-        1.0 mg dose is also available). Wegovy is approved for chronic weight management. Its target
-        maintenance dose is 2.4 mg per week, which is 20% higher than Ozempic’s maximum.
+        Ozempic is approved for type 2 diabetes management. Its maximum dose is 2.0 mg per week (a
+        1.0 mg dose is also available). Wegovy is approved for chronic weight management. Its target
+        maintenance dose is 2.4 mg per week, which is 20% higher than Ozempic’s maximum.
       </p>
 
       <p>
@@ -84,9 +84,9 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       </p>
 
       <p>
-        The practical consequence: someone taking Ozempic at 1.0 mg for weight loss is getting less
+        The practical consequence: someone taking Ozempic at 1.0 mg for weight loss is getting less
         than half the weight-loss dose studied in the STEP trials. They will still lose some weight,
-        but likely less than someone on Wegovy 2.4 mg. If you are using Ozempic for weight loss and
+        but likely less than someone on Wegovy 2.4 mg. If you are using Ozempic for weight loss and
         have plateaued, the dose difference may be part of the reason.
       </p>
 
@@ -156,10 +156,10 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
             </tr>
             <tr>
               <td className="px-4 py-3 font-semibold">Max dose</td>
-              <td className="px-4 py-3">2.0 mg/week</td>
-              <td className="px-4 py-3">2.4 mg/week</td>
-              <td className="px-4 py-3">15 mg/week</td>
-              <td className="px-4 py-3">15 mg/week</td>
+              <td className="px-4 py-3">2.0 mg/week</td>
+              <td className="px-4 py-3">2.4 mg/week</td>
+              <td className="px-4 py-3">15 mg/week</td>
+              <td className="px-4 py-3">15 mg/week</td>
             </tr>
             <tr>
               <td className="px-4 py-3 font-semibold">Administration</td>
@@ -182,21 +182,21 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <h2 className="text-2xl font-bold mt-10 mb-4">Head-to-Head Efficacy: What the Data Shows</h2>
 
       <p>
-        We do not have a direct randomized trial comparing Wegovy 2.4 mg against Zepbound 15 mg in a
+        We do not have a direct randomized trial comparing Wegovy 2.4 mg against Zepbound 15 mg in a
         weight loss population. That is the comparison everyone wants, and it does not exist yet.
       </p>
 
       <p>
         What we do have is the SURPASS-2 trial (published in the NEJM in 2021), which compared
-        tirzepatide against semaglutide 1.0 mg in patients with type 2 diabetes. This is not a
-        perfect comparison because the semaglutide dose was 1.0 mg (the diabetes dose, not the 2.4
+        tirzepatide against semaglutide 1.0 mg in patients with type 2 diabetes. This is not a
+        perfect comparison because the semaglutide dose was 1.0 mg (the diabetes dose, not the 2.4
         mg weight loss dose), but it is the closest head-to-head data available.
       </p>
 
       <p>
-        At 40 weeks, tirzepatide 15 mg produced 12.4 kg of weight loss versus 6.2 kg with
-        semaglutide 1.0 mg. Tirzepatide at 10 mg produced 11.2 kg. Even tirzepatide at its lowest
-        dose (5 mg) beat semaglutide 1.0 mg: 7.8 kg versus 6.2 kg.
+        At 40 weeks, tirzepatide 15 mg produced 12.4 kg of weight loss versus 6.2 kg with
+        semaglutide 1.0 mg. Tirzepatide at 10 mg produced 11.2 kg. Even tirzepatide at its lowest
+        dose (5 mg) beat semaglutide 1.0 mg: 7.8 kg versus 6.2 kg.
       </p>
 
       <p>
@@ -217,28 +217,28 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
             <tr>
-              <td className="px-4 py-3">Semaglutide 2.4 mg (Wegovy)</td>
+              <td className="px-4 py-3">Semaglutide 2.4 mg (Wegovy)</td>
               <td className="px-4 py-3">STEP 1, 68 wks</td>
               <td className="px-4 py-3">Non-diabetic</td>
               <td className="px-4 py-3 font-semibold">14.9%</td>
               <td className="px-4 py-3">32%</td>
             </tr>
             <tr>
-              <td className="px-4 py-3">Tirzepatide 5 mg (Mounjaro/Zepbound)</td>
+              <td className="px-4 py-3">Tirzepatide 5 mg (Mounjaro/Zepbound)</td>
               <td className="px-4 py-3">SURMOUNT-1, 72 wks</td>
               <td className="px-4 py-3">Non-diabetic</td>
               <td className="px-4 py-3 font-semibold">15.0%</td>
               <td className="px-4 py-3">27%</td>
             </tr>
             <tr>
-              <td className="px-4 py-3">Tirzepatide 10 mg (Mounjaro/Zepbound)</td>
+              <td className="px-4 py-3">Tirzepatide 10 mg (Mounjaro/Zepbound)</td>
               <td className="px-4 py-3">SURMOUNT-1, 72 wks</td>
               <td className="px-4 py-3">Non-diabetic</td>
               <td className="px-4 py-3 font-semibold">19.5%</td>
               <td className="px-4 py-3">46%</td>
             </tr>
             <tr>
-              <td className="px-4 py-3">Tirzepatide 15 mg (Mounjaro/Zepbound)</td>
+              <td className="px-4 py-3">Tirzepatide 15 mg (Mounjaro/Zepbound)</td>
               <td className="px-4 py-3">SURMOUNT-1, 72 wks</td>
               <td className="px-4 py-3">Non-diabetic</td>
               <td className="px-4 py-3 font-semibold">20.9%</td>
@@ -251,14 +251,14 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <p>
         At the highest tirzepatide dose, more than half of participants lost over 20% of their body
         weight. With semaglutide, about a third did. For a 250-pound person, that is roughly 37
-        pounds versus 52 pounds.
+        pounds versus 52 pounds.
       </p>
 
       <p>
         A caveat: these are different trials with different patient populations, different sites,
         and slightly different timeframes. The gold-standard comparison (randomized, double-blind,
         same patients) is being done in the ongoing SURMOUNT-5 trial, which directly compares
-        tirzepatide 15 mg against semaglutide 2.4 mg. Initial results announced in late 2024
+        tirzepatide 15 mg against semaglutide 2.4 mg. Initial results announced in late 2024
         confirmed tirzepatide’s superiority, with a roughly 5 percentage point greater weight loss.
       </p>
 
@@ -285,39 +285,39 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
             <tr>
               <td className="px-4 py-3">Weeks 1-4</td>
-              <td className="px-4 py-3">0.25 mg</td>
-              <td className="px-4 py-3">0.25 mg</td>
-              <td className="px-4 py-3">2.5 mg</td>
+              <td className="px-4 py-3">0.25 mg</td>
+              <td className="px-4 py-3">0.25 mg</td>
+              <td className="px-4 py-3">2.5 mg</td>
             </tr>
             <tr>
               <td className="px-4 py-3">Weeks 5-8</td>
-              <td className="px-4 py-3">0.5 mg</td>
-              <td className="px-4 py-3">0.5 mg</td>
-              <td className="px-4 py-3">5 mg</td>
+              <td className="px-4 py-3">0.5 mg</td>
+              <td className="px-4 py-3">0.5 mg</td>
+              <td className="px-4 py-3">5 mg</td>
             </tr>
             <tr>
               <td className="px-4 py-3">Weeks 9-12</td>
-              <td className="px-4 py-3">0.5 mg or 1.0 mg</td>
-              <td className="px-4 py-3">1.0 mg</td>
-              <td className="px-4 py-3">7.5 mg</td>
+              <td className="px-4 py-3">0.5 mg or 1.0 mg</td>
+              <td className="px-4 py-3">1.0 mg</td>
+              <td className="px-4 py-3">7.5 mg</td>
             </tr>
             <tr>
               <td className="px-4 py-3">Weeks 13-16</td>
-              <td className="px-4 py-3">1.0 mg (may stay)</td>
-              <td className="px-4 py-3">1.7 mg</td>
-              <td className="px-4 py-3">10 mg</td>
+              <td className="px-4 py-3">1.0 mg (may stay)</td>
+              <td className="px-4 py-3">1.7 mg</td>
+              <td className="px-4 py-3">10 mg</td>
             </tr>
             <tr>
               <td className="px-4 py-3">Week 17+</td>
-              <td className="px-4 py-3">1.0 mg or 2.0 mg</td>
-              <td className="px-4 py-3">2.4 mg (maintenance)</td>
-              <td className="px-4 py-3">12.5 mg or 15 mg</td>
+              <td className="px-4 py-3">1.0 mg or 2.0 mg</td>
+              <td className="px-4 py-3">2.4 mg (maintenance)</td>
+              <td className="px-4 py-3">12.5 mg or 15 mg</td>
             </tr>
             <tr>
               <td className="px-4 py-3 font-semibold">Time to full dose</td>
-              <td className="px-4 py-3 font-semibold">8-16 weeks</td>
-              <td className="px-4 py-3 font-semibold">16 weeks</td>
-              <td className="px-4 py-3 font-semibold">16-20 weeks</td>
+              <td className="px-4 py-3 font-semibold">8-16 weeks</td>
+              <td className="px-4 py-3 font-semibold">16 weeks</td>
+              <td className="px-4 py-3 font-semibold">16-20 weeks</td>
             </tr>
           </tbody>
         </table>
@@ -332,7 +332,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <p>
         Ozempic’s titration is somewhat more flexible because it is a diabetes drug where dosing is
         titrated based on blood sugar response, not weight loss. Many people on Ozempic for weight
-        loss stay at 1.0 mg and never go to 2.0 mg, which means they are getting less than half the
+        loss stay at 1.0 mg and never go to 2.0 mg, which means they are getting less than half the
         dose that was studied for weight loss in the STEP trials.
       </p>
 
@@ -451,7 +451,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
 
       <p>
         Step 4: Ongoing documentation. Many insurers require periodic re-authorization, sometimes
-        every 6 or 12 months, with evidence that the medication is working (usually defined as a 5%
+        every 6 or 12 months, with evidence that the medication is working (usually defined as a 5%
         weight loss threshold).
       </p>
 
@@ -532,8 +532,8 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
           <thead>
             <tr className="bg-gray-50 dark:bg-gray-800">
               <th className="px-4 py-3 text-left font-semibold">Side Effect</th>
-              <th className="px-4 py-3 text-left font-semibold">Semaglutide 2.4 mg (Wegovy)</th>
-              <th className="px-4 py-3 text-left font-semibold">Tirzepatide 15 mg (Zepbound)</th>
+              <th className="px-4 py-3 text-left font-semibold">Semaglutide 2.4 mg (Wegovy)</th>
+              <th className="px-4 py-3 text-left font-semibold">Tirzepatide 15 mg (Zepbound)</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -645,7 +645,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
             <p className="font-semibold">If you are very sensitive to GI side effects:</p>
             <p>
               Tirzepatide has consistently lower nausea and vomiting rates. Starting at the lowest
-              dose (2.5 mg) and titrating slowly over 20+ weeks may also help. Slower titration of
+              dose (2.5 mg) and titrating slowly over 20+ weeks may also help. Slower titration of
               semaglutide is another option.
             </p>
           </div>
@@ -656,21 +656,21 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
 
       <p>
         Rybelsus is an oral formulation of semaglutide, currently approved only for type 2 diabetes
-        at doses up to 14 mg daily. It is taken as a pill rather than an injection, which some
+        at doses up to 14 mg daily. It is taken as a pill rather than an injection, which some
         people prefer.
       </p>
 
       <p>
-        However, oral semaglutide at the 14 mg dose produces significantly less weight loss than the
-        injectable 2.4 mg dose. Oral bioavailability of semaglutide is only about 1%, meaning most
+        However, oral semaglutide at the 14 mg dose produces significantly less weight loss than the
+        injectable 2.4 mg dose. Oral bioavailability of semaglutide is only about 1%, meaning most
         of the pill is destroyed in the GI tract before it gets absorbed. You need a much larger
         dose orally to achieve the same blood levels.
       </p>
 
       <p>
-        Novo Nordisk is developing a higher-dose oral semaglutide (25 mg and 50 mg) specifically for
-        weight loss. Phase 3 trials (the OASIS program) showed the 50 mg oral dose produced about
-        15.1% weight loss at 68 weeks, which is comparable to injectable Wegovy 2.4 mg. An FDA
+        Novo Nordisk is developing a higher-dose oral semaglutide (25 mg and 50 mg) specifically for
+        weight loss. Phase 3 trials (the OASIS program) showed the 50 mg oral dose produced about
+        15.1% weight loss at 68 weeks, which is comparable to injectable Wegovy 2.4 mg. An FDA
         application has been submitted, with potential approval in 2026.
       </p>
 
@@ -686,13 +686,13 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
       <p>
         <strong>Retatrutide</strong> (Eli Lilly) is a triple agonist hitting GLP-1, GIP, and
         glucagon receptors. Phase 2 data published in the NEJM in 2023 showed up to 24.2% weight
-        loss at 48 weeks. Phase 3 trials are ongoing.
+        loss at 48 weeks. Phase 3 trials are ongoing.
       </p>
 
       <p>
         <strong>Orforglipron</strong> (Eli Lilly) is a non-peptide oral GLP-1 agonist. Unlike
         Rybelsus (which is a peptide squeezed into a pill), orforglipron is a small molecule with
-        much better oral bioavailability. Phase 2 data showed up to 14.7% weight loss at 36 weeks.
+        much better oral bioavailability. Phase 2 data showed up to 14.7% weight loss at 36 weeks.
         Phase 3 trials are underway.
       </p>
 
@@ -756,7 +756,7 @@ const OzempicVsWegovyVsMounjaroComparisonPageContent = (
             with obesity.” Nature Medicine, 2023.
           </li>
           <li>
-            Knop FK, et al. “Oral Semaglutide 50 mg Taken Once Daily in Adults with Overweight or
+            Knop FK, et al. “Oral Semaglutide 50 mg Taken Once Daily in Adults with Overweight or
             Obesity.” Lancet, 2023. (OASIS 1)
           </li>
           <li>Ozempic (semaglutide) Prescribing Information. Novo Nordisk, 2024.</li>

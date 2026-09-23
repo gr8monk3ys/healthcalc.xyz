@@ -103,7 +103,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Kettlebells for Full-Body Workouts in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -301,7 +301,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
               spots on your palms.
             </li>
             <li>
-              <strong>Weight accuracy:</strong> A 35-pound kettlebell should weigh 35 pounds.
+              <strong>Weight accuracy:</strong> A 35-pound kettlebell should weigh 35 pounds.
               Cheaper models can be off by a pound or more.
             </li>
             <li>
@@ -355,7 +355,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             <li>Gravity-cast single-piece construction with no handle seams</li>
             <li>Powder coat finish resists rust and improves grip without chalk</li>
             <li>Recessed logo for comfortable cleans and rack position</li>
-            <li>Available in 5-90 lb increments (21 weight options)</li>
+            <li>Available in 5-90 lb increments (21 weight options)</li>
             <li>Lifetime warranty from Kettlebell Kings</li>
             <li>Flat machined base for stable floor resting</li>
           </ul>
@@ -430,7 +430,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             <li>Solid cast iron construction</li>
             <li>Enamel coating for basic corrosion protection</li>
             <li>Wide handle for two-handed grip</li>
-            <li>Available in weights from 10 to 80 lbs</li>
+            <li>Available in weights from 10 to 80 lbs</li>
             <li>Flat bottom for floor stability</li>
             <li>Weight marked clearly on the body</li>
           </ul>
@@ -503,7 +503,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Cast iron with enamel coating</li>
-            <li>Available from 10 to 60 lbs</li>
+            <li>Available from 10 to 60 lbs</li>
             <li>Textured wide handle on heavier models</li>
             <li>Free Prime shipping (big deal for heavy items)</li>
             <li>Flat base for renegade rows and floor presses</li>
@@ -585,7 +585,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             <li>Ductile iron construction (stronger than standard cast iron)</li>
             <li>E-coat finish with semi-gloss surface and natural texture</li>
             <li>Single-cast with absolutely no handle seams</li>
-            <li>Available from 9 to 88 lbs in 12 weight increments</li>
+            <li>Available from 9 to 88 lbs in 12 weight increments</li>
             <li>Handle diameter: 1.2″ (light) to 1.5″ (heavy)</li>
             <li>Made in the USA</li>
           </ul>
@@ -662,7 +662,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Cast iron core with vinyl coating for floor protection</li>
             <li>Color-coded by weight for easy identification</li>
-            <li>Available from 5 to 50 lbs in 10 size options</li>
+            <li>Available from 5 to 50 lbs in 10 size options</li>
             <li>Noise-reducing coating for apartment training</li>
             <li>Wide handle for two-handed movements</li>
             <li>Flat base for stable resting position</li>
@@ -779,13 +779,13 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
               started doing single-arm work consistently.
             </li>
             <li>
-              <strong>Use timed sets:</strong> Instead of counting reps, set a timer for 30 seconds
-              of work and 30 seconds of rest. This builds conditioning faster than standard rep
+              <strong>Use timed sets:</strong> Instead of counting reps, set a timer for 30 seconds
+              of work and 30 seconds of rest. This builds conditioning faster than standard rep
               schemes and teaches you to pace yourself.
             </li>
             <li>
               <strong>Track your calories burned:</strong> A 20-minute kettlebell session can burn
-              anywhere from 200 to 400 calories depending on your weight and intensity. Use our{' '}
+              anywhere from 200 to 400 calories depending on your weight and intensity. Use our{' '}
               <Link href="/body-fat-burn" className="text-accent hover:underline">
                 Body Fat Burn Calculator
               </Link>{' '}

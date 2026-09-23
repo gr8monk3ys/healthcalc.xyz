@@ -127,7 +127,7 @@ const BestSupplementsFitnessGoalsPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Supplements for Your Fitness Goals in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -466,7 +466,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               Calorie Deficit Calculator
             </Link>{' '}
             to set your target, then lean on Impact Whey to hit high-protein targets without
-            excessive calories (only 103 calories per scoop).
+            excessive calories (only 103 calories per scoop).
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -542,7 +542,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <Link href="/body-fat" className="text-accent hover:underline">
               Body Fat Calculator
             </Link>
-            . Note that creatine may cause 2-4 lbs of water weight gain initially, so use our{' '}
+            . Note that creatine may cause 2-4 lbs of water weight gain initially, so use our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
             </Link>{' '}
@@ -918,7 +918,7 @@ const BestSupplementsFitnessGoalsPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-3">
             <li>
-              <strong>Whey Protein:</strong> Within 30-60 minutes after training for recovery, or
+              <strong>Whey Protein:</strong> Within 30-60 minutes after training for recovery, or
               any time of day to hit your daily protein target. Timing is less critical than total
               daily intake.
             </li>
@@ -935,7 +935,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               Splitting the dose (one with breakfast, one with dinner) may reduce any GI discomfort.
             </li>
             <li>
-              <strong>Pre-Workout:</strong> 20-30 minutes before training. Avoid taking within 6
+              <strong>Pre-Workout:</strong> 20-30 minutes before training. Avoid taking within 6
               hours of bedtime due to caffeine content.
             </li>
           </ul>

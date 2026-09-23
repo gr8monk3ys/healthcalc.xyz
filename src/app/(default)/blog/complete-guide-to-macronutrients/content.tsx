@@ -12,7 +12,7 @@ const CompleteGuideToMacronutrientsPageContent = (
         Macronutrients Explained: Protein, Carbs, and Fat Without the Dogma
       </h1>
       <p className="text-gray-500 dark:text-gray-400 italic">
-        Published: January 17, 2026 &bull; 21 min read
+        Published: January 17, 2026 &bull; 21 min read
       </p>
     </header>
 
@@ -21,7 +21,7 @@ const CompleteGuideToMacronutrientsPageContent = (
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Key Takeaways</h2>
         <ul className="space-y-2 text-gray-700 dark:text-gray-300">
           <li>
-            Protein requirements for active people are 1.6 to 2.2 g/kg body weight per day, and
+            Protein requirements for active people are 1.6 to 2.2 g/kg body weight per day, and
             total daily intake matters more than timing
           </li>
           <li>
@@ -72,15 +72,15 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         A 2016 meta-analysis by Morton et al. published in the British Journal of Sports Medicine
-        analyzed 49 studies with 1,863 participants and found that protein intakes above 1.6 g/kg
+        analyzed 49 studies with 1,863 participants and found that protein intakes above 1.6 g/kg
         per day maximized gains in lean mass during resistance training. There was no additional
-        benefit above roughly 2.2 g/kg per day.
+        benefit above roughly 2.2 g/kg per day.
       </p>
 
       <p>
         Stuart Phillips, one of the leading protein researchers at McMaster University, has
         published extensively on this topic. His group’s work consistently lands in the 1.6 to 2.2
-        g/kg range for active individuals. For someone weighing 80 kg (176 pounds), that is 128 to
+        g/kg range for active individuals. For someone weighing 80 kg (176 pounds), that is 128 to
         176 grams of protein per day.
       </p>
 
@@ -88,7 +88,7 @@ const CompleteGuideToMacronutrientsPageContent = (
         For older adults, the requirements may be higher due to anabolic resistance (the reduced
         ability of aging muscle to respond to protein intake). The PROT-AGE study group (Bauer et
         al., 2013, published in the Journal of the American Medical Directors Association)
-        recommended 1.0 to 1.2 g/kg for healthy older adults and 1.2 to 1.5 g/kg for those with
+        recommended 1.0 to 1.2 g/kg for healthy older adults and 1.2 to 1.5 g/kg for those with
         acute or chronic illness.
       </p>
 
@@ -106,7 +106,7 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         For years, the fitness industry insisted on a narrow “anabolic window” after training. You
-        had to consume protein within 30 to 60 minutes of your workout, or the session was wasted.
+        had to consume protein within 30 to 60 minutes of your workout, or the session was wasted.
       </p>
 
       <p>
@@ -124,7 +124,7 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         Does this mean timing is completely irrelevant? Not quite. If you train fasted or have not
-        eaten in 4 to 5 hours before training, getting protein relatively soon after your session
+        eaten in 4 to 5 hours before training, getting protein relatively soon after your session
         makes more sense. And distributing protein across 3 to 4 meals throughout the day may be
         slightly better than cramming it all into one or two meals, based on muscle protein
         synthesis research.
@@ -132,7 +132,7 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         But the differences are small compared to simply hitting your total daily target. If you eat
-        1.6 g/kg spread across your normal meals, you are getting 90% of the benefit regardless of
+        1.6 g/kg spread across your normal meals, you are getting 90% of the benefit regardless of
         when exactly those meals fall relative to your workout.
       </p>
 
@@ -200,8 +200,8 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         If you are a recreational lifter doing 3 to 4 sessions per week, moderate carb intake
-        (around 3 to 5 g/kg body weight) is generally sufficient. If you are an endurance athlete or
-        training at high volumes, you need more (5 to 8 g/kg or higher). If you are sedentary and
+        (around 3 to 5 g/kg body weight) is generally sufficient. If you are an endurance athlete or
+        training at high volumes, you need more (5 to 8 g/kg or higher). If you are sedentary and
         your primary goal is fat loss, you can go lower without performance consequences, because
         there is not much performance to fuel.
       </p>
@@ -434,17 +434,17 @@ const CompleteGuideToMacronutrientsPageContent = (
 
       <p>
         <strong>Step 2: Set protein first.</strong> Multiply your body weight in kilograms by 1.6 to
-        2.2. This is your daily protein target in grams. Each gram of protein has 4 calories.
+        2.2. This is your daily protein target in grams. Each gram of protein has 4 calories.
       </p>
 
       <p>
-        <strong>Step 3: Set fat at a minimum.</strong> Aim for at least 0.7 to 1.0 g per kg of body
-        weight, or about 25 to 30% of total calories. Each gram of fat has 9 calories.
+        <strong>Step 3: Set fat at a minimum.</strong> Aim for at least 0.7 to 1.0 g per kg of body
+        weight, or about 25 to 30% of total calories. Each gram of fat has 9 calories.
       </p>
 
       <p>
         <strong>Step 4: Fill the rest with carbs.</strong> Whatever calories remain after protein
-        and fat go to carbohydrates. Each gram of carbs has 4 calories. If you prefer lower carbs,
+        and fat go to carbohydrates. Each gram of carbs has 4 calories. If you prefer lower carbs,
         shift some of these calories to additional fat.
       </p>
 

@@ -70,7 +70,7 @@ const HeartRateZonesExplainedPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         Heart Rate Zones Explained: How to Train Smarter
       </h1>
-      <p className="text-gray-500 italic">Published: February 8, 2026 • 13 min read</p>
+      <p className="text-gray-500 italic">Published: February 8, 2026 • 13 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -208,7 +208,7 @@ const HeartRateZonesExplainedPageContent = (
         <p className="font-semibold mb-2">What it feels like:</p>
         <p>
           You can speak in short sentences only. Your breathing is labored but controlled. This pace
-          feels “moderately hard.” You could hold it for maybe 30-60 minutes if you really pushed.
+          feels “moderately hard.” You could hold it for maybe 30-60 minutes if you really pushed.
           It’s not quite comfortable but not quite hard.
         </p>
 
@@ -231,7 +231,7 @@ const HeartRateZonesExplainedPageContent = (
         <p className="font-semibold mt-4 mb-2">When to use it:</p>
         <p>
           Tempo runs (sustained efforts at a “comfortably hard” pace). Race-pace work for events
-          lasting 30-90 minutes. Use this zone sparingly and intentionally, not as your default
+          lasting 30-90 minutes. Use this zone sparingly and intentionally, not as your default
           training intensity.
         </p>
       </div>
@@ -243,7 +243,7 @@ const HeartRateZonesExplainedPageContent = (
         <p>
           You can only speak a few words at a time. Your breathing is heavy. This is hard but
           sustainable. You’re right at the edge of your lactate threshold. You could hold this for
-          maybe 20-30 minutes maximum. Every minute requires mental focus to maintain the pace.
+          maybe 20-30 minutes maximum. Every minute requires mental focus to maintain the pace.
         </p>
 
         <p className="font-semibold mt-4 mb-2">What it trains:</p>
@@ -256,8 +256,8 @@ const HeartRateZonesExplainedPageContent = (
 
         <p className="font-semibold mt-4 mb-2">When to use it:</p>
         <p>
-          Interval workouts with work periods of 5-20 minutes. Threshold runs or rides. Race-pace
-          work for events lasting 20-60 minutes. This zone produces significant fitness gains but
+          Interval workouts with work periods of 5-20 minutes. Threshold runs or rides. Race-pace
+          work for events lasting 20-60 minutes. This zone produces significant fitness gains but
           also significant fatigue. Use it once or twice per week at most.
         </p>
       </div>
@@ -283,7 +283,7 @@ const HeartRateZonesExplainedPageContent = (
 
         <p className="font-semibold mt-4 mb-2">When to use it:</p>
         <p>
-          Short intervals of 30 seconds to 5 minutes with adequate recovery. Hill repeats. Sprint
+          Short intervals of 30 seconds to 5 minutes with adequate recovery. Hill repeats. Sprint
           work. This zone is potent but brutal. It creates maximum stimulus but also maximum fatigue
           and injury risk. Use it once per week, maybe twice if you’re very fit and have built a
           solid aerobic base first.
@@ -375,14 +375,14 @@ const HeartRateZonesExplainedPageContent = (
 
       <p>
         This method multiplies your max heart rate by a percentage. If your max heart rate is 180
-        bpm, Zone 2 (60-70%) would be 108-126 bpm. Simple. Straightforward. But it ignores your
+        bpm, Zone 2 (60-70%) would be 108-126 bpm. Simple. Straightforward. But it ignores your
         resting heart rate, which is a significant limitation.
       </p>
 
       <p>
         Two people with the same max heart rate but different resting heart rates have different
         fitness levels and different heart rate reserves to work with. A person with a resting heart
-        rate of 50 bpm is likely more aerobically fit than someone with a resting heart rate of 80
+        rate of 50 bpm is likely more aerobically fit than someone with a resting heart rate of 80
         bpm. The simple percentage method doesn’t account for this.
       </p>
 
@@ -399,16 +399,16 @@ const HeartRateZonesExplainedPageContent = (
 
         <p className="mt-4 font-semibold">Example:</p>
         <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Max HR: 180 bpm</li>
-          <li>Resting HR: 60 bpm</li>
-          <li>Heart Rate Reserve: 180 - 60 = 120 bpm</li>
-          <li>Zone 2 (60-70% of HRR): (120 × 0.6) + 60 = 132 bpm to (120 × 0.7) + 60 = 144 bpm</li>
+          <li>Max HR: 180 bpm</li>
+          <li>Resting HR: 60 bpm</li>
+          <li>Heart Rate Reserve: 180 - 60 = 120 bpm</li>
+          <li>Zone 2 (60-70% of HRR): (120 × 0.6) + 60 = 132 bpm to (120 × 0.7) + 60 = 144 bpm</li>
         </ul>
       </div>
 
       <p>
-        Notice the difference. Simple percentage method gave us 108-126 bpm for Zone 2. Karvonen
-        method gives us 132-144 bpm. That’s a significant difference in actual training intensity.
+        Notice the difference. Simple percentage method gave us 108-126 bpm for Zone 2. Karvonen
+        method gives us 132-144 bpm. That’s a significant difference in actual training intensity.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Which Method Should You Use?</h3>
@@ -432,7 +432,7 @@ const HeartRateZonesExplainedPageContent = (
 
       <p>
         Accurate heart rate zones depend on knowing your true max heart rate. The classic formula
-        (220 minus age) is convenient but often wrong by 10-20 bpm. That error throws off all your
+        (220 minus age) is convenient but often wrong by 10-20 bpm. That error throws off all your
         zones.
       </p>
 
@@ -444,7 +444,7 @@ const HeartRateZonesExplainedPageContent = (
         <ul className="list-disc list-inside space-y-2">
           <li>
             <strong>220 minus age</strong>: The oldest and least accurate formula. Standard
-            deviation of about 10-12 bpm.
+            deviation of about 10-12 bpm.
           </li>
           <li>
             <strong>208 minus (0.7 × age)</strong>: Slightly more accurate for a general population.
@@ -458,8 +458,8 @@ const HeartRateZonesExplainedPageContent = (
       </div>
 
       <p>
-        These formulas give you a starting point. If you’re 30 years old, the classic formula gives
-        you 190 bpm. The newer formulas give you 187-192 bpm. Close enough for a ballpark estimate,
+        These formulas give you a starting point. If you’re 30 years old, the classic formula gives
+        you 190 bpm. The newer formulas give you 187-192 bpm. Close enough for a ballpark estimate,
         but your actual max could be 175 or 205.
       </p>
 
@@ -475,7 +475,7 @@ const HeartRateZonesExplainedPageContent = (
         <p className="font-semibold mb-4">Max Heart Rate Test Protocol:</p>
         <ol className="list-decimal list-inside space-y-3">
           <li>
-            <strong>Warm up thoroughly</strong> for at least 15 minutes with gradually increasing
+            <strong>Warm up thoroughly</strong> for at least 15 minutes with gradually increasing
             intensity
           </li>
           <li>
@@ -483,18 +483,18 @@ const HeartRateZonesExplainedPageContent = (
             rate
           </li>
           <li>
-            <strong>Recover for 3 minutes</strong> at an easy pace
+            <strong>Recover for 3 minutes</strong> at an easy pace
           </li>
           <li>
             <strong>Perform a 1-minute all-out effort</strong> giving absolutely everything you’ve
             got. Go hard until you physically can’t go any harder.
           </li>
           <li>
-            <strong>Check your heart rate monitor</strong> during the final 30 seconds and
+            <strong>Check your heart rate monitor</strong> during the final 30 seconds and
             immediately after stopping. The highest number you see is very close to your true max.
           </li>
           <li>
-            <strong>Cool down</strong> for at least 10 minutes at an easy pace
+            <strong>Cool down</strong> for at least 10 minutes at an easy pace
           </li>
         </ol>
 
@@ -509,7 +509,7 @@ const HeartRateZonesExplainedPageContent = (
 
       <p>
         For the Karvonen method, you also need your resting heart rate. The best measurement is
-        first thing in the morning before getting out of bed. Take your pulse for 60 seconds or use
+        first thing in the morning before getting out of bed. Take your pulse for 60 seconds or use
         a heart rate monitor. Do this for 3-5 consecutive mornings and average the results.
       </p>
 
@@ -609,7 +609,7 @@ const HeartRateZonesExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-4">
         <p>
           Basing your zones on 220 minus age without testing can throw off all your training
-          intensities. Some people have max heart rates 20 bpm higher or lower than the formula
+          intensities. Some people have max heart rates 20 bpm higher or lower than the formula
           predicts. Do a field test at least once.
         </p>
       </div>
@@ -650,7 +650,7 @@ const HeartRateZonesExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-4">
         <p>
           Aerobic adaptation takes time. You won’t see dramatic changes in two weeks. Most people
-          need 8-12 weeks of consistent training to see significant improvements in aerobic
+          need 8-12 weeks of consistent training to see significant improvements in aerobic
           capacity. Trust the process. Track your data. Look for trends over months, not days.
         </p>
       </div>

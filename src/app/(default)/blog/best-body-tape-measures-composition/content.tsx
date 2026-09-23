@@ -89,7 +89,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Body Tape Measures for Tracking Body Composition in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -297,7 +297,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
             <li>Self-tensioning for consistent readings</li>
             <li>Locks in place so you can step away and read</li>
             <li>Vinyl tape, easy to clean</li>
-            <li>Measures up to 65 inches</li>
+            <li>Measures up to 65 inches</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -366,7 +366,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
             <li>LCD display shows measurement on the tape</li>
             <li>Tracks 12 body areas plus 6 custom areas</li>
             <li>Syncs with Apple Health, Google Fit, Samsung Health</li>
-            <li>Retractable with lock hook, 60 inches / 150 cm</li>
+            <li>Retractable with lock hook, 60 inches / 150 cm</li>
             <li>USB rechargeable</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -429,7 +429,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Syncs with RENPHO app for measurement tracking</li>
             <li>Works with Apple Health and Google Fit</li>
-            <li>Measures up to 60 inches / 150 cm</li>
+            <li>Measures up to 60 inches / 150 cm</li>
             <li>Retractable design</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>

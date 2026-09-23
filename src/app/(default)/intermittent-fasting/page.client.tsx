@@ -368,7 +368,7 @@ function renderIntermittentFastingCalculatorView({
             <ul className="space-y-3">
               <li className="text-gray-700 dark:text-gray-300">
                 <strong className="text-primary-600 dark:text-primary-400">16:8 Method:</strong>{' '}
-                Fast for 16 hours, eat within an 8-hour window. Most beginner-friendly and
+                Fast for 16 hours, eat within an 8-hour window. Most beginner-friendly and
                 sustainable long-term.
               </li>
               <li className="text-gray-700 dark:text-gray-300">
@@ -388,7 +388,7 @@ function renderIntermittentFastingCalculatorView({
               </li>
               <li className="text-gray-700 dark:text-gray-300">
                 <strong className="text-primary-600 dark:text-primary-400">5:2 Diet:</strong> Eat
-                normally 5 days, restrict to 500-600 calories on 2 non-consecutive days. Flexible
+                normally 5 days, restrict to 500-600 calories on 2 non-consecutive days. Flexible
                 approach.
               </li>
             </ul>

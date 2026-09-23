@@ -29,7 +29,7 @@ export default function DueDateByConceptionResult({ result }: DueDateByConceptio
       {typeof result.daysRemaining === 'number' && (
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-sm text-gray-500 dark:text-gray-400">Days remaining (approx.)</p>
-          <p className="text-xl font-semibold">{result.daysRemaining} days</p>
+          <p className="text-xl font-semibold">{result.daysRemaining} days</p>
         </div>
       )}
     </div>

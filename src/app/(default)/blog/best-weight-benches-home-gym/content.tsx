@@ -104,7 +104,7 @@ const BestWeightBenchesHomeGymPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Weight Benches for Home Gym in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -114,19 +114,19 @@ const BestWeightBenchesHomeGymPageContent = (
           <ul className="space-y-2">
             <li>
               <strong>Best Overall:</strong> REP Fitness AB-3000 FID Bench ($349) - Commercial
-              quality, 1000 lb capacity, 7 back positions
+              quality, 1000 lb capacity, 7 back positions
             </li>
             <li>
               <strong>Best Space-Saver:</strong> Bowflex 5.1S Stowable Bench ($349) - Folds upright
-              for storage, 6 positions, 600 lb capacity
+              for storage, 6 positions, 600 lb capacity
             </li>
             <li>
-              <strong>Best Budget:</strong> Fitness Reality 1000 Super Max ($89) - 800 lb capacity,
+              <strong>Best Budget:</strong> Fitness Reality 1000 Super Max ($89) - 800 lb capacity,
               12 positions, removable leg hold-down
             </li>
             <li>
               <strong>Best Portable:</strong> FLYBIRD Adjustable Bench ($139) - Lightweight, folds
-              flat, 7 back positions, 620 lb capacity
+              flat, 7 back positions, 620 lb capacity
             </li>
             <li>
               <strong>Best Premium:</strong> Rogue Adjustable Bench 3.0 ($695) - Tank-like build,
@@ -170,7 +170,7 @@ const BestWeightBenchesHomeGymPageContent = (
         {/* Intro */}
         <p>
           I trained on a wobbly $50 bench for two years before I finally replaced it. The thing
-          creaked under anything over 185 lbs, the vinyl was cracking, and the back pad had a
+          creaked under anything over 185 lbs, the vinyl was cracking, and the back pad had a
           permanent lean to one side. When I upgraded to a proper adjustable bench, the difference
           was immediate. My bench press felt more stable. Incline work actually hit my upper chest
           instead of requiring me to fight the bench angle. I should have spent the money sooner.
@@ -257,16 +257,16 @@ const BestWeightBenchesHomeGymPageContent = (
 
         <p>
           Manufacturers list weight capacity as the total load the bench can handle. That includes
-          your body weight plus the barbell and plates. So if you weigh 200 lbs and bench press 225
-          lbs, the total load is 425 lbs. A bench rated for 600 lbs handles that fine. A bench rated
-          for 300 lbs does not.
+          your body weight plus the barbell and plates. So if you weigh 200 lbs and bench press 225
+          lbs, the total load is 425 lbs. A bench rated for 600 lbs handles that fine. A bench rated
+          for 300 lbs does not.
         </p>
 
         <p>
           My rule of thumb: buy a bench rated for at least twice your current working load. You will
           get stronger, and you do not want to replace your bench in a year because you outgrew the
-          capacity. A 1000 lb rated bench sounds excessive until you consider that a 220 lb person
-          benching 315 lbs is already at 535 lbs of total load.
+          capacity. A 1000 lb rated bench sounds excessive until you consider that a 220 lb person
+          benching 315 lbs is already at 535 lbs of total load.
         </p>
 
         {/* Space Requirements */}
@@ -275,8 +275,8 @@ const BestWeightBenchesHomeGymPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Floor space:</strong> Most adjustable benches need about 4 to 5 feet of length
-              and 2 feet of width when set up. Plan for at least 7 feet of length if you are
+              <strong>Floor space:</strong> Most adjustable benches need about 4 to 5 feet of length
+              and 2 feet of width when set up. Plan for at least 7 feet of length if you are
               benching with a barbell so you have room to walk around.
             </li>
             <li>
@@ -331,13 +331,13 @@ const BestWeightBenchesHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>1000 lb weight capacity for heavy lifters</li>
+            <li>1000 lb weight capacity for heavy lifters</li>
             <li>7 back pad positions (0 to 85 degrees)</li>
             <li>3 seat pad positions for proper incline support</li>
             <li>Heavy-duty 11-gauge steel frame</li>
             <li>High-density foam pad with grippy vinyl cover</li>
             <li>Rubber feet to protect floors and prevent sliding</li>
-            <li>Weighs 67 lbs for stability during heavy lifts</li>
+            <li>Weighs 67 lbs for stability during heavy lifts</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">Why it is the best overall:</h4>
@@ -358,12 +358,12 @@ const BestWeightBenchesHomeGymPageContent = (
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Commercial grade build quality, 1000 lb capacity, adjustable
+              <strong>Pros:</strong> Commercial grade build quality, 1000 lb capacity, adjustable
               seat pad, stable rubber feet, excellent pad density and grip, great value for the
               quality
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Heavy at 67 lbs so not easy to move around, does not fold for
+              <strong>Cons:</strong> Heavy at 67 lbs so not easy to move around, does not fold for
               storage, decline attachment sold separately, back pad adjustment requires a pull-pin
               system that takes a few seconds
             </p>
@@ -407,9 +407,9 @@ const BestWeightBenchesHomeGymPageContent = (
           </p>
 
           <p className="mb-4">
-            The 600 lb weight capacity is lower than the REP Fitness, and you can feel the
+            The 600 lb weight capacity is lower than the REP Fitness, and you can feel the
             difference in rigidity. There is a slight amount of flex under heavy loads that you
-            would never get from the AB-3000. For most home lifters pressing under 250 lbs, it is
+            would never get from the AB-3000. For most home lifters pressing under 250 lbs, it is
             perfectly fine. But if you are a bigger lifter or plan to go heavy, the lower capacity
             is a real consideration.
           </p>
@@ -418,18 +418,18 @@ const BestWeightBenchesHomeGymPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Folds upright for compact storage</li>
             <li>6 back pad positions including flat and decline</li>
-            <li>600 lb weight capacity</li>
+            <li>600 lb weight capacity</li>
             <li>Removable leg hold-down brace for decline work</li>
             <li>Wheels on the base for easy repositioning</li>
             <li>Soft-grip handles for carrying when folded</li>
-            <li>Weighs 56 lbs</li>
+            <li>Weighs 56 lbs</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">The space advantage:</h4>
           <p>
-            I measured it. When folded, the 5.1S takes up about 10 inches of depth and 54 inches of
+            I measured it. When folded, the 5.1S takes up about 10 inches of depth and 54 inches of
             height leaning against a wall. Compare that to a flat bench sitting on the floor taking
-            up 4 to 5 feet of length. If space is your primary constraint, nothing else on this list
+            up 4 to 5 feet of length. If space is your primary constraint, nothing else on this list
             comes close. The fold mechanism is smooth and locks firmly. I never worry about it
             collapsing during use.
           </p>
@@ -448,7 +448,7 @@ const BestWeightBenchesHomeGymPageContent = (
               for a folding bench
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> 600 lb capacity limits heavy lifters, slight flex under load
+              <strong>Cons:</strong> 600 lb capacity limits heavy lifters, slight flex under load
               compared to commercial benches, pad is thinner than the REP Fitness, folding mechanism
               adds complexity that could wear over time
             </p>
@@ -484,7 +484,7 @@ const BestWeightBenchesHomeGymPageContent = (
 
           <p className="mb-4">
             At $89, you might expect a flimsy bench that wobbles the moment you load any real weight
-            on it. The Fitness Reality 1000 genuinely surprised me. Its 800 lb weight capacity is
+            on it. The Fitness Reality 1000 genuinely surprised me. Its 800 lb weight capacity is
             not just a marketing number. The frame is solid steel, and the construction quality
             punches well above its price point. I have recommended this bench to at least a dozen
             people starting home gyms on a budget, and none of them have been disappointed.
@@ -499,13 +499,13 @@ const BestWeightBenchesHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>800 lb weight capacity at a budget price</li>
+            <li>800 lb weight capacity at a budget price</li>
             <li>12 back pad positions from decline to 80 degrees</li>
             <li>Removable leg hold-down brace (no tools needed)</li>
             <li>Extended 14-inch back pad width</li>
             <li>Steel frame with powder coat finish</li>
             <li>Folds for semi-compact storage</li>
-            <li>Weighs 35 lbs</li>
+            <li>Weighs 35 lbs</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">Where it falls short:</h4>
@@ -518,7 +518,7 @@ const BestWeightBenchesHomeGymPageContent = (
           </p>
 
           <p className="mt-2">
-            The other trade-off is stability. At 35 lbs, this bench is less than half the weight of
+            The other trade-off is stability. At 35 lbs, this bench is less than half the weight of
             the REP Fitness. It does not slide on rubber mats, but on smooth floors, you will want
             something under the feet. Despite these issues, for $89, it is absurdly good value. I
             would rather someone buy this bench and actually start lifting than wait months to save
@@ -527,7 +527,7 @@ const BestWeightBenchesHomeGymPageContent = (
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Unbeatable price for an 800 lb capacity bench, 12 angle
+              <strong>Pros:</strong> Unbeatable price for an 800 lb capacity bench, 12 angle
               positions, includes decline and leg hold-down, folds for storage, surprisingly solid
               frame
             </p>
@@ -568,14 +568,14 @@ const BestWeightBenchesHomeGymPageContent = (
 
           <p className="mb-4">
             The FLYBIRD has become one of the most popular home gym benches on Amazon, and I think
-            the reason is simple. It folds completely flat, it weighs only 28 lbs, and it costs less
+            the reason is simple. It folds completely flat, it weighs only 28 lbs, and it costs less
             than $140. You can slide it under a bed, lean it against a closet wall, or toss it in
             your car. For people who do not have a dedicated gym space, this portability is a huge
             deal.
           </p>
 
           <p className="mb-4">
-            The 620 lb capacity is respectable for a bench this light. I would not load it up with
+            The 620 lb capacity is respectable for a bench this light. I would not load it up with
             400+ lbs and expect it to feel like a commercial bench, but for the vast majority of
             home lifters working with dumbbells and moderate barbell loads, it handles the job. The
             seven back positions cover flat through steep incline, and the three seat positions help
@@ -585,9 +585,9 @@ const BestWeightBenchesHomeGymPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Folds completely flat for storage under furniture</li>
-            <li>620 lb weight capacity</li>
+            <li>620 lb weight capacity</li>
             <li>7 back pad positions and 3 seat positions</li>
-            <li>Weighs only 28 lbs</li>
+            <li>Weighs only 28 lbs</li>
             <li>Thick foam padding with durable upholstery</li>
             <li>Triangular steel frame design for stability</li>
             <li>Fast ladder-style adjustment system</li>
@@ -605,19 +605,19 @@ const BestWeightBenchesHomeGymPageContent = (
           <p className="mt-2">
             The trade-off compared to the REP Fitness or Rogue is that the lighter weight means less
             inherent stability. When you are pushing hard on a heavy incline press, you want the
-            bench to feel planted. The FLYBIRD is planted enough for most situations, but a 67 lb
-            bench will always feel more secure than a 28 lb one. That is physics, not a design flaw.
+            bench to feel planted. The FLYBIRD is planted enough for most situations, but a 67 lb
+            bench will always feel more secure than a 28 lb one. That is physics, not a design flaw.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Folds flat and weighs only 28 lbs, affordable price, good pad
+              <strong>Pros:</strong> Folds flat and weighs only 28 lbs, affordable price, good pad
               quality for the cost, seat adjustment helps on incline, works great for dumbbell
               training
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Lighter weight means less stability under heavy loads, no
-              decline position, 620 lb capacity may limit advanced lifters, narrower pad than
+              decline position, 620 lb capacity may limit advanced lifters, narrower pad than
               commercial benches
             </p>
           </div>
@@ -659,7 +659,7 @@ const BestWeightBenchesHomeGymPageContent = (
           </p>
 
           <p className="mb-4">
-            The weight capacity is rated at over 1000 lbs, which should cover anyone short of a
+            The weight capacity is rated at over 1000 lbs, which should cover anyone short of a
             competitive powerlifter squatting with specialty equipment. The optional Thompson Fat
             Pad is wider and denser than standard bench pads, giving your upper back and shoulders a
             more stable pressing surface. If you have ever felt like your shoulder blades hang off
@@ -674,20 +674,20 @@ const BestWeightBenchesHomeGymPageContent = (
             <li>Optional Thompson Fat Pad upgrade for wider pressing surface</li>
             <li>Stainless steel handle and adjustment hardware</li>
             <li>Made in the USA</li>
-            <li>Weighs 130 lbs for absolute stability</li>
+            <li>Weighs 130 lbs for absolute stability</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">Is it worth the price?</h4>
           <p>
-            Depends on your perspective. If you plan to train at home for the next 10 to 20 years,
+            Depends on your perspective. If you plan to train at home for the next 10 to 20 years,
             the Rogue will still be going strong after three or four cheaper benches would have worn
-            out. The resale value is also excellent. Used Rogue benches sell for 70 to 80 percent of
+            out. The resale value is also excellent. Used Rogue benches sell for 70 to 80 percent of
             retail because people know the quality. So the actual cost of ownership over time is
             lower than the sticker price suggests.
           </p>
 
           <p className="mt-2">
-            The 130 lb weight works in your favor during heavy lifts. This bench is not going
+            The 130 lb weight works in your favor during heavy lifts. This bench is not going
             anywhere when you are pressing. The downside is obvious: you are not moving it around
             your garage easily. This is a bench that goes in one spot and stays there. There is no
             folding mechanism, no wheels, and no compromises. If that is what you want, nothing else
@@ -697,10 +697,10 @@ const BestWeightBenchesHomeGymPageContent = (
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
               <strong>Pros:</strong> Unmatched build quality, lifetime durability, rock-solid
-              stability at 130 lbs, Thompson Fat Pad option, excellent resale value, made in the USA
+              stability at 130 lbs, Thompson Fat Pad option, excellent resale value, made in the USA
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $695 is a serious investment, weighs 130 lbs so it stays where
+              <strong>Cons:</strong> $695 is a serious investment, weighs 130 lbs so it stays where
               you put it, no decline position, Thompson Fat Pad costs extra, overkill for casual
               lifters
             </p>
@@ -737,33 +737,33 @@ const BestWeightBenchesHomeGymPageContent = (
               <tr>
                 <td className="border p-3">REP Fitness AB-3000</td>
                 <td className="border p-3 text-center">$349</td>
-                <td className="border p-3 text-center">1000 lbs</td>
+                <td className="border p-3 text-center">1000 lbs</td>
                 <td className="border p-3 text-center">7 back + 3 seat</td>
-                <td className="border p-3 text-center">67 lbs</td>
+                <td className="border p-3 text-center">67 lbs</td>
                 <td className="border p-3 text-center">Overall</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Bowflex 5.1S</td>
                 <td className="border p-3 text-center">$349</td>
-                <td className="border p-3 text-center">600 lbs</td>
+                <td className="border p-3 text-center">600 lbs</td>
                 <td className="border p-3 text-center">6 back</td>
-                <td className="border p-3 text-center">56 lbs</td>
+                <td className="border p-3 text-center">56 lbs</td>
                 <td className="border p-3 text-center">Small spaces</td>
               </tr>
               <tr>
                 <td className="border p-3">Fitness Reality 1000</td>
                 <td className="border p-3 text-center">$89</td>
-                <td className="border p-3 text-center">800 lbs</td>
+                <td className="border p-3 text-center">800 lbs</td>
                 <td className="border p-3 text-center">12 back</td>
-                <td className="border p-3 text-center">35 lbs</td>
+                <td className="border p-3 text-center">35 lbs</td>
                 <td className="border p-3 text-center">Budget</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">FLYBIRD Adjustable</td>
                 <td className="border p-3 text-center">$139</td>
-                <td className="border p-3 text-center">620 lbs</td>
+                <td className="border p-3 text-center">620 lbs</td>
                 <td className="border p-3 text-center">7 back + 3 seat</td>
-                <td className="border p-3 text-center">28 lbs</td>
+                <td className="border p-3 text-center">28 lbs</td>
                 <td className="border p-3 text-center">Portability</td>
               </tr>
               <tr>
@@ -771,7 +771,7 @@ const BestWeightBenchesHomeGymPageContent = (
                 <td className="border p-3 text-center">$695</td>
                 <td className="border p-3 text-center">1000+ lbs</td>
                 <td className="border p-3 text-center">6 back</td>
-                <td className="border p-3 text-center">130 lbs</td>
+                <td className="border p-3 text-center">130 lbs</td>
                 <td className="border p-3 text-center">Premium</td>
               </tr>
             </tbody>
@@ -795,7 +795,7 @@ const BestWeightBenchesHomeGymPageContent = (
           </li>
           <li>
             <strong>Best on a budget:</strong> The <strong>Fitness Reality 1000 at $89</strong> is
-            ridiculous value. Buy it, start lifting, and upgrade later if you outgrow it. The 800 lb
+            ridiculous value. Buy it, start lifting, and upgrade later if you outgrow it. The 800 lb
             capacity means most people never will.
           </li>
           <li>

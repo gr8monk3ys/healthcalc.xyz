@@ -111,7 +111,7 @@ const BestKitchenScalesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Kitchen Scales for Portion Control and Calorie Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -255,25 +255,25 @@ const BestKitchenScalesPageContent = (
                 <td className="p-2">Peanut Butter</td>
                 <td className="p-2 text-center">2 tbsp (32g)</td>
                 <td className="p-2 text-center">~50g</td>
-                <td className="p-2 text-center text-red-600">+100 calories</td>
+                <td className="p-2 text-center text-red-600">+100 calories</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="p-2">Pasta (dry)</td>
-                <td className="p-2 text-center">2 oz (56g)</td>
+                <td className="p-2 text-center">2 oz (56g)</td>
                 <td className="p-2 text-center">~100g</td>
-                <td className="p-2 text-center text-red-600">+160 calories</td>
+                <td className="p-2 text-center text-red-600">+160 calories</td>
               </tr>
               <tr>
                 <td className="p-2">Olive Oil</td>
                 <td className="p-2 text-center">1 tbsp (13g)</td>
                 <td className="p-2 text-center">~25g</td>
-                <td className="p-2 text-center text-red-600">+110 calories</td>
+                <td className="p-2 text-center text-red-600">+110 calories</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="p-2">Chicken Breast</td>
-                <td className="p-2 text-center">4 oz (113g)</td>
+                <td className="p-2 text-center">4 oz (113g)</td>
                 <td className="p-2 text-center">~170g</td>
-                <td className="p-2 text-center text-red-600">+85 calories</td>
+                <td className="p-2 text-center text-red-600">+85 calories</td>
               </tr>
             </tbody>
           </table>
@@ -307,7 +307,7 @@ const BestKitchenScalesPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Pull-out display prevents bowl from blocking view</li>
-            <li>11 lb (5 kg) capacity</li>
+            <li>11 lb (5 kg) capacity</li>
             <li>Measures in grams, ounces, pounds, and milliliters</li>
             <li>Zero/tare function for easy multi-ingredient measuring</li>
             <li>Slim design stores easily in drawers</li>
@@ -367,7 +367,7 @@ const BestKitchenScalesPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>11 lb (5 kg) capacity</li>
+            <li>11 lb (5 kg) capacity</li>
             <li>Accurate to 1g above 5g</li>
             <li>Slim, easy-to-store design</li>
             <li>Stainless steel weighing platform</li>
@@ -431,7 +431,7 @@ const BestKitchenScalesPageContent = (
             <li>Displays calories, carbs, protein, fat, fiber, sodium</li>
             <li>No smartphone or app required</li>
             <li>Add custom foods with food codes</li>
-            <li>11 lb capacity</li>
+            <li>11 lb capacity</li>
             <li>Meal memory function</li>
             <li>Includes food code reference booklet</li>
           </ul>
@@ -490,7 +490,7 @@ const BestKitchenScalesPageContent = (
             <li>Bluetooth app connectivity</li>
             <li>Large food database in companion app</li>
             <li>Tracks calories, protein, carbs, fat, fiber</li>
-            <li>11 lb capacity with 0.1oz precision</li>
+            <li>11 lb capacity with 0.1oz precision</li>
             <li>5 unit measurements</li>
             <li>Syncs with Apple Health and Google Fit</li>
             <li>USB rechargeable</li>
@@ -531,7 +531,7 @@ const BestKitchenScalesPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ol className="list-decimal list-inside space-y-3">
             <li>
-              <strong>Weigh everything raw:</strong> Cooking changes weight. 4 oz raw chicken ≠ 4 oz
+              <strong>Weigh everything raw:</strong> Cooking changes weight. 4 oz raw chicken ≠ 4 oz
               cooked chicken
             </li>
             <li>
@@ -568,28 +568,28 @@ const BestKitchenScalesPageContent = (
               <tr>
                 <td className="border p-3">OXO Good Grips</td>
                 <td className="border p-3 text-center">$49.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Pull-out display</td>
                 <td className="border p-3 text-center">Serious cooks</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Etekcity</td>
                 <td className="border p-3 text-center">$14.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Low price</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr>
                 <td className="border p-3">Greater Goods</td>
                 <td className="border p-3 text-center">$29.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Nutrition display</td>
                 <td className="border p-3 text-center">No-app users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">URAMAZ</td>
                 <td className="border p-3 text-center">$24.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">App connected</td>
                 <td className="border p-3 text-center">Tech lovers</td>
               </tr>

@@ -26,18 +26,18 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
         <h3 className="font-medium mb-3">Baseline Comparison</h3>
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm text-gray-600">Gender Average</span>
-          <span className="font-semibold">{result.baselineLifeExpectancy} years</span>
+          <span className="font-semibold">{result.baselineLifeExpectancy} years</span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-600">Your Estimate</span>
-          <span className="font-semibold">{result.estimatedLifeExpectancy} years</span>
+          <span className="font-semibold">{result.estimatedLifeExpectancy} years</span>
         </div>
         <div className="mt-2 pt-2 border-t border-gray-200">
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">Difference</span>
             <span className={`font-semibold ${netPositive ? 'text-green-600' : 'text-red-600'}`}>
               {netPositive ? '+' : ''}
-              {result.netEffect} years
+              {result.netEffect} years
             </span>
           </div>
         </div>
@@ -93,8 +93,8 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
         <div className="flex items-center gap-4">
           <div className="flex-1">
             <div className="flex justify-between text-sm mb-1">
-              <span className="text-green-600">+{result.yearsAdded} years gained</span>
-              <span className="text-red-600">-{result.yearsLost} years lost</span>
+              <span className="text-green-600">+{result.yearsAdded} years gained</span>
+              <span className="text-red-600">-{result.yearsLost} years lost</span>
             </div>
             <div className="relative h-6 neumorph-inset rounded-full overflow-hidden">
               <div className="absolute inset-0 flex">

@@ -116,7 +116,7 @@ const ABSIUnderstanding: React.FC = () => {
         </li>
         <li>
           <span className="font-medium">Adequate sleep:</span> Poor sleep is associated with
-          increased abdominal fat, so aim for 7-9 hours of quality sleep per night
+          increased abdominal fat, so aim for 7-9 hours of quality sleep per night
         </li>
       </ul>
 

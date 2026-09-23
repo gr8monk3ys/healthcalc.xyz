@@ -20,7 +20,7 @@ export default function RestingHeartRateResult({ result }: RestingHeartRateResul
       <h2 className="text-xl font-semibold mb-4">Resting Heart Rate</h2>
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">Resting Heart Rate</p>
-        <p className="text-3xl font-bold text-accent">{result.restingHeartRate} bpm</p>
+        <p className="text-3xl font-bold text-accent">{result.restingHeartRate} bpm</p>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{result.category}</p>
       </div>
 

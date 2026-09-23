@@ -70,7 +70,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Adjustable Dumbbells vs Barbell for Home Gym: Which Should You Buy First?
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -231,7 +231,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           <h3 className="text-lg font-semibold mb-3">Adjustable dumbbells</h3>
           <ul className="list-disc list-inside space-y-2 mb-4">
             <li>
-              <strong>Footprint:</strong> About 2 ft x 2 ft with a small stand. That is the corner
+              <strong>Footprint:</strong> About 2 ft x 2 ft with a small stand. That is the corner
               of a bedroom or a section of a closet.
             </li>
             <li>
@@ -243,7 +243,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
               though rubber mats are nice to have.
             </li>
             <li>
-              <strong>Total workout space:</strong> About 6 ft x 6 ft to perform all exercises
+              <strong>Total workout space:</strong> About 6 ft x 6 ft to perform all exercises
               comfortably, including lunges and floor work.
             </li>
           </ul>
@@ -251,20 +251,20 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           <h3 className="text-lg font-semibold mb-3 mt-6">Barbell setup</h3>
           <ul className="list-disc list-inside space-y-2 mb-4">
             <li>
-              <strong>Footprint:</strong> At minimum 8 ft x 4 ft for the bar, rack, and plate
-              storage. Realistically closer to 10 ft x 6 ft when you account for loading and
+              <strong>Footprint:</strong> At minimum 8 ft x 4 ft for the bar, rack, and plate
+              storage. Realistically closer to 10 ft x 6 ft when you account for loading and
               unloading plates.
             </li>
             <li>
-              <strong>Ceiling height:</strong> Need at least 8.5 feet for overhead pressing inside a
-              rack. Basement ceilings under 8 feet are a problem.
+              <strong>Ceiling height:</strong> Need at least 8.5 feet for overhead pressing inside a
+              rack. Basement ceilings under 8 feet are a problem.
             </li>
             <li>
               <strong>Flooring:</strong> You need rubber mats or horse stall mats under the rack.
               Dropped plates will destroy concrete and hardwood.
             </li>
             <li>
-              <strong>Total workout space:</strong> About 10 ft x 8 ft minimum to deadlift, squat,
+              <strong>Total workout space:</strong> About 10 ft x 8 ft minimum to deadlift, squat,
               and bench safely.
             </li>
           </ul>
@@ -420,16 +420,16 @@ const AdjustableDumbbellsVsBarbellContentContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <p className="mb-4">
             This is the one area where barbells have a clear, undeniable advantage. With a barbell,
-            you can add 2.5-lb plates to each side and increase your lift by 5 pounds. That is a
+            you can add 2.5-lb plates to each side and increase your lift by 5 pounds. That is a
             manageable jump for almost any exercise. If micro plates are available, you can go even
             smaller with 1.25-lb plates for a 2.5-lb total increase.
           </p>
 
           <p className="mb-4">
-            Adjustable dumbbells typically jump in 5-lb increments (sometimes 2.5 lbs on the Bowflex
-            at lower weights). On a lateral raise where you are working with 15 or 20 pounds,
+            Adjustable dumbbells typically jump in 5-lb increments (sometimes 2.5 lbs on the Bowflex
+            at lower weights). On a lateral raise where you are working with 15 or 20 pounds,
             jumping to 20 or 25 is a 25-33% increase. That is huge. On a barbell overhead press at
-            135 pounds, adding 5 pounds is less than a 4% increase. Much more manageable.
+            135 pounds, adding 5 pounds is less than a 4% increase. Much more manageable.
           </p>
 
           <p className="mb-4">
@@ -532,15 +532,15 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           </div>
 
           <p className="mb-4">
-            The SelectTech 552 replaces 15 pairs of dumbbells. The range is 5 to 52.5 lbs with
-            2.5-lb increments up to 25 lbs, then 5-lb jumps after that. Weight changes take about
+            The SelectTech 552 replaces 15 pairs of dumbbells. The range is 5 to 52.5 lbs with
+            2.5-lb increments up to 25 lbs, then 5-lb jumps after that. Weight changes take about
             two seconds with the dial on each end. I have been using these for over a year and the
             mechanism still works perfectly.
           </p>
 
           <p className="mb-4">
             The 2.5-lb increments at the lower end are a major advantage for isolation work. Going
-            from 12.5 to 15 lbs on a lateral raise is reasonable. Going from 10 to 15 is not. This
+            from 12.5 to 15 lbs on a lateral raise is reasonable. Going from 10 to 15 is not. This
             is the pair I recommend to most people because it covers beginners through intermediate
             lifters without compromise.
           </p>
@@ -586,7 +586,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
 
           <p className="mb-4">
             The PowerBlock uses an all-steel construction with a magnetic selector pin instead of a
-            dial. It covers 5 to 50 lbs per dumbbell and is expandable to 70 and then 90 lbs with
+            dial. It covers 5 to 50 lbs per dumbbell and is expandable to 70 and then 90 lbs with
             add-on kits. If you plan to get seriously strong and do not want to replace your
             dumbbells in a year, this is the one to buy.
           </p>
@@ -599,7 +599,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> All-steel build, expandable to 90 lbs, compact shape, 10-year
+              <strong>Pros:</strong> All-steel build, expandable to 90 lbs, compact shape, 10-year
               warranty
             </p>
             <p className="text-sm mt-2">
@@ -646,7 +646,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
 
           <p className="mb-4">
             The bar is not competition-grade, but it works for home gym training. I have loaded it
-            to 300 pounds for deadlifts with no flex issues. The coating on the plates has held up
+            to 300 pounds for deadlifts with no flex issues. The coating on the plates has held up
             after two years of regular use with only minor chipping. If you decide to add a barbell
             to your home gym after starting with dumbbells, this set gives you everything you need
             in one purchase.
@@ -744,7 +744,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           <p className="mb-4">
             <strong>Start with adjustable dumbbells.</strong> They cost less, fit anywhere, cover
             more exercises, and let you train safely without a spotter or a rack. For the first 6 to
-            12 months of home gym training, a good pair of adjustable dumbbells and an adjustable
+            12 months of home gym training, a good pair of adjustable dumbbells and an adjustable
             bench is genuinely all you need.
           </p>
 
@@ -780,7 +780,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
             <p className="text-sm font-semibold">My honest recommendation:</p>
             <p className="text-sm mt-2">
               Bowflex SelectTech 552 ($349) + an adjustable bench ($150) = $500 total. That is your
-              starting point. Train for 6 to 12 months. When you are ready, add a CAP Barbell 300-lb
+              starting point. Train for 6 to 12 months. When you are ready, add a CAP Barbell 300-lb
               set ($350) + a squat rack ($250) = $600 more. Now you have a complete home gym for
               about $1,100 total, purchased in two phases that spread the cost and match your
               progression.
@@ -812,8 +812,8 @@ const AdjustableDumbbellsVsBarbellContentContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Space required</td>
-                <td className="border p-3 text-center">2 ft x 2 ft</td>
-                <td className="border p-3 text-center">8 ft x 4 ft min</td>
+                <td className="border p-3 text-center">2 ft x 2 ft</td>
+                <td className="border p-3 text-center">8 ft x 4 ft min</td>
                 <td className="border p-3 text-center">Dumbbells</td>
               </tr>
               <tr>
@@ -824,14 +824,14 @@ const AdjustableDumbbellsVsBarbellContentContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Max weight capacity</td>
-                <td className="border p-3 text-center">50-90 lbs/hand</td>
+                <td className="border p-3 text-center">50-90 lbs/hand</td>
                 <td className="border p-3 text-center">300+ lbs total</td>
                 <td className="border p-3 text-center">Barbell</td>
               </tr>
               <tr>
                 <td className="border p-3">Progressive overload</td>
-                <td className="border p-3 text-center">2.5-5 lb jumps</td>
-                <td className="border p-3 text-center">2.5 lb jumps</td>
+                <td className="border p-3 text-center">2.5-5 lb jumps</td>
+                <td className="border p-3 text-center">2.5 lb jumps</td>
                 <td className="border p-3 text-center">Barbell</td>
               </tr>
               <tr className="bg-gray-50">

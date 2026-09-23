@@ -47,7 +47,7 @@ export default function BodyFatBurnInfo() {
       <InfoSection title="Weight Loss and Calorie Deficits">
         <p className="mb-4">
           Weight loss occurs when you create a calorie deficit—burning more calories than you
-          consume. The general guideline is that 3,500 calories equals approximately one pound of
+          consume. The general guideline is that 3,500 calories equals approximately one pound of
           fat, though this is a simplification and actual results vary based on individual factors.
         </p>
         <p className="mb-4">
@@ -56,8 +56,8 @@ export default function BodyFatBurnInfo() {
           management, consider combining exercise with dietary changes.
         </p>
         <p>
-          For sustainable weight loss, aim for a moderate deficit of 500-1000 calories per day,
-          which typically results in 1-2 pounds of weight loss per week. Rapid weight loss is
+          For sustainable weight loss, aim for a moderate deficit of 500-1000 calories per day,
+          which typically results in 1-2 pounds of weight loss per week. Rapid weight loss is
           generally not recommended as it can lead to muscle loss, metabolic adaptation, and is
           harder to maintain long-term.
         </p>

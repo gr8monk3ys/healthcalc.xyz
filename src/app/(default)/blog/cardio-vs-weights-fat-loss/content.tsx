@@ -72,7 +72,7 @@ const CardioVsWeightsFatLossContentContent = (
       <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
         <time dateTime="2026-02-08">February 8, 2026</time>
         <span>•</span>
-        <span>13 min read</span>
+        <span>13 min read</span>
         <span>•</span>
         <span>Training</span>
       </div>
@@ -101,7 +101,7 @@ const CardioVsWeightsFatLossContentContent = (
 
       <p>
         Here’s what most people think: cardio burns more calories, so it’s better for fat loss.
-        Seems logical. A 30-minute run might burn 300 calories. A 30-minute weight session? Maybe
+        Seems logical. A 30-minute run might burn 300 calories. A 30-minute weight session? Maybe
         150.
       </p>
 
@@ -117,7 +117,7 @@ const CardioVsWeightsFatLossContentContent = (
       </p>
 
       <p>
-        Your body spends the next 24 to 48 hours repairing muscle tissue. That costs energy. It’s
+        Your body spends the next 24 to 48 hours repairing muscle tissue. That costs energy. It’s
         called EPOC (excess post-exercise oxygen consumption), though everyone just calls it the
         “afterburn effect.”
       </p>
@@ -131,15 +131,15 @@ const CardioVsWeightsFatLossContentContent = (
             <strong>Cardio:</strong> Higher calorie burn during exercise, minimal afterburn
           </p>
           <p>
-            <strong>Weights:</strong> Lower calorie burn during exercise, significant 24-48 hour
+            <strong>Weights:</strong> Lower calorie burn during exercise, significant 24-48 hour
             afterburn
           </p>
         </div>
       </div>
 
       <p>
-        The total calorie difference over 48 hours? Not as dramatic as the supplement companies want
-        you to believe, but it exists. You’re looking at maybe an extra 50-100 calories from a hard
+        The total calorie difference over 48 hours? Not as dramatic as the supplement companies want
+        you to believe, but it exists. You’re looking at maybe an extra 50-100 calories from a hard
         resistance training session.
       </p>
 
@@ -156,12 +156,12 @@ const CardioVsWeightsFatLossContentContent = (
 
       <p>
         A 2002 study in the European Journal of Applied Physiology found that high-intensity
-        resistance training elevated metabolism for about 38 hours post-workout. Good news. The
+        resistance training elevated metabolism for about 38 hours post-workout. Good news. The
         actual extra calories burned? Around 5% of the total workout expenditure.
       </p>
 
       <p>
-        If you burned 200 calories during your workout, you might get an extra 10 calories from
+        If you burned 200 calories during your workout, you might get an extra 10 calories from
         EPOC. Better than nothing, worse than a revolution.
       </p>
 
@@ -194,9 +194,9 @@ const CardioVsWeightsFatLossContentContent = (
       <p>Both true. Also both overstated.</p>
 
       <p>
-        A pound of muscle burns about 6 calories per day at rest. A pound of fat burns about 2. So
-        if you gain 10 pounds of muscle (which would take most people 6-12 months of serious
-        training), you’d increase your resting metabolic rate by about 40 calories per day.
+        A pound of muscle burns about 6 calories per day at rest. A pound of fat burns about 2. So
+        if you gain 10 pounds of muscle (which would take most people 6-12 months of serious
+        training), you’d increase your resting metabolic rate by about 40 calories per day.
       </p>
 
       <p>That’s one small apple. Not exactly game-changing.</p>
@@ -286,7 +286,7 @@ const CardioVsWeightsFatLossContentContent = (
       </p>
 
       <p>
-        But the cardio group lost 3 pounds of muscle along with their fat. The resistance training
+        But the cardio group lost 3 pounds of muscle along with their fat. The resistance training
         group maintained their muscle mass and lost pure fat.
       </p>
 
@@ -313,7 +313,7 @@ const CardioVsWeightsFatLossContentContent = (
 
       <p>
         Cardio has benefits that weights can’t replicate. Heart health. Cardiovascular endurance.
-        Mental clarity. Stress relief. The ability to eat an extra 300-500 calories per day without
+        Mental clarity. Stress relief. The ability to eat an extra 300-500 calories per day without
         gaining weight.
       </p>
 
@@ -348,7 +348,7 @@ const CardioVsWeightsFatLossContentContent = (
 
       <ul className="space-y-2">
         <li>3-4 resistance training sessions per week (full body or upper/lower split)</li>
-        <li>2-3 cardio sessions (30-45 minutes, moderate intensity)</li>
+        <li>2-3 cardio sessions (30-45 minutes, moderate intensity)</li>
         <li>Prioritize compound movements: squats, deadlifts, presses, rows</li>
         <li>Keep cardio moderate to avoid interfering with recovery</li>
       </ul>
@@ -359,8 +359,8 @@ const CardioVsWeightsFatLossContentContent = (
 
       <ul className="space-y-2">
         <li>3 full-body resistance sessions with short rest periods</li>
-        <li>Add 10-15 minutes of cardio at the end of each session</li>
-        <li>One longer 30-45 minute cardio session on the weekend</li>
+        <li>Add 10-15 minutes of cardio at the end of each session</li>
+        <li>One longer 30-45 minute cardio session on the weekend</li>
         <li>Focus on metabolic resistance training (circuits, complexes)</li>
       </ul>
 

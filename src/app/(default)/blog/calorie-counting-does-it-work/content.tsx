@@ -11,7 +11,7 @@ const CalorieCountingPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         Does Calorie Counting Actually Work? A Look at the Evidence
       </h1>
-      <p className="text-gray-500 italic">Published: January 30, 2026 • 13 min read</p>
+      <p className="text-gray-500 italic">Published: January 30, 2026 • 13 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -31,7 +31,7 @@ const CalorieCountingPageContent = (
             protein than carbs or fat. Not all calories behave the same.
           </li>
           <li>
-            Calorie counting works best as a short-term educational tool (2-4 weeks) to build
+            Calorie counting works best as a short-term educational tool (2-4 weeks) to build
             awareness, not as a permanent lifestyle.
           </li>
           <li>
@@ -84,7 +84,7 @@ const CalorieCountingPageContent = (
       <h3 className="text-xl font-semibold mt-6 mb-3">Problem 1: Food Labels Are Inaccurate</h3>
       <p>
         The FDA allows food labels to be off by up to 20% for stated calorie values. That means a
-        food labeled as 200 calories could legally contain anywhere from 160 to 240 calories. A 2010
+        food labeled as 200 calories could legally contain anywhere from 160 to 240 calories. A 2010
         study by Urban et al. in the Journal of the American Dietetic Association tested 269 food
         items from restaurants and grocery stores and found that measured calorie content exceeded
         stated values by an average of 8%, with some items off by more than 100%.
@@ -93,7 +93,7 @@ const CalorieCountingPageContent = (
       <p>
         The foods most likely to be underreported were restaurant meals and prepared foods. Packaged
         foods tended to be more accurate, but still within that 20% tolerance. If you are tracking
-        2,000 calories per day and everything is off by just 10%, that is a 200-calorie daily error,
+        2,000 calories per day and everything is off by just 10%, that is a 200-calorie daily error,
         enough to completely negate a moderate fat loss deficit.
       </p>
 
@@ -102,7 +102,7 @@ const CalorieCountingPageContent = (
       </h3>
       <p>
         The calorie values on food labels come from the Atwater system, developed in the late 1800s.
-        It assigns fixed values: 4 calories per gram of protein, 4 per gram of carbs, 9 per gram of
+        It assigns fixed values: 4 calories per gram of protein, 4 per gram of carbs, 9 per gram of
         fat, and 7 per gram of alcohol. These values represent averages and do not account for how
         food processing affects absorption.
       </p>
@@ -119,7 +119,7 @@ const CalorieCountingPageContent = (
         Similarly, whole almonds deliver about 20% fewer calories than predicted by Atwater factors,
         because much of the fat is trapped in intact cell walls that survive digestion. A 2012 study
         by Novotny, Gebauer, and Baer in the American Journal of Clinical Nutrition found that
-        almonds provide only 129 calories per serving, not the 170 listed on the label.
+        almonds provide only 129 calories per serving, not the 170 listed on the label.
       </p>
 
       <AdBlock format="horizontal" />
@@ -136,7 +136,7 @@ const CalorieCountingPageContent = (
         <ul className="list-disc list-inside space-y-3">
           <li>
             <strong>Protein:</strong> 20-30% of calories consumed are used in processing. Eat 100
-            calories of chicken breast and your body spends 20-30 calories just digesting it.
+            calories of chicken breast and your body spends 20-30 calories just digesting it.
           </li>
           <li>
             <strong>Carbohydrates:</strong> 5-10% thermic effect. Varies between simple and complex
@@ -155,8 +155,8 @@ const CalorieCountingPageContent = (
 
       <p>
         This means two diets with identical calorie counts but different macronutrient ratios will
-        produce different net energy availability. A high-protein diet at 2,000 calories provides
-        less usable energy than a high-fat diet at 2,000 calories. This is one reason high-protein
+        produce different net energy availability. A high-protein diet at 2,000 calories provides
+        less usable energy than a high-fat diet at 2,000 calories. This is one reason high-protein
         diets consistently outperform other approaches in weight loss trials, even when calories are
         supposedly matched.
       </p>
@@ -179,14 +179,14 @@ const CalorieCountingPageContent = (
       <p>
         This is the most damning problem, and the research is remarkably consistent. In a famous
         1992 study by Lichtman et al. published in the New England Journal of Medicine,
-        self-described “diet-resistant” obese subjects who claimed to eat only 1,200 calories per
+        self-described “diet-resistant” obese subjects who claimed to eat only 1,200 calories per
         day were found, through doubly labeled water analysis, to actually be consuming an average
-        of 2,081 calories. They underreported intake by 47% and overreported physical activity by
+        of 2,081 calories. They underreported intake by 47% and overreported physical activity by
         51%.
       </p>
 
       <p>
-        These were not dishonest people. They genuinely believed they were eating 1,200 calories.
+        These were not dishonest people. They genuinely believed they were eating 1,200 calories.
         The errors came from underestimating portion sizes, forgetting about snacks and drinks, and
         not accounting for cooking oils and condiments. Even registered dietitians underreport by
         about 10% in controlled studies.
@@ -195,7 +195,7 @@ const CalorieCountingPageContent = (
       <p>
         A 2008 study by Champagne et al. in the Journal of the American Dietetic Association found
         that trained nutrition professionals, using food logs, underestimated their energy intake by
-        223 calories per day. If the experts cannot do it accurately, expecting the general
+        223 calories per day. If the experts cannot do it accurately, expecting the general
         population to manage better is unrealistic.
       </p>
 
@@ -208,10 +208,10 @@ const CalorieCountingPageContent = (
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Short-Term Education</h3>
       <p>
-        Most people have no idea how many calories are in common foods. Tracking for 2-4 weeks is
+        Most people have no idea how many calories are in common foods. Tracking for 2-4 weeks is
         one of the fastest ways to build this awareness. You discover that the olive oil you drizzle
-        freely has 120 calories per tablespoon. That the granola you assumed was healthy has 500
-        calories per bowl. That the large latte you drink every morning is 300 calories. This
+        freely has 120 calories per tablespoon. That the granola you assumed was healthy has 500
+        calories per bowl. That the large latte you drink every morning is 300 calories. This
         education has lasting value even after you stop counting.
       </p>
 
@@ -260,9 +260,9 @@ const CalorieCountingPageContent = (
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Long-Term Sustainability</h3>
       <p>
-        Most people who start calorie counting stop within 3-6 months. A 2019 study in the Journal
+        Most people who start calorie counting stop within 3-6 months. A 2019 study in the Journal
         of Medical Internet Research found that only 14.8% of food tracking app users maintained
-        consistent use beyond 6 months. This means any weight management strategy that depends on
+        consistent use beyond 6 months. This means any weight management strategy that depends on
         indefinite calorie counting is, for the vast majority of people, a strategy that will fail.
       </p>
 
@@ -320,7 +320,7 @@ const CalorieCountingPageContent = (
         satiety response, and is the hardest macronutrient to overeat, simply prioritizing protein
         at every meal can regulate calorie intake without any counting at all. Research by Weigle et
         al. (2005) showed that increasing protein from 15% to 30% of calories spontaneously reduced
-        daily intake by 441 calories, without any deliberate restriction.
+        daily intake by 441 calories, without any deliberate restriction.
       </p>
 
       <p>
@@ -354,7 +354,7 @@ const CalorieCountingPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <ol className="list-decimal list-inside space-y-3">
           <li>
-            <strong>Track everything for 2-4 weeks.</strong> Use an app like MyFitnessPal or
+            <strong>Track everything for 2-4 weeks.</strong> Use an app like MyFitnessPal or
             Cronometer. Be as accurate as you can. The point is not precision, it is education.
           </li>
           <li>
@@ -373,7 +373,7 @@ const CalorieCountingPageContent = (
           </li>
           <li>
             <strong>Return to tracking only when needed.</strong> If you hit a plateau or your
-            weight changes unexpectedly, a 1-2 week tracking audit can identify what shifted. Then
+            weight changes unexpectedly, a 1-2 week tracking audit can identify what shifted. Then
             go back to the simpler method.
           </li>
         </ol>

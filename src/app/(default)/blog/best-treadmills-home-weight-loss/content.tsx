@@ -82,7 +82,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Treadmills for Home Weight Loss in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -219,7 +219,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Why treadmills work for weight loss</h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <p className="mb-4">
-            Walking burns 200-400 calories per hour. Running burns 400-800 calories per hour. The
+            Walking burns 200-400 calories per hour. Running burns 400-800 calories per hour. The
             exact number depends on your weight and speed, which you can calculate with our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
@@ -229,9 +229,9 @@ const BestTreadmillsHomeWeightLossPageContent = (
             you run.
           </p>
           <p className="mb-4">
-            I lost 30 pounds in 2024 by walking on my treadmill every morning before work. Not
-            running. Walking. 30 minutes at 3.5 mph while watching YouTube. That was it. Some days I
-            felt energized and ran for 10 minutes. Most days I walked. The treadmill made it easy
+            I lost 30 pounds in 2024 by walking on my treadmill every morning before work. Not
+            running. Walking. 30 minutes at 3.5 mph while watching YouTube. That was it. Some days I
+            felt energized and ran for 10 minutes. Most days I walked. The treadmill made it easy
             enough that I actually did it, which matters more than any fitness metric. If you are
             creating a{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
@@ -261,7 +261,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
               short belt feels cramped and increases injury risk.
             </li>
             <li>
-              <strong>Weight capacity:</strong> Buy a treadmill rated for at least 50 pounds more
+              <strong>Weight capacity:</strong> Buy a treadmill rated for at least 50 pounds more
               than your current weight. This gives the motor and frame headroom and extends
               lifespan.
             </li>
@@ -313,7 +313,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <li>22″ x 60″ running surface</li>
             <li>-3% to 15% incline/decline range</li>
             <li>14″ HD touchscreen with iFit compatibility</li>
-            <li>300 lb weight capacity</li>
+            <li>300 lb weight capacity</li>
             <li>FlexSelect cushioning (adjustable deck firmness)</li>
             <li>10-year frame, 2-year parts, 1-year labor warranty</li>
           </ul>
@@ -330,7 +330,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> $1,799 is expensive, requires iFit subscription for guided
-              workouts ($39/month), heavy (340 lbs, hard to move), assembly is a pain
+              workouts ($39/month), heavy (340 lbs, hard to move), assembly is a pain
             </p>
           </div>
           <div className="mt-4">
@@ -369,7 +369,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             cheaper treadmills. The deck uses a wax-lubrication system that reduces friction and
             extends belt life. No touchscreen, no apps, no subscription. Just a simple LCD that
             shows speed, distance, and calories. I like this approach because there is less to
-            break. The warranty backs it up: lifetime frame, lifetime motor, lifetime deck, 3 years
+            break. The warranty backs it up: lifetime frame, lifetime motor, lifetime deck, 3 years
             parts.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -378,24 +378,24 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <li>22″ x 60″ running surface</li>
             <li>0-15% incline (no decline)</li>
             <li>9″ LCD display (no touchscreen)</li>
-            <li>375 lb weight capacity</li>
+            <li>375 lb weight capacity</li>
             <li>Cushion Flex Whisper Deck (reduces joint impact by 40%)</li>
             <li>Lifetime frame, motor, deck warranty</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            People who want a treadmill that will last 15 years without repairs. The lack of a
+            People who want a treadmill that will last 15 years without repairs. The lack of a
             touchscreen is a feature, not a bug. No software means no obsolescence. Great for
             walkers and runners who do not care about streaming classes.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
               <strong>Pros:</strong> Commercial-grade build, lifetime warranty on motor and frame,
-              375 lb weight capacity, no subscription fees, quiet operation
+              375 lb weight capacity, no subscription fees, quiet operation
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> No decline feature, basic LCD display (no apps or streaming),
-              heavy at 280 lbs, Bluetooth is spotty
+              heavy at 280 lbs, Bluetooth is spotty
             </p>
           </div>
           <div className="mt-4">
@@ -442,7 +442,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <li>20″ x 60″ running surface</li>
             <li>-3% to 15% incline/decline</li>
             <li>10″ HD touchscreen with iFit compatibility</li>
-            <li>300 lb weight capacity</li>
+            <li>300 lb weight capacity</li>
             <li>ProShox cushioning system</li>
             <li>10-year frame, 2-year parts, 1-year labor warranty</li>
           </ul>
@@ -494,7 +494,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
           <p className="mb-4">
             The 7.0 AT is what I recommend to friends who want a treadmill for walking and
             occasional jogging but do not want to spend $1,500. The 3.0 CHP motor is adequate for
-            speeds up to 10 mph. The 20″ x 60″ belt is standard size. The incline goes to 15% but
+            speeds up to 10 mph. The 20″ x 60″ belt is standard size. The incline goes to 15% but
             there is no decline. The console is basic: backlit LCD with speed, time, distance, and
             calories. No touchscreen, no apps, no Bluetooth. That simplicity keeps the price at $999
             and reduces long-term maintenance. Horizon offers a lifetime frame warranty and a
@@ -506,24 +506,24 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <li>20″ x 60″ running surface</li>
             <li>0-15% incline (no decline)</li>
             <li>Backlit LCD display (no touchscreen)</li>
-            <li>350 lb weight capacity</li>
+            <li>350 lb weight capacity</li>
             <li>Variable Response Cushioning (3-zone deck)</li>
             <li>Lifetime frame, 10-year motor, 2-year parts warranty</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            Walkers and light joggers who do not need premium features. If you walk 30-60 minutes
-            per day at 3-4 mph, this treadmill will last you a decade. Also good for people who hate
+            Walkers and light joggers who do not need premium features. If you walk 30-60 minutes
+            per day at 3-4 mph, this treadmill will last you a decade. Also good for people who hate
             touchscreens and apps. No frills, no subscriptions, no problems.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Under $1,000, lifetime frame warranty, 350 lb capacity, simple
+              <strong>Pros:</strong> Under $1,000, lifetime frame warranty, 350 lb capacity, simple
               and reliable, easy assembly
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> No decline feature, basic console with no apps, 3.0 CHP motor
-              struggles above 8 mph for heavier runners, belt is standard 20″ (not extra wide)
+              struggles above 8 mph for heavier runners, belt is standard 20″ (not extra wide)
             </p>
           </div>
           <div className="mt-4">
@@ -573,7 +573,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <li>16″ x 49″ running surface</li>
             <li>Manual 3-level incline</li>
             <li>Basic LCD display</li>
-            <li>220 lb weight capacity</li>
+            <li>220 lb weight capacity</li>
             <li>Compact folding design with wheels</li>
             <li>3-year frame, 180-day parts warranty</li>
           </ul>
@@ -581,7 +581,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
           <p>
             Beginners testing the waters. Walkers who need something cheap and compact. People in
             apartments who need to fold and store their treadmill after every workout. Not for
-            serious runners or anyone over 200 lbs.
+            serious runners or anyone over 200 lbs.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
@@ -590,7 +590,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Weak motor (2.2 HP peak, not CHP), narrow 16″ belt, short 49″
-              deck, manual incline only, 220 lb weight limit, noisy at higher speeds, short warranty
+              deck, manual incline only, 220 lb weight limit, noisy at higher speeds, short warranty
             </p>
           </div>
           <div className="mt-4">
@@ -662,8 +662,8 @@ const BestTreadmillsHomeWeightLossPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <p className="mb-4">
             Running burns more calories per minute, but walking is easier to sustain. A 160-lb
-            person burns roughly 100 calories per mile whether they walk it in 20 minutes or run it
-            in 10 minutes. The difference is that walking does not leave you exhausted, so you can
+            person burns roughly 100 calories per mile whether they walk it in 20 minutes or run it
+            in 10 minutes. The difference is that walking does not leave you exhausted, so you can
             do it every day. Running requires recovery days. Use our{' '}
             <Link href="/body-fat-burn" className="text-accent hover:underline">
               Body Fat Burn Calculator
@@ -672,7 +672,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
           </p>
           <p className="mb-4">
             I started with walking because my knees hurt when I ran. After three months of daily
-            walking, I gradually added short running intervals. Now I can run 5 miles comfortably.
+            walking, I gradually added short running intervals. Now I can run 5 miles comfortably.
             But I still walk most days because it is easier to stay consistent. Walking on a 10-15%
             incline burns nearly as many calories as jogging on flat ground, with less joint stress.
             All of the treadmills on this list (except the budget Sunny Health model) have powered
@@ -684,7 +684,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
               calorie deficit
             </Link>
             , remember that your body adapts to exercise. The same 30-minute walk that burns 250
-            calories today might only burn 200 calories in three months as your fitness improves.
+            calories today might only burn 200 calories in three months as your fitness improves.
             That is good (you are getting fitter), but it means you need to adjust your diet or
             increase workout intensity to keep losing weight.
           </p>
@@ -698,7 +698,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
               the motor compartment. Clean it out regularly to prevent overheating.
             </li>
             <li>
-              <strong>Lubricate the belt every 3-6 months:</strong> Most treadmills need
+              <strong>Lubricate the belt every 3-6 months:</strong> Most treadmills need
               silicone-based lubricant applied under the belt. Check your manual for the recommended
               schedule.
             </li>
@@ -707,7 +707,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
               damages the motor. Most treadmills have adjustment bolts at the rear of the deck.
             </li>
             <li>
-              <strong>Replace the belt every 1,500-2,000 miles:</strong> Worn belts increase
+              <strong>Replace the belt every 1,500-2,000 miles:</strong> Worn belts increase
               friction and stress the motor. Replacement belts cost $50-150 and extend treadmill
               life by years.
             </li>
@@ -722,13 +722,13 @@ const BestTreadmillsHomeWeightLossPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Incline training for faster weight loss</h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <p className="mb-4">
-            Walking on a 10% incline at 3.5 mph burns 50-70% more calories than walking on flat
-            ground at the same speed. That is the difference between burning 200 calories in 30
-            minutes and burning 300 calories. The incline also recruits your glutes and hamstrings
+            Walking on a 10% incline at 3.5 mph burns 50-70% more calories than walking on flat
+            ground at the same speed. That is the difference between burning 200 calories in 30
+            minutes and burning 300 calories. The incline also recruits your glutes and hamstrings
             more than flat walking, which builds muscle and increases your resting metabolism.
           </p>
           <p>
-            I do incline intervals: 5 minutes at 0%, 5 minutes at 10%, repeat for 30 minutes. It is
+            I do incline intervals: 5 minutes at 0%, 5 minutes at 10%, repeat for 30 minutes. It is
             harder than flat walking but easier than running, and it burns more calories than either
             one alone. If you are starting out, begin with 2-3% incline and work your way up. Track
             your progress with our{' '}

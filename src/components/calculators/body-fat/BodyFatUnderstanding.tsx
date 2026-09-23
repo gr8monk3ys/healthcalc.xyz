@@ -59,7 +59,7 @@ const BodyFatUnderstanding: React.FC = () => {
           mass during weight loss
         </li>
         <li>
-          <span className="font-medium">Moderate calorie deficit:</span> Aim for 500-750 calories
+          <span className="font-medium">Moderate calorie deficit:</span> Aim for 500-750 calories
           below maintenance for sustainable fat loss
         </li>
         <li>

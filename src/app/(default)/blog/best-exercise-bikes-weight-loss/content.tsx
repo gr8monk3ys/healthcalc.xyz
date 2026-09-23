@@ -119,7 +119,7 @@ const BestExerciseBikesWeightLossPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Exercise Bikes for Weight Loss in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -191,7 +191,7 @@ const BestExerciseBikesWeightLossPageContent = (
         <p>
           Here’s what most bike reviews won’t tell you: the bike itself doesn’t make you lose
           weight. Your calorie deficit does. An exercise bike is just a really convenient way to
-          burn 400 to 600 calories per hour without leaving your house, without worrying about
+          burn 400 to 600 calories per hour without leaving your house, without worrying about
           weather, and without needing any coordination. That’s the real appeal. If you’ve run the
           numbers with our{' '}
           <Link href="/calories-burned" className="text-accent hover:underline">
@@ -249,7 +249,7 @@ const BestExerciseBikesWeightLossPageContent = (
 
         <p>
           The numbers back this up. A 180-pound person cycling at moderate intensity burns roughly
-          500 calories per hour. Push into high intensity intervals and you’re looking at 700 or
+          500 calories per hour. Push into high intensity intervals and you’re looking at 700 or
           more. You can verify this yourself with our{' '}
           <Link href="/calories-burned" className="text-accent hover:underline">
             Calories Burned Calculator
@@ -347,7 +347,7 @@ const BestExerciseBikesWeightLossPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> No built-in screen (you’ll need a tablet), assembly takes about
-              90 minutes, seat can be uncomfortable for longer rides without a gel cover
+              90 minutes, seat can be uncomfortable for longer rides without a gel cover
             </p>
           </div>
           <div className="mt-4">
@@ -387,9 +387,9 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>44 lb chrome flywheel for smooth, consistent momentum</li>
+            <li>44 lb chrome flywheel for smooth, consistent momentum</li>
             <li>Magnetic resistance system with micro-adjustable knob</li>
-            <li>Heavy-duty steel frame supports up to 300 lbs</li>
+            <li>Heavy-duty steel frame supports up to 300 lbs</li>
             <li>Tablet holder built into the handlebars</li>
             <li>Cage pedals with adjustable straps for secure footing</li>
             <li>Transport wheels for easy repositioning</li>
@@ -400,7 +400,7 @@ const BestExerciseBikesWeightLossPageContent = (
             This bike punches way above its weight class. I expected the ride quality to feel cheap
             at $399, but that heavy flywheel genuinely delivers. The momentum carries through the
             dead spots in your pedal stroke in a way that lighter flywheels just can’t replicate. If
-            you’ve never ridden a bike with a flywheel under 30 pounds, trust me, the difference is
+            you’ve never ridden a bike with a flywheel under 30 pounds, trust me, the difference is
             night and day.
           </p>
 
@@ -497,7 +497,7 @@ const BestExerciseBikesWeightLossPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Very expensive, JRNY subscription required ($149/year), heavy
-              and difficult to move (154 lbs), leaning mode has a learning curve
+              and difficult to move (154 lbs), leaning mode has a learning curve
             </p>
           </div>
           <div className="mt-4">
@@ -539,7 +539,7 @@ const BestExerciseBikesWeightLossPageContent = (
             <li>Folds to approximately half its full size for storage</li>
             <li>8 levels of magnetic resistance with easy-turn knob</li>
             <li>Large cushioned seat with backrest for comfort</li>
-            <li>300 lb weight capacity despite compact design</li>
+            <li>300 lb weight capacity despite compact design</li>
             <li>Hand pulse sensors on the handlebars</li>
             <li>Three-piece crank system for smooth pedaling</li>
           </ul>
@@ -614,12 +614,12 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>35 lb flywheel for smooth and consistent riding feel</li>
+            <li>35 lb flywheel for smooth and consistent riding feel</li>
             <li>Adjustable friction resistance with infinite settings</li>
             <li>iPad/tablet holder integrated into the handlebars</li>
             <li>Cage pedals with toe straps for secure positioning</li>
             <li>4-way adjustable seat (up, down, forward, back)</li>
-            <li>270 lb weight capacity with steel frame construction</li>
+            <li>270 lb weight capacity with steel frame construction</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">The reality check:</h4>
@@ -670,7 +670,7 @@ const BestExerciseBikesWeightLossPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <p>
             Owning a bike is step one. Using it consistently is the part where most people fail. I
-            lost 22 pounds over six months of indoor cycling, and here’s the approach that worked
+            lost 22 pounds over six months of indoor cycling, and here’s the approach that worked
             for me. It’s not complicated.
           </p>
 
@@ -687,9 +687,9 @@ const BestExerciseBikesWeightLossPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Mix up your intensity</h4>
           <p>
-            Don’t just sit and pedal at the same pace for 30 minutes. Do two steady-state rides and
-            one interval ride per week. For intervals, try 30 seconds hard followed by 60 seconds
-            easy, repeated for 20 minutes. Monitor your heart rate zones to keep the effort honest.
+            Don’t just sit and pedal at the same pace for 30 minutes. Do two steady-state rides and
+            one interval ride per week. For intervals, try 30 seconds hard followed by 60 seconds
+            easy, repeated for 20 minutes. Monitor your heart rate zones to keep the effort honest.
             Our{' '}
             <Link href="/heart-rate-zones" className="text-accent hover:underline">
               Heart Rate Zones calculator
@@ -701,7 +701,7 @@ const BestExerciseBikesWeightLossPageContent = (
             Track your calorie deficit, not just your rides
           </h4>
           <p>
-            A 45-minute ride might burn 400 calories. That’s less than a Chipotle burrito. The bike
+            A 45-minute ride might burn 400 calories. That’s less than a Chipotle burrito. The bike
             creates a calorie deficit, but your diet determines whether that deficit actually
             exists. Use our{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
@@ -737,14 +737,14 @@ const BestExerciseBikesWeightLossPageContent = (
                 <td className="border p-3">Schwinn IC4</td>
                 <td className="border p-3 text-center">$799</td>
                 <td className="border p-3 text-center">100 Magnetic</td>
-                <td className="border p-3 text-center">40 lb</td>
+                <td className="border p-3 text-center">40 lb</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Sunny Health SF-B1805</td>
                 <td className="border p-3 text-center">$399</td>
                 <td className="border p-3 text-center">Magnetic</td>
-                <td className="border p-3 text-center">44 lb</td>
+                <td className="border p-3 text-center">44 lb</td>
                 <td className="border p-3 text-center">Budget riders</td>
               </tr>
               <tr>
@@ -765,7 +765,7 @@ const BestExerciseBikesWeightLossPageContent = (
                 <td className="border p-3">YOSUDA Indoor</td>
                 <td className="border p-3 text-center">$279</td>
                 <td className="border p-3 text-center">Friction</td>
-                <td className="border p-3 text-center">35 lb</td>
+                <td className="border p-3 text-center">35 lb</td>
                 <td className="border p-3 text-center">Value seekers</td>
               </tr>
             </tbody>

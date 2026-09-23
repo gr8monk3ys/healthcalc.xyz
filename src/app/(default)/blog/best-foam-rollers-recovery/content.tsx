@@ -85,7 +85,7 @@ const BestFoamRollersRecoveryPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Foam Rollers and Recovery Tools in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 11 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 11 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -94,15 +94,15 @@ const BestFoamRollersRecoveryPageContent = (
           <ul className="space-y-2">
             <li>
               <strong>Best Overall:</strong> TriggerPoint GRID ($36.99) - Multi-density surface,
-              hollow core, 13 inches
+              hollow core, 13 inches
             </li>
             <li>
-              <strong>Best Budget:</strong> LuxFit High Density ($19.99) - Simple, firm, 36 inches,
+              <strong>Best Budget:</strong> LuxFit High Density ($19.99) - Simple, firm, 36 inches,
               will not deform
             </li>
             <li>
               <strong>Best Value:</strong> LuxFit Speckled ($24.95) - 3-year warranty,
-              multi-density, 36 inches
+              multi-density, 36 inches
             </li>
             <li>
               <strong>Best Portable:</strong> TheraGun Mini ($149.99) - Percussion massage, fits in
@@ -220,8 +220,8 @@ const BestFoamRollersRecoveryPageContent = (
           </p>
           <p>
             A 2015 meta-analysis in the International Journal of Sports Physical Therapy found that
-            foam rolling for 10-20 minutes after exercise reduced muscle soreness by 20-30% at 24
-            and 48 hours post-exercise. It is not a cure-all, but the evidence is solid enough to be
+            foam rolling for 10-20 minutes after exercise reduced muscle soreness by 20-30% at 24
+            and 48 hours post-exercise. It is not a cure-all, but the evidence is solid enough to be
             worth the ten minutes.
           </p>
         </div>
@@ -247,17 +247,17 @@ const BestFoamRollersRecoveryPageContent = (
             The GRID is the foam roller that most gyms and physical therapy offices stock. The
             surface has three different texture zones that mimic the feel of a massage therapist’s
             hands, fingers, and palms. The hollow core means it will not deform or flatten over time
-            like solid foam rollers do. At 13 inches long, it is portable enough for a gym bag but
+            like solid foam rollers do. At 13 inches long, it is portable enough for a gym bag but
             large enough for most rolling positions. I have had mine for three years and it looks
             the same as the day I bought it.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Patented multi-density EVA foam surface</li>
-            <li>Hollow ABS core that holds up to 500 lbs</li>
+            <li>Hollow ABS core that holds up to 500 lbs</li>
             <li>Three texture zones for different massage intensities</li>
-            <li>13 inches long, 5.5 inches diameter</li>
-            <li>Supports up to 500 lbs of body weight</li>
+            <li>13 inches long, 5.5 inches diameter</li>
+            <li>Supports up to 500 lbs of body weight</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -313,8 +313,8 @@ const BestFoamRollersRecoveryPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>36 inches long, 6 inches diameter</li>
-            <li>Molded polypropylene, 2 lbs per cubic foot density</li>
+            <li>36 inches long, 6 inches diameter</li>
+            <li>Molded polypropylene, 2 lbs per cubic foot density</li>
             <li>Smooth surface, will not lose shape</li>
             <li>Repels liquids (easy to clean)</li>
           </ul>
@@ -371,7 +371,7 @@ const BestFoamRollersRecoveryPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>36 inches long, multi-density speckled foam</li>
+            <li>36 inches long, multi-density speckled foam</li>
             <li>3-year warranty</li>
             <li>Repels liquids, easy to maintain</li>
             <li>Available in multiple colors</li>
@@ -384,7 +384,7 @@ const BestFoamRollersRecoveryPageContent = (
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
               <strong>Pros:</strong> 3-year warranty, multi-density provides texture variation, good
-              mid-range price, full 36 inches
+              mid-range price, full 36 inches
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Still too large for travel, density variation is subtle, no
@@ -425,7 +425,7 @@ const BestFoamRollersRecoveryPageContent = (
             fit in a work bag. I include it here because it solves a different recovery problem:
             targeted muscle knots that a foam roller cannot reach easily (upper traps, forearms,
             feet). The 3rd gen model is 30% smaller and quieter than the previous version, charges
-            via USB-C, and lasts 180 minutes on a single charge. At $150 it is the most expensive
+            via USB-C, and lasts 180 minutes on a single charge. At $150 it is the most expensive
             item on this list, but if you travel frequently and need recovery on the road, nothing
             else fits in a carry-on as well.
           </p>
@@ -492,10 +492,10 @@ const BestFoamRollersRecoveryPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>3 sizes: 6 inches (deep), 10 inches (medium), 12 inches (gentle)</li>
+            <li>3 sizes: 6 inches (deep), 10 inches (medium), 12 inches (gentle)</li>
             <li>5-inch width fits between shoulder blades</li>
             <li>PVC core with padded foam exterior</li>
-            <li>Supports up to 500 lbs</li>
+            <li>Supports up to 500 lbs</li>
             <li>Designed specifically for thoracic spine</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -583,11 +583,11 @@ const BestFoamRollersRecoveryPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Roll slowly:</strong> 1-2 inches per second. Fast rolling does almost nothing.
+              <strong>Roll slowly:</strong> 1-2 inches per second. Fast rolling does almost nothing.
             </li>
             <li>
               <strong>Pause on tender spots:</strong> When you find a tight spot, hold pressure for
-              20-30 seconds until you feel it release.
+              20-30 seconds until you feel it release.
             </li>
             <li>
               <strong>Never roll directly on joints or bones:</strong> Roll the muscles around the
@@ -598,7 +598,7 @@ const BestFoamRollersRecoveryPageContent = (
               rolling after helps recovery. Both are useful.
             </li>
             <li>
-              <strong>10 minutes is enough:</strong> Hit your quads, hamstrings, IT band, glutes,
+              <strong>10 minutes is enough:</strong> Hit your quads, hamstrings, IT band, glutes,
               and upper back. That covers most problem areas.
             </li>
             <li>

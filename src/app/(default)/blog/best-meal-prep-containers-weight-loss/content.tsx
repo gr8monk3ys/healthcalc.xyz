@@ -119,7 +119,7 @@ const BestMealPrepContainersPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Meal Prep Containers for Weight Loss in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 11 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 11 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -227,7 +227,7 @@ const BestMealPrepContainersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Real-World Performance:</h4>
           <p>
-            I’ve had my set for 18 months. No broken containers (and I’m not gentle). The lids still
+            I’ve had my set for 18 months. No broken containers (and I’m not gentle). The lids still
             seal properly. Food reheats evenly. The compartments make it easy to hit your macros
             without thinking too hard about it.
           </p>
@@ -295,7 +295,7 @@ const BestMealPrepContainersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Real-World Performance:</h4>
           <p>
-            These won’t last forever. After 4-6 months of regular use, some lids start getting
+            These won’t last forever. After 4-6 months of regular use, some lids start getting
             loose. But at this price, who cares? Buy a new set.
           </p>
 
@@ -357,7 +357,7 @@ const BestMealPrepContainersPageContent = (
             <li>Thicker BPA-free plastic than budget options</li>
             <li>Reinforced snap-lock lids</li>
             <li>Microwave, dishwasher, and freezer safe</li>
-            <li>28 oz total capacity per container</li>
+            <li>28 oz total capacity per container</li>
             <li>Comes with a meal prep guide (actually useful)</li>
           </ul>
 
@@ -369,7 +369,7 @@ const BestMealPrepContainersPageContent = (
           </p>
 
           <p className="mt-3">
-            I like the portion sizes here. The main compartment fits about 6 oz of protein, which is
+            I like the portion sizes here. The main compartment fits about 6 oz of protein, which is
             perfect if you’re hitting{' '}
             <Link href="/protein" className="text-accent hover:underline">
               0.8-1g of protein per pound
@@ -558,7 +558,7 @@ const BestMealPrepContainersPageContent = (
             <li>You carry meals in a backpack or gym bag</li>
             <li>You need lightweight containers for travel</li>
             <li>You want more containers for less money</li>
-            <li>You don’t mind replacing them every 6-12 months</li>
+            <li>You don’t mind replacing them every 6-12 months</li>
           </ul>
         </div>
 
@@ -680,7 +680,7 @@ const BestMealPrepContainersPageContent = (
           </p>
           <p className="mt-3">
             If I could only buy one set? Fitpacker. The $22 price point is reasonable, the quality
-            is solid, and 7 containers is enough for a work week of lunches or 3-4 days of lunch and
+            is solid, and 7 containers is enough for a work week of lunches or 3-4 days of lunch and
             dinner.
           </p>
           <p className="mt-3">

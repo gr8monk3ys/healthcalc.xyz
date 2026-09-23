@@ -31,7 +31,7 @@ export default function CalorieResult({ result }: CalorieResultProps) {
           <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
             Basal Metabolic Rate
           </h3>
-          <p className="text-2xl font-bold">{result.bmr} calories/day</p>
+          <p className="text-2xl font-bold">{result.bmr} calories/day</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
             Calories your body burns at complete rest
           </p>
@@ -41,7 +41,7 @@ export default function CalorieResult({ result }: CalorieResultProps) {
           <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
             Maintenance Calories
           </h3>
-          <p className="text-2xl font-bold">{result.tdee} calories/day</p>
+          <p className="text-2xl font-bold">{result.tdee} calories/day</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
             Total calories burned daily with activity
           </p>
@@ -55,7 +55,7 @@ export default function CalorieResult({ result }: CalorieResultProps) {
               <h4 className="font-medium">Maintain Weight</h4>
               <p className="text-sm text-gray-500 dark:text-gray-400">Estimated maintenance</p>
             </div>
-            <p className="text-xl font-bold">{result.dailyCalories.maintain} calories</p>
+            <p className="text-xl font-bold">{result.dailyCalories.maintain} calories</p>
           </div>
         </div>
 
@@ -65,23 +65,23 @@ export default function CalorieResult({ result }: CalorieResultProps) {
             <div className="neumorph-inset p-3 rounded-lg flex justify-between items-center">
               <div>
                 <p className="font-medium">Mild loss</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">~0.25 kg (0.5 lb) / week</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">~0.25 kg (0.5 lb) / week</p>
               </div>
-              <p className="text-lg font-bold">{result.dailyCalories.mildLoss} calories</p>
+              <p className="text-lg font-bold">{result.dailyCalories.mildLoss} calories</p>
             </div>
             <div className="neumorph-inset p-3 rounded-lg flex justify-between items-center">
               <div>
                 <p className="font-medium">Moderate loss</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">~0.5 kg (1 lb) / week</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">~0.5 kg (1 lb) / week</p>
               </div>
-              <p className="text-lg font-bold">{result.dailyCalories.moderateLoss} calories</p>
+              <p className="text-lg font-bold">{result.dailyCalories.moderateLoss} calories</p>
             </div>
             <div className="neumorph-inset p-3 rounded-lg flex justify-between items-center">
               <div>
                 <p className="font-medium">Aggressive loss</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">~0.75 kg (1.5 lb) / week</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">~0.75 kg (1.5 lb) / week</p>
               </div>
-              <p className="text-lg font-bold">{result.dailyCalories.extremeLoss} calories</p>
+              <p className="text-lg font-bold">{result.dailyCalories.extremeLoss} calories</p>
             </div>
           </div>
         </div>
@@ -92,30 +92,30 @@ export default function CalorieResult({ result }: CalorieResultProps) {
             <div className="neumorph-inset p-3 rounded-lg flex justify-between items-center">
               <div>
                 <p className="font-medium">Lean gain</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">~0.25 kg (0.5 lb) / week</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">~0.25 kg (0.5 lb) / week</p>
               </div>
-              <p className="text-lg font-bold">{result.dailyCalories.mildGain} calories</p>
+              <p className="text-lg font-bold">{result.dailyCalories.mildGain} calories</p>
             </div>
             <div className="neumorph-inset p-3 rounded-lg flex justify-between items-center">
               <div>
                 <p className="font-medium">Moderate gain</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">~0.5 kg (1 lb) / week</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">~0.5 kg (1 lb) / week</p>
               </div>
-              <p className="text-lg font-bold">{result.dailyCalories.moderateGain} calories</p>
+              <p className="text-lg font-bold">{result.dailyCalories.moderateGain} calories</p>
             </div>
             <div className="neumorph-inset p-3 rounded-lg flex justify-between items-center">
               <div>
                 <p className="font-medium">Aggressive gain</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">~0.75 kg (1.5 lb) / week</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">~0.75 kg (1.5 lb) / week</p>
               </div>
-              <p className="text-lg font-bold">{result.dailyCalories.extremeGain} calories</p>
+              <p className="text-lg font-bold">{result.dailyCalories.extremeGain} calories</p>
             </div>
           </div>
         </div>
       </div>
 
       <p className="text-sm text-gray-600 dark:text-gray-400 mt-6">
-        These targets are estimates. Track progress for 2-3 weeks and adjust by 100-200 calories if
+        These targets are estimates. Track progress for 2-3 weeks and adjust by 100-200 calories if
         your weight trend is not moving as expected.
       </p>
     </div>

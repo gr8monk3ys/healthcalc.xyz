@@ -106,7 +106,7 @@ const WHRResultDisplay: React.FC<WHRResultDisplayProps> = ({ result, gender }) =
               </li>
               <li>Reduce consumption of processed foods, sugary drinks, and alcohol</li>
               <li>Manage stress levels through meditation, yoga, or other relaxation techniques</li>
-              <li>Aim for 7-9 hours of quality sleep each night</li>
+              <li>Aim for 7-9 hours of quality sleep each night</li>
               <li>Consider consulting with a healthcare provider for personalized advice</li>
             </ul>
           </div>

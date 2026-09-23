@@ -11,7 +11,7 @@ const MetabolicAdaptationPlateausPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         Why Your Diet Stopped Working: Metabolic Adaptation and Plateaus Explained
       </h1>
-      <p className="text-gray-500 italic">Published: February 6, 2026 • 13 min read</p>
+      <p className="text-gray-500 italic">Published: February 6, 2026 • 13 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -24,7 +24,7 @@ const MetabolicAdaptationPlateausPageContent = (
           </li>
           <li>
             The Biggest Loser study (Fothergill 2016) found that contestants’ metabolic rates were
-            still suppressed by an average of 500 calories per day six years after the show, even
+            still suppressed by an average of 500 calories per day six years after the show, even
             among those who regained most of the weight.
           </li>
           <li>
@@ -32,18 +32,18 @@ const MetabolicAdaptationPlateausPageContent = (
             metabolic adaptation. You move less without realizing it.
           </li>
           <li>
-            The MATADOR study showed that intermittent dieting (2 weeks on, 2 weeks off) produced
+            The MATADOR study showed that intermittent dieting (2 weeks on, 2 weeks off) produced
             greater fat loss and less metabolic slowing than continuous dieting.
           </li>
           <li>
             Most “plateaus” are actually scale fluctuations from water retention. A true plateau
-            requires 3-4 weeks of stable weight with consistent intake.
+            requires 3-4 weeks of stable weight with consistent intake.
           </li>
         </ul>
       </div>
 
       <p>
-        You have been dieting for 8 weeks. The first month was great. Weight was dropping steadily,
+        You have been dieting for 8 weeks. The first month was great. Weight was dropping steadily,
         clothes felt looser, people started noticing. Then it stopped. The scale has not moved in
         two weeks. Maybe it even went up a pound.
       </p>
@@ -83,17 +83,17 @@ const MetabolicAdaptationPlateausPageContent = (
           <li>
             <strong>Reduced basal metabolic rate (BMR):</strong> As you lose weight, you have less
             tissue to maintain, so your BMR naturally drops. But adaptive thermogenesis causes it to
-            drop further than the weight loss alone would predict. If you lose 20 pounds and your
-            BMR “should” be 1,600 calories, adaptive thermogenesis might push it to 1,450. That
+            drop further than the weight loss alone would predict. If you lose 20 pounds and your
+            BMR “should” be 1,600 calories, adaptive thermogenesis might push it to 1,450. That
             150-calorie gap is the adaptation.
           </li>
           <li>
             <strong>Decreased NEAT:</strong> This is the big one that people underestimate.
             Non-exercise activity thermogenesis includes all your unconscious movement: fidgeting,
             posture maintenance, gesticulating while talking, walking pace, standing frequency.
-            During dieting, NEAT can drop by 200-400 calories per day. You do not decide to move
+            During dieting, NEAT can drop by 200-400 calories per day. You do not decide to move
             less. Your body down-regulates it automatically. Levine et al. documented this in a 1999
-            Science paper showing that NEAT varied by up to 2,000 calories per day between
+            Science paper showing that NEAT varied by up to 2,000 calories per day between
             individuals and was a major determinant of fat gain resistance.
           </li>
           <li>
@@ -102,8 +102,8 @@ const MetabolicAdaptationPlateausPageContent = (
           </li>
           <li>
             <strong>Increased exercise efficiency:</strong> Your body becomes more efficient at
-            performing the same movements. That 30-minute run that burned 350 calories at week 1
-            might burn only 310 calories by week 12, because your muscles and cardiovascular system
+            performing the same movements. That 30-minute run that burned 350 calories at week 1
+            might burn only 310 calories by week 12, because your muscles and cardiovascular system
             have adapted.
           </li>
         </ul>
@@ -121,7 +121,7 @@ const MetabolicAdaptationPlateausPageContent = (
           TDEE calculator
         </Link>
         , but keep in mind that standard formulas do not account for adaptive thermogenesis. If you
-        have been dieting for more than 8-12 weeks, your actual TDEE is likely lower than what any
+        have been dieting for more than 8-12 weeks, your actual TDEE is likely lower than what any
         calculator will tell you.
       </p>
 
@@ -132,13 +132,13 @@ const MetabolicAdaptationPlateausPageContent = (
       <p>
         The most famous (and perhaps most unsettling) study on metabolic adaptation comes from
         Fothergill et al., published in Obesity in 2016. The researchers followed 14 contestants
-        from Season 8 of The Biggest Loser for 6 years after the show. The findings deserve a close
+        from Season 8 of The Biggest Loser for 6 years after the show. The findings deserve a close
         look because they illustrate both the severity and the persistence of metabolic adaptation
         under extreme conditions.
       </p>
 
       <p>
-        During the 30-week show, contestants lost an average of 128 pounds. Their metabolic rates
+        During the 30-week show, contestants lost an average of 128 pounds. Their metabolic rates
         dropped significantly, which was expected. The surprising finding was what happened six
         years later:
       </p>
@@ -147,17 +147,17 @@ const MetabolicAdaptationPlateausPageContent = (
         <h3 className="text-xl font-semibold mb-2">Six Years Post-Show</h3>
         <ul className="list-disc list-inside space-y-3">
           <li>
-            13 of 14 participants had regained significant weight. The average regain was 90 pounds.
+            13 of 14 participants had regained significant weight. The average regain was 90 pounds.
           </li>
           <li>
             Despite the weight regain, their metabolic rates had not recovered. In fact, the
             metabolic adaptation had increased. At the end of the show, their metabolisms were
-            suppressed by about 275 calories/day below predicted. Six years later, the suppression
-            had grown to about 500 calories/day.
+            suppressed by about 275 calories/day below predicted. Six years later, the suppression
+            had grown to about 500 calories/day.
           </li>
           <li>
-            This means that a former contestant weighing 250 pounds burned roughly 500 fewer
-            calories per day than a person who had always weighed 250 pounds. They had to eat
+            This means that a former contestant weighing 250 pounds burned roughly 500 fewer
+            calories per day than a person who had always weighed 250 pounds. They had to eat
             significantly less just to avoid further weight gain.
           </li>
           <li>
@@ -172,14 +172,14 @@ const MetabolicAdaptationPlateausPageContent = (
         Before you panic, some important context: The Biggest Loser represents an extreme case.
         Contestants lost massive amounts of weight (often 30-40% of body weight) over a very short
         period through extreme exercise and severe caloric restriction. This is not what happens to
-        someone losing 15-20 pounds over several months at a moderate deficit.
+        someone losing 15-20 pounds over several months at a moderate deficit.
       </p>
 
       <p>
-        Research on more moderate weight loss (10-15% of body weight over 3-6 months) shows smaller
+        Research on more moderate weight loss (10-15% of body weight over 3-6 months) shows smaller
         and more recoverable metabolic adaptations. Rosenbaum and Leibel published a 2010 review in
         the International Journal of Obesity showing that a 10% weight loss typically produces a
-        metabolic adaptation of about 200-300 calories per day, and that much of this adaptation
+        metabolic adaptation of about 200-300 calories per day, and that much of this adaptation
         involves NEAT reduction rather than BMR suppression.
       </p>
 
@@ -204,7 +204,7 @@ const MetabolicAdaptationPlateausPageContent = (
       <p>
         Ghrelin, the “hunger hormone” produced primarily by the stomach, increases during caloric
         restriction. Sumithran et al. published a 2011 study in the New England Journal of Medicine
-        showing that ghrelin levels remained elevated for at least 12 months after weight loss, even
+        showing that ghrelin levels remained elevated for at least 12 months after weight loss, even
         when weight was partially regained. The authors concluded that the hormonal changes that
         drive weight regain persist long after the diet ends.
       </p>
@@ -248,19 +248,19 @@ const MetabolicAdaptationPlateausPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-3">
           <li>
-            <strong>Continuous group:</strong> 16 weeks of continuous caloric restriction (33%
+            <strong>Continuous group:</strong> 16 weeks of continuous caloric restriction (33%
             deficit)
           </li>
           <li>
-            <strong>Intermittent group:</strong> 2 weeks of caloric restriction alternated with 2
-            weeks of eating at maintenance, for a total of 16 weeks of dieting (spread over 30
+            <strong>Intermittent group:</strong> 2 weeks of caloric restriction alternated with 2
+            weeks of eating at maintenance, for a total of 16 weeks of dieting (spread over 30
             weeks)
           </li>
         </ul>
         <p className="mt-4">The results were striking:</p>
         <ul className="list-disc list-inside space-y-3 mt-3">
           <li>
-            The intermittent group lost 50% more weight (14.1 kg vs 9.1 kg) despite the same total
+            The intermittent group lost 50% more weight (14.1 kg vs 9.1 kg) despite the same total
             duration of dieting
           </li>
           <li>The intermittent group lost significantly more fat mass</li>
@@ -297,11 +297,11 @@ const MetabolicAdaptationPlateausPageContent = (
             typically with increased carbohydrates. The rationale is to temporarily boost leptin and
             glycogen stores. The evidence for single-day refeeds affecting metabolic adaptation is
             weak. Leptin does respond to acute carbohydrate intake, but the effect is temporary
-            (24-48 hours). A refeed day may help psychologically, but its metabolic impact is
+            (24-48 hours). A refeed day may help psychologically, but its metabolic impact is
             probably minimal.
           </li>
           <li>
-            <strong>Diet break:</strong> A period of 1-2 weeks eating at maintenance calories. This
+            <strong>Diet break:</strong> A period of 1-2 weeks eating at maintenance calories. This
             has more support from the MATADOR study and from the hormonal recovery literature. Two
             weeks appears to be the minimum duration needed for meaningful reversal of metabolic
             adaptation.
@@ -348,22 +348,22 @@ const MetabolicAdaptationPlateausPageContent = (
       </p>
 
       <p>
-        Your body weight can fluctuate by 2-5 pounds in a single day based on factors that have
+        Your body weight can fluctuate by 2-5 pounds in a single day based on factors that have
         nothing to do with fat:
       </p>
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>
-          <strong>Sodium intake:</strong> A high-sodium meal can cause 2-3 pounds of water retention
-          for 24-48 hours
+          <strong>Sodium intake:</strong> A high-sodium meal can cause 2-3 pounds of water retention
+          for 24-48 hours
         </li>
         <li>
           <strong>Carbohydrate repletion:</strong> Each gram of glycogen stores approximately 3
-          grams of water. A high-carb day after several low-carb days can add 3-5 pounds overnight
+          grams of water. A high-carb day after several low-carb days can add 3-5 pounds overnight
         </li>
         <li>
           <strong>Menstrual cycle:</strong> Hormonal water retention during the luteal phase
-          (roughly days 14-28) can add 2-5 pounds. Many women see their lowest scale weight in the
+          (roughly days 14-28) can add 2-5 pounds. Many women see their lowest scale weight in the
           first week of their cycle
         </li>
         <li>
@@ -377,7 +377,7 @@ const MetabolicAdaptationPlateausPageContent = (
       </ul>
 
       <p>
-        A true fat loss plateau requires stable weight (no downward trend) for at least 3-4 weeks
+        A true fat loss plateau requires stable weight (no downward trend) for at least 3-4 weeks
         while consistently maintaining your intended calorie deficit. Two weeks of stable weight is
         not a plateau. It is normal fluctuation.
       </p>
@@ -392,7 +392,7 @@ const MetabolicAdaptationPlateausPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">How to Break Through a Real Plateau</h2>
 
       <p>
-        If you have genuinely been stalled for 3-4 weeks with consistent intake, here is my
+        If you have genuinely been stalled for 3-4 weeks with consistent intake, here is my
         recommended approach, in order:
       </p>
 
@@ -411,24 +411,24 @@ const MetabolicAdaptationPlateausPageContent = (
           </li>
           <li>
             <strong>Increase NEAT intentionally.</strong> Since NEAT drops unconsciously during
-            dieting, fight back consciously. Set a step target (8,000-10,000 steps per day), take
+            dieting, fight back consciously. Set a step target (8,000-10,000 steps per day), take
             walking meetings, park farther away, stand more. Adding 3,000-5,000 daily steps can
-            increase expenditure by 150-300 calories.
+            increase expenditure by 150-300 calories.
           </li>
           <li>
-            <strong>Increase protein intake.</strong> If you are not already eating 1.6-2.2 g of
+            <strong>Increase protein intake.</strong> If you are not already eating 1.6-2.2 g of
             protein per kg of body weight, increasing protein can boost TEF and satiety. This is
             particularly important during extended dieting to preserve lean mass.
           </li>
           <li>
             <strong>Adjust your deficit modestly.</strong> If the above steps do not work after
-            another 2-3 weeks, reduce intake by 100-200 calories. Do not make dramatic cuts. Going
-            from 1,800 to 1,200 calories will produce short-term scale movement but accelerate
+            another 2-3 weeks, reduce intake by 100-200 calories. Do not make dramatic cuts. Going
+            from 1,800 to 1,200 calories will produce short-term scale movement but accelerate
             metabolic adaptation.
           </li>
           <li>
             <strong>Reconsider your timeline.</strong> If you have been in a continuous deficit for
-            more than 12-16 weeks, your body may need a longer maintenance phase (4-8 weeks) before
+            more than 12-16 weeks, your body may need a longer maintenance phase (4-8 weeks) before
             further dieting is productive. Patience is not optional in sustainable fat loss.
           </li>
         </ol>
@@ -448,21 +448,21 @@ const MetabolicAdaptationPlateausPageContent = (
         If you have been in a deficit for 12+ weeks and are experiencing clear signs of excessive
         metabolic adaptation (persistent fatigue, cold hands and feet, low libido, poor workout
         performance, disrupted sleep, hair loss), eating more, specifically returning to maintenance
-        calories for 2-4 weeks, allows your metabolism to recover before you resume dieting.
+        calories for 2-4 weeks, allows your metabolism to recover before you resume dieting.
       </p>
 
       <p>
         The math can work out favorably. Suppose your maintenance at current weight is 2,200
-        calories, but after 16 weeks of dieting at 1,600 calories, your metabolism has adapted down
-        so your actual TDEE is only 1,700. Your effective deficit is only 100 calories per day, and
+        calories, but after 16 weeks of dieting at 1,600 calories, your metabolism has adapted down
+        so your actual TDEE is only 1,700. Your effective deficit is only 100 calories per day, and
         progress has stalled. If you eat at 2,200 for two weeks and your metabolism recovers to
         2,100 (partial recovery), then when you resume dieting at 1,700, your effective deficit is
-        now 400 calories. That is real, meaningful progress.
+        now 400 calories. That is real, meaningful progress.
       </p>
 
       <p>
         Will you gain some weight during the diet break? Yes, mostly water and glycogen, typically
-        2-4 pounds. This comes back off within a week of resuming the deficit. The scale increase is
+        2-4 pounds. This comes back off within a week of resuming the deficit. The scale increase is
         temporary. The metabolic recovery is not.
       </p>
 
@@ -481,14 +481,14 @@ const MetabolicAdaptationPlateausPageContent = (
 
       <p>
         The National Weight Control Registry has tracked over 10,000 people who lost at least 30
-        pounds and kept it off for at least one year. The average registrant lost 66 pounds and
-        maintained the loss for 5.5 years. Their common behaviors:
+        pounds and kept it off for at least one year. The average registrant lost 66 pounds and
+        maintained the loss for 5.5 years. Their common behaviors:
       </p>
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>78% eat breakfast daily</li>
         <li>75% weigh themselves at least once a week</li>
-        <li>62% watch fewer than 10 hours of TV per week</li>
+        <li>62% watch fewer than 10 hours of TV per week</li>
         <li>90% exercise on average about one hour per day</li>
         <li>Most maintain a consistent eating pattern across weekdays and weekends</li>
       </ul>
@@ -553,7 +553,7 @@ const MetabolicAdaptationPlateausPageContent = (
         <h3 className="text-xl font-semibold mb-4">References</h3>
         <ul className="space-y-3 text-sm text-gray-600">
           <li>
-            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
+            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
             competition. Obesity. 2016;24(8):1612-1619.
           </li>
           <li>

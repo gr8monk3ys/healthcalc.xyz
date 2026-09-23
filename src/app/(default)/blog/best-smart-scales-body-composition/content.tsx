@@ -111,7 +111,7 @@ const BestSmartScalesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Smart Scales for Body Composition Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">

@@ -102,7 +102,7 @@ const BestWorkoutHeadphonesGymPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Workout Headphones for the Gym in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -253,7 +253,7 @@ const BestWorkoutHeadphonesGymPageContent = (
           </p>
           <p className="mb-4">
             But there is a catch. Earbuds that slip during deadlifts break your focus. Earbuds that
-            die after 40 minutes leave you silent for the back half of your session. And earbuds
+            die after 40 minutes leave you silent for the back half of your session. And earbuds
             that let in too much gym noise mean you crank the volume to unsafe levels just to hear
             the beat. I have done all of these things. Bad headphones do not just annoy you. They
             make your workouts worse.
@@ -278,7 +278,7 @@ const BestWorkoutHeadphonesGymPageContent = (
               jumps, or barbell rows, they did not make the list. Period.
             </li>
             <li>
-              <strong>Battery life over 6 hours:</strong> Most gym sessions run 60-90 minutes, but I
+              <strong>Battery life over 6 hours:</strong> Most gym sessions run 60-90 minutes, but I
               wanted enough battery that you do not charge daily.
             </li>
             <li>
@@ -336,7 +336,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <li>Apple H1 chip (also works with Android)</li>
             <li>Active Noise Cancelling and Transparency mode</li>
             <li>IPX4 sweat and water resistant</li>
-            <li>6 hours battery (24 hours with case)</li>
+            <li>6 hours battery (24 hours with case)</li>
             <li>Spatial Audio with dynamic head tracking</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -388,7 +388,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <span className="text-2xl font-bold text-accent">$149.99</span>
           </div>
           <p className="mb-4">
-            I run three mornings a week, usually 5-7 miles. The Jabra Elite 8 Active has been my
+            I run three mornings a week, usually 5-7 miles. The Jabra Elite 8 Active has been my
             go-to running earbud for the last eight months. These things are built like tanks. IP68
             waterproof means they can handle a downpour, not just sweat. Jabra also had them tested
             to MIL-STD-810H military durability standards, which sounds like marketing fluff until
@@ -419,7 +419,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <li>MIL-STD-810H military durability certification</li>
             <li>Jabra ShakeGrip friction coating for secure fit</li>
             <li>Adaptive hybrid ANC with HearThrough mode</li>
-            <li>8 hours battery (32 hours with case)</li>
+            <li>8 hours battery (32 hours with case)</li>
             <li>Dolby Atmos head tracking support</li>
             <li>6 built-in microphones for calls</li>
           </ul>
@@ -427,7 +427,7 @@ const BestWorkoutHeadphonesGymPageContent = (
           <p>
             Runners and outdoor athletes. If your primary workout is running, trail running, or
             outdoor cycling, the IP68 rating and HearThrough mode make these the obvious choice. The
-            longer battery life (8 hours vs 6 on the Beats) also matters if you do long runs or
+            longer battery life (8 hours vs 6 on the Beats) also matters if you do long runs or
             forget to charge frequently. They handle gym sessions well too, but the secure fit is
             not quite as instant as the Beats wingtip for rapid movements.
           </p>
@@ -474,7 +474,7 @@ const BestWorkoutHeadphonesGymPageContent = (
           </div>
           <p className="mb-4">
             The JBL Reflect Aero has no business being this good at $100. You get active noise
-            cancelling, IP68 waterproofing, and 8 hours of battery life for forty percent less than
+            cancelling, IP68 waterproofing, and 8 hours of battery life for forty percent less than
             the Beats or Jabra. I recommended these to a friend who was not sure if she wanted to
             spend $150+ on gym earbuds, and after three months she has zero complaints. That says a
             lot.
@@ -504,10 +504,10 @@ const BestWorkoutHeadphonesGymPageContent = (
             <li>IP68 dust and waterproof</li>
             <li>Adaptive Noise Cancelling with Ambient Aware</li>
             <li>JBL Signature Sound with customizable EQ</li>
-            <li>8 hours battery (24 hours with case)</li>
+            <li>8 hours battery (24 hours with case)</li>
             <li>Oval-shaped ear tips for comfort</li>
             <li>6 microphones with VoiceAware for calls</li>
-            <li>Fast charging (10 minutes for 1 hour of playback)</li>
+            <li>Fast charging (10 minutes for 1 hour of playback)</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -582,8 +582,8 @@ const BestWorkoutHeadphonesGymPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Bone conduction technology (ears stay open)</li>
             <li>IP55 water and sweat resistant</li>
-            <li>10 hours battery life</li>
-            <li>Quick charge (5 minutes for 1.5 hours of playback)</li>
+            <li>10 hours battery life</li>
+            <li>Quick charge (5 minutes for 1.5 hours of playback)</li>
             <li>29 grams (extremely lightweight)</li>
             <li>Wraparound titanium frame</li>
             <li>Bluetooth 5.1 with multipoint connection</li>
@@ -653,7 +653,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             Sound quality is the best here by a wide margin. Sony’s Integrated Processor V2 and LDAC
             codec deliver actual high-resolution audio. I normally would not care about this for gym
             use, but I noticed the difference during long treadmill sessions where I listen to music
-            for 45-60 minutes straight. The soundstage is wider, the bass is tighter, and vocals sit
+            for 45-60 minutes straight. The soundstage is wider, the bass is tighter, and vocals sit
             clearly in the mix. If you also use your earbuds outside the gym for commuting, work, or
             calls, the XM5 punches way above what gym-specific earbuds can do.
           </p>
@@ -662,7 +662,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             as the Beats, so it handles sweat. But the fit is where it gets tricky. These are
             foam-tip earbuds designed for comfort, not sport security. During lifting, rowing, and
             cycling, they stay in fine. During anything bouncy (running, jump rope, box jumps), they
-            gradually work loose. I have to reseat them every 15-20 minutes during a HIIT session.
+            gradually work loose. I have to reseat them every 15-20 minutes during a HIIT session.
             At $230, that is frustrating.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -671,7 +671,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <li>Sony Integrated Processor V2</li>
             <li>LDAC and DSEE Extreme for high-resolution audio</li>
             <li>IPX4 sweat resistant</li>
-            <li>8 hours battery (24 hours with case)</li>
+            <li>8 hours battery (24 hours with case)</li>
             <li>Speak-to-Chat auto-pause feature</li>
             <li>Multipoint connection (2 devices at once)</li>
             <li>Wireless charging case</li>
@@ -785,7 +785,7 @@ const BestWorkoutHeadphonesGymPageContent = (
               <strong>IP ratings matter more than you think:</strong> IPX4 handles sweat. IP68
               handles rain, rinse-off, and accidental drops in puddles. If you sweat heavily, go
               IP68. My IPX4 earbuds last about a year before moisture eventually gets in. My IP68
-              earbuds are still going strong after 18 months.
+              earbuds are still going strong after 18 months.
             </li>
             <li>
               <strong>ANC is not always better at the gym:</strong> Full noise cancellation can make
@@ -796,11 +796,11 @@ const BestWorkoutHeadphonesGymPageContent = (
             <li>
               <strong>Clean your earbuds weekly:</strong> Sweat, earwax, and gym bacteria build up
               fast. Wipe the ear tips with an alcohol pad after every session. Replace silicone or
-              foam tips every 2-3 months. Your ears will thank you.
+              foam tips every 2-3 months. Your ears will thank you.
             </li>
             <li>
-              <strong>Battery life math:</strong> If you work out 5 days a week for 75 minutes, you
-              need about 6.25 hours of battery per week. A 6-hour earbud needs charging twice a
+              <strong>Battery life math:</strong> If you work out 5 days a week for 75 minutes, you
+              need about 6.25 hours of battery per week. A 6-hour earbud needs charging twice a
               week. An 8-hour earbud needs charging less often. Small difference, but it matters
               when you are rushing to the gym and your earbuds are dead.
             </li>

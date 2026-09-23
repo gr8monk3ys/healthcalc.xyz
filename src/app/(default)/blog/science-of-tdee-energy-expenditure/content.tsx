@@ -12,7 +12,7 @@ const ScienceOfTDEEPageContent = (
         The Science Behind TDEE: Why Most Calorie Calculators Get It Wrong
       </h1>
       <p className="text-gray-500 dark:text-gray-400 italic">
-        Published: January 6, 2026 &bull; 18 min read
+        Published: January 6, 2026 &bull; 18 min read
       </p>
     </header>
 
@@ -34,7 +34,7 @@ const ScienceOfTDEEPageContent = (
           </li>
           <li>
             The only reliable way to find your actual TDEE is to track intake and weight changes
-            over 2 to 3 weeks
+            over 2 to 3 weeks
           </li>
         </ul>
       </div>
@@ -105,8 +105,8 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         BMR is largely determined by factors you cannot control: age, sex, height, and lean body
-        mass. A 25-year-old man who weighs 180 pounds with 15% body fat has a substantially higher
-        BMR than a 55-year-old woman who weighs 130 pounds with 30% body fat. Muscle tissue is
+        mass. A 25-year-old man who weighs 180 pounds with 15% body fat has a substantially higher
+        BMR than a 55-year-old woman who weighs 130 pounds with 30% body fat. Muscle tissue is
         metabolically active. Fat tissue is not, at least not to the same degree.
       </p>
 
@@ -116,7 +116,7 @@ const ScienceOfTDEEPageContent = (
           BMR calculator
         </Link>
         , but understand that the formulas behind it were derived from averaging measurements across
-        study populations. Your individual BMR could be 200 calories higher or lower than what any
+        study populations. Your individual BMR could be 200 calories higher or lower than what any
         equation predicts.
       </p>
 
@@ -126,13 +126,13 @@ const ScienceOfTDEEPageContent = (
         </h4>
         <div className="space-y-2 text-gray-700 dark:text-gray-300">
           <p>
-            <strong>Average adult woman:</strong> 1,200 to 1,500 calories/day
+            <strong>Average adult woman:</strong> 1,200 to 1,500 calories/day
           </p>
           <p>
-            <strong>Average adult man:</strong> 1,500 to 1,900 calories/day
+            <strong>Average adult man:</strong> 1,500 to 1,900 calories/day
           </p>
           <p>
-            <strong>Individual variance:</strong> Plus or minus 200 calories from any formula
+            <strong>Individual variance:</strong> Plus or minus 200 calories from any formula
             estimate
           </p>
         </div>
@@ -149,7 +149,7 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         Not all macronutrients cost the same to process. Protein has the highest thermic effect at
-        20-30% of its calorie content. That means if you eat 100 calories of chicken breast, your
+        20-30% of its calorie content. That means if you eat 100 calories of chicken breast, your
         body spends 20 to 30 of those calories just digesting it. Carbohydrates run about 5-10%. Fat
         is the cheapest to process at 0-3%.
       </p>
@@ -176,12 +176,12 @@ const ScienceOfTDEEPageContent = (
         Here’s what surprises most people: formal exercise accounts for a relatively small portion
         of total energy expenditure for the average person. If you work out for an hour a day,
         that’s still only 4% of your waking hours. The calorie burn from that hour matters, but it’s
-        dwarfed by what happens during the other 15 to 16 hours you’re awake.
+        dwarfed by what happens during the other 15 to 16 hours you’re awake.
       </p>
 
       <p>
         For competitive athletes or people with physically demanding jobs, EAT can be much higher.
-        Tour de France cyclists burn 6,000 to 8,000 calories per day. But for someone who hits the
+        Tour de France cyclists burn 6,000 to 8,000 calories per day. But for someone who hits the
         gym four times a week and works a desk job? EAT is a small slice of the pie.
       </p>
 
@@ -199,13 +199,13 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         Dr. James Levine at the Mayo Clinic published landmark research in 2006 showing that NEAT
-        can vary by up to 2,000 calories per day between two people of similar size. Two thousand.
+        can vary by up to 2,000 calories per day between two people of similar size. Two thousand.
         That’s not a rounding error. That’s the difference between effortless weight maintenance and
         gaining a pound a week.
       </p>
 
       <p>
-        Levine’s team found that obese individuals sat, on average, 2.5 hours more per day than lean
+        Levine’s team found that obese individuals sat, on average, 2.5 hours more per day than lean
         individuals. The lean subjects weren’t exercising more. They were simply more active
         throughout the day in ways they weren’t even conscious of. They stood more. They walked
         more. They moved more while doing routine tasks.
@@ -223,8 +223,8 @@ const ScienceOfTDEEPageContent = (
           Why NEAT Matters More Than Your Gym Session
         </h4>
         <p className="text-gray-700 dark:text-gray-300">
-          A 60-minute gym session might burn 300 to 500 calories. NEAT across 15 waking hours could
-          burn 300 to 2,000 calories. When your NEAT drops (because you’re dieting, stressed, or
+          A 60-minute gym session might burn 300 to 500 calories. NEAT across 15 waking hours could
+          burn 300 to 2,000 calories. When your NEAT drops (because you’re dieting, stressed, or
           exhausted), it can wipe out your entire calorie deficit without you noticing.
         </p>
       </div>
@@ -258,9 +258,9 @@ const ScienceOfTDEEPageContent = (
       </p>
 
       <p>
-        But “within 10%” is not “accurate.” For someone with a true BMR of 1,600 calories, a 10%
+        But “within 10%” is not “accurate.” For someone with a true BMR of 1,600 calories, a 10%
         error means the calculator could say anywhere from 1,440 to 1,760. That’s a 320-calorie
-        range, which over a week amounts to more than 2,000 calories of potential error. Enough to
+        range, which over a week amounts to more than 2,000 calories of potential error. Enough to
         completely erase a moderate deficit or turn a maintenance diet into slow weight gain.
       </p>
 
@@ -298,9 +298,9 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         The problem is self-assessment. What does “moderately active” mean? Someone who works out
-        three times a week but sits at a desk for 10 hours? Someone who doesn’t exercise formally
-        but walks 15,000 steps a day as a nurse? Both might select “moderately active,” but their
-        actual energy expenditure could differ by 500 calories or more.
+        three times a week but sits at a desk for 10 hours? Someone who doesn’t exercise formally
+        but walks 15,000 steps a day as a nurse? Both might select “moderately active,” but their
+        actual energy expenditure could differ by 500 calories or more.
       </p>
 
       <p>
@@ -329,7 +329,7 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         Michael Rosenbaum and colleagues at Columbia University published a series of influential
-        studies on this topic, with a key paper in 2010 in the American Journal of Clinical
+        studies on this topic, with a key paper in 2010 in the American Journal of Clinical
         Nutrition. They found that after a 10% loss of body weight, resting metabolic rate decreased
         by more than what the loss of body mass alone would predict. The body became more efficient,
         burning fewer calories per pound of tissue than it did before the weight loss.
@@ -343,7 +343,7 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         The magnitude of adaptation varies, but studies suggest it can reduce TDEE by 5-15% beyond
-        what weight loss alone would predict. For someone with a calculated TDEE of 2,200 calories,
+        what weight loss alone would predict. For someone with a calculated TDEE of 2,200 calories,
         that’s a potential 110 to 330 calorie reduction you can’t see on any calculator.
       </p>
 
@@ -367,7 +367,7 @@ const ScienceOfTDEEPageContent = (
         </h4>
         <div className="space-y-2 text-gray-700 dark:text-gray-300">
           <p>
-            <strong>Week 1:</strong> You cut 500 calories. You lose weight as expected.
+            <strong>Week 1:</strong> You cut 500 calories. You lose weight as expected.
           </p>
           <p>
             <strong>Week 6:</strong> Same 500-calorie cut, but weight loss slows. Your body is now
@@ -427,13 +427,13 @@ const ScienceOfTDEEPageContent = (
       </h3>
 
       <p>
-        If your weight stayed stable over 2 to 3 weeks while eating X calories per day, then X is
+        If your weight stayed stable over 2 to 3 weeks while eating X calories per day, then X is
         approximately your TDEE. Simple.
       </p>
 
       <p>
         If you gained weight, your TDEE is lower than what you ate. Roughly, every pound gained
-        represents about 3,500 calories of surplus (this is an approximation, but close enough for
+        represents about 3,500 calories of surplus (this is an approximation, but close enough for
         these purposes). Divide the total surplus by the number of days to find out how much to
         adjust.
       </p>
@@ -445,11 +445,11 @@ const ScienceOfTDEEPageContent = (
           Example Calculation
         </h4>
         <div className="space-y-2 text-gray-700 dark:text-gray-300">
-          <p>You eat 2,400 calories/day for 14 days.</p>
-          <p>You gain 1 pound over those 14 days.</p>
-          <p>1 pound = ~3,500 calorie surplus over 14 days = 250 extra calories/day.</p>
+          <p>You eat 2,400 calories/day for 14 days.</p>
+          <p>You gain 1 pound over those 14 days.</p>
+          <p>1 pound = ~3,500 calorie surplus over 14 days = 250 extra calories/day.</p>
           <p>
-            Your actual TDEE is approximately 2,400 - 250 = <strong>2,150 calories/day</strong>.
+            Your actual TDEE is approximately 2,400 - 250 = <strong>2,150 calories/day</strong>.
           </p>
         </div>
       </div>
@@ -459,7 +459,7 @@ const ScienceOfTDEEPageContent = (
       </h3>
 
       <p>
-        Now you have a much better estimate. Eat at this new number for another 2 weeks and see if
+        Now you have a much better estimate. Eat at this new number for another 2 weeks and see if
         weight stabilizes. You may need one or two rounds of adjustment, but after a month, you’ll
         have a working TDEE number that’s far more accurate than any formula could give you.
       </p>
@@ -482,7 +482,7 @@ const ScienceOfTDEEPageContent = (
 
       <p>
         <strong>Trusting the number too much.</strong> A calculator says 2,400, so someone eats
-        exactly 2,400 calories every day for months without monitoring whether their weight is
+        exactly 2,400 calories every day for months without monitoring whether their weight is
         actually doing what they want. The number is a starting point. Adjust based on real-world
         results.
       </p>
@@ -498,18 +498,18 @@ const ScienceOfTDEEPageContent = (
         <strong>Ignoring NEAT changes.</strong> When you cut calories, NEAT drops. You won’t notice
         it, but it happens. A step tracker can help you see whether your daily movement has
         declined. If your steps drop from 8,000 to 5,000 during a diet, you’ve silently lost 100 to
-        200 calories of daily expenditure.
+        200 calories of daily expenditure.
       </p>
 
       <p>
-        <strong>Not recalculating after weight loss.</strong> Your TDEE at 200 pounds is different
-        from your TDEE at 180 pounds. Every 10 pounds of weight change, recalculate or re-test.
+        <strong>Not recalculating after weight loss.</strong> Your TDEE at 200 pounds is different
+        from your TDEE at 180 pounds. Every 10 pounds of weight change, recalculate or re-test.
       </p>
 
       <p>
         <strong>Confusing BMR with TDEE.</strong> Your BMR is what you burn at complete rest. Your
         TDEE includes everything on top of that. If a calculator says your BMR is 1,600, eating
-        1,600 calories is NOT maintenance. It’s a deficit. This mistake is alarmingly common.
+        1,600 calories is NOT maintenance. It’s a deficit. This mistake is alarmingly common.
       </p>
 
       <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-white">
@@ -585,7 +585,7 @@ const ScienceOfTDEEPageContent = (
           Obesity, 2010.
         </li>
         <li>
-          Fothergill E, et al. “Persistent metabolic adaptation 6 years after ‘The Biggest Loser’
+          Fothergill E, et al. “Persistent metabolic adaptation 6 years after ‘The Biggest Loser’
           competition.” Obesity, 2016.
         </li>
         <li>

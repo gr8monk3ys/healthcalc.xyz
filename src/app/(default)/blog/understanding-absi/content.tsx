@@ -298,7 +298,7 @@ const UnderstandingABSIPageContent = (
           </li>
           <li>
             <strong>Adequate sleep:</strong> Poor sleep is linked to increased abdominal fat. Aim
-            for 7-9 hours per night.
+            for 7-9 hours per night.
           </li>
         </ul>
 

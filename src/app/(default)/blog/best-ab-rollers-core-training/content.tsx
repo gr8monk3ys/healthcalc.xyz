@@ -119,7 +119,7 @@ const BestAbRollersPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Ab Rollers for Core Training in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -243,7 +243,7 @@ const BestAbRollersPageContent = (
             rollouts as you get stronger
           </li>
           <li>
-            <strong>Time-efficient:</strong> 3 sets of 10 reps takes under 5 minutes but delivers
+            <strong>Time-efficient:</strong> 3 sets of 10 reps takes under 5 minutes but delivers
             serious results
           </li>
         </ul>
@@ -277,11 +277,11 @@ const BestAbRollersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Ultra-wide wheel (4 inches) provides superior stability</li>
+            <li>Ultra-wide wheel (4 inches) provides superior stability</li>
             <li>Internal kinetic spring adds resistance on the rollout and assistance on return</li>
             <li>Ergonomic hand grips angled for better wrist alignment</li>
             <li>Includes foam knee pad for comfort</li>
-            <li>300 lb weight capacity</li>
+            <li>300 lb weight capacity</li>
             <li>Backed by Perfect Fitness quality guarantee</li>
           </ul>
 
@@ -295,7 +295,7 @@ const BestAbRollersPageContent = (
 
           <p className="mt-2">
             I’ve used cheaper ab rollers that twist sideways mid-rep. The Ab Carver Pro’s wide wheel
-            tracks perfectly straight every time. After 6 months of regular use, mine still rolls
+            tracks perfectly straight every time. After 6 months of regular use, mine still rolls
             smoothly with zero wobble.
           </p>
 
@@ -349,7 +349,7 @@ const BestAbRollersPageContent = (
             <li>Non-slip rubber wheels work on any surface</li>
             <li>Comfortable foam handles with secure grip</li>
             <li>Comes with thick knee pad for floor protection</li>
-            <li>Supports up to 500 lbs</li>
+            <li>Supports up to 500 lbs</li>
             <li>Assembly-free, ready to use out of the box</li>
           </ul>
 
@@ -413,7 +413,7 @@ const BestAbRollersPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Ergonomic elbow support pads eliminate wrist pressure</li>
             <li>Auto-rebound spring system assists the return motion</li>
-            <li>Extra-wide wheel (5 inches) for maximum stability</li>
+            <li>Extra-wide wheel (5 inches) for maximum stability</li>
             <li>Anti-slip textured wheel surface works on carpet or hardwood</li>
             <li>Adjustable elbow pad height for different arm lengths</li>
             <li>Includes thick knee mat and resistance band set</li>
@@ -483,7 +483,7 @@ const BestAbRollersPageContent = (
             <li>Ergonomic handles with comfort foam grips</li>
             <li>Extra thick knee pad (15mm) for joint protection</li>
             <li>Includes digital workout guide and nutrition eBook</li>
-            <li>Lightweight design (1.5 lbs) for easy portability</li>
+            <li>Lightweight design (1.5 lbs) for easy portability</li>
             <li>Works on hardwood, carpet, and gym mats</li>
           </ul>
 
@@ -551,7 +551,7 @@ const BestAbRollersPageContent = (
             <li>High-density PVC wheel with smooth bearings</li>
             <li>Non-slip rubber grips on handles</li>
             <li>Includes knee pad and carry bag</li>
-            <li>Weighs less than 1 pound fully assembled</li>
+            <li>Weighs less than 1 pound fully assembled</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">The portability angle:</h4>
