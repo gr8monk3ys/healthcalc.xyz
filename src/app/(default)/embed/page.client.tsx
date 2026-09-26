@@ -91,6 +91,8 @@ function CopyableEmbedCode({
   return (
     <div>
       <textarea
+        name="embedCode"
+        autoComplete="off"
         ref={codeRef}
         readOnly
         value={embedCode}
@@ -100,12 +102,16 @@ function CopyableEmbedCode({
         aria-label={`Embed code for ${calculator.title}`}
       />
       <button
+        type="button"
         onClick={handleCopy}
         className="ui-btn-soft text-xs"
-        aria-label={`Copy ${calculator.title} embed code`}
+        aria-label={copied ? undefined : `Copy ${calculator.title} embed code`}
       >
         {copied ? 'Copied!' : 'Copy Code'}
       </button>
+      <span className="sr-only" role="status">
+        {copied ? 'Embed code copied to clipboard' : ''}
+      </span>
     </div>
   );
 }
@@ -173,6 +179,7 @@ export default function EmbedPage(): React.JSX.Element {
           Theme for embed codes:
         </label>
         <select
+          name="global-theme"
           id="global-theme"
           value={globalTheme}
           onChange={e => setGlobalTheme(e.target.value as 'light' | 'dark')}
@@ -243,7 +250,7 @@ export default function EmbedPage(): React.JSX.Element {
           </p>
           <div className="glass-panel-strong p-4 rounded-2xl">
             <p className="font-semibold text-slate-900 dark:text-white mb-1">
-              Keep the &quot;Powered by HealthCalc&quot; link visible
+              Keep the “Powered by HealthCalc” link visible
             </p>
             <p>
               Each embedded calculator includes a small attribution link at the bottom. This link

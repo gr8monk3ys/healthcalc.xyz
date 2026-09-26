@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useMemo, useCallback } from 'react';
 import {
   processOneRepMaxCalculation,
@@ -14,9 +15,12 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import OneRepMaxResultDisplay from '@/components/calculators/oneRepMax/OneRepMaxResult';
 import OneRepMaxInfo from '@/components/calculators/oneRepMax/OneRepMaxInfo';
-import SaveResult from '@/components/SaveResult';
 import { ONE_REP_MAX_FORMULAS } from '@/constants/oneRepMax';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for 1RM calculator
 const faqs = [
@@ -120,7 +124,7 @@ export default function OneRepMaxCalculator({ serverHeader }: { serverHeader?: R
         setTimeout(() => {
           const resultElement = document.getElementById('one-rep-max-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -164,7 +168,7 @@ export default function OneRepMaxCalculator({ serverHeader }: { serverHeader?: R
         value: weight,
         onChange: setWeight,
         error: errors.weight,
-        placeholder: weightUnit === 'kg' ? 'Kilograms' : 'Pounds',
+        placeholder: weightUnit === 'kg' ? 'e.g. 100…' : 'e.g. 225…',
         unit: weightUnit,
         unitToggle: toggleWeightUnit,
         step: '0.5',
@@ -176,7 +180,7 @@ export default function OneRepMaxCalculator({ serverHeader }: { serverHeader?: R
         value: reps,
         onChange: setReps,
         error: errors.reps,
-        placeholder: 'Number of reps (1-30)',
+        placeholder: 'e.g. 5 (1–30)…',
         min: 1,
         max: 30,
         step: '1',
@@ -230,7 +234,10 @@ export default function OneRepMaxCalculator({ serverHeader }: { serverHeader?: R
 
         {/* User-facing error state */}
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}

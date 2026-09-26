@@ -34,10 +34,7 @@ export default function A1CResultDisplay({ result }: A1CResultProps) {
   const categoryColor = CATEGORY_COLORS[result.category] || '#6b7280';
 
   return (
-    <div
-      id="a1c-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="a1c-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">A1C Conversion Result</h2>
 
       {/* Category Badge */}

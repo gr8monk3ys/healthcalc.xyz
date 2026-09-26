@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useMemo, useReducer } from 'react';
+import React, { useMemo, useReducer, useState } from 'react';
 import { buildEmbedCode } from '@/utils/embed';
+import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
 interface EmbedCalculatorProps {
   calculatorSlug: string;
@@ -56,6 +57,10 @@ export default function EmbedCalculator({
     initialEmbedRequestState
   );
   const { copied, requestName, requestEmail, requestSite, requestNotes } = requestState;
+  const [copyFailed, setCopyFailed] = useState(false);
+  const allowNavigation = useUnsavedChangesWarning(
+    Boolean(requestName || requestEmail || requestSite || requestNotes)
+  );
 
   const iframeCode = useMemo(() => {
     return buildEmbedCode({ slug: calculatorSlug, title, height });
@@ -68,6 +73,7 @@ export default function EmbedCalculator({
       window.setTimeout(() => dispatchRequestState({ type: 'setCopied', value: false }), 1800);
     } catch {
       dispatchRequestState({ type: 'setCopied', value: false });
+      setCopyFailed(true);
     }
   };
 
@@ -87,11 +93,12 @@ export default function EmbedCalculator({
       subject
     )}&body=${encodeURIComponent(body)}`;
 
+    allowNavigation();
     window.location.href = mailto;
   };
 
   return (
-    <section className={className} aria-labelledby="embed-heading">
+    <section className={className}>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Add this calculator to your site and keep the attribution link for SEO value.
@@ -99,10 +106,17 @@ export default function EmbedCalculator({
         <button
           type="button"
           onClick={handleCopy}
-          className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           {copied ? 'Copied!' : 'Copy Embed Code'}
         </button>
+        <span className={copyFailed ? 'text-sm text-red-600' : 'sr-only'} role="status">
+          {copied
+            ? 'Embed code copied to clipboard'
+            : copyFailed
+              ? 'Couldn’t copy automatically. Select the code in the box below and copy it with Ctrl+C (⌘C on Mac).'
+              : ''}
+        </span>
       </div>
 
       <div>
@@ -113,6 +127,8 @@ export default function EmbedCalculator({
           Embed Code
         </label>
         <textarea
+          name="embedCode"
+          autoComplete="off"
           id={`${calculatorSlug}-embed-code`}
           readOnly
           className="w-full h-32 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/40 text-xs font-mono"
@@ -124,19 +140,21 @@ export default function EmbedCalculator({
       </div>
 
       <div className="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
-        <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
           Request Embed Approval
-        </h4>
+        </h3>
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleRequestSubmit}>
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor={`${calculatorSlug}-name`}>
               Name
             </label>
             <input
+              name="name"
+              autoComplete="name"
               id={`${calculatorSlug}-name`}
               type="text"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              placeholder="Your name"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              placeholder="Jane Smith…"
               value={requestName}
               onChange={event =>
                 dispatchRequestState({
@@ -153,10 +171,13 @@ export default function EmbedCalculator({
               Email
             </label>
             <input
+              autoComplete="email"
+              spellCheck={false}
+              name="email"
               id={`${calculatorSlug}-email`}
               type="email"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              placeholder="you@example.com"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              placeholder="you@example.com…"
               value={requestEmail}
               onChange={event =>
                 dispatchRequestState({
@@ -173,10 +194,13 @@ export default function EmbedCalculator({
               Website URL
             </label>
             <input
+              autoComplete="url"
+              spellCheck={false}
+              name="website"
               id={`${calculatorSlug}-site`}
               type="url"
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              placeholder="https://example.com"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              placeholder="https://example.com…"
               value={requestSite}
               onChange={event =>
                 dispatchRequestState({
@@ -193,10 +217,12 @@ export default function EmbedCalculator({
               Notes (optional)
             </label>
             <textarea
+              name="notes"
+              autoComplete="off"
               id={`${calculatorSlug}-notes`}
               rows={3}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              placeholder="Tell us how you plan to use the embed."
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              placeholder="e.g. A sidebar widget on our clinic’s blog…"
               value={requestNotes}
               onChange={event =>
                 dispatchRequestState({
@@ -210,7 +236,7 @@ export default function EmbedCalculator({
           <div className="md:col-span-2 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <button
               type="submit"
-              className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="neumorph px-4 py-2 rounded-lg text-sm font-medium text-accent hover:shadow-neumorph-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               Request Approval
             </button>

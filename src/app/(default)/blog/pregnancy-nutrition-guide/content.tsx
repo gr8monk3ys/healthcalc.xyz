@@ -11,7 +11,7 @@ const PregnancyNutritionGuidePageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         Pregnancy Nutrition: Evidence-Based Guidelines for Each Trimester
       </h1>
-      <p className="text-gray-500 italic">Published: February 3, 2026 • 14 min read</p>
+      <p className="text-gray-500 italic">Published: February 3, 2026 • 14 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -19,23 +19,23 @@ const PregnancyNutritionGuidePageContent = (
         <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
         <ul className="space-y-2">
           <li>
-            You do not need extra calories during the first trimester. The increase is +340 cal/day
-            in the second trimester and +450 cal/day in the third (per ACOG guidelines).
+            You do not need extra calories during the first trimester. The increase is +340 cal/day
+            in the second trimester and +450 cal/day in the third (per ACOG guidelines).
           </li>
           <li>
-            Recommended weight gain depends on pre-pregnancy BMI: 25-35 lbs for normal weight, 15-25
-            lbs for overweight, and 11-20 lbs for obese (IOM 2009).
+            Recommended weight gain depends on pre-pregnancy BMI: 25-35 lbs for normal weight, 15-25
+            lbs for overweight, and 11-20 lbs for obese (IOM 2009).
           </li>
           <li>
             Folate, iron, DHA, choline, and vitamin D need the most attention. Many prenatal
             vitamins lack adequate DHA and choline.
           </li>
           <li>
-            The "eating for two" concept is misleading. The additional calorie needs are roughly
+            The “eating for two” concept is misleading. The additional calorie needs are roughly
             equivalent to a small extra snack, not a second meal.
           </li>
           <li>
-            Current ACOG guidelines recommend 150 minutes per week of moderate exercise during
+            Current ACOG guidelines recommend 150 minutes per week of moderate exercise during
             uncomplicated pregnancies. Most forms of exercise are safe.
           </li>
         </ul>
@@ -75,7 +75,7 @@ const PregnancyNutritionGuidePageContent = (
           <li>
             <strong>First trimester (weeks 1-12):</strong> No additional calories needed. Zero. The
             embryo is tiny (about the size of a lime by week 12) and requires minimal extra energy.
-            Total weight gain in the first trimester should be approximately 1-4.5 pounds.
+            Total weight gain in the first trimester should be approximately 1-4.5 pounds.
           </li>
           <li>
             <strong>Second trimester (weeks 13-26):</strong> Approximately 340 additional calories
@@ -91,7 +91,7 @@ const PregnancyNutritionGuidePageContent = (
       </div>
 
       <p>
-        I want to emphasize how small these increases are, because the "eating for two" myth
+        I want to emphasize how small these increases are, because the “eating for two” myth
         persists and causes real harm. Excessive weight gain during pregnancy increases the risk of
         gestational diabetes, preeclampsia, C-section delivery, and postpartum weight retention.
         Goldstein et al. published a 2017 meta-analysis in JAMA showing that excessive gestational
@@ -121,19 +121,19 @@ const PregnancyNutritionGuidePageContent = (
         <h3 className="text-xl font-semibold mb-3">IOM 2009 Gestational Weight Gain Guidelines</h3>
         <ul className="list-disc list-inside space-y-3">
           <li>
-            <strong>Underweight (BMI &lt; 18.5):</strong> 28-40 pounds total, approximately 1 lb per
+            <strong>Underweight (BMI &lt; 18.5):</strong> 28-40 pounds total, approximately 1 lb per
             week in the second and third trimesters
           </li>
           <li>
-            <strong>Normal weight (BMI 18.5-24.9):</strong> 25-35 pounds total, approximately 1 lb
+            <strong>Normal weight (BMI 18.5-24.9):</strong> 25-35 pounds total, approximately 1 lb
             per week in the second and third trimesters
           </li>
           <li>
-            <strong>Overweight (BMI 25.0-29.9):</strong> 15-25 pounds total, approximately 0.6 lb
+            <strong>Overweight (BMI 25.0-29.9):</strong> 15-25 pounds total, approximately 0.6 lb
             per week in the second and third trimesters
           </li>
           <li>
-            <strong>Obese (BMI 30.0+):</strong> 11-20 pounds total, approximately 0.5 lb per week in
+            <strong>Obese (BMI 30.0+):</strong> 11-20 pounds total, approximately 0.5 lb per week in
             the second and third trimesters
           </li>
         </ul>
@@ -144,7 +144,7 @@ const PregnancyNutritionGuidePageContent = (
         primarily from studies of white women in the United States and may not be equally applicable
         across all populations. Several researchers have suggested the ranges for obese women may be
         too generous, and there is growing evidence that women with Class III obesity (BMI 40+) may
-        benefit from gaining less than 11 pounds. Discuss your specific targets with your provider.
+        benefit from gaining less than 11 pounds. Discuss your specific targets with your provider.
       </p>
 
       <p>
@@ -169,12 +169,12 @@ const PregnancyNutritionGuidePageContent = (
       <p>
         Folate has the longest track record of any nutrient in prenatal care. It is essential for
         neural tube development, and supplementation dramatically reduces the risk of spina bifida
-        and anencephaly. The CDC recommends 400 mcg of folic acid daily starting at least one month
-        before conception and continuing through the first 12 weeks.
+        and anencephaly. The CDC recommends 400 mcg of folic acid daily starting at least one month
+        before conception and continuing through the first 12 weeks.
       </p>
       <p>
         Women with a previous neural tube defect pregnancy or those on certain medications
-        (antiepileptics, methotrexate) may need 4,000 mcg (4 mg) daily. The evidence for folate
+        (antiepileptics, methotrexate) may need 4,000 mcg (4 mg) daily. The evidence for folate
         supplementation in preventing neural tube defects is about as strong as evidence gets in
         nutrition science. A 1991 MRC Vitamin Study Research Group trial in the Lancet showed a 72%
         reduction in neural tube defect recurrence with folic acid supplementation.
@@ -184,7 +184,7 @@ const PregnancyNutritionGuidePageContent = (
       <p>
         Blood volume increases by about 45% during pregnancy, and the body needs significantly more
         iron to support this expansion and fetal development. The recommended intake increases from
-        18 mg/day to 27 mg/day. Iron deficiency anemia during pregnancy is associated with preterm
+        18 mg/day to 27 mg/day. Iron deficiency anemia during pregnancy is associated with preterm
         birth and low birth weight.
       </p>
       <p>
@@ -205,7 +205,7 @@ const PregnancyNutritionGuidePageContent = (
       </p>
       <p>
         Many prenatal vitamins either skip DHA entirely or include a trivially small amount. Check
-        the label. If your prenatal does not contain at least 200 mg of DHA, consider a separate DHA
+        the label. If your prenatal does not contain at least 200 mg of DHA, consider a separate DHA
         supplement or eat 2-3 servings of low-mercury fatty fish per week (salmon, sardines,
         herring). Fish oil supplements are generally considered safe during pregnancy, though the
         specific brand matters because of potential mercury contamination in lower-quality products.
@@ -220,14 +220,14 @@ const PregnancyNutritionGuidePageContent = (
       </p>
       <p>
         A 2018 randomized controlled trial by Caudill et al. published in the FASEB Journal found
-        that maternal choline intake of 930 mg/day (double the AI) improved infant information
+        that maternal choline intake of 930 mg/day (double the AI) improved infant information
         processing speed compared to intake at the AI level. This suggests the current
         recommendations may actually be too low.
       </p>
       <p>
         Most prenatal vitamins contain little to no choline. The best food sources are egg yolks
-        (147 mg per yolk), beef liver, chicken, fish, and soybeans. If you eat 2 eggs daily, you are
-        getting roughly 300 mg. The rest should come from other dietary sources or a supplement.
+        (147 mg per yolk), beef liver, chicken, fish, and soybeans. If you eat 2 eggs daily, you are
+        getting roughly 300 mg. The rest should come from other dietary sources or a supplement.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Vitamin D</h3>
@@ -248,10 +248,10 @@ const PregnancyNutritionGuidePageContent = (
       <h3 className="text-xl font-semibold mt-6 mb-3">Iodine</h3>
       <p>
         Iodine tends to fly under the radar, but the fetus needs it for thyroid development and
-        brain growth. The recommended intake during pregnancy is 220 mcg/day (up from 150 mcg for
+        brain growth. The recommended intake during pregnancy is 220 mcg/day (up from 150 mcg for
         non-pregnant adults). WHO considers iodine deficiency the most common preventable cause of
         intellectual disability worldwide. Many prenatal vitamins now include iodine, but check your
-        label. If it is not there, iodized salt (about 95 mcg per half teaspoon) and dairy products
+        label. If it is not there, iodized salt (about 95 mcg per half teaspoon) and dairy products
         are good dietary sources.
       </p>
 
@@ -274,17 +274,17 @@ const PregnancyNutritionGuidePageContent = (
         <ul className="list-disc list-inside space-y-3">
           <li>
             <strong>Ginger:</strong> The most studied remedy, with several RCTs supporting efficacy.
-            ACOG recommends ginger supplements (250 mg four times daily) as a first-line treatment.
+            ACOG recommends ginger supplements (250 mg four times daily) as a first-line treatment.
             Ginger tea, ginger ale (with real ginger), and ginger chews can also help.
           </li>
           <li>
-            <strong>Vitamin B6 (pyridoxine):</strong> 10-25 mg three times daily reduces nausea in
-            many women. This is ACOG's other first-line recommendation. It is available over the
+            <strong>Vitamin B6 (pyridoxine):</strong> 10-25 mg three times daily reduces nausea in
+            many women. This is ACOG’s other first-line recommendation. It is available over the
             counter.
           </li>
           <li>
             <strong>Small, frequent meals:</strong> An empty stomach worsens nausea. Eating small
-            amounts every 2-3 hours, even just crackers or dry toast, keeps blood sugar stable and
+            amounts every 2-3 hours, even just crackers or dry toast, keeps blood sugar stable and
             reduces the empty-stomach trigger.
           </li>
           <li>
@@ -302,7 +302,7 @@ const PregnancyNutritionGuidePageContent = (
 
       <p>
         One important reassurance: mild to moderate nausea during the first trimester, even if it
-        limits food intake, is not harmful to the baby. The embryo's calorie needs at this stage are
+        limits food intake, is not harmful to the baby. The embryo’s calorie needs at this stage are
         minimal (remember: no extra calories needed in the first trimester). Focus on staying
         hydrated and eating whatever you can tolerate. Nutritional perfection is not the goal during
         weeks 6-12. Survival is.
@@ -354,9 +354,9 @@ const PregnancyNutritionGuidePageContent = (
             breakfast carbs especially low (15-30g) compared to other meals.
           </li>
           <li>
-            <strong>A post-meal walk</strong> (even 10-15 minutes) significantly helps post-meal
+            <strong>A post-meal walk</strong> (even 10-15 minutes) significantly helps post-meal
             glucose control. A 2016 study by Reynolds et al. in Diabetologia found that walking for
-            just 10 minutes after each meal was more effective at lowering blood sugar than a single
+            just 10 minutes after each meal was more effective at lowering blood sugar than a single
             30-minute walk per day.
           </li>
         </ul>
@@ -364,7 +364,7 @@ const PregnancyNutritionGuidePageContent = (
 
       <p>
         GDM usually resolves after delivery, but it increases long-term risk of developing type 2
-        diabetes by about 50% within 10 years. Continued attention to diet and exercise postpartum
+        diabetes by about 50% within 10 years. Continued attention to diet and exercise postpartum
         matters.
       </p>
 
@@ -373,7 +373,7 @@ const PregnancyNutritionGuidePageContent = (
       </h2>
 
       <p>
-        The list of "foods to avoid during pregnancy" has expanded far beyond what the evidence
+        The list of “foods to avoid during pregnancy” has expanded far beyond what the evidence
         supports, creating unnecessary anxiety. Let me separate the evidence-based restrictions from
         the overcautious ones.
       </p>
@@ -419,10 +419,10 @@ const PregnancyNutritionGuidePageContent = (
             sushi. The real risk is from high-mercury species, not raw preparation.
           </li>
           <li>
-            <strong>Caffeine:</strong> ACOG says up to 200 mg/day (one 12-oz cup of coffee) is safe.
+            <strong>Caffeine:</strong> ACOG says up to 200 mg/day (one 12-oz cup of coffee) is safe.
             A 2020 BMJ Evidence-Based Medicine review by Jack James argued for eliminating caffeine
             entirely, but this position is not endorsed by ACOG, WHO, or most national guidelines.
-            The moderate approach (under 200 mg) is reasonable.
+            The moderate approach (under 200 mg) is reasonable.
           </li>
           <li>
             <strong>Deli meat:</strong> The Listeria concern is real but the actual risk from modern
@@ -444,9 +444,9 @@ const PregnancyNutritionGuidePageContent = (
       </h2>
 
       <p>
-        Exercise during pregnancy is not just safe for most women, it is actively beneficial. ACOG's
+        Exercise during pregnancy is not just safe for most women, it is actively beneficial. ACOG’s
         2020 Committee Opinion (Number 804) recommends that pregnant women with uncomplicated
-        pregnancies get at least 150 minutes of moderate-intensity aerobic activity per week.
+        pregnancies get at least 150 minutes of moderate-intensity aerobic activity per week.
       </p>
 
       <p>The research on this is clear:</p>
@@ -472,7 +472,7 @@ const PregnancyNutritionGuidePageContent = (
       <h3 className="text-xl font-semibold mt-6 mb-3">What to Avoid</h3>
       <p>
         Contact sports with fall risk (soccer, basketball, horseback riding), scuba diving (risk of
-        decompression sickness to the fetus), activities at altitude above 6,000 feet (for those not
+        decompression sickness to the fetus), activities at altitude above 6,000 feet (for those not
         already acclimated), and hot yoga or exercise in extreme heat (hyperthermia risk, especially
         in the first trimester).
       </p>
@@ -488,33 +488,33 @@ const PregnancyNutritionGuidePageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">First Trimester (Weeks 1-12)</h3>
         <ul className="list-disc list-inside space-y-2">
-          <li>Prioritize folate (400 mcg min) and begin prenatal vitamins if not already taking</li>
+          <li>Prioritize folate (400 mcg min) and begin prenatal vitamins if not already taking</li>
           <li>No extra calories needed</li>
           <li>Focus on hydration and whatever foods you can tolerate if experiencing nausea</li>
           <li>Consider ginger and vitamin B6 for nausea management</li>
-          <li>Avoid alcohol and limit caffeine to 200 mg/day</li>
+          <li>Avoid alcohol and limit caffeine to 200 mg/day</li>
         </ul>
       </div>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">Second Trimester (Weeks 13-26)</h3>
         <ul className="list-disc list-inside space-y-2">
-          <li>Increase intake by roughly 340 calories/day</li>
-          <li>Ensure adequate iron intake (27 mg/day) as blood volume expands</li>
-          <li>Prioritize DHA (200-300 mg/day) for fetal brain development</li>
-          <li>Ensure adequate choline (450 mg/day minimum)</li>
-          <li>Expect and monitor weight gain (roughly 1 lb/week for normal-weight women)</li>
-          <li>GDM screening typically occurs at 24-28 weeks</li>
+          <li>Increase intake by roughly 340 calories/day</li>
+          <li>Ensure adequate iron intake (27 mg/day) as blood volume expands</li>
+          <li>Prioritize DHA (200-300 mg/day) for fetal brain development</li>
+          <li>Ensure adequate choline (450 mg/day minimum)</li>
+          <li>Expect and monitor weight gain (roughly 1 lb/week for normal-weight women)</li>
+          <li>GDM screening typically occurs at 24-28 weeks</li>
         </ul>
       </div>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">Third Trimester (Weeks 27-40)</h3>
         <ul className="list-disc list-inside space-y-2">
-          <li>Increase intake by roughly 450 calories/day</li>
+          <li>Increase intake by roughly 450 calories/day</li>
           <li>Continue iron supplementation (anemia is most common in the third trimester)</li>
-          <li>Ensure adequate calcium (1,000 mg/day) for fetal bone development</li>
-          <li>Protein needs are highest now (about 1.1 g per kg body weight per day)</li>
+          <li>Ensure adequate calcium (1,000 mg/day) for fetal bone development</li>
+          <li>Protein needs are highest now (about 1.1 g per kg body weight per day)</li>
           <li>
             Smaller, more frequent meals become practical as the uterus compresses the stomach
           </li>

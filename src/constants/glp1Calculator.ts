@@ -70,7 +70,7 @@ export const GLP1_WARNINGS = {
   exercise:
     'Resistance training 2-3 times per week is strongly recommended to preserve muscle mass on GLP-1 therapy.',
   medical:
-    "This calculator provides general guidance. Always follow your prescribing physician's recommendations.",
+    'This calculator provides general guidance. Always follow your prescribing physician’s recommendations.',
 };
 
 export const MEDICATION_LABELS: Record<GLP1Medication, string> = {

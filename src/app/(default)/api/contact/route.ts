@@ -7,6 +7,7 @@ import {
   isSubmissionPersistenceStrictModeEnabled,
   saveContactSubmission,
 } from '@/lib/db/submissions';
+import { runAfterResponse } from '@/lib/afterResponse';
 
 const logger = createLogger({ component: 'ContactAPI' });
 
@@ -149,15 +150,17 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactRe
       logger.error('Resend email error', {
         responseBody,
       });
-      await persistSubmissionOrFail({
-        name,
-        email,
-        subject,
-        message,
-        provider: 'resend',
-        status: 'failed',
-        error: responseBody,
-      });
+      runAfterResponse(() =>
+        persistSubmissionOrFail({
+          name,
+          email,
+          subject,
+          message,
+          provider: 'resend',
+          status: 'failed',
+          error: responseBody,
+        })
+      );
       return NextResponse.json(
         {
           success: false,
@@ -186,15 +189,17 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactRe
       });
     }
 
-    await persistSubmissionOrFail({
-      name,
-      email,
-      subject,
-      message,
-      provider: 'none',
-      status: 'unavailable',
-      error: 'No contact provider configured',
-    });
+    runAfterResponse(() =>
+      persistSubmissionOrFail({
+        name,
+        email,
+        subject,
+        message,
+        provider: 'none',
+        status: 'unavailable',
+        error: 'No contact provider configured',
+      })
+    );
     return NextResponse.json(
       {
         success: false,

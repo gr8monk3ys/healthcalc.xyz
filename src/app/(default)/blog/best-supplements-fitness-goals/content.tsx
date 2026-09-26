@@ -127,7 +127,7 @@ const BestSupplementsFitnessGoalsPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Supplements for Your Fitness Goals in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -338,7 +338,7 @@ const BestSupplementsFitnessGoalsPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Optimum Nutrition Gold Standard 100% Whey</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★★ 4.7 out of 5 stars</p>
@@ -365,7 +365,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <li>Available in 1lb, 2lb, 5lb, and 10lb sizes</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Anyone looking for a reliable daily protein supplement. Particularly great for people
             who have used our{' '}
@@ -448,7 +448,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <li>Frequent sales bring the cost even lower</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Students, beginners, and anyone who needs a high volume of protein powder without
             breaking the bank. If your{' '}
@@ -466,7 +466,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               Calorie Deficit Calculator
             </Link>{' '}
             to set your target, then lean on Impact Whey to hit high-protein targets without
-            excessive calories (only 103 calories per scoop).
+            excessive calories (only 103 calories per scoop).
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -511,7 +511,7 @@ const BestSupplementsFitnessGoalsPageContent = (
 
           <p className="mb-4">
             Creatine monohydrate is the most researched and effective sports supplement in
-            existence. Thorne's version stands out because it is NSF Certified for Sport, meaning it
+            existence. Thorne’s version stands out because it is NSF Certified for Sport, meaning it
             has been independently tested to verify that it contains exactly what the label claims
             and nothing else. This matters if you compete in any tested sport or simply want the
             highest purity available.
@@ -528,7 +528,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <li>Trusted by over 100 professional sports teams</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Anyone engaged in resistance training or high-intensity exercise. Creatine increases
             phosphocreatine stores in your muscles, allowing you to produce more ATP during heavy
@@ -542,7 +542,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <Link href="/body-fat" className="text-accent hover:underline">
               Body Fat Calculator
             </Link>
-            . Note that creatine may cause 2-4 lbs of water weight gain initially, so use our{' '}
+            . Note that creatine may cause 2-4 lbs of water weight gain initially, so use our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
             </Link>{' '}
@@ -604,11 +604,11 @@ const BestSupplementsFitnessGoalsPageContent = (
             <li>23 organically grown fruits and vegetables</li>
             <li>Non-GMO Project Verified, gluten-free, dairy-free</li>
             <li>No synthetic binders, fillers, or artificial colors</li>
-            <li>Formulated specifically for men's health needs</li>
+            <li>Formulated specifically for men’s health needs</li>
             <li>240 capsules per bottle (60-day supply at 4 capsules/day)</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Active individuals who are dieting or eating in a calorie deficit. When you reduce food
             intake, you also reduce micronutrient intake. A quality multivitamin acts as nutritional
@@ -685,7 +685,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <li>Sourced from wild-caught anchovies and sardines</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Anyone who trains regularly and wants to support joint health, reduce exercise-induced
             inflammation, and maintain cardiovascular health. Omega-3s are especially important if
@@ -765,7 +765,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <li>30 servings per container</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Who It's Best For:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Who It’s Best For:</h4>
           <p>
             Lifters and athletes who want maximum performance from their workouts without mystery
             ingredients. Particularly valuable during a cutting phase when energy is lower due to
@@ -905,7 +905,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               expensive.
             </li>
             <li>
-              <strong>Brand Reputation:</strong> We considered each brand's track record, history of
+              <strong>Brand Reputation:</strong> We considered each brand’s track record, history of
               recalls, manufacturing practices (GMP certified), and responsiveness to quality
               issues.
             </li>
@@ -918,7 +918,7 @@ const BestSupplementsFitnessGoalsPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-3">
             <li>
-              <strong>Whey Protein:</strong> Within 30-60 minutes after training for recovery, or
+              <strong>Whey Protein:</strong> Within 30-60 minutes after training for recovery, or
               any time of day to hit your daily protein target. Timing is less critical than total
               daily intake.
             </li>
@@ -935,7 +935,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               Splitting the dose (one with breakfast, one with dinner) may reduce any GI discomfort.
             </li>
             <li>
-              <strong>Pre-Workout:</strong> 20-30 minutes before training. Avoid taking within 6
+              <strong>Pre-Workout:</strong> 20-30 minutes before training. Avoid taking within 6
               hours of bedtime due to caffeine content.
             </li>
           </ul>
@@ -987,21 +987,21 @@ const BestSupplementsFitnessGoalsPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/protein"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Protein Calculator</h4>
               <p className="text-sm text-gray-600">Find your daily protein needs</p>
             </Link>
             <Link
               href="/macro"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Macro Calculator</h4>
               <p className="text-sm text-gray-600">Balance your protein, carbs, and fats</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your daily calorie needs</p>

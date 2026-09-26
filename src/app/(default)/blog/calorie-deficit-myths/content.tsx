@@ -44,7 +44,7 @@ const CalorieDeficitMythsPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         5 Myths About Calorie Deficits Debunked
       </h1>
-      <p className="text-gray-500 italic">Published: February 25, 2025 • 8 min read</p>
+      <p className="text-gray-500 italic">Published: February 25, 2025 • 8 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -52,7 +52,7 @@ const CalorieDeficitMythsPageContent = (
         <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
         <ul className="space-y-2">
           <li>
-            The "3,500 calorie deficit equals 1 pound" rule is an oversimplification that doesn't
+            The “3,500 calorie deficit equals 1 pound” rule is an oversimplification that doesn’t
             account for metabolic adaptation
           </li>
           <li>
@@ -61,7 +61,7 @@ const CalorieDeficitMythsPageContent = (
           </li>
           <li>
             Metabolic damage from dieting is largely exaggerated; your metabolism does adapt but
-            doesn't "break"
+            doesn’t “break”
           </li>
           <li>Very low-calorie diets can be counterproductive for long-term weight management</li>
           <li>
@@ -74,7 +74,7 @@ const CalorieDeficitMythsPageContent = (
       <AdBlock format="horizontal" />
 
       <p>
-        If you've ever tried to lose weight, you've run into "rules" about calorie deficits that get
+        If you’ve ever tried to lose weight, you’ve run into “rules” about calorie deficits that get
         passed around like settled science. Calorie deficits do drive weight loss, but many of these
         popular beliefs are oversimplified or flat-out wrong. Here are five of the most common, and
         what the research actually shows.
@@ -85,15 +85,15 @@ const CalorieDeficitMythsPageContent = (
       </h2>
 
       <p>
-        You've probably heard this one: cut 3,500 calories and you'll lose exactly one pound of fat.
-        The math looks clean. Cut 500 calories per day, lose precisely one pound per week (500 x 7 =
+        You’ve probably heard this one: cut 3,500 calories and you’ll lose exactly one pound of fat.
+        The math looks clean. Cut 500 calories per day, lose precisely one pound per week (500 x 7 =
         3,500).
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-2">The Reality:</h3>
         <p>
-          A pound of fat does contain roughly 3,500 calories. But this formula ignores how your
+          A pound of fat does contain roughly 3,500 calories. But this formula ignores how your
           metabolism actually works. Research by Dr. Kevin Hall at the National Institutes of Health
           shows that as you lose weight, your body needs fewer calories to function. The
           3,500-calorie rule gets less accurate the longer you diet.
@@ -121,7 +121,7 @@ const CalorieDeficitMythsPageContent = (
 
       <p>
         People expect the scale to drop at the same rate every week if they keep their deficit
-        consistent. When it doesn't, they assume something is broken.
+        consistent. When it doesn’t, they assume something is broken.
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6">
@@ -143,23 +143,23 @@ const CalorieDeficitMythsPageContent = (
       </div>
 
       <p>
-        Plateaus followed by sudden drops (sometimes called "whooshes") are normal. Your body holds
+        Plateaus followed by sudden drops (sometimes called “whooshes”) are normal. Your body holds
         water for a while, then releases it. The fat loss was happening the whole time. The scale
-        just wasn't showing it.
+        just wasn’t showing it.
       </p>
 
       <p>
         Instead of focusing on daily or even weekly weight changes, look at trends over longer
-        periods (3-4 weeks) and consider using additional metrics like body measurements, how
+        periods (3-4 weeks) and consider using additional metrics like body measurements, how
         clothes fit, or progress photos.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">
-        Myth #3: "Starvation Mode" Will Stop All Weight Loss
+        Myth #3: “Starvation Mode” Will Stop All Weight Loss
       </h2>
 
       <p>
-        The story goes like this: cut calories too far and your body enters "starvation mode," your
+        The story goes like this: cut calories too far and your body enters “starvation mode,” your
         metabolism shuts down, and you stop losing weight no matter what.
       </p>
 
@@ -167,7 +167,7 @@ const CalorieDeficitMythsPageContent = (
         <h3 className="text-xl font-semibold mb-2">The Reality:</h3>
         <p>
           While extreme calorie restriction does cause metabolic adaptation, the concept of
-          "starvation mode" as commonly described is largely a myth. Your body doesn't simply stop
+          “starvation mode” as commonly described is largely a myth. Your body doesn’t simply stop
           burning fat when calories are restricted.
         </p>
         <p className="mt-4">What actually happens:</p>
@@ -181,7 +181,7 @@ const CalorieDeficitMythsPageContent = (
           </li>
           <li>Energy expenditure from physical activity and non-exercise movement may decrease</li>
           <li>
-            These adaptations make continued weight loss more difficult but don't stop it entirely
+            These adaptations make continued weight loss more difficult but don’t stop it entirely
           </li>
         </ul>
       </div>
@@ -208,22 +208,22 @@ const CalorieDeficitMythsPageContent = (
       </h2>
 
       <p>
-        This one builds on Myth #3: severe dieting can "break" your metabolism permanently, so even
-        after you stop dieting, you can't maintain your weight on normal calories.
+        This one builds on Myth #3: severe dieting can “break” your metabolism permanently, so even
+        after you stop dieting, you can’t maintain your weight on normal calories.
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-2">The Reality:</h3>
         <p>
           While metabolic adaptation during weight loss is real, the evidence for permanent
-          metabolic "damage" is much weaker. Most studies show that metabolic adaptations are
+          metabolic “damage” is much weaker. Most studies show that metabolic adaptations are
           largely reversible:
         </p>
         <ul className="list-disc list-inside mt-4">
           <li>Metabolic rate typically recovers as calorie intake increases</li>
           <li>The recovery may take time (weeks to months) but is generally complete</li>
           <li>
-            Some studies of former "The Biggest Loser" contestants did show persistent metabolic
+            Some studies of former “The Biggest Loser” contestants did show persistent metabolic
             slowing, but these represent extreme cases of rapid, massive weight loss
           </li>
           <li>
@@ -234,9 +234,9 @@ const CalorieDeficitMythsPageContent = (
       </div>
 
       <p>
-        The real challenge after weight loss is simpler and less dramatic than "metabolic damage." A
+        The real challenge after weight loss is simpler and less dramatic than “metabolic damage.” A
         smaller body needs fewer calories, and hormonal shifts increase hunger and make food more
-        rewarding. Weight maintenance is harder, but it's not a broken engine. It's a smaller engine
+        rewarding. Weight maintenance is harder, but it’s not a broken engine. It’s a smaller engine
         with a bigger appetite.
       </p>
 
@@ -274,8 +274,8 @@ const CalorieDeficitMythsPageContent = (
       </p>
 
       <p>
-        Calorie deficits still work. They're the mechanism behind fat loss. But any calculator
-        output is a starting point, not a prescription. You'll need to adjust based on how your body
+        Calorie deficits still work. They’re the mechanism behind fat loss. But any calculator
+        output is a starting point, not a prescription. You’ll need to adjust based on how your body
         actually responds.
       </p>
 
@@ -285,11 +285,11 @@ const CalorieDeficitMythsPageContent = (
 
       <p>
         Calorie deficits are necessary for weight loss. That part is simple. Everything else is
-        messier than the internet tells you. Here's what actually helps:
+        messier than the internet tells you. Here’s what actually helps:
       </p>
 
       <ul className="list-disc list-inside mt-4 mb-6">
-        <li>Accept that weight loss won't be steady or predictable</li>
+        <li>Accept that weight loss won’t be steady or predictable</li>
         <li>Use a moderate deficit, typically 20-25% below maintenance, not a crash diet</li>
         <li>Track weekly averages, not daily weigh-ins</li>
         <li>Adjust calories based on how your body actually responds, not what a formula says</li>
@@ -298,7 +298,7 @@ const CalorieDeficitMythsPageContent = (
       </ul>
 
       <p>
-        None of this means weight loss is easy. But knowing what's actually happening in your body
+        None of this means weight loss is easy. But knowing what’s actually happening in your body
         beats following rules that were never accurate in the first place.
       </p>
 
@@ -357,7 +357,7 @@ const CalorieDeficitMythsPageContent = (
             Suppl 1:S47-S55.
           </li>
           <li>
-            Fothergill E, et al. Persistent metabolic adaptation 6 years after "The Biggest Loser"
+            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
             competition. Obesity. 2016;24(8):1612-1619.
           </li>
           <li>

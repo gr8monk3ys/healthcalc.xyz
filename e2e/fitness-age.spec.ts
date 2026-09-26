@@ -45,7 +45,7 @@ test.describe('Fitness Age Calculator Shared Prefill', () => {
     // The share route immediately client-redirects, which can surface net::ERR_ABORTED.
     await page.goto(`/share/fitness-age?r=${encodeURIComponent(token)}`).catch(() => {});
     await waitForFitnessAgeResultUrl(page);
-    await expect(page.getByRole('heading', { name: /what's your fitness age\?/i })).toBeVisible({
+    await expect(page.getByRole('heading', { name: /what[’']s your fitness age\?/i })).toBeVisible({
       timeout: 30_000,
     });
 
@@ -65,7 +65,9 @@ test.describe('Fitness Age Calculator Shared Prefill', () => {
 
   test('invalid shared token does not prefill or auto-calculate', async ({ page }) => {
     await page.goto('/fitness-age?r=invalid-token');
-    await expect(page.getByRole('heading', { name: /what's your fitness age\?/i })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: /what[’']s your fitness age\?/i })
+    ).toBeVisible();
 
     await expect(getInputForLabelText(page, 'Age')).toHaveValue('');
     await expect(

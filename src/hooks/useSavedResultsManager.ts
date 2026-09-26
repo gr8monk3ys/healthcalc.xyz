@@ -2,14 +2,17 @@
 
 // Rule: Move localStorage logic to dedicated hooks/utilities for better separation of concerns
 
-import { useSavedResults } from '@/context/SavedResultsContext';
-import { useState } from 'react';
+import { useSavedResults, type SavedResult } from '@/context/SavedResultsContext';
+import { useRef, useState } from 'react';
 import { createLogger } from '@/utils/logger';
 import { computeSavedResultKey } from '@/utils/savedResultsKey';
 import { useLocale } from '@/context/LocaleContext';
 import { localeToHtmlLang } from '@/i18n/config';
 
 const logger = createLogger({ component: 'useSavedResultsManager' });
+
+/** How long a removal can be undone from its toast. */
+const UNDO_WINDOW_MS = 8000;
 
 /**
  * Custom hook for managing saved calculator results
@@ -20,6 +23,7 @@ export function useSavedResultsManager() {
     savedResults,
     saveResult: saveResultToContext,
     removeResult: removeResultFromContext,
+    restoreResult: restoreResultToContext,
     clearAllResults,
     isResultSaved,
     canSaveResults,
@@ -28,6 +32,9 @@ export function useSavedResultsManager() {
 
   const [message, setMessage] = useState<string>('');
   const [showMessage, setShowMessage] = useState<boolean>(false);
+  // The last removed result, while its "Undo" toast is on screen.
+  const [undoableResult, setUndoableResult] = useState<SavedResult | null>(null);
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /**
    * Save a calculator result
@@ -71,8 +78,9 @@ export function useSavedResultsManager() {
    */
   function removeResult(id: string): void {
     try {
+      const removed = savedResults.find(result => result.id === id) ?? null;
       removeResultFromContext(id);
-      showNotification(t('savedResults.toast.removed'));
+      showNotification(t('savedResults.toast.removed'), UNDO_WINDOW_MS, removed);
     } catch (error) {
       logger.logError('Error removing result', error);
       showNotification(t('savedResults.toast.removeError'));
@@ -92,8 +100,9 @@ export function useSavedResultsManager() {
         return false;
       }
 
+      const removed = savedResults.find(result => result.id === resultId) ?? null;
       removeResultFromContext(resultId);
-      showNotification(t('savedResults.toast.removed'));
+      showNotification(t('savedResults.toast.removed'), UNDO_WINDOW_MS, removed);
       return true;
     } catch (error) {
       logger.logError('Error removing result', error);
@@ -149,10 +158,26 @@ export function useSavedResultsManager() {
    * @param msg Message to show
    * @param duration Duration in milliseconds
    */
-  function showNotification(msg: string, duration: number = 3000): void {
+  function showNotification(
+    msg: string,
+    duration: number = 3000,
+    undoable: SavedResult | null = null
+  ): void {
     setMessage(msg);
     setShowMessage(true);
-    setTimeout(() => setShowMessage(false), duration);
+    setUndoableResult(undoable);
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+    hideTimerRef.current = setTimeout(() => {
+      setShowMessage(false);
+      setUndoableResult(null);
+    }, duration);
+  }
+
+  /** Undo the last removal while its toast is showing. */
+  function undoRemove(): void {
+    if (!undoableResult) return;
+    restoreResultToContext(undoableResult);
+    showNotification(t('savedResults.toast.restored'));
   }
 
   return {
@@ -167,5 +192,7 @@ export function useSavedResultsManager() {
     message,
     showMessage,
     showNotification,
+    canUndo: undoableResult !== null,
+    undoRemove,
   };
 }

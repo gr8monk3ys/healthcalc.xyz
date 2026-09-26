@@ -5,13 +5,13 @@ import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = {
-  title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
+  title: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc',
   description:
     'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
   keywords:
     'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
   openGraph: {
-    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
+    title: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc',
     description:
       'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
     type: 'article',
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
+    title: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc',
     description:
       'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
     images: ['/images/blog/understanding-body-fat-percentage.jpg'],
@@ -42,6 +42,7 @@ const BlogPostPageContent = (
     <div className="mb-6">
       <Link href="/blog" className="text-accent hover:underline flex items-center">
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4 mr-1"
           fill="none"
@@ -63,19 +64,19 @@ const BlogPostPageContent = (
           <span className="inline-block ml-2 text-xs text-gray-500">February 28, 2025</span>
         </div>
         <h1 className="text-3xl font-bold mb-4">
-          Understanding Body Fat Percentage: What's Healthy and Why It Matters
+          Understanding Body Fat Percentage: What’s Healthy and Why It Matters
         </h1>
         <p className="text-lg text-gray-600">
-          Learn what body fat percentage really means, how it's measured, and what ranges are
+          Learn what body fat percentage really means, how it’s measured, and what ranges are
           considered healthy for men and women of different ages and fitness levels.
         </p>
       </header>
 
       <div className="prose prose-lg max-w-none">
         <p>
-          The number on the scale doesn't tell you much. Your body weight includes muscle, bone,
+          The number on the scale doesn’t tell you much. Your body weight includes muscle, bone,
           organs, water, and fat, and these components affect your health differently. Body fat
-          percentage, the proportion of your body that's composed of fat, is a more useful measure
+          percentage, the proportion of your body that’s composed of fat, is a more useful measure
           of body composition than total weight alone.
         </p>
 
@@ -84,7 +85,7 @@ const BlogPostPageContent = (
         <h2>What Is Body Fat Percentage?</h2>
         <p>
           Body fat percentage is exactly what it sounds like: the percentage of your total body
-          weight that is fat. If you weigh 150 pounds and have 30 pounds of fat, your body fat
+          weight that is fat. If you weigh 150 pounds and have 30 pounds of fat, your body fat
           percentage is 20%.
         </p>
         <p>Body fat does real work in your body:</p>
@@ -102,7 +103,7 @@ const BlogPostPageContent = (
 
         <h2>Healthy Body Fat Percentage Ranges</h2>
         <p>
-          What counts as "healthy" body fat varies by age, sex, and fitness goals. The American
+          What counts as “healthy” body fat varies by age, sex, and fitness goals. The American
           Council on Exercise (ACE) breaks it down like this:
         </p>
 
@@ -146,7 +147,7 @@ const BlogPostPageContent = (
 
         <p>
           Women naturally have higher body fat percentages than men due to physiological differences
-          and reproductive needs. The "essential fat" category represents the minimum amount of fat
+          and reproductive needs. The “essential fat” category represents the minimum amount of fat
           necessary for basic physical and physiological health.
         </p>
 
@@ -176,7 +177,7 @@ const BlogPostPageContent = (
           <strong>Cost:</strong> Moderate ($40-60 per test)
         </p>
         <p>
-          You're fully submerged in water to measure body density. Fat is less dense than muscle and
+          You’re fully submerged in water to measure body density. Fat is less dense than muscle and
           bone, so the density measurement can be converted to a body fat estimate.
         </p>
 
@@ -223,10 +224,10 @@ const BlogPostPageContent = (
         </p>
 
         <h2>Why Body Fat Percentage Matters More Than Weight</h2>
-        <p>Weight alone can be misleading. Take two people who both weigh 170 pounds at 5'10":</p>
+        <p>Weight alone can be misleading. Take two people who both weigh 170 pounds at 5′10″:</p>
         <ul>
-          <li>Person A has 15% body fat (25.5 pounds of fat, 144.5 pounds of lean mass)</li>
-          <li>Person B has 30% body fat (51 pounds of fat, 119 pounds of lean mass)</li>
+          <li>Person A has 15% body fat (25.5 pounds of fat, 144.5 pounds of lean mass)</li>
+          <li>Person B has 30% body fat (51 pounds of fat, 119 pounds of lean mass)</li>
         </ul>
         <p>
           Same weight, same BMI, very different bodies. Person A has more muscle mass and less fat,
@@ -237,7 +238,7 @@ const BlogPostPageContent = (
           <li>
             It distinguishes between fat loss and weight loss (which could include muscle loss)
           </li>
-          <li>It helps set more meaningful fitness goals beyond just "losing weight"</li>
+          <li>It helps set more meaningful fitness goals beyond just “losing weight”</li>
           <li>It is a better indicator of health risks tied to body composition</li>
           <li>
             It can help track progress when weight plateaus (you might be losing fat but gaining
@@ -302,7 +303,7 @@ const BlogPostPageContent = (
       <h2 className="text-2xl font-semibold mb-4">Related Articles</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Link href="/blog/measuring-body-fat" className="block">
-          <div className="neumorph p-4 rounded-lg transition-all hover:shadow-neumorph-inset">
+          <div className="neumorph p-4 rounded-lg transition hover:shadow-neumorph-inset">
             <h3 className="font-medium">
               The Pros and Cons of Different Body Fat Measurement Methods
             </h3>
@@ -314,7 +315,7 @@ const BlogPostPageContent = (
         </Link>
 
         <Link href="/blog/tdee-explained" className="block">
-          <div className="neumorph p-4 rounded-lg transition-all hover:shadow-neumorph-inset">
+          <div className="neumorph p-4 rounded-lg transition hover:shadow-neumorph-inset">
             <h3 className="font-medium">TDEE Explained: How Many Calories Do You Really Need?</h3>
             <p className="text-sm text-gray-600 mt-1">
               Understand the components of Total Daily Energy Expenditure and why it matters.

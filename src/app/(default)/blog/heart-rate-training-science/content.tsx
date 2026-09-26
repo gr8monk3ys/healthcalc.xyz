@@ -12,7 +12,7 @@ const HeartRateTrainingSciencePageContent = (
         Heart Rate Training Zones: The Science and How to Actually Use Them
       </h1>
       <p className="text-gray-500 dark:text-gray-400 italic">
-        Published: January 20, 2026 &bull; 19 min read
+        Published: January 20, 2026 &bull; 19 min read
       </p>
     </header>
 
@@ -21,7 +21,7 @@ const HeartRateTrainingSciencePageContent = (
         <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Key Takeaways</h2>
         <ul className="space-y-2 text-gray-700 dark:text-gray-300">
           <li>
-            The 220-minus-age formula for max heart rate has a standard deviation of 10 to 12 bpm,
+            The 220-minus-age formula for max heart rate has a standard deviation of 10 to 12 bpm,
             making it unreliable for individual training
           </li>
           <li>
@@ -59,7 +59,7 @@ const HeartRateTrainingSciencePageContent = (
       <p>
         Almost every heart rate calculator and fitness device defaults to this formula for
         estimating maximum heart rate: 220 minus your age. If you are 30, your predicted max is 190
-        bpm. If you are 50, it is 170 bpm.
+        bpm. If you are 50, it is 170 bpm.
       </p>
 
       <p>
@@ -72,7 +72,7 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <p>
-        The standard deviation around this formula is approximately 10 to 12 bpm. That means if you
+        The standard deviation around this formula is approximately 10 to 12 bpm. That means if you
         are 40 and the formula predicts a max HR of 180, your actual max could reasonably be
         anywhere from 168 to 192. A 24-beat range.
       </p>
@@ -177,7 +177,7 @@ const HeartRateTrainingSciencePageContent = (
               <td className="p-4 font-medium">Zone 5 (90-100%)</td>
               <td className="p-4">Maximum</td>
               <td className="p-4">Cannot talk</td>
-              <td className="p-4">VO2max efforts, anaerobic, sustainable for 1-5 minutes</td>
+              <td className="p-4">VO2max efforts, anaerobic, sustainable for 1-5 minutes</td>
             </tr>
           </tbody>
         </table>
@@ -243,20 +243,19 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <p>
-        Seiler&apos;s 2010 paper in the International Journal of Sports Physiology and Performance
-        showed that this polarized distribution was common among Olympic-level athletes across
-        multiple disciplines. A 2014 meta-analysis by Stoggl and Sperlich in Frontiers in Physiology
-        compared polarized training to threshold training (more time in Zone 3) and high-intensity
-        training (more time in Zone 4-5). Polarized training produced the best improvements in
-        endurance performance measures.
+        Seiler’s 2010 paper in the International Journal of Sports Physiology and Performance showed
+        that this polarized distribution was common among Olympic-level athletes across multiple
+        disciplines. A 2014 meta-analysis by Stoggl and Sperlich in Frontiers in Physiology compared
+        polarized training to threshold training (more time in Zone 3) and high-intensity training
+        (more time in Zone 4-5). Polarized training produced the best improvements in endurance
+        performance measures.
       </p>
 
       <p>
         The reason Zone 3 is minimized in this model is important. Zone 3 is hard enough to generate
         significant fatigue but not intense enough to produce the specific high-intensity
-        adaptations that Zones 4 and 5 develop. Seiler calls it the &quot;black hole&quot; of
-        training: too hard to recover from easily, too easy to drive meaningful intensity-specific
-        adaptation.
+        adaptations that Zones 4 and 5 develop. Seiler calls it the “black hole” of training: too
+        hard to recover from easily, too easy to drive meaningful intensity-specific adaptation.
       </p>
 
       <p>
@@ -282,20 +281,20 @@ const HeartRateTrainingSciencePageContent = (
 
       <p>
         Heart rate takes time to respond to changes in effort. When you start a sprint, your muscles
-        immediately ramp up energy production, but your heart rate takes 30 to 60 seconds to catch
+        immediately ramp up energy production, but your heart rate takes 30 to 60 seconds to catch
         up. During interval training, this means your heart rate may still be climbing when the
         interval ends, and it may not reach the value that actually represents your effort level.
       </p>
 
       <p>
         Conversely, when you stop or reduce effort, heart rate takes time to come back down. During
-        a rest interval, your heart rate might read 160 bpm even though your actual metabolic demand
+        a rest interval, your heart rate might read 160 bpm even though your actual metabolic demand
         has dropped significantly.
       </p>
 
       <p>
         This makes heart rate zones unreliable for short, high-intensity intervals (anything under 2
-        to 3 minutes). For these sessions, perceived effort or pace-based targets are more useful
+        to 3 minutes). For these sessions, perceived effort or pace-based targets are more useful
         than heart rate.
       </p>
 
@@ -311,14 +310,14 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <p>
-        During a 90-minute easy run, your heart rate might start at 135 bpm and drift to 150 bpm
+        During a 90-minute easy run, your heart rate might start at 135 bpm and drift to 150 bpm
         without any change in pace. If you are targeting Zone 2 by heart rate alone, you might slow
         down to keep your heart rate in the zone, when the reality is that your effort level has not
         changed. The heart rate went up, but the metabolic intensity stayed the same.
       </p>
 
       <p>
-        For sessions over 60 minutes, recognize that drift is normal and expected. Anchor your Zone
+        For sessions over 60 minutes, recognize that drift is normal and expected. Anchor your Zone
         2 work to perceived effort and pace rather than chasing a specific heart rate number
         throughout the entire session.
       </p>
@@ -374,9 +373,9 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <p>
-        Average resting heart rate for adults is 60 to 100 bpm. Well-trained endurance athletes
+        Average resting heart rate for adults is 60 to 100 bpm. Well-trained endurance athletes
         often have RHRs in the 40s or even 30s. This reflects a more efficient heart that pumps more
-        blood per beat, requiring fewer beats per minute to meet the body&apos;s resting needs.
+        blood per beat, requiring fewer beats per minute to meet the body’s resting needs.
       </p>
 
       <p>
@@ -413,12 +412,12 @@ const HeartRateTrainingSciencePageContent = (
       </p>
 
       <div className="neumorph-card rounded-xl p-6 my-8 bg-blue-50 dark:bg-blue-900/20">
-        <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
           Sample Week (4-5 sessions)
-        </h4>
+        </h3>
         <div className="space-y-3 text-gray-700 dark:text-gray-300">
           <p>
-            <strong>Monday:</strong> Zone 2, 40-60 minutes. Easy run, bike, or swim. Should feel
+            <strong>Monday:</strong> Zone 2, 40-60 minutes. Easy run, bike, or swim. Should feel
             comfortable the entire time. You should be able to talk without pausing for breath.
           </p>
           <p>
@@ -426,17 +425,17 @@ const HeartRateTrainingSciencePageContent = (
           </p>
           <p>
             <strong>Wednesday:</strong> High intensity. Intervals in Zone 4-5. Example: 4-6 x 3
-            minutes hard with 2 minutes easy recovery between. Total session 35-45 minutes including
+            minutes hard with 2 minutes easy recovery between. Total session 35-45 minutes including
             warm-up and cool-down.
           </p>
           <p>
-            <strong>Thursday:</strong> Zone 2, 40-60 minutes. Same as Monday.
+            <strong>Thursday:</strong> Zone 2, 40-60 minutes. Same as Monday.
           </p>
           <p>
             <strong>Friday:</strong> Rest.
           </p>
           <p>
-            <strong>Saturday:</strong> Long Zone 2 session, 60-90 minutes. This is the most
+            <strong>Saturday:</strong> Long Zone 2 session, 60-90 minutes. This is the most
             important session of the week for building aerobic capacity.
           </p>
           <p>
@@ -500,16 +499,16 @@ const HeartRateTrainingSciencePageContent = (
 
       <p>
         <strong>Using the 220-minus-age formula without testing.</strong> I have said this already,
-        but it bears repeating. If your max HR estimate is wrong by 12 bpm, every zone you calculate
+        but it bears repeating. If your max HR estimate is wrong by 12 bpm, every zone you calculate
         from it is wrong. If you are going to train by heart rate, invest the effort to determine
         your actual max.
       </p>
 
       <p>
         <strong>Training too hard too often.</strong> The most common error I see is people who
-        never go truly easy. Every run is at a &quot;moderate&quot; pace. Every cycling session is
-        &quot;decent effort.&quot; They are chronically training in Zone 3, accumulating fatigue
-        without the recovery benefits of Zone 2 or the intensity benefits of Zone 4-5.
+        never go truly easy. Every run is at a “moderate” pace. Every cycling session is “decent
+        effort.” They are chronically training in Zone 3, accumulating fatigue without the recovery
+        benefits of Zone 2 or the intensity benefits of Zone 4-5.
       </p>
 
       <p>
@@ -522,12 +521,12 @@ const HeartRateTrainingSciencePageContent = (
       <p>
         <strong>Using heart rate for short intervals.</strong> Cardiac lag means your heart rate
         during a 30-second or 60-second interval does not reflect the actual metabolic intensity.
-        For intervals under 2 to 3 minutes, use pace or power instead.
+        For intervals under 2 to 3 minutes, use pace or power instead.
       </p>
 
       <p>
         <strong>Checking heart rate obsessively.</strong> If you spend your entire run staring at
-        your watch and adjusting pace every 10 seconds to stay in the exact right zone, you are
+        your watch and adjusting pace every 10 seconds to stay in the exact right zone, you are
         missing the point. Zones are ranges, not precise targets. Being a few beats above or below
         the zone boundary does not change the physiological stimulus.
       </p>
@@ -602,34 +601,32 @@ const HeartRateTrainingSciencePageContent = (
 
       <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
         <li>
-          Robergs RA, Landwehr R. &quot;The surprising history of the &apos;HRmax=220-age&apos;
-          equation.&quot; Journal of Exercise Physiology Online, 2002.
+          Robergs RA, Landwehr R. “The surprising history of the ‘HRmax=220-age’ equation.” Journal
+          of Exercise Physiology Online, 2002.
         </li>
         <li>
-          Tanaka H, Monahan KD, Seals DR. &quot;Age-predicted maximal heart rate revisited.&quot;
-          Journal of the American College of Cardiology, 2001.
+          Tanaka H, Monahan KD, Seals DR. “Age-predicted maximal heart rate revisited.” Journal of
+          the American College of Cardiology, 2001.
         </li>
         <li>
-          Gulati M, et al. &quot;Heart rate response to exercise stress testing in asymptomatic
-          women.&quot; Circulation, 2010.
+          Gulati M, et al. “Heart rate response to exercise stress testing in asymptomatic women.”
+          Circulation, 2010.
         </li>
         <li>
-          Seiler S. &quot;What is best practice for training intensity and duration distribution in
-          endurance athletes?&quot; International Journal of Sports Physiology and Performance,
-          2010.
+          Seiler S. “What is best practice for training intensity and duration distribution in
+          endurance athletes?” International Journal of Sports Physiology and Performance, 2010.
         </li>
         <li>
-          Stoggl T, Sperlich B. &quot;Polarized training has greater impact on key endurance
-          variables than threshold, high intensity, or high volume training.&quot; Frontiers in
-          Physiology, 2014.
+          Stoggl T, Sperlich B. “Polarized training has greater impact on key endurance variables
+          than threshold, high intensity, or high volume training.” Frontiers in Physiology, 2014.
         </li>
         <li>
-          Plews DJ, et al. &quot;Training adaptation and heart rate variability in elite endurance
-          athletes: opening the door to effective monitoring.&quot; Sports Medicine, 2013.
+          Plews DJ, et al. “Training adaptation and heart rate variability in elite endurance
+          athletes: opening the door to effective monitoring.” Sports Medicine, 2013.
         </li>
         <li>
-          Reimers AK, Knapp G, Reimers CD. &quot;Effects of exercise on the resting heart rate: a
-          systematic review and meta-analysis of interventional studies.&quot; Journal of Clinical
+          Reimers AK, Knapp G, Reimers CD. “Effects of exercise on the resting heart rate: a
+          systematic review and meta-analysis of interventional studies.” Journal of Clinical
           Medicine, 2018.
         </li>
       </ul>

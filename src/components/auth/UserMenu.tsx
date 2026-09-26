@@ -43,9 +43,9 @@ export default function UserMenu(): React.JSX.Element {
         <button
           type="button"
           onClick={() => setModalOpen(true)}
-          className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
+          className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
         >
-          Sign in
+          Sign In
         </button>
         <AuthModal open={modalOpen} onClose={() => setModalOpen(false)} />
       </>
@@ -59,7 +59,7 @@ export default function UserMenu(): React.JSX.Element {
       <button
         type="button"
         onClick={() => setMenuOpen(prev => !prev)}
-        className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-bold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+        className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-bold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
         aria-label="User menu"
         aria-expanded={menuOpen}
         aria-haspopup="true"
@@ -78,9 +78,9 @@ export default function UserMenu(): React.JSX.Element {
           <button
             type="button"
             onClick={handleSignOut}
-            className="mt-2 w-full rounded-lg px-3 py-2 text-left text-sm text-foreground opacity-80 transition-all hover:bg-red-100 hover:text-red-700 hover:opacity-100 dark:hover:bg-red-900/30 dark:hover:text-red-300"
+            className="mt-2 w-full rounded-lg px-3 py-2 text-left text-sm text-foreground opacity-80 transition hover:bg-red-100 hover:text-red-700 hover:opacity-100 dark:hover:bg-red-900/30 dark:hover:text-red-300"
           >
-            Sign out
+            Sign Out
           </button>
         </div>
       )}

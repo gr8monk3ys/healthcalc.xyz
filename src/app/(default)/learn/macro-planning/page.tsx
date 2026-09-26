@@ -18,7 +18,7 @@ export default function MacroPlanningGuide() {
       <div className="neumorph p-6 rounded-lg mb-8">
         <h2 className="text-2xl font-semibold mb-3">How to Set Macros</h2>
         <p className="text-gray-600 mb-3">
-          Start with a calorie target, then set protein first (1.6-2.2 g/kg bodyweight is common).
+          Start with a calorie target, then set protein first (1.6-2.2 g/kg bodyweight is common).
           Next, pick fat (20-35% of calories) and fill the rest with carbs.
         </p>
         <p className="text-gray-600">

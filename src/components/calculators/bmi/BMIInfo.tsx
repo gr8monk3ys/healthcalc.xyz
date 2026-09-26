@@ -11,7 +11,7 @@ interface BMIInfoProps {
 const FALLBACK_COPY: BMIPageCopy['info'] = {
   title: 'About BMI',
   intro:
-    "Body Mass Index (BMI) is a simple calculation using a person's height and weight. The formula is BMI = kg/m² where kg is a person's weight in kilograms and m² is their height in meters squared.",
+    'Body Mass Index (BMI) is a simple calculation using a person’s height and weight. The formula is BMI = kg/m² where kg is a person’s weight in kilograms and m² is their height in meters squared.',
   adultCategoriesTitle: 'BMI Categories for Adults:',
   adultCategories: [
     { label: 'Underweight:', body: 'BMI less than 18.5' },
@@ -30,7 +30,7 @@ const FALLBACK_COPY: BMIPageCopy['info'] = {
   ],
   limitationsTitle: 'Limitations of BMI:',
   limitationsBody:
-    "BMI is a useful screening tool, but it has limitations. It doesn't distinguish between muscle and fat, nor does it account for factors like age, sex, ethnicity, or muscle mass. Athletes and muscular individuals may have a high BMI without excess fat.",
+    'BMI is a useful screening tool, but it has limitations. It doesn’t distinguish between muscle and fat, nor does it account for factors like age, sex, ethnicity, or muscle mass. Athletes and muscular individuals may have a high BMI without excess fat.',
 };
 
 const BMIInfo: React.FC<BMIInfoProps> = ({ copy }) => {

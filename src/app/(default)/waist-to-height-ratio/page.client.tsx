@@ -1,19 +1,23 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import WaistToHeightRatioResult from '@/components/calculators/waist-to-height-ratio/WaistToHeightRatioResult';
 import WaistToHeightRatioInfo from '@/components/calculators/waist-to-height-ratio/WaistToHeightRatioInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateWaistToHeightRatio } from '@/utils/calculators/waistToHeightRatio';
 import { convertLength } from '@/utils/conversions';
 import { isEmpty, validateHeight, validateWaist } from '@/utils/validation';
 import type { WaistToHeightRatioResult as WaistToHeightRatioResultType } from '@/types/waistToHeightRatio';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 type WaistUnit = 'cm' | 'in';
 
@@ -98,7 +102,7 @@ export default function WaistToHeightRatioCalculator({
 
         setTimeout(() => {
           const element = document.getElementById('waist-to-height-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
 
         return calculated;
@@ -161,7 +165,7 @@ export default function WaistToHeightRatioCalculator({
               value: waist,
               onChange: setWaist,
               error: errors.waist,
-              placeholder: waistUnit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: waistUnit === 'cm' ? 'e.g. 80…' : 'e.g. 32…',
               unit: waistUnit,
               unitToggle: toggleWaistUnit,
               step: '0.1',

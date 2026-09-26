@@ -62,6 +62,8 @@ const mockState = {
   message: '',
   showMessage: false,
   showNotification: vi.fn(),
+  canUndo: false,
+  undoRemove: vi.fn(),
 };
 
 vi.mock('@/hooks/useSavedResultsManager', () => ({
@@ -93,7 +95,9 @@ describe('SaveResult', () => {
     it('should render Saved button when already saved', () => {
       mockState.isResultSaved.mockReturnValue(true);
       render(<SaveResult {...defaultProps} />);
-      expect(screen.getByRole('button', { name: /delete result/i })).toBeInTheDocument();
+      const saved = screen.getByRole('button', { name: /^saved$/i });
+      expect(saved).toBeInTheDocument();
+      expect(saved).toHaveAttribute('aria-pressed', 'true');
     });
 
     it('should apply custom className', () => {
@@ -115,7 +119,7 @@ describe('SaveResult', () => {
     it('should call removeResultByData on saved button click', () => {
       mockState.isResultSaved.mockReturnValue(true);
       render(<SaveResult {...defaultProps} />);
-      fireEvent.click(screen.getByRole('button', { name: /delete result/i }));
+      fireEvent.click(screen.getByRole('button', { name: /^saved$/i }));
       expect(mockState.removeResultByData).toHaveBeenCalledWith('bmi', {
         bmi: 22.5,
         category: 'Normal',
@@ -142,13 +146,13 @@ describe('SaveResult', () => {
       mockState.showMessage = true;
       mockState.message = 'Result saved successfully';
       render(<SaveResult {...defaultProps} />);
-      expect(screen.getByRole('alert')).toHaveTextContent('Result saved successfully');
+      expect(screen.getByRole('status')).toHaveTextContent('Result saved successfully');
     });
 
     it('should not display message when showMessage is false', () => {
       mockState.showMessage = false;
       render(<SaveResult {...defaultProps} />);
-      expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+      expect(screen.getByRole('status')).toBeEmptyDOMElement();
     });
   });
 });

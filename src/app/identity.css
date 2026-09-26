@@ -181,7 +181,7 @@
   border: 1px solid hsl(var(--border));
   transition: border-color 0.15s ease;
 
-  &:focus {
+  &:focus-visible {
     border-color: hsl(var(--primary) / 0.5);
     outline: 2px solid hsl(var(--primary));
     outline-offset: 2px;
@@ -189,7 +189,7 @@
 }
 
 @utility cta-primary {
-  @apply inline-flex items-center justify-center font-semibold transition-all;
+  @apply inline-flex items-center justify-center font-semibold transition;
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
   border: 1px solid hsl(var(--primary) / 0.42);
@@ -225,7 +225,7 @@
 }
 
 @utility cta-secondary {
-  @apply inline-flex items-center justify-center font-medium transition-all;
+  @apply inline-flex items-center justify-center font-medium transition;
   color: hsl(var(--foreground));
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
@@ -386,7 +386,7 @@
 }
 
 @utility focus-ring {
-  @apply focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
 }
 
 @utility skeleton-shimmer {

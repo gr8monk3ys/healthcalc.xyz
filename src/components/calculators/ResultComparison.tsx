@@ -3,6 +3,7 @@
 import React, { useId, useMemo, useState } from 'react';
 import type { SavedResult } from '@/context/SavedResultsContext';
 import MiniChart from '@/components/ui/MiniChart';
+import { formatDisplayDate, formatNumber } from '@/utils/formatNumber';
 
 interface ResultComparisonProps {
   results: SavedResult[];
@@ -11,12 +12,7 @@ interface ResultComparisonProps {
 }
 
 function formatDateLabel(dateString: string): string {
-  const d = new Date(dateString);
-  return d.toLocaleDateString(undefined, {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
+  return formatDisplayDate(dateString);
 }
 
 function formatKey(key: string): string {
@@ -61,6 +57,7 @@ function DiffIndicator({
       className={`ml-1 inline-flex items-center text-xs font-semibold ${isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-500 dark:text-red-400'}`}
     >
       <svg
+        aria-hidden="true"
         width="10"
         height="10"
         viewBox="0 0 10 10"
@@ -69,7 +66,7 @@ function DiffIndicator({
         <path d="M5 2 L8 6 L2 6 Z" fill="currentColor" />
       </svg>
       {isPositive ? '+' : ''}
-      {diff.toFixed(1)}
+      {formatNumber(diff, 1)}
     </span>
   );
 }
@@ -96,13 +93,11 @@ export default function ResultComparison({
     const primaryKey = getPrimaryNumericKey(sorted[0].data);
     if (!primaryKey) return [];
 
-    return sorted
-      .map(r => {
-        const val = getNumericValue(r.data[primaryKey]);
-        if (val === null) return null;
-        return { date: r.date, value: val, label: formatKey(primaryKey) };
-      })
-      .filter((d): d is { date: string; value: number; label: string } => d !== null);
+    const label = formatKey(primaryKey);
+    return sorted.flatMap(r => {
+      const val = getNumericValue(r.data[primaryKey]);
+      return val === null ? [] : [{ date: r.date, value: val, label }];
+    });
   }, [sorted]);
 
   const allKeys = useMemo(() => {
@@ -143,9 +138,10 @@ export default function ResultComparison({
           </label>
           <select
             id={`${idPrefix}-earlier-result`}
+            name="earlierResult"
             value={leftIndex}
             onChange={e => setLeftIndex(Number(e.target.value))}
-            className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm"
           >
             {sorted.map((r, i) => (
               <option key={r.id} value={i}>
@@ -163,9 +159,10 @@ export default function ResultComparison({
           </label>
           <select
             id={`${idPrefix}-later-result`}
+            name="laterResult"
             value={rightIndex}
             onChange={e => setRightIndex(Number(e.target.value))}
-            className="w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm"
           >
             {sorted.map((r, i) => (
               <option key={r.id} value={i}>

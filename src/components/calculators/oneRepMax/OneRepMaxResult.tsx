@@ -3,6 +3,7 @@
 import React from 'react';
 import { OneRepMaxResult } from '@/types/oneRepMax';
 import { getPercentageColor } from '@/constants/oneRepMax';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface OneRepMaxResultDisplayProps {
   result: OneRepMaxResult;
@@ -18,10 +19,7 @@ interface OneRepMaxResultDisplayProps {
  */
 const OneRepMaxResultDisplay: React.FC<OneRepMaxResultDisplayProps> = ({ result }) => {
   return (
-    <div
-      id="one-rep-max-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="one-rep-max-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your One Rep Max Results</h2>
 
       {/* Primary 1RM Result */}
@@ -29,7 +27,7 @@ const OneRepMaxResultDisplay: React.FC<OneRepMaxResultDisplayProps> = ({ result 
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium">Estimated 1RM ({result.selectedFormula})</span>
           <span className="text-3xl font-bold text-accent">
-            {result.oneRepMax.toFixed(1)} {result.weightUnit}
+            {formatNumber(result.oneRepMax, 1)} {result.weightUnit}
           </span>
         </div>
 
@@ -61,7 +59,7 @@ const OneRepMaxResultDisplay: React.FC<OneRepMaxResultDisplayProps> = ({ result 
             >
               <p className="text-sm text-gray-600 dark:text-gray-400">{formulaResult.name}</p>
               <p className="text-lg font-bold">
-                {formulaResult.oneRepMax.toFixed(1)} {result.weightUnit}
+                {formatNumber(formulaResult.oneRepMax, 1)} {result.weightUnit}
               </p>
             </div>
           ))}
@@ -83,7 +81,8 @@ const OneRepMaxResultDisplay: React.FC<OneRepMaxResultDisplayProps> = ({ result 
                 </div>
                 <div className="text-right">
                   <p className="font-bold">
-                    {zone.minWeight.toFixed(1)} - {zone.maxWeight.toFixed(1)} {result.weightUnit}
+                    {formatNumber(zone.minWeight, 1)} - {formatNumber(zone.maxWeight, 1)}{' '}
+                    {result.weightUnit}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
                     {zone.minPercentage}% - {zone.maxPercentage}% 1RM
@@ -124,7 +123,7 @@ const OneRepMaxResultDisplay: React.FC<OneRepMaxResultDisplayProps> = ({ result 
                     {entry.percentage}%
                   </td>
                   <td className="px-4 py-2 text-right font-medium">
-                    {entry.weight.toFixed(1)} {result.weightUnit}
+                    {formatNumber(entry.weight, 1)} {result.weightUnit}
                   </td>
                   <td className="px-4 py-2 text-right text-gray-600 dark:text-gray-400">
                     {entry.estimatedReps}

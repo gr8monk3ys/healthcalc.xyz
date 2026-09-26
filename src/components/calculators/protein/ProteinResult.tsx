@@ -17,10 +17,7 @@ const ProteinResult: React.FC<ProteinResultProps> = ({ result, weightUnit }) => 
   );
 
   return (
-    <div
-      id="protein-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="protein-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Daily Protein Needs</h2>
 
       {/* Main Result */}
@@ -84,13 +81,13 @@ const ProteinResult: React.FC<ProteinResultProps> = ({ result, weightUnit }) => 
           <div>
             <h3 className="font-medium">Calories from Protein</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Protein provides 4 calories per gram
+              Protein provides 4 calories per gram
             </p>
           </div>
           <div className="text-right">
-            <p className="text-xl font-bold">{result.proteinCalories} kcal</p>
+            <p className="text-xl font-bold">{result.proteinCalories} kcal</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              ~{Math.round((result.proteinCalories / 2000) * 100)}% of 2000 kcal diet
+              ~{Math.round((result.proteinCalories / 2000) * 100)}% of 2000 kcal diet
             </p>
           </div>
         </div>

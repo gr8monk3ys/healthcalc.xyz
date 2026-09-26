@@ -29,7 +29,7 @@ const BodyRecompInfo: React.FC = () => {
               <li>
                 <strong>Training Days:</strong> Eating at a small surplus (10-15% above maintenance)
                 provides energy for intense workouts and maximizes muscle protein synthesis in the
-                24-48 hours following training.
+                24-48 hours following training.
               </li>
               <li>
                 <strong>Rest Days:</strong> Eating at a deficit (15-20% below maintenance) promotes
@@ -57,7 +57,7 @@ const BodyRecompInfo: React.FC = () => {
             </p>
             <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 ml-4">
               <li>
-                <strong>Beginners:</strong> Those with less than 1 year of consistent training have
+                <strong>Beginners:</strong> Those with less than 1 year of consistent training have
                 the highest potential for simultaneous muscle gain and fat loss due to greater
                 responsiveness to training stimuli.
               </li>
@@ -67,7 +67,7 @@ const BodyRecompInfo: React.FC = () => {
               </li>
               <li>
                 <strong>Returning Trainees:</strong> Those returning after a training break can
-                experience "muscle memory" effects and rapid recomposition.
+                experience “muscle memory” effects and rapid recomposition.
               </li>
               <li>
                 <strong>Natural Lifters:</strong> Those not using performance-enhancing drugs
@@ -83,7 +83,7 @@ const BodyRecompInfo: React.FC = () => {
             </p>
             <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 ml-4">
               <li>
-                Train 3-5 days per week with compound movements (squats, deadlifts, bench press)
+                Train 3-5 days per week with compound movements (squats, deadlifts, bench press)
               </li>
               <li>Focus on progressive overload - increasing weight or reps each session</li>
               <li>Train each muscle group 2-3 times per week for optimal stimulus</li>
@@ -114,8 +114,8 @@ const BodyRecompInfo: React.FC = () => {
                 friends comment on changes
               </li>
               <li>
-                <strong>Weeks 12-16:</strong> Significant transformation, potentially 5-10 lbs fat
-                lost and 3-6 lbs muscle gained (beginners)
+                <strong>Weeks 12-16:</strong> Significant transformation, potentially 5-10 lbs fat
+                lost and 3-6 lbs muscle gained (beginners)
               </li>
             </ul>
           </div>
@@ -134,8 +134,8 @@ const BodyRecompInfo: React.FC = () => {
                 Inconsistent training - missing workouts destroys the muscle-building stimulus
               </li>
               <li>Inadequate protein - below 0.8g per lb leads to muscle loss during deficits</li>
-              <li>Poor sleep (less than 7 hours) - disrupts recovery and hormone production</li>
-              <li>Not adjusting calories as weight changes - recalculate every 4-6 weeks</li>
+              <li>Poor sleep (less than 7 hours) - disrupts recovery and hormone production</li>
+              <li>Not adjusting calories as weight changes - recalculate every 4-6 weeks</li>
             </ul>
           </div>
 
@@ -146,8 +146,8 @@ const BodyRecompInfo: React.FC = () => {
             <p className="text-sm text-blue-800 dark:text-blue-200">
               Research supports body recomposition as an effective strategy, particularly for
               beginners and those with moderate body fat. Studies show that when combined with
-              resistance training and high protein intake, individuals can lose 0.5-1.5 lbs of fat
-              per week while gaining 0.5-2 lbs of muscle per month, depending on training
+              resistance training and high protein intake, individuals can lose 0.5-1.5 lbs of fat
+              per week while gaining 0.5-2 lbs of muscle per month, depending on training
               experience. The key is consistency, proper programming, and adequate protein intake to
               support both goals simultaneously.
             </p>

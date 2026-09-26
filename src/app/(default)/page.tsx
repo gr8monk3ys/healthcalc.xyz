@@ -29,6 +29,7 @@ export const metadata = {
 const icons = {
   bodyFat: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -45,6 +46,7 @@ const icons = {
   ),
   calorieDeficit: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -61,6 +63,7 @@ const icons = {
   ),
   tdee: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -77,6 +80,7 @@ const icons = {
   ),
   bmi: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -93,6 +97,7 @@ const icons = {
   ),
   glp1: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -109,6 +114,7 @@ const icons = {
   ),
   acft: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -129,6 +135,7 @@ const icons = {
 const whyIcons = {
   peerReviewed: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -145,6 +152,7 @@ const whyIcons = {
   ),
   privacy: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -161,6 +169,7 @@ const whyIcons = {
   ),
   free: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -177,6 +186,7 @@ const whyIcons = {
   ),
   transparent: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8"
       fill="none"
@@ -290,7 +300,7 @@ const whyReasons = [
     chip: 'bg-gradient-to-br from-emerald-500/18 via-emerald-500/10 to-transparent text-emerald-600 dark:text-emerald-300',
     title: 'Completely Free',
     description:
-      'No paywalls, no premium tiers, no "unlock full results" gates. Ads keep the tools free — your numbers never sit behind one.',
+      'No paywalls, no premium tiers, no “unlock full results” gates. Ads keep the tools free — your numbers never sit behind one.',
   },
   {
     icon: whyIcons.transparent,
@@ -321,6 +331,7 @@ const HomeContent = (
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-600 dark:text-slate-300">
             <span className="flex items-center gap-1.5">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 text-accent"
                 fill="none"
@@ -338,6 +349,7 @@ const HomeContent = (
             </span>
             <span className="flex items-center gap-1.5">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 text-accent"
                 fill="none"
@@ -355,6 +367,7 @@ const HomeContent = (
             </span>
             <span className="flex items-center gap-1.5">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 text-accent"
                 fill="none"
@@ -372,6 +385,7 @@ const HomeContent = (
             </span>
             <span className="flex items-center gap-1.5">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 text-accent"
                 fill="none"
@@ -393,25 +407,26 @@ const HomeContent = (
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href="/calculators"
-              className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition-all hover:-translate-y-0.5 hover:bg-accent-dark"
+              className="rounded-full bg-accent px-6 py-3 text-center font-semibold text-white shadow-xl shadow-accent/30 transition hover:-translate-y-0.5 hover:bg-accent-dark"
             >
-              Browse calculators
+              Browse Calculators
             </Link>
             <Link
               href="/blog"
-              className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/45"
+              className="elevated-pill rounded-full px-6 py-3 text-center font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/45"
             >
-              Read the guides
+              Read the Guides
             </Link>
           </div>
 
           {/* Search Bar */}
           <Link
             href="/search"
-            className="hero-search-shell mt-6 block rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:border-accent/40"
+            className="hero-search-shell mt-6 block rounded-2xl p-3 transition hover:-translate-y-0.5 hover:border-accent/40"
           >
             <div className="flex items-center gap-3 rounded-xl border border-white/50 bg-white/35 px-4 py-3 dark:border-indigo-200/10 dark:bg-indigo-100/5">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-accent"
                 fill="none"
@@ -426,7 +441,7 @@ const HomeContent = (
                 />
               </svg>
               <span className="text-sm text-slate-500 dark:text-slate-300 sm:text-base">
-                Search calculators, guides, and blog posts...
+                Search calculators, guides, and blog posts…
               </span>
             </div>
           </Link>
@@ -439,7 +454,7 @@ const HomeContent = (
               Your BMI
             </p>
             <div className="mt-3 flex items-center gap-4">
-              <svg viewBox="0 0 96 96" className="h-24 w-24 -rotate-90">
+              <svg aria-hidden="true" viewBox="0 0 96 96" className="h-24 w-24 -rotate-90">
                 <circle
                   cx="48"
                   cy="48"
@@ -509,7 +524,11 @@ const HomeContent = (
                 </span>
               </p>
             </div>
-            <svg viewBox="0 0 200 48" className="hero-sparkline mt-3 h-12 w-full">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 200 48"
+              className="hero-sparkline mt-3 h-12 w-full"
+            >
               <path
                 d="M0 30 L28 30 L36 12 L46 42 L56 6 L66 34 L74 30 L112 30 L120 16 L130 40 L140 10 L150 33 L158 30 L200 30"
                 fill="none"
@@ -530,7 +549,7 @@ const HomeContent = (
         <div>
           <p className="section-eyebrow">Start here</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl">
-            Most popular calculators
+            Most Popular Calculators
           </h2>
           <p className="mt-2 text-slate-600 dark:text-slate-300">
             Quickly jump into the tools users rely on most.
@@ -540,7 +559,7 @@ const HomeContent = (
           href="/calculators"
           className="hidden shrink-0 text-sm font-semibold text-accent hover:underline sm:block"
         >
-          View all categories &rarr;
+          View All Categories &rarr;
         </Link>
       </div>
 
@@ -602,10 +621,10 @@ const HomeContent = (
             <p className="mt-1.5 text-sm text-gray-600 dark:text-gray-400">{chain.description}</p>
             <div className="mt-4 flex items-center gap-2 text-sm">
               <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-bold text-accent">
-                {chain.steps.length} steps
+                {chain.steps.length} steps
               </span>
               <span className="font-semibold text-accent">
-                Get started{' '}
+                Get Started{' '}
                 <span
                   aria-hidden="true"
                   className="inline-block transition-transform duration-200 group-hover:translate-x-1"
@@ -666,7 +685,7 @@ const HomeContent = (
           <Link
             key={post.href}
             href={post.href}
-            className="group rounded-2xl border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(229,233,255,0.7))] p-5 transition-all hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_14px_30px_rgba(66,72,182,0.22)] dark:border-indigo-200/10 dark:bg-[linear-gradient(180deg,rgba(28,32,69,0.82),rgba(17,20,49,0.74))]"
+            className="group rounded-2xl border border-white/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.74),rgba(229,233,255,0.7))] p-5 transition hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_14px_30px_rgba(66,72,182,0.22)] dark:border-indigo-200/10 dark:bg-[linear-gradient(180deg,rgba(28,32,69,0.82),rgba(17,20,49,0.74))]"
           >
             <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
               {post.category}
@@ -676,7 +695,7 @@ const HomeContent = (
             </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{post.excerpt}</p>
             <p className="mt-4 text-sm font-semibold text-accent">
-              Read article{' '}
+              Read Article{' '}
               <span
                 aria-hidden="true"
                 className="inline-block transition-transform duration-200 group-hover:translate-x-1"
@@ -691,9 +710,9 @@ const HomeContent = (
       <div className="mt-8 text-center">
         <Link
           href="/blog"
-          className="elevated-pill inline-flex rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/40"
+          className="elevated-pill inline-flex rounded-full px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/40"
         >
-          Explore all guides and articles
+          Explore All Guides and Articles
         </Link>
       </div>
     </section>
@@ -706,7 +725,7 @@ const HomeContent = (
       />
       <div className="relative mx-auto max-w-2xl">
         <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
-          Ready to run your numbers?
+          Ready to Run Your Numbers?
         </h2>
         <p className="mt-3 text-base text-indigo-100 md:text-lg">
           It takes less than a minute. No sign-up, no data stored, no paywall — just answers.
@@ -714,13 +733,13 @@ const HomeContent = (
         <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
           <Link
             href="/bmi"
-            className="rounded-full bg-white px-7 py-3 font-bold text-accent-dark shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+            className="rounded-full bg-white px-7 py-3 font-bold text-accent-dark shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
           >
-            Try the BMI calculator
+            Try the BMI Calculator
           </Link>
           <Link
             href="/calculators"
-            className="rounded-full border border-white/40 bg-white/10 px-7 py-3 font-semibold text-white backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/20"
+            className="rounded-full border border-white/40 bg-white/10 px-7 py-3 font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
           >
             See all calculators
           </Link>

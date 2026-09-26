@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { ProteinGoal, ProteinResult as ProteinResultType } from '@/types/protein';
@@ -10,11 +11,14 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import ProteinResult from '@/components/calculators/protein/ProteinResult';
 import ProteinInfo from '@/components/calculators/protein/ProteinInfo';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import { useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // Goal options for the calculator
 const GOAL_OPTIONS = [
@@ -44,7 +48,7 @@ const faqs = [
   {
     question: 'When is the best time to eat protein?',
     answer:
-      'Research suggests distributing protein evenly across 3-5 meals (20-40g per meal) optimizes muscle protein synthesis throughout the day. The "anabolic window" after workouts is real but less critical than total daily intake. Eating protein within 2-3 hours post-workout is beneficial, but missing this window does not significantly impact results if daily protein targets are met. For overnight fasting, a protein-rich dinner or casein before bed can support overnight muscle recovery.',
+      'Research suggests distributing protein evenly across 3-5 meals (20-40g per meal) optimizes muscle protein synthesis throughout the day. The “anabolic window” after workouts is real but less critical than total daily intake. Eating protein within 2-3 hours post-workout is beneficial, but missing this window does not significantly impact results if daily protein targets are met. For overnight fasting, a protein-rich dinner or casein before bed can support overnight muscle recovery.',
   },
   {
     question: 'What are the best sources of protein?',
@@ -59,7 +63,7 @@ const faqs = [
   {
     question: 'How does age affect protein needs?',
     answer:
-      "Older adults (65+) have higher protein requirements due to 'anabolic resistance' - reduced ability to synthesize muscle protein from dietary protein. The PROT-AGE study group recommends 1.0-1.2g/kg for healthy older adults, and even higher (1.2-1.5g/kg) for those with acute or chronic diseases. This helps prevent sarcopenia (age-related muscle loss) which increases fall risk and reduces quality of life. The calculator automatically adjusts recommendations for age.",
+      'Older adults (65+) have higher protein requirements due to ‘anabolic resistance’ - reduced ability to synthesize muscle protein from dietary protein. The PROT-AGE study group recommends 1.0-1.2g/kg for healthy older adults, and even higher (1.2-1.5g/kg) for those with acute or chronic diseases. This helps prevent sarcopenia (age-related muscle loss) which increases fall risk and reduces quality of life. The calculator automatically adjusts recommendations for age.',
   },
 ];
 
@@ -104,10 +108,12 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
 
   const chainPrefill = useChainPrefill('protein');
 
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, weight]);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setWeightValue]);
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<ProteinResultType>({
@@ -156,7 +162,7 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
         setTimeout(() => {
           const resultElement = document.getElementById('protein-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -192,7 +198,7 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
         value: age,
         onChange: setAge,
         error: errors.age,
-        placeholder: 'Years',
+        placeholder: 'e.g. 35…',
       },
       {
         name: 'gender',
@@ -276,7 +282,10 @@ export default function ProteinCalculator({ serverHeader }: { serverHeader?: Rea
 
         {/* User-facing error state */}
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}

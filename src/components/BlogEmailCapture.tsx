@@ -128,14 +128,16 @@ export function BlogEmailCapture({
               Email address
             </label>
             <input
+              name="blog-email-capture"
+              spellCheck={false}
               ref={inputRef}
               id="blog-email-capture"
               type="email"
-              placeholder="you@example.com"
+              placeholder="you@example.com…"
               value={email}
               onChange={e => setEmail(e.target.value)}
               disabled={submitState.status === 'loading'}
-              className="w-full px-4 py-2 rounded-lg neumorph-inset focus:outline-none focus:ring-2 focus:ring-accent text-sm disabled:opacity-60"
+              className="w-full px-4 py-2 rounded-lg neumorph-inset focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm disabled:opacity-60"
               aria-required="true"
               aria-invalid={submitState.status === 'error' ? true : undefined}
               aria-describedby={
@@ -153,27 +155,24 @@ export function BlogEmailCapture({
           >
             {submitState.status === 'loading' ? (
               <span className="flex items-center justify-center gap-2">
-                <svg
-                  className="animate-spin h-4 w-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  />
-                </svg>
-                Subscribing...
+                <span className="inline-flex animate-spin" aria-hidden="true">
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    />
+                  </svg>
+                </span>
+                Subscribing…
               </span>
             ) : (
               'Subscribe'

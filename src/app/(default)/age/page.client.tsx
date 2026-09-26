@@ -1,16 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import AgeResult from '@/components/calculators/age/AgeResult';
 import AgeInfo from '@/components/calculators/age/AgeInfo';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import { calculateAge } from '@/utils/calculators/age';
 import type { AgeResult as AgeResultType } from '@/types/age';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -63,7 +67,7 @@ export default function AgeCalculator({ serverHeader }: { serverHeader?: React.R
         const calculated = calculateAge(birthDate, referenceDate || undefined);
         setTimeout(() => {
           const element = document.getElementById('age-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

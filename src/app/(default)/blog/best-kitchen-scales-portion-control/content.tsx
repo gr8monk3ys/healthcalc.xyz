@@ -111,7 +111,7 @@ const BestKitchenScalesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Kitchen Scales for Portion Control and Calorie Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -164,13 +164,13 @@ const BestKitchenScalesPageContent = (
         </div>
 
         <p>
-          Here's the truth about calorie tracking: without a food scale, you're probably eating more
+          Here’s the truth about calorie tracking: without a food scale, you’re probably eating more
           than you think. Studies show people underestimate portions by 30-50% when eyeballing. If
-          you've calculated your daily calories with our{' '}
+          you’ve calculated your daily calories with our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}
-          but aren't seeing results, inaccurate portions could be why.
+          but aren’t seeing results, inaccurate portions could be why.
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
@@ -246,7 +246,7 @@ const BestKitchenScalesPageContent = (
               <tr className="bg-gray-100">
                 <th className="p-2 text-left">Food</th>
                 <th className="p-2 text-center">Serving Size</th>
-                <th className="p-2 text-center">Typical "Eyeball"</th>
+                <th className="p-2 text-center">Typical “Eyeball”</th>
                 <th className="p-2 text-center">Calorie Difference</th>
               </tr>
             </thead>
@@ -255,30 +255,30 @@ const BestKitchenScalesPageContent = (
                 <td className="p-2">Peanut Butter</td>
                 <td className="p-2 text-center">2 tbsp (32g)</td>
                 <td className="p-2 text-center">~50g</td>
-                <td className="p-2 text-center text-red-600">+100 calories</td>
+                <td className="p-2 text-center text-red-600">+100 calories</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="p-2">Pasta (dry)</td>
-                <td className="p-2 text-center">2 oz (56g)</td>
+                <td className="p-2 text-center">2 oz (56g)</td>
                 <td className="p-2 text-center">~100g</td>
-                <td className="p-2 text-center text-red-600">+160 calories</td>
+                <td className="p-2 text-center text-red-600">+160 calories</td>
               </tr>
               <tr>
                 <td className="p-2">Olive Oil</td>
                 <td className="p-2 text-center">1 tbsp (13g)</td>
                 <td className="p-2 text-center">~25g</td>
-                <td className="p-2 text-center text-red-600">+110 calories</td>
+                <td className="p-2 text-center text-red-600">+110 calories</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="p-2">Chicken Breast</td>
-                <td className="p-2 text-center">4 oz (113g)</td>
+                <td className="p-2 text-center">4 oz (113g)</td>
                 <td className="p-2 text-center">~170g</td>
-                <td className="p-2 text-center text-red-600">+85 calories</td>
+                <td className="p-2 text-center text-red-600">+85 calories</td>
               </tr>
             </tbody>
           </table>
           <p className="mt-4 text-sm text-gray-600">
-            These "small" differences can add up to 500+ extra calories per day - enough to
+            These “small” differences can add up to 500+ extra calories per day - enough to
             completely eliminate your deficit.
           </p>
         </div>
@@ -291,7 +291,7 @@ const BestKitchenScalesPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Chef's Choice
+                Chef’s Choice
               </span>
               <h3 className="text-xl font-semibold">OXO Good Grips Food Scale</h3>
             </div>
@@ -307,7 +307,7 @@ const BestKitchenScalesPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Pull-out display prevents bowl from blocking view</li>
-            <li>11 lb (5 kg) capacity</li>
+            <li>11 lb (5 kg) capacity</li>
             <li>Measures in grams, ounces, pounds, and milliliters</li>
             <li>Zero/tare function for easy multi-ingredient measuring</li>
             <li>Slim design stores easily in drawers</li>
@@ -361,13 +361,13 @@ const BestKitchenScalesPageContent = (
           </div>
 
           <p className="mb-4">
-            With over 140,000 Amazon reviews and a 4.7-star rating, the Etekcity is the people's
+            With over 140,000 Amazon reviews and a 4.7-star rating, the Etekcity is the people’s
             choice. It does everything you need at an unbeatable price.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>11 lb (5 kg) capacity</li>
+            <li>11 lb (5 kg) capacity</li>
             <li>Accurate to 1g above 5g</li>
             <li>Slim, easy-to-store design</li>
             <li>Stainless steel weighing platform</li>
@@ -431,18 +431,18 @@ const BestKitchenScalesPageContent = (
             <li>Displays calories, carbs, protein, fat, fiber, sodium</li>
             <li>No smartphone or app required</li>
             <li>Add custom foods with food codes</li>
-            <li>11 lb capacity</li>
+            <li>11 lb capacity</li>
             <li>Meal memory function</li>
             <li>Includes food code reference booklet</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
           <p>
-            Great for users who've calculated their targets with our{' '}
+            Great for users who’ve calculated their targets with our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
             </Link>{' '}
-            but don't want to use a phone app. All-in-one nutrition tracking.
+            but don’t want to use a phone app. All-in-one nutrition tracking.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -490,7 +490,7 @@ const BestKitchenScalesPageContent = (
             <li>Bluetooth app connectivity</li>
             <li>Large food database in companion app</li>
             <li>Tracks calories, protein, carbs, fat, fiber</li>
-            <li>11 lb capacity with 0.1oz precision</li>
+            <li>11 lb capacity with 0.1oz precision</li>
             <li>5 unit measurements</li>
             <li>Syncs with Apple Health and Google Fit</li>
             <li>USB rechargeable</li>
@@ -531,7 +531,7 @@ const BestKitchenScalesPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ol className="list-decimal list-inside space-y-3">
             <li>
-              <strong>Weigh everything raw:</strong> Cooking changes weight. 4 oz raw chicken ≠ 4 oz
+              <strong>Weigh everything raw:</strong> Cooking changes weight. 4 oz raw chicken ≠ 4 oz
               cooked chicken
             </li>
             <li>
@@ -568,28 +568,28 @@ const BestKitchenScalesPageContent = (
               <tr>
                 <td className="border p-3">OXO Good Grips</td>
                 <td className="border p-3 text-center">$49.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Pull-out display</td>
                 <td className="border p-3 text-center">Serious cooks</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Etekcity</td>
                 <td className="border p-3 text-center">$14.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Low price</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr>
                 <td className="border p-3">Greater Goods</td>
                 <td className="border p-3 text-center">$29.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Nutrition display</td>
                 <td className="border p-3 text-center">No-app users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">URAMAZ</td>
                 <td className="border p-3 text-center">$24.99</td>
-                <td className="border p-3 text-center">11 lb</td>
+                <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">App connected</td>
                 <td className="border p-3 text-center">Tech lovers</td>
               </tr>
@@ -620,7 +620,7 @@ const BestKitchenScalesPageContent = (
 
         <p>
           A food scale is the single most impactful purchase for anyone serious about hitting their
-          calorie goals. Combined with our calculators, you'll have everything needed for successful
+          calorie goals. Combined with our calculators, you’ll have everything needed for successful
           weight management.
         </p>
 
@@ -629,21 +629,21 @@ const BestKitchenScalesPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss deficit</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Find your maintenance calories</p>
             </Link>
             <Link
               href="/weight-management"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Weight Management Calculator</h4>
               <p className="text-sm text-gray-600">Set your goal weight timeline</p>

@@ -1,16 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import FatIntakeResult from '@/components/calculators/fat-intake/FatIntakeResult';
 import FatIntakeInfo from '@/components/calculators/fat-intake/FatIntakeInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateFatIntake } from '@/utils/calculators/fatIntake';
 import type { FatIntakeResult as FatIntakeResultType } from '@/types/fatIntake';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -75,7 +79,7 @@ export default function FatIntakeCalculator({ serverHeader }: { serverHeader?: R
         const calculated = calculateFatIntake(calories as number, fatPercent as number);
         setTimeout(() => {
           const element = document.getElementById('fat-intake-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -119,7 +123,7 @@ export default function FatIntakeCalculator({ serverHeader }: { serverHeader?: R
               value: calories,
               onChange: setCalories,
               error: errors.calories,
-              placeholder: 'e.g. 2000',
+              placeholder: 'e.g. 2000…',
               min: 800,
               max: 8000,
             },
@@ -130,7 +134,7 @@ export default function FatIntakeCalculator({ serverHeader }: { serverHeader?: R
               value: fatPercent,
               onChange: setFatPercent,
               error: errors.fatPercent,
-              placeholder: 'e.g. 30',
+              placeholder: 'e.g. 30…',
               min: 15,
               max: 45,
             },

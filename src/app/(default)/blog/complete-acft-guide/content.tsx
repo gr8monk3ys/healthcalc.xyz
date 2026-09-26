@@ -11,7 +11,7 @@ const CompleteACFTGuidePageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         The Complete ACFT Guide: Scoring, Standards, and Strategy
       </h1>
-      <p className="text-gray-500 italic">Published: January 8, 2026 &bull; 18 min read</p>
+      <p className="text-gray-500 italic">Published: January 8, 2026 &bull; 18 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -84,7 +84,7 @@ const CompleteACFTGuidePageContent = (
         <p className="font-semibold mt-4 mb-2">Equipment:</p>
         <p>
           60-pound hex bar loaded with 10-pound bumper plates in increments. Weight options range
-          from 60 lbs to 340 lbs.
+          from 60 lbs to 340 lbs.
         </p>
 
         <p className="font-semibold mt-4 mb-2">Execution:</p>
@@ -292,7 +292,7 @@ const CompleteACFTGuidePageContent = (
             the ground.
           </li>
           <li>
-            Lift both hands clearly off the ground. This is the "hand release." Your hands must
+            Lift both hands clearly off the ground. This is the “hand release.” Your hands must
             visibly leave the surface.
           </li>
           <li>Place your hands back down and push up to the starting position. That is one rep.</li>
@@ -311,11 +311,11 @@ const CompleteACFTGuidePageContent = (
           <li>Full arm extension at the top. Your elbows must lock out completely.</li>
           <li>
             The hand release must be clear. Do not just wiggle your fingers. Lift your palms off the
-            ground visibly. Some soldiers extend their arms to the side in a "T" position for
+            ground visibly. Some soldiers extend their arms to the side in a “T” position for
             clarity.
           </li>
           <li>
-            Pace yourself. Going all-out in the first 30 seconds and burning out is the most common
+            Pace yourself. Going all-out in the first 30 seconds and burning out is the most common
             mistake I see. Aim for a sustainable rhythm.
           </li>
         </ul>
@@ -403,7 +403,7 @@ const CompleteACFTGuidePageContent = (
             face the same direction both ways (no crossing feet).
           </li>
           <li>
-            <strong>Carry:</strong> Pick up two 40-pound kettlebells (80 lbs total), carry them 25
+            <strong>Carry:</strong> Pick up two 40-pound kettlebells (80 lbs total), carry them 25
             meters, turn, carry them back.
           </li>
           <li>
@@ -529,8 +529,8 @@ const CompleteACFTGuidePageContent = (
             your neck neutral.
           </li>
           <li>
-            When it gets hard (and it will), mentally break the time into 30-second chunks. "Just 30
-            more seconds" is more manageable than "I still have a minute left."
+            When it gets hard (and it will), mentally break the time into 30-second chunks. “Just 30
+            more seconds” is more manageable than “I still have a minute left.”
           </li>
         </ul>
       </div>
@@ -614,8 +614,8 @@ const CompleteACFTGuidePageContent = (
         <ul className="list-disc list-inside mt-2 space-y-1">
           <li>
             Aim for even splits. If your target is 16:00, that means 2:00 per quarter mile, or
-            roughly 8:00 per mile. Going out at 7:30 on your first mile and dying to a 9:00 second
-            mile is worse than running two 8:00 miles.
+            roughly 8:00 per mile. Going out at 7:30 on your first mile and dying to a 9:00 second
+            mile is worse than running two 8:00 miles.
           </li>
           <li>
             The first 400 meters will feel deceptively easy because adrenaline is masking your
@@ -776,8 +776,8 @@ const CompleteACFTGuidePageContent = (
       <p>
         ACFT scoring is gender- and age-normed. This means that the raw performance required to earn
         a specific number of points varies depending on whether you are male or female and which age
-        bracket you fall into. A 25-year-old male needs to deadlift 200 lbs for 60 points, while a
-        25-year-old female needs 130 lbs for the same score.
+        bracket you fall into. A 25-year-old male needs to deadlift 200 lbs for 60 points, while a
+        25-year-old female needs 130 lbs for the same score.
       </p>
 
       <p>
@@ -804,7 +804,7 @@ const CompleteACFTGuidePageContent = (
         <p>
           Soldiers rush through reps and fail to fully extend at the hip. The grader needs to see a
           clear lockout. Hips forward, shoulders back, knees straight. If any of those are missing,
-          the rep does not count. I have watched soldiers lift 300 lbs and get credit for zero reps
+          the rep does not count. I have watched soldiers lift 300 lbs and get credit for zero reps
           because they never fully stood up.
         </p>
       </div>
@@ -823,7 +823,7 @@ const CompleteACFTGuidePageContent = (
         <p>
           The hand release must be obvious. Barely lifting your pinky finger is not going to cut it.
           Graders want to see daylight between your palms and the ground. Some soldiers find it
-          helpful to extend their arms out to the sides in a "T" position for maximum clarity.
+          helpful to extend their arms out to the sides in a “T” position for maximum clarity.
         </p>
       </div>
 
@@ -832,7 +832,7 @@ const CompleteACFTGuidePageContent = (
         <p>
           The time between each shuttle phase adds up fast. Fumbling with the sled straps,
           hesitating before picking up the kettlebells, standing around at the turnaround line. I
-          have seen soldiers lose 10-15 seconds just in transition time. Practice the full event end
+          have seen soldiers lose 10-15 seconds just in transition time. Practice the full event end
           to end and focus specifically on your transitions.
         </p>
       </div>
@@ -851,7 +851,7 @@ const CompleteACFTGuidePageContent = (
         <h3 className="text-lg font-semibold mb-3">Two-Mile Run: Going out too fast</h3>
         <p>
           After five events, you are running on fumes. The adrenaline of starting the run masks how
-          tired you actually are. Soldiers go out 20-30 seconds per lap faster than their goal pace
+          tired you actually are. Soldiers go out 20-30 seconds per lap faster than their goal pace
           and completely fall apart by the fourth lap. Negative splits (running the second mile
           faster than the first) almost never happen on the ACFT. The goal is to limit how much you
           slow down.
@@ -873,7 +873,7 @@ const CompleteACFTGuidePageContent = (
             with pre-workout nutrition.
           </li>
           <li>
-            Sleep 7-8 hours if possible. You will not make up for months of poor sleep in one night,
+            Sleep 7-8 hours if possible. You will not make up for months of poor sleep in one night,
             but do not sabotage yourself either.
           </li>
           <li>Lay out your gear. Know exactly what you are wearing and where it is.</li>
@@ -882,7 +882,7 @@ const CompleteACFTGuidePageContent = (
         <h3 className="text-lg font-semibold mt-4 mb-3">Morning of:</h3>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            Eat 2-3 hours before the test starts. Something you have eaten before training sessions.
+            Eat 2-3 hours before the test starts. Something you have eaten before training sessions.
             Toast with peanut butter, a banana, oatmeal. Nothing heavy.
           </li>
           <li>Hydrate, but do not overdo it. Sipping water, not chugging it.</li>
@@ -948,7 +948,7 @@ const CompleteACFTGuidePageContent = (
 
       <p>
         The good news is that with focused training, most soldiers can pass the ACFT comfortably
-        within 8-12 weeks. The bad news is that "focused" means actually addressing your weaknesses
+        within 8-12 weeks. The bad news is that “focused” means actually addressing your weaknesses
         instead of doing more of what you are already good at. If your deadlift is strong but your
         run is weak, you need to run more, not deadlift more. That sounds obvious, but I watch
         soldiers ignore it constantly.
@@ -969,12 +969,12 @@ const CompleteACFTGuidePageContent = (
             Training.
           </li>
           <li>
-            Military.com. &quot;Nearly Half of Female Soldiers Still Failing New Army Fitness
-            Test.&quot; May 2021.
+            Military.com. “Nearly Half of Female Soldiers Still Failing New Army Fitness Test.” May
+            2021.
           </li>
           <li>
-            Army Times. &quot;New data shows performance divide on Army Combat Fitness Test.&quot;
-            November 2019.
+            Army Times. “New data shows performance divide on Army Combat Fitness Test.” November
+            2019.
           </li>
         </ul>
       </div>

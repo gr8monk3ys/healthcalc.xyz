@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import { CALCULATOR_METRICS, extractMetricValue } from '@/constants/calculatorMetrics';
 import type { SavedResult } from '@/context/SavedResultsContext';
+import { formatDisplayDate, formatNumber } from '@/utils/formatNumber';
 
 interface ProgressTimelineProps {
   savedResults: SavedResult[];
@@ -23,11 +24,7 @@ function toDayKey(dateString: string): string {
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   if (Number.isNaN(date.getTime())) return dateString;
-  return date.toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  return formatDisplayDate(date);
 }
 
 function daysBetween(a: string, b: string): number {
@@ -41,8 +38,7 @@ function daysBetween(a: string, b: string): number {
 }
 
 function formatValue(value: number): string {
-  if (Number.isInteger(value)) return String(value);
-  return value.toFixed(1);
+  return formatNumber(value, Number.isInteger(value) ? 0 : 1);
 }
 
 export default function ProgressTimeline({
@@ -97,11 +93,15 @@ export default function ProgressTimeline({
       const metric = CALCULATOR_METRICS[slug];
       if (!metric || metric.higherIsBetter === undefined || points.length < 2) continue;
 
-      const sorted = points.sort(
-        (a: { date: string }, b: { date: string }) =>
-          new Date(a.date).getTime() - new Date(b.date).getTime()
-      );
-      const deltaRaw = sorted[sorted.length - 1].value - sorted[0].value;
+      // Earliest and latest point in one pass; no need to sort the group.
+      let earliest = points[0];
+      let latestPoint = points[0];
+      for (const point of points) {
+        const time = new Date(point.date).getTime();
+        if (time < new Date(earliest.date).getTime()) earliest = point;
+        if (time > new Date(latestPoint.date).getTime()) latestPoint = point;
+      }
+      const deltaRaw = latestPoint.value - earliest.value;
       const normalizedImprovement = metric.higherIsBetter ? deltaRaw : -deltaRaw;
 
       if (normalizedImprovement <= 0) continue;
@@ -113,7 +113,7 @@ export default function ProgressTimeline({
           unit: metric.unit,
           deltaRaw,
           normalizedImprovement,
-          date: sorted[sorted.length - 1].date,
+          date: latestPoint.date,
         };
       }
     }

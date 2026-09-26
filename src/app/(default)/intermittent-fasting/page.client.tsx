@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import {
@@ -14,7 +15,6 @@ import { isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import IFResult from '@/components/calculators/intermittentFasting/IFResult';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -22,6 +22,10 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const faqs = [
   {
@@ -55,7 +59,7 @@ const blogArticles = [
   {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
     slug: 'calorie-deficit-myths',
     date: 'February 25, 2025',
     readTime: '8 min read',
@@ -64,7 +68,7 @@ const blogArticles = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
     slug: 'tdee-explained',
     date: 'February 20, 2025',
     readTime: '10 min read',
@@ -176,7 +180,7 @@ export default function IntermittentFastingCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('if-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -216,7 +220,7 @@ export default function IntermittentFastingCalculator({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     createWeightField(weight, errors.weight),
@@ -364,7 +368,7 @@ function renderIntermittentFastingCalculatorView({
             <ul className="space-y-3">
               <li className="text-gray-700 dark:text-gray-300">
                 <strong className="text-primary-600 dark:text-primary-400">16:8 Method:</strong>{' '}
-                Fast for 16 hours, eat within an 8-hour window. Most beginner-friendly and
+                Fast for 16 hours, eat within an 8-hour window. Most beginner-friendly and
                 sustainable long-term.
               </li>
               <li className="text-gray-700 dark:text-gray-300">
@@ -384,7 +388,7 @@ function renderIntermittentFastingCalculatorView({
               </li>
               <li className="text-gray-700 dark:text-gray-300">
                 <strong className="text-primary-600 dark:text-primary-400">5:2 Diet:</strong> Eat
-                normally 5 days, restrict to 500-600 calories on 2 non-consecutive days. Flexible
+                normally 5 days, restrict to 500-600 calories on 2 non-consecutive days. Flexible
                 approach.
               </li>
             </ul>

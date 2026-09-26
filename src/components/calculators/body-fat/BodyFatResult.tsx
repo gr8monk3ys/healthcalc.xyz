@@ -8,6 +8,7 @@ import NextSteps from '@/components/calculators/NextSteps';
 import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface BodyFatResultDisplayProps {
   result: BodyFatResult;
@@ -29,7 +30,7 @@ function getBodyFatNextSteps(
 
   if (isBelow) {
     return {
-      insight: `At ${bodyFatPercentage.toFixed(1)}% body fat, you are below the recommended range. If you are an athlete this may be expected during competition, but it is worth monitoring your health closely.`,
+      insight: `At ${formatNumber(bodyFatPercentage, 1)}% body fat, you are below the recommended range. If you are an athlete this may be expected during competition, but it is worth monitoring your health closely.`,
       steps: [
         {
           label: 'FFMI Calculator',
@@ -53,7 +54,7 @@ function getBodyFatNextSteps(
 
   if (isAbove) {
     return {
-      insight: `At ${bodyFatPercentage.toFixed(1)}% body fat, you are above the recommended range. A combination of calorie management and resistance training is the most effective approach.`,
+      insight: `At ${formatNumber(bodyFatPercentage, 1)}% body fat, you are above the recommended range. A combination of calorie management and resistance training is the most effective approach.`,
       steps: [
         {
           label: 'Body Recomposition',
@@ -76,7 +77,7 @@ function getBodyFatNextSteps(
   }
 
   return {
-    insight: `At ${bodyFatPercentage.toFixed(1)}% body fat, you are within the healthy range. These tools can help you fine-tune your fitness and nutrition.`,
+    insight: `At ${formatNumber(bodyFatPercentage, 1)}% body fat, you are within the healthy range. These tools can help you fine-tune your fitness and nutrition.`,
     steps: [
       {
         label: 'FFMI Calculator',
@@ -125,16 +126,13 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
   };
 
   return (
-    <div
-      id="body-fat-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="body-fat-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Body Fat Results</h2>
 
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium">Body Fat Percentage</span>
-          <span className="text-2xl font-bold">{result.bodyFatPercentage.toFixed(1)}%</span>
+          <span className="text-2xl font-bold">{formatNumber(result.bodyFatPercentage, 1)}%</span>
         </div>
 
         <div className="relative h-6 neumorph-inset rounded-full overflow-hidden">
@@ -146,7 +144,7 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
           </div>
 
           <div
-            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2 transition-all duration-500"
+            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2"
             style={{
               left: `${getGaugePosition()}%`,
             }}
@@ -176,7 +174,7 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
         <div className="neumorph-inset p-4 rounded-lg">
           <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Fat Mass</h3>
           <p className="text-2xl font-bold">
-            {result.fatMass.toFixed(1)} {weightUnit}
+            {formatNumber(result.fatMass, 1)} {weightUnit}
           </p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">Total weight of body fat</p>
         </div>
@@ -184,7 +182,7 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
         <div className="neumorph-inset p-4 rounded-lg">
           <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">Lean Mass</h3>
           <p className="text-2xl font-bold">
-            {result.leanMass.toFixed(1)} {weightUnit}
+            {formatNumber(result.leanMass, 1)} {weightUnit}
           </p>
           <p className="text-xs text-gray-500 mt-1 dark:text-gray-400">
             Weight of muscle, bone, organs, etc.
@@ -196,7 +194,8 @@ const BodyFatResultDisplay: React.FC<BodyFatResultDisplayProps> = ({
         <h3 className="font-medium mb-2">Healthy Range for Your Gender</h3>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="font-medium text-lg">
-            {result.healthyRange.min.toFixed(1)}% - {result.healthyRange.max.toFixed(1)}%
+            {formatNumber(result.healthyRange.min, 1)}% - {formatNumber(result.healthyRange.max, 1)}
+            %
           </p>
           <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">
             Based on {gender === 'male' ? 'male' : 'female'} fitness standards

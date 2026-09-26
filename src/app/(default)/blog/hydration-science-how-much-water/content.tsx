@@ -11,7 +11,7 @@ const HydrationSciencePageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         How Much Water Do You Actually Need? Separating Science from Marketing
       </h1>
-      <p className="text-gray-500 italic">Published: January 27, 2026 • 12 min read</p>
+      <p className="text-gray-500 italic">Published: January 27, 2026 • 12 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -19,7 +19,7 @@ const HydrationSciencePageContent = (
         <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
         <ul className="space-y-2">
           <li>
-            The "8 glasses a day" rule has no scientific basis. It likely originated from a
+            The “8 glasses a day” rule has no scientific basis. It likely originated from a
             misreading of a 1945 government report.
           </li>
           <li>
@@ -54,19 +54,19 @@ const HydrationSciencePageContent = (
         of fluids is its own problem. Let me walk through what the evidence actually says.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">The Origin of "8 Glasses a Day"</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">The Origin of “8 Glasses a Day”</h2>
 
       <p>
         In 2002, Heinz Valtin, a kidney physiologist at Dartmouth Medical School, published a paper
-        in the American Journal of Physiology titled "Drink at least eight glasses of water a day.
-        Really? Is there scientific evidence for 8x8?" After a thorough review of the literature, he
+        in the American Journal of Physiology titled “Drink at least eight glasses of water a day.
+        Really? Is there scientific evidence for 8x8?” After a thorough review of the literature, he
         could find no scientific basis for this recommendation.
       </p>
 
       <p>
         The likely origin? A 1945 report from the U.S. Food and Nutrition Board recommended 2.5
-        liters of daily water intake. The very next sentence noted that "most of this quantity is
-        contained in prepared foods." That second sentence was apparently forgotten, and the 2.5
+        liters of daily water intake. The very next sentence noted that “most of this quantity is
+        contained in prepared foods.” That second sentence was apparently forgotten, and the 2.5
         liters (roughly eight 8-ounce glasses) became gospel.
       </p>
 
@@ -88,16 +88,16 @@ const HydrationSciencePageContent = (
         <h3 className="text-xl font-semibold mb-3">Adequate Intake (AI) for Adults</h3>
         <ul className="list-disc list-inside space-y-2">
           <li>
-            <strong>Men (19+):</strong> 3.7 liters (125 oz) of total water per day
+            <strong>Men (19+):</strong> 3.7 liters (125 oz) of total water per day
           </li>
           <li>
-            <strong>Women (19+):</strong> 2.7 liters (91 oz) of total water per day
+            <strong>Women (19+):</strong> 2.7 liters (91 oz) of total water per day
           </li>
           <li>
-            <strong>Pregnant women:</strong> 3.0 liters (101 oz) per day
+            <strong>Pregnant women:</strong> 3.0 liters (101 oz) per day
           </li>
           <li>
-            <strong>Breastfeeding women:</strong> 3.8 liters (128 oz) per day
+            <strong>Breastfeeding women:</strong> 3.8 liters (128 oz) per day
           </li>
         </ul>
         <p className="mt-4">
@@ -109,16 +109,16 @@ const HydrationSciencePageContent = (
       </div>
 
       <p>
-        The IOM also made an important statement that often gets overlooked: "The vast majority of
+        The IOM also made an important statement that often gets overlooked: “The vast majority of
         healthy people adequately meet their daily hydration needs by letting thirst be their
-        guide." For healthy adults in temperate climates with moderate activity, thirst is a
+        guide.” For healthy adults in temperate climates with moderate activity, thirst is a
         surprisingly reliable signal. Your body is not bad at telling you when it needs water.
       </p>
 
       <p>
         That said, thirst is less reliable in two specific populations: older adults (whose thirst
         sensitivity declines with age) and people exercising intensely in heat (where fluid losses
-        can outpace the thirst response). For everyone else, the "drink before you are thirsty"
+        can outpace the thirst response). For everyone else, the “drink before you are thirsty”
         advice is not well-supported.
       </p>
 
@@ -146,7 +146,7 @@ const HydrationSciencePageContent = (
       </ul>
 
       <p>
-        For a 170-pound (77 kg) person, 2% body weight loss means losing about 3.4 pounds of sweat,
+        For a 170-pound (77 kg) person, 2% body weight loss means losing about 3.4 pounds of sweat,
         or roughly 1.5 liters. During intense exercise in heat, you can lose 1-2 liters per hour
         through sweat. So during a long run on a hot day, you can hit that 2% threshold within 45-90
         minutes if you do not drink.
@@ -231,11 +231,11 @@ const HydrationSciencePageContent = (
       <p>
         Severe hyponatremia can cause confusion, seizures, coma, and death. There have been
         documented fatalities in marathon runners, military trainees, and fraternity hazing
-        incidents. The message that "more water is always better" is genuinely dangerous.
+        incidents. The message that “more water is always better” is genuinely dangerous.
       </p>
 
       <p>
-        For endurance athletes: drink to thirst during events lasting more than 4 hours. Do not
+        For endurance athletes: drink to thirst during events lasting more than 4 hours. Do not
         follow aggressive hydration schedules that have you drinking at fixed intervals regardless
         of thirst. The International Marathon Medical Directors Association explicitly recommends
         drinking to thirst, not on a schedule, for this reason.
@@ -255,8 +255,8 @@ const HydrationSciencePageContent = (
       <h3 className="text-xl font-semibold mt-6 mb-3">When You Need Electrolytes</h3>
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>
-          <strong>Exercise lasting longer than 60-90 minutes,</strong> especially in heat. Sweat
-          contains sodium (average 500-700 mg/L, though individual variation is huge), and prolonged
+          <strong>Exercise lasting longer than 60-90 minutes,</strong> especially in heat. Sweat
+          contains sodium (average 500-700 mg/L, though individual variation is huge), and prolonged
           sweating can deplete stores.
         </li>
         <li>
@@ -280,7 +280,7 @@ const HydrationSciencePageContent = (
       </h3>
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>
-          For workouts under 60 minutes, plain water is fine. A typical mixed diet provides plenty
+          For workouts under 60 minutes, plain water is fine. A typical mixed diet provides plenty
           of sodium, potassium, and magnesium to replace what you lose in a short workout.
         </li>
         <li>
@@ -296,8 +296,8 @@ const HydrationSciencePageContent = (
 
       <p>
         If you do need electrolytes for endurance exercise, the American College of Sports Medicine
-        recommends 300-600 mg of sodium per hour of exercise. A simple and cheap option: a quarter
-        teaspoon of table salt in your water bottle provides about 575 mg of sodium. You do not need
+        recommends 300-600 mg of sodium per hour of exercise. A simple and cheap option: a quarter
+        teaspoon of table salt in your water bottle provides about 575 mg of sodium. You do not need
         a fancy branded product to accomplish this.
       </p>
 
@@ -314,8 +314,8 @@ const HydrationSciencePageContent = (
       <p>
         Caffeine is a mild diuretic, meaning it does increase urine production. But a 2014 study by
         Killer, Blannin, and Jeukendrup in PLOS ONE gave habitual coffee drinkers either 4 cups of
-        coffee per day or 4 cups of water for 3 days and found no significant difference in
-        hydration markers. The diuretic effect of caffeine at normal consumption levels (3-6 mg/kg
+        coffee per day or 4 cups of water for 3 days and found no significant difference in
+        hydration markers. The diuretic effect of caffeine at normal consumption levels (3-6 mg/kg
         body weight) is so small that it is more than offset by the water content of the coffee
         itself.
       </p>
@@ -338,7 +338,7 @@ const HydrationSciencePageContent = (
         That said, the effect depends on concentration and volume. Beer (4-5% alcohol) is only
         mildly dehydrating because the large volume of water partially compensates. Spirits (40%+)
         are significantly dehydrating. The practical solution is not complicated: if you drink
-        alcohol, also drink water. The old advice of "one glass of water for every alcoholic drink"
+        alcohol, also drink water. The old advice of “one glass of water for every alcoholic drink”
         is reasonable, even if it is rarely followed.
       </p>
 
@@ -353,9 +353,9 @@ const HydrationSciencePageContent = (
         <h3 className="text-xl font-semibold mb-3">For General Daily Hydration</h3>
         <ol className="list-decimal list-inside space-y-2">
           <li>
-            <strong>Start with body weight.</strong> A reasonable baseline is roughly 30-35 mL per
+            <strong>Start with body weight.</strong> A reasonable baseline is roughly 30-35 mL per
             kg of body weight per day (about half your body weight in ounces for those using
-            imperial units). For a 70 kg person, that is 2.1-2.5 liters of fluid per day.
+            imperial units). For a 70 kg person, that is 2.1-2.5 liters of fluid per day.
           </li>
           <li>
             <strong>Include all fluids.</strong> Water, coffee, tea, milk, and water-rich foods
@@ -363,7 +363,7 @@ const HydrationSciencePageContent = (
           </li>
           <li>
             <strong>Adjust for climate.</strong> Hot, humid, or high-altitude environments increase
-            needs by 500-1000 mL per day.
+            needs by 500-1000 mL per day.
           </li>
           <li>
             <strong>Listen to thirst.</strong> For most healthy adults, thirst is a reliable guide.
@@ -380,12 +380,12 @@ const HydrationSciencePageContent = (
         <h3 className="text-xl font-semibold mb-3">For Exercise</h3>
         <ol className="list-decimal list-inside space-y-2">
           <li>
-            <strong>Pre-hydrate</strong> by drinking 5-7 mL per kg of body weight 2-4 hours before
-            exercise (roughly 350-500 mL for most adults).
+            <strong>Pre-hydrate</strong> by drinking 5-7 mL per kg of body weight 2-4 hours before
+            exercise (roughly 350-500 mL for most adults).
           </li>
           <li>
-            <strong>During exercise:</strong> Drink to thirst for sessions under 60 minutes. For
-            longer sessions, aim for 400-800 mL per hour, adjusted for sweat rate and conditions.
+            <strong>During exercise:</strong> Drink to thirst for sessions under 60 minutes. For
+            longer sessions, aim for 400-800 mL per hour, adjusted for sweat rate and conditions.
           </li>
           <li>
             <strong>Post-exercise:</strong> Replace 125-150% of fluid lost during exercise (weigh
@@ -412,7 +412,7 @@ const HydrationSciencePageContent = (
         What you need is to drink fluids when you are thirsty, pay attention to your urine color,
         and be more intentional about hydration around exercise. If you are an endurance athlete
         training in heat, the stakes are higher and more precision is warranted. For everyone else,
-        your body's built-in hydration sensor (thirst) works remarkably well.
+        your body’s built-in hydration sensor (thirst) works remarkably well.
       </p>
 
       <p>
@@ -459,8 +459,8 @@ const HydrationSciencePageContent = (
         <h3 className="text-xl font-semibold mb-4">References</h3>
         <ul className="space-y-3 text-sm text-gray-600">
           <li>
-            Valtin H. "Drink at least eight glasses of water a day." Really? Is there scientific
-            evidence for "8x8"? Am J Physiol Regul Integr Comp Physiol. 2002;283(5):R993-1004.
+            Valtin H. “Drink at least eight glasses of water a day.” Really? Is there scientific
+            evidence for “8x8”? Am J Physiol Regul Integr Comp Physiol. 2002;283(5):R993-1004.
           </li>
           <li>
             Institute of Medicine. Dietary Reference Intakes for Water, Potassium, Sodium, Chloride,

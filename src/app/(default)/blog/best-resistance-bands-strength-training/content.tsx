@@ -96,7 +96,7 @@ const BestResistanceBandsStrengthTrainingPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Resistance Bands for Strength Training in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -109,7 +109,7 @@ const BestResistanceBandsStrengthTrainingPageContent = (
             </li>
             <li>
               <strong>Best Tube Set:</strong> WHATAFIT ($29.99) - Handles, door anchor, stackable to
-              150 lbs
+              150 lbs
             </li>
             <li>
               <strong>Best Premium:</strong> Undersun Fitness ($79.95) - Lifetime warranty,
@@ -269,7 +269,7 @@ const BestResistanceBandsStrengthTrainingPageContent = (
               thermoplastic elastomer (TPE). Fabric bands resist rolling but provide less stretch.
             </li>
             <li>
-              <strong>Resistance range:</strong> A good set should cover light (5-15 lbs) through
+              <strong>Resistance range:</strong> A good set should cover light (5-15 lbs) through
               heavy (40-50+ lbs). Stackable tube bands can go higher.
             </li>
             <li>
@@ -339,7 +339,7 @@ const BestResistanceBandsStrengthTrainingPageContent = (
               and portable, works for dozens of exercises
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Lighter bands lose elasticity after 6-8 months of daily use,
+              <strong>Cons:</strong> Lighter bands lose elasticity after 6-8 months of daily use,
               latex smell out of the package, not enough resistance for strong lifters
             </p>
           </div>
@@ -375,15 +375,15 @@ const BestResistanceBandsStrengthTrainingPageContent = (
           <p className="mb-4">
             If you want bands that can actually replace dumbbells for most exercises, tube bands
             with handles are the way to go. The WHATAFIT set comes with five color-coded tubes
-            ranging from 10 to 50 lbs that you can stack together on the same handle for up to 150
+            ranging from 10 to 50 lbs that you can stack together on the same handle for up to 150
             lbs of combined resistance. That is enough for chest presses, rows, curls, shoulder
             presses, and tricep extensions. For $30, the amount of exercise variety here is hard to
             beat.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Five tube bands: 10, 20, 30, 40, and 50 lbs individually</li>
-            <li>Stackable up to 150 lbs total resistance</li>
+            <li>Five tube bands: 10, 20, 30, 40, and 50 lbs individually</li>
+            <li>Stackable up to 150 lbs total resistance</li>
             <li>Includes two foam-grip handles, door anchor, two ankle straps</li>
             <li>Carry bag for storage and travel</li>
             <li>Carabiner clip system for fast band swapping</li>
@@ -410,7 +410,7 @@ const BestResistanceBandsStrengthTrainingPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Full-body training for $30, stackable resistance up to 150 lbs,
+              <strong>Pros:</strong> Full-body training for $30, stackable resistance up to 150 lbs,
               door anchor is genuinely useful, handles are comfortable
             </p>
             <p className="text-sm mt-2">
@@ -754,7 +754,7 @@ const BestResistanceBandsStrengthTrainingPageContent = (
           <li>
             <strong>Best overall value:</strong> The{' '}
             <strong>WHATAFIT tube band set at $29.99</strong> gives you the most training
-            versatility. Handles, door anchor, ankle straps, and 150 lbs of stackable resistance for
+            versatility. Handles, door anchor, ankle straps, and 150 lbs of stackable resistance for
             thirty bucks.
           </li>
           <li>
@@ -793,21 +793,21 @@ const BestResistanceBandsStrengthTrainingPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/body-fat-burn"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Burn Calculator</h4>
               <p className="text-sm text-gray-600">Estimate exercise calorie burn</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate daily energy needs</p>
             </Link>
             <Link
               href="/body-fat"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Calculator</h4>
               <p className="text-sm text-gray-600">Measure body composition</p>

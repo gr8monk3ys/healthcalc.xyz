@@ -16,15 +16,12 @@ export default function AdjustedBodyWeightResult({ result }: AdjustedBodyWeightR
   }
 
   return (
-    <div
-      id="adjusted-body-weight-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="adjusted-body-weight-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Adjusted Body Weight</h2>
       <div className="neumorph-inset p-5 rounded-lg mb-4">
         <p className="text-sm text-gray-500 dark:text-gray-400">Adjusted Body Weight</p>
         <p className="text-3xl font-bold text-accent">
-          {result.adjustedBodyWeightKg} kg ({result.adjustedBodyWeightLb} lb)
+          {result.adjustedBodyWeightKg} kg ({result.adjustedBodyWeightLb} lb)
         </p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">{result.formula}</p>
       </div>
@@ -32,7 +29,7 @@ export default function AdjustedBodyWeightResult({ result }: AdjustedBodyWeightR
       <div className="neumorph-inset p-4 rounded-lg">
         <p className="text-sm text-gray-500 dark:text-gray-400">Ideal Body Weight</p>
         <p className="text-xl font-semibold">
-          {result.idealBodyWeightKg} kg ({result.idealBodyWeightLb} lb)
+          {result.idealBodyWeightKg} kg ({result.idealBodyWeightLb} lb)
         </p>
       </div>
     </div>

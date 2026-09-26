@@ -4,6 +4,7 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale } from '@/context/LocaleContext';
+import { useUrlSearchParam } from '@/hooks/useUrlSearchParam';
 import type { SupportedLocale } from '@/i18n/config';
 import {
   getCategoryType,
@@ -31,7 +32,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
   switch (locale) {
     case 'es':
       return {
-        searchPlaceholder: 'Buscar artículos...',
+        searchPlaceholder: 'Buscar artículos…',
         searchAria: 'Buscar artículos',
         clearSearchAria: 'Borrar búsqueda',
         allLabel: 'Todas',
@@ -47,7 +48,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'fr':
       return {
-        searchPlaceholder: 'Rechercher des articles...',
+        searchPlaceholder: 'Rechercher des articles…',
         searchAria: 'Rechercher des articles',
         clearSearchAria: 'Effacer la recherche',
         allLabel: 'Tous',
@@ -63,7 +64,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'de':
       return {
-        searchPlaceholder: 'Artikel suchen...',
+        searchPlaceholder: 'Artikel suchen…',
         searchAria: 'Artikel suchen',
         clearSearchAria: 'Suche löschen',
         allLabel: 'Alle',
@@ -79,7 +80,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'pt':
       return {
-        searchPlaceholder: 'Buscar artigos...',
+        searchPlaceholder: 'Buscar artigos…',
         searchAria: 'Buscar artigos',
         clearSearchAria: 'Limpar busca',
         allLabel: 'Todos',
@@ -95,7 +96,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
       };
     case 'zh':
       return {
-        searchPlaceholder: '搜索文章...',
+        searchPlaceholder: '搜索文章…',
         searchAria: '搜索文章',
         clearSearchAria: '清除搜索',
         allLabel: '全部',
@@ -112,7 +113,7 @@ function getBlogStrings(locale: SupportedLocale): BlogStrings {
     case 'en':
     default:
       return {
-        searchPlaceholder: 'Search articles...',
+        searchPlaceholder: 'Search articles…',
         searchAria: 'Search articles',
         clearSearchAria: 'Clear search',
         allLabel: 'All',
@@ -169,12 +170,15 @@ function PostCard({
   return (
     <Link
       href={localizePath(`/blog/${post.slug}`)}
-      className="group block glass-panel-strong rounded-3xl overflow-hidden transition-transform duration-200 hover:-translate-y-0.5 h-full"
+      className={`group block glass-panel-strong rounded-3xl overflow-hidden transition-transform duration-200 hover:-translate-y-0.5 h-full ${
+        // Long list: let the browser skip layout/paint for off-screen cards.
+        priority ? '' : '[content-visibility:auto] [contain-intrinsic-size:auto_26rem]'
+      }`}
     >
       <div className="relative hc-aspect-og overflow-hidden bg-slate-100/70 dark:bg-slate-900/40">
         <Image
           src={post.image}
-          alt={post.title}
+          alt=""
           fill
           sizes={large ? '(max-width: 768px) 100vw, 560px' : '(max-width: 768px) 100vw, 448px'}
           priority={priority}
@@ -217,9 +221,13 @@ function PostCard({
 export default function BlogIndexClient({ posts }: BlogIndexClientProps): React.ReactElement {
   const { locale } = useLocale();
   const strings = getBlogStrings(locale);
-  const [inputValue, setInputValue] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
+  // Filters live in the URL (?category=&q=) so a filtered view can be shared
+  // and survives Back/Forward.
+  const [searchQuery, setSearchQuery] = useUrlSearchParam<string>('q', '');
+  const [activeCategory, setActiveCategory] = useUrlSearchParam<string>('category', ALL_CATEGORY);
+  // What the user is typing; the debounced value goes to the URL.
+  const [draftQuery, setInputValue] = useState<string | null>(null);
+  const inputValue = draftQuery ?? searchQuery;
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleSearchChange = (value: string): void => {
@@ -330,9 +338,9 @@ type BlogIndexClientViewProps = {
   mainPosts: BlogPost[];
   posts: BlogPost[];
   reviewPosts: BlogPost[];
-  setActiveCategory: React.Dispatch<React.SetStateAction<string>>;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  setActiveCategory: (category: string) => void;
+  setInputValue: (value: string) => void;
+  setSearchQuery: (query: string) => void;
   showFeatured: boolean;
   showSectioned: boolean;
   strings: BlogStrings;
@@ -360,7 +368,7 @@ function renderBlogIndexClientView({
     <>
       {/* Search */}
       <div className="mb-6">
-        <div className="glass-panel rounded-2xl flex items-center px-4 py-3">
+        <div className="glass-panel rounded-2xl flex items-center px-4 py-3 focus-within:ring-2 focus-within:ring-accent">
           <svg
             className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0"
             fill="none"
@@ -376,6 +384,8 @@ function renderBlogIndexClientView({
             />
           </svg>
           <input
+            name="q"
+            autoComplete="off"
             type="text"
             placeholder={strings.searchPlaceholder}
             value={inputValue}
@@ -396,7 +406,13 @@ function renderBlogIndexClientView({
               className="ml-2 text-gray-400 hover:text-gray-600"
               aria-label={strings.clearSearchAria}
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                aria-hidden="true"
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -415,7 +431,8 @@ function renderBlogIndexClientView({
           <button
             type="button"
             onClick={() => setActiveCategory(ALL_CATEGORY)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+            aria-pressed={activeCategory === ALL_CATEGORY}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition whitespace-nowrap ${
               activeCategory === ALL_CATEGORY
                 ? 'bg-accent text-white shadow-lg'
                 : 'elevated-pill hover:-translate-y-0.5'
@@ -428,7 +445,8 @@ function renderBlogIndexClientView({
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+              aria-pressed={activeCategory === category}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition whitespace-nowrap ${
                 activeCategory === category
                   ? 'bg-accent text-white shadow-lg'
                   : 'elevated-pill hover:-translate-y-0.5'
@@ -458,8 +476,8 @@ function renderBlogIndexClientView({
         </section>
       )}
 
-      {/* Results Count */}
-      <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+      {/* Results Count (announced as filters change) */}
+      <p className="text-sm text-slate-500 dark:text-slate-400 mb-4" aria-live="polite">
         {strings.resultsCount(mainPosts.length, posts.length)}
         {inputValue.trim() && (
           <span>

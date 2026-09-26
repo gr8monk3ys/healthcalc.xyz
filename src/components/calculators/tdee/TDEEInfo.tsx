@@ -39,15 +39,15 @@ const TDEEInfo: React.FC = () => {
           with no additional physical activity).
         </li>
         <li>
-          <strong>Lightly Active (1.375):</strong> Light exercise 1-3 days/week (e.g., walking,
+          <strong>Lightly Active (1.375):</strong> Light exercise 1-3 days/week (e.g., walking,
           light gardening, or yoga a few times per week).
         </li>
         <li>
-          <strong>Moderately Active (1.55):</strong> Moderate exercise 3-5 days/week (e.g., jogging,
+          <strong>Moderately Active (1.55):</strong> Moderate exercise 3-5 days/week (e.g., jogging,
           cycling, or weight training several times per week).
         </li>
         <li>
-          <strong>Very Active (1.725):</strong> Hard exercise 6-7 days/week (e.g., daily intense
+          <strong>Very Active (1.725):</strong> Hard exercise 6-7 days/week (e.g., daily intense
           workouts or physically demanding job).
         </li>
         <li>

@@ -35,23 +35,23 @@ const ProteinInfo: React.FC = () => {
       <h3 className="font-medium">Protein Requirements by Activity Level:</h3>
       <ul className="list-disc pl-5 space-y-1">
         <li>
-          <strong>Sedentary (0.8 g/kg):</strong> The RDA minimum for basic health maintenance in
+          <strong>Sedentary (0.8 g/kg):</strong> The RDA minimum for basic health maintenance in
           adults with little physical activity.
         </li>
         <li>
-          <strong>Lightly Active (1.0-1.2 g/kg):</strong> For those who engage in light exercise or
+          <strong>Lightly Active (1.0-1.2 g/kg):</strong> For those who engage in light exercise or
           have active jobs requiring moderate physical effort.
         </li>
         <li>
-          <strong>Moderately Active (1.2-1.6 g/kg):</strong> Recommended for regular exercisers who
-          work out 3-5 days per week.
+          <strong>Moderately Active (1.2-1.6 g/kg):</strong> Recommended for regular exercisers who
+          work out 3-5 days per week.
         </li>
         <li>
-          <strong>Very Active (1.6-2.0 g/kg):</strong> For those with intense training regimens or
+          <strong>Very Active (1.6-2.0 g/kg):</strong> For those with intense training regimens or
           physically demanding occupations.
         </li>
         <li>
-          <strong>Athletes (1.8-2.2 g/kg):</strong> Competitive athletes and those focused on
+          <strong>Athletes (1.8-2.2 g/kg):</strong> Competitive athletes and those focused on
           maximizing performance or muscle growth.
         </li>
       </ul>
@@ -59,22 +59,22 @@ const ProteinInfo: React.FC = () => {
       <h3 className="font-medium">Goal-Based Adjustments:</h3>
       <ul className="list-disc pl-5 space-y-1">
         <li>
-          <strong>Weight Loss:</strong> Higher protein (1.6-2.5 g/kg) helps preserve muscle mass
+          <strong>Weight Loss:</strong> Higher protein (1.6-2.5 g/kg) helps preserve muscle mass
           during calorie restriction and increases satiety.
         </li>
         <li>
-          <strong>Muscle Gain:</strong> Slightly elevated protein (1.6-2.2 g/kg) supports muscle
+          <strong>Muscle Gain:</strong> Slightly elevated protein (1.6-2.2 g/kg) supports muscle
           protein synthesis when combined with resistance training.
         </li>
         <li>
-          <strong>General Health:</strong> The baseline RDA of 0.8 g/kg is sufficient for most
+          <strong>General Health:</strong> The baseline RDA of 0.8 g/kg is sufficient for most
           sedentary adults not focused on specific fitness goals.
         </li>
       </ul>
 
       <h3 className="font-medium">Age Considerations:</h3>
       <p>
-        Older adults (65+) typically benefit from higher protein intake (1.0-1.2 g/kg or more) to
+        Older adults (65+) typically benefit from higher protein intake (1.0-1.2 g/kg or more) to
         help prevent age-related muscle loss (sarcopenia) and maintain functional strength.
       </p>
 
@@ -85,7 +85,7 @@ const ProteinInfo: React.FC = () => {
           maximize muscle protein synthesis throughout the day.
         </li>
         <li>
-          <strong>Post-Workout:</strong> Consuming protein within 2-3 hours after exercise supports
+          <strong>Post-Workout:</strong> Consuming protein within 2-3 hours after exercise supports
           recovery, though total daily intake matters most.
         </li>
       </ul>

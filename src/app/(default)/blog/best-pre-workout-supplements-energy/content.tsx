@@ -95,7 +95,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Pre-Workout Supplements for Energy in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -668,19 +668,19 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>30 minutes before training:</strong> This is the standard timing. Caffeine
-              peaks in your bloodstream around 30-60 minutes after ingestion.
+              <strong>30 minutes before training:</strong> This is the standard timing. Caffeine
+              peaks in your bloodstream around 30-60 minutes after ingestion.
             </li>
             <li>
               <strong>On an empty stomach:</strong> Pre-workout absorbs faster without food in your
-              stomach. If you get nauseous, eat a banana 15 minutes before taking it.
+              stomach. If you get nauseous, eat a banana 15 minutes before taking it.
             </li>
             <li>
               <strong>Not after 4 PM:</strong> If you train late, consider a stim-free pre-workout
-              or just skip it. Caffeine has a half-life of 5-6 hours and will wreck your sleep.
+              or just skip it. Caffeine has a half-life of 5-6 hours and will wreck your sleep.
             </li>
             <li>
-              <strong>Cycle off periodically:</strong> Take a week off every 8-12 weeks to reset
+              <strong>Cycle off periodically:</strong> Take a week off every 8-12 weeks to reset
               your caffeine tolerance. Otherwise you will need more and more to feel the same
               effect.
             </li>
@@ -712,7 +712,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
             </li>
             <li>
               <strong>Trouble sleeping:</strong> Caffeine stays in your system for hours. Do not
-              take pre-workout within 6 hours of bedtime.
+              take pre-workout within 6 hours of bedtime.
             </li>
             <li>
               <strong>Heart rate spikes:</strong> If you have any heart conditions or high blood
@@ -768,21 +768,21 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/heart-rate-zones"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Heart Rate Zones Calculator</h4>
               <p className="text-sm text-gray-600">Find your optimal training zones</p>
             </Link>
             <Link
               href="/calories-burned"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calories Burned Calculator</h4>
               <p className="text-sm text-gray-600">Track your workout energy expenditure</p>
             </Link>
             <Link
               href="/one-rep-max"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">One Rep Max Calculator</h4>
               <p className="text-sm text-gray-600">Measure your strength progress</p>

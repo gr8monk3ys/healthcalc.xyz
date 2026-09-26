@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { MedicalDisclaimer } from '@/components/MedicalDisclaimer';
 import { useLocale } from '@/context/LocaleContext';
 import type { MessageKey } from '@/i18n/messages';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
 
 const EmbedCodeGenerator = dynamic(() =>
   import('@/components/EmbedCodeGenerator').then(module => module.EmbedCodeGenerator)
@@ -102,7 +103,7 @@ const EMBEDDABLE_SLUGS = new Set(['bmi', 'tdee', 'body-fat', 'calorie-deficit'])
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
   for (const [key, value] of Object.entries(vars)) {
-    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+    out = out.replaceAll(`{${key}}`, value);
   }
   return out;
 }
@@ -139,11 +140,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                 <input
                   type="number"
                   id={field.name}
+                  name={field.name}
+                  inputMode="decimal"
+                  autoComplete="off"
                   value={field.value}
                   onChange={e =>
                     field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     field.error ? 'border border-red-500' : ''
                   }`}
                   placeholder={resolvedPlaceholder}
@@ -156,7 +160,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
                 <button
                   type="button"
                   onClick={field.unitToggle}
-                  className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   aria-label={formatTemplate(t('calculatorForm.unitToggleAriaTemplate'), {
                     field: resolvedLabel,
                     unit: field.unit ?? '',
@@ -169,11 +173,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <input
                 type="number"
                 id={field.name}
+                name={field.name}
+                inputMode="decimal"
+                autoComplete="off"
                 value={field.value}
                 onChange={e =>
                   field.onChange(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   field.error ? 'border border-red-500' : ''
                 }`}
                 placeholder={resolvedPlaceholder}
@@ -188,7 +195,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -232,9 +238,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             </label>
             <select
               id={field.name}
+              name={field.name}
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
               aria-invalid={field.error ? true : undefined}
@@ -266,7 +273,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -284,9 +290,11 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             <input
               type="date"
               id={field.name}
+              name={field.name}
+              autoComplete="off"
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
               min={field.min as string}
@@ -298,7 +306,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -316,9 +323,11 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
             <input
               type="time"
               id={field.name}
+              name={field.name}
+              autoComplete="off"
               value={field.value}
               onChange={e => field.onChange(e.target.value)}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 field.error ? 'border border-red-500' : ''
               }`}
               min={field.min}
@@ -330,7 +339,6 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               <p
                 id={`${field.name}-error`}
                 role="alert"
-                aria-live="polite"
                 className="text-red-500 dark:text-red-400 text-sm mt-1"
               >
                 {field.error}
@@ -348,7 +356,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
     <div className="neumorph rounded-2xl p-6">
       <h2 className="mb-5 text-xl font-bold tracking-tight">{title}</h2>
 
-      <form onSubmit={onSubmit} className="space-y-4" data-calculator-form="1">
+      <form
+        onSubmit={e => {
+          onSubmit(e);
+          focusFirstInvalidField(e.currentTarget);
+        }}
+        className="space-y-4"
+        data-calculator-form="1"
+      >
         {fields.map(renderField)}
 
         <div className="flex gap-3 pt-2">

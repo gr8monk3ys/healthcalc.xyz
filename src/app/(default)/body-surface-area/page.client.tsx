@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import BodySurfaceAreaResult from '@/components/calculators/body-surface-area/BodySurfaceAreaResult';
 import BodySurfaceAreaInfo from '@/components/calculators/body-surface-area/BodySurfaceAreaInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateBodySurfaceArea } from '@/utils/calculators/bodySurfaceArea';
 import { isEmpty, validateHeight, validateWeight } from '@/utils/validation';
 import type { BodySurfaceAreaResult as BodySurfaceAreaResultType } from '@/types/bodySurfaceArea';
@@ -18,6 +17,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -89,7 +93,7 @@ export default function BodySurfaceAreaCalculator({
         const calculated = calculateBodySurfaceArea(heightCm as number, weightKg as number);
         setTimeout(() => {
           const element = document.getElementById('body-surface-area-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import LeanBodyMassResult from '@/components/calculators/lean-body-mass/LeanBodyMassResult';
 import LeanBodyMassInfo from '@/components/calculators/lean-body-mass/LeanBodyMassInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateLeanBodyMass } from '@/utils/calculators/leanBodyMass';
 import { validateBodyFatPercentage, validateHeight, validateWeight } from '@/utils/validation';
 import type { LeanBodyMassResult as LeanBodyMassResultType } from '@/types/leanBodyMass';
@@ -19,6 +18,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -104,7 +108,7 @@ export default function LeanBodyMassCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('lean-body-mass-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -163,7 +167,7 @@ export default function LeanBodyMassCalculator({
               value: bodyFat,
               onChange: setBodyFat,
               error: errors.bodyFat,
-              placeholder: 'e.g. 20',
+              placeholder: 'e.g. 20…',
               min: 1,
               max: 70,
               step: '0.1',

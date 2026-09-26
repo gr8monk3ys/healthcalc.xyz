@@ -1,17 +1,21 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import BloodPressureResult from '@/components/calculators/blood-pressure/BloodPressureResult';
 import BloodPressureInfo from '@/components/calculators/blood-pressure/BloodPressureInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateSystolic, validateDiastolic } from '@/utils/validation';
 import { calculateBloodPressure } from '@/utils/calculators/bloodPressure';
 import type { BloodPressureResult as BloodPressureResultType } from '@/types/bloodPressure';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -22,7 +26,7 @@ const faqs = [
   {
     question: 'How often should I check my blood pressure?',
     answer:
-      "If you have no history of high blood pressure, check at least once a year. If you are monitoring hypertension, follow your healthcare provider's guidance.",
+      'If you have no history of high blood pressure, check at least once a year. If you are monitoring hypertension, follow your healthcare provider’s guidance.',
   },
   {
     question: 'Does one high reading mean I have hypertension?',
@@ -87,7 +91,7 @@ export default function BloodPressureCalculator({
         const calculated = calculateBloodPressure(systolic as number, diastolic as number);
         setTimeout(() => {
           const element = document.getElementById('blood-pressure-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -131,7 +135,7 @@ export default function BloodPressureCalculator({
               value: systolic,
               onChange: setSystolic,
               error: errors.systolic,
-              placeholder: 'e.g., 120',
+              placeholder: 'e.g. 120…',
             },
             {
               name: 'diastolic',
@@ -140,7 +144,7 @@ export default function BloodPressureCalculator({
               value: diastolic,
               onChange: setDiastolic,
               error: errors.diastolic,
-              placeholder: 'e.g., 80',
+              placeholder: 'e.g. 80…',
             },
           ]}
           submitButtonText="Check Category"

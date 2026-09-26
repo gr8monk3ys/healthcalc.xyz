@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface BodyRecompResultProps {
   result: {
@@ -19,10 +20,7 @@ interface BodyRecompResultProps {
 
 const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
   return (
-    <div
-      id="recomp-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="recomp-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Body Recomposition Plan</h2>
 
       {/* Calorie Cycling Overview */}
@@ -57,7 +55,7 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
         <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">
           Average Daily Calories
         </h3>
-        <p className="text-2xl font-bold">{result.dailyCalories} calories/day</p>
+        <p className="text-2xl font-bold">{result.dailyCalories} calories/day</p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
           Based on 4 training days and 3 rest days per week
         </p>
@@ -79,7 +77,7 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               <div className="text-right">
                 <p className="text-xl font-bold">{result.proteinGrams}g</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {(((result.proteinGrams * 4) / result.dailyCalories) * 100).toFixed(0)}% of
+                  {formatNumber(((result.proteinGrams * 4) / result.dailyCalories) * 100, 0)}% of
                   calories
                 </p>
               </div>
@@ -103,7 +101,8 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               <div className="text-right">
                 <p className="text-xl font-bold">{result.fatGrams}g</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {(((result.fatGrams * 9) / result.dailyCalories) * 100).toFixed(0)}% of calories
+                  {formatNumber(((result.fatGrams * 9) / result.dailyCalories) * 100, 0)}% of
+                  calories
                 </p>
               </div>
             </div>
@@ -126,7 +125,8 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               <div className="text-right">
                 <p className="text-xl font-bold">{result.carbGrams}g</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {(((result.carbGrams * 4) / result.dailyCalories) * 100).toFixed(0)}% of calories
+                  {formatNumber(((result.carbGrams * 4) / result.dailyCalories) * 100, 0)}% of
+                  calories
                 </p>
               </div>
             </div>
@@ -150,10 +150,10 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               Estimated Fat Loss
             </h4>
             <p className="text-2xl font-bold">
-              {result.estimatedWeeklyFatLoss.toFixed(2)} lbs/week
+              {formatNumber(result.estimatedWeeklyFatLoss, 2)} lbs/week
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              ~{(result.estimatedWeeklyFatLoss * 4).toFixed(1)} lbs per month
+              ~{formatNumber(result.estimatedWeeklyFatLoss * 4, 1)} lbs per month
             </p>
           </div>
 
@@ -162,7 +162,7 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
               Estimated Muscle Gain
             </h4>
             <p className="text-2xl font-bold">
-              {result.estimatedMonthlyMuscleGain.toFixed(2)} lbs/month
+              {formatNumber(result.estimatedMonthlyMuscleGain, 2)} lbs/month
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               Based on training experience
@@ -174,7 +174,7 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
           <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
             Recommended Timeline
           </h4>
-          <p className="text-2xl font-bold">{result.timelineWeeks} weeks</p>
+          <p className="text-2xl font-bold">{result.timelineWeeks} weeks</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
             For visible body composition changes
           </p>
@@ -194,9 +194,9 @@ const BodyRecompResult: React.FC<BodyRecompResultProps> = ({ result }) => {
         <h3 className="font-medium mb-2 text-yellow-900 dark:text-yellow-100">Important Notes</h3>
         <ul className="list-disc list-inside space-y-1 text-sm text-yellow-800 dark:text-yellow-200">
           <li>Consistency is key - track your intake and training religiously</li>
-          <li>Adjust calories every 4-6 weeks based on progress and body weight changes</li>
+          <li>Adjust calories every 4-6 weeks based on progress and body weight changes</li>
           <li>Prioritize protein at every meal for optimal muscle protein synthesis</li>
-          <li>Get 7-9 hours of sleep for recovery and hormone optimization</li>
+          <li>Get 7-9 hours of sleep for recovery and hormone optimization</li>
           <li>Take progress photos and measurements - scale weight can be misleading</li>
           <li>If strength drops significantly, increase calories slightly</li>
         </ul>

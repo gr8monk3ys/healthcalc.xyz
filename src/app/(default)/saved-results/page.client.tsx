@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { Activity, useState } from 'react';
 import Link from 'next/link';
 import AuthSavedResultsProviders from '@/components/providers/AuthSavedResultsProviders';
 import { SavedResultsList } from '@/components/SaveResult';
@@ -9,15 +9,19 @@ import { useSavedResults } from '@/context/SavedResultsContext';
 import { useLocale } from '@/context/LocaleContext';
 import AuthModal from '@/components/auth/AuthModal';
 import HealthDashboard from '@/components/dashboard/HealthDashboard';
+import { useUrlSearchParam } from '@/hooks/useUrlSearchParam';
 
 type Tab = 'dashboard' | 'all-results';
+
+const isTab = (value: string): value is Tab => value === 'dashboard' || value === 'all-results';
 
 function SavedResultsPageContent(): React.JSX.Element {
   const { isAuthenticated, supabaseEnabled } = useAuth();
   const { savedResults, syncPromptPending, confirmSync, dismissSync } = useSavedResults();
   const { localizePath, t } = useLocale();
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<Tab>('dashboard');
+  // ?tab=all-results deep-links the second tab.
+  const [activeTab, setActiveTab] = useUrlSearchParam<Tab>('tab', 'dashboard', isTab);
 
   // When Supabase is enabled, show results for both guest and authenticated users.
   // The sign-in prompt appears alongside the results rather than replacing them.
@@ -35,6 +39,7 @@ function SavedResultsPageContent(): React.JSX.Element {
         <button
           type="button"
           onClick={() => setActiveTab('dashboard')}
+          aria-pressed={activeTab === 'dashboard'}
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === 'dashboard'
               ? 'bg-[var(--accent)] text-white shadow-sm'
@@ -46,6 +51,7 @@ function SavedResultsPageContent(): React.JSX.Element {
         <button
           type="button"
           onClick={() => setActiveTab('all-results')}
+          aria-pressed={activeTab === 'all-results'}
           className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
             activeTab === 'all-results'
               ? 'bg-[var(--accent)] text-white shadow-sm'
@@ -66,14 +72,14 @@ function SavedResultsPageContent(): React.JSX.Element {
             <button
               type="button"
               onClick={confirmSync}
-              className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+              className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
             >
-              Sync now
+              Sync Now
             </button>
             <button
               type="button"
               onClick={dismissSync}
-              className="elevated-pill rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:-translate-y-0.5"
+              className="elevated-pill rounded-lg px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5"
             >
               Dismiss
             </button>
@@ -84,7 +90,7 @@ function SavedResultsPageContent(): React.JSX.Element {
       {/* Sign-in prompt for Supabase-enabled but unauthenticated users */}
       {supabaseEnabled && !isAuthenticated && (
         <div className="neumorph mb-6 rounded-lg p-6">
-          <h2 className="mb-2 text-xl font-semibold">Sign in to sync your results</h2>
+          <h2 className="mb-2 text-xl font-semibold">Sign In to Sync Your Results</h2>
           <p className="mb-4 text-gray-700 dark:text-gray-300">
             Create an account to save your calculator results to the cloud. Access them from any
             device, any time.
@@ -92,19 +98,21 @@ function SavedResultsPageContent(): React.JSX.Element {
           <button
             type="button"
             onClick={() => setAuthModalOpen(true)}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:-translate-y-0.5"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:-translate-y-0.5"
           >
-            Sign in with email
+            Sign In with Email
           </button>
           <AuthModal open={authModalOpen} onClose={() => setAuthModalOpen(false)} />
         </div>
       )}
 
-      {/* Dashboard tab */}
-      {activeTab === 'dashboard' && <HealthDashboard />}
+      {/* Dashboard tab: Activity keeps its state and DOM while hidden. */}
+      <Activity mode={activeTab === 'dashboard' ? 'visible' : 'hidden'}>
+        <HealthDashboard />
+      </Activity>
 
       {/* All Results tab */}
-      {activeTab === 'all-results' && (
+      <Activity mode={activeTab === 'all-results' ? 'visible' : 'hidden'}>
         <>
           {showResults ? (
             <SavedResultsList />
@@ -126,7 +134,7 @@ function SavedResultsPageContent(): React.JSX.Element {
             </div>
           )}
         </>
-      )}
+      </Activity>
     </div>
   );
 }

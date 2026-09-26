@@ -104,7 +104,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Barbell Weight Sets for Your Home Gym in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -114,7 +114,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           <ul className="space-y-2">
             <li>
               <strong>Best Overall:</strong> CAP Barbell 300-lb Olympic Set ($350) - Complete set
-              with bar, 255 lbs of plates, spring collars
+              with bar, 255 lbs of plates, spring collars
             </li>
             <li>
               <strong>Best Quality:</strong> REP Fitness Iron Plates ($250) - Premium machined
@@ -125,7 +125,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               coating, unbeatable price per pound
             </li>
             <li>
-              <strong>Best for Beginners:</strong> Fitness Gear 300 lb Set ($300) - Easy grip
+              <strong>Best for Beginners:</strong> Fitness Gear 300 lb Set ($300) - Easy grip
               handles, full set included, beginner-friendly
             </li>
             <li>
@@ -156,7 +156,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             </li>
             <li>
               <Link href="#fitness-gear" className="text-accent hover:underline">
-                Fitness Gear 300 lb Set - Best for Beginners
+                Fitness Gear 300 lb Set - Best for Beginners
               </Link>
             </li>
             <li>
@@ -255,7 +255,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Progressive overload:</strong> You can add weight in small increments (2.5 lbs
+              <strong>Progressive overload:</strong> You can add weight in small increments (2.5 lbs
               at a time with micro plates) and track every single increase. That measurable progress
               is what builds strength long-term.
             </li>
@@ -266,7 +266,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             </li>
             <li>
               <strong>Heavier loads:</strong> You will outgrow dumbbells eventually. Most adjustable
-              dumbbells max out at 50-90 lbs per hand. A barbell set lets you load 300+ pounds for
+              dumbbells max out at 50-90 lbs per hand. A barbell set lets you load 300+ pounds for
               squats and deadlifts.
             </li>
             <li>
@@ -290,8 +290,8 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               to grip but not tear up your hands? Will it bend under heavy loads?
             </li>
             <li>
-              <strong>Plate accuracy:</strong> Cheap plates can be off by several pounds. A "45-lb"
-              plate that actually weighs 42 lbs throws off your entire training program.
+              <strong>Plate accuracy:</strong> Cheap plates can be off by several pounds. A “45-lb”
+              plate that actually weighs 42 lbs throws off your entire training program.
             </li>
             <li>
               <strong>Coating durability:</strong> Plates with thin paint or rubber coatings chip
@@ -334,7 +334,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
 
           <p className="mb-4">
             The CAP Barbell 300-lb set is the most complete package you can buy under $400. You get
-            a 7-foot Olympic bar rated for 300 pounds, 255 pounds of grip plates (two 45s, two 35s,
+            a 7-foot Olympic bar rated for 300 pounds, 255 pounds of grip plates (two 45s, two 35s,
             two 25s, four 10s, two 5s, and four 2.5s), spring collars, and everything ships
             together. I have been training with this exact set for two years and it still looks
             almost new.
@@ -350,10 +350,10 @@ const BestBarbellWeightSetsHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>7-foot Olympic bar, 300 lb weight capacity, standard 2-inch sleeves</li>
-            <li>255 lbs of grip plates with integrated handles</li>
+            <li>7-foot Olympic bar, 300 lb weight capacity, standard 2-inch sleeves</li>
+            <li>255 lbs of grip plates with integrated handles</li>
             <li>
-              Includes: (2) 45 lb, (2) 35 lb, (2) 25 lb, (4) 10 lb, (2) 5 lb, (4) 2.5 lb plates
+              Includes: (2) 45 lb, (2) 35 lb, (2) 25 lb, (4) 10 lb, (2) 5 lb, (4) 2.5 lb plates
             </li>
             <li>Black enamel coating on plates for rust protection</li>
             <li>Spring collars included</li>
@@ -390,7 +390,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Bar is functional but not premium quality, knurling wears
               smooth over time, spring collars are basic (upgrade to lockjaw collars for heavy
-              lifts), plates can have minor weight variance (1-2 lbs)
+              lifts), plates can have minor weight variance (1-2 lbs)
             </p>
           </div>
 
@@ -428,7 +428,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           <p className="mb-4">
             REP Fitness makes some of the best plates you can buy without spending $5 per pound on
             calibrated competition plates. These iron plates are machined to tighter tolerances than
-            most budget options. My 45-lb plates weigh 45.2, 45.1, 45.3, and 45.0 pounds. That kind
+            most budget options. My 45-lb plates weigh 45.2, 45.1, 45.3, and 45.0 pounds. That kind
             of accuracy matters when you are tracking progressive overload week to week.
           </p>
 
@@ -447,7 +447,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             </li>
             <li>Thick black powder coat finish resists chipping and wear</li>
             <li>Standard 2-inch Olympic holes with tight fit tolerance</li>
-            <li>Available in individual pairs: 2.5, 5, 10, 25, 35, 45 lb plates</li>
+            <li>Available in individual pairs: 2.5, 5, 10, 25, 35, 45 lb plates</li>
             <li>Flat profile for easy storage and stacking</li>
             <li>Made in USA with quality control standards</li>
           </ul>
@@ -537,7 +537,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Cast iron construction with black enamel paint coating</li>
             <li>Standard 2-inch Olympic hole diameter</li>
-            <li>Available in sets or individual pairs: 2.5, 5, 10, 25, 35, 45 lb plates</li>
+            <li>Available in sets or individual pairs: 2.5, 5, 10, 25, 35, 45 lb plates</li>
             <li>Flat profile for compact storage</li>
             <li>Best price per pound in this comparison</li>
             <li>Ships quickly from Amazon warehouse</li>
@@ -571,7 +571,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Enamel coating chips and flakes over time, weight tolerance is
-              loose (1-3 lbs variance), hole sizing causes rattle on the bar, not as durable as
+              loose (1-3 lbs variance), hole sizing causes rattle on the bar, not as durable as
               powder-coated plates
             </p>
           </div>
@@ -590,7 +590,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
 
         {/* Product 4: Fitness Gear */}
         <h2 id="fitness-gear" className="text-2xl font-bold mt-8 mb-4">
-          4. Fitness Gear 300 lb Set - Best for Beginners
+          4. Fitness Gear 300 lb Set - Best for Beginners
         </h2>
 
         <div className="neumorph p-6 rounded-lg my-6">
@@ -599,7 +599,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               <span className="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full mb-2">
                 Best for Beginners
               </span>
-              <h3 className="text-xl font-semibold">Fitness Gear 300 lb Olympic Weight Set</h3>
+              <h3 className="text-xl font-semibold">Fitness Gear 300 lb Olympic Weight Set</h3>
               <p className="text-sm text-yellow-600 mt-1">
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
@@ -616,8 +616,8 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           </p>
 
           <p className="mb-4">
-            The set includes a 7-foot bar, 255 pounds of plates, and spring collars. The bar is
-            basic but functional. It will handle 300 pounds without bending, which is more than
+            The set includes a 7-foot bar, 255 pounds of plates, and spring collars. The bar is
+            basic but functional. It will handle 300 pounds without bending, which is more than
             enough for most home gym lifters. The rubber-coated plates are quieter when you set them
             down compared to bare iron, and the coating seems to hold up reasonably well. After six
             months of testing, I see minor scuffing but no major damage.
@@ -625,10 +625,10 @@ const BestBarbellWeightSetsHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>7-foot Olympic bar rated for 300 lbs</li>
-            <li>255 lbs of rubber-coated grip plates with large handles</li>
+            <li>7-foot Olympic bar rated for 300 lbs</li>
+            <li>255 lbs of rubber-coated grip plates with large handles</li>
             <li>
-              Includes: (2) 45 lb, (2) 35 lb, (2) 25 lb, (4) 10 lb, (2) 5 lb, (4) 2.5 lb plates
+              Includes: (2) 45 lb, (2) 35 lb, (2) 25 lb, (4) 10 lb, (2) 5 lb, (4) 2.5 lb plates
             </li>
             <li>Rubber coating reduces noise and floor impact</li>
             <li>Spring collars included</li>
@@ -664,7 +664,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Rubber coating adds bulk to plates (takes up more room on the
-              bar), weight accuracy is average (1-2 lb variance), handles can interfere with some
+              bar), weight accuracy is average (1-2 lb variance), handles can interfere with some
               exercises like floor presses, slightly more expensive than CAP Barbell
             </p>
           </div>
@@ -721,7 +721,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>High-density rubber construction designed for dropping from overhead</li>
             <li>Steel insert with low-bounce design and precise fit</li>
-            <li>Available in 10, 15, 25, 35, 45 lb plates (all same diameter)</li>
+            <li>Available in 10, 15, 25, 35, 45 lb plates (all same diameter)</li>
             <li>Weight tolerance within 10 grams of stated weight</li>
             <li>Durable enough for commercial gym use</li>
             <li>Made in USA by Rogue Fitness</li>
@@ -793,7 +793,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               <tr>
                 <td className="border p-3">CAP Barbell 300-lb Set</td>
                 <td className="border p-3 text-center">$350</td>
-                <td className="border p-3 text-center">255 lbs + bar</td>
+                <td className="border p-3 text-center">255 lbs + bar</td>
                 <td className="border p-3 text-center">Cast iron</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
                 <td className="border p-3 text-center">Overall</td>
@@ -815,9 +815,9 @@ const BestBarbellWeightSetsHomeGymPageContent = (
                 <td className="border p-3 text-center">Budget</td>
               </tr>
               <tr className="bg-gray-50">
-                <td className="border p-3">Fitness Gear 300 lb Set</td>
+                <td className="border p-3">Fitness Gear 300 lb Set</td>
                 <td className="border p-3 text-center">$300</td>
-                <td className="border p-3 text-center">255 lbs + bar</td>
+                <td className="border p-3 text-center">255 lbs + bar</td>
                 <td className="border p-3 text-center">Rubber-coated</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Beginners</td>
@@ -849,7 +849,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             <li>
               <strong>Wipe down the bar after every session:</strong> Sweat, chalk, and hand oils
               corrode the bar finish and degrade the knurling. A quick wipe with a dry towel takes
-              10 seconds and extends bar life by years.
+              10 seconds and extends bar life by years.
             </li>
             <li>
               <strong>Do not drop iron plates:</strong> If you are using cast iron or machined
@@ -896,7 +896,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           </li>
           <li>
             <strong>Best for brand-new lifters:</strong> The{' '}
-            <strong>Fitness Gear 300 lb Set at $300</strong> makes loading and unloading easier with
+            <strong>Fitness Gear 300 lb Set at $300</strong> makes loading and unloading easier with
             integrated grip handles. If you have never loaded a barbell before, this removes some
             intimidation.
           </li>
@@ -937,21 +937,21 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/one-rep-max"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">One Rep Max Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your strength standards</p>
             </Link>
             <Link
               href="/lean-body-mass"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Lean Body Mass Calculator</h4>
               <p className="text-sm text-gray-600">Track muscle gain progress</p>
             </Link>
             <Link
               href="/calories-burned"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calories Burned Calculator</h4>
               <p className="text-sm text-gray-600">Measure training energy cost</p>

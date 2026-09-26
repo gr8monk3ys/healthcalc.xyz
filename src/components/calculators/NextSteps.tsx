@@ -49,7 +49,7 @@ const NextSteps: React.FC<NextStepsProps> = ({ title = 'What to Do Next', steps,
           <Link
             key={step.href}
             href={step.href}
-            className={`glass-panel-strong rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 flex items-start gap-3 ${
+            className={`glass-panel-strong rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 flex items-start gap-3 ${
               step.highlight ? 'ring-1 ring-accent/30' : ''
             }`}
           >

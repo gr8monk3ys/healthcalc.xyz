@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { KetoResult, KetoGoal, KetoType } from '@/types/ketoCalculator';
@@ -16,7 +17,6 @@ import {
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import KetoResultDisplay from '@/components/calculators/ketoCalculator/KetoResult';
-import SaveResult from '@/components/SaveResult';
 import Card from '@/components/ui/Card';
 import {
   useHeight,
@@ -25,6 +25,10 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -51,7 +55,7 @@ const faqs = [
   {
     question: 'How do I avoid the keto flu?',
     answer:
-      'The "keto flu" occurs during the first few days of transitioning to ketosis as your body adjusts. Prevent it by staying hydrated and supplementing electrolytes: sodium (3000-5000mg), potassium (1000-3500mg), and magnesium (300-500mg). Drink bone broth, salt your food liberally, eat potassium-rich low-carb foods like avocados and spinach, and consider a magnesium supplement. Symptoms typically resolve within 3-7 days.',
+      'The “keto flu” occurs during the first few days of transitioning to ketosis as your body adjusts. Prevent it by staying hydrated and supplementing electrolytes: sodium (3000-5000mg), potassium (1000-3500mg), and magnesium (300-500mg). Drink bone broth, salt your food liberally, eat potassium-rich low-carb foods like avocados and spinach, and consider a magnesium supplement. Symptoms typically resolve within 3-7 days.',
   },
   {
     question: 'How long does it take to get into ketosis?',
@@ -197,7 +201,7 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('keto-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -238,7 +242,7 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     createWeightField(weight, errors.weight),
@@ -249,7 +253,7 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
       value: bodyFatPercentage,
       onChange: setBodyFatPercentage,
       error: errors.bodyFatPercentage,
-      placeholder: '% (will estimate if not provided)',
+      placeholder: 'e.g. 22 (estimated if blank)…',
       step: '0.1',
     },
     {
@@ -323,7 +327,10 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
         />
 
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}

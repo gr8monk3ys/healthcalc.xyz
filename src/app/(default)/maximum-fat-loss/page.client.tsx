@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useMemo } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { MaximumFatLossResult } from '@/types/maximumFatLoss';
@@ -11,7 +12,6 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import MaximumFatLossResultDisplay from '@/components/calculators/maximum-fat-loss/MaximumFatLossResult';
 import MaximumFatLossInfo from '@/components/calculators/maximum-fat-loss/MaximumFatLossInfo';
 import MaximumFatLossUnderstanding from '@/components/calculators/maximum-fat-loss/MaximumFatLossUnderstanding';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -19,13 +19,17 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [
   {
     question: 'What makes this calculator different from other fat loss calculators?',
     answer:
-      "The Maximum Fat Loss Calculator uses your body composition (body fat percentage) to calculate lean body mass and determine the maximum safe rate of fat loss while preserving muscle. Unlike simple calorie calculators, it factors in the 31 kcal per kg of fat mass per day rule, ensuring you don't lose muscle along with fat. This science-based approach optimizes fat loss without compromising metabolic health or lean tissue.",
+      'The Maximum Fat Loss Calculator uses your body composition (body fat percentage) to calculate lean body mass and determine the maximum safe rate of fat loss while preserving muscle. Unlike simple calorie calculators, it factors in the 31 kcal per kg of fat mass per day rule, ensuring you don’t lose muscle along with fat. This science-based approach optimizes fat loss without compromising metabolic health or lean tissue.',
   },
   {
     question: 'How do I accurately measure my body fat percentage?',
@@ -38,9 +42,9 @@ const faqs = [
       'The calculator caps your deficit based on the maximum energy your fat stores can release per day (approximately 31 kcal per kg of fat mass). Exceeding this limit forces your body to break down muscle for energy, leading to metabolic slowdown, strength loss, and poor body composition. The calculator ensures your deficit is aggressive but sustainable, maximizing fat loss while preserving lean muscle mass and metabolic rate.',
   },
   {
-    question: "Can I adjust my plan if I'm also doing strength training?",
+    question: 'Can I adjust my plan if I’m also doing strength training?',
     answer:
-      "Yes! If you're strength training, you may benefit from a slightly smaller deficit than calculated to support recovery and muscle preservation. Consider staying at the higher end of your recommended calorie range, ensure adequate protein intake (1.6-2.2g per kg lean body mass), and prioritize training performance. The calculator provides a starting point, but listen to your body - if strength is declining rapidly, increase calories slightly.",
+      'Yes! If you’re strength training, you may benefit from a slightly smaller deficit than calculated to support recovery and muscle preservation. Consider staying at the higher end of your recommended calorie range, ensure adequate protein intake (1.6-2.2g per kg lean body mass), and prioritize training performance. The calculator provides a starting point, but listen to your body - if strength is declining rapidly, increase calories slightly.',
   },
   {
     question: 'What if my body fat percentage is very high or very low?',
@@ -72,7 +76,7 @@ const blogArticles = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
     slug: 'tdee-explained',
     date: 'February 20, 2025',
     readTime: '10 min read',
@@ -163,7 +167,7 @@ export default function MaximumFatLossCalculator({
           setTimeout(() => {
             const resultElement = document.getElementById('maximum-fat-loss-result');
             if (resultElement) {
-              resultElement.scrollIntoView({ behavior: 'smooth' });
+              resultElement.scrollIntoView({ behavior: scrollBehavior() });
             }
           }, 100);
 
@@ -209,7 +213,7 @@ export default function MaximumFatLossCalculator({
         value: age,
         onChange: setAge,
         error: errors.age,
-        placeholder: 'Years',
+        placeholder: 'e.g. 35…',
       },
       createHeightField(height, errors.height),
       {
@@ -223,7 +227,7 @@ export default function MaximumFatLossCalculator({
         value: bodyFatPercentage,
         onChange: setBodyFatPercentage,
         error: errors.bodyFatPercentage,
-        placeholder: 'Percentage',
+        placeholder: 'e.g. 22…',
         step: '0.1',
         min: 3,
         max: 60,

@@ -60,7 +60,7 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Treadmill vs Exercise Bike: Which Burns More Calories?
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 11 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 11 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -68,8 +68,8 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Answer</h2>
           <p className="mb-4">
             At the same perceived effort level, treadmills burn 15-25% more calories than exercise
-            bikes. A 160-lb person walking at 3.5 mph burns about 230 calories per 30 minutes. The
-            same person cycling at moderate intensity burns about 180 calories in the same time.
+            bikes. A 160-lb person walking at 3.5 mph burns about 230 calories per 30 minutes. The
+            same person cycling at moderate intensity burns about 180 calories in the same time.
           </p>
           <p>
             But that is not the whole story. The bike wins on joint impact, consistency, and
@@ -159,7 +159,7 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
         </h2>
         <div className="neumorph p-6 rounded-lg my-6">
           <p className="mb-4">
-            The numbers below are for a 160-lb person doing 30 minutes of work. Heavier people burn
+            The numbers below are for a 160-lb person doing 30 minutes of work. Heavier people burn
             more. Lighter people burn less. Use our{' '}
             <Link href="/body-fat-burn" className="text-accent hover:underline">
               Body Fat Burn Calculator
@@ -170,10 +170,10 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <h3 className="text-lg font-semibold mt-6 mb-3">Low intensity (conversational pace)</h3>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>
-              <strong>Treadmill (3.0 mph, flat):</strong> 200 calories per 30 minutes
+              <strong>Treadmill (3.0 mph, flat):</strong> 200 calories per 30 minutes
             </li>
             <li>
-              <strong>Exercise bike (light effort):</strong> 150 calories per 30 minutes
+              <strong>Exercise bike (light effort):</strong> 150 calories per 30 minutes
             </li>
           </ul>
           <p className="text-sm text-gray-600 mb-4">
@@ -186,10 +186,10 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           </h3>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>
-              <strong>Treadmill (3.5-4.0 mph, flat):</strong> 230 calories per 30 minutes
+              <strong>Treadmill (3.5-4.0 mph, flat):</strong> 230 calories per 30 minutes
             </li>
             <li>
-              <strong>Exercise bike (moderate effort):</strong> 180 calories per 30 minutes
+              <strong>Exercise bike (moderate effort):</strong> 180 calories per 30 minutes
             </li>
           </ul>
           <p className="text-sm text-gray-600 mb-4">
@@ -202,10 +202,10 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           </h3>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>
-              <strong>Treadmill (5.0+ mph or incline):</strong> 340 calories per 30 minutes
+              <strong>Treadmill (5.0+ mph or incline):</strong> 340 calories per 30 minutes
             </li>
             <li>
-              <strong>Exercise bike (vigorous effort):</strong> 300 calories per 30 minutes
+              <strong>Exercise bike (vigorous effort):</strong> 300 calories per 30 minutes
             </li>
           </ul>
           <p className="text-sm text-gray-600 mb-4">
@@ -216,10 +216,10 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <h3 className="text-lg font-semibold mt-6 mb-3">HIIT intervals (all-out sprints)</h3>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>
-              <strong>Treadmill (sprint intervals):</strong> 400+ calories per 30 minutes
+              <strong>Treadmill (sprint intervals):</strong> 400+ calories per 30 minutes
             </li>
             <li>
-              <strong>Exercise bike (sprint intervals):</strong> 380+ calories per 30 minutes
+              <strong>Exercise bike (sprint intervals):</strong> 380+ calories per 30 minutes
             </li>
           </ul>
           <p className="text-sm text-gray-600">
@@ -235,20 +235,20 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <p className="mb-4">
             This is where the bike completely dominates. Running on a treadmill subjects your knees,
             hips, and ankles to 2-3x your body weight in impact force per step. If you weigh 180
-            pounds, your knees absorb 360-540 pounds of force every time your foot hits the belt.
+            pounds, your knees absorb 360-540 pounds of force every time your foot hits the belt.
             Over a 30-minute run, that is thousands of repetitions.
           </p>
           <p className="mb-4">
             The exercise bike is seated and circular. Your joints move through a smooth range of
             motion with zero impact. I have knee problems from years of basketball, and treadmill
-            running aggravates them after about 15 minutes. I can bike for an hour without any
+            running aggravates them after about 15 minutes. I can bike for an hour without any
             discomfort the next day.
           </p>
           <p className="mb-4">
             If you are over 40, recovering from an injury, significantly overweight, or dealing with
             arthritis, the bike is almost always the better choice. You can train harder and more
             frequently without joint pain, which matters more for long-term weight loss than burning
-            an extra 50 calories per session.
+            an extra 50 calories per session.
           </p>
           <div className="mt-4 p-3 bg-blue-50 rounded-lg">
             <p className="text-sm font-semibold">Bottom line on joints:</p>
@@ -272,7 +272,7 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           </p>
           <p className="mb-4">
             The difference is real but small. A hard 30-minute treadmill session might burn an extra
-            30-50 calories over the next few hours compared to an equivalent bike session. That is
+            30-50 calories over the next few hours compared to an equivalent bike session. That is
             about 5-8% of the total workout calories. Not nothing, but not game-changing either.
           </p>
           <p className="mb-4">
@@ -296,7 +296,7 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <h3 className="text-lg font-semibold mb-3">Treadmills</h3>
           <ul className="list-disc list-inside space-y-2 mb-4">
             <li>
-              <strong>Space:</strong> Most treadmills need a 6 ft x 3 ft footprint. Folding models
+              <strong>Space:</strong> Most treadmills need a 6 ft x 3 ft footprint. Folding models
               exist but are often less stable.
             </li>
             <li>
@@ -316,7 +316,7 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <h3 className="text-lg font-semibold mb-3 mt-6">Exercise bikes</h3>
           <ul className="list-disc list-inside space-y-2 mb-4">
             <li>
-              <strong>Space:</strong> Smaller footprint, usually 4 ft x 2 ft. Easier to move and
+              <strong>Space:</strong> Smaller footprint, usually 4 ft x 2 ft. Easier to move and
               store.
             </li>
             <li>
@@ -353,10 +353,10 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
             consistently without getting hurt.
           </p>
           <p className="mb-4">
-            Here is the math. If you burn 230 calories per 30-minute treadmill session and 180
+            Here is the math. If you burn 230 calories per 30-minute treadmill session and 180
             calories per 30-minute bike session, the treadmill burns 50 more calories. Over a week
-            (three sessions), that is 150 extra calories. Over a month, that is 600 calories. Over
-            six months, that is 3,600 calories, or roughly one pound of fat.
+            (three sessions), that is 150 extra calories. Over a month, that is 600 calories. Over
+            six months, that is 3,600 calories, or roughly one pound of fat.
           </p>
           <p className="mb-4">
             But what if knee pain from the treadmill makes you skip two workouts per month? Now the
@@ -368,7 +368,7 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
             For pure calorie burn per minute, the treadmill wins. For sustainable long-term fat
             loss, it depends on your body, your living situation, and your injury history. I lost 18
             pounds over six months using only an exercise bike because it let me train five days per
-            week without joint pain. My friend lost 22 pounds using a treadmill in the same time
+            week without joint pain. My friend lost 22 pounds using a treadmill in the same time
             frame. Both worked. Both required a calorie deficit tracked with our{' '}
             <Link href="/weight-management" className="text-accent hover:underline">
               Weight Management Calculator
@@ -468,9 +468,9 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
             </thead>
             <tbody>
               <tr>
-                <td className="border p-3">Calories burned (30 min, moderate)</td>
-                <td className="border p-3 text-center">230 cal</td>
-                <td className="border p-3 text-center">180 cal</td>
+                <td className="border p-3">Calories burned (30 min, moderate)</td>
+                <td className="border p-3 text-center">230 cal</td>
+                <td className="border p-3 text-center">180 cal</td>
                 <td className="border p-3 text-center">Treadmill</td>
               </tr>
               <tr className="bg-gray-50">
@@ -493,8 +493,8 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Space required</td>
-                <td className="border p-3 text-center">6 ft x 3 ft</td>
-                <td className="border p-3 text-center">4 ft x 2 ft</td>
+                <td className="border p-3 text-center">6 ft x 3 ft</td>
+                <td className="border p-3 text-center">4 ft x 2 ft</td>
                 <td className="border p-3 text-center">Bike</td>
               </tr>
               <tr className="bg-gray-50">
@@ -603,21 +603,21 @@ const TreadmillVsExerciseBikeCaloriesPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/body-fat-burn"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Burn Calculator</h4>
               <p className="text-sm text-gray-600">Calculate calorie burn by activity</p>
             </Link>
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss deficit</p>
             </Link>
             <Link
               href="/weight-management"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Weight Management Calculator</h4>
               <p className="text-sm text-gray-600">Track your progress over time</p>

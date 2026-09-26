@@ -2,7 +2,22 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import BlogIndexClient from '@/components/BlogIndexClient';
-import { BLOG_REGISTRY as BLOG_POSTS } from '@/lib/blog/registry';
+import { BLOG_REGISTRY } from '@/lib/blog/registry';
+
+// Only the fields the client index renders cross the RSC boundary (keywords,
+// SEO titles and affiliate data stay on the server).
+const BLOG_POSTS = BLOG_REGISTRY.map(
+  ({ title, description, slug, date, readTime, category, image, featured }) => ({
+    title,
+    description,
+    slug,
+    date,
+    readTime,
+    category,
+    image,
+    featured,
+  })
+);
 
 export const metadata: Metadata = {
   title: 'Health & Fitness Blog | HealthCalc',
@@ -51,7 +66,7 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link
             href="/body-fat"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold">Body Fat Calculator</h3>
             <p className="text-sm text-gray-600">
@@ -60,7 +75,7 @@ export default function BlogPage() {
           </Link>
           <Link
             href="/body-fat-burn"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold">Body Fat Burn Calculator</h3>
             <p className="text-sm text-gray-600">
@@ -69,14 +84,14 @@ export default function BlogPage() {
           </Link>
           <Link
             href="/tdee"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold">TDEE Calculator</h3>
             <p className="text-sm text-gray-600">Calculate your Total Daily Energy Expenditure</p>
           </Link>
           <Link
             href="/calorie-deficit"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold">Calorie Deficit Calculator</h3>
             <p className="text-sm text-gray-600">Discover how long to reach your goal weight</p>

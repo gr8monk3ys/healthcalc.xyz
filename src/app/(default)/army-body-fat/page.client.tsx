@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import ArmyBodyFatResult from '@/components/calculators/army-body-fat/ArmyBodyFatResult';
 import ArmyBodyFatInfo from '@/components/calculators/army-body-fat/ArmyBodyFatInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateArmyBodyFat } from '@/utils/calculators/armyBodyFat';
 import { convertLength } from '@/utils/conversions';
 import { validateHeight, validateHip, validateNeck, validateWaist } from '@/utils/validation';
@@ -15,6 +14,11 @@ import type { ArmyBodyFatResult as ArmyBodyFatResultType } from '@/types/armyBod
 import { Gender } from '@/types/common';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 type CircumferenceUnit = 'cm' | 'in';
 
@@ -127,7 +131,7 @@ export default function ArmyBodyFatCalculator({
 
         setTimeout(() => {
           const element = document.getElementById('army-body-fat-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
 
         return calculated;
@@ -199,7 +203,7 @@ export default function ArmyBodyFatCalculator({
               value: waist,
               onChange: setWaist,
               error: errors.waist,
-              placeholder: unit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: unit === 'cm' ? 'e.g. 85…' : 'e.g. 34…',
               unit,
               unitToggle: toggleUnit,
               step: '0.1',
@@ -211,7 +215,7 @@ export default function ArmyBodyFatCalculator({
               value: neck,
               onChange: setNeck,
               error: errors.neck,
-              placeholder: unit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: unit === 'cm' ? 'e.g. 38…' : 'e.g. 15…',
               unit,
               unitToggle: toggleUnit,
               step: '0.1',
@@ -223,7 +227,7 @@ export default function ArmyBodyFatCalculator({
               value: hip,
               onChange: setHip,
               error: errors.hip,
-              placeholder: unit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: unit === 'cm' ? 'e.g. 100…' : 'e.g. 39…',
               unit,
               unitToggle: toggleUnit,
               step: '0.1',

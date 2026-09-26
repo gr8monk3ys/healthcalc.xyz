@@ -1,16 +1,20 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import CarbIntakeResult from '@/components/calculators/carb-intake/CarbIntakeResult';
 import CarbIntakeInfo from '@/components/calculators/carb-intake/CarbIntakeInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateCarbIntake } from '@/utils/calculators/carbIntake';
 import type { CarbIntakeResult as CarbIntakeResultType } from '@/types/carbIntake';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -74,7 +78,7 @@ export default function CarbIntakeCalculator({ serverHeader }: { serverHeader?: 
         const calculated = calculateCarbIntake(calories as number, carbPercent as number);
         setTimeout(() => {
           const element = document.getElementById('carb-intake-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -118,7 +122,7 @@ export default function CarbIntakeCalculator({ serverHeader }: { serverHeader?: 
               value: calories,
               onChange: setCalories,
               error: errors.calories,
-              placeholder: 'e.g. 2000',
+              placeholder: 'e.g. 2000…',
               min: 800,
               max: 8000,
             },
@@ -129,7 +133,7 @@ export default function CarbIntakeCalculator({ serverHeader }: { serverHeader?: 
               value: carbPercent,
               onChange: setCarbPercent,
               error: errors.carbPercent,
-              placeholder: 'e.g. 45',
+              placeholder: 'e.g. 45…',
               min: 10,
               max: 70,
             },

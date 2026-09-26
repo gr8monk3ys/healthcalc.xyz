@@ -119,7 +119,7 @@ const BestSleepTrackersRecoveryPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Sleep Trackers for Recovery in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 13 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 13 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -143,7 +143,7 @@ const BestSleepTrackersRecoveryPageContent = (
               and a full sleep coach
             </li>
             <li>
-              <strong>Best Budget:</strong> Amazfit GTR 4 ($149) - 14 day battery with surprisingly
+              <strong>Best Budget:</strong> Amazfit GTR 4 ($149) - 14 day battery with surprisingly
               detailed sleep data
             </li>
           </ul>
@@ -265,11 +265,11 @@ const BestSleepTrackersRecoveryPageContent = (
         <h3 className="text-xl font-semibold mt-6 mb-3">Sleep Stages Explained</h3>
 
         <p>
-          Each night, you cycle through four stages roughly every 90 minutes. Light sleep makes up
+          Each night, you cycle through four stages roughly every 90 minutes. Light sleep makes up
           around 50% of a typical night. It is transitional and your brain is still somewhat active.
           Deep sleep, also called slow-wave sleep, is where physical recovery happens. Growth
           hormone gets released, muscle tissue repairs, and your immune system does its maintenance
-          work. Most adults need 1 to 2 hours of deep sleep per night, and it tends to front-load in
+          work. Most adults need 1 to 2 hours of deep sleep per night, and it tends to front-load in
           the first half of the night.
         </p>
 
@@ -452,7 +452,7 @@ const BestSleepTrackersRecoveryPageContent = (
 
           <p className="mb-4">
             Sleep tracking accuracy was good but not quite at the Oura level in my testing. Whoop
-            occasionally over-counted deep sleep by 10 to 15 minutes and was slightly less accurate
+            occasionally over-counted deep sleep by 10 to 15 minutes and was slightly less accurate
             at detecting brief awakenings. The strain tracking during the day, though, is where
             Whoop really shines. It connects your daytime effort to your nighttime recovery in a way
             that none of the other devices here do as well.
@@ -540,7 +540,7 @@ const BestSleepTrackersRecoveryPageContent = (
 
           <p className="mb-4">
             The EDA sensor is what separates the Sense 2 from cheaper Fitbits. It measures
-            electrodermal activity, basically tiny changes in your skin's electrical conductivity
+            electrodermal activity, basically tiny changes in your skin’s electrical conductivity
             that correlate with stress responses. It runs passively throughout the day and flags
             when your body is showing signs of stress. I found it moderately useful. It correctly
             identified high-stress days, but it also triggered sometimes during nothing stressful at
@@ -548,7 +548,7 @@ const BestSleepTrackersRecoveryPageContent = (
           </p>
 
           <p className="mb-4">
-            Battery life is about 6 days in my experience, which is enough that you do not have to
+            Battery life is about 6 days in my experience, which is enough that you do not have to
             think about charging constantly. Sleep stage accuracy was on par with Whoop and slightly
             behind Oura in my testing.
           </p>
@@ -627,7 +627,7 @@ const BestSleepTrackersRecoveryPageContent = (
           </p>
 
           <p className="mb-4">
-            The Body Battery feature is Garmin's version of a recovery score, and after using it for
+            The Body Battery feature is Garmin’s version of a recovery score, and after using it for
             several months, I think it is one of the best implementations. It starts at 100 when you
             are fully charged and drains throughout the day based on activity, stress, and heart
             rate. Sleep recharges it. It is intuitive in a way that raw HRV numbers are not. When my
@@ -741,7 +741,7 @@ const BestSleepTrackersRecoveryPageContent = (
           <p className="mb-4">
             Where it falls short is in the nuance of sleep detection. The GTR 4 was the least
             accurate of the five at detecting brief awakenings. It would sometimes count restless
-            periods as light sleep, inflating my total sleep time by 15 to 30 minutes. Over a week
+            periods as light sleep, inflating my total sleep time by 15 to 30 minutes. Over a week
             the trend was still directionally correct, but night-to-night accuracy was the weakest
             here.
           </p>
@@ -771,7 +771,7 @@ const BestSleepTrackersRecoveryPageContent = (
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Best battery life by far at 14 days, great value for the price,
+              <strong>Pros:</strong> Best battery life by far at 14 days, great value for the price,
               AMOLED display looks premium, solid sleep quality scoring, works with both iOS and
               Android
             </p>
@@ -813,7 +813,7 @@ const BestSleepTrackersRecoveryPageContent = (
               <tr>
                 <td className="border p-3">Oura Ring Gen 3</td>
                 <td className="border p-3 text-center">$299</td>
-                <td className="border p-3 text-center">7 days</td>
+                <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">Ring</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Sleep accuracy</td>
@@ -821,7 +821,7 @@ const BestSleepTrackersRecoveryPageContent = (
               <tr className="bg-gray-50">
                 <td className="border p-3">Whoop 4.0</td>
                 <td className="border p-3 text-center">$239/yr</td>
-                <td className="border p-3 text-center">5 days</td>
+                <td className="border p-3 text-center">5 days</td>
                 <td className="border p-3 text-center">Band</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Athletes</td>
@@ -829,7 +829,7 @@ const BestSleepTrackersRecoveryPageContent = (
               <tr>
                 <td className="border p-3">Fitbit Sense 2</td>
                 <td className="border p-3 text-center">$199</td>
-                <td className="border p-3 text-center">6 days</td>
+                <td className="border p-3 text-center">6 days</td>
                 <td className="border p-3 text-center">Watch</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Smartwatch users</td>
@@ -837,7 +837,7 @@ const BestSleepTrackersRecoveryPageContent = (
               <tr className="bg-gray-50">
                 <td className="border p-3">Garmin Venu 3</td>
                 <td className="border p-3 text-center">$449</td>
-                <td className="border p-3 text-center">14 days</td>
+                <td className="border p-3 text-center">14 days</td>
                 <td className="border p-3 text-center">Watch</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">All-in-one</td>
@@ -845,7 +845,7 @@ const BestSleepTrackersRecoveryPageContent = (
               <tr>
                 <td className="border p-3">Amazfit GTR 4</td>
                 <td className="border p-3 text-center">$149</td>
-                <td className="border p-3 text-center">14 days</td>
+                <td className="border p-3 text-center">14 days</td>
                 <td className="border p-3 text-center">Watch</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Budget buyers</td>
@@ -934,14 +934,14 @@ const BestSleepTrackersRecoveryPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/sleep"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Sleep Calculator</h4>
               <p className="text-sm text-gray-600">Find your ideal bedtime and wake-up time</p>
             </Link>
             <Link
               href="/resting-heart-rate"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Resting Heart Rate Calculator</h4>
               <p className="text-sm text-gray-600">
@@ -950,7 +950,7 @@ const BestSleepTrackersRecoveryPageContent = (
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your daily calorie needs</p>

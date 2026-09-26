@@ -104,7 +104,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Pull-Up Bars for Home Fitness in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -121,7 +121,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
               solid once installed
             </li>
             <li>
-              <strong>Best Value:</strong> ALLY PEAKS Pull Up Bar ($40) - 440 lb capacity, thickened
+              <strong>Best Value:</strong> ALLY PEAKS Pull Up Bar ($40) - 440 lb capacity, thickened
               steel
             </li>
             <li>
@@ -183,8 +183,8 @@ const BestPullUpBarsHomeFitnessPageContent = (
         <p>
           The problem is that Amazon has about a thousand pull-up bars and most of them look
           identical. Some are great. Some will fall off your doorframe. I have owned three different
-          types over the past few years and tested several at friends&apos; houses, so here is what
-          I actually recommend.
+          types over the past few years and tested several at friends’ houses, so here is what I
+          actually recommend.
         </p>
 
         {/* Toolkit */}
@@ -282,7 +282,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
         </div>
 
         <p>
-          If you weigh 180 pounds and can do 10 pull-ups, you just moved 1,800 pounds with your back
+          If you weigh 180 pounds and can do 10 pull-ups, you just moved 1,800 pounds with your back
           muscles. Try replicating that volume on a lat pulldown machine. It takes forever. Pull-ups
           compress more work into less time, and time is usually the thing most of us are short on.
         </p>
@@ -306,7 +306,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
           </div>
           <p className="mb-4">
             This is the pull-up bar that started it all for me. I mounted it in my bedroom doorway
-            in about 30 seconds and did my first embarrassing attempt at a pull-up that same
+            in about 30 seconds and did my first embarrassing attempt at a pull-up that same
             evening. No drilling, no screws, no damage to the frame. It hooks over the door molding
             and uses your body weight to lock itself in place. Three years later, the same bar is
             still there and I have zero complaints.
@@ -321,10 +321,10 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>No screws or drilling required, installs in seconds</li>
             <li>Three grip positions: wide, narrow, neutral</li>
-            <li>Heavy-duty steel construction, 300 lb weight capacity</li>
+            <li>Heavy-duty steel construction, 300 lb weight capacity</li>
             <li>Foam-padded grips to reduce hand fatigue</li>
             <li>Can double as a push-up and dip station on the floor</li>
-            <li>Fits standard doorframes 24 to 32 inches wide</li>
+            <li>Fits standard doorframes 24 to 32 inches wide</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -400,16 +400,16 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Screw-in mount system with three sets of mounts included</li>
-            <li>Adjustable width fits doorframes 27 to 39 inches</li>
+            <li>Adjustable width fits doorframes 27 to 39 inches</li>
             <li>Heavy-duty steel with padded grips</li>
-            <li>300 lb weight capacity</li>
+            <li>300 lb weight capacity</li>
             <li>Straight bar design with ergonomic padding</li>
             <li>Quick-release from mounts for easy removal</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Homeowners who do not mind a few small screw holes. People who want the most stable
-            doorway bar possible. If you weigh over 200 lbs or plan to do weighted pull-ups, the
+            doorway bar possible. If you weigh over 200 lbs or plan to do weighted pull-ups, the
             screw-in design will give you more peace of mind than a pressure mount.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
@@ -466,10 +466,10 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <p className="mb-4">
             For ten bucks more than the Iron Gym, the ALLY PEAKS bar gives you a much beefier build.
             The steel is 1.7mm thick instead of the usual 1.2mm on budget bars, and the weight
-            capacity jumps to 440 lbs. That is not just marketing. You can feel the difference when
+            capacity jumps to 440 lbs. That is not just marketing. You can feel the difference when
             you grab it. No flex, no creaking. It holds a US patent on the locking mechanism, which
             uses an inner and outer bar system that tightens as you add weight. I tried this one at
-            a buddy&apos;s apartment and was impressed by how solid it felt compared to my Iron Gym.
+            a buddy’s apartment and was impressed by how solid it felt compared to my Iron Gym.
           </p>
           <p className="mb-4">
             It also has wider grip options than most doorway bars at this price. The angled ends let
@@ -478,12 +478,12 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>1.7mm thickened steel construction</li>
-            <li>440 lb weight capacity</li>
+            <li>440 lb weight capacity</li>
             <li>US patented locking mechanism</li>
             <li>Multiple grip positions including wide, narrow, and neutral</li>
             <li>No screws, pressure-mount installation</li>
             <li>Non-slip foam padding on all grips</li>
-            <li>Fits doorframes 27.5 to 36.2 inches wide</li>
+            <li>Fits doorframes 27.5 to 36.2 inches wide</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -493,7 +493,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
           </p>
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
           <p>
-            The 440 lb capacity means you can safely do weighted pull-ups for progressive overload.
+            The 440 lb capacity means you can safely do weighted pull-ups for progressive overload.
             Track your strength progression with the{' '}
             <Link href="/one-rep-max" className="text-accent hover:underline">
               One Rep Max Calculator
@@ -506,7 +506,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Thickened steel feels premium, 440 lb capacity, patented lock
+              <strong>Pros:</strong> Thickened steel feels premium, 440 lb capacity, patented lock
               is very secure, good grip variety for the price
             </p>
             <p className="text-sm mt-2">
@@ -547,7 +547,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
             Doorway bars are convenient, but they come with limitations. You cannot do a full swing,
             the height is fixed, and you always worry about the trim. A wall-mounted bar solves all
             of those problems. The Yes4All mounts directly into wall studs with heavy lag bolts and
-            holds up to 500 lbs. Once it is up, it is not going anywhere. I installed one in my
+            holds up to 500 lbs. Once it is up, it is not going anywhere. I installed one in my
             garage after I outgrew the doorway bar phase and the difference is night and day.
           </p>
           <p className="mb-4">
@@ -559,7 +559,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Wall or ceiling mount with included hardware</li>
-            <li>500 lb weight capacity</li>
+            <li>500 lb weight capacity</li>
             <li>Heavy-gauge steel construction with powder coat finish</li>
             <li>Multiple grip positions: wide, narrow, neutral</li>
             <li>48-inch wide bar for true wide-grip pull-ups</li>
@@ -588,12 +588,12 @@ const BestPullUpBarsHomeFitnessPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Absolutely rock solid, 500 lb capacity, true wide grip width,
+              <strong>Pros:</strong> Absolutely rock solid, 500 lb capacity, true wide grip width,
               choose your own mounting height, looks clean on the wall
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Requires drilling into studs, permanent installation, not for
-              renters, installation takes 30-60 minutes
+              renters, installation takes 30-60 minutes
             </p>
           </div>
           <div className="mt-4">
@@ -629,26 +629,26 @@ const BestPullUpBarsHomeFitnessPageContent = (
             This is not just a pull-up bar. It is a full upper body station that handles pull-ups,
             dips, vertical knee raises, push-ups, and more. At $150, it costs five times more than
             the Iron Gym. But it also does five times as many exercises. If you have the floor space
-            for it (about 2.5 by 2.5 feet), it becomes the centerpiece of a home gym that can keep
+            for it (about 2.5 by 2.5 feet), it becomes the centerpiece of a home gym that can keep
             you busy for years.
           </p>
           <p className="mb-4">
-            I trained on a friend&apos;s Sportsroyals tower for a month when I was between
-            apartments. The pull-up bar itself is wide and comfortable. The dip handles are at a
-            good angle for chest dips. And the vertical knee raise station with arm pads is
-            genuinely useful for core work. The whole thing is stable enough that I never felt like
-            it would tip, even during aggressive dip sets. It did wobble slightly during kipping
-            pull-ups, but for strict reps it was totally fine.
+            I trained on a friend’s Sportsroyals tower for a month when I was between apartments.
+            The pull-up bar itself is wide and comfortable. The dip handles are at a good angle for
+            chest dips. And the vertical knee raise station with arm pads is genuinely useful for
+            core work. The whole thing is stable enough that I never felt like it would tip, even
+            during aggressive dip sets. It did wobble slightly during kipping pull-ups, but for
+            strict reps it was totally fine.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Multi-function: pull-ups, dips, knee raises, push-ups</li>
-            <li>450 lb weight capacity</li>
+            <li>450 lb weight capacity</li>
             <li>Adjustable height with multiple settings</li>
             <li>Thick steel frame with anti-slip foot pads</li>
             <li>Padded arm rests and back support for knee raises</li>
             <li>Freestanding design, no wall mounting needed</li>
-            <li>Assembly required (takes about 45 minutes)</li>
+            <li>Assembly required (takes about 45 minutes)</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -672,11 +672,11 @@ const BestPullUpBarsHomeFitnessPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Multiple exercises in one station, very stable, 450 lb
+              <strong>Pros:</strong> Multiple exercises in one station, very stable, 450 lb
               capacity, no drilling or wall mounting, adjustable height
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Takes up floor space, heavier to move (about 45 lbs), 45-minute
+              <strong>Cons:</strong> Takes up floor space, heavier to move (about 45 lbs), 45-minute
               assembly, slight wobble during dynamic movements
             </p>
           </div>
@@ -712,7 +712,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 <td className="border p-3 text-center">$30</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Doorway</td>
-                <td className="border p-3 text-center">300 lbs</td>
+                <td className="border p-3 text-center">300 lbs</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr className="bg-gray-50">
@@ -720,7 +720,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 <td className="border p-3 text-center">$35</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Doorway (screw-in)</td>
-                <td className="border p-3 text-center">300 lbs</td>
+                <td className="border p-3 text-center">300 lbs</td>
                 <td className="border p-3 text-center">Stability</td>
               </tr>
               <tr>
@@ -728,7 +728,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 <td className="border p-3 text-center">$40</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Doorway</td>
-                <td className="border p-3 text-center">440 lbs</td>
+                <td className="border p-3 text-center">440 lbs</td>
                 <td className="border p-3 text-center">Heavy lifters</td>
               </tr>
               <tr className="bg-gray-50">
@@ -736,7 +736,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 <td className="border p-3 text-center">$50</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Wall mount</td>
-                <td className="border p-3 text-center">500 lbs</td>
+                <td className="border p-3 text-center">500 lbs</td>
                 <td className="border p-3 text-center">Garage gyms</td>
               </tr>
               <tr>
@@ -744,7 +744,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 <td className="border p-3 text-center">$150</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
                 <td className="border p-3 text-center">Freestanding</td>
-                <td className="border p-3 text-center">450 lbs</td>
+                <td className="border p-3 text-center">450 lbs</td>
                 <td className="border p-3 text-center">Full station</td>
               </tr>
             </tbody>
@@ -761,7 +761,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>Dead hangs (weeks 1-2):</strong> Just hang from the bar for as long as you
-              can. Start with 10-second holds and work up to 30 seconds. This builds grip strength
+              can. Start with 10-second holds and work up to 30 seconds. This builds grip strength
               and gets your shoulders used to bearing load.
             </li>
             <li>
@@ -783,7 +783,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
             </li>
             <li>
               <strong>First unassisted pull-up:</strong> It will happen sooner than you think. Most
-              people who follow this progression get their first strict pull-up within 4-8 weeks.
+              people who follow this progression get their first strict pull-up within 4-8 weeks.
             </li>
             <li>
               <strong>Adding reps (ongoing):</strong> Once you can do one, the rest come faster. Add
@@ -821,13 +821,13 @@ const BestPullUpBarsHomeFitnessPageContent = (
           </li>
           <li>
             <strong>Best overall value:</strong> The <strong>ALLY PEAKS at $40</strong> gives you
-            premium build quality and a 440 lb capacity for only $10 more than the basic options.
+            premium build quality and a 440 lb capacity for only $10 more than the basic options.
             Hard to argue with that.
           </li>
           <li>
             <strong>Ready for a permanent setup:</strong> The{' '}
             <strong>Yes4All Wall Mount at $50</strong> is what you graduate to when you want a real
-            gym feel. True wide grip, 500 lb capacity, bombproof.
+            gym feel. True wide grip, 500 lb capacity, bombproof.
           </li>
           <li>
             <strong>Want a full training station:</strong> The{' '}
@@ -862,21 +862,21 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/one-rep-max"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">One Rep Max Calculator</h4>
               <p className="text-sm text-gray-600">Estimate your max pull-up weight</p>
             </Link>
             <Link
               href="/body-fat-burn"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Burn Calculator</h4>
               <p className="text-sm text-gray-600">Track workout calorie burn</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate daily energy needs</p>

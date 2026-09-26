@@ -7,6 +7,7 @@ import Card from '@/components/ui/Card';
 import ResultCard from '@/components/ui/ResultCard';
 import { MaximumFatLossResult } from '@/types/maximumFatLoss';
 import { formatBodyFatWithContext } from '@/app/api/maximumFatLoss';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface MaximumFatLossResultDisplayProps {
   result: MaximumFatLossResult;
@@ -42,7 +43,7 @@ export default function MaximumFatLossResultDisplay({
             </div>
           </div>
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            Maximum deficit: <span className="font-semibold">{result.maximumDeficit} cal/day</span>
+            Maximum deficit: <span className="font-semibold">{result.maximumDeficit} cal/day</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
             Expected fat loss: {displayWeeklyLoss} {unitLabel}/week
@@ -55,6 +56,7 @@ export default function MaximumFatLossResultDisplay({
         <Card className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
           <div className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -85,12 +87,12 @@ export default function MaximumFatLossResultDisplay({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ResultCard
           title="Current Weight"
-          value={`${displayWeight.toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(displayWeight, 1)} ${unitLabel}`}
           description={formatBodyFatWithContext(result.bodyFatPercentage, gender)}
         />
         <ResultCard
           title="Fat vs Lean Mass"
-          value={`${displayFatMass.toFixed(1)} / ${displayLeanMass.toFixed(1)}`}
+          value={`${formatNumber(displayFatMass, 1)} / ${formatNumber(displayLeanMass, 1)}`}
           description={`${unitLabel} (fat / lean)`}
         />
         <ResultCard
@@ -125,7 +127,7 @@ export default function MaximumFatLossResultDisplay({
           </div>
           <div className="bg-accent/10 p-4 rounded-lg text-center col-span-2 md:col-span-1">
             <div className="text-3xl font-bold text-accent">
-              {(result.recommendations.optimalProtein / result.leanMassKg).toFixed(1)}
+              {formatNumber(result.recommendations.optimalProtein / result.leanMassKg, 1)}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">g per kg lean mass</div>
           </div>
@@ -181,13 +183,13 @@ export default function MaximumFatLossResultDisplay({
                     <td className="py-2">{proj.weeks}</td>
                     <td className="text-right py-2">
                       {weightUnit === 'kg'
-                        ? proj.projectedWeightKg.toFixed(1)
-                        : (proj.projectedWeightKg * 2.20462).toFixed(1)}
+                        ? formatNumber(proj.projectedWeightKg, 1)
+                        : formatNumber(proj.projectedWeightKg * 2.20462, 1)}
                     </td>
                     <td className="text-right py-2">
-                      {proj.projectedBodyFatPercentage.toFixed(1)}%
+                      {formatNumber(proj.projectedBodyFatPercentage, 1)}%
                     </td>
-                    <td className="text-right py-2">{proj.adjustedDeficit} cal</td>
+                    <td className="text-right py-2">{proj.adjustedDeficit} cal</td>
                   </tr>
                 ))}
               </tbody>
@@ -222,7 +224,7 @@ export default function MaximumFatLossResultDisplay({
           </li>
           <li className="flex items-start gap-2">
             <span className="text-orange-500 flex-shrink-0">✓</span>
-            <span>Get 7-9 hours of quality sleep for optimal recovery and fat loss</span>
+            <span>Get 7-9 hours of quality sleep for optimal recovery and fat loss</span>
           </li>
         </ul>
       </Card>

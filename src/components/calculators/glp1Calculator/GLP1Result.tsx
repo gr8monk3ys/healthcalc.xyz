@@ -22,10 +22,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
   const monthlyLossMax = Math.round(result.expectedWeightLossPerWeek.max * 4.3 * 10) / 10;
 
   return (
-    <div
-      id="glp1-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="glp1-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your GLP-1 Nutrition Targets</h2>
 
       {/* Medication & Goal */}
@@ -47,23 +44,23 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
             <span className="text-sm text-gray-600">kcal/day</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-gray-600">Baseline TDEE: {result.tdee} kcal</span>
+            <span className="text-gray-600">Baseline TDEE: {result.tdee} kcal</span>
             <span className="px-2 py-0.5 rounded bg-orange-100 text-orange-700 font-medium">
-              -{calorieReduction} kcal ({calorieReductionPercent}%)
+              -{calorieReduction} kcal ({calorieReductionPercent}%)
             </span>
           </div>
 
           <div className="relative h-4 neumorph-inset rounded-full overflow-hidden mt-3">
             <div
-              className="h-full bg-gradient-to-r from-blue-400 to-green-400 transition-all duration-500"
+              className="h-full bg-gradient-to-r from-blue-400 to-green-400"
               style={{
                 width: `${Math.round((result.adjustedCalories / result.tdee) * 100)}%`,
               }}
             ></div>
           </div>
           <div className="flex justify-between text-xs mt-1 text-gray-600">
-            <span>0 kcal</span>
-            <span>TDEE: {result.tdee} kcal</span>
+            <span>0 kcal</span>
+            <span>TDEE: {result.tdee} kcal</span>
           </div>
         </div>
       </div>
@@ -78,7 +75,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
             <p className="text-xl font-bold">
               {result.proteinMinGrams}-{result.proteinMaxGrams}g
             </p>
-            <p className="text-xs text-gray-600">{proteinCalories} kcal</p>
+            <p className="text-xs text-gray-600">{proteinCalories} kcal</p>
             <p className="text-xs text-gray-600">{result.proteinPercentage}% of calories</p>
           </div>
 
@@ -86,7 +83,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           <div className="neumorph-inset p-4 rounded-lg border-yellow-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Fat</p>
             <p className="text-xl font-bold">{result.fatGrams}g</p>
-            <p className="text-xs text-gray-600">{fatCalories} kcal</p>
+            <p className="text-xs text-gray-600">{fatCalories} kcal</p>
             <p className="text-xs text-gray-600">
               {Math.round((fatCalories / result.adjustedCalories) * 100)}% of calories
             </p>
@@ -96,7 +93,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
           <div className="neumorph-inset p-4 rounded-lg border-green-500/40">
             <p className="text-xs font-medium text-gray-600 mb-1">Carbs</p>
             <p className="text-xl font-bold">{result.carbGrams}g</p>
-            <p className="text-xs text-gray-600">{carbCalories} kcal</p>
+            <p className="text-xs text-gray-600">{carbCalories} kcal</p>
             <p className="text-xs text-gray-600">
               {Math.round((carbCalories / result.adjustedCalories) * 100)}% of calories
             </p>
@@ -116,7 +113,7 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
               </p>
             </div>
             <div className="text-4xl opacity-30" aria-hidden="true">
-              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
               </svg>
             </div>
@@ -129,11 +126,11 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
         <h3 className="font-medium mb-2">Expected Monthly Weight Loss</h3>
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="text-xl font-bold">
-            {monthlyLossMin} - {monthlyLossMax} kg/month
+            {monthlyLossMin} - {monthlyLossMax} kg/month
           </p>
           <p className="text-xs text-gray-600 mt-1">
             Based on weekly loss of {result.expectedWeightLossPerWeek.min} -{' '}
-            {result.expectedWeightLossPerWeek.max} kg. Individual results vary based on adherence,
+            {result.expectedWeightLossPerWeek.max} kg. Individual results vary based on adherence,
             exercise, and metabolic factors.
           </p>
         </div>
@@ -148,7 +145,13 @@ const GLP1ResultDisplay: React.FC<GLP1ResultDisplayProps> = ({ result, medicatio
               {result.nutrientPriorities.map(priority => (
                 <li key={priority} className="flex items-start gap-2 text-sm">
                   <span className="text-green-500 mt-0.5 flex-shrink-0">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      aria-hidden="true"
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"

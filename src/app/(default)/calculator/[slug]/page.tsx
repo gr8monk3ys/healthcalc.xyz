@@ -84,7 +84,7 @@ export default async function CalculatorDetailPage({ params }: CalculatorDetailP
           <p className="text-gray-600 mb-6">{detail?.intro || calculator.description}</p>
 
           <div className="neumorph p-6 rounded-lg mb-6">
-            <h2 className="text-xl font-semibold mb-4">Why use this calculator?</h2>
+            <h2 className="text-xl font-semibold mb-4">Why Use This Calculator?</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-700">
               {(detail?.highlights || []).map(item => (
                 <li key={item}>{item}</li>
@@ -116,7 +116,7 @@ export default async function CalculatorDetailPage({ params }: CalculatorDetailP
             <div className="text-lg font-semibold">{calculator.category}</div>
           </div>
           <div className="neumorph p-5 rounded-lg">
-            <h2 className="text-lg font-semibold mb-2">Ready to calculate?</h2>
+            <h2 className="text-lg font-semibold mb-2">Ready to Calculate?</h2>
             <p className="text-sm text-gray-600 mb-4">
               Open the interactive calculator to get your results.
             </p>
