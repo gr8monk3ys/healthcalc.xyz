@@ -7,13 +7,13 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata = {
   title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
   description:
-    'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
+    'Understand healthy body fat ranges by age and sex, how body fat is measured (DEXA, BIA, calipers, smart scales), and how to track changes accurately over time.',
   keywords:
-    'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
+    'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat, smart scale body fat, tracking body fat over time',
   openGraph: {
     title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
     description:
-      'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
+      'Understand healthy body fat ranges by age and sex, how body fat is measured, and how to track changes accurately over time.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/understanding-body-fat-percentage',
     images: [
@@ -29,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
     description:
-      'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean.',
+      'Understand healthy body fat ranges by age and sex, how body fat is measured, and how to track changes accurately over time.',
     images: ['/images/blog/understanding-body-fat-percentage.jpg'],
   },
   alternates: {
@@ -60,14 +60,17 @@ const BlogPostPageContent = (
           <span className="inline-block bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
             Body Composition
           </span>
-          <span className="inline-block ml-2 text-xs text-gray-500">February 28, 2025</span>
+          <span className="inline-block ml-2 text-xs text-gray-500">
+            January 3, 2026 &middot; Updated September 28, 2026
+          </span>
         </div>
         <h1 className="text-3xl font-bold mb-4">
           Understanding Body Fat Percentage: What's Healthy and Why It Matters
         </h1>
         <p className="text-lg text-gray-600">
           Learn what body fat percentage really means, how it's measured, and what ranges are
-          considered healthy for men and women of different ages and fitness levels.
+          considered healthy for men and women of different ages and fitness levels &mdash; plus how
+          to track it consistently over time.
         </p>
       </header>
 
@@ -245,6 +248,46 @@ const BlogPostPageContent = (
           </li>
         </ul>
 
+        <h2>Tracking Body Fat Percentage Over Time</h2>
+        <p>
+          Because every method above carries some margin of error, the single biggest improvement
+          you can make isn't picking the "most accurate" tool &mdash; it's measuring the same way,
+          under the same conditions, every time. A cheap BIA smart scale used consistently every
+          Monday morning, fasted, before drinking water, will usually tell you more about your trend
+          than a one-off DEXA scan compared against a caliper reading taken months apart.
+        </p>
+        <ul>
+          <li>Measure at the same time of day, ideally first thing in the morning.</li>
+          <li>Keep hydration and food intake consistent (fasted, before your first meal).</li>
+          <li>
+            Track the trend over 4-6 weeks rather than reacting to any single reading &mdash; daily
+            fluctuations of 1-2 percentage points from water weight alone are normal.
+          </li>
+          <li>
+            If you switch measurement methods, expect the absolute number to shift; keep tracking
+            with the new method rather than comparing it directly to old readings.
+          </li>
+        </ul>
+        <p>
+          For a full walkthrough of at-home options and how to keep results consistent, see our
+          guide on{' '}
+          <Link
+            href="/blog/how-to-measure-body-fat-at-home"
+            className="text-accent hover:underline"
+          >
+            how to measure body fat at home
+          </Link>
+          . You can log your own readings over time with the{' '}
+          <Link href="/body-fat" className="text-accent hover:underline">
+            Body Fat Calculator
+          </Link>{' '}
+          and check how your fat and lean mass split shifts using the{' '}
+          <Link href="/lean-body-mass" className="text-accent hover:underline">
+            Lean Body Mass Calculator
+          </Link>
+          .
+        </p>
+
         <h2>How to Lower Your Body Fat Percentage</h2>
         <p>Reducing body fat percentage comes down to a few well-supported strategies:</p>
         <ol>
@@ -318,6 +361,24 @@ const BlogPostPageContent = (
             <h3 className="font-medium">TDEE Explained: How Many Calories Do You Really Need?</h3>
             <p className="text-sm text-gray-600 mt-1">
               Understand the components of Total Daily Energy Expenditure and why it matters.
+            </p>
+          </div>
+        </Link>
+
+        <Link href="/blog/how-to-measure-body-fat-at-home" className="block">
+          <div className="neumorph p-4 rounded-lg transition-all hover:shadow-neumorph-inset">
+            <h3 className="font-medium">How to Measure Body Fat at Home</h3>
+            <p className="text-sm text-gray-600 mt-1">
+              Methods, accuracy, and what actually works when you're tracking at home.
+            </p>
+          </div>
+        </Link>
+
+        <Link href="/blog/smart-scale-vs-body-fat-calipers" className="block">
+          <div className="neumorph p-4 rounded-lg transition-all hover:shadow-neumorph-inset">
+            <h3 className="font-medium">Smart Scale vs Body Fat Calipers</h3>
+            <p className="text-sm text-gray-600 mt-1">
+              Which option is more accurate and consistent for tracking body composition.
             </p>
           </div>
         </Link>
