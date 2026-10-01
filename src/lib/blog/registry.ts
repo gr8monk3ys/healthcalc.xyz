@@ -65,7 +65,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
   {
     title: 'The Pros and Cons of Different Body Fat Measurement Methods',
     description:
-      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+      'Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method.',
     slug: 'measuring-body-fat',
     date: 'January 5, 2026',
     readTime: '12 min read',
