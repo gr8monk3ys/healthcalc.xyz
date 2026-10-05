@@ -168,7 +168,7 @@ export function formatTargetDate(date: Date): string {
  */
 export function getDeficitSafetyMessage(deficitLevel: 'mild' | 'moderate' | 'aggressive'): string {
   const messages = {
-    mild: "This deficit is safe and sustainable for most people. You'll lose weight gradually while maintaining muscle mass and energy levels.",
+    mild: 'This deficit is safe and sustainable for most people. You’ll lose weight gradually while maintaining muscle mass and energy levels.',
     moderate:
       'This deficit balances speed with sustainability. Most people can maintain this deficit while staying healthy and energized.',
     aggressive:

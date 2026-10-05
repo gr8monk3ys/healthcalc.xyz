@@ -1,6 +1,7 @@
 'use client';
 
 import React, {
+  useMemo,
   createContext,
   useCallback,
   useContext,
@@ -73,6 +74,28 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
   }
 }
 
+type SupabaseBrowserClient = NonNullable<Awaited<ReturnType<typeof getSupabaseBrowserClient>>>;
+
+/**
+ * AuthProvider mounts in several places on a page (header controls, save
+ * button, saved-results views). Share one getUser() round trip between them
+ * instead of one per provider; auth state changes refresh the shared value.
+ */
+let currentUserPromise: Promise<AuthUser | null> | null = null;
+
+function getCurrentUserOnce(supabase: SupabaseBrowserClient): Promise<AuthUser | null> {
+  if (!currentUserPromise) {
+    currentUserPromise = supabase.auth
+      .getUser()
+      .then(({ data }) => (data.user ? mapSupabaseUser(data.user) : null))
+      .catch(() => {
+        currentUserPromise = null;
+        return null;
+      });
+  }
+  return currentUserPromise;
+}
+
 /**
  * AuthProvider that integrates with Supabase Auth when env vars are set,
  * and falls back to an unauthenticated stub when they are not.
@@ -99,12 +122,9 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
         return;
       }
 
-      const { data } = await supabase.auth.getUser();
+      const currentUser = await getCurrentUserOnce(supabase);
       if (!cancelled) {
-        dispatchAuthState({
-          type: 'resolve',
-          user: data.user ? mapSupabaseUser(data.user) : null,
-        });
+        dispatchAuthState({ type: 'resolve', user: currentUser });
       }
 
       if (cancelled) {
@@ -117,10 +137,9 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
         if (cancelled) {
           return;
         }
-        dispatchAuthState({
-          type: 'resolve',
-          user: session?.user ? mapSupabaseUser(session.user) : null,
-        });
+        const nextUser = session?.user ? mapSupabaseUser(session.user) : null;
+        currentUserPromise = Promise.resolve(nextUser);
+        dispatchAuthState({ type: 'resolve', user: nextUser });
       });
 
       if (cancelled) {
@@ -174,17 +193,21 @@ export function AuthProvider({ children }: AuthProviderProps): React.JSX.Element
     if (supabase) {
       await supabase.auth.signOut();
     }
+    currentUserPromise = Promise.resolve(null);
     dispatchAuthState({ type: 'sign-out' });
   }, []);
 
-  const value: AuthContextState = {
-    user,
-    isAuthenticated: user !== null,
-    isLoading,
-    supabaseEnabled: enabled,
-    signIn,
-    signOut,
-  };
+  const value = useMemo<AuthContextState>(
+    () => ({
+      user,
+      isAuthenticated: user !== null,
+      isLoading,
+      supabaseEnabled: enabled,
+      signIn,
+      signOut,
+    }),
+    [user, isLoading, enabled, signIn, signOut]
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

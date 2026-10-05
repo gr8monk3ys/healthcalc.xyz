@@ -1,8 +1,3 @@
-'use client';
-
-import { useId } from 'react';
-import Script from 'next/script';
-
 // Import schema utility functions for re-export
 import * as schemaUtils from '@/utils/schema';
 
@@ -21,21 +16,21 @@ interface StructuredDataProps {
 
 /**
  * Component for adding structured data (JSON-LD) to pages
- * This helps search engines better understand the content and can improve rich snippets
+ * This helps search engines better understand the content and can improve rich snippets.
+ *
+ * A plain inline <script type="application/ld+json">: it is data, not code, so
+ * it needs no loading strategy, and rendering it directly (no client boundary,
+ * no next/script) puts it in the server HTML where crawlers read it.
  */
 export default function StructuredData({ data }: StructuredDataProps) {
   const schemaType = typeof data['@type'] === 'string' ? data['@type'] : 'unknown';
-  const scriptId = useId().replace(/:/g, '-');
   const schemaJson = JSON.stringify(data).replace(/</g, '\\u003c');
 
   return (
-    <Script
-      id={`structured-data-${schemaType}-${scriptId}`}
+    <script
       type="application/ld+json"
       data-schema-type={schemaType}
-      strategy="afterInteractive"
-    >
-      {schemaJson}
-    </Script>
+      dangerouslySetInnerHTML={{ __html: schemaJson }}
+    />
   );
 }

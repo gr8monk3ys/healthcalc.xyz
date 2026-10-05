@@ -25,7 +25,7 @@ export default function SleepResult({ result }: SleepResultProps) {
           <div key={item.cycles} className="p-3 bg-gray-50 rounded-lg flex justify-between">
             <div>
               <p className="font-medium">{item.time}</p>
-              <p className="text-xs text-gray-500">{item.hours} hours of sleep</p>
+              <p className="text-xs text-gray-500">{item.hours} hours of sleep</p>
             </div>
             <span className="text-sm text-gray-600">{item.cycles} cycles</span>
           </div>

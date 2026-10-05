@@ -6,6 +6,7 @@ import { buildEmbedCode } from '@/utils/embed';
 import { toAbsoluteUrl } from '@/lib/site';
 import { useLocale } from '@/context/LocaleContext';
 import type { SupportedLocale } from '@/i18n/config';
+import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
 const DEFAULT_HEIGHT = 680;
 
@@ -58,7 +59,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
         labelNotes: 'Notas (opcional)',
         placeholderNotes: 'Cuéntanos cómo planeas usar la inserción.',
         submit: 'Solicitar aprobación',
-        sending: 'Enviando...',
+        sending: 'Enviando…',
         reviewNote: 'Revisamos solicitudes en 1 a 2 días hábiles.',
         success: 'Solicitud enviada. Te contactaremos por correo.',
         error: 'Algo salió mal. Inténtalo de nuevo o escríbenos por correo.',
@@ -85,7 +86,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
         labelNotes: 'Notes (facultatif)',
         placeholderNotes: 'Dites-nous comment vous comptez utiliser l’intégration.',
         submit: 'Demander l’approbation',
-        sending: 'Envoi...',
+        sending: 'Envoi…',
         reviewNote: 'Nous examinons les demandes sous 1 à 2 jours ouvrés.',
         success: 'Demande envoyée. Nous vous répondrons par e-mail.',
         error: 'Une erreur s’est produite. Réessayez ou contactez-nous par e-mail.',
@@ -112,7 +113,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
         labelNotes: 'Notizen (optional)',
         placeholderNotes: 'Beschreiben Sie kurz, wie Sie das Embed nutzen möchten.',
         submit: 'Freigabe anfordern',
-        sending: 'Senden...',
+        sending: 'Senden…',
         reviewNote: 'Wir prüfen Anfragen innerhalb von 1-2 Werktagen.',
         success: 'Anfrage gesendet. Wir melden uns per E-Mail.',
         error:
@@ -140,7 +141,7 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
         labelNotes: 'Observações (opcional)',
         placeholderNotes: 'Conte como você pretende usar a incorporação.',
         submit: 'Solicitar aprovação',
-        sending: 'Enviando...',
+        sending: 'Enviando…',
         reviewNote: 'Analisamos solicitações em 1 a 2 dias úteis.',
         success: 'Solicitação enviada. Vamos responder por email.',
         error: 'Algo deu errado. Tente novamente ou fale conosco por email.',
@@ -160,13 +161,13 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
         labelName: '姓名',
         placeholderName: '你的姓名',
         labelEmail: '邮箱',
-        placeholderEmail: 'you@example.com',
+        placeholderEmail: 'you@example.com…',
         labelWebsite: '网站地址',
-        placeholderWebsite: 'https://example.com',
+        placeholderWebsite: 'https://example.com…',
         labelNotes: '备注（可选）',
         placeholderNotes: '告诉我们你打算如何使用嵌入。',
         submit: '提交申请',
-        sending: '发送中...',
+        sending: '发送中…',
         reviewNote: '我们会在 1-2 个工作日内审核。',
         success: '申请已发送，我们会通过邮件联系你。',
         error: '出了点问题。请重试或直接发邮件联系我们。',
@@ -186,15 +187,15 @@ function getEmbedWidgetStrings(locale: SupportedLocale): EmbedWidgetStrings {
         labelLivePreview: 'Live Preview',
         requestTitle: 'Request Embed Approval',
         labelName: 'Name',
-        placeholderName: 'Your name',
+        placeholderName: 'Jane Smith…',
         labelEmail: 'Email',
-        placeholderEmail: 'you@example.com',
+        placeholderEmail: 'you@example.com…',
         labelWebsite: 'Website URL',
-        placeholderWebsite: 'https://example.com',
+        placeholderWebsite: 'https://example.com…',
         labelNotes: 'Notes (optional)',
-        placeholderNotes: 'Tell us how you plan to use the embed.',
+        placeholderNotes: 'e.g. A sidebar widget on our clinic’s blog…',
         submit: 'Request Approval',
-        sending: 'Sending...',
+        sending: 'Sending…',
         reviewNote: 'We review requests within 1-2 business days.',
         success: 'Request sent. We’ll follow up by email.',
         error: 'Something went wrong. Please try again or email us directly.',
@@ -207,6 +208,7 @@ function useEmbedWidgetPickerState() {
   const [selectedSlug, setSelectedSlug] = useState(CALCULATOR_CATALOG[0]?.slug ?? 'bmi');
   const [height, setHeight] = useState(DEFAULT_HEIGHT);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
   const [requestName, setRequestName] = useState('');
   const [requestEmail, setRequestEmail] = useState('');
   const [requestSite, setRequestSite] = useState('');
@@ -223,6 +225,8 @@ function useEmbedWidgetPickerState() {
     setHeight,
     copied,
     setCopied,
+    copyFailed,
+    setCopyFailed,
     requestName,
     setRequestName,
     requestEmail,
@@ -247,6 +251,8 @@ export default function EmbedWidgetPicker() {
     setHeight,
     copied,
     setCopied,
+    copyFailed,
+    setCopyFailed,
     requestName,
     setRequestName,
     requestEmail,
@@ -280,12 +286,19 @@ export default function EmbedWidgetPicker() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(embedCode);
+      setCopyFailed(false);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
       setCopied(false);
+      setCopyFailed(true);
     }
   };
+
+  useUnsavedChangesWarning(
+    requestStatus !== 'success' &&
+      Boolean(requestName || requestEmail || requestSite || requestNotes)
+  );
 
   const handleRequestSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -340,6 +353,13 @@ export default function EmbedWidgetPicker() {
         >
           {copied ? strings.copied : strings.copyCode}
         </button>
+        <span className={copyFailed ? 'text-sm text-red-600' : 'sr-only'} role="status">
+          {copied
+            ? strings.copied
+            : copyFailed
+              ? 'Couldn’t copy automatically. Select the code in the box below and copy it with Ctrl+C (⌘C on Mac).'
+              : ''}
+        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
@@ -348,8 +368,9 @@ export default function EmbedWidgetPicker() {
             {strings.labelCalculator}
           </label>
           <select
+            name="embed-calculator"
             id="embed-calculator"
-            className="ui-select w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="ui-select w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             value={selectedSlug}
             onChange={event => setSelectedSlug(event.target.value)}
           >
@@ -365,13 +386,16 @@ export default function EmbedWidgetPicker() {
             {strings.labelHeight}
           </label>
           <input
+            name="embed-height"
+            autoComplete="off"
+            inputMode="decimal"
             id="embed-height"
             type="number"
             min={420}
             max={1400}
             value={height}
             onChange={event => setHeight(Number(event.target.value))}
-            className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
         </div>
         <div className="md:col-span-3">
@@ -379,6 +403,8 @@ export default function EmbedWidgetPicker() {
             {strings.labelEmbedCode}
           </label>
           <textarea
+            name="embed-code"
+            autoComplete="off"
             id="embed-code"
             readOnly
             className="ui-textarea w-full h-32 p-3 text-xs font-mono"
@@ -386,9 +412,7 @@ export default function EmbedWidgetPicker() {
           />
         </div>
         <div className="md:col-span-3">
-          <label className="block text-sm font-medium mb-1" htmlFor="embed-preview">
-            {strings.labelLivePreview}
-          </label>
+          <p className="block text-sm font-medium mb-1">{strings.labelLivePreview}</p>
           <div className="glass-panel rounded-2xl p-4">
             <iframe
               id="embed-preview"
@@ -411,6 +435,7 @@ export default function EmbedWidgetPicker() {
           <div className="hidden" aria-hidden="true">
             <label htmlFor="embed-request-website-confirm">Website (leave blank)</label>
             <input
+              name="embed-request-website-confirm"
               id="embed-request-website-confirm"
               type="text"
               tabIndex={-1}
@@ -424,9 +449,10 @@ export default function EmbedWidgetPicker() {
               {strings.labelName}
             </label>
             <input
+              name="embed-request-name"
               id="embed-request-name"
               type="text"
-              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderName}
               value={requestName}
               onChange={event => setRequestName(event.target.value)}
@@ -439,9 +465,11 @@ export default function EmbedWidgetPicker() {
               {strings.labelEmail}
             </label>
             <input
+              name="embed-request-email"
+              spellCheck={false}
               id="embed-request-email"
               type="email"
-              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderEmail}
               value={requestEmail}
               onChange={event => setRequestEmail(event.target.value)}
@@ -455,9 +483,11 @@ export default function EmbedWidgetPicker() {
               {strings.labelWebsite}
             </label>
             <input
+              name="embed-request-site"
+              spellCheck={false}
               id="embed-request-site"
               type="url"
-              className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderWebsite}
               value={requestSite}
               onChange={event => setRequestSite(event.target.value)}
@@ -471,9 +501,10 @@ export default function EmbedWidgetPicker() {
               {strings.labelNotes}
             </label>
             <textarea
+              name="embed-request-notes"
               id="embed-request-notes"
               rows={3}
-              className="ui-textarea w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="ui-textarea w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               placeholder={strings.placeholderNotes}
               value={requestNotes}
               onChange={event => setRequestNotes(event.target.value)}

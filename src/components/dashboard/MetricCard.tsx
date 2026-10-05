@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { CalculatorMetricDef } from '@/constants/calculatorMetrics';
+import { formatDisplayDate, formatNumber } from '@/utils/formatNumber';
 
 interface MetricCardProps {
   metric: CalculatorMetricDef;
@@ -13,7 +14,7 @@ interface MetricCardProps {
 }
 
 function formatValue(value: number, unit?: string): string {
-  const formatted = Number.isInteger(value) ? String(value) : value.toFixed(1);
+  const formatted = formatNumber(value, Number.isInteger(value) ? 0 : 1);
   return unit ? `${formatted} ${unit}` : formatted;
 }
 
@@ -40,22 +41,7 @@ function getTrendColor(delta: number, higherIsBetter?: boolean): string {
 }
 
 function formatDate(dateString: string): string {
-  const d = new Date(dateString);
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  return `${months[d.getMonth()]} ${d.getDate()}`;
+  return formatDisplayDate(dateString, { month: 'short', day: 'numeric' });
 }
 
 export default function MetricCard({
@@ -69,7 +55,7 @@ export default function MetricCard({
     return (
       <Link
         href={`/${calculatorSlug}`}
-        className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+        className="glass-panel rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg block"
       >
         <p className="text-xs font-medium uppercase tracking-wide opacity-60">{metric.label}</p>
         <p className="mt-2 text-sm text-foreground opacity-50">Not calculated yet</p>
@@ -91,7 +77,7 @@ export default function MetricCard({
         {delta !== undefined && delta !== 0 && (
           <span className={`text-sm font-medium ${getTrendColor(delta, metric.higherIsBetter)}`}>
             {delta > 0 ? '↑' : '↓'}
-            {Math.abs(delta).toFixed(1)}
+            {formatNumber(Math.abs(delta), 1)}
           </span>
         )}
       </div>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { WHRResult } from '@/types/whr';
 import { WHR_HEALTH_RISKS } from '@/constants/whr';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface WHRResultDisplayProps {
   result: WHRResult;
@@ -11,16 +12,13 @@ interface WHRResultDisplayProps {
 
 const WHRResultDisplay: React.FC<WHRResultDisplayProps> = ({ result, gender }) => {
   // Format WHR value to 2 decimal places
-  const formattedWHR = result.whr.toFixed(2);
+  const formattedWHR = formatNumber(result.whr, 2);
 
   // Get gender-specific threshold
   const threshold = gender === 'male' ? 0.95 : 0.8;
 
   return (
-    <div
-      id="whr-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="whr-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Waist-to-Hip Ratio Results</h2>
 
       <div className="mb-6">
@@ -38,7 +36,7 @@ const WHRResultDisplay: React.FC<WHRResultDisplayProps> = ({ result, gender }) =
           </div>
 
           <div
-            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2 transition-all duration-500"
+            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2"
             style={{
               left: `${Math.min(Math.max((result.whr / (threshold * 1.5)) * 100, 0), 100)}%`,
             }}
@@ -108,7 +106,7 @@ const WHRResultDisplay: React.FC<WHRResultDisplayProps> = ({ result, gender }) =
               </li>
               <li>Reduce consumption of processed foods, sugary drinks, and alcohol</li>
               <li>Manage stress levels through meditation, yoga, or other relaxation techniques</li>
-              <li>Aim for 7-9 hours of quality sleep each night</li>
+              <li>Aim for 7-9 hours of quality sleep each night</li>
               <li>Consider consulting with a healthcare provider for personalized advice</li>
             </ul>
           </div>

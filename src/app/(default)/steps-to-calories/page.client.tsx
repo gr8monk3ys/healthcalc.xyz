@@ -1,19 +1,23 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import StepsToCaloriesResult from '@/components/calculators/steps-to-calories/StepsToCaloriesResult';
 import StepsToCaloriesInfo from '@/components/calculators/steps-to-calories/StepsToCaloriesInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateStepsToCalories, type StrideUnit } from '@/utils/calculators/stepsToCalories';
 import { validateDuration, validateWeight } from '@/utils/validation';
 import type { StepsToCaloriesResult as StepsToCaloriesResultType } from '@/types/stepsToCalories';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { convertLength } from '@/utils/conversions';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -113,7 +117,7 @@ export default function StepsToCaloriesCalculator({
         );
         setTimeout(() => {
           const element = document.getElementById('steps-to-calories-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -160,7 +164,7 @@ export default function StepsToCaloriesCalculator({
               value: steps,
               onChange: setSteps,
               error: errors.steps,
-              placeholder: 'e.g. 8000',
+              placeholder: 'e.g. 8000…',
               min: 1,
             },
             {
@@ -170,7 +174,7 @@ export default function StepsToCaloriesCalculator({
               value: strideLength,
               onChange: setStrideLength,
               error: errors.strideLength,
-              placeholder: strideUnit === 'in' ? 'Inches' : 'Centimeters',
+              placeholder: strideUnit === 'in' ? 'e.g. 30…' : 'e.g. 75…',
               unit: strideUnit,
               unitToggle: toggleStrideUnit,
               step: '0.1',
@@ -182,7 +186,7 @@ export default function StepsToCaloriesCalculator({
               value: duration,
               onChange: setDuration,
               error: errors.duration,
-              placeholder: 'Minutes',
+              placeholder: 'e.g. 60…',
               min: 1,
               max: 1440,
             },

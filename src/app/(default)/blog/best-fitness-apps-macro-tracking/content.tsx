@@ -111,7 +111,7 @@ const BestFitnessAppsPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Fitness Apps for Tracking Macros and Calories in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -298,7 +298,7 @@ const BestFitnessAppsPageContent = (
               TDEE Calculator
             </Link>{' '}
             - enter your calculated TDEE as your goal in MyFitnessPal, then track daily to ensure
-            you're hitting your target.
+            you’re hitting your target.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -331,7 +331,7 @@ const BestFitnessAppsPageContent = (
           <p className="mb-4">
             Cronometer uses a curated, verified database rather than user-submitted entries. It
             tracks 82+ nutrients including micronutrients, making it the choice for health-focused
-            users who want to ensure they're getting complete nutrition.
+            users who want to ensure they’re getting complete nutrition.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -351,7 +351,7 @@ const BestFitnessAppsPageContent = (
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               Calorie Deficit Calculator
             </Link>{' '}
-            who want to ensure they're meeting nutritional needs while in a deficit. The
+            who want to ensure they’re meeting nutritional needs while in a deficit. The
             micronutrient tracking helps prevent deficiencies.
           </p>
 
@@ -384,7 +384,7 @@ const BestFitnessAppsPageContent = (
           <p className="mb-4">
             Created by the team at Stronger By Science, MacroFactor is unique because it
             continuously calculates your actual TDEE based on your logged food and weight changes.
-            It's like having our{' '}
+            It’s like having our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
             </Link>{' '}
@@ -399,7 +399,7 @@ const BestFitnessAppsPageContent = (
             <li>Automatic macro adjustments based on progress</li>
             <li>Expenditure tracking shows your calculated TDEE over time</li>
             <li>Science-based approach from PhD researchers</li>
-            <li>No food "scoring" or judgment</li>
+            <li>No food “scoring” or judgment</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
@@ -439,7 +439,7 @@ const BestFitnessAppsPageContent = (
           </div>
 
           <p className="mb-4">
-            Lose It! offers the best free calorie tracking experience. The "Snap It" feature uses AI
+            Lose It! offers the best free calorie tracking experience. The “Snap It” feature uses AI
             to identify foods from photos, making logging faster than typing. The free tier includes
             everything most people need.
           </p>
@@ -530,7 +530,7 @@ const BestFitnessAppsPageContent = (
               <strong>Log before you eat:</strong> Pre-logging helps you make better decisions
             </li>
             <li>
-              <strong>Use a food scale:</strong> "Eyeballing" can be off by 50%+
+              <strong>Use a food scale:</strong> “Eyeballing” can be off by 50%+
             </li>
             <li>
               <strong>Track consistently:</strong> Even imperfect tracking beats no tracking
@@ -539,7 +539,7 @@ const BestFitnessAppsPageContent = (
               <strong>Verify entries:</strong> Check that database entries match nutrition labels
             </li>
             <li>
-              <strong>Don't obsess:</strong> 80% accuracy consistently beats 100% accuracy
+              <strong>Don’t obsess:</strong> 80% accuracy consistently beats 100% accuracy
               occasionally
             </li>
           </ul>
@@ -550,21 +550,21 @@ const BestFitnessAppsPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your daily calorie needs</p>
             </Link>
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss deficit</p>
             </Link>
             <Link
               href="/weight-management"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Weight Management Calculator</h4>
               <p className="text-sm text-gray-600">Set realistic weight goals</p>

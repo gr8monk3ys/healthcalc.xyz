@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import BodyFrameSizeResult from '@/components/calculators/body-frame-size/BodyFrameSizeResult';
 import BodyFrameSizeInfo from '@/components/calculators/body-frame-size/BodyFrameSizeInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateBodyFrameSize } from '@/utils/calculators/bodyFrameSize';
 import { convertLength } from '@/utils/conversions';
 import { validateHeight, validateWrist } from '@/utils/validation';
@@ -15,6 +14,11 @@ import type { BodyFrameSizeResult as BodyFrameSizeResultType } from '@/types/bod
 import { Gender } from '@/types/common';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -98,7 +102,7 @@ export default function BodyFrameSizeCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('body-frame-size-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -156,7 +160,7 @@ export default function BodyFrameSizeCalculator({
               value: wrist,
               onChange: setWrist,
               error: errors.wrist,
-              placeholder: wristUnit === 'cm' ? 'Centimeters' : 'Inches',
+              placeholder: wristUnit === 'cm' ? 'e.g. 16.5…' : 'e.g. 6.5…',
               unit: wristUnit,
               unitToggle: toggleWristUnit,
               step: '0.1',

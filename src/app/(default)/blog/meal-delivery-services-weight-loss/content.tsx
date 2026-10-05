@@ -111,7 +111,7 @@ const MealDeliveryServicesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Meal Delivery Services for Weight Loss in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -163,7 +163,7 @@ const MealDeliveryServicesPageContent = (
         </div>
 
         <p>
-          You've calculated your{' '}
+          You’ve calculated your{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE
           </Link>{' '}
@@ -241,7 +241,7 @@ const MealDeliveryServicesPageContent = (
         </div>
 
         <p>
-          In this guide, we'll review the best meal delivery services specifically for weight loss
+          In this guide, we’ll review the best meal delivery services specifically for weight loss
           and calorie control, comparing their nutrition info, taste, convenience, and value.
         </p>
 
@@ -250,14 +250,14 @@ const MealDeliveryServicesPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Portion Control:</strong> Pre-portioned meals eliminate the "just one more
-              bite" trap
+              <strong>Portion Control:</strong> Pre-portioned meals eliminate the “just one more
+              bite” trap
             </li>
             <li>
               <strong>Accurate Calories:</strong> Every meal has nutritional info - no guessing
             </li>
             <li>
-              <strong>Decision Fatigue:</strong> Removes daily "what should I eat?" stress
+              <strong>Decision Fatigue:</strong> Removes daily “what should I eat?” stress
             </li>
             <li>
               <strong>Time Savings:</strong> No meal planning, grocery shopping, or extensive
@@ -277,7 +277,7 @@ const MealDeliveryServicesPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Factor</h3>
             </div>
@@ -286,15 +286,15 @@ const MealDeliveryServicesPageContent = (
 
           <p className="mb-4">
             Factor (owned by HelloFresh) delivers chef-prepared, ready-to-eat meals that just need
-            reheating. Their "Calorie Smart" menu features meals under 550 calories, perfect for
+            reheating. Their “Calorie Smart” menu features meals under 550 calories, perfect for
             maintaining a deficit without sacrificing taste.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Calorie Smart meals: 550 calories or less</li>
+            <li>Calorie Smart meals: 550 calories or less</li>
             <li>Keto, high-protein, and vegan options available</li>
-            <li>Ready in 2 minutes (microwave) or 7 minutes (oven)</li>
+            <li>Ready in 2 minutes (microwave) or 7 minutes (oven)</li>
             <li>Fresh, never frozen meals</li>
             <li>Weekly rotating menu with 35+ options</li>
             <li>Dietitian-approved recipes</li>
@@ -304,7 +304,7 @@ const MealDeliveryServicesPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Sample Calorie Smart Meal:</h4>
           <div className="bg-gray-50 p-3 rounded-lg">
             <p className="font-medium">Grilled Chicken with Roasted Vegetables</p>
-            <p className="text-sm text-gray-600">480 cal | 42g protein | 28g carbs | 18g fat</p>
+            <p className="text-sm text-gray-600">480 cal | 42g protein | 28g carbs | 18g fat</p>
           </div>
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
@@ -313,7 +313,7 @@ const MealDeliveryServicesPageContent = (
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               Calorie Deficit Calculator
             </Link>
-            . If your target is 1,800 calories/day, three 550-calorie Factor meals plus snacks fits
+            . If your target is 1,800 calories/day, three 550-calorie Factor meals plus snacks fits
             perfectly.
           </p>
 
@@ -324,7 +324,7 @@ const MealDeliveryServicesPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> More expensive than cooking, limited customization, shorter
-              shelf life (7 days)
+              shelf life (7 days)
             </p>
           </div>
         </div>
@@ -345,14 +345,14 @@ const MealDeliveryServicesPageContent = (
           </div>
 
           <p className="mb-4">
-            HelloFresh delivers fresh ingredients with step-by-step recipes. Their "Calorie Smart"
-            and "Fit & Wholesome" menus feature recipes under 650 calories per serving, with full
+            HelloFresh delivers fresh ingredients with step-by-step recipes. Their “Calorie Smart”
+            and “Fit & Wholesome” menus feature recipes under 650 calories per serving, with full
             nutritional breakdowns.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Calorie Smart meals under 650 calories</li>
+            <li>Calorie Smart meals under 650 calories</li>
             <li>Pre-portioned ingredients prevent overeating</li>
             <li>Learn to cook healthy meals (skill building)</li>
             <li>Family-friendly options available</li>
@@ -377,7 +377,7 @@ const MealDeliveryServicesPageContent = (
               family-friendly
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Requires 30-45 min cooking, some packaging waste, calorie
+              <strong>Cons:</strong> Requires 30-45 min cooking, some packaging waste, calorie
               counts can vary with execution
             </p>
           </div>
@@ -421,7 +421,7 @@ const MealDeliveryServicesPageContent = (
             <Link href="/maximum-fat-loss" className="text-accent hover:underline">
               Maximum Fat Loss Calculator
             </Link>{' '}
-            who need precise macro control. Trifecta's protein-focused meals help preserve muscle
+            who need precise macro control. Trifecta’s protein-focused meals help preserve muscle
             during aggressive cuts.
           </p>
 
@@ -471,7 +471,7 @@ const MealDeliveryServicesPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Calculator Relevance:</h4>
           <p>
-            The customizable macros make MealPro perfect for users who've calculated specific
+            The customizable macros make MealPro perfect for users who’ve calculated specific
             targets with our{' '}
             <Link href="/weight-management" className="text-accent hover:underline">
               Weight Management Calculator
@@ -537,28 +537,28 @@ const MealDeliveryServicesPageContent = (
               <tr>
                 <td className="border p-3">Factor</td>
                 <td className="border p-3 text-center">$11/meal</td>
-                <td className="border p-3 text-center">2-7 min</td>
-                <td className="border p-3 text-center">&lt;550 cal</td>
+                <td className="border p-3 text-center">2-7 min</td>
+                <td className="border p-3 text-center">&lt;550 cal</td>
                 <td className="border p-3 text-center">Convenience</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">HelloFresh</td>
                 <td className="border p-3 text-center">$8/serving</td>
-                <td className="border p-3 text-center">30-45 min</td>
-                <td className="border p-3 text-center">&lt;650 cal</td>
+                <td className="border p-3 text-center">30-45 min</td>
+                <td className="border p-3 text-center">&lt;650 cal</td>
                 <td className="border p-3 text-center">Home cooking</td>
               </tr>
               <tr>
                 <td className="border p-3">Trifecta</td>
                 <td className="border p-3 text-center">$13/meal</td>
-                <td className="border p-3 text-center">2-5 min</td>
+                <td className="border p-3 text-center">2-5 min</td>
                 <td className="border p-3 text-center">Varies</td>
                 <td className="border p-3 text-center">Athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">MealPro</td>
                 <td className="border p-3 text-center">$9/meal</td>
-                <td className="border p-3 text-center">3-5 min</td>
+                <td className="border p-3 text-center">3-5 min</td>
                 <td className="border p-3 text-center">Customizable</td>
                 <td className="border p-3 text-center">Budget/Macros</td>
               </tr>
@@ -591,21 +591,21 @@ const MealDeliveryServicesPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss deficit</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Find your maintenance calories</p>
             </Link>
             <Link
               href="/weight-management"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Weight Management Calculator</h4>
               <p className="text-sm text-gray-600">Set your goal weight timeline</p>

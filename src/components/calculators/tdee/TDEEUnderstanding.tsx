@@ -43,7 +43,7 @@ const TDEEUnderstanding: React.FC = () => {
       </p>
       <ul className="list-disc pl-5 space-y-1">
         <li>Track your calorie intake accurately using a food diary or app</li>
-        <li>Monitor your weight changes over 2-4 weeks</li>
+        <li>Monitor your weight changes over 2-4 weeks</li>
         <li>Adjust your calorie intake based on actual results</li>
         <li>Recalculate your TDEE periodically as your weight, activity level, or goals change</li>
       </ul>

@@ -48,7 +48,7 @@ export default function BlogLoading() {
         ))}
       </div>
 
-      <span className="sr-only">Loading...</span>
+      <span className="sr-only">Loading…</span>
     </div>
   );
 }

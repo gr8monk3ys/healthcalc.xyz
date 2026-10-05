@@ -101,7 +101,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link
             href="/body-fat"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold text-accent">Body Fat Calculator</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -110,7 +110,7 @@ export default function AboutPage() {
           </Link>
           <Link
             href="/bmi"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold text-accent">BMI Calculator</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -119,7 +119,7 @@ export default function AboutPage() {
           </Link>
           <Link
             href="/tdee"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold text-accent">TDEE Calculator</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -128,7 +128,7 @@ export default function AboutPage() {
           </Link>
           <Link
             href="/calorie-deficit"
-            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+            className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
           >
             <h3 className="font-semibold text-accent">Calorie Deficit Calculator</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">

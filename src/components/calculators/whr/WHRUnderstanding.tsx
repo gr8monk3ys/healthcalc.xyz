@@ -18,7 +18,7 @@ const WHRUnderstanding: React.FC = () => {
 
       <h3 className="font-medium mt-4">Body Shape and Health</h3>
       <p className="mb-2">
-        Your body shape, often described as either "apple-shaped" or "pear-shaped," is determined by
+        Your body shape, often described as either “apple-shaped” or “pear-shaped,” is determined by
         where your body tends to store fat:
       </p>
       <ul className="list-disc pl-5 space-y-2">
@@ -45,7 +45,7 @@ const WHRUnderstanding: React.FC = () => {
         obesity and established risk thresholds based on extensive population studies.
       </p>
       <p className="mb-2">
-        The scientific basis for WHR's importance lies in the metabolic activity of visceral fat.
+        The scientific basis for WHR’s importance lies in the metabolic activity of visceral fat.
         Abdominal fat cells release inflammatory substances and hormones that can:
       </p>
       <ul className="list-disc pl-5 space-y-1">
@@ -65,12 +65,12 @@ const WHRUnderstanding: React.FC = () => {
       <ul className="list-disc pl-5 space-y-2">
         <li>
           <span className="font-medium">BMI (Body Mass Index):</span> Measures overall weight
-          relative to height, but doesn't distinguish between fat and muscle or consider fat
+          relative to height, but doesn’t distinguish between fat and muscle or consider fat
           distribution
         </li>
         <li>
           <span className="font-medium">Waist Circumference:</span> Measures abdominal fat directly,
-          but doesn't account for overall body size or frame
+          but doesn’t account for overall body size or frame
         </li>
         <li>
           <span className="font-medium">WHR (Waist-to-Hip Ratio):</span> Compares waist and hip
@@ -82,11 +82,11 @@ const WHRUnderstanding: React.FC = () => {
         </li>
         <li>
           <span className="font-medium">Body Fat Percentage:</span> Measures the actual proportion
-          of fat in your body, regardless of where it's distributed
+          of fat in your body, regardless of where it’s distributed
         </li>
       </ul>
       <p className="mt-2">
-        Each metric has strengths and limitations. WHR is particularly valuable because it's easy to
+        Each metric has strengths and limitations. WHR is particularly valuable because it’s easy to
         measure and provides insight into fat distribution patterns that BMI alone cannot capture.
       </p>
 
@@ -115,17 +115,17 @@ const WHRUnderstanding: React.FC = () => {
         </li>
         <li>
           <span className="font-medium">Quality sleep:</span> Poor sleep is associated with
-          increased abdominal fat. Aim for 7-9 hours of quality sleep per night.
+          increased abdominal fat. Aim for 7-9 hours of quality sleep per night.
         </li>
         <li>
           <span className="font-medium">Limit alcohol:</span> Excessive alcohol consumption is
-          associated with increased abdominal fat ("beer belly").
+          associated with increased abdominal fat (“beer belly”).
         </li>
       </ul>
 
       <h3 className="font-medium mt-4">Genetic Factors</h3>
       <p className="mb-2">
-        It's important to note that body fat distribution is influenced by genetics, age, sex
+        It’s important to note that body fat distribution is influenced by genetics, age, sex
         hormones, and other factors beyond your control. Some people naturally tend toward an apple
         or pear shape.
       </p>

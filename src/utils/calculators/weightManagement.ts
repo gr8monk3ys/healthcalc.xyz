@@ -219,7 +219,7 @@ export function calculateWeightManagement(
 
   if (dailyCalorieTarget < minCalories) {
     warnings.push(
-      `Your calculated daily target (${dailyCalorieTarget} cal) is below the safe minimum of ${minCalories} cal. We've adjusted it to ${minCalories} cal, which may extend your timeline.`
+      `Your calculated daily target (${dailyCalorieTarget} cal) is below the safe minimum of ${minCalories} cal. We’ve adjusted it to ${minCalories} cal, which may extend your timeline.`
     );
     dailyCalorieTarget = minCalories;
     isGoalRealistic = false;

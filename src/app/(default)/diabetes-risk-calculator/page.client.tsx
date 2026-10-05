@@ -1,16 +1,21 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import DiabetesRiskResultDisplay from '@/components/calculators/diabetesRisk/DiabetesRiskResult';
 import A1CResultDisplay from '@/components/calculators/diabetesRisk/A1CResult';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateAge } from '@/utils/validation';
 import { calculateDiabetesRisk, convertA1C } from '@/utils/calculators/diabetesRisk';
 import type { DiabetesRiskResult, A1CResult, EthnicityRisk } from '@/types/diabetesRisk';
 import { ETHNICITY_LABELS } from '@/constants/diabetesRisk';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 type ActiveMode = 'risk' | 'a1c';
 
@@ -239,7 +244,7 @@ export default function DiabetesRiskCalculator({
 
       setTimeout(() => {
         const element = document.getElementById('diabetes-risk-result');
-        element?.scrollIntoView({ behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
 
       return result;
@@ -273,7 +278,7 @@ export default function DiabetesRiskCalculator({
 
       setTimeout(() => {
         const element = document.getElementById('a1c-result');
-        element?.scrollIntoView({ behavior: 'smooth' });
+        element?.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
 
       return result;
@@ -400,7 +405,7 @@ function renderDiabetesRiskCalculatorView({
             onClick={() => {
               setActiveMode('risk');
             }}
-            className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+            className={`flex-1 px-4 py-3 rounded-lg font-medium transition duration-200 ${
               activeMode === 'risk' ? 'neumorph-inset text-accent' : 'neumorph hover:shadow-lg'
             }`}
           >
@@ -411,7 +416,7 @@ function renderDiabetesRiskCalculatorView({
             onClick={() => {
               setActiveMode('a1c');
             }}
-            className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+            className={`flex-1 px-4 py-3 rounded-lg font-medium transition duration-200 ${
               activeMode === 'a1c' ? 'neumorph-inset text-accent' : 'neumorph hover:shadow-lg'
             }`}
           >
@@ -421,7 +426,13 @@ function renderDiabetesRiskCalculatorView({
 
         {/* Risk Assessment Form */}
         {activeMode === 'risk' && (
-          <form onSubmit={handleRiskSubmit} className="neumorph p-6 rounded-lg space-y-6">
+          <form
+            onSubmit={e => {
+              handleRiskSubmit(e);
+              focusFirstInvalidField(e.currentTarget);
+            }}
+            className="neumorph p-6 rounded-lg space-y-6"
+          >
             <h2 className="text-xl font-semibold mb-4">Type 2 Diabetes Risk Assessment</h2>
 
             {/* Age */}
@@ -430,18 +441,27 @@ function renderDiabetesRiskCalculatorView({
                 Age
               </label>
               <input
+                aria-invalid={riskErrors.age ? true : undefined}
+                aria-describedby={riskErrors.age ? 'age-error' : undefined}
+                name="age"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="age"
                 value={age}
                 onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.age ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 45"
+                placeholder="e.g. 45…"
                 min="1"
                 max="120"
               />
-              {riskErrors.age && <p className="text-red-500 text-sm mt-1">{riskErrors.age}</p>}
+              {riskErrors.age && (
+                <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {riskErrors.age}
+                </p>
+              )}
             </div>
 
             {/* Gender */}
@@ -450,10 +470,11 @@ function renderDiabetesRiskCalculatorView({
                 Gender
               </label>
               <select
+                name="gender"
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -466,19 +487,28 @@ function renderDiabetesRiskCalculatorView({
                 BMI
               </label>
               <input
+                aria-invalid={riskErrors.bmi ? true : undefined}
+                aria-describedby={riskErrors.bmi ? 'bmi-error' : undefined}
+                name="bmi"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="bmi"
                 value={bmi}
                 onChange={e => setBmi(e.target.value === '' ? '' : parseFloat(e.target.value))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.bmi ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 27.5"
+                placeholder="e.g. 27.5…"
                 step="0.1"
                 min="1"
                 max="100"
               />
-              {riskErrors.bmi && <p className="text-red-500 text-sm mt-1">{riskErrors.bmi}</p>}
+              {riskErrors.bmi && (
+                <p id="bmi-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {riskErrors.bmi}
+                </p>
+              )}
               <p className="text-xs text-gray-500 mt-1">
                 If you do not know your BMI, use our{' '}
                 <Link href="/bmi" className="text-accent underline">
@@ -494,10 +524,11 @@ function renderDiabetesRiskCalculatorView({
                 Ethnicity
               </label>
               <select
+                name="ethnicity"
                 id="ethnicity"
                 value={ethnicity}
                 onChange={e => setEthnicity(e.target.value as EthnicityRisk)}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {Object.entries(ETHNICITY_LABELS).map(([value, label]) => (
                   <option key={value} value={value}>
@@ -514,22 +545,31 @@ function renderDiabetesRiskCalculatorView({
                 <span className="text-gray-400 font-normal">- optional</span>
               </label>
               <input
+                aria-invalid={riskErrors.waistCircumference ? true : undefined}
+                aria-describedby={
+                  riskErrors.waistCircumference ? 'waistCircumference-error' : undefined
+                }
+                name="waist"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="waist"
                 value={waistCircumference}
                 onChange={e =>
                   setWaistCircumference(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   riskErrors.waistCircumference ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 90"
+                placeholder="e.g. 90…"
                 step="0.1"
                 min="20"
                 max="300"
               />
               {riskErrors.waistCircumference && (
-                <p className="text-red-500 text-sm mt-1">{riskErrors.waistCircumference}</p>
+                <p id="waistCircumference-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {riskErrors.waistCircumference}
+                </p>
               )}
             </div>
 
@@ -538,9 +578,10 @@ function renderDiabetesRiskCalculatorView({
               <label className="flex items-center">
                 <input
                   type="checkbox"
+                  name="familyHistory"
                   checked={familyHistory}
                   onChange={e => setFamilyHistory(e.target.checked)}
-                  className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                  className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
                   Family history of diabetes (parent, sibling)
@@ -550,9 +591,10 @@ function renderDiabetesRiskCalculatorView({
               <label className="flex items-center">
                 <input
                   type="checkbox"
+                  name="highBloodPressure"
                   checked={highBloodPressure}
                   onChange={e => setHighBloodPressure(e.target.checked)}
-                  className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                  className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
                   High blood pressure (or taking medication for it)
@@ -562,12 +604,13 @@ function renderDiabetesRiskCalculatorView({
               <label className="flex items-center">
                 <input
                   type="checkbox"
+                  name="physicallyActive"
                   checked={physicallyActive}
                   onChange={e => setPhysicallyActive(e.target.checked)}
-                  className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                  className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                 />
                 <span className="text-sm font-medium">
-                  Physically active (at least 150 min/week of moderate exercise)
+                  Physically active (at least 150 min/week of moderate exercise)
                 </span>
               </label>
 
@@ -577,9 +620,10 @@ function renderDiabetesRiskCalculatorView({
                   <label className="flex items-center">
                     <input
                       type="checkbox"
+                      name="gestationalDiabetes"
                       checked={gestationalDiabetes}
                       onChange={e => setGestationalDiabetes(e.target.checked)}
-                      className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                      className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                     <span className="text-sm font-medium">History of gestational diabetes</span>
                   </label>
@@ -587,9 +631,10 @@ function renderDiabetesRiskCalculatorView({
                   <label className="flex items-center">
                     <input
                       type="checkbox"
+                      name="polycysticOvary"
                       checked={polycysticOvary}
                       onChange={e => setPolycysticOvary(e.target.checked)}
-                      className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                      className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                     <span className="text-sm font-medium">Polycystic ovary syndrome (PCOS)</span>
                   </label>
@@ -601,14 +646,14 @@ function renderDiabetesRiskCalculatorView({
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Assess Risk
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Reset
               </button>
@@ -618,7 +663,13 @@ function renderDiabetesRiskCalculatorView({
 
         {/* A1C Converter Form */}
         {activeMode === 'a1c' && (
-          <form onSubmit={handleA1CSubmit} className="neumorph p-6 rounded-lg space-y-6">
+          <form
+            onSubmit={e => {
+              handleA1CSubmit(e);
+              focusFirstInvalidField(e.currentTarget);
+            }}
+            className="neumorph p-6 rounded-lg space-y-6"
+          >
             <h2 className="text-xl font-semibold mb-4">A1C to Estimated Average Glucose</h2>
 
             <div>
@@ -626,21 +677,30 @@ function renderDiabetesRiskCalculatorView({
                 A1C Percentage (%)
               </label>
               <input
+                aria-invalid={a1cErrors.a1c ? true : undefined}
+                aria-describedby={a1cErrors.a1c ? 'a1c-error' : undefined}
+                name="a1c"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="a1c"
                 value={a1cPercentage}
                 onChange={e =>
                   setA1cPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   a1cErrors.a1c ? 'border border-red-500' : ''
                 }`}
-                placeholder="e.g., 5.7"
+                placeholder="e.g. 5.7…"
                 step="0.1"
                 min="3"
                 max="20"
               />
-              {a1cErrors.a1c && <p className="text-red-500 text-sm mt-1">{a1cErrors.a1c}</p>}
+              {a1cErrors.a1c && (
+                <p id="a1c-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {a1cErrors.a1c}
+                </p>
+              )}
               <p className="text-xs text-gray-500 mt-1">
                 Enter your A1C test result as a percentage (typically between 4% and 14%).
               </p>
@@ -650,14 +710,14 @@ function renderDiabetesRiskCalculatorView({
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Convert A1C
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+                className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
               >
                 Reset
               </button>

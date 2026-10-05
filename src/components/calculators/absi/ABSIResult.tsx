@@ -3,6 +3,7 @@
 import React from 'react';
 import { ABSIResult } from '@/types/absi';
 import { getWaistHeightRatioCategory } from '@/utils/calculators/absi';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface ABSIResultDisplayProps {
   result: ABSIResult;
@@ -10,10 +11,10 @@ interface ABSIResultDisplayProps {
 
 const ABSIResultDisplay: React.FC<ABSIResultDisplayProps> = ({ result }) => {
   // Format ABSI value to 4 decimal places
-  const formattedABSI = result.absi.toFixed(4);
+  const formattedABSI = formatNumber(result.absi, 4);
 
   // Format z-score to 2 decimal places
-  const formattedZScore = result.absiZScore.toFixed(2);
+  const formattedZScore = formatNumber(result.absiZScore, 2);
 
   // Get waist-to-height ratio category
   const waistHeightRatioCategory = getWaistHeightRatioCategory(result.waistHeightRatio);
@@ -26,10 +27,7 @@ const ABSIResultDisplay: React.FC<ABSIResultDisplayProps> = ({ result }) => {
   };
 
   return (
-    <div
-      id="absi-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="absi-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your ABSI Results</h2>
 
       <div className="mb-6">
@@ -53,7 +51,7 @@ const ABSIResultDisplay: React.FC<ABSIResultDisplayProps> = ({ result }) => {
           </div>
 
           <div
-            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2 transition-all duration-500"
+            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2"
             style={{
               left: `${getZScorePosition()}%`,
             }}
@@ -79,13 +77,13 @@ const ABSIResultDisplay: React.FC<ABSIResultDisplayProps> = ({ result }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div className="neumorph-inset p-4 rounded-lg">
           <h3 className="text-sm font-medium text-gray-500">BMI</h3>
-          <p className="text-2xl font-bold">{result.bmi.toFixed(1)}</p>
+          <p className="text-2xl font-bold">{formatNumber(result.bmi, 1)}</p>
           <p className="text-xs text-gray-500 mt-1">Category: {result.bmiCategory}</p>
         </div>
 
         <div className="neumorph-inset p-4 rounded-lg">
           <h3 className="text-sm font-medium text-gray-500">Waist-to-Height Ratio</h3>
-          <p className="text-2xl font-bold">{result.waistHeightRatio.toFixed(2)}</p>
+          <p className="text-2xl font-bold">{formatNumber(result.waistHeightRatio, 2)}</p>
           <p className="text-xs text-gray-500 mt-1">Category: {waistHeightRatioCategory.name}</p>
         </div>
       </div>
@@ -94,7 +92,7 @@ const ABSIResultDisplay: React.FC<ABSIResultDisplayProps> = ({ result }) => {
         <h3 className="font-medium mb-2">What This Means</h3>
         <p className="mb-2">
           ABSI (A Body Shape Index) measures the health risk associated with your waist
-          circumference relative to your height and weight. It's particularly useful for assessing
+          circumference relative to your height and weight. It’s particularly useful for assessing
           the risks of central obesity (excess abdominal fat).
         </p>
         <p className="mb-2">

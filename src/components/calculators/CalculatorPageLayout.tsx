@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -31,7 +31,7 @@ import { buildSharedResultToken, type ShareResultContext } from '@/utils/resultS
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
   for (const [key, value] of Object.entries(vars)) {
-    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+    out = out.replaceAll(`{${key}}`, value);
   }
   return out;
 }
@@ -39,10 +39,16 @@ function formatTemplate(template: string, vars: Record<string, string>): string 
 const EMPTY_HASHTAGS: string[] = [];
 
 function readIsEmbedFromLocation(): boolean {
-  if (typeof window === 'undefined') {
-    return false;
-  }
   return new URLSearchParams(window.location.search).get('embed') === '1';
+}
+
+function readIsEmbedOnServer(): boolean {
+  return false;
+}
+
+function subscribeToHistory(onChange: () => void): () => void {
+  window.addEventListener('popstate', onChange);
+  return () => window.removeEventListener('popstate', onChange);
 }
 
 /**
@@ -117,9 +123,25 @@ function SupplementalDisclosure({
   className?: string;
 }): React.ReactElement {
   return (
-    <details className={`glass-panel rounded-2xl ${className}`}>
-      <summary className="cursor-pointer list-none px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden dark:text-white">
+    <details className={`group glass-panel rounded-2xl ${className}`}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-2xl px-5 py-4 text-sm font-semibold text-slate-900 marker:hidden hover:bg-[var(--surface-muted)] dark:text-white">
         {summary}
+        <svg
+          aria-hidden="true"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+        >
+          <path
+            d="M4 6l4 4 4-4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </summary>
       <div className="px-5 pb-5">{children}</div>
     </details>
@@ -171,7 +193,15 @@ function CalculatorPageLayoutContent({
   const { localizePath, t } = useLocale();
   const { trackEvent } = useFunnelTracking();
   const { chainState, isInChain, exitChain } = useChainState();
-  const [isEmbed, setIsEmbed] = useState(false);
+  // ?embed=1 (third-party iframes). The prerendered HTML is the full page; the
+  // pre-paint bootstrap script marks <html data-embed> so CSS keeps that full
+  // layout hidden until this switches to the embed layout, avoiding a flash
+  // of page chrome inside the iframe.
+  const isEmbed = useSyncExternalStore(
+    subscribeToHistory,
+    readIsEmbedFromLocation,
+    readIsEmbedOnServer
+  );
   const hasTrackedResultRef = useRef(false);
 
   // Determine if this calculator is the current chain step
@@ -187,18 +217,6 @@ function CalculatorPageLayoutContent({
     if (!shareResultContext) return undefined;
     return buildSharedResultToken(shareResultContext);
   }, [shareResultContext]);
-
-  useEffect(() => {
-    const syncEmbedFlag = () => {
-      setIsEmbed(readIsEmbedFromLocation());
-    };
-
-    syncEmbedFlag();
-    window.addEventListener('popstate', syncEmbedFlag);
-    return () => {
-      window.removeEventListener('popstate', syncEmbedFlag);
-    };
-  }, []);
 
   useEffect(() => {
     if (isEmbed) return;
@@ -220,7 +238,11 @@ function CalculatorPageLayoutContent({
     const poweredByTemplate = t('calculator.embed.poweredBy');
     const token = '{brand}';
     const brandLink = (
-      <Link href={localizePath(`/${calculatorSlug}`)} className="text-accent hover:underline">
+      <Link
+        href={localizePath(`/${calculatorSlug}`)}
+        className="text-accent hover:underline"
+        translate="no"
+      >
         HealthCalc
       </Link>
     );
@@ -261,7 +283,7 @@ function CalculatorPageLayoutContent({
   return (
     <ErrorBoundary>
       <ResultsShareProvider>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto" data-calculator-page="">
           {isCurrentChainStep && chainState && (
             <ChainProgressBar chainState={chainState} onExit={exitChain} />
           )}
@@ -283,6 +305,11 @@ function CalculatorPageLayoutContent({
           >
             {children}
           </div>
+
+          {/* Always mounted so screen readers announce when results appear. */}
+          <p className="sr-only" role="status" aria-live="polite">
+            {showResultsCapture ? t('calculator.results.announcement') : ''}
+          </p>
 
           {showResultsCapture && <div id="results" className="sr-only" aria-hidden="true" />}
           {showResultsCapture && (
@@ -339,12 +366,12 @@ function CalculatorPageLayoutContent({
                   <Link
                     key={chain.id}
                     href={`/chains?start=${chain.id}`}
-                    className="glass-panel rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg block"
+                    className="glass-panel rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg block"
                   >
                     <p className="font-medium text-sm">{chain.name}</p>
                     <p className="mt-1 text-xs opacity-60">{chain.description}</p>
                     <p className="mt-2 text-xs text-[var(--accent)] font-medium">
-                      {chain.steps.length} steps &middot; Start workflow &rarr;
+                      {chain.steps.length} steps &middot; Start workflow &rarr;
                     </p>
                   </Link>
                 ))}
@@ -369,24 +396,26 @@ function CalculatorPageLayoutContent({
 
           {understandingSection ? (
             <SupplementalDisclosure
-              summary={`Learn more about ${title.replace(' Calculator', '')}`}
+              summary={`Learn More About ${title.replace(' Calculator', '')}`}
               className="perf-defer-section my-8"
             >
               {understandingSection}
             </SupplementalDisclosure>
           ) : null}
 
-          <SupplementalDisclosure
-            summary={t('calculator.relatedArticles.title')}
-            className="perf-defer-section my-8"
-          >
-            <RelatedArticles
-              currentSlug=""
-              articles={relatedArticles}
-              title={t('calculator.relatedArticles.title')}
-              className="my-0"
-            />
-          </SupplementalDisclosure>
+          {relatedArticles && relatedArticles.length > 0 ? (
+            <SupplementalDisclosure
+              summary={t('calculator.relatedArticles.title')}
+              className="perf-defer-section my-8"
+            >
+              <RelatedArticles
+                currentSlug=""
+                articles={relatedArticles}
+                title={t('calculator.relatedArticles.title')}
+                className="my-0"
+              />
+            </SupplementalDisclosure>
+          ) : null}
 
           <SupplementalDisclosure
             summary={newsletterTitle ?? 'Newsletter'}
@@ -407,7 +436,7 @@ function CalculatorPageLayoutContent({
               url: toAbsoluteUrl(localizePath(`/${calculatorSlug}`)),
             })}
           />
-          <StructuredData data={createFAQSchema(faqs)} />
+          {faqs.length > 0 ? <StructuredData data={createFAQSchema(faqs)} /> : null}
         </div>
       </ResultsShareProvider>
     </ErrorBoundary>

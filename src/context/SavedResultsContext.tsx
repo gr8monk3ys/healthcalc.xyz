@@ -32,6 +32,8 @@ interface SavedResultsContextState {
     data: Record<string, unknown>
   ) => boolean;
   removeResult: (id: string) => void;
+  /** Put a just-removed result back exactly as it was (undo). */
+  restoreResult: (result: SavedResult) => void;
   clearAllResults: () => void;
   isResultSaved: (id: string) => boolean;
   syncPromptPending: boolean;
@@ -173,17 +175,52 @@ async function fetchResultsFromServer(): Promise<SavedResult[]> {
   }
 }
 
+const SAVED_RESULTS_STORAGE_KEY = 'healthcheck-saved-results-by-user:v1';
+const EMPTY_BUCKETS: Record<string, SavedResult[]> = {};
+
+function isSavedResultBuckets(value: unknown): value is Record<string, SavedResult[]> {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  return Object.values(value).every(
+    bucket =>
+      Array.isArray(bucket) &&
+      bucket.every(
+        item =>
+          !!item &&
+          typeof item === 'object' &&
+          typeof (item as SavedResult).id === 'string' &&
+          typeof (item as SavedResult).calculatorType === 'string' &&
+          typeof (item as SavedResult).date === 'string'
+      )
+  );
+}
+
 export function SavedResultsProvider({ children }: SavedResultsProviderProps): React.JSX.Element {
   const { user, isAuthenticated, supabaseEnabled } = useAuth();
   const [savedResultsByUser, setSavedResultsByUser] = useLocalStorage<
     Record<string, SavedResult[]>
-  >('healthcheck-saved-results-by-user', {});
+  >(SAVED_RESULTS_STORAGE_KEY, EMPTY_BUCKETS, {
+    legacyKeys: ['healthcheck-saved-results-by-user'],
+    validate: isSavedResultBuckets,
+  });
 
   // Track whether we should prompt to sync local guest results to the cloud.
   const [syncPromptPending, setSyncPromptPending] = useState(false);
   const syncPromptDismissedRef = useRef(false);
 
-  const userKey = user?.email ?? 'guest';
+  // Buckets are keyed by the account id, not the email address, so no PII is
+  // used as a storage key.
+  const userKey = user?.id ?? 'guest';
+
+  // One-time migration of a bucket stored under the email by older versions.
+  const legacyEmailKey = user?.email;
+  useEffect(() => {
+    if (!legacyEmailKey || !user?.id || !savedResultsByUser[legacyEmailKey]) return;
+    const accountKey = user.id;
+    setSavedResultsByUser(prev => {
+      const { [legacyEmailKey]: legacyBucket = [], ...rest } = prev;
+      return { ...rest, [accountKey]: mergeSavedResults(prev[accountKey] ?? [], legacyBucket) };
+    });
+  }, [legacyEmailKey, user?.id, savedResultsByUser, setSavedResultsByUser]);
   const savedResults = useMemo(
     () => savedResultsByUser[userKey] ?? [],
     [savedResultsByUser, userKey]
@@ -271,17 +308,18 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
   }, [setSavedResultsByUser, user, userKey, supabaseEnabled]);
 
   // Confirm sync: copy guest results into the authenticated user bucket and push to Supabase.
+  const guestResultsForSync = savedResultsByUser['guest'];
   const confirmSync = useCallback(() => {
     setSyncPromptPending(false);
     syncPromptDismissedRef.current = true;
 
-    const guestResults = savedResultsByUser['guest'] ?? [];
+    const guestResults = guestResultsForSync ?? [];
     if (guestResults.length === 0 || !user) return;
 
-    const merged = mergeSavedResults(savedResults, guestResults);
+    // Merge from the latest stored state, not a value captured at render.
     setSavedResultsByUser(prev => ({
       ...prev,
-      [userKey]: merged,
+      [userKey]: mergeSavedResults(prev[userKey] ?? [], prev['guest'] ?? []),
       guest: [], // Clear guest bucket after sync.
     }));
 
@@ -290,62 +328,85 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
         void upsertResultToSupabase(result, user.id);
       }
     }
-  }, [savedResultsByUser, savedResults, setSavedResultsByUser, supabaseEnabled, user, userKey]);
+  }, [guestResultsForSync, setSavedResultsByUser, supabaseEnabled, user, userKey]);
 
   const dismissSync = useCallback(() => {
     setSyncPromptPending(false);
     syncPromptDismissedRef.current = true;
   }, []);
 
-  function saveResult(
-    calculatorType: string,
-    calculatorName: string,
-    data: Record<string, unknown>
-  ): boolean {
-    const resultId = generateResultId(calculatorType, data);
+  const saveResult = useCallback(
+    (calculatorType: string, calculatorName: string, data: Record<string, unknown>): boolean => {
+      const resultId = generateResultId(calculatorType, data);
 
-    if (savedResults.some(result => result.id === resultId)) {
-      return false;
-    }
+      if (savedResults.some(result => result.id === resultId)) {
+        return false;
+      }
 
-    const newResult: SavedResult = {
-      id: resultId,
-      calculatorType,
-      calculatorName,
-      date: new Date().toISOString(),
-      data,
-    };
+      const newResult: SavedResult = {
+        id: resultId,
+        calculatorType,
+        calculatorName,
+        date: new Date().toISOString(),
+        data,
+      };
 
-    const updatedForUser = [newResult, ...savedResults].slice(0, 30);
-    setSavedResultsByUser(prev => ({
-      ...prev,
-      [userKey]: updatedForUser,
-    }));
+      // Build on the latest stored bucket so back-to-back saves both land.
+      setSavedResultsByUser(prev => {
+        const bucket = prev[userKey] ?? [];
+        if (bucket.some(result => result.id === resultId)) return prev;
+        return { ...prev, [userKey]: [newResult, ...bucket].slice(0, 30) };
+      });
 
-    // Persist to remote.
-    if (isAuthenticated && user && supabaseEnabled) {
-      void upsertResultToSupabase(newResult, user.id);
-    } else if (user) {
-      void syncResultToServer(newResult);
-    }
+      // Persist to remote.
+      if (isAuthenticated && user && supabaseEnabled) {
+        void upsertResultToSupabase(newResult, user.id);
+      } else if (user) {
+        void syncResultToServer(newResult);
+      }
 
-    return true;
-  }
+      return true;
+    },
+    [isAuthenticated, savedResults, setSavedResultsByUser, supabaseEnabled, user, userKey]
+  );
 
-  function removeResult(id: string): void {
-    setSavedResultsByUser(prev => ({
-      ...prev,
-      [userKey]: (prev[userKey] ?? []).filter(result => result.id !== id),
-    }));
+  const removeResult = useCallback(
+    (id: string): void => {
+      setSavedResultsByUser(prev => ({
+        ...prev,
+        [userKey]: (prev[userKey] ?? []).filter(result => result.id !== id),
+      }));
 
-    if (isAuthenticated && supabaseEnabled) {
-      void deleteResultFromSupabase(id);
-    } else {
-      void deleteResultFromServer(id);
-    }
-  }
+      if (isAuthenticated && supabaseEnabled) {
+        void deleteResultFromSupabase(id);
+      } else {
+        void deleteResultFromServer(id);
+      }
+    },
+    [isAuthenticated, setSavedResultsByUser, supabaseEnabled, userKey]
+  );
 
-  function clearAllResults(): void {
+  const restoreResult = useCallback(
+    (result: SavedResult): void => {
+      setSavedResultsByUser(prev => {
+        const bucket = prev[userKey] ?? [];
+        if (bucket.some(existing => existing.id === result.id)) return prev;
+        const restored = [result, ...bucket].sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        return { ...prev, [userKey]: restored.slice(0, 30) };
+      });
+
+      if (isAuthenticated && user && supabaseEnabled) {
+        void upsertResultToSupabase(result, user.id);
+      } else if (user) {
+        void syncResultToServer(result);
+      }
+    },
+    [isAuthenticated, setSavedResultsByUser, supabaseEnabled, user, userKey]
+  );
+
+  const clearAllResults = useCallback((): void => {
     setSavedResultsByUser(prev => ({
       ...prev,
       [userKey]: [],
@@ -356,27 +417,43 @@ export function SavedResultsProvider({ children }: SavedResultsProviderProps): R
     } else {
       void clearResultsFromServer();
     }
-  }
+  }, [isAuthenticated, setSavedResultsByUser, supabaseEnabled, user, userKey]);
 
-  function isResultSaved(id: string): boolean {
-    return savedResults.some(result => result.id === id);
-  }
+  const isResultSaved = useCallback(
+    (id: string): boolean => savedResults.some(result => result.id === id),
+    [savedResults]
+  );
 
   // Allow saving even without authentication -- results go to localStorage
   // under the 'guest' key and can be synced later.
   const canSave = supabaseEnabled ? true : Boolean(user);
 
-  const value: SavedResultsContextState = {
-    savedResults,
-    canSaveResults: canSave,
-    saveResult,
-    removeResult,
-    clearAllResults,
-    isResultSaved,
-    syncPromptPending,
-    confirmSync,
-    dismissSync,
-  };
+  const value = useMemo<SavedResultsContextState>(
+    () => ({
+      savedResults,
+      canSaveResults: canSave,
+      saveResult,
+      removeResult,
+      restoreResult,
+      clearAllResults,
+      isResultSaved,
+      syncPromptPending,
+      confirmSync,
+      dismissSync,
+    }),
+    [
+      savedResults,
+      canSave,
+      saveResult,
+      removeResult,
+      restoreResult,
+      clearAllResults,
+      isResultSaved,
+      syncPromptPending,
+      confirmSync,
+      dismissSync,
+    ]
+  );
 
   return <SavedResultsContext.Provider value={value}>{children}</SavedResultsContext.Provider>;
 }

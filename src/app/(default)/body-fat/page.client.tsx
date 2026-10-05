@@ -26,7 +26,6 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyFatResultDisplay from '@/components/calculators/body-fat/BodyFatResult';
 import BodyFatInfo from '@/components/calculators/body-fat/BodyFatInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -40,6 +39,10 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // Dynamic imports for below-the-fold components
 const BodyFatUnderstanding = dynamic(
@@ -133,7 +136,7 @@ function createBodyFatFormFields({
         value: waist,
         onChange: setWaist,
         error: errors.waist,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 85…',
         step: '0.1',
       },
       {
@@ -143,7 +146,7 @@ function createBodyFatFormFields({
         value: neck,
         onChange: setNeck,
         error: errors.neck,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 38…',
         step: '0.1',
       }
     );
@@ -156,7 +159,7 @@ function createBodyFatFormFields({
         value: hips,
         onChange: setHips,
         error: errors.hips,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 95…',
         step: '0.1',
       });
     }
@@ -168,7 +171,7 @@ function createBodyFatFormFields({
       value: bodyFatPercentage,
       onChange: setBodyFatPercentage,
       error: errors.bodyFatPercentage,
-      placeholder: 'Percentage',
+      placeholder: 'e.g. 22…',
       step: '0.1',
     });
   }
@@ -192,7 +195,7 @@ function createBodyFatFormFields({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     createWeightField(weight, errors.weight),
@@ -325,6 +328,10 @@ export default function BodyFatCalculator({
   const sharedPrefill = initialSharedPrefill ?? querySharedPrefill;
   const hasAppliedSharedPrefill = useRef(false);
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     dispatchState({
@@ -336,9 +343,9 @@ export default function BodyFatCalculator({
           : {}),
       },
     });
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, height, weight]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setHeightValue, setWeightValue]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
@@ -498,7 +505,7 @@ export default function BodyFatCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('body-fat-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -665,7 +672,10 @@ function renderBodyFatCalculatorView({
 
         {/* User-facing error state */}
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}

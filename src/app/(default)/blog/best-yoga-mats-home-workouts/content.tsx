@@ -97,7 +97,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Yoga Mats for Home Workouts in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -264,13 +264,12 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               surfaces repel moisture. Open-cell surfaces absorb it and can grip better when damp.
             </li>
             <li>
-              <strong>Size:</strong> Standard mats are 68 inches long. If you are over
-              5&apos;10&quot;, get a 71 or 74 inch mat. Width is usually 24 inches, which is fine
-              for most people.
+              <strong>Size:</strong> Standard mats are 68 inches long. If you are over 5′10″, get a
+              71 or 74 inch mat. Width is usually 24 inches, which is fine for most people.
             </li>
             <li>
               <strong>Weight:</strong> Matters more than you think if you carry your mat to class.
-              Premium mats can weigh 7-10 lbs. Budget mats are usually 2-4 lbs.
+              Premium mats can weigh 7-10 lbs. Budget mats are usually 2-4 lbs.
             </li>
             <li>
               <strong>Texture:</strong> Some mats have a raised pattern for grip. Others are smooth.
@@ -307,7 +306,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             for a couple of weeks before the grip really kicks in.
           </p>
           <p className="mb-4">
-            It weighs about 7.5 lbs, which is heavy. I would not want to carry this to class across
+            It weighs about 7.5 lbs, which is heavy. I would not want to carry this to class across
             town. But for home use, the weight is actually a benefit because the mat stays put on
             the floor. It does not slide around on hardwood or bunch up during transitions.
           </p>
@@ -315,7 +314,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>6mm thick, ultra-dense cushioning</li>
             <li>Closed-cell surface that blocks sweat absorption</li>
-            <li>71 inches long, fits taller practitioners</li>
+            <li>71 inches long, fits taller practitioners</li>
             <li>Certified safe for latex and heavy metals (OEKO-TEX)</li>
             <li>Lifetime warranty from Manduka</li>
           </ul>
@@ -344,7 +343,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               does not bottom out, improves with age, no latex smell
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Needs a break-in period for grip, heavy at 7.5 lbs, expensive
+              <strong>Cons:</strong> Needs a break-in period for grip, heavy at 7.5 lbs, expensive
               at $120, slippery when brand new
             </p>
           </div>
@@ -386,17 +385,17 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             that you can glance down and immediately correct your positioning.
           </p>
           <p className="mb-4">
-            The grip is outstanding from day one, no break-in needed. Liforme calls it
-            &quot;GripForMe&quot; technology, which is just their name for a polyurethane top layer
-            that gets grippier when wet. Hot yoga, sweaty vinyasa, it handles all of it. The mat is
-            4.2mm thick, which is thinner than the Manduka but still comfortable for kneeling poses.
+            The grip is outstanding from day one, no break-in needed. Liforme calls it “GripForMe”
+            technology, which is just their name for a polyurethane top layer that gets grippier
+            when wet. Hot yoga, sweaty vinyasa, it handles all of it. The mat is 4.2mm thick, which
+            is thinner than the Manduka but still comfortable for kneeling poses.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Patented AlignForMe alignment marker system</li>
             <li>GripForMe surface that improves grip when damp</li>
             <li>4.2mm natural rubber base with polyurethane top</li>
-            <li>73 inches long, wider than standard at 26.8 inches</li>
+            <li>73 inches long, wider than standard at 26.8 inches</li>
             <li>Includes matching yoga bag</li>
             <li>Eco-friendly and biodegradable materials</li>
           </ul>
@@ -461,9 +460,9 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             <span className="text-2xl font-bold text-accent">$20</span>
           </div>
           <p className="mb-4">
-            At $20, the Gaiam Essentials is the mat I recommend to anyone who says &quot;I want to
-            try yoga but I am not sure I will stick with it.&quot; It is 10mm thick, which is double
-            the standard thickness, and that extra padding is immediately noticeable. Kneeling poses
+            At $20, the Gaiam Essentials is the mat I recommend to anyone who says “I want to try
+            yoga but I am not sure I will stick with it.” It is 10mm thick, which is double the
+            standard thickness, and that extra padding is immediately noticeable. Kneeling poses
             feel comfortable. Lying on your back does not press your spine into the floor. If joint
             comfort is your priority and you are mostly doing gentle or restorative yoga, this
             thickness is a real advantage.
@@ -472,15 +471,15 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             The trade-off is stability. That extra thickness makes the mat soft and slightly wobbly
             during balance poses. Tree pose on this mat feels noticeably less stable than on a
             firmer 4-5mm mat. It also comes with a carrying strap, which is nice at this price. The
-            NBR foam material is lightweight at about 2 lbs, making it easy to store and move around
+            NBR foam material is lightweight at about 2 lbs, making it easy to store and move around
             your house.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>10mm (2/5 inch) extra-thick padding</li>
-            <li>72 inches long by 24 inches wide</li>
+            <li>72 inches long by 24 inches wide</li>
             <li>Includes easy-cinch carrying strap</li>
-            <li>Lightweight NBR foam, about 2 lbs</li>
+            <li>Lightweight NBR foam, about 2 lbs</li>
             <li>Non-slip ridged surface on both sides</li>
             <li>Available in multiple colors</li>
           </ul>
@@ -556,7 +555,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             of airing out, but some people are more sensitive to it. The mat is also open-cell,
             meaning it absorbs moisture rather than repelling it. This works in its favor for
             moderate sweating because the surface stays grippy. But for heavy hot yoga sessions, it
-            can get saturated and take a while to dry. At 3/16 inches (about 4.7mm), the thickness
+            can get saturated and take a while to dry. At 3/16 inches (about 4.7mm), the thickness
             is right in the standard range.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -646,7 +645,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>1/4 inch (6mm) thickness, good balance of comfort and stability</li>
-            <li>71 inches long by 24 inches wide</li>
+            <li>71 inches long by 24 inches wide</li>
             <li>Double-sided non-slip surfaces</li>
             <li>Moisture-resistant technology</li>
             <li>Includes carrying strap</li>
@@ -779,7 +778,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             </li>
             <li>
               <strong>Replace when needed:</strong> A mat that has lost its grip or cushioning is
-              doing more harm than good. Budget mats may need replacing every 6-12 months with daily
+              doing more harm than good. Budget mats may need replacing every 6-12 months with daily
               use. Premium mats can last years.
             </li>
             <li>
@@ -837,21 +836,21 @@ const BestYogaMatsHomeWorkoutsPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/body-fat-burn"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Burn Calculator</h4>
               <p className="text-sm text-gray-600">Estimate exercise calorie burn</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate daily energy needs</p>
             </Link>
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss targets</p>

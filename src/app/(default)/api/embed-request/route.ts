@@ -7,6 +7,7 @@ import {
   isSubmissionPersistenceStrictModeEnabled,
   saveEmbedRequestSubmission,
 } from '@/lib/db/submissions';
+import { runAfterResponse } from '@/lib/afterResponse';
 
 const logger = createLogger({ component: 'EmbedRequestAPI' });
 
@@ -112,17 +113,19 @@ export async function POST(request: NextRequest): Promise<NextResponse<EmbedResp
       if (!response.ok) {
         const errorBody = await response.text();
         logger.error('ConvertKit error', { responseBody: errorBody });
-        await persistSubmissionOrFail({
-          name,
-          email,
-          website,
-          calculator,
-          calculatorSlug,
-          notes,
-          provider: 'convertkit',
-          status: 'failed',
-          error: errorBody,
-        });
+        runAfterResponse(() =>
+          persistSubmissionOrFail({
+            name,
+            email,
+            website,
+            calculator,
+            calculatorSlug,
+            notes,
+            provider: 'convertkit',
+            status: 'failed',
+            error: errorBody,
+          })
+        );
         return NextResponse.json(
           {
             success: false,

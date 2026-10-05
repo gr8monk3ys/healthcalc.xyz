@@ -91,7 +91,7 @@ const BestRowingMachinesFullBodyPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Rowing Machines for Full-Body Workouts in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 13 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 13 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -210,12 +210,12 @@ const BestRowingMachinesFullBodyPageContent = (
               strokes.
             </li>
             <li>
-              <strong>Footprint and storage:</strong> Most rowers are 7-9 feet long. Some fold
+              <strong>Footprint and storage:</strong> Most rowers are 7-9 feet long. Some fold
               vertically for storage. Check your space before buying.
             </li>
             <li>
-              <strong>Weight capacity:</strong> Budget rowers max out at 250 lbs. Better machines
-              handle 300-500 lbs without feeling wobbly.
+              <strong>Weight capacity:</strong> Budget rowers max out at 250 lbs. Better machines
+              handle 300-500 lbs without feeling wobbly.
             </li>
           </ul>
         </div>
@@ -247,7 +247,7 @@ const BestRowingMachinesFullBodyPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Air resistance flywheel adjustable with damper setting (1-10)</li>
             <li>PM5 performance monitor with Bluetooth and ANT+ connectivity</li>
-            <li>500 lb weight capacity</li>
+            <li>500 lb weight capacity</li>
             <li>Aluminum monorail and nickel-plated chain</li>
             <li>Separates into two pieces for storage</li>
             <li>14-inch seat height for easy mounting</li>
@@ -323,9 +323,9 @@ const BestRowingMachinesFullBodyPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>8-level magnetic resistance (manual knob adjustment)</li>
             <li>Digital monitor: time, count, calories, total count, scan mode</li>
-            <li>Folds vertically to 25 x 19 inches for storage</li>
+            <li>Folds vertically to 25 x 19 inches for storage</li>
             <li>Steel slide rail and padded seat</li>
-            <li>250 lb weight capacity</li>
+            <li>250 lb weight capacity</li>
             <li>Non-slip foot pedals with adjustable straps</li>
             <li>Transportation wheels built into front base</li>
           </ul>
@@ -355,7 +355,7 @@ const BestRowingMachinesFullBodyPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Monitor is bare-bones (no Bluetooth, no app sync), resistance
-              levels feel similar at the high end, not built for intense interval training, 250 lb
+              levels feel similar at the high end, not built for intense interval training, 250 lb
               limit is restrictive
             </p>
           </div>
@@ -399,9 +399,9 @@ const BestRowingMachinesFullBodyPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Hydraulic cylinder resistance with manual adjustment knobs</li>
             <li>Multi-function monitor: strokes, time, calories</li>
-            <li>Compact size: 46 x 18 inches (footprint smaller than most rowers)</li>
+            <li>Compact size: 46 x 18 inches (footprint smaller than most rowers)</li>
             <li>Molded foam seat and textured footplates</li>
-            <li>250 lb weight capacity</li>
+            <li>250 lb weight capacity</li>
             <li>Foldable frame for easy storage</li>
             <li>Includes basic workout guide</li>
           </ul>
@@ -474,7 +474,7 @@ const BestRowingMachinesFullBodyPageContent = (
             <li>22-inch HD touchscreen with front-facing speakers</li>
             <li>Live and on-demand classes with world-class athletes</li>
             <li>Bluetooth heart rate monitor compatibility</li>
-            <li>375 lb weight capacity</li>
+            <li>375 lb weight capacity</li>
             <li>Upright storage option (sold separately)</li>
             <li>Tracks metrics: stroke rate, split time, distance, watts, heart rate</li>
           </ul>
@@ -552,7 +552,7 @@ const BestRowingMachinesFullBodyPageContent = (
             <li>LCD monitor: time, count, distance, calories, scan mode</li>
             <li>Extended steel rail for taller users</li>
             <li>Padded seat and anti-slip foot pedals with straps</li>
-            <li>250 lb weight capacity</li>
+            <li>250 lb weight capacity</li>
             <li>Folds vertically for storage</li>
             <li>Built-in tablet holder</li>
           </ul>
@@ -737,7 +737,7 @@ const BestRowingMachinesFullBodyPageContent = (
         </ul>
 
         <p>
-          Pick the rower that fits your budget and space. Row three times a week for 20 minutes and
+          Pick the rower that fits your budget and space. Row three times a week for 20 minutes and
           you will see results. Use our{' '}
           <Link href="/calories-burned" className="text-accent hover:underline">
             Calories Burned Calculator
@@ -758,21 +758,21 @@ const BestRowingMachinesFullBodyPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/calories-burned"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calories Burned Calculator</h4>
               <p className="text-sm text-gray-600">Estimate rowing calorie burn</p>
             </Link>
             <Link
               href="/vo2-max"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">VO2 Max Calculator</h4>
               <p className="text-sm text-gray-600">Measure cardio fitness</p>
             </Link>
             <Link
               href="/heart-rate-zones"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Heart Rate Zones Calculator</h4>
               <p className="text-sm text-gray-600">Train at optimal intensity</p>

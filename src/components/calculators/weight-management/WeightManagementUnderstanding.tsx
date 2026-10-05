@@ -60,7 +60,7 @@ const WeightManagementUnderstandingContent = (
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Most versatile and sustainable approach</li>
                 <li>Provides energy for various activities</li>
-                <li>Good starting point if you're unsure</li>
+                <li>Good starting point if you’re unsure</li>
                 <li>Supports both strength and endurance training</li>
               </ul>
             </div>
@@ -92,7 +92,7 @@ const WeightManagementUnderstandingContent = (
               </div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Shifts metabolism to primarily burn fat (ketosis)</li>
-                <li>Very effective for some people's appetite control</li>
+                <li>Very effective for some people’s appetite control</li>
                 <li>Requires strict adherence and monitoring</li>
                 <li>Not suitable for high-intensity exercise</li>
               </ul>
@@ -107,21 +107,21 @@ const WeightManagementUnderstandingContent = (
 
       <Accordion title="Setting Realistic Timelines">
         <div className="space-y-4">
-          <p>Your timeline significantly impacts your plan's sustainability and effectiveness:</p>
+          <p>Your timeline significantly impacts your plan’s sustainability and effectiveness:</p>
           <div className="space-y-3">
             <div>
               <div className="font-medium">For Weight Loss:</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>
                   <span className="font-medium">Safe rate:</span> 0.5-1% of body weight per week
-                  (0.5-1 kg / 1-2 lbs for most people)
+                  (0.5-1 kg / 1-2 lbs for most people)
                 </li>
                 <li>
-                  <span className="font-medium">Faster isn't better:</span> Aggressive deficits
+                  <span className="font-medium">Faster isn’t better:</span> Aggressive deficits
                   increase muscle loss, metabolic slowdown, and rebound risk
                 </li>
                 <li>
-                  <span className="font-medium">Minimum timeline:</span> Allow at least 4 weeks for
+                  <span className="font-medium">Minimum timeline:</span> Allow at least 4 weeks for
                   any weight loss goal
                 </li>
               </ul>
@@ -130,7 +130,7 @@ const WeightManagementUnderstandingContent = (
               <div className="font-medium">For Weight Gain:</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>
-                  <span className="font-medium">Safe rate:</span> 0.25-0.5 kg (0.5-1 lb) per week
+                  <span className="font-medium">Safe rate:</span> 0.25-0.5 kg (0.5-1 lb) per week
                   for lean muscle gain
                 </li>
                 <li>
@@ -147,7 +147,7 @@ const WeightManagementUnderstandingContent = (
           <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mt-4">
             <p className="text-sm text-blue-800 dark:text-blue-200">
               <span className="font-medium">Tip:</span> If the calculator adjusts your timeline,
-              it's protecting your health and long-term success. Trust the recommendation.
+              it’s protecting your health and long-term success. Trust the recommendation.
             </p>
           </div>
         </div>
@@ -161,7 +161,7 @@ const WeightManagementUnderstandingContent = (
           </p>
           <div className="space-y-3">
             <div>
-              <div className="font-medium text-blue-700 dark:text-blue-300">Protein (4 cal/g)</div>
+              <div className="font-medium text-blue-700 dark:text-blue-300">Protein (4 cal/g)</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Builds and repairs muscle tissue</li>
                 <li>Supports immune function and hormone production</li>
@@ -172,7 +172,7 @@ const WeightManagementUnderstandingContent = (
             </div>
             <div>
               <div className="font-medium text-green-700 dark:text-green-300">
-                Carbohydrates (4 cal/g)
+                Carbohydrates (4 cal/g)
               </div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Primary fuel source for high-intensity exercise</li>
@@ -183,7 +183,7 @@ const WeightManagementUnderstandingContent = (
               </ul>
             </div>
             <div>
-              <div className="font-medium text-yellow-700 dark:text-yellow-300">Fat (9 cal/g)</div>
+              <div className="font-medium text-yellow-700 dark:text-yellow-300">Fat (9 cal/g)</div>
               <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
                 <li>Essential for hormone production (including testosterone)</li>
                 <li>Supports vitamin absorption (A, D, E, K)</li>
@@ -219,14 +219,14 @@ const WeightManagementUnderstandingContent = (
               <div className="font-medium">Monitor Energy and Performance</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Pay attention to hunger, energy levels, sleep quality, and workout performance. If
-                you're constantly exhausted or performance drops significantly, you may need to
+                you’re constantly exhausted or performance drops significantly, you may need to
                 adjust your plan.
               </p>
             </div>
             <div>
               <div className="font-medium">Take Progress Photos</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Photos often reveal changes the scale doesn't show, especially if you're building
+                Photos often reveal changes the scale doesn’t show, especially if you’re building
                 muscle while losing fat.
               </p>
             </div>
@@ -241,7 +241,7 @@ const WeightManagementUnderstandingContent = (
               <div className="font-medium text-red-700 dark:text-red-300">Problem: Plateaus</div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 <span className="font-medium">Solution:</span> Weight loss naturally slows as you
-                get lighter. Recalculate your targets every 5-10 kg lost. Consider a 1-2 week diet
+                get lighter. Recalculate your targets every 5-10 kg lost. Consider a 1-2 week diet
                 break at maintenance calories to reset hormones.
               </p>
             </div>
@@ -251,7 +251,7 @@ const WeightManagementUnderstandingContent = (
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 <span className="font-medium">Solution:</span> Increase protein and fiber intake.
-                Consider a smaller deficit or diet break. Ensure you're getting adequate sleep (poor
+                Consider a smaller deficit or diet break. Ensure you’re getting adequate sleep (poor
                 sleep increases hunger hormones).
               </p>
             </div>
@@ -262,7 +262,7 @@ const WeightManagementUnderstandingContent = (
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 <span className="font-medium">Solution:</span> Plan ahead for events. Eat protein
                 before going out. Bank calories during the week for weekend flexibility. Remember
-                one meal won't derail progress—consistency matters more than perfection.
+                one meal won’t derail progress—consistency matters more than perfection.
               </p>
             </div>
             <div>
@@ -270,7 +270,7 @@ const WeightManagementUnderstandingContent = (
                 Problem: Not Seeing Results
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                <span className="font-medium">Solution:</span> First, ensure you're tracking
+                <span className="font-medium">Solution:</span> First, ensure you’re tracking
                 accurately (use a food scale). If truly tracking accurately, recalculate TDEE or
                 consult a healthcare provider to rule out medical issues.
               </p>
@@ -287,7 +287,7 @@ const WeightManagementUnderstandingContent = (
           </p>
           <div className="space-y-3">
             <div>
-              <div className="font-medium">Sleep (7-9 hours/night)</div>
+              <div className="font-medium">Sleep (7-9 hours/night)</div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Poor sleep increases hunger hormones (ghrelin), decreases satiety hormones (leptin),
                 impairs insulin sensitivity, and reduces willpower. Prioritize consistent sleep
@@ -325,11 +325,11 @@ const WeightManagementUnderstandingContent = (
         <div className="space-y-4">
           <p>Recalculate or adjust when:</p>
           <ul className="list-disc pl-5 space-y-2">
-            <li>You've lost or gained 5-10% of your body weight</li>
-            <li>Weight hasn't changed for 3-4 weeks despite consistent adherence</li>
+            <li>You’ve lost or gained 5-10% of your body weight</li>
+            <li>Weight hasn’t changed for 3-4 weeks despite consistent adherence</li>
             <li>Your activity level changes significantly</li>
             <li>You experience persistent fatigue, poor sleep, or mood issues</li>
-            <li>You're no longer making progress in the gym (if applicable)</li>
+            <li>You’re no longer making progress in the gym (if applicable)</li>
           </ul>
           <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg mt-4">
             <p className="text-sm text-yellow-800 dark:text-yellow-200">

@@ -1,18 +1,22 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import CaloriesBurnedWalkingResult from '@/components/calculators/calories-burned-walking/CaloriesBurnedWalkingResult';
 import CaloriesBurnedWalkingInfo from '@/components/calculators/calories-burned-walking/CaloriesBurnedWalkingInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateCaloriesBurnedWalking } from '@/utils/calculators/caloriesBurnedWalking';
 import { validateDuration, validateSpeed, validateWeight } from '@/utils/validation';
 import type { CaloriesBurnedWalkingResult as CaloriesBurnedWalkingResultType } from '@/types/caloriesBurnedWalking';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -105,7 +109,7 @@ export default function CaloriesBurnedWalkingCalculator({
         );
         setTimeout(() => {
           const element = document.getElementById('calories-burned-walking-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -152,7 +156,7 @@ export default function CaloriesBurnedWalkingCalculator({
               value: duration,
               onChange: setDuration,
               error: errors.duration,
-              placeholder: 'Minutes',
+              placeholder: 'e.g. 30…',
               min: 1,
               max: 1440,
             },
@@ -163,7 +167,7 @@ export default function CaloriesBurnedWalkingCalculator({
               value: speed,
               onChange: setSpeed,
               error: errors.speed,
-              placeholder: speedUnit === 'mph' ? 'mph' : 'km/h',
+              placeholder: speedUnit === 'mph' ? 'e.g. 3.5…' : 'e.g. 5.5…',
               unit: speedUnit,
               unitToggle: toggleSpeedUnit,
               step: '0.1',

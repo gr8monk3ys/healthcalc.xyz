@@ -113,10 +113,10 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       conversionCategory: 'Conversion Category',
       categoryConverterTitleTemplate: '{category} Converter',
       valueLabel: 'Value',
-      valuePlaceholder: 'Enter value',
+      valuePlaceholder: 'e.g. 100…',
       fromLabel: 'From',
       toLabel: 'To',
-      swapUnitsTitle: 'Swap units',
+      swapUnitsTitle: 'Swap Units',
       convertButton: 'Convert',
       errorInvalidNumber: 'Please enter a valid number',
       errorNonNegative: 'Please enter a value greater than or equal to 0',
@@ -204,7 +204,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
           { label: 'Calories to Kilojoules:', value: '1 kcal = 4.184 kJ' },
           { label: 'Kilojoules to Calories:', value: '1 kJ = 0.239 kcal' },
         ],
-        note: 'Note: In nutrition, "calorie" typically refers to kilocalorie (kcal).',
+        note: 'Note: In nutrition, “calorie” typically refers to kilocalorie (kcal).',
       },
     ],
     quickReferenceLines: {
@@ -235,7 +235,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       {
         question: 'Which weight unit system should I use for fitness tracking?',
         answer:
-          "Use whichever system you're most familiar with, but be consistent. Metric (kg) is used internationally and in scientific contexts, with finer precision for small changes (0.1 kg = 0.22 lb). Imperial (lb) is common in the US and UK. Stones are primarily British. For detailed tracking, kilograms are often preferred because 0.1 kg increments are easier to track than 0.2 lb increments. What matters most is consistency - don't switch systems mid-tracking, as this introduces conversion errors and makes trends harder to spot.",
+          'Use whichever system you’re most familiar with, but be consistent. Metric (kg) is used internationally and in scientific contexts, with finer precision for small changes (0.1 kg = 0.22 lb). Imperial (lb) is common in the US and UK. Stones are primarily British. For detailed tracking, kilograms are often preferred because 0.1 kg increments are easier to track than 0.2 lb increments. What matters most is consistency - don’t switch systems mid-tracking, as this introduces conversion errors and makes trends harder to spot.',
       },
       {
         question: 'Are the conversion factors in this tool accurate enough for medical use?',
@@ -247,7 +247,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       {
         title: 'TDEE Explained: How Many Calories Do You Really Need?',
         description:
-          "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+          'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
         slug: 'tdee-explained',
         date: ARTICLE_DATES.tdee,
         readTime: '10 min read',
@@ -265,7 +265,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       {
         title: '5 Myths About Calorie Deficits Debunked',
         description:
-          "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+          'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
         slug: 'calorie-deficit-myths',
         date: ARTICLE_DATES.deficit,
         readTime: '8 min read',
@@ -394,7 +394,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
           { label: 'Calorías a kilojulios:', value: '1 kcal = 4.184 kJ' },
           { label: 'Kilojulios a calorías:', value: '1 kJ = 0.239 kcal' },
         ],
-        note: 'Nota: En nutrición, "caloría" suele referirse a kilocaloría (kcal).',
+        note: 'Nota: En nutrición, “caloría” suele referirse a kilocaloría (kcal).',
       },
     ],
     quickReferenceLines: {
@@ -466,23 +466,23 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
     ],
   },
   fr: {
-    metaTitle: "Convertisseur d'unités | Conversions de mesures | HealthCalc",
+    metaTitle: 'Convertisseur d’unités | Conversions de mesures | HealthCalc',
     metaDescription:
       'Convertissez rapidement et précisément des unités de poids, taille, volume, température et énergie.',
     metaKeywords:
-      "convertisseur d'unités, conversion de mesures, convertisseur de poids, convertisseur de taille, métrique vers impérial, kg en lb, cm en pieds",
-    ogAlt: "Convertisseur d'unités",
+      'convertisseur d’unités, conversion de mesures, convertisseur de poids, convertisseur de taille, métrique vers impérial, kg en lb, cm en pieds',
+    ogAlt: 'Convertisseur d’unités',
     title: 'Conversions de mesures',
     description:
       'Convertissez entre différentes unités de mesure pour le poids, la taille, le volume et plus',
     shareTitle: 'Conversions de mesures | Poids, taille, volume et plus',
     shareDescription:
-      "Convertisseur d'unités précis pour le poids, la taille, le volume, la température et l'énergie. Idéal pour le suivi santé, la planification fitness et la nutrition.",
+      'Convertisseur d’unités précis pour le poids, la taille, le volume, la température et l’énergie. Idéal pour le suivi santé, la planification fitness et la nutrition.',
     shareHashtags: ['conversions', 'measurements', 'health', 'fitness'],
     structuredDataName: 'Outil de conversion de mesures',
     structuredDataDescription:
-      "Convertisseur d'unités précis pour le poids, la taille, le volume, la température et l'énergie. Idéal pour le suivi santé, la planification fitness et la nutrition.",
-    faqTitle: "Questions fréquentes sur les conversions d'unités",
+      'Convertisseur d’unités précis pour le poids, la taille, le volume, la température et l’énergie. Idéal pour le suivi santé, la planification fitness et la nutrition.',
+    faqTitle: 'Questions fréquentes sur les conversions d’unités',
     newsletterTitle: 'Recevez des conseils santé et fitness',
     newsletterDescription:
       'Abonnez-vous pour recevoir les dernières calculatrices santé, des outils de conversion, des conseils fitness et du contenu exclusif pour atteindre vos objectifs.',
@@ -581,13 +581,13 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
         ],
       },
       {
-        title: "Conversions d'énergie",
-        intro: "Conversion d'énergie en nutrition :",
+        title: 'Conversions d’énergie',
+        intro: 'Conversion d’énergie en nutrition :',
         items: [
           { label: 'Calories en kilojoules :', value: '1 kcal = 4.184 kJ' },
           { label: 'Kilojoules en calories :', value: '1 kJ = 0.239 kcal' },
         ],
-        note: 'Note : en nutrition, "calorie" désigne généralement la kilocalorie (kcal).',
+        note: 'Note : en nutrition, “calorie” désigne généralement la kilocalorie (kcal).',
       },
     ],
     quickReferenceLines: {
@@ -604,7 +604,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
         question:
           'Pourquoi est-il important de convertir correctement les unités pour le suivi de la santé ?',
         answer:
-          "Des conversions d'unités précises sont essentielles pour le suivi santé et fitness, car de petites erreurs s'additionnent avec le temps. Par exemple, confondre livres et kilogrammes lors du suivi du poids peut fausser l'interprétation de votre progression. Une conversion imprécise entre kcal et kJ peut conduire à manger trop ou pas assez. Et lorsque vous partagez des données avec des professionnels de santé, utiliser les bonnes unités facilite un diagnostic et une prise en charge appropriés. Notre convertisseur utilise des facteurs de conversion précis (pas des approximations arrondies) pour préserver l'exactitude.",
+          'Des conversions d’unités précises sont essentielles pour le suivi santé et fitness, car de petites erreurs s’additionnent avec le temps. Par exemple, confondre livres et kilogrammes lors du suivi du poids peut fausser l’interprétation de votre progression. Une conversion imprécise entre kcal et kJ peut conduire à manger trop ou pas assez. Et lorsque vous partagez des données avec des professionnels de santé, utiliser les bonnes unités facilite un diagnostic et une prise en charge appropriés. Notre convertisseur utilise des facteurs de conversion précis (pas des approximations arrondies) pour préserver l’exactitude.',
       },
       {
         question: 'Quelle est la différence entre une calorie et une kilocalorie ?',
@@ -641,7 +641,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       {
         title: 'Comprendre le pourcentage de masse grasse : que signifient vos chiffres',
         description:
-          "Découvrez les plages saines de masse grasse, la différence avec l'IMC et pourquoi la composition corporelle compte pour vos objectifs.",
+          'Découvrez les plages saines de masse grasse, la différence avec l’IMC et pourquoi la composition corporelle compte pour vos objectifs.',
         slug: 'understanding-body-fat-percentage',
         date: ARTICLE_DATES.bodyFat,
         readTime: '9 min de lecture',
@@ -650,7 +650,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
       {
         title: '5 mythes sur le déficit calorique démystifiés',
         description:
-          "Découvrez la vérité sur des idées reçues concernant le déficit calorique, la perte de poids et le métabolisme. Apprenez pourquoi la perte de poids n'est pas toujours linéaire.",
+          'Découvrez la vérité sur des idées reçues concernant le déficit calorique, la perte de poids et le métabolisme. Apprenez pourquoi la perte de poids n’est pas toujours linéaire.',
         slug: 'calorie-deficit-myths',
         date: ARTICLE_DATES.deficit,
         readTime: '8 min de lecture',
@@ -774,7 +774,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
           { label: 'Kalorien in Kilojoule:', value: '1 kcal = 4.184 kJ' },
           { label: 'Kilojoule in Kalorien:', value: '1 kJ = 0.239 kcal' },
         ],
-        note: 'Hinweis: In der Ernährung meint "calorie" meist Kilokalorie (kcal).',
+        note: 'Hinweis: In der Ernährung meint “calorie” meist Kilokalorie (kcal).',
       },
     ],
     quickReferenceLines: {
@@ -966,7 +966,7 @@ const COPY: Record<SupportedLocale, ConversionsPageCopy> = {
           { label: 'Calorias para quilojoules:', value: '1 kcal = 4.184 kJ' },
           { label: 'Quilojoules para calorias:', value: '1 kJ = 0.239 kcal' },
         ],
-        note: 'Observação: na nutrição, "calorie" geralmente se refere a quilocaloria (kcal).',
+        note: 'Observação: na nutrição, “calorie” geralmente se refere a quilocaloria (kcal).',
       },
     ],
     quickReferenceLines: {

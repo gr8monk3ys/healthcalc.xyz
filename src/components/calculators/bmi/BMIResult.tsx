@@ -8,6 +8,7 @@ import NextSteps from '@/components/calculators/NextSteps';
 import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisual';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
+import { formatNumber, formatOrdinal } from '@/utils/formatNumber';
 
 interface BMIResultDisplayProps {
   result: BMIResult;
@@ -29,10 +30,10 @@ const FALLBACK_COPY: BMIPageCopy['result'] = {
   },
   classificationAdult: 'BMI Classification',
   classificationChild: 'BMI Percentile Classification',
-  percentileTemplate: '{percentile}th Percentile - {category}',
+  percentileTemplate: '{ordinal} Percentile - {category}',
   healthyWeightRangeTitle: 'Healthy Weight Range for Your Height',
   whatThisMeansTitle: 'What This Means',
-  childIntroTemplate: "Your child's BMI is at the {percentile}th percentile for their age and sex.",
+  childIntroTemplate: 'Your child’s BMI is at the {ordinal} percentile for their age and sex.',
   childUnderweight:
     'This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.',
   childHealthy: 'This is within the healthy weight range.',
@@ -54,7 +55,7 @@ const FALLBACK_COPY: BMIPageCopy['result'] = {
 function formatTemplate(template: string, vars: Record<string, string | number>): string {
   let output = template;
   for (const [key, value] of Object.entries(vars)) {
-    output = output.replace(new RegExp(`\\{${key}\\}`, 'g'), String(value));
+    output = output.replaceAll(`{${key}}`, String(value));
   }
   return output;
 }
@@ -104,7 +105,7 @@ function getBMINextSteps(
   if (isChild) {
     return {
       insight:
-        "BMI percentiles for children are interpreted differently than adult BMI. Talk to your pediatrician about your child's growth pattern.",
+        'BMI percentiles for children are interpreted differently than adult BMI. Talk to your pediatrician about your child’s growth pattern.',
       steps: [
         {
           label: 'Calorie Calculator',
@@ -123,7 +124,7 @@ function getBMINextSteps(
 
   if (bmi < 18.5) {
     return {
-      insight: `Your BMI of ${bmi.toFixed(1)} falls in the underweight category. Building a calorie surplus with balanced nutrition can help you reach a healthier weight.`,
+      insight: `Your BMI of ${formatNumber(bmi, 1)} falls in the underweight category. Building a calorie surplus with balanced nutrition can help you reach a healthier weight.`,
       steps: [
         {
           label: 'Calorie Calculator',
@@ -147,7 +148,7 @@ function getBMINextSteps(
 
   if (bmi < 25) {
     return {
-      insight: `Your BMI of ${bmi.toFixed(1)} is in the normal range. Staying active and eating well will help you maintain this healthy weight.`,
+      insight: `Your BMI of ${formatNumber(bmi, 1)} is in the normal range. Staying active and eating well will help you maintain this healthy weight.`,
       steps: [
         {
           label: 'TDEE Calculator',
@@ -171,7 +172,7 @@ function getBMINextSteps(
 
   if (bmi < 30) {
     return {
-      insight: `Your BMI of ${bmi.toFixed(1)} puts you in the overweight category. A moderate calorie deficit combined with regular exercise is an effective path forward.`,
+      insight: `Your BMI of ${formatNumber(bmi, 1)} puts you in the overweight category. A moderate calorie deficit combined with regular exercise is an effective path forward.`,
       steps: [
         {
           label: 'Calorie Deficit Calculator',
@@ -194,7 +195,7 @@ function getBMINextSteps(
   }
 
   return {
-    insight: `Your BMI of ${bmi.toFixed(1)} is in the obese category. Working with a healthcare provider alongside tracking your nutrition can make a real difference.`,
+    insight: `Your BMI of ${formatNumber(bmi, 1)} is in the obese category. Working with a healthcare provider alongside tracking your nutrition can make a real difference.`,
     steps: [
       {
         label: 'Calorie Deficit Calculator',
@@ -233,6 +234,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
     isChild && result.percentile !== undefined
       ? formatTemplate(content.percentileTemplate, {
           percentile: result.percentile,
+          ordinal: formatOrdinal(result.percentile),
           category: result.category,
         })
       : result.category;
@@ -240,7 +242,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
   return (
     <div
       id="bmi-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
+      className="neumorph p-6 rounded-lg animate-fade-in"
       tabIndex={-1}
       aria-live="polite"
       role="region"
@@ -258,7 +260,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
             <p
               className={`mt-1 text-5xl font-extrabold leading-none tracking-tight tabular-nums ${tone.value}`}
             >
-              {result.bmi.toFixed(1)}
+              {formatNumber(result.bmi, 1)}
             </p>
           </div>
           <div className="text-right">
@@ -292,7 +294,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
           </div>
 
           <div
-            className="absolute -top-0.5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white bg-slate-900 shadow-md transition-all duration-500 dark:border-slate-900 dark:bg-white"
+            className="absolute -top-0.5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white bg-slate-900 shadow-md dark:border-slate-900 dark:bg-white"
             style={{
               left: `${Math.min(Math.max(((result.bmi - 10) / 30) * 100, 0), 100)}%`,
             }}
@@ -312,7 +314,8 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
           {content.healthyWeightRangeTitle}
         </h3>
         <p className="shrink-0 text-lg font-bold tabular-nums">
-          {result.healthyWeightRange.min.toFixed(1)} - {result.healthyWeightRange.max.toFixed(1)}{' '}
+          {formatNumber(result.healthyWeightRange.min, 1)} -{' '}
+          {formatNumber(result.healthyWeightRange.max, 1)}{' '}
           <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
             {weightUnit}
           </span>
@@ -326,7 +329,10 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
         <p className="mb-2">
           {isChild && result.percentile !== undefined ? (
             <>
-              {formatTemplate(content.childIntroTemplate, { percentile: result.percentile })}
+              {formatTemplate(content.childIntroTemplate, {
+                percentile: result.percentile,
+                ordinal: formatOrdinal(result.percentile),
+              })}
               {result.percentile < 5
                 ? ` ${content.childUnderweight}`
                 : result.percentile >= 5 && result.percentile < 85

@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import PregnancyWeightGainResult from '@/components/calculators/pregnancy-weight-gain/PregnancyWeightGainResult';
 import PregnancyWeightGainInfo from '@/components/calculators/pregnancy-weight-gain/PregnancyWeightGainInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculatePregnancyWeightGain } from '@/utils/calculators/pregnancyWeightGain';
 import { validateHeight, validateWeight } from '@/utils/validation';
 import type { PregnancyWeightGainResult as PregnancyWeightGainResultType } from '@/types/pregnancyWeightGain';
@@ -18,6 +17,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -99,7 +103,7 @@ export default function PregnancyWeightGainCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('pregnancy-weight-gain-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

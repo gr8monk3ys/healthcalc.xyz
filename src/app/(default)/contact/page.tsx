@@ -15,8 +15,8 @@ export default function ContactPage() {
         <div className="neumorph p-6 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
           <p className="mb-6">
-            Have questions, feedback, or suggestions? We&apos;d love to hear from you! Fill out the
-            form and we&apos;ll get back to you as soon as possible.
+            Have questions, feedback, or suggestions? We’d love to hear from you! Fill out the form
+            and we’ll get back to you as soon as possible.
           </p>
 
           <ContactForm />
@@ -29,6 +29,7 @@ export default function ContactPage() {
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
                   <svg
+                    aria-hidden="true"
                     className="h-5 w-5 text-accent"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -52,6 +53,7 @@ export default function ContactPage() {
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
                   <svg
+                    aria-hidden="true"
                     className="h-5 w-5 text-accent"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -90,7 +92,7 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-medium">Do you store my personal data?</h3>
                 <p className="text-sm text-gray-600">
-                  No, all calculations are performed locally in your browser. We don't store or
+                  No, all calculations are performed locally in your browser. We don’t store or
                   transmit your personal measurement data to our servers.
                 </p>
               </div>

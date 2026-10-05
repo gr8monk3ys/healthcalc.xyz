@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import { formatDisplayDate, formatNumber } from '@/utils/formatNumber';
 
 interface MiniChartDataPoint {
   date: string;
@@ -23,27 +24,11 @@ const PADDING_TOP = 12;
 const PADDING_BOTTOM = 24;
 
 function formatDateShort(dateString: string): string {
-  const d = new Date(dateString);
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  return `${months[d.getMonth()]} ${d.getDate()}`;
+  return formatDisplayDate(dateString, { month: 'short', day: 'numeric' });
 }
 
 function formatValue(value: number): string {
-  if (Number.isInteger(value)) return String(value);
-  return value.toFixed(1);
+  return formatNumber(value, Number.isInteger(value) ? 0 : 1);
 }
 
 export default function MiniChart({
@@ -99,13 +84,13 @@ export default function MiniChart({
   if (sorted.length === 0) return null;
 
   const linePath = points
-    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`)
+    .map((p, i) => `${i === 0 ? 'M' : 'L'} ${formatNumber(p.x, 1)} ${formatNumber(p.y, 1)}`)
     .join(' ');
 
   const areaPath =
     linePath +
-    ` L ${points[points.length - 1].x.toFixed(1)} ${(PADDING_TOP + chartH).toFixed(1)}` +
-    ` L ${points[0].x.toFixed(1)} ${(PADDING_TOP + chartH).toFixed(1)} Z`;
+    ` L ${formatNumber(points[points.length - 1].x, 1)} ${formatNumber(PADDING_TOP + chartH, 1)}` +
+    ` L ${formatNumber(points[0].x, 1)} ${formatNumber(PADDING_TOP + chartH, 1)} Z`;
 
   const gradientId = `mini-chart-grad-${color.replace(/[^a-zA-Z0-9]/g, '')}`;
 
@@ -170,7 +155,6 @@ export default function MiniChart({
               fill={color}
               stroke="var(--glass-fill, #fff)"
               strokeWidth="1.5"
-              className="transition-all duration-150"
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

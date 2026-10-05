@@ -38,11 +38,11 @@ describe('Home Page', () => {
         name: /BMI, body fat, TDEE, and 50\+ more health calculators/i,
       })
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Browse calculators' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Browse Calculators' })).toHaveAttribute(
       'href',
       '/calculators'
     );
-    expect(screen.getByRole('link', { name: /Read the guides/i })).toHaveAttribute('href', '/blog');
+    expect(screen.getByRole('link', { name: /Read the Guides/i })).toHaveAttribute('href', '/blog');
     expect(
       screen.getByRole('link', { name: /Search calculators, guides, and blog posts/i })
     ).toHaveAttribute('href', '/search');
@@ -61,7 +61,7 @@ describe('Home Page', () => {
     expect(
       screen.getByRole('link', { name: /5 Myths About Calorie Deficits Debunked/i })
     ).toHaveAttribute('href', '/blog/calorie-deficit-myths');
-    expect(screen.getByRole('link', { name: /Explore all guides and articles/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /Explore All Guides and Articles/i })).toHaveAttribute(
       'href',
       '/blog'
     );

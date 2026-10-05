@@ -22,7 +22,7 @@ interface SocialShareProps {
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
   for (const [key, value] of Object.entries(vars)) {
-    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+    out = out.replaceAll(`{${key}}`, value);
   }
   return out;
 }
@@ -65,6 +65,7 @@ export default function SocialShare({
     twitter: {
       icon: (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
           fill="currentColor"
@@ -79,6 +80,7 @@ export default function SocialShare({
     facebook: {
       icon: (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
           fill="currentColor"
@@ -93,6 +95,7 @@ export default function SocialShare({
     linkedin: {
       icon: (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
           fill="currentColor"
@@ -107,6 +110,7 @@ export default function SocialShare({
     pinterest: {
       icon: (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
           fill="currentColor"
@@ -121,6 +125,7 @@ export default function SocialShare({
     reddit: {
       icon: (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
           fill="currentColor"
@@ -135,6 +140,7 @@ export default function SocialShare({
     email: {
       icon: (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
           fill="none"
@@ -156,13 +162,19 @@ export default function SocialShare({
 
   // Handle share click
   const handleShare = (e: React.MouseEvent<HTMLAnchorElement>, platform: string) => {
-    e.preventDefault();
-
-    // For email, use default behavior
-    if (platform === 'email') {
-      window.location.href = shareUrls[platform as keyof typeof shareUrls];
+    // Modified or non-primary clicks (Cmd/Ctrl/Shift, middle-click) keep the
+    // browser's native link behavior (new tab/window); email always does.
+    if (
+      platform === 'email' ||
+      e.button !== 0 ||
+      e.metaKey ||
+      e.ctrlKey ||
+      e.shiftKey ||
+      e.altKey
+    ) {
       return;
     }
+    e.preventDefault();
 
     // For other platforms, open in a popup window
     const url = shareUrls[platform as keyof typeof shareUrls];
@@ -182,7 +194,7 @@ export default function SocialShare({
               key={platform}
               href={shareUrls[platform]}
               onClick={e => handleShare(e, platform)}
-              className="elevated-pill flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium text-foreground transition-all hover:-translate-y-0.5 hover:border-accent/40"
+              className="elevated-pill flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:border-accent/40"
               aria-label={formatTemplate(t('socialShare.ariaTemplate'), { platform: config.label })}
               rel="noopener noreferrer"
             >

@@ -122,7 +122,7 @@ describe('Search', () => {
 
     it('should render default placeholder', async () => {
       await renderSearch();
-      expect(screen.getByPlaceholderText('Search calculators, articles...')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('Search calculators, articles…')).toBeInTheDocument();
     });
 
     it('should render search icon by default', async () => {
@@ -308,7 +308,7 @@ describe('Search', () => {
       });
     });
 
-    it('should navigate when a dropdown result is clicked', async () => {
+    it('should render dropdown results as links to the result page', async () => {
       await renderSearch();
       const input = screen.getByRole('searchbox');
 
@@ -318,8 +318,12 @@ describe('Search', () => {
         expect(screen.getByText('BMI Calculator')).toBeInTheDocument();
       });
 
-      fireEvent.click(screen.getByRole('button', { name: /BMI Calculator/i }));
-      expect(mockPush).toHaveBeenCalledWith('/bmi');
+      const link = screen.getByRole('link', { name: /BMI Calculator/i });
+      expect(link).toHaveAttribute('href', '/bmi');
+      fireEvent.click(link);
+      await waitFor(() => {
+        expect(screen.queryByRole('link', { name: /BMI Calculator/i })).not.toBeInTheDocument();
+      });
     });
   });
 

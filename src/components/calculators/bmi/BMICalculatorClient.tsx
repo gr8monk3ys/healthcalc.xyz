@@ -32,6 +32,7 @@ import {
 } from '@/hooks/useSharedResultPrefill';
 import type { BMIPageCopy } from '@/i18n/pages/bmi';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 const logger = createLogger({ component: 'BMICalculatorClient' });
 
@@ -373,7 +374,7 @@ function submitBMIForm({
     setTimeout(() => {
       const resultElement = document.getElementById('bmi-result');
       if (resultElement) {
-        resultElement.scrollIntoView({ behavior: 'smooth' });
+        resultElement.scrollIntoView({ behavior: scrollBehavior() });
         resultElement.focus({ preventScroll: true });
       }
     }, 100);
@@ -402,15 +403,19 @@ export default function BMICalculatorClient({
   const sharedPrefill = initialSharedPrefill ?? querySharedPrefill;
   const hasAppliedSharedPrefill = useRef(false);
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     if (typeof chainPrefill.age === 'number')
       dispatchState({ type: 'patch', patch: { age: chainPrefill.age } });
     if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
       dispatchState({ type: 'patch', patch: { gender: chainPrefill.gender as Gender } });
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, height, weight]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setHeightValue, setWeightValue]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;

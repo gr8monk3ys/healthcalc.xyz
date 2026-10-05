@@ -35,10 +35,17 @@ function getEmbedFrameAncestors(): string {
   return "'self' https:";
 }
 
+// Only a couple of distinct policies exist (framing allowed or not), so build
+// each once instead of re-joining the directive list on every request.
+const cspCache = new Map<string, string>();
+
 function buildContentSecurityPolicy(frameAncestors: string): string {
   const unsafeEval = process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : '';
+  const cacheKey = `${unsafeEval}|${frameAncestors}`;
+  const cached = cspCache.get(cacheKey);
+  if (cached) return cached;
 
-  return [
+  const policy = [
     "default-src 'self'",
     `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://*.adtrafficquality.google`,
     "worker-src 'self' blob:",
@@ -55,6 +62,8 @@ function buildContentSecurityPolicy(frameAncestors: string): string {
     .join('; ')
     .replace(/\s{2,}/g, ' ')
     .trim();
+  cspCache.set(cacheKey, policy);
+  return policy;
 }
 
 function applySecurityHeaders(request: NextRequest, response: NextResponse): NextResponse {

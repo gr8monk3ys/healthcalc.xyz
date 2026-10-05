@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useReducer, useRef } from 'react';
 import { ActivityLevel, Gender } from '@/types/common';
 import { MacroGoal, MacroResult as MacroResultType } from '@/types/macro';
@@ -11,8 +12,6 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import MacroResult from '@/components/calculators/macro/MacroResult';
 import MacroInfo from '@/components/calculators/macro/MacroInfo';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -26,6 +25,11 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // FAQ data for Macro calculator
 const faqs = [
@@ -52,7 +56,7 @@ const faqs = [
   {
     question: 'Can I eat whatever I want if it fits my macros?',
     answer:
-      "The 'If It Fits Your Macros' (IIFYM) approach suggests that as long as you hit your macro targets, food sources don't matter. While this is partially true for body composition, food quality still matters for: 1) Micronutrients (vitamins, minerals) from whole foods, 2) Fiber for digestive health (aim for 25-35g daily), 3) Satiety - whole foods keep you fuller longer, 4) Long-term health outcomes. A practical approach: aim for 80% whole, minimally processed foods and 20% flexibility. This balances health, sustainability, and enjoyment of food.",
+      'The ‘If It Fits Your Macros’ (IIFYM) approach suggests that as long as you hit your macro targets, food sources don’t matter. While this is partially true for body composition, food quality still matters for: 1) Micronutrients (vitamins, minerals) from whole foods, 2) Fiber for digestive health (aim for 25-35g daily), 3) Satiety - whole foods keep you fuller longer, 4) Long-term health outcomes. A practical approach: aim for 80% whole, minimally processed foods and 20% flexibility. This balances health, sustainability, and enjoyment of food.',
   },
   {
     question: 'How accurate are macro calculators?',
@@ -176,7 +180,7 @@ function createMacroFormFields({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     {
       name: 'gender',
@@ -224,7 +228,7 @@ function createMacroFormFields({
             value: customProtein,
             onChange: (val: number | '') => setCustomProtein(val === '' ? 30 : val),
             error: errors.macros,
-            placeholder: 'Protein %',
+            placeholder: 'e.g. 30…',
             min: 10,
             max: 50,
           },
@@ -234,7 +238,7 @@ function createMacroFormFields({
             type: 'number' as const,
             value: customCarbs,
             onChange: (val: number | '') => setCustomCarbs(val === '' ? 40 : val),
-            placeholder: 'Carbs %',
+            placeholder: 'e.g. 40…',
             min: 10,
             max: 70,
           },
@@ -244,7 +248,7 @@ function createMacroFormFields({
             type: 'number' as const,
             value: customFat,
             onChange: (val: number | '') => setCustomFat(val === '' ? 30 : val),
-            placeholder: 'Fat %',
+            placeholder: 'e.g. 30…',
             min: 15,
             max: 60,
           },
@@ -388,6 +392,10 @@ export default function MacroCalculator({
   const sharedPrefill = initialSharedPrefill ?? querySharedPrefill;
   const hasAppliedSharedPrefill = useRef(false);
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     dispatchState({
@@ -399,9 +407,9 @@ export default function MacroCalculator({
           : {}),
       },
     });
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, height, weight]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setHeightValue, setWeightValue]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
@@ -514,7 +522,7 @@ export default function MacroCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('macro-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

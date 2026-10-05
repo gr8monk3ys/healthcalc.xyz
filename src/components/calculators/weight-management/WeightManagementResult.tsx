@@ -7,6 +7,7 @@ import Card from '@/components/ui/Card';
 import ResultCard from '@/components/ui/ResultCard';
 import { WeightManagementResult } from '@/types/weightManagement';
 import { formatDate, getGoalTypeMessage } from '@/app/api/weightManagement';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface WeightManagementResultDisplayProps {
   result: WeightManagementResult;
@@ -54,8 +55,8 @@ export default function WeightManagementResultDisplay({
             Target Date: <span className="font-semibold">{formatDate(result.targetDate)}</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            {result.weeksToGoal} weeks ({result.daysToGoal} days) •{' '}
-            {Math.abs(displayWeeklyChange).toFixed(2)} {unitLabel}/week
+            {result.weeksToGoal} weeks ({result.daysToGoal} days) •{' '}
+            {formatNumber(Math.abs(displayWeeklyChange), 2)} {unitLabel}/week
           </p>
           {result.adjustedTargetDate && (
             <p className="text-sm text-orange-600 dark:text-orange-400 mt-2">
@@ -70,6 +71,7 @@ export default function WeightManagementResultDisplay({
         <Card className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
           <div className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -107,12 +109,12 @@ export default function WeightManagementResultDisplay({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ResultCard
           title="Current Weight"
-          value={`${displayCurrentWeight.toFixed(1)} ${unitLabel}`}
-          description={`Goal: ${displayGoalWeight.toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(displayCurrentWeight, 1)} ${unitLabel}`}
+          description={`Goal: ${formatNumber(displayGoalWeight, 1)} ${unitLabel}`}
         />
         <ResultCard
           title="Weight Change Needed"
-          value={`${Math.abs(displayWeightChange).toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(Math.abs(displayWeightChange), 1)} ${unitLabel}`}
           description={result.goalType === 'lose' ? 'to lose' : 'to gain'}
         />
         <ResultCard
@@ -142,7 +144,7 @@ export default function WeightManagementResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Protein</div>
             <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              {result.macros.proteinPercentage}% • {result.macros.proteinCalories} cal
+              {result.macros.proteinPercentage}% • {result.macros.proteinCalories} cal
             </div>
           </div>
           <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
@@ -151,7 +153,7 @@ export default function WeightManagementResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Carbohydrates</div>
             <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              {result.macros.carbsPercentage}% • {result.macros.carbsCalories} cal
+              {result.macros.carbsPercentage}% • {result.macros.carbsCalories} cal
             </div>
           </div>
           <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
@@ -160,7 +162,7 @@ export default function WeightManagementResultDisplay({
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">Fat</div>
             <div className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-              {result.macros.fatPercentage}% • {result.macros.fatCalories} cal
+              {result.macros.fatPercentage}% • {result.macros.fatCalories} cal
             </div>
           </div>
         </div>
@@ -202,7 +204,12 @@ export default function WeightManagementResultDisplay({
         <Card className="p-5">
           <h3 className="text-lg font-semibold mb-4">Weight Projection Timeline</h3>
           <div className="relative h-64">
-            <svg className="w-full h-full" viewBox="0 0 600 250">
+            <svg
+              role="img"
+              aria-label={`Projected weight from ${formatNumber(displayCurrentWeight, 1)} to ${formatNumber(displayGoalWeight, 1)} ${unitLabel} over ${result.weeklyProjections.length - 1} weeks.`}
+              className="w-full h-full"
+              viewBox="0 0 600 250"
+            >
               {/* Grid lines */}
               {[50, 90, 130, 170, 210].map(lineY => (
                 <line
@@ -284,7 +291,7 @@ export default function WeightManagementResultDisplay({
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>Get adequate sleep - it's crucial for weight management and recovery</span>
+            <span>Get adequate sleep - it’s crucial for weight management and recovery</span>
           </li>
           {result.goalType === 'gain' && (
             <li className="flex items-start gap-2">

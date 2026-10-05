@@ -27,19 +27,19 @@ export default function BodyFatBurnResult({ result, formData }: BodyFatBurnResul
             <div className="flex justify-between">
               <span className="text-gray-600">Resting Energy:</span>
               <span className="font-medium">
-                {formatNumber(result.restingEnergyExpenditure)} kcal/day
+                {formatNumber(result.restingEnergyExpenditure)} kcal/day
               </span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Activity Energy:</span>
               <span className="font-medium">
-                {formatNumber(result.activityEnergyExpenditure)} kcal/session
+                {formatNumber(result.activityEnergyExpenditure)} kcal/session
               </span>
             </div>
             <div className="flex justify-between border-t pt-2 mt-2">
               <span className="text-gray-600">Weekly Burn:</span>
               <span className="font-medium text-accent">
-                {formatNumber(result.activityEnergyExpenditure * formData.frequency)} kcal/week
+                {formatNumber(result.activityEnergyExpenditure * formData.frequency)} kcal/week
               </span>
             </div>
           </div>
@@ -49,10 +49,10 @@ export default function BodyFatBurnResult({ result, formData }: BodyFatBurnResul
           <h3 className="text-lg font-semibold mb-2">Time to Goal</h3>
           <div className="flex flex-col items-center justify-center h-full">
             <div className="text-4xl font-bold text-accent mb-2">
-              {result.timeToReachGoal.weeks} weeks
+              {result.timeToReachGoal.weeks} weeks
             </div>
             <div className="text-gray-600 text-center">
-              {result.timeToReachGoal.days} days to lose {formData.burnGoal}{' '}
+              {result.timeToReachGoal.days} days to lose {formData.burnGoal}{' '}
               {formData.unitSystem === 'imperial' ? 'lbs' : 'kg'}
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function BodyFatBurnResult({ result, formData }: BodyFatBurnResul
 
           <div className="bg-accent/5 p-3 rounded-lg">
             <div className="text-center">
-              <div className="text-xl font-semibold">{formData.duration} min</div>
+              <div className="text-xl font-semibold">{formData.duration} min</div>
               <div className="text-gray-600">{formData.frequency}x per week</div>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function BodyFatBurnResult({ result, formData }: BodyFatBurnResul
           </li>
           <li>
             This plan creates a weekly deficit of approximately{' '}
-            {formatNumber((result.activityEnergyExpenditure * formData.frequency) / 7)} calories per
+            {formatNumber((result.activityEnergyExpenditure * formData.frequency) / 7)} calories per
             day
           </li>
           <li>For faster results, consider combining this exercise plan with dietary changes</li>

@@ -11,7 +11,7 @@ const SleepRecoverySciencePageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         Sleep and Recovery: What the Research Says About Optimizing Rest
       </h1>
-      <p className="text-gray-500 italic">Published: January 24, 2026 • 14 min read</p>
+      <p className="text-gray-500 italic">Published: January 24, 2026 • 14 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -23,7 +23,7 @@ const SleepRecoverySciencePageContent = (
             while REM sleep consolidates learning and emotional regulation.
           </li>
           <li>
-            Chronic sleep restriction (under 6 hours) increases ghrelin and decreases leptin,
+            Chronic sleep restriction (under 6 hours) increases ghrelin and decreases leptin,
             creating a hormonal environment that promotes weight gain.
           </li>
           <li>
@@ -97,7 +97,7 @@ const SleepRecoverySciencePageContent = (
         repair itself as efficiently.
       </p>
       <p>
-        Here is the problem: deep sleep is front-loaded. You get the most N3 in the first half of
+        Here is the problem: deep sleep is front-loaded. You get the most N3 in the first half of
         the night. If you go to bed at 2am and wake at 8am, you will get roughly the same amount of
         deep sleep as someone who sleeps from 10pm to 6am. But that person will get significantly
         more REM sleep, because REM cycles grow longer toward morning.
@@ -123,22 +123,22 @@ const SleepRecoverySciencePageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">How Much Sleep Do You Actually Need?</h2>
 
       <p>
-        The standard recommendation of 7-9 hours comes from the National Sleep Foundation and the
+        The standard recommendation of 7-9 hours comes from the National Sleep Foundation and the
         American Academy of Sleep Medicine. But I think the more interesting question is what
         happens below that threshold.
       </p>
 
       <p>
         Matthew Walker, the neuroscientist at UC Berkeley and author of Why We Sleep, has been vocal
-        about the cognitive effects of sleep restriction. His research shows that after 10 days of
-        sleeping 6 hours per night, cognitive impairment is equivalent to going 24 hours without
-        sleep. The insidious part? Subjects in these studies consistently report feeling "fine." You
+        about the cognitive effects of sleep restriction. His research shows that after 10 days of
+        sleeping 6 hours per night, cognitive impairment is equivalent to going 24 hours without
+        sleep. The insidious part? Subjects in these studies consistently report feeling “fine.” You
         lose the ability to accurately judge your own impairment.
       </p>
 
       <p>
-        For athletes, the data is even more compelling. Cheri Mah's landmark 2011 study at Stanford
-        had basketball players extend their sleep to 10 hours per night for 5-7 weeks. The results
+        For athletes, the data is even more compelling. Cheri Mah’s landmark 2011 study at Stanford
+        had basketball players extend their sleep to 10 hours per night for 5-7 weeks. The results
         were remarkable: sprint times improved by 4%, free throw accuracy increased by 9%, and
         three-point accuracy increased by 9.2%. Reaction times improved across the board. These are
         enormous gains for something that requires zero additional training.
@@ -148,10 +148,10 @@ const SleepRecoverySciencePageContent = (
         <h3 className="text-xl font-semibold mb-2">The Individual Variation Problem</h3>
         <p>
           There is a small percentage of the population (roughly 1-3%) who carry a mutation in the
-          DEC2 gene that allows them to function normally on 6 hours or less. If you think you are
+          DEC2 gene that allows them to function normally on 6 hours or less. If you think you are
           one of these people, you are almost certainly not. Research from the University of
           California San Francisco found that true short sleepers are extremely rare. Most people
-          who claim to need only 5-6 hours have simply adapted to chronic sleep deprivation and no
+          who claim to need only 5-6 hours have simply adapted to chronic sleep deprivation and no
           longer recognize their own impairment.
         </p>
       </div>
@@ -159,7 +159,7 @@ const SleepRecoverySciencePageContent = (
       <p>
         My recommendation: track your sleep for two weeks without an alarm (vacation is ideal) and
         see when you naturally wake. That is probably your true sleep need. For most adults, it will
-        land between 7.5 and 8.5 hours. Our{' '}
+        land between 7.5 and 8.5 hours. Our{' '}
         <Link href="/sleep" className="text-accent hover:underline">
           sleep calculator
         </Link>{' '}
@@ -172,15 +172,15 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         A 2019 study published in Current Biology by Depner et al. tested exactly this question.
-        They split participants into three groups: one that slept 9 hours nightly, one restricted to
-        5 hours nightly, and one that slept 5 hours on weekdays but could sleep as much as they
+        They split participants into three groups: one that slept 9 hours nightly, one restricted to
+        5 hours nightly, and one that slept 5 hours on weekdays but could sleep as much as they
         wanted on weekends. The weekend recovery group did sleep longer on Saturday and Sunday
-        (about 9.8 hours), but here is what happened:
+        (about 9.8 hours), but here is what happened:
       </p>
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>They still snacked more after dinner during the subsequent week of restricted sleep</li>
-        <li>Their total body weight increased by about 1.5 kg over the study period</li>
+        <li>Their total body weight increased by about 1.5 kg over the study period</li>
         <li>
           Insulin sensitivity in muscle and liver tissue did not recover to baseline, even after the
           weekend catch-up
@@ -193,20 +193,20 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         The study concluded that ad libitum weekend recovery sleep is not an effective strategy for
-        reversing the metabolic effects of workweek sleep restriction. In other words, the "I will
-        sleep in on Saturday" plan is not fixing what you think it is fixing.
+        reversing the metabolic effects of workweek sleep restriction. In other words, the “I will
+        sleep in on Saturday” plan is not fixing what you think it is fixing.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Sleep and Weight: The Hormonal Connection</h2>
 
       <p>
         This is where the research gets particularly convincing, and where I think most people
-        underestimate sleep's role in body composition.
+        underestimate sleep’s role in body composition.
       </p>
 
       <p>
         In 2004, Spiegel, Tasali, Penev, and Van Cauter published a landmark study in the Annals of
-        Internal Medicine. They restricted healthy young men to 4 hours of sleep for two consecutive
+        Internal Medicine. They restricted healthy young men to 4 hours of sleep for two consecutive
         nights and measured hormonal changes. The results:
       </p>
 
@@ -231,7 +231,7 @@ const SleepRecoverySciencePageContent = (
       <p>
         A follow-up study by Nedeltcheva et al. in 2010, published in the Annals of Internal
         Medicine, put people on the same calorie-restricted diet but varied their sleep. The group
-        sleeping 5.5 hours lost 55% less fat and 60% more lean mass than the group sleeping 8.5
+        sleeping 5.5 hours lost 55% less fat and 60% more lean mass than the group sleeping 8.5
         hours, despite eating identical calories. Let that sink in. Same food, same calories,
         different body composition outcomes, purely based on sleep duration.
       </p>
@@ -263,10 +263,10 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         Testosterone also follows a sleep-dependent pattern. Leproult and Van Cauter published a
-        2011 study in JAMA showing that one week of sleeping 5 hours per night reduced daytime
+        2011 study in JAMA showing that one week of sleeping 5 hours per night reduced daytime
         testosterone levels by 10-15% in young healthy men. For context, normal aging produces a
         1-2% decline per year. So a week of short sleep creates the testosterone equivalent of aging
-        10-15 years.
+        10-15 years.
       </p>
 
       <p>
@@ -279,7 +279,7 @@ const SleepRecoverySciencePageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">Sleep Hygiene That Actually Has Evidence</h2>
 
       <p>
-        Most "sleep hygiene" advice is well-intentioned but vague. I want to focus specifically on
+        Most “sleep hygiene” advice is well-intentioned but vague. I want to focus specifically on
         interventions where the research is strong.
       </p>
 
@@ -287,12 +287,12 @@ const SleepRecoverySciencePageContent = (
       <p>
         Your core body temperature needs to drop by about 1-1.5C (2-3F) to initiate sleep. This is
         not optional; it is a prerequisite for sleep onset. A 1999 study in the journal Nature by
-        Krauchi et al. showed that the rate of heat loss from the body's core, particularly through
+        Krauchi et al. showed that the rate of heat loss from the body’s core, particularly through
         the hands and feet, was the strongest physiological predictor of sleep onset latency.
       </p>
       <p>
         Practical implications: keep your bedroom between 60-67F (15.5-19.5C). This is cooler than
-        most people keep their homes. A warm bath or shower 1-2 hours before bed paradoxically helps
+        most people keep their homes. A warm bath or shower 1-2 hours before bed paradoxically helps
         because it brings blood to the surface, which then radiates heat and drops core temperature
         faster once you get out.
       </p>
@@ -301,9 +301,9 @@ const SleepRecoverySciencePageContent = (
         Light Exposure: Timing Matters More Than Intensity
       </h3>
       <p>
-        Bright light in the morning (within 30-60 minutes of waking) anchors your circadian rhythm.
+        Bright light in the morning (within 30-60 minutes of waking) anchors your circadian rhythm.
         A 2017 study from the Journal of Clinical Sleep Medicine found that office workers with more
-        morning light exposure slept an average of 46 minutes longer per night.
+        morning light exposure slept an average of 46 minutes longer per night.
       </p>
       <p>
         Evening light exposure suppresses melatonin. But the blue light from screens is not the main
@@ -338,7 +338,7 @@ const SleepRecoverySciencePageContent = (
         <ul className="list-disc list-inside space-y-2">
           <li>
             <strong>Total sleep time:</strong> Most wrist-based trackers are reasonably accurate for
-            total sleep duration, within about 15-30 minutes for most users. A 2019 validation study
+            total sleep duration, within about 15-30 minutes for most users. A 2019 validation study
             in Sleep by de Zambotti et al. found that the Oura Ring performed well against
             polysomnography for total sleep time.
           </li>
@@ -360,14 +360,14 @@ const SleepRecoverySciencePageContent = (
             <strong>Sleep staging:</strong> Consumer devices are poor at distinguishing deep sleep
             from light sleep and moderately unreliable for REM detection. They use accelerometry and
             heart rate as proxies for what polysomnography measures directly via brain waves. Do not
-            obsess over your "deep sleep score."
+            obsess over your “deep sleep score.”
           </li>
           <li>
             <strong>Single-night data:</strong> Night-to-night variability is high. A bad sleep
-            score on one night is rarely meaningful. Look at 7-14 day averages instead.
+            score on one night is rarely meaningful. Look at 7-14 day averages instead.
           </li>
           <li>
-            <strong>Recovery scores:</strong> The composite "recovery" or "readiness" scores are
+            <strong>Recovery scores:</strong> The composite “recovery” or “readiness” scores are
             proprietary algorithms with limited published validation. They can be directionally
             useful but should not dictate your training.
           </li>
@@ -392,7 +392,7 @@ const SleepRecoverySciencePageContent = (
       </p>
 
       <p>
-        Caffeine has an average half-life of 5-6 hours. So if you drink 200mg of caffeine at 2pm,
+        Caffeine has an average half-life of 5-6 hours. So if you drink 200mg of caffeine at 2pm,
         you still have about 100mg in your system at 7-8pm and roughly 50mg at midnight. For
         reference, 50mg is about the amount in a cup of green tea. That is enough to affect sleep
         architecture even if you fall asleep without difficulty.
@@ -400,7 +400,7 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         Drake et al. published a 2013 study in the Journal of Clinical Sleep Medicine that tested
-        caffeine's effects at different times before bed. Taking 400mg of caffeine even 6 hours
+        caffeine’s effects at different times before bed. Taking 400mg of caffeine even 6 hours
         before bed significantly reduced total sleep time by over an hour and reduced sleep
         efficiency. Critically, many participants were unaware their sleep had been disrupted.
       </p>
@@ -408,7 +408,7 @@ const SleepRecoverySciencePageContent = (
       <p>
         But here is the nuance: caffeine metabolism is largely controlled by the CYP1A2 enzyme, and
         genetic variants create a roughly 4x difference in clearance speed. Fast metabolizers (about
-        40% of the population) clear caffeine in 3-4 hours. Slow metabolizers might take 8-10 hours.
+        40% of the population) clear caffeine in 3-4 hours. Slow metabolizers might take 8-10 hours.
         If you are a slow metabolizer, even a morning coffee at 10am could affect your sleep that
         night.
       </p>
@@ -419,7 +419,7 @@ const SleepRecoverySciencePageContent = (
           Without genetic testing, the simplest approach is experimentation. Try moving your last
           caffeine intake progressively earlier for a week at each time point (3pm, 1pm, 11am,
           morning only) and track your sleep quality. You will likely find a threshold where your
-          sleep noticeably improves. For most people, 8-10 hours before bed is a safe buffer.
+          sleep noticeably improves. For most people, 8-10 hours before bed is a safe buffer.
         </p>
         <p className="mt-3">
           Our{' '}
@@ -458,7 +458,7 @@ const SleepRecoverySciencePageContent = (
 
       <p>
         I am not going to tell you never to drink. But if you are serious about recovery, be honest
-        with yourself about the tradeoff. Two beers with dinner is not "harmless" from a sleep
+        with yourself about the tradeoff. Two beers with dinner is not “harmless” from a sleep
         perspective, even if you feel fine the next morning.
       </p>
 
@@ -469,13 +469,13 @@ const SleepRecoverySciencePageContent = (
       <p>
         A 2010 study by Waterhouse et al. in the Journal of Sports Sciences found that a 30-minute
         nap after a night of sleep restriction improved sprint performance and alertness in
-        athletes. NASA's Fatigue Countermeasures Program found that a 26-minute nap improved
+        athletes. NASA’s Fatigue Countermeasures Program found that a 26-minute nap improved
         alertness by 54% and performance by 34% in pilots.
       </p>
 
       <p>
-        The key variable is duration. Short naps (10-20 minutes) provide an alertness boost without
-        entering deep sleep, so you wake feeling refreshed. Naps of 30-60 minutes risk entering deep
+        The key variable is duration. Short naps (10-20 minutes) provide an alertness boost without
+        entering deep sleep, so you wake feeling refreshed. Naps of 30-60 minutes risk entering deep
         sleep and causing sleep inertia (that groggy, disoriented feeling upon waking). If you have
         the time, a full 90-minute nap allows completion of one sleep cycle and tends to work well.
       </p>
@@ -497,7 +497,7 @@ const SleepRecoverySciencePageContent = (
 
       <ol className="list-decimal list-inside space-y-3 my-4">
         <li>
-          <strong>Consistent sleep and wake times</strong> (within 30 minutes, including weekends).
+          <strong>Consistent sleep and wake times</strong> (within 30 minutes, including weekends).
           This is the foundation everything else builds on.
         </li>
         <li>
@@ -505,11 +505,11 @@ const SleepRecoverySciencePageContent = (
           impactful environmental change.
         </li>
         <li>
-          <strong>Morning light exposure</strong> (15-30 minutes of bright light within an hour of
+          <strong>Morning light exposure</strong> (15-30 minutes of bright light within an hour of
           waking). Anchors your circadian clock.
         </li>
         <li>
-          <strong>Caffeine cutoff</strong> 8-10 hours before bed, adjusted for your individual
+          <strong>Caffeine cutoff</strong> 8-10 hours before bed, adjusted for your individual
           metabolism.
         </li>
         <li>
@@ -517,11 +517,11 @@ const SleepRecoverySciencePageContent = (
           Use lamps instead of ceiling lights.
         </li>
         <li>
-          <strong>Limit alcohol</strong> or at minimum allow 3-4 hours between your last drink and
+          <strong>Limit alcohol</strong> or at minimum allow 3-4 hours between your last drink and
           bedtime.
         </li>
         <li>
-          <strong>Aim for 7.5-8.5 hours in bed</strong> (sleep efficiency is rarely 100%, so budget
+          <strong>Aim for 7.5-8.5 hours in bed</strong> (sleep efficiency is rarely 100%, so budget
           extra time).
         </li>
       </ol>
@@ -596,11 +596,11 @@ const SleepRecoverySciencePageContent = (
             sleep. Curr Biol. 2019;29(2):365-370.
           </li>
           <li>
-            Leproult R, Van Cauter E. Effect of 1 week of sleep restriction on testosterone levels
+            Leproult R, Van Cauter E. Effect of 1 week of sleep restriction on testosterone levels
             in young healthy men. JAMA. 2011;305(21):2173-2174.
           </li>
           <li>
-            Drake C, et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J
+            Drake C, et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J
             Clin Sleep Med. 2013;9(11):1195-1200.
           </li>
           <li>
@@ -620,7 +620,7 @@ const SleepRecoverySciencePageContent = (
             performance and delayed circadian and sleep/wake timing. Sci Rep. 2017;7:3216.
           </li>
           <li>
-            Fothergill E, et al. Persistent metabolic adaptation 6 years after "The Biggest Loser"
+            Fothergill E, et al. Persistent metabolic adaptation 6 years after “The Biggest Loser”
             competition. Obesity. 2016;24(8):1612-1619.
           </li>
         </ul>

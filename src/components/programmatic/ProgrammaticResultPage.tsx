@@ -161,7 +161,7 @@ export default function ProgrammaticResultPage({ data }: { data: ProgrammaticPag
 
       <section className="glass-panel-strong rounded-2xl p-6 md:p-8">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-          Want a personalized calculation?
+          Want a Personalized Calculation?
         </h2>
         <p className="mt-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
           {data.cta.description}

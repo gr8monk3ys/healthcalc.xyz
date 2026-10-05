@@ -10,6 +10,7 @@ import { formatTargetDate, getDeficitSafetyMessage } from '@/app/api/calorieDefi
 import NextSteps from '@/components/calculators/NextSteps';
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface CalorieDeficitResultDisplayProps {
   result: CalorieDeficitResult;
@@ -54,7 +55,7 @@ export default function CalorieDeficitResultDisplay({
             <span className="font-semibold">{formatTargetDate(result.targetDate)}</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-            You'll lose approximately {displayWeeklyLoss.toFixed(2)} {unitLabel}/week
+            You’ll lose approximately {formatNumber(displayWeeklyLoss, 2)} {unitLabel}/week
           </p>
         </div>
       </Card>
@@ -64,6 +65,7 @@ export default function CalorieDeficitResultDisplay({
         <Card className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800">
           <div className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -94,8 +96,8 @@ export default function CalorieDeficitResultDisplay({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ResultCard
           title="Goal Weight"
-          value={`${displayGoalWeight.toFixed(1)} ${unitLabel}`}
-          description={`Total to lose: ${displayWeightToLose.toFixed(1)} ${unitLabel}`}
+          value={`${formatNumber(displayGoalWeight, 1)} ${unitLabel}`}
+          description={`Total to lose: ${formatNumber(displayWeightToLose, 1)} ${unitLabel}`}
         />
         <ResultCard
           title="Daily Calorie Target"
@@ -157,7 +159,7 @@ export default function CalorieDeficitResultDisplay({
               {result.recommendations.minCalories}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Minimum Calories</div>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Don't go below this</p>
+            <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Don’t go below this</p>
           </div>
         </div>
       </Card>
@@ -167,7 +169,12 @@ export default function CalorieDeficitResultDisplay({
         <Card className="p-5">
           <h3 className="text-lg font-semibold mb-4">Weight Loss Projection</h3>
           <div className="relative h-64">
-            <svg className="w-full h-full" viewBox="0 0 600 250">
+            <svg
+              role="img"
+              aria-label={`Projected weight loss of ${formatNumber(displayWeightToLose, 1)} ${unitLabel} over about ${result.estimatedWeeks} weeks, about ${formatNumber(displayWeeklyLoss, 1)} ${unitLabel} per week.`}
+              className="w-full h-full"
+              viewBox="0 0 600 250"
+            >
               {/* Grid lines */}
               {[50, 90, 130, 170, 210].map(lineY => (
                 <line

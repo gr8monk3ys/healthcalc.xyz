@@ -6,6 +6,7 @@ import MetricCard from './MetricCard';
 import type { CalculatorMetricDef } from '@/constants/calculatorMetrics';
 import type { SavedResult } from '@/context/SavedResultsContext';
 import { extractMetricValue } from '@/constants/calculatorMetrics';
+import { formatDisplayDate } from '@/utils/formatNumber';
 
 interface TrendChartProps {
   metric: CalculatorMetricDef;
@@ -14,22 +15,7 @@ interface TrendChartProps {
 }
 
 function formatDate(dateString: string): string {
-  const d = new Date(dateString);
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  return `${months[d.getMonth()]} ${d.getDate()}`;
+  return formatDisplayDate(dateString, { month: 'short', day: 'numeric' });
 }
 
 export default function TrendChart({

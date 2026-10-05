@@ -10,6 +10,8 @@ import { useLocale } from '@/context/LocaleContext';
 import { CALCULATOR_METRICS, extractMetricValue } from '@/constants/calculatorMetrics';
 import { createLogger } from '@/utils/logger';
 import { estimateMetricPercentile } from '@/utils/metricPercentiles';
+import { latestTwoByDate } from '@/utils/latestByDate';
+import { formatDisplayDate, formatNumber, formatOrdinal } from '@/utils/formatNumber';
 
 interface ReportSectionConfig {
   id: string;
@@ -66,16 +68,11 @@ const REPORT_SECTIONS: ReportSectionConfig[] = [
 function formatDate(value: string): string {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  return formatDisplayDate(date);
 }
 
 function formatValue(value: number): string {
-  if (Number.isInteger(value)) return String(value);
-  return value.toFixed(1);
+  return formatNumber(value, Number.isInteger(value) ? 0 : 1);
 }
 
 function toHealthyRangeText(slug: string, value: number): string {
@@ -194,7 +191,7 @@ async function exportReportPdf(
           ? `${row.trendDelta >= 0 ? '+' : ''}${formatValue(row.trendDelta)}${row.unit ? ` ${row.unit}` : ''}`
           : 'No prior value';
       const percentileText =
-        typeof row.percentile === 'number' ? `${row.percentile}th` : 'Unavailable';
+        typeof row.percentile === 'number' ? formatOrdinal(row.percentile) : 'Unavailable';
 
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(11);
@@ -266,6 +263,7 @@ function ReportPageClientContent(): React.JSX.Element {
   const { savedResults } = useSavedResults();
   const { localizePath } = useLocale();
   const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [pdfError, setPdfError] = useState('');
 
   const reportRowsBySection = useMemo<ReportSection[]>(() => {
     const groupedBySlug = new Map<string, { value: number; date: string }[]>();
@@ -286,11 +284,8 @@ function ReportPageClientContent(): React.JSX.Element {
         const points = groupedBySlug.get(slug);
         if (!points || points.length === 0) continue;
 
-        const sorted = points.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-        const latest = sorted[0];
-        const previous = sorted[1];
+        const [latest, previous] = latestTwoByDate(points);
+        if (!latest) continue;
         const metric = CALCULATOR_METRICS[slug];
 
         rows.push({
@@ -328,10 +323,12 @@ function ReportPageClientContent(): React.JSX.Element {
     if (!hasData || isDownloadingPdf) return;
 
     setIsDownloadingPdf(true);
+    setPdfError('');
     try {
       await exportReportPdf(summary, reportRowsBySection);
     } catch (error) {
       logger.logError('Failed to export report PDF', error);
+      setPdfError('Couldn’t create the PDF. Try again, or use your browser’s Print → Save as PDF.');
     } finally {
       setIsDownloadingPdf(false);
     }
@@ -361,8 +358,11 @@ function ReportPageClientContent(): React.JSX.Element {
             disabled={!hasData || isDownloadingPdf}
             className="ui-btn-primary"
           >
-            {isDownloadingPdf ? 'Generating PDF...' : 'Download PDF'}
+            {isDownloadingPdf ? 'Generating PDF…' : 'Download PDF'}
           </button>
+          <p role="status" className={pdfError ? 'self-center text-sm text-red-600' : 'sr-only'}>
+            {pdfError}
+          </p>
           <Link href={localizePath('/saved-results')} className="ui-btn-soft">
             Back to Dashboard
           </Link>
@@ -377,7 +377,7 @@ function ReportPageClientContent(): React.JSX.Element {
            reading instead of padding it out. */
         <div className="mb-4">
           <div className="glass-panel rounded-xl p-6">
-            <h2 className="mb-2 text-lg font-semibold">No saved data yet</h2>
+            <h2 className="mb-2 text-lg font-semibold">No Saved Data Yet</h2>
             <p className="mb-4 text-sm text-gray-600 dark:text-gray-300">
               Save calculator results first, then return here to generate a printable report.
             </p>
@@ -387,13 +387,13 @@ function ReportPageClientContent(): React.JSX.Element {
           </div>
 
           <div className="mt-8">
-            <h3 className="section-eyebrow mb-3">Start with a popular calculator</h3>
+            <h3 className="section-eyebrow mb-3">Start with a Popular Calculator</h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {REPORT_STARTER_CALCULATORS.map(calculator => (
                 <Link
                   key={calculator.slug}
                   href={localizePath(calculator.slug)}
-                  className="glass-panel block rounded-xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  className="glass-panel block rounded-xl p-4 transition hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   <p className="text-sm font-medium">{calculator.name}</p>
                   <p className="mt-1 text-xs opacity-60">{calculator.description}</p>
@@ -465,7 +465,9 @@ function ReportPageClientContent(): React.JSX.Element {
                                 : '—'}
                             </td>
                             <td className="py-2 pr-3">
-                              {typeof row.percentile === 'number' ? `${row.percentile}th` : '—'}
+                              {typeof row.percentile === 'number'
+                                ? formatOrdinal(row.percentile)
+                                : '—'}
                             </td>
                             <td className="py-2 pr-3">{row.healthyRangeText}</td>
                             <td className="py-2">{formatDate(row.lastUpdated)}</td>

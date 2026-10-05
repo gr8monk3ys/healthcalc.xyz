@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { SubstanceImpactResult } from '@/types/substanceImpact';
+import { formatCurrency, formatNumber } from '@/utils/formatNumber';
 
 interface SubstanceImpactResultDisplayProps {
   result: SubstanceImpactResult;
@@ -23,10 +24,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
         : 'border-green-500/40';
 
   return (
-    <div
-      id="substance-impact-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="substance-impact-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Substance Impact Results</h2>
 
       {/* Total Lifespan Impact */}
@@ -35,7 +33,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
           <p className="text-sm font-medium text-gray-600 mb-1">Estimated Lifespan Impact</p>
           <p className={`text-3xl font-bold ${lifespanColor}`}>
             {result.totalLifespanImpact > 0 ? '+' : ''}
-            {result.totalLifespanImpact} years
+            {result.totalLifespanImpact} years
           </p>
           {result.totalLifespanImpact < 0 && (
             <p className="text-sm text-gray-600 mt-1">
@@ -51,13 +49,11 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="neumorph-inset p-4 rounded-lg">
             <p className="text-sm text-gray-600">Cost Per Year</p>
-            <p className="text-2xl font-bold">
-              ${result.totalFinancialCostPerYear.toLocaleString()}
-            </p>
+            <p className="text-2xl font-bold">{formatCurrency(result.totalFinancialCostPerYear)}</p>
           </div>
           <div className="neumorph-inset p-4 rounded-lg">
             <p className="text-sm text-gray-600">Estimated Lifetime Cost</p>
-            <p className="text-2xl font-bold">${result.totalLifetimeCost.toLocaleString()}</p>
+            <p className="text-2xl font-bold">{formatCurrency(result.totalLifetimeCost)}</p>
           </div>
         </div>
       </div>
@@ -70,21 +66,19 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-gray-600">Weekly Calories</p>
-                <p className="font-semibold">
-                  {result.alcoholCaloriesPerWeek.toLocaleString()} cal
-                </p>
+                <p className="font-semibold">{formatNumber(result.alcoholCaloriesPerWeek)} cal</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Yearly Calories</p>
                 <p className="font-semibold">
-                  {(result.alcoholCaloriesPerYear ?? 0).toLocaleString()} cal
+                  {formatNumber(result.alcoholCaloriesPerYear ?? 0)} cal
                 </p>
               </div>
             </div>
             {result.alcoholEquivalentFatLbs !== undefined && (
               <div>
                 <p className="text-sm text-gray-600">Equivalent Fat Gain Per Year</p>
-                <p className="font-semibold">{result.alcoholEquivalentFatLbs} lbs</p>
+                <p className="font-semibold">{result.alcoholEquivalentFatLbs} lbs</p>
               </div>
             )}
             {result.alcoholLifespanImpactYears !== undefined && (
@@ -96,7 +90,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
                   }`}
                 >
                   {result.alcoholLifespanImpactYears > 0 ? '+' : ''}
-                  {result.alcoholLifespanImpactYears} years
+                  {result.alcoholLifespanImpactYears} years
                 </p>
               </div>
             )}
@@ -104,7 +98,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
               <div className="flex justify-between items-center pt-2 border-t">
                 <p className="text-sm text-gray-600">Alcohol Cost Per Year</p>
                 <p className="font-semibold">
-                  ${result.alcoholFinancialCostPerYear.toLocaleString()}
+                  {formatCurrency(result.alcoholFinancialCostPerYear)}
                 </p>
               </div>
             )}
@@ -120,7 +114,7 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
             {result.cigarettesSmoked !== undefined && (
               <div>
                 <p className="text-sm text-gray-600">Total Cigarettes Smoked</p>
-                <p className="font-semibold">{result.cigarettesSmoked.toLocaleString()}</p>
+                <p className="font-semibold">{formatNumber(result.cigarettesSmoked)}</p>
               </div>
             )}
             <div className="flex justify-between items-center">
@@ -131,14 +125,14 @@ const SubstanceImpactResultDisplay: React.FC<SubstanceImpactResultDisplayProps> 
                 }`}
               >
                 {result.smokingLifespanImpactYears > 0 ? '+' : ''}
-                {result.smokingLifespanImpactYears} years
+                {result.smokingLifespanImpactYears} years
               </p>
             </div>
             {result.smokingFinancialCostPerYear !== undefined && (
               <div className="flex justify-between items-center pt-2 border-t">
                 <p className="text-sm text-gray-600">Smoking Cost Per Year</p>
                 <p className="font-semibold">
-                  ${result.smokingFinancialCostPerYear.toLocaleString()}
+                  {formatCurrency(result.smokingFinancialCostPerYear)}
                 </p>
               </div>
             )}

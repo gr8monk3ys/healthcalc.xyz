@@ -3,6 +3,7 @@
 import React from 'react';
 import type { Gender } from '@/types/common';
 import { getBodyCompositionReference } from '@/utils/bodyCompositionReference';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface BodyCompositionVisualProps {
   bmi?: number;
@@ -168,12 +169,12 @@ export default function BodyCompositionVisual({
         <BodySilhouette
           model={userModel}
           label="Your Profile"
-          caption={`BMI ${userModel.bmi.toFixed(1)} • Body fat ${userModel.bodyFatPercentage.toFixed(1)}%`}
+          caption={`BMI ${formatNumber(userModel.bmi, 1)} • Body fat ${formatNumber(userModel.bodyFatPercentage, 1)}%`}
         />
         <BodySilhouette
           model={referenceModel}
           label={hasPersonalizedReference ? 'Age & Sex Reference' : 'Reference'}
-          caption={`BMI ${referenceModel.bmi.toFixed(1)} • Body fat ${referenceModel.bodyFatPercentage.toFixed(1)}%`}
+          caption={`BMI ${formatNumber(referenceModel.bmi, 1)} • Body fat ${formatNumber(referenceModel.bodyFatPercentage, 1)}%`}
         />
       </div>
     </section>

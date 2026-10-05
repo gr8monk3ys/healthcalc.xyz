@@ -7,7 +7,7 @@ import {
   prefixPathWithLocale,
   type SupportedLocale,
 } from '@/i18n/config';
-import { getMessage, type MessageKey } from '@/i18n/messages';
+import { getMessage, type LocaleMessages, type MessageKey } from '@/i18n/messages';
 
 interface LocaleContextValue {
   locale: SupportedLocale;
@@ -21,11 +21,14 @@ const LocaleContext = createContext<LocaleContextValue | undefined>(undefined);
 interface LocaleProviderProps {
   children: React.ReactNode;
   initialLocale?: SupportedLocale;
+  /** Dictionary for a non-default locale; English is bundled. */
+  messages?: LocaleMessages;
 }
 
 export function LocaleProvider({
   children,
   initialLocale = defaultLocale,
+  messages,
 }: LocaleProviderProps): React.JSX.Element {
   const locale = useMemo(() => normalizeLocale(initialLocale) ?? defaultLocale, [initialLocale]);
 
@@ -48,12 +51,7 @@ export function LocaleProvider({
     window.location.assign(new URL(`${localizedPath}${search}${hash}`, window.location.origin));
   }, []);
 
-  const t = useCallback(
-    (key: MessageKey): string => {
-      return getMessage(locale, key);
-    },
-    [locale]
-  );
+  const t = useCallback((key: MessageKey): string => getMessage(key, messages), [messages]);
 
   const value = useMemo<LocaleContextValue>(
     () => ({

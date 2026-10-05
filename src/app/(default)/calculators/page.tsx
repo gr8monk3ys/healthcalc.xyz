@@ -32,7 +32,7 @@ export default function CalculatorCategoriesPage() {
             <Link
               key={hub.slug}
               href={`/calculators/${hub.slug}`}
-              className="neumorph rounded-xl p-6 transition-all hover:shadow-neumorph-inset"
+              className="neumorph rounded-xl p-6 transition hover:shadow-neumorph-inset"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>

@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import DarkModeToggle from '@/components/ui/DarkModeToggle';
 import UnitToggle from '@/components/ui/UnitToggle';
-import { usePreferences } from '@/context/PreferencesContext';
 import { useLocale } from '@/context/LocaleContext';
 import { stripLocaleFromPathname } from '@/i18n/config';
 
@@ -15,7 +14,7 @@ const AuthControls = dynamic(() => import('@/components/AuthControls'), {
   loading: () => (
     <Link
       href="/saved-results"
-      className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition-all hover:-translate-y-0.5"
+      className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
     >
       Account
     </Link>
@@ -24,9 +23,7 @@ const AuthControls = dynamic(() => import('@/components/AuthControls'), {
 
 export default function Header(): React.JSX.Element {
   const pathname = usePathname();
-  const { preferences } = usePreferences();
   const { localizePath, t } = useLocale();
-  const { darkMode } = preferences;
   const [openMenuPathname, setOpenMenuPathname] = useState<string | null>(null);
   const mobileMenuOpen = openMenuPathname === pathname;
   const normalizedPathname = stripLocaleFromPathname(pathname);
@@ -41,11 +38,12 @@ export default function Header(): React.JSX.Element {
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 md:px-4 md:pt-4">
       <div
-        className={`glass-panel rounded-[1.6rem] px-4 py-3 md:px-6 md:py-4 ${darkMode ? 'text-white' : 'text-foreground'}`}
+        className={`glass-panel rounded-[1.6rem] px-4 py-3 md:px-6 md:py-4 text-foreground dark:text-white`}
       >
         <div className="container mx-auto flex items-center justify-between gap-4">
           <Link
             href={localizePath('/')}
+            translate="no"
             className="notranslate group inline-flex items-center gap-2.5 text-2xl font-black tracking-tight text-accent"
           >
             <span
@@ -53,6 +51,7 @@ export default function Header(): React.JSX.Element {
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-lg shadow-accent/30 transition-transform duration-300 group-hover:scale-105"
             >
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
@@ -78,7 +77,7 @@ export default function Header(): React.JSX.Element {
                 key={link.path}
                 href={localizePath(link.path)}
                 aria-current={normalizedPathname === link.path ? 'page' : undefined}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
                     : 'text-foreground/80 hover:bg-[var(--surface-muted)] hover:text-accent'
@@ -100,7 +99,7 @@ export default function Header(): React.JSX.Element {
               onClick={() => {
                 setOpenMenuPathname(prev => (prev === pathname ? null : pathname));
               }}
-              className="relative z-20 lg:hidden elevated-pill p-2 transition-all hover:-translate-y-0.5"
+              className="relative z-20 lg:hidden elevated-pill p-2 transition hover:-translate-y-0.5"
               aria-label={mobileMenuOpen ? t('header.closeMenu') : t('header.openMenu')}
               aria-expanded={mobileMenuOpen}
             >
@@ -144,7 +143,7 @@ export default function Header(): React.JSX.Element {
 
       {mobileMenuOpen && (
         <nav aria-label={t('header.mobileNavAria')} className="lg:hidden px-3 pb-3 md:px-4 md:pb-4">
-          <div className="glass-panel mx-auto mt-2 max-w-6xl space-y-2 rounded-2xl p-4">
+          <div className="glass-panel mx-auto mt-2 max-h-[calc(100dvh-7rem)] max-w-6xl space-y-2 overflow-y-auto overscroll-contain rounded-2xl p-4">
             <div className="py-1 sm:hidden">
               <UnitToggle />
             </div>
@@ -156,12 +155,10 @@ export default function Header(): React.JSX.Element {
                   setOpenMenuPathname(null);
                 }}
                 aria-current={normalizedPathname === link.path ? 'page' : undefined}
-                className={`block rounded-xl px-4 py-3 text-sm font-semibold transition-all ${
+                className={`block rounded-xl px-4 py-3 text-sm font-semibold transition ${
                   normalizedPathname === link.path
                     ? 'bg-accent text-white shadow-lg shadow-accent/30 dark:text-slate-950'
-                    : darkMode
-                      ? 'elevated-pill hover:border-accent/60'
-                      : 'elevated-pill hover:border-accent/40'
+                    : 'elevated-pill hover:border-accent/40 dark:hover:border-accent/60'
                 }`}
               >
                 {link.name}
