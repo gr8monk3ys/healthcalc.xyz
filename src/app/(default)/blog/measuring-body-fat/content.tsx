@@ -15,13 +15,13 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata: Metadata = {
   title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
   description:
-    'Compare popular body fat measurement methods and learn which option fits your goals.',
+    'Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method.',
   keywords:
     'body fat measurement, DEXA scan, skinfold calipers, Navy method, bioelectrical impedance, body fat percentage, hydrostatic weighing, accuracy, body composition',
   openGraph: {
     title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
     description:
-      'Compare popular body fat measurement methods and learn which option fits your goals.',
+      'Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/measuring-body-fat',
     images: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Pros and Cons of Different Body Fat Measurement Methods | HealthCalc Blog',
     description:
-      'Compare popular body fat measurement methods and learn which option fits your goals.',
+      'Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method.',
     images: ['/images/blog/measuring-body-fat.jpg'],
   },
   alternates: {
@@ -52,7 +52,7 @@ const blogArticles = [
     description:
       'Learn how to interpret body fat percentage measurements and what they mean for your health and fitness goals.',
     slug: 'understanding-body-fat-percentage',
-    date: 'February 5, 2025',
+    date: 'January 3, 2026',
     readTime: '9 min read',
     category: 'Body Composition',
   },
@@ -61,7 +61,7 @@ const blogArticles = [
     description:
       "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and how to use it for weight management.",
     slug: 'tdee-explained',
-    date: 'February 20, 2025',
+    date: 'January 7, 2026',
     readTime: '10 min read',
     category: 'Energy Expenditure',
   },
@@ -70,7 +70,7 @@ const blogArticles = [
     description:
       "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
     slug: 'calorie-deficit-myths',
-    date: 'February 25, 2025',
+    date: 'January 9, 2026',
     readTime: '8 min read',
     category: 'Weight Management',
   },
@@ -79,11 +79,11 @@ const blogArticles = [
 const articleData = {
   title: 'The Pros and Cons of Different Body Fat Measurement Methods',
   description:
-    'Compare popular body fat measurement methods and learn which option fits your goals.',
+    'Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method.',
   url: 'https://www.healthcalc.xyz/blog/measuring-body-fat',
   imageUrl: 'https://www.healthcalc.xyz/images/blog/measuring-body-fat.jpg',
-  datePublished: '2025-02-15T08:00:00Z',
-  dateModified: '2025-02-15T08:00:00Z',
+  datePublished: '2026-01-05T08:00:00Z',
+  dateModified: '2026-10-01T08:00:00Z',
   authorName: 'HealthCalc Team',
 };
 
@@ -103,7 +103,9 @@ const MeasuringBodyFatPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         The Pros and Cons of Different Body Fat Measurement Methods
       </h1>
-      <p className="text-gray-500 italic">Published: February 15, 2025 • 12 min read</p>
+      <p className="text-gray-500 italic">
+        Published: January 5, 2026 • Updated: October 1, 2026 • 12 min read
+      </p>
     </div>
 
     {/* Social sharing buttons */}
@@ -111,7 +113,7 @@ const MeasuringBodyFatPageContent = (
       <SocialShare
         url="/blog/measuring-body-fat"
         title="The Pros and Cons of Different Body Fat Measurement Methods"
-        description="Compare popular body fat measurement methods and learn which option fits your goals."
+        description="Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method."
         hashtags={['bodyfat', 'fitness', 'measurement', 'dexa', 'health']}
       />
     </div>
