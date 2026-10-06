@@ -395,6 +395,12 @@ const BLOG_POSTS: Record<string, React.ComponentType<Record<string, never>>> = {
       loading: () => <BlogLoadingFallback />,
     }
   ),
+  'vo2-max-longevity-biomarker': dynamic(
+    () => import('@/app/blog/vo2-max-longevity-biomarker/content'),
+    {
+      loading: () => <BlogLoadingFallback />,
+    }
+  ),
 };
 
 /** Pick a reviewer by slug topic. Nutrition/diet posts go to James,
