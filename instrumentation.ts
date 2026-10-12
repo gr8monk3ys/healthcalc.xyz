@@ -8,7 +8,12 @@
  */
 
 import * as Sentry from '@sentry/nextjs';
-import { sentryEnvironmentTag, shouldReportToSentry } from '@/lib/monitoring';
+import {
+  sentryDataCollection,
+  sentryEnvironmentTag,
+  sentryTraceLifecycle,
+  shouldReportToSentry,
+} from '@/lib/monitoring';
 
 /**
  * onRequestError is called when an unhandled error occurs in the server
@@ -58,6 +63,8 @@ export async function register() {
         tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
         debug: false,
         environment: sentryEnvironmentTag(),
+        dataCollection: sentryDataCollection,
+        traceLifecycle: sentryTraceLifecycle,
 
         ignoreErrors: [
           'Script error',
@@ -103,6 +110,8 @@ export async function register() {
         tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
         debug: false,
         environment: sentryEnvironmentTag(),
+        dataCollection: sentryDataCollection,
+        traceLifecycle: sentryTraceLifecycle,
       });
     }
   }

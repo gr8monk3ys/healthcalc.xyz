@@ -1,4 +1,9 @@
-import { sentryEnvironmentTag, shouldReportToSentry } from '@/lib/monitoring';
+import {
+  sentryDataCollection,
+  sentryEnvironmentTag,
+  sentryTraceLifecycle,
+  shouldReportToSentry,
+} from '@/lib/monitoring';
 
 type BrowserSentryModule = typeof import('@sentry/nextjs');
 
@@ -71,6 +76,8 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
           // 'production' or 'preview' from Vercel, so the two deployed
           // environments stay distinguishable in the issue stream.
           environment: sentryEnvironmentTag(),
+          dataCollection: sentryDataCollection,
+          traceLifecycle: sentryTraceLifecycle,
           ignoreErrors: [
             'Script error',
             'Script error.',
