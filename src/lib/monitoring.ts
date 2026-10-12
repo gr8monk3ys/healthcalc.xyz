@@ -59,6 +59,39 @@ export function shouldReportToSentry(dsn: string | undefined): boolean {
   return has(dsn) && isDeployedSentryEnvironment();
 }
 
+/**
+ * What Sentry may attach to an event, pinned to the v10 defaults.
+ *
+ * @sentry/nextjs 11 replaced `sendDefaultPii` with `dataCollection` and made
+ * the unset default permissive: user IP, cookies, unscrubbed headers and full
+ * request/response bodies. On a health calculator those bodies and query
+ * strings are people's measurements, so every `init` passes this explicitly
+ * instead of inheriting the new default.
+ */
+const SENTRY_PII_KEY_DENYLIST = ['forwarded', '-ip', 'remote-', 'via', '-user'];
+
+export const sentryDataCollection = {
+  userInfo: false,
+  cookies: false,
+  httpHeaders: {
+    request: { deny: SENTRY_PII_KEY_DENYLIST },
+    response: { deny: SENTRY_PII_KEY_DENYLIST },
+  },
+  httpBodies: [],
+  urlQueryParams: { deny: SENTRY_PII_KEY_DENYLIST },
+  genAI: { inputs: false, outputs: false },
+  databaseQueryData: false,
+  queues: false,
+  graphQL: { document: false, variables: false },
+};
+
+/**
+ * v11 streams spans by default, which lifts the per-transaction span cap.
+ * The org quota is shared and already exhausted (see above), so keep the
+ * transaction model until someone decides to spend more on tracing.
+ */
+export const sentryTraceLifecycle = 'static' as const;
+
 export function hasConfiguredAnalyticsProvider(): boolean {
   return (
     isGaMeasurementId(process.env.NEXT_PUBLIC_GA_ID) ||
