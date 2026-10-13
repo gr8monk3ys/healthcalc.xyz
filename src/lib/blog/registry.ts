@@ -39,15 +39,15 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
   {
     title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters",
     description:
-      'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean for your overall health.',
+      'Understand healthy body fat ranges by age and sex, how body fat is measured (DEXA, BIA, calipers, smart scales), and how to track changes accurately over time.',
     slug: 'understanding-body-fat-percentage',
-    date: 'January 3, 2026',
-    readTime: '11 min read',
+    date: 'September 28, 2026',
+    readTime: '12 min read',
     category: 'Health & Science',
     image: '/images/blog/understanding-body-fat-percentage.jpg',
     featured: true,
     keywords:
-      'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
+      'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat, smart scale body fat, tracking body fat over time',
     seoTitle: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
   },
   {
