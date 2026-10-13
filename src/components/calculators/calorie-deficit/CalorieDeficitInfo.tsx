@@ -22,10 +22,11 @@ export default function CalorieDeficitInfo() {
       </Card>
 
       <Card className="p-6">
-        <h3 className="text-lg font-semibold mb-3">What You'll Get</h3>
+        <h3 className="text-lg font-semibold mb-3">What You’ll Get</h3>
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -43,12 +44,13 @@ export default function CalorieDeficitInfo() {
                 Weight Loss Timeline
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                See exactly when you'll reach your goal weight
+                See exactly when you’ll reach your goal weight
               </div>
             </div>
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -72,6 +74,7 @@ export default function CalorieDeficitInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -95,6 +98,7 @@ export default function CalorieDeficitInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -126,7 +130,7 @@ export default function CalorieDeficitInfo() {
         <div className="space-y-3 text-sm">
           <div>
             <div className="font-medium text-blue-800 dark:text-blue-200">
-              Mild (250-500 cal/day)
+              Mild (250-500 cal/day)
             </div>
             <div className="text-blue-700 dark:text-blue-300">
               Best for sustainable weight loss and muscle preservation
@@ -134,7 +138,7 @@ export default function CalorieDeficitInfo() {
           </div>
           <div>
             <div className="font-medium text-blue-800 dark:text-blue-200">
-              Moderate (500-750 cal/day)
+              Moderate (500-750 cal/day)
             </div>
             <div className="text-blue-700 dark:text-blue-300">
               Balanced approach for steady progress
@@ -142,7 +146,7 @@ export default function CalorieDeficitInfo() {
           </div>
           <div>
             <div className="font-medium text-blue-800 dark:text-blue-200">
-              Aggressive (750-1000 cal/day)
+              Aggressive (750-1000 cal/day)
             </div>
             <div className="text-blue-700 dark:text-blue-300">
               Faster results, but requires careful monitoring

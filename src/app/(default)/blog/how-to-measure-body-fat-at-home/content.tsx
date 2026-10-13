@@ -72,7 +72,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
         <time dateTime="2026-02-08">February 8, 2026</time>
         <span>&#8226;</span>
-        <span>15 min read</span>
+        <span>15 min read</span>
         <span>&#8226;</span>
         <span>Health &amp; Science</span>
       </div>
@@ -115,7 +115,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       <p>
         Beyond aesthetics, body fat percentage is a better health indicator than weight alone.
         Research consistently links excess body fat to cardiovascular disease, type 2 diabetes, and
-        metabolic syndrome. Meanwhile, someone with a &quot;high&quot;{' '}
+        metabolic syndrome. Meanwhile, someone with a “high”{' '}
         <Link href="/bmi" className="text-blue-600 dark:text-blue-400 hover:underline">
           BMI
         </Link>{' '}
@@ -162,8 +162,8 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <ol className="space-y-3">
         <li>
-          <strong>Neck circumference.</strong> Measure just below the larynx (Adam&apos;s apple).
-          Keep the tape level and snug but not tight. Look straight ahead.
+          <strong>Neck circumference.</strong> Measure just below the larynx (Adam’s apple). Keep
+          the tape level and snug but not tight. Look straight ahead.
         </li>
         <li>
           <strong>Waist circumference.</strong> Measure at the navel, or at the narrowest point of
@@ -224,7 +224,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </div>
 
       <p>
-        <strong>Accuracy:</strong> The Navy method is accurate to roughly +/- 3 to 4 percent
+        <strong>Accuracy:</strong> The Navy method is accurate to roughly +/- 3 to 4 percent
         compared to DEXA scans in most studies. That means if it says you are 20% body fat, your
         true number is probably somewhere between 16% and 24%. Not perfect, but good enough for
         tracking changes over time.
@@ -357,11 +357,11 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </ol>
 
       <p>
-        <strong>Accuracy:</strong> Skinfold calipers are accurate to roughly +/- 3 percent when used
+        <strong>Accuracy:</strong> Skinfold calipers are accurate to roughly +/- 3 percent when used
         by an experienced tester. That is about as good as the Navy method, sometimes slightly
-        better. The catch is that the keyword there is &quot;experienced.&quot; If you are new to
-        calipers, expect higher variability until you develop a consistent technique. Practicing on
-        yourself for a few weeks before trusting the numbers is smart.
+        better. The catch is that the keyword there is “experienced.” If you are new to calipers,
+        expect higher variability until you develop a consistent technique. Practicing on yourself
+        for a few weeks before trusting the numbers is smart.
       </p>
 
       <p>
@@ -412,10 +412,10 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </p>
 
       <p>
-        <strong>Accuracy:</strong> Smart scales have an accuracy range of roughly +/- 5 to 8 percent
+        <strong>Accuracy:</strong> Smart scales have an accuracy range of roughly +/- 5 to 8 percent
         compared to DEXA. That is significantly worse than the Navy method or calipers. Some studies
-        have found individual readings off by as much as 10 percent. I have seen my own scale give
-        me readings that varied by 3 percent from morning to evening on the same day.
+        have found individual readings off by as much as 10 percent. I have seen my own scale give
+        me readings that varied by 3 percent from morning to evening on the same day.
       </p>
 
       <div className="neumorph-card rounded-xl p-6 my-8 bg-yellow-50 dark:bg-yellow-900/20">
@@ -463,9 +463,8 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </p>
 
       <p>
-        Visual estimation is not going to give you &quot;I am at 17.3% body fat.&quot; But it will
-        tell you &quot;I am clearly leaner than I was two months ago.&quot; For a lot of people,
-        that is all that matters.
+        Visual estimation is not going to give you “I am at 17.3% body fat.” But it will tell you “I
+        am clearly leaner than I was two months ago.” For a lot of people, that is all that matters.
       </p>
 
       <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">
@@ -474,7 +473,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <ul className="space-y-2">
         <li>
-          Take progress photos every 2 to 4 weeks in the same lighting, same pose, same time of day.
+          Take progress photos every 2 to 4 weeks in the same lighting, same pose, same time of day.
         </li>
         <li>Use front, side, and back views.</li>
         <li>Compare photos side by side rather than relying on memory.</li>
@@ -490,7 +489,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <p>
         <strong>Accuracy:</strong> Impossible to quantify precisely. Most people can estimate their
-        own body fat within about 5 to 8 percent with practice, but the range is wide. The value
+        own body fat within about 5 to 8 percent with practice, but the range is wide. The value
         here is in tracking change over time, not in the absolute number.
       </p>
 
@@ -620,7 +619,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <ul className="space-y-3">
         <li>
-          <strong>Navy method or calipers:</strong> Once every 2 to 4 weeks. This gives enough time
+          <strong>Navy method or calipers:</strong> Once every 2 to 4 weeks. This gives enough time
           for measurable changes to accumulate. Monthly is fine for most people.
         </li>
         <li>
@@ -629,7 +628,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
           you want.
         </li>
         <li>
-          <strong>Progress photos:</strong> Every 2 to 4 weeks. Monthly is ideal because visual
+          <strong>Progress photos:</strong> Every 2 to 4 weeks. Monthly is ideal because visual
           changes are subtle and hard to notice over short periods.
         </li>
       </ul>
@@ -683,7 +682,7 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       <p>
         DEXA (Dual-Energy X-ray Absorptiometry) is the gold standard for body composition analysis.
         It uses low-dose X-rays to differentiate between bone, lean tissue, and fat tissue. The
-        accuracy is roughly +/- 1 to 2 percent, and it gives you a detailed regional breakdown
+        accuracy is roughly +/- 1 to 2 percent, and it gives you a detailed regional breakdown
         showing where fat is distributed across your body.
       </p>
 
@@ -699,15 +698,15 @@ const HowToMeasureBodyFatAtHomeContentContent = (
       </h3>
 
       <p>
-        This method works on Archimedes&apos; principle: fat is less dense than water, so people
-        with more fat are more buoyant. You sit on a scale submerged in water, exhale all the air
-        from your lungs, and hold still while the scale records your underwater weight. The
-        difference between your land weight and water weight, adjusted for water density and
-        residual lung volume, gives a very accurate body fat estimate.
+        This method works on Archimedes’ principle: fat is less dense than water, so people with
+        more fat are more buoyant. You sit on a scale submerged in water, exhale all the air from
+        your lungs, and hold still while the scale records your underwater weight. The difference
+        between your land weight and water weight, adjusted for water density and residual lung
+        volume, gives a very accurate body fat estimate.
       </p>
 
       <p>
-        Hydrostatic weighing is accurate to about +/- 1.5 to 2 percent. It is less common than DEXA
+        Hydrostatic weighing is accurate to about +/- 1.5 to 2 percent. It is less common than DEXA
         these days and requires access to a specialized tank, usually at a university or research
         facility. It is also not the most pleasant experience. Sitting still underwater with no air
         in your lungs takes some getting used to.
@@ -778,8 +777,8 @@ const HowToMeasureBodyFatAtHomeContentContent = (
 
       <p>
         And remember: the number itself is less important than the direction it is moving. A body
-        fat reading of 22% that used to be 28% is a massive win, regardless of whether the
-        &quot;true&quot; number is 20% or 24%.
+        fat reading of 22% that used to be 28% is a massive win, regardless of whether the “true”
+        number is 20% or 24%.
       </p>
 
       <p>

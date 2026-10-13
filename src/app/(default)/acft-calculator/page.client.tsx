@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { calculateACFT } from '@/utils/calculators/acftCalculator';
 import { ACFTResult, ACFTFormValues, ACFTAgeGroup } from '@/types/acftCalculator';
@@ -7,14 +8,18 @@ import { AGE_GROUP_LABELS, EVENT_NAMES } from '@/constants/acftCalculator';
 import { isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import ACFTResultDisplay from '@/components/calculators/acftCalculator/ACFTResult';
-import SaveResult from '@/components/SaveResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const faqs = [
   {
     question: 'What is the ACFT and how is it scored?',
     answer:
-      "The Army Combat Fitness Test (ACFT) is the U.S. Army's official fitness assessment, replacing the older APFT. It consists of 6 events: 3 Repetition Maximum Deadlift, Standing Power Throw, Hand Release Push-Ups, Sprint-Drag-Carry, Plank, and 2-Mile Run. Each event is scored from 0-100 points, for a maximum total of 600. A minimum of 60 points per event is required to pass, and the overall minimum passing score is 360. Soldiers who score 540+ earn Gold tier, 480+ Silver, and 420+ Bronze.",
+      'The Army Combat Fitness Test (ACFT) is the U.S. Army’s official fitness assessment, replacing the older APFT. It consists of 6 events: 3 Repetition Maximum Deadlift, Standing Power Throw, Hand Release Push-Ups, Sprint-Drag-Carry, Plank, and 2-Mile Run. Each event is scored from 0-100 points, for a maximum total of 600. A minimum of 60 points per event is required to pass, and the overall minimum passing score is 360. Soldiers who score 540+ earn Gold tier, 480+ Silver, and 420+ Bronze.',
   },
   {
     question: 'What are the minimum passing standards for the ACFT?',
@@ -251,7 +256,7 @@ export default function ACFTCalculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('acft-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -360,7 +365,13 @@ function renderACFTCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your ACFT Score</h2>
 
           {/* Gender */}
@@ -369,10 +380,11 @@ function renderACFTCalculatorView({
               Gender
             </label>
             <select
+              name="gender"
               id="gender"
               value={gender}
               onChange={e => setGender(e.target.value as 'male' | 'female')}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -385,10 +397,11 @@ function renderACFTCalculatorView({
               Age Group
             </label>
             <select
+              name="ageGroup"
               id="ageGroup"
               value={ageGroup}
               onChange={e => setAgeGroup(e.target.value as ACFTAgeGroup)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {(Object.entries(AGE_GROUP_LABELS) as [ACFTAgeGroup, string][]).map(
                 ([value, label]) => (
@@ -406,22 +419,29 @@ function renderACFTCalculatorView({
               {EVENT_NAMES.deadlift} (lbs)
             </label>
             <input
+              aria-invalid={errors.deadliftWeight ? true : undefined}
+              aria-describedby={errors.deadliftWeight ? 'deadliftWeight-error' : undefined}
+              name="deadliftWeight"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="deadliftWeight"
               value={deadliftWeight}
               onChange={e =>
                 setDeadliftWeight(e.target.value === '' ? '' : parseFloat(e.target.value))
               }
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.deadliftWeight ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter weight in lbs"
+              placeholder="e.g. 200 (lbs)…"
               min="0"
               max="600"
               step="5"
             />
             {errors.deadliftWeight && (
-              <p className="text-red-500 text-sm mt-1">{errors.deadliftWeight}</p>
+              <p id="deadliftWeight-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.deadliftWeight}
+              </p>
             )}
           </div>
 
@@ -431,22 +451,29 @@ function renderACFTCalculatorView({
               {EVENT_NAMES.standingPowerThrow} (meters)
             </label>
             <input
+              aria-invalid={errors.standingPowerThrow ? true : undefined}
+              aria-describedby={errors.standingPowerThrow ? 'standingPowerThrow-error' : undefined}
+              name="standingPowerThrow"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="standingPowerThrow"
               value={standingPowerThrow}
               onChange={e =>
                 setStandingPowerThrow(e.target.value === '' ? '' : parseFloat(e.target.value))
               }
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.standingPowerThrow ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter distance in meters"
+              placeholder="e.g. 9.5 (meters)…"
               min="0"
               max="15"
               step="0.1"
             />
             {errors.standingPowerThrow && (
-              <p className="text-red-500 text-sm mt-1">{errors.standingPowerThrow}</p>
+              <p id="standingPowerThrow-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.standingPowerThrow}
+              </p>
             )}
           </div>
 
@@ -456,46 +483,58 @@ function renderACFTCalculatorView({
               {EVENT_NAMES.handReleasePushups} (reps)
             </label>
             <input
+              aria-invalid={errors.handReleasePushups ? true : undefined}
+              aria-describedby={errors.handReleasePushups ? 'handReleasePushups-error' : undefined}
+              name="handReleasePushups"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="handReleasePushups"
               value={handReleasePushups}
               onChange={e =>
                 setHandReleasePushups(e.target.value === '' ? '' : parseInt(e.target.value, 10))
               }
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.handReleasePushups ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter number of reps"
+              placeholder="e.g. 30…"
               min="0"
               max="100"
               step="1"
             />
             {errors.handReleasePushups && (
-              <p className="text-red-500 text-sm mt-1">{errors.handReleasePushups}</p>
+              <p id="handReleasePushups-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.handReleasePushups}
+              </p>
             )}
           </div>
 
           {/* Sprint-Drag-Carry */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
+          <fieldset>
+            <legend className="block text-sm font-medium mb-1">
               {EVENT_NAMES.sprintDragCarry} (time)
-            </label>
+            </legend>
             <div className="flex gap-3">
               <div className="flex-1">
                 <label htmlFor="sdcMinutes" className="block text-xs text-gray-600 mb-1">
                   Minutes
                 </label>
                 <input
+                  aria-invalid={errors.sprintDragCarry ? true : undefined}
+                  aria-describedby={errors.sprintDragCarry ? 'sprintDragCarry-error' : undefined}
+                  name="sdcMinutes"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="sdcMinutes"
                   value={sdcMinutes}
                   onChange={e =>
                     setSdcMinutes(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.sprintDragCarry ? 'border border-red-500' : ''
                   }`}
-                  placeholder="min"
+                  placeholder="e.g. 2…"
                   min="0"
                   max="10"
                   step="1"
@@ -507,16 +546,21 @@ function renderACFTCalculatorView({
                   Seconds
                 </label>
                 <input
+                  aria-invalid={errors.sprintDragCarry ? true : undefined}
+                  aria-describedby={errors.sprintDragCarry ? 'sprintDragCarry-error' : undefined}
+                  name="sdcSeconds"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="sdcSeconds"
                   value={sdcSeconds}
                   onChange={e =>
                     setSdcSeconds(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.sprintDragCarry ? 'border border-red-500' : ''
                   }`}
-                  placeholder="sec"
+                  placeholder="e.g. 30…"
                   min="0"
                   max="59"
                   step="1"
@@ -524,29 +568,36 @@ function renderACFTCalculatorView({
               </div>
             </div>
             {errors.sprintDragCarry && (
-              <p className="text-red-500 text-sm mt-1">{errors.sprintDragCarry}</p>
+              <p id="sprintDragCarry-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.sprintDragCarry}
+              </p>
             )}
-          </div>
+          </fieldset>
 
           {/* Plank */}
-          <div>
-            <label className="block text-sm font-medium mb-1">{EVENT_NAMES.plank} (time)</label>
+          <fieldset>
+            <legend className="block text-sm font-medium mb-1">{EVENT_NAMES.plank} (time)</legend>
             <div className="flex gap-3">
               <div className="flex-1">
                 <label htmlFor="plankMinutes" className="block text-xs text-gray-600 mb-1">
                   Minutes
                 </label>
                 <input
+                  aria-invalid={errors.plank ? true : undefined}
+                  aria-describedby={errors.plank ? 'plank-error' : undefined}
+                  name="plankMinutes"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="plankMinutes"
                   value={plankMinutes}
                   onChange={e =>
                     setPlankMinutes(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.plank ? 'border border-red-500' : ''
                   }`}
-                  placeholder="min"
+                  placeholder="e.g. 2…"
                   min="0"
                   max="10"
                   step="1"
@@ -558,46 +609,60 @@ function renderACFTCalculatorView({
                   Seconds
                 </label>
                 <input
+                  aria-invalid={errors.plank ? true : undefined}
+                  aria-describedby={errors.plank ? 'plank-error' : undefined}
+                  name="plankSeconds"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="plankSeconds"
                   value={plankSeconds}
                   onChange={e =>
                     setPlankSeconds(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.plank ? 'border border-red-500' : ''
                   }`}
-                  placeholder="sec"
+                  placeholder="e.g. 30…"
                   min="0"
                   max="59"
                   step="1"
                 />
               </div>
             </div>
-            {errors.plank && <p className="text-red-500 text-sm mt-1">{errors.plank}</p>}
-          </div>
+            {errors.plank && (
+              <p id="plank-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.plank}
+              </p>
+            )}
+          </fieldset>
 
           {/* Two-Mile Run */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
+          <fieldset>
+            <legend className="block text-sm font-medium mb-1">
               {EVENT_NAMES.twoMileRun} (time)
-            </label>
+            </legend>
             <div className="flex gap-3">
               <div className="flex-1">
                 <label htmlFor="tmrMinutes" className="block text-xs text-gray-600 mb-1">
                   Minutes
                 </label>
                 <input
+                  aria-invalid={errors.twoMileRun ? true : undefined}
+                  aria-describedby={errors.twoMileRun ? 'twoMileRun-error' : undefined}
+                  name="tmrMinutes"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="tmrMinutes"
                   value={tmrMinutes}
                   onChange={e =>
                     setTmrMinutes(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.twoMileRun ? 'border border-red-500' : ''
                   }`}
-                  placeholder="min"
+                  placeholder="e.g. 2…"
                   min="0"
                   max="40"
                   step="1"
@@ -609,37 +674,46 @@ function renderACFTCalculatorView({
                   Seconds
                 </label>
                 <input
+                  aria-invalid={errors.twoMileRun ? true : undefined}
+                  aria-describedby={errors.twoMileRun ? 'twoMileRun-error' : undefined}
+                  name="tmrSeconds"
+                  autoComplete="off"
+                  inputMode="decimal"
                   type="number"
                   id="tmrSeconds"
                   value={tmrSeconds}
                   onChange={e =>
                     setTmrSeconds(e.target.value === '' ? '' : parseInt(e.target.value, 10))
                   }
-                  className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.twoMileRun ? 'border border-red-500' : ''
                   }`}
-                  placeholder="sec"
+                  placeholder="e.g. 30…"
                   min="0"
                   max="59"
                   step="1"
                 />
               </div>
             </div>
-            {errors.twoMileRun && <p className="text-red-500 text-sm mt-1">{errors.twoMileRun}</p>}
-          </div>
+            {errors.twoMileRun && (
+              <p id="twoMileRun-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.twoMileRun}
+              </p>
+            )}
+          </fieldset>
 
           {/* Buttons */}
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate ACFT Score
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>

@@ -66,7 +66,7 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
           <Link
             key={calculator.slug}
             href={`/calculator/${calculator.slug}`}
-            className="neumorph rounded-xl p-6 transition-all hover:shadow-neumorph-inset"
+            className="neumorph rounded-xl p-6 transition hover:shadow-neumorph-inset"
           >
             <div className="flex items-start gap-4">
               <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">

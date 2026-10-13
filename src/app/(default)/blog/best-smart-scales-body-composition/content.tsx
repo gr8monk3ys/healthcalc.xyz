@@ -111,7 +111,7 @@ const BestSmartScalesPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Smart Scales for Body Composition Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -164,7 +164,7 @@ const BestSmartScalesPageContent = (
         </div>
 
         <p>
-          If you're using our{' '}
+          If you’re using our{' '}
           <Link href="/body-fat" className="text-accent hover:underline">
             Body Fat Calculator
           </Link>{' '}
@@ -196,7 +196,7 @@ const BestSmartScalesPageContent = (
         </div>
 
         <p>
-          In this comprehensive guide, we'll review the best smart scales for body composition
+          In this comprehensive guide, we’ll review the best smart scales for body composition
           tracking, comparing their accuracy, features, and value to help you make an informed
           decision.
         </p>
@@ -251,7 +251,7 @@ const BestSmartScalesPageContent = (
           What to Look for in a Body Composition Scale
         </h2>
 
-        <p>Before diving into specific products, here's what matters most:</p>
+        <p>Before diving into specific products, here’s what matters most:</p>
 
         <div className="neumorph p-6 rounded-lg my-6">
           <h3 className="text-xl font-semibold mb-4">Key Features to Consider</h3>
@@ -287,7 +287,7 @@ const BestSmartScalesPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Withings Body Smart</h3>
             </div>
@@ -296,7 +296,7 @@ const BestSmartScalesPageContent = (
 
           <p className="mb-4">
             The Withings Body Smart represents the gold standard in consumer body composition
-            scales. With its medical-grade accuracy and comprehensive Health Mate app, it's the top
+            scales. With its medical-grade accuracy and comprehensive Health Mate app, it’s the top
             choice for serious health trackers.
           </p>
 
@@ -370,8 +370,8 @@ const BestSmartScalesPageContent = (
 
           <p className="mb-4">
             With over 350,000 Amazon reviews and a 4.6-star rating, the RENPHO Smart Scale proves
-            you don't need to spend a fortune for quality body composition tracking. It's the
-            people's choice for good reason.
+            you don’t need to spend a fortune for quality body composition tracking. It’s the
+            people’s choice for good reason.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -438,7 +438,7 @@ const BestSmartScalesPageContent = (
 
           <p className="mb-4">
             The Eufy Smart Scale P2 Pro from Anker offers an impressive 16 body measurements and a
-            unique 3D virtual body model feature that visualizes your progress over time. It's the
+            unique 3D virtual body model feature that visualizes your progress over time. It’s the
             sweet spot between budget and premium.
           </p>
 
@@ -547,7 +547,7 @@ const BestSmartScalesPageContent = (
 
         <p>
           Smart scales use Bioelectrical Impedance Analysis (BIA) to estimate body composition. A
-          small, safe electrical current is sent through your body via the scale's sensors. Since
+          small, safe electrical current is sent through your body via the scale’s sensors. Since
           different tissues (fat, muscle, bone, water) conduct electricity differently, the scale
           can estimate your body composition.
         </p>
@@ -581,17 +581,17 @@ const BestSmartScalesPageContent = (
             <Link href="/bmi" className="text-accent hover:underline">
               BMI Calculator
             </Link>{' '}
-            to understand what your scale's BMI reading means and see your healthy weight range
+            to understand what your scale’s BMI reading means and see your healthy weight range
           </li>
           <li>
-            <strong>Body Fat Context:</strong> Compare your scale's body fat % with our{' '}
+            <strong>Body Fat Context:</strong> Compare your scale’s body fat % with our{' '}
             <Link href="/body-fat" className="text-accent hover:underline">
               Body Fat Calculator
             </Link>{' '}
             (Navy method) for a second opinion
           </li>
           <li>
-            <strong>Calorie Planning:</strong> Input your scale's weight into our{' '}
+            <strong>Calorie Planning:</strong> Input your scale’s weight into our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
               TDEE Calculator
             </Link>{' '}
@@ -674,7 +674,7 @@ const BestSmartScalesPageContent = (
         <p>
           Whichever scale you choose, remember that consistency is more important than absolute
           accuracy. Pick one, use it regularly at the same time each day, and focus on trends rather
-          than individual readings. Combined with our calculators, you'll have a complete picture of
+          than individual readings. Combined with our calculators, you’ll have a complete picture of
           your health journey.
         </p>
 
@@ -683,21 +683,21 @@ const BestSmartScalesPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/bmi"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">BMI Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your Body Mass Index</p>
             </Link>
             <Link
               href="/body-fat"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Calculator</h4>
               <p className="text-sm text-gray-600">Estimate your body fat percentage</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Find your daily calorie needs</p>

@@ -19,10 +19,10 @@ export default function IdealWeightResult({ result }: IdealWeightResultProps) {
     <div className="neumorph p-6 rounded-lg" id="ideal-weight-result">
       <h2 className="text-xl font-semibold mb-2">Ideal Weight Result</h2>
       <p className="text-2xl font-bold text-accent">
-        {result.rangeKg.min}-{result.rangeKg.max} kg ({result.rangeLb.min}-{result.rangeLb.max} lb)
+        {result.rangeKg.min}-{result.rangeKg.max} kg ({result.rangeLb.min}-{result.rangeLb.max} lb)
       </p>
       <p className="text-sm text-gray-600 mt-1">
-        Average: {result.averageKg} kg ({result.averageLb} lb)
+        Average: {result.averageKg} kg ({result.averageLb} lb)
       </p>
 
       <div className="mt-4 overflow-x-auto">

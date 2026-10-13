@@ -104,7 +104,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Creatine Supplements for Muscle Gain in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 12 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -286,7 +286,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           <h3 className="text-xl font-semibold mb-3">What creatine will NOT do</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>
-              It will not make you bigger overnight. The initial 2-4 pounds of weight gain is water.
+              It will not make you bigger overnight. The initial 2-4 pounds of weight gain is water.
               Your muscles hold more water when saturated with creatine. This is normal and actually
               makes your muscles look fuller.
             </li>
@@ -313,21 +313,21 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             There are two ways to start taking creatine. Both work. They just get you to the same
             place at different speeds.
           </p>
-          <h4 className="font-semibold mb-2">Loading phase (optional)</h4>
+          <h3 className="font-semibold mb-2">Loading phase (optional)</h3>
           <p className="mb-4">
-            Take 20g per day split into four 5g doses for 5-7 days. This saturates your muscles in
+            Take 20g per day split into four 5g doses for 5-7 days. This saturates your muscles in
             about a week. The downside is that some people get bloating and stomach discomfort from
             this much creatine at once. I personally skip loading phases because the bloating annoys
             me and I am not in a rush.
           </p>
-          <h4 className="font-semibold mb-2">Maintenance only (my recommendation)</h4>
+          <h3 className="font-semibold mb-2">Maintenance only (my recommendation)</h3>
           <p className="mb-4">
-            Take 3-5g per day every day. It takes about 3-4 weeks to fully saturate your muscles
+            Take 3-5g per day every day. It takes about 3-4 weeks to fully saturate your muscles
             this way. No bloating, no stomach issues, and you end up at the same level as loading.
             The only reason to load is if you need to be saturated for a competition in a week.
             Otherwise just be patient.
           </p>
-          <h4 className="font-semibold mb-2">Timing</h4>
+          <h3 className="font-semibold mb-2">Timing</h3>
           <p>
             It does not matter when you take it. Morning, evening, pre-workout, post-workout. Just
             take it daily and be consistent. Some research suggests post-workout might be marginally
@@ -796,15 +796,15 @@ const BestCreatineSupplementsMuscleGainPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Common questions about creatine</h2>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h4 className="font-semibold mb-2">Do I need to cycle creatine?</h4>
+          <h3 className="font-semibold mb-2">Do I need to cycle creatine?</h3>
           <p className="mb-4">
             No. There is no evidence that cycling creatine (taking breaks) provides any benefit.
             Your body does not build a tolerance to creatine the way it does to caffeine. Take it
             every day indefinitely.
           </p>
-          <h4 className="font-semibold mb-2">Will creatine make me look fat or bloated?</h4>
+          <h3 className="font-semibold mb-2">Will creatine make me look fat or bloated?</h3>
           <p className="mb-4">
-            You will gain 2-4 pounds of water weight in the first couple weeks. This water is stored
+            You will gain 2-4 pounds of water weight in the first couple weeks. This water is stored
             inside your muscle cells, not under your skin. Most people actually look more muscular,
             not bloated. If you are tracking with our{' '}
             <Link href="/lean-body-mass" className="text-accent hover:underline">
@@ -812,7 +812,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             </Link>
             , know that the initial weight gain is water, not fat or muscle.
           </p>
-          <h4 className="font-semibold mb-2">Is creatine safe for teenagers?</h4>
+          <h3 className="font-semibold mb-2">Is creatine safe for teenagers?</h3>
           <p className="mb-4">
             The research on creatine in adolescents is limited compared to adults, but nothing
             suggests it is harmful. The American College of Sports Medicine and the International
@@ -820,7 +820,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             would recommend any teenager talk to a doctor first and focus on proper training and
             nutrition before adding any supplement.
           </p>
-          <h4 className="font-semibold mb-2">Does creatine cause hair loss?</h4>
+          <h3 className="font-semibold mb-2">Does creatine cause hair loss?</h3>
           <p>
             One single study from 2009 found that creatine increased DHT levels in rugby players.
             DHT is linked to male pattern baldness. That study has never been replicated and had
@@ -880,21 +880,21 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/one-rep-max"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">One Rep Max Calculator</h4>
               <p className="text-sm text-gray-600">Track your strength progress</p>
             </Link>
             <Link
               href="/lean-body-mass"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Lean Body Mass Calculator</h4>
               <p className="text-sm text-gray-600">Separate muscle gains from water weight</p>
             </Link>
             <Link
               href="/protein"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Protein Calculator</h4>
               <p className="text-sm text-gray-600">Dial in your daily protein needs</p>

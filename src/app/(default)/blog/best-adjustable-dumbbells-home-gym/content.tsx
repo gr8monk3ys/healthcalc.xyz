@@ -104,7 +104,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Adjustable Dumbbells for Your Home Gym in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -113,19 +113,19 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Bowflex SelectTech 552 ($349) - Dial-based, 5-52.5 lbs,
+              <strong>Best Overall:</strong> Bowflex SelectTech 552 ($349) - Dial-based, 5-52.5 lbs,
               replaces 15 pairs
             </li>
             <li>
               <strong>Best for Durability:</strong> PowerBlock Elite EXP ($340) - Block design, 5-50
-              lbs, expandable to 90 lbs
+              lbs, expandable to 90 lbs
             </li>
             <li>
               <strong>Best Feel:</strong> NordicTrack Select-A-Weight ($349) - Smooth dial, 10-55
               lbs, compact shape
             </li>
             <li>
-              <strong>Best Budget:</strong> FLYBIRD Adjustable Dumbbell Set ($150) - 5-25 lbs per
+              <strong>Best Budget:</strong> FLYBIRD Adjustable Dumbbell Set ($150) - 5-25 lbs per
               hand, fast handle adjustment
             </li>
             <li>
@@ -255,7 +255,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
         <div className="neumorph p-6 rounded-lg my-6">
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>Space:</strong> A full dumbbell rack from 5 to 50 lbs takes up roughly 4 feet
+              <strong>Space:</strong> A full dumbbell rack from 5 to 50 lbs takes up roughly 4 feet
               of floor space. A single pair of adjustables fits on a 2-foot stand.
             </li>
             <li>
@@ -263,8 +263,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               prices. A good adjustable set runs $150-$350 and covers the same range.
             </li>
             <li>
-              <strong>Progressive overload:</strong> Small weight jumps (2.5 lbs on the Bowflex) let
-              you progress gradually. Fixed dumbbell sets usually jump 5 lbs at a time, which is too
+              <strong>Progressive overload:</strong> Small weight jumps (2.5 lbs on the Bowflex) let
+              you progress gradually. Fixed dumbbell sets usually jump 5 lbs at a time, which is too
               much for isolation exercises like lateral raises.
             </li>
             <li>
@@ -288,7 +288,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               compound lifts but too big for shoulders and arms.
             </li>
             <li>
-              <strong>Adjustment speed:</strong> If it takes 30 seconds to change weight, drop sets
+              <strong>Adjustment speed:</strong> If it takes 30 seconds to change weight, drop sets
               and supersets become a hassle.
             </li>
             <li>
@@ -297,7 +297,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             </li>
             <li>
               <strong>Size at lower weights:</strong> Some adjustable dumbbells are the same
-              physical size whether you select 5 lbs or 50 lbs. That makes light weights feel
+              physical size whether you select 5 lbs or 50 lbs. That makes light weights feel
               awkward during curls and presses.
             </li>
             <li>
@@ -336,16 +336,16 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           </p>
 
           <p className="mb-4">
-            The weight range is 5 to 52.5 lbs per dumbbell with 2.5-lb increments for the first 25
+            The weight range is 5 to 52.5 lbs per dumbbell with 2.5-lb increments for the first 25
             lbs, then 5-lb jumps after that. Those small increments at the lower end are a big deal.
-            Going from 10 to 12.5 lbs on a lateral raise is a reasonable jump. Going from 10 to 15
+            Going from 10 to 12.5 lbs on a lateral raise is a reasonable jump. Going from 10 to 15
             is not, and that is what you are stuck with if you use fixed dumbbells.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Weight range: 5 to 52.5 lbs per dumbbell (pair included)</li>
-            <li>2.5 lb increments up to 25 lbs, 5 lb increments after</li>
+            <li>Weight range: 5 to 52.5 lbs per dumbbell (pair included)</li>
+            <li>2.5 lb increments up to 25 lbs, 5 lb increments after</li>
             <li>Replaces 15 sets of dumbbells</li>
             <li>Dial-based selection system with fast two-second changes</li>
             <li>Durable metal plates with molded exterior</li>
@@ -426,8 +426,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           </p>
 
           <p className="mb-4">
-            The base Stage 1 model covers 5 to 50 lbs. What sets it apart is the expansion option.
-            You can buy Stage 2 and Stage 3 kits that push the weight up to 70 lbs and then 90 lbs.
+            The base Stage 1 model covers 5 to 50 lbs. What sets it apart is the expansion option.
+            You can buy Stage 2 and Stage 3 kits that push the weight up to 70 lbs and then 90 lbs.
             That kind of growth potential means you will not outgrow these even if you get seriously
             strong. You change weight by pulling a magnetic pin and reinserting it at the desired
             setting. It is not as fast as the Bowflex dial, but it takes maybe four seconds.
@@ -435,8 +435,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Weight range: 5 to 50 lbs per dumbbell (Stage 1, pair included)</li>
-            <li>Expandable to 70 lbs (Stage 2) and 90 lbs (Stage 3) with kits</li>
+            <li>Weight range: 5 to 50 lbs per dumbbell (Stage 1, pair included)</li>
+            <li>Expandable to 70 lbs (Stage 2) and 90 lbs (Stage 3) with kits</li>
             <li>All-steel construction with magnetic selector pin</li>
             <li>Compact block shape keeps weight close to the hand</li>
             <li>Contoured rubber grip handle</li>
@@ -447,7 +447,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           <p>
             Anyone who plans to get strong and wants dumbbells that will keep up. If you are
             currently pressing 30s and expect to be pressing 60s or 70s within a year or two, the
-            PowerBlock is the only option here that can grow with you to 90 lbs. The steel
+            PowerBlock is the only option here that can grow with you to 90 lbs. The steel
             construction also handles rougher treatment than the Bowflex.
           </p>
 
@@ -466,7 +466,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> All-steel build quality, expandable to 90 lbs, compact shape
+              <strong>Pros:</strong> All-steel build quality, expandable to 90 lbs, compact shape
               feels balanced, 10-year warranty, weight stays close to the hand
             </p>
             <p className="text-sm mt-2">
@@ -499,7 +499,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               <span className="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded-full mb-2">
                 Best Feel
               </span>
-              <h3 className="text-xl font-semibold">NordicTrack Select-A-Weight 55 lb</h3>
+              <h3 className="text-xl font-semibold">NordicTrack Select-A-Weight 55 lb</h3>
               <p className="text-sm text-yellow-600 mt-1">
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
@@ -517,7 +517,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           </p>
 
           <p className="mb-4">
-            The range is 10 to 55 lbs with 5-lb increments, adjusted by a smooth dial on each end.
+            The range is 10 to 55 lbs with 5-lb increments, adjusted by a smooth dial on each end.
             The 10-lb minimum is higher than the Bowflex, which starts at 5. That is a real drawback
             if you need lighter weights for warm-ups or rehabilitation. But the 55-lb top end gives
             you a bit more room than the PowerBlock Stage 1.
@@ -525,8 +525,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Weight range: 10 to 55 lbs per dumbbell (pair included)</li>
-            <li>5 lb increments via smooth dial mechanism</li>
+            <li>Weight range: 10 to 55 lbs per dumbbell (pair included)</li>
+            <li>5 lb increments via smooth dial mechanism</li>
             <li>Compact design that changes shape with weight selection</li>
             <li>Metal weight plates with durable coating</li>
             <li>Storage trays included</li>
@@ -538,7 +538,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             Intermediate lifters who already have baseline strength and want adjustable dumbbells
             that feel like the real thing. If you have used fixed dumbbells in a commercial gym and
             found other adjustable options clunky, the NordicTrack will be the least jarring
-            transition. Not ideal if you need weights under 10 lbs.
+            transition. Not ideal if you need weights under 10 lbs.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
@@ -560,7 +560,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               with weight, smooth dial, slightly higher max weight than Bowflex, good build quality
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Starts at 10 lbs (too heavy for some isolation work and rehab),
+              <strong>Cons:</strong> Starts at 10 lbs (too heavy for some isolation work and rehab),
               only 5-lb increments (no 2.5-lb option), not expandable, less well-known brand in the
               adjustable dumbbell space
             </p>
@@ -599,7 +599,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
           <p className="mb-4">
             Here is the honest truth about the FLYBIRD: it does about 80% of what the Bowflex does
-            for less than half the price. The set covers 5 to 25 lbs per hand across five weight
+            for less than half the price. The set covers 5 to 25 lbs per hand across five weight
             options, and you change settings by turning the handle. The adjustment is quick, maybe
             three seconds. The anti-slip metal handle feels secure, and the overall build quality is
             better than I expected for a sub-$150 pair.
@@ -616,8 +616,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Weight range: 5 to 25 lbs per dumbbell (pair included)</li>
-            <li>Five weight options: 5, 10, 15, 20, 25 lbs</li>
+            <li>Weight range: 5 to 25 lbs per dumbbell (pair included)</li>
+            <li>Five weight options: 5, 10, 15, 20, 25 lbs</li>
             <li>Quick-turn handle adjustment system</li>
             <li>Anti-slip metal handle with comfortable grip</li>
             <li>Includes storage trays for each dumbbell</li>
@@ -698,7 +698,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
           <p className="mb-4">
             The neoprene coating is soft on the hands, will not scratch your floors, and makes the
-            weights easy to grip. You get pairs in 2, 3, and 5 lbs (or similar light combos
+            weights easy to grip. You get pairs in 2, 3, and 5 lbs (or similar light combos
             depending on the set you choose). Obviously this is not for serious strength training.
             But for someone doing their first dumbbell workout, following along with a YouTube
             video, or adding light resistance to cardio sessions, these work fine. I recommend them
@@ -744,7 +744,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               absolute beginners
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Very light weight ceiling (typically maxes at 5-10 lbs per
+              <strong>Cons:</strong> Very light weight ceiling (typically maxes at 5-10 lbs per
               hand), not adjustable so you need to buy more as you progress, takes up more space
               than a single adjustable pair as your collection grows, neoprene can tear over time
             </p>
@@ -781,39 +781,39 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               <tr>
                 <td className="border p-3">Bowflex SelectTech 552</td>
                 <td className="border p-3 text-center">$349</td>
-                <td className="border p-3 text-center">5-52.5 lbs</td>
-                <td className="border p-3 text-center">2.5 / 5 lbs</td>
+                <td className="border p-3 text-center">5-52.5 lbs</td>
+                <td className="border p-3 text-center">2.5 / 5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.7</td>
                 <td className="border p-3 text-center">Overall</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">PowerBlock Elite EXP</td>
                 <td className="border p-3 text-center">$340</td>
-                <td className="border p-3 text-center">5-50 lbs*</td>
-                <td className="border p-3 text-center">2.5 / 5 lbs</td>
+                <td className="border p-3 text-center">5-50 lbs*</td>
+                <td className="border p-3 text-center">2.5 / 5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
                 <td className="border p-3 text-center">Durability</td>
               </tr>
               <tr>
                 <td className="border p-3">NordicTrack Select-A-Weight</td>
                 <td className="border p-3 text-center">$349</td>
-                <td className="border p-3 text-center">10-55 lbs</td>
-                <td className="border p-3 text-center">5 lbs</td>
+                <td className="border p-3 text-center">10-55 lbs</td>
+                <td className="border p-3 text-center">5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
                 <td className="border p-3 text-center">Feel</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">FLYBIRD Adjustable Set</td>
                 <td className="border p-3 text-center">$150</td>
-                <td className="border p-3 text-center">5-25 lbs</td>
-                <td className="border p-3 text-center">5 lbs</td>
+                <td className="border p-3 text-center">5-25 lbs</td>
+                <td className="border p-3 text-center">5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Budget</td>
               </tr>
               <tr>
                 <td className="border p-3">Amazon Basics Neoprene</td>
                 <td className="border p-3 text-center">$35</td>
-                <td className="border p-3 text-center">2-5 lbs</td>
+                <td className="border p-3 text-center">2-5 lbs</td>
                 <td className="border p-3 text-center">Fixed</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Starter</td>
@@ -821,7 +821,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             </tbody>
           </table>
           <p className="text-sm text-gray-500 mt-2">
-            *PowerBlock Elite EXP is expandable to 70 lbs (Stage 2) and 90 lbs (Stage 3) with
+            *PowerBlock Elite EXP is expandable to 70 lbs (Stage 2) and 90 lbs (Stage 3) with
             separate kits.
           </p>
         </div>
@@ -846,7 +846,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             </li>
             <li>
               <strong>Program your rest periods around weight changes:</strong> If your workout
-              calls for heavy rows followed by light curls, use the 30-60 seconds between sets to
+              calls for heavy rows followed by light curls, use the 30-60 seconds between sets to
               adjust the weight. It becomes second nature after a week.
             </li>
             <li>
@@ -878,7 +878,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           <li>
             <strong>Best for long-term growth:</strong> The{' '}
             <strong>PowerBlock Elite EXP at $340</strong> wins if you plan to get very strong. The
-            expansion to 90 lbs and all-steel construction means these could be the last dumbbells
+            expansion to 90 lbs and all-steel construction means these could be the last dumbbells
             you ever buy.
           </li>
           <li>
@@ -927,21 +927,21 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/body-fat-burn"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Burn Calculator</h4>
               <p className="text-sm text-gray-600">Estimate exercise calorie burn</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate daily energy needs</p>
             </Link>
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your fat loss nutrition</p>

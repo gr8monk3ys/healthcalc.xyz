@@ -19,6 +19,8 @@ import FFMIResultDisplay from '@/components/calculators/ffmi/FFMIResult';
 import { useHeight, useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
 
 type FFMICalculatorViewProps = {
   serverHeader?: React.ReactNode;
@@ -45,13 +47,17 @@ export default function FFMICalculator({ serverHeader }: { serverHeader?: React.
 
   const chainPrefill = useChainPrefill('ffmi');
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
     if (typeof chainPrefill.bodyFatPercentage === 'number')
       setBodyFatPercentage(chainPrefill.bodyFatPercentage);
-  }, [chainPrefill, height, weight, setBodyFatPercentage]);
+  }, [chainPrefill, setHeightValue, setWeightValue, setBodyFatPercentage]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();
@@ -121,7 +127,7 @@ export default function FFMICalculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('ffmi-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
           }
         }, 100);
 
@@ -180,7 +186,12 @@ function renderFFMICalculatorView({
     >
       <div className="grid md:grid-cols-2 gap-6">
         <div className="neumorph p-6 rounded-lg">
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={e => {
+              handleSubmit(e);
+              focusFirstInvalidField(e.currentTarget);
+            }}
+          >
             <div className="space-y-4">
               {/* Weight Input */}
               <div>
@@ -190,6 +201,11 @@ function renderFFMICalculatorView({
                 </label>
                 <div className="flex gap-2">
                   <input
+                    aria-invalid={errors.weight ? true : undefined}
+                    aria-describedby={errors.weight ? 'weight-error' : undefined}
+                    name="weight"
+                    autoComplete="off"
+                    inputMode="decimal"
                     id="weight"
                     type="number"
                     step="0.1"
@@ -198,7 +214,7 @@ function renderFFMICalculatorView({
                       weight.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
                     placeholder={weight.placeholder}
-                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.weight ? 'ring-2 ring-red-500' : ''
                     }`}
                   />
@@ -210,7 +226,11 @@ function renderFFMICalculatorView({
                     {weight.unit}
                   </button>
                 </div>
-                {errors.weight && <p className="text-red-500 text-xs mt-1">{errors.weight}</p>}
+                {errors.weight && (
+                  <p id="weight-error" role="alert" className="text-red-500 text-xs mt-1">
+                    {errors.weight}
+                  </p>
+                )}
               </div>
 
               {/* Height Input */}
@@ -221,6 +241,11 @@ function renderFFMICalculatorView({
                 </label>
                 <div className="flex gap-2">
                   <input
+                    aria-invalid={errors.height ? true : undefined}
+                    aria-describedby={errors.height ? 'height-error' : undefined}
+                    name="height"
+                    autoComplete="off"
+                    inputMode="decimal"
                     id="height"
                     type="number"
                     step="0.1"
@@ -229,7 +254,7 @@ function renderFFMICalculatorView({
                       height.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
                     placeholder={height.placeholder}
-                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`flex-1 neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.height ? 'ring-2 ring-red-500' : ''
                     }`}
                   />
@@ -241,7 +266,11 @@ function renderFFMICalculatorView({
                     {height.unit}
                   </button>
                 </div>
-                {errors.height && <p className="text-red-500 text-xs mt-1">{errors.height}</p>}
+                {errors.height && (
+                  <p id="height-error" role="alert" className="text-red-500 text-xs mt-1">
+                    {errors.height}
+                  </p>
+                )}
               </div>
 
               {/* Body Fat Percentage Input */}
@@ -251,6 +280,13 @@ function renderFFMICalculatorView({
                   <span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
+                  aria-invalid={errors.bodyFatPercentage ? true : undefined}
+                  aria-describedby={
+                    errors.bodyFatPercentage ? 'bodyFatPercentage-error' : undefined
+                  }
+                  name="bodyFatPercentage"
+                  autoComplete="off"
+                  inputMode="decimal"
                   id="bodyFatPercentage"
                   type="number"
                   step="0.1"
@@ -258,16 +294,22 @@ function renderFFMICalculatorView({
                   onChange={e =>
                     setBodyFatPercentage(e.target.value === '' ? '' : parseFloat(e.target.value))
                   }
-                  placeholder="e.g., 15"
-                  className={`w-full neumorph-inset px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                  placeholder="e.g. 15…"
+                  className={`w-full neumorph-inset px-4 py-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     errors.bodyFatPercentage ? 'ring-2 ring-red-500' : ''
                   }`}
                 />
                 {errors.bodyFatPercentage && (
-                  <p className="text-red-500 text-xs mt-1">{errors.bodyFatPercentage}</p>
+                  <p
+                    id="bodyFatPercentage-error"
+                    role="alert"
+                    className="text-red-500 text-xs mt-1"
+                  >
+                    {errors.bodyFatPercentage}
+                  </p>
                 )}
                 <p className="text-xs text-gray-500 mt-1">
-                  If you don't know your body fat percentage, use our{' '}
+                  If you don’t know your body fat percentage, use our{' '}
                   <Link href={localizePath('/body-fat')} className="text-accent hover:underline">
                     Body Fat Calculator
                   </Link>{' '}
@@ -285,7 +327,7 @@ function renderFFMICalculatorView({
 
               {/* Calculation Error */}
               {calculationError && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4" role="alert">
                   <p className="text-red-600 text-sm">{calculationError}</p>
                 </div>
               )}
@@ -335,10 +377,10 @@ function renderFFMICalculatorView({
             </li>
             <li>
               The adjusted FFMI accounts for height differences, normalizing all values to a 1.8m
-              (5'11") reference height.
+              (5′11″) reference height.
             </li>
             <li>
-              While FFMI is a useful indicator, it's not a definitive test for steroid use.
+              While FFMI is a useful indicator, it’s not a definitive test for steroid use.
               Exceptional genetic outliers and measurement errors can affect results.
             </li>
             <li>
@@ -366,7 +408,7 @@ function renderFFMICalculatorView({
             <p className="text-sm text-gray-600">
               BMI measures total body mass relative to height, while FFMI measures only lean mass
               (muscle, bone, organs) relative to height. FFMI is more useful for assessing muscle
-              development and doesn't penalize muscular individuals like BMI does.
+              development and doesn’t penalize muscular individuals like BMI does.
             </p>
           </div>
 

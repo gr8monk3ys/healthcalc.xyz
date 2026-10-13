@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import PregnancyDueDateResult from '@/components/calculators/pregnancy-due-date/PregnancyDueDateResult';
 import PregnancyDueDateInfo from '@/components/calculators/pregnancy-due-date/PregnancyDueDateInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty } from '@/utils/validation';
 import { calculatePregnancyDueDate } from '@/utils/calculators/pregnancyDueDate';
 import type {
@@ -15,6 +14,11 @@ import type {
   PregnancyDueDateMethod,
 } from '@/types/pregnancyDueDate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -66,7 +70,7 @@ export default function PregnancyDueDateCalculator({
         const calculated = calculatePregnancyDueDate(date, method);
         setTimeout(() => {
           const element = document.getElementById('pregnancy-due-date-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

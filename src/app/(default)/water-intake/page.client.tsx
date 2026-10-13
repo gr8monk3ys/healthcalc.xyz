@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import WaterIntakeResult from '@/components/calculators/water-intake/WaterIntakeResult';
 import WaterIntakeInfo from '@/components/calculators/water-intake/WaterIntakeInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateWeight } from '@/utils/validation';
 import { calculateWaterIntake } from '@/utils/calculators/waterIntake';
 import type { WaterIntakeResult as WaterIntakeResultType } from '@/types/waterIntake';
@@ -15,6 +14,11 @@ import { WATER_INTAKE_ACTIVITY_OPTIONS, type WaterIntakeActivity } from '@/const
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -55,10 +59,12 @@ export default function WaterIntakeCalculator({
 
   const chainPrefill = useChainPrefill('water-intake');
 
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, weight]);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setWeightValue]);
 
   const { result, showResult, calculationError, errors, handleSubmit, handleReset } =
     useCalculatorForm<WaterIntakeResultType>({
@@ -82,7 +88,7 @@ export default function WaterIntakeCalculator({
         const calculated = calculateWaterIntake(weightKg as number, activityLevel, weight.unit);
         setTimeout(() => {
           const element = document.getElementById('water-intake-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

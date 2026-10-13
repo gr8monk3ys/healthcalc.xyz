@@ -27,7 +27,7 @@ const FALLBACK_COPY: BMIPageCopy['understanding'] = {
   ],
   beyondTitle: 'Beyond BMI',
   beyondBody:
-    "While BMI is useful for population studies and general screening, it doesn't tell the complete story about your health. Other factors to consider include:",
+    'While BMI is useful for population studies and general screening, it doesn’t tell the complete story about your health. Other factors to consider include:',
   beyondList: [
     { label: 'Body composition:', body: 'The ratio of fat to muscle in your body' },
     {

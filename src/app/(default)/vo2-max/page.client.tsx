@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import Vo2MaxResult from '@/components/calculators/vo2-max/Vo2MaxResult';
 import Vo2MaxInfo from '@/components/calculators/vo2-max/Vo2MaxInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateAge, validateHeartRate, validateWeight } from '@/utils/validation';
 import { calculateVo2Max } from '@/utils/calculators/vo2Max';
 import type { Vo2MaxResult as Vo2MaxResultType } from '@/types/vo2Max';
@@ -15,6 +14,11 @@ import type { Gender } from '@/types/common';
 import { useWeight, createWeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -54,13 +58,15 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
 
   const chainPrefill = useChainPrefill('vo2-max');
 
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     if (typeof chainPrefill.age === 'number') setAge(chainPrefill.age);
     if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
       setGender(chainPrefill.gender as Gender);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, setAge, setGender, weight]);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setAge, setGender, setWeightValue]);
 
   const chainResultData = useMemo(() => {
     const weightKg = weight.toKg();
@@ -123,7 +129,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
         });
         setTimeout(() => {
           const element = document.getElementById('vo2-max-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -182,7 +188,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
             },
             createWeightField(weight, errors.weight),
             {
@@ -192,7 +198,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
               value: walkTime,
               onChange: setWalkTime,
               error: errors.walkTime,
-              placeholder: 'e.g., 15.5',
+              placeholder: 'e.g. 15.5…',
             },
             {
               name: 'heartRate',
@@ -201,7 +207,7 @@ export default function Vo2MaxCalculator({ serverHeader }: { serverHeader?: Reac
               value: heartRate,
               onChange: setHeartRate,
               error: errors.heartRate,
-              placeholder: 'e.g., 130',
+              placeholder: 'e.g. 130…',
             },
           ]}
           submitButtonText="Calculate VO2 Max"

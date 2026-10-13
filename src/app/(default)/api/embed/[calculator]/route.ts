@@ -28,11 +28,11 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
     formHtml: `
       <div class="field">
         <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="e.g. 175" step="0.1" min="50" max="300" required />
+        <input type="number" id="height" name="height" inputmode="decimal" autocomplete="off" placeholder="e.g. 175…" step="0.1" min="50" max="300" required />
       </div>
       <div class="field">
         <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 70" step="0.1" min="10" max="500" required />
+        <input type="number" id="weight" name="weight" inputmode="decimal" autocomplete="off" placeholder="e.g. 70…" step="0.1" min="10" max="500" required />
       </div>
     `,
     calculationScript: `
@@ -68,26 +68,26 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
     formHtml: `
       <div class="field">
         <label for="gender">Gender</label>
-        <select id="gender" required>
+        <select id="gender" name="gender" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
       <div class="field">
         <label for="age">Age (years)</label>
-        <input type="number" id="age" placeholder="e.g. 30" min="1" max="120" required />
+        <input type="number" id="age" name="age" inputmode="decimal" autocomplete="off" placeholder="e.g. 30…" min="1" max="120" required />
       </div>
       <div class="field">
         <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="e.g. 175" step="0.1" min="50" max="300" required />
+        <input type="number" id="height" name="height" inputmode="decimal" autocomplete="off" placeholder="e.g. 175…" step="0.1" min="50" max="300" required />
       </div>
       <div class="field">
         <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 70" step="0.1" min="10" max="500" required />
+        <input type="number" id="weight" name="weight" inputmode="decimal" autocomplete="off" placeholder="e.g. 70…" step="0.1" min="10" max="500" required />
       </div>
       <div class="field">
         <label for="activity">Activity Level</label>
-        <select id="activity" required>
+        <select id="activity" name="activity" required>
           <option value="1.2">Sedentary (little/no exercise)</option>
           <option value="1.375">Lightly Active (1-3 days/week)</option>
           <option value="1.55" selected>Moderately Active (3-5 days/week)</option>
@@ -126,26 +126,26 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
     formHtml: `
       <div class="field">
         <label for="gender">Gender</label>
-        <select id="gender" required>
+        <select id="gender" name="gender" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
       <div class="field">
         <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="e.g. 175" step="0.1" min="50" max="300" required />
+        <input type="number" id="height" name="height" inputmode="decimal" autocomplete="off" placeholder="e.g. 175…" step="0.1" min="50" max="300" required />
       </div>
       <div class="field">
         <label for="waist">Waist (cm)</label>
-        <input type="number" id="waist" placeholder="e.g. 80" step="0.1" min="30" max="200" required />
+        <input type="number" id="waist" name="waist" inputmode="decimal" autocomplete="off" placeholder="e.g. 80…" step="0.1" min="30" max="200" required />
       </div>
       <div class="field">
         <label for="neck">Neck (cm)</label>
-        <input type="number" id="neck" placeholder="e.g. 38" step="0.1" min="15" max="80" required />
+        <input type="number" id="neck" name="neck" inputmode="decimal" autocomplete="off" placeholder="e.g. 38…" step="0.1" min="15" max="80" required />
       </div>
       <div class="field" id="hip-field">
         <label for="hip">Hip (cm) - required for women</label>
-        <input type="number" id="hip" placeholder="e.g. 95" step="0.1" min="40" max="200" />
+        <input type="number" id="hip" name="hip" inputmode="decimal" autocomplete="off" placeholder="e.g. 95…" step="0.1" min="40" max="200" />
       </div>
     `,
     calculationScript: `
@@ -215,30 +215,30 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
     formHtml: `
       <div class="field">
         <label for="gender">Gender</label>
-        <select id="gender" required>
+        <select id="gender" name="gender" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
       <div class="field">
         <label for="age">Age (years)</label>
-        <input type="number" id="age" placeholder="e.g. 30" min="1" max="120" required />
+        <input type="number" id="age" name="age" inputmode="decimal" autocomplete="off" placeholder="e.g. 30…" min="1" max="120" required />
       </div>
       <div class="field">
         <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="e.g. 175" step="0.1" min="50" max="300" required />
+        <input type="number" id="height" name="height" inputmode="decimal" autocomplete="off" placeholder="e.g. 175…" step="0.1" min="50" max="300" required />
       </div>
       <div class="field">
         <label for="weight">Current Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 85" step="0.1" min="10" max="500" required />
+        <input type="number" id="weight" name="weight" inputmode="decimal" autocomplete="off" placeholder="e.g. 85…" step="0.1" min="10" max="500" required />
       </div>
       <div class="field">
         <label for="goal">Goal Weight (kg)</label>
-        <input type="number" id="goal" placeholder="e.g. 75" step="0.1" min="10" max="500" required />
+        <input type="number" id="goal" name="goal" inputmode="decimal" autocomplete="off" placeholder="e.g. 75…" step="0.1" min="10" max="500" required />
       </div>
       <div class="field">
         <label for="activity">Activity Level</label>
-        <select id="activity" required>
+        <select id="activity" name="activity" required>
           <option value="1.2">Sedentary</option>
           <option value="1.375">Lightly Active</option>
           <option value="1.55" selected>Moderately Active</option>
@@ -248,7 +248,7 @@ const EMBEDDABLE_CALCULATORS: Record<string, EmbedCalculatorConfig> = {
       </div>
       <div class="field">
         <label for="deficit">Deficit Level</label>
-        <select id="deficit" required>
+        <select id="deficit" name="deficit" required>
           <option value="250">Mild (-250 cal/day)</option>
           <option value="500" selected>Moderate (-500 cal/day)</option>
           <option value="750">Aggressive (-750 cal/day)</option>
@@ -323,9 +323,12 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="${bgColor}" />
   <title>${escapeHtml(config.title)} - HealthCalc</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: ${isDark ? 'dark' : 'light'}; -webkit-tap-highlight-color: transparent; }
+    a, button, input, select, label { touch-action: manipulation; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
       background: ${bgColor};
@@ -389,8 +392,8 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
       transition: border-color 0.2s, box-shadow 0.2s;
       -webkit-appearance: none;
     }
-    .field input:focus,
-    .field select:focus {
+    .field input:focus-visible,
+    .field select:focus-visible {
       border-color: ${accentColor};
       box-shadow: 0 0 0 2px ${accentColor}33;
     }
@@ -521,7 +524,7 @@ function buildEmbedHtml(config: EmbedCalculatorConfig, calculator: string, theme
     <div id="result" role="region" aria-live="polite"></div>
 
     <div class="powered-by">
-      Powered by <a href="${SITE_URL}/${calculator}" target="_blank" rel="noopener">HealthCalc</a>
+      Powered by <a href="${SITE_URL}/${calculator}" target="_blank" rel="noopener" translate="no">HealthCalc</a>
     </div>
   </div>
 
@@ -634,7 +637,7 @@ export async function GET(
 
   if (!config) {
     const available = Object.keys(EMBEDDABLE_CALCULATORS).join(', ');
-    const errorHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/></head><body><p>Calculator &quot;${escapeHtml(calculator)}&quot; is not available for embedding. Available: ${escapeHtml(available)}</p></body></html>`;
+    const errorHtml = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/></head><body><p>Calculator “${escapeHtml(calculator)}” is not available for embedding. Use one of: ${escapeHtml(available)}</p></body></html>`;
     return new NextResponse(errorHtml, {
       status: 404,
       headers: { 'Content-Type': 'text/html; charset=utf-8' },

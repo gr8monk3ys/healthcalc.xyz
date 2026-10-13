@@ -69,7 +69,7 @@ const OneRepMaxInfo: React.FC = () => {
       <ul className="list-disc pl-5 space-y-1">
         <li>Use weight you can lift with proper form for 3-10 reps</li>
         <li>Perform the set to near failure (1-2 reps in reserve)</li>
-        <li>Rest adequately before the test set (2-3 minutes)</li>
+        <li>Rest adequately before the test set (2-3 minutes)</li>
         <li>Higher rep tests (10+) tend to overestimate 1RM</li>
       </ul>
 

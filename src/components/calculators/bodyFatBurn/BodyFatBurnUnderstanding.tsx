@@ -38,7 +38,7 @@ export default function BodyFatBurnUnderstanding() {
           <li>
             <strong>Energy Balance Equation:</strong> The principle that weight loss occurs when
             energy expenditure exceeds energy intake. The calculator uses the approximation that
-            3,500 calories equals one pound of fat.
+            3,500 calories equals one pound of fat.
           </li>
         </ul>
         <p>

@@ -1,13 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo, useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import IdealWeightResult from '@/components/calculators/ideal-weight/IdealWeightResult';
 import IdealWeightInfo from '@/components/calculators/ideal-weight/IdealWeightInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty, validateHeight } from '@/utils/validation';
 import { calculateIdealWeight } from '@/utils/calculators/idealWeight';
 import type { IdealWeightResult as IdealWeightResultType } from '@/types/idealWeight';
@@ -15,6 +14,11 @@ import type { Gender } from '@/types/common';
 import { useHeight, createHeightField } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
 import { useChainPrefill } from '@/hooks/useChainPrefill';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -63,12 +67,14 @@ export default function IdealWeightCalculator({
 
   const chainPrefill = useChainPrefill('ideal-weight');
 
+  const setHeightValue = height.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     if (chainPrefill.gender === 'male' || chainPrefill.gender === 'female')
       setGender(chainPrefill.gender as Gender);
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-  }, [chainPrefill, setGender, height]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+  }, [chainPrefill, setGender, setHeightValue]);
 
   const chainResultData = useMemo(() => {
     const heightCm = height.toCm();
@@ -100,7 +106,7 @@ export default function IdealWeightCalculator({
         const calculated = calculateIdealWeight(heightCm as number, gender);
         setTimeout(() => {
           const element = document.getElementById('ideal-weight-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },

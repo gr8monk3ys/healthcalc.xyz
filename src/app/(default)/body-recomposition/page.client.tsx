@@ -21,8 +21,6 @@ import {
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import BodyRecompResult from '@/components/calculators/bodyRecomposition/BodyRecompResult';
-import SaveResult from '@/components/SaveResult';
-import AffiliateLinks from '@/components/AffiliateLinks';
 import {
   useHeight,
   useWeight,
@@ -30,6 +28,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 // Dynamic imports for below-the-fold components
 const BodyRecompInfo = dynamic(
@@ -202,7 +205,7 @@ export default function BodyRecompositionCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('recomp-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -232,7 +235,7 @@ export default function BodyRecompositionCalculator({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     {
       name: 'gender',
@@ -254,7 +257,7 @@ export default function BodyRecompositionCalculator({
       value: bodyFatPercentage,
       onChange: setBodyFatPercentage,
       error: errors.bodyFatPercentage,
-      placeholder: '%',
+      placeholder: 'e.g. 22…',
       step: '0.1',
     },
     {
@@ -320,7 +323,10 @@ export default function BodyRecompositionCalculator({
         />
 
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}
@@ -356,7 +362,7 @@ export default function BodyRecompositionCalculator({
             </p>
             <p className="mb-4">
               This calculator provides personalized calorie and macro targets based on your training
-              experience, body composition, and goals. You'll get specific recommendations for
+              experience, body composition, and goals. You’ll get specific recommendations for
               training days and rest days to optimize your body recomposition progress.
             </p>
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-4">
@@ -365,8 +371,8 @@ export default function BodyRecompositionCalculator({
                 <li>Consistent progressive resistance training 3-5x per week</li>
                 <li>High protein intake (1g per lb bodyweight) daily</li>
                 <li>Calorie cycling between training and rest days</li>
-                <li>Adequate sleep (7-9 hours) for recovery</li>
-                <li>Patience - visible results take 8-12 weeks</li>
+                <li>Adequate sleep (7-9 hours) for recovery</li>
+                <li>Patience - visible results take 8-12 weeks</li>
               </ul>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { track } from '@vercel/analytics/server';
+import { runAfterResponse } from '@/lib/afterResponse';
 
 const EMBEDDABLE_CALCULATORS = new Set(['bmi', 'tdee', 'body-fat', 'calorie-deficit']);
 const ALLOWED_ACTIONS = new Set(['view', 'calculate']);
@@ -50,18 +51,20 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   const referrerHost = parseReferrerHost(payload?.referrer);
   const eventName = action === 'calculate' ? 'embed_widget_calculate' : 'embed_widget_view';
 
-  try {
-    await track(
+  // Analytics must not hold up the beacon's response.
+  const headers = request.headers;
+  runAfterResponse(() =>
+    track(
       eventName,
       {
         calculator,
         referrer_host: referrerHost,
       },
-      { request: { headers: request.headers } }
-    );
-  } catch {
-    // Ignore analytics failures.
-  }
+      { request: { headers } }
+    ).catch(() => {
+      // Ignore analytics failures.
+    })
+  );
 
   return new NextResponse(null, { status: 204 });
 }

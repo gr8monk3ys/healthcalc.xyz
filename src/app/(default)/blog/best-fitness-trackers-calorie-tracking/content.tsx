@@ -111,7 +111,7 @@ const BestFitnessTrackersPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Fitness Trackers for Calorie Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 2, 2026 • 15 min read</p>
+        <p className="text-gray-500 italic">Published: February 2, 2026 • 15 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -169,7 +169,7 @@ const BestFitnessTrackersPageContent = (
         </div>
 
         <p>
-          If you've used our{' '}
+          If you’ve used our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}
@@ -268,7 +268,7 @@ const BestFitnessTrackersPageContent = (
 
         <p>
           A good fitness tracker monitors your movement throughout the day, capturing that crucial
-          NEAT component that's often underestimated. This gives you a more complete picture of your
+          NEAT component that’s often underestimated. This gives you a more complete picture of your
           actual calorie burn.
         </p>
 
@@ -280,7 +280,7 @@ const BestFitnessTrackersPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Garmin Venu 4</h3>
             </div>
@@ -355,7 +355,7 @@ const BestFitnessTrackersPageContent = (
           </div>
 
           <p className="mb-4">
-            The Fitbit Charge 6 offers the best balance of accuracy, features, and price. Fitbit's
+            The Fitbit Charge 6 offers the best balance of accuracy, features, and price. Fitbit’s
             calorie algorithms have been refined over years and integrate seamlessly with the
             MyFitnessPal food database.
           </p>
@@ -419,7 +419,7 @@ const BestFitnessTrackersPageContent = (
 
           <p className="mb-4">
             For iPhone users, the Apple Watch Ultra 2 offers unmatched integration with the iOS
-            ecosystem. The Activity app's calorie tracking is refined and integrates with Apple
+            ecosystem. The Activity app’s calorie tracking is refined and integrates with Apple
             Health, where you can see your complete health picture.
           </p>
 
@@ -430,7 +430,7 @@ const BestFitnessTrackersPageContent = (
             <li>Advanced workout metrics with Training Load</li>
             <li>ECG and blood oxygen monitoring</li>
             <li>Crash detection and emergency SOS</li>
-            <li>36-hour battery (72 hours in low power mode)</li>
+            <li>36-hour battery (72 hours in low power mode)</li>
             <li>Water resistant to 100m with dive computer</li>
           </ul>
 
@@ -501,7 +501,7 @@ const BestFitnessTrackersPageContent = (
             <Link href="/body-fat" className="text-accent hover:underline">
               Body Fat Calculator
             </Link>
-            . Compare the watch's BIA readings with our Navy method calculations.
+            . Compare the watch’s BIA readings with our Navy method calculations.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -542,8 +542,8 @@ const BestFitnessTrackersPageContent = (
           </div>
 
           <p className="mb-4">
-            Don't let the price fool you - the Mi Band 9 offers surprisingly accurate step and
-            calorie tracking for a fraction of the cost. It's perfect for those just starting their
+            Don’t let the price fool you - the Mi Band 9 offers surprisingly accurate step and
+            calorie tracking for a fraction of the cost. It’s perfect for those just starting their
             fitness journey.
           </p>
 
@@ -596,9 +596,9 @@ const BestFitnessTrackersPageContent = (
             trends over time is valuable.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Tips for Better Accuracy:</h4>
+          <h3 className="font-semibold mt-4 mb-2">Tips for Better Accuracy:</h3>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Enter accurate height, weight, and age in your tracker's profile</li>
+            <li>Enter accurate height, weight, and age in your tracker’s profile</li>
             <li>Update your weight regularly as it changes</li>
             <li>Wear the tracker consistently - same wrist, proper fit</li>
             <li>Use heart rate-based calorie tracking when available</li>
@@ -623,35 +623,35 @@ const BestFitnessTrackersPageContent = (
               <tr>
                 <td className="border p-3">Garmin Venu 4</td>
                 <td className="border p-3 text-center">$549</td>
-                <td className="border p-3 text-center">11 days</td>
+                <td className="border p-3 text-center">11 days</td>
                 <td className="border p-3 text-center">Yes (Dual)</td>
                 <td className="border p-3 text-center">Serious athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Fitbit Charge 6</td>
                 <td className="border p-3 text-center">$159</td>
-                <td className="border p-3 text-center">7 days</td>
+                <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Most users</td>
               </tr>
               <tr>
                 <td className="border p-3">Apple Watch Ultra 2</td>
                 <td className="border p-3 text-center">$799</td>
-                <td className="border p-3 text-center">36 hours</td>
+                <td className="border p-3 text-center">36 hours</td>
                 <td className="border p-3 text-center">Yes (Dual)</td>
                 <td className="border p-3 text-center">iPhone users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Galaxy Watch 7</td>
                 <td className="border p-3 text-center">$299</td>
-                <td className="border p-3 text-center">40 hours</td>
+                <td className="border p-3 text-center">40 hours</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Android users</td>
               </tr>
               <tr>
                 <td className="border p-3">Xiaomi Mi Band 9</td>
                 <td className="border p-3 text-center">$39</td>
-                <td className="border p-3 text-center">21 days</td>
+                <td className="border p-3 text-center">21 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Budget-conscious</td>
               </tr>
@@ -685,21 +685,21 @@ const BestFitnessTrackersPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your daily calorie needs</p>
             </Link>
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss journey</p>
             </Link>
             <Link
               href="/body-fat-burn"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Burn Calculator</h4>
               <p className="text-sm text-gray-600">Estimate workout calorie burn</p>

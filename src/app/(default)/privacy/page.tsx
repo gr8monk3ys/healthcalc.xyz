@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
             rel="noopener noreferrer"
             className="text-accent hover:underline"
           >
-            Google&apos;s Ads Settings
+            Google’s Ads Settings
           </a>
           .
         </p>

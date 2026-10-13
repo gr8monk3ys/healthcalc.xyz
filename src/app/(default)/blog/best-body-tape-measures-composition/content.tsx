@@ -89,7 +89,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Body Tape Measures for Tracking Body Composition in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &middot; 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -297,7 +297,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
             <li>Self-tensioning for consistent readings</li>
             <li>Locks in place so you can step away and read</li>
             <li>Vinyl tape, easy to clean</li>
-            <li>Measures up to 65 inches</li>
+            <li>Measures up to 65 inches</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -366,7 +366,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
             <li>LCD display shows measurement on the tape</li>
             <li>Tracks 12 body areas plus 6 custom areas</li>
             <li>Syncs with Apple Health, Google Fit, Samsung Health</li>
-            <li>Retractable with lock hook, 60 inches / 150 cm</li>
+            <li>Retractable with lock hook, 60 inches / 150 cm</li>
             <li>USB rechargeable</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -429,7 +429,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Syncs with RENPHO app for measurement tracking</li>
             <li>Works with Apple Health and Google Fit</li>
-            <li>Measures up to 60 inches / 150 cm</li>
+            <li>Measures up to 60 inches / 150 cm</li>
             <li>Retractable design</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
@@ -592,7 +592,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
               feet together.
             </li>
             <li>
-              <strong>Neck:</strong> Measure just below the larynx (Adam&apos;s apple), tape angled
+              <strong>Neck:</strong> Measure just below the larynx (Adam’s apple), tape angled
               slightly downward at the front.
             </li>
             <li>
@@ -658,21 +658,21 @@ const BestBodyTapeMeasuresCompositionPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/whr"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">WHR Calculator</h4>
               <p className="text-sm text-gray-600">Calculate waist-to-hip ratio</p>
             </Link>
             <Link
               href="/absi"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">ABSI Calculator</h4>
               <p className="text-sm text-gray-600">A Body Shape Index assessment</p>
             </Link>
             <Link
               href="/body-fat"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Calculator</h4>
               <p className="text-sm text-gray-600">Navy method body fat estimate</p>

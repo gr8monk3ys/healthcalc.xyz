@@ -65,7 +65,7 @@ export function calculateMaximumFatLoss(formData: MaximumFatLossFormData): Maxim
 
   if (minimumCalories < absoluteMin) {
     warnings.push(
-      `Your calculated minimum calories (${minimumCalories}) is below the safe minimum of ${absoluteMin} cal. We've adjusted it to ensure adequate nutrition.`
+      `Your calculated minimum calories (${minimumCalories}) is below the safe minimum of ${absoluteMin} cal. We’ve adjusted it to ensure adequate nutrition.`
     );
     minimumCalories = absoluteMin;
   }
@@ -78,7 +78,7 @@ export function calculateMaximumFatLoss(formData: MaximumFatLossFormData): Maxim
     );
   } else if (bodyFatPercentage <= minBodyFat + 5) {
     warnings.push(
-      `You're approaching a low body fat percentage (${bodyFatPercentage}%). Monitor your health closely and consider a smaller deficit.`
+      `You’re approaching a low body fat percentage (${bodyFatPercentage}%). Monitor your health closely and consider a smaller deficit.`
     );
   }
 

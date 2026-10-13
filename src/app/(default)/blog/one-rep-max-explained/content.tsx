@@ -44,7 +44,7 @@ const OneRepMaxExplainedPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         One Rep Max Explained: Formulas, Accuracy, and How to Use It
       </h1>
-      <p className="text-gray-500 italic">10 min read</p>
+      <p className="text-gray-500 italic">10 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -134,24 +134,24 @@ const OneRepMaxExplainedPageContent = (
 
       <h3 className="text-xl font-semibold mt-6 mb-3">Worked Example</h3>
 
-      <p>Same set, three answers. 100 kg for 5 reps:</p>
+      <p>Same set, three answers. 100 kg for 5 reps:</p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-2">
           <li>
-            <strong>Epley</strong>: 100 x (1 + 5/30) = <strong>116.7 kg</strong>
+            <strong>Epley</strong>: 100 x (1 + 5/30) = <strong>116.7 kg</strong>
           </li>
           <li>
-            <strong>Brzycki</strong>: 100 x (36/32) = <strong>112.5 kg</strong>
+            <strong>Brzycki</strong>: 100 x (36/32) = <strong>112.5 kg</strong>
           </li>
           <li>
-            <strong>Lombardi</strong>: 100 x 5^0.1 = <strong>117.5 kg</strong>
+            <strong>Lombardi</strong>: 100 x 5^0.1 = <strong>117.5 kg</strong>
           </li>
         </ul>
       </div>
 
       <p>
-        A roughly 5 kg spread from the same input set is normal, not a bug. None of the three is
+        A roughly 5 kg spread from the same input set is normal, not a bug. None of the three is
         definitively &ldquo;correct&rdquo; - they are curve fits to old datasets, and your own
         strength curve will match one better than the others depending on the lift and your training
         history.
@@ -212,8 +212,8 @@ const OneRepMaxExplainedPageContent = (
       </div>
 
       <p>
-        A percentage chart makes this concrete: at a 150 kg squat 1RM, 80% is 120 kg for a
-        strength-focused set, while 65% is 97.5 kg for a hypertrophy set. Our calculator generates
+        A percentage chart makes this concrete: at a 150 kg squat 1RM, 80% is 120 kg for a
+        strength-focused set, while 65% is 97.5 kg for a hypertrophy set. Our calculator generates
         this full breakdown - 50% through 100% - automatically from whichever formula you pick, so
         you are not doing the multiplication by hand every training block.
       </p>
@@ -227,7 +227,7 @@ const OneRepMaxExplainedPageContent = (
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>You are peaking for a powerlifting meet or a specific strength goal</li>
-        <li>Your estimated max has not been re-checked in 3-6 months of consistent training</li>
+        <li>Your estimated max has not been re-checked in 3-6 months of consistent training</li>
         <li>You have the equipment, warm-up time, and (ideally) a spotter to do it safely</li>
       </ul>
 
@@ -251,7 +251,7 @@ const OneRepMaxExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">Mistake #2: Trusting One Formula Blindly</h3>
         <p>
-          Since the three formulas can disagree by 5-10 lb or more, treat the spread as your margin
+          Since the three formulas can disagree by 5-10 lb or more, treat the spread as your margin
           of error rather than picking whichever number is highest.
         </p>
       </div>

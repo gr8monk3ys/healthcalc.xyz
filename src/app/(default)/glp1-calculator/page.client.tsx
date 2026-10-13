@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { processGLP1Calculation } from '@/utils/calculators/glp1Calculator';
 import { GLP1Result, GLP1Medication, GLP1Goal } from '@/types/glp1Calculator';
@@ -7,10 +8,14 @@ import { Gender, ActivityLevel } from '@/types/common';
 import { validateWeight, validateHeight, validateAge, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import GLP1ResultDisplay from '@/components/calculators/glp1Calculator/GLP1Result';
-import SaveResult from '@/components/SaveResult';
 import { MEDICATION_LABELS, GOAL_LABELS, ACTIVITY_LABELS } from '@/constants/glp1Calculator';
 import { useWeight, useHeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for GLP-1 calculator
 const faqs = [
@@ -191,7 +196,7 @@ export default function GLP1Calculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('glp1-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -276,7 +281,13 @@ function renderGLP1CalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your GLP-1 Nutrition Targets</h2>
 
           {/* Weight Field */}
@@ -287,13 +298,18 @@ function renderGLP1CalculatorView({
             </label>
             <div className="flex">
               <input
+                aria-invalid={errors.weight ? true : undefined}
+                aria-describedby={errors.weight ? 'weight-error' : undefined}
+                name="weight"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="weight"
                 value={weight.value}
                 onChange={e =>
                   weight.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.weight ? 'border border-red-500' : ''
                 }`}
                 placeholder={weight.placeholder}
@@ -304,13 +320,17 @@ function renderGLP1CalculatorView({
               <button
                 type="button"
                 onClick={weight.toggle}
-                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
+                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition"
                 aria-label={`Toggle weight unit, currently ${weight.unit}`}
               >
                 {weight.unit}
               </button>
             </div>
-            {errors.weight && <p className="text-red-500 text-sm mt-1">{errors.weight}</p>}
+            {errors.weight && (
+              <p id="weight-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.weight}
+              </p>
+            )}
           </div>
 
           {/* Height Field */}
@@ -321,13 +341,18 @@ function renderGLP1CalculatorView({
             </label>
             <div className="flex">
               <input
+                aria-invalid={errors.height ? true : undefined}
+                aria-describedby={errors.height ? 'height-error' : undefined}
+                name="height"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="height"
                 value={height.value}
                 onChange={e =>
                   height.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.height ? 'border border-red-500' : ''
                 }`}
                 placeholder={height.placeholder}
@@ -338,13 +363,17 @@ function renderGLP1CalculatorView({
               <button
                 type="button"
                 onClick={height.toggle}
-                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
+                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition"
                 aria-label={`Toggle height unit, currently ${height.unit}`}
               >
                 {height.unit}
               </button>
             </div>
-            {errors.height && <p className="text-red-500 text-sm mt-1">{errors.height}</p>}
+            {errors.height && (
+              <p id="height-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.height}
+              </p>
+            )}
           </div>
 
           {/* Age Field */}
@@ -354,18 +383,27 @@ function renderGLP1CalculatorView({
               <span className="text-red-500 ml-1">*</span>
             </label>
             <input
+              aria-invalid={errors.age ? true : undefined}
+              aria-describedby={errors.age ? 'age-error' : undefined}
+              name="age"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="age"
               value={age}
               onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.age ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter age (18-100)"
+              placeholder="e.g. 45 (18–100)…"
               min="18"
               max="100"
             />
-            {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
+            {errors.age && (
+              <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.age}
+              </p>
+            )}
           </div>
 
           {/* Gender Select */}
@@ -374,10 +412,11 @@ function renderGLP1CalculatorView({
               Biological Sex
             </label>
             <select
+              name="gender"
               id="gender"
               value={gender}
               onChange={e => setGender(e.target.value as Gender)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -390,10 +429,11 @@ function renderGLP1CalculatorView({
               GLP-1 Medication
             </label>
             <select
+              name="medication"
               id="medication"
               value={medication}
               onChange={e => setMedication(e.target.value as GLP1Medication)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {Object.entries(MEDICATION_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -409,10 +449,11 @@ function renderGLP1CalculatorView({
               Primary Goal
             </label>
             <select
+              name="goal"
               id="goal"
               value={goal}
               onChange={e => setGoal(e.target.value as GLP1Goal)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {Object.entries(GOAL_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -428,10 +469,11 @@ function renderGLP1CalculatorView({
               Activity Level
             </label>
             <select
+              name="activityLevel"
               id="activityLevel"
               value={activityLevel}
               onChange={e => setActivityLevel(e.target.value as ActivityLevel)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {Object.entries(ACTIVITY_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -445,14 +487,14 @@ function renderGLP1CalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate Nutrition Targets
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>

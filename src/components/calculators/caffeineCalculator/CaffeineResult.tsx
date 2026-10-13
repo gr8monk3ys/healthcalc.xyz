@@ -9,10 +9,7 @@ interface CaffeineResultDisplayProps {
 
 const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result }) => {
   return (
-    <div
-      id="caffeine-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="caffeine-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your Caffeine Intake Results</h2>
 
       <div className="mb-6">
@@ -23,7 +20,7 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
 
         <div className="relative h-6 neumorph-inset rounded-full overflow-hidden mb-1">
           <div
-            className={`h-full transition-all duration-500 ${
+            className={`h-full ${
               result.isOverLimit
                 ? 'bg-gradient-to-r from-orange-400 to-red-500'
                 : result.percentOfLimit > 80
@@ -100,7 +97,7 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
         <div className="neumorph-inset p-4 rounded-lg">
           <p className="font-medium text-lg mb-1">{result.preWorkoutDose}mg</p>
           <p className="text-sm text-gray-600">
-            Optimal dose for performance enhancement (take 30-60 minutes before exercise)
+            Optimal dose for performance enhancement (take 30-60 minutes before exercise)
           </p>
         </div>
       </div>
@@ -110,7 +107,7 @@ const CaffeineResultDisplay: React.FC<CaffeineResultDisplayProps> = ({ result })
         <div className="neumorph-inset p-4 rounded-lg space-y-2">
           <div className="flex justify-between">
             <span className="text-sm text-gray-600">Half-Life:</span>
-            <span className="font-medium">{result.halfLifeHours} hours</span>
+            <span className="font-medium">{result.halfLifeHours} hours</span>
           </div>
           <div className="flex justify-between">
             <span className="text-sm text-gray-600">Full Clearance Time:</span>

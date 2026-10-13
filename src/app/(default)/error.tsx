@@ -33,6 +33,7 @@ export default function Error({
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
               <svg
+                aria-hidden="true"
                 className="w-8 h-8 text-red-600"
                 fill="none"
                 stroke="currentColor"
@@ -51,11 +52,11 @@ export default function Error({
 
           {/* Error Message */}
           <h1 className="text-2xl font-bold text-gray-900 text-center mb-4">
-            Oops! Something went wrong
+            Oops! Something Went Wrong
           </h1>
 
           <p className="text-gray-600 text-center mb-6">
-            We encountered an unexpected error while loading this page. Don't worry, your data is
+            We encountered an unexpected error while loading this page. Don’t worry, your data is
             safe.
           </p>
 
@@ -75,13 +76,13 @@ export default function Error({
           <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={reset}
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
               Try Again
             </button>
             <Link
               href="/"
-              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-3 px-4 rounded-lg text-center transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+              className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-3 px-4 rounded-lg text-center transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
             >
               Go Home
             </Link>

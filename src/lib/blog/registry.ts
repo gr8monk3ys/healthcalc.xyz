@@ -37,7 +37,7 @@ export type BlogPost = BlogPostEntry;
 export const BLOG_REGISTRY: BlogPostEntry[] = [
   // Educational / foundational posts (earliest dates)
   {
-    title: "Understanding Body Fat Percentage: What's Healthy and Why It Matters",
+    title: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters',
     description:
       'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean for your overall health.',
     slug: 'understanding-body-fat-percentage',
@@ -48,7 +48,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     featured: true,
     keywords:
       'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
-    seoTitle: "Understanding Body Fat Percentage: What's Healthy and Why It Matters | HealthCalc",
+    seoTitle: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc',
   },
   {
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',
@@ -91,7 +91,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
     slug: 'tdee-explained',
     date: 'January 7, 2026',
     readTime: '10 min read',
@@ -105,7 +105,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
   {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
     slug: 'calorie-deficit-myths',
     date: 'January 9, 2026',
     readTime: '8 min read',

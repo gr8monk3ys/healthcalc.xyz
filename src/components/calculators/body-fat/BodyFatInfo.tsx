@@ -8,7 +8,7 @@ const BodyFatInfo: React.FC = () => {
     <InfoSection title="About Body Fat Percentage">
       <p>
         Body fat percentage is the amount of fat mass in your body compared to your total body
-        weight. It's a more accurate measure of fitness than BMI because it distinguishes between
+        weight. It’s a more accurate measure of fitness than BMI because it distinguishes between
         fat and lean mass (muscle, bone, organs, etc.).
       </p>
 
@@ -30,7 +30,7 @@ const BodyFatInfo: React.FC = () => {
           <h4 className="font-medium">U.S. Navy Method</h4>
           <p className="text-sm">
             Uses measurements of waist, neck, and hip (for women) circumferences to estimate body
-            fat. It's simple and requires only a tape measure.
+            fat. It’s simple and requires only a tape measure.
           </p>
         </div>
 
