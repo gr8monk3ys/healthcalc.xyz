@@ -1,4 +1,6 @@
-const { withSentryConfig } = require('@sentry/nextjs');
+// @sentry/nextjs 11 moved withSentryConfig to the `/config` entry point; the
+// root export no longer has it, so requiring it from there yields undefined.
+const { withSentryConfig } = require('@sentry/nextjs/config');
 const path = require('node:path');
 
 /** @type {import('next').NextConfig} */
