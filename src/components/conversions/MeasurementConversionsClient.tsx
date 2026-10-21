@@ -19,24 +19,45 @@ import type {
   EnergyUnit,
 } from '@/types/common';
 import { useLocale } from '@/context/LocaleContext';
+import { useUrlSearchParam } from '@/hooks/useUrlSearchParam';
 import { toAbsoluteUrl } from '@/lib/site';
 import type { ConversionsPageCopy } from '@/i18n/pages/conversions';
+import { formatNumber } from '@/utils/formatNumber';
 
 type ConversionCategory = 'weight' | 'height' | 'volume' | 'temperature' | 'energy';
+
+const CONVERSION_CATEGORIES = new Set<string>([
+  'weight',
+  'height',
+  'volume',
+  'temperature',
+  'energy',
+]);
+const isConversionCategory = (value: string): value is ConversionCategory =>
+  CONVERSION_CATEGORIES.has(value);
 
 function formatTemplate(template: string, vars: Record<string, string>): string {
   let out = template;
   for (const [key, value] of Object.entries(vars)) {
-    out = out.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+    out = out.replaceAll(`{${key}}`, value);
   }
   return out;
 }
 
 function useMeasurementConversionsClientState(copy: ConversionsPageCopy) {
-  const [category, setCategory] = useState<ConversionCategory>('weight');
+  // ?category= deep-links the selected converter.
+  const [category, setCategory] = useUrlSearchParam<ConversionCategory>(
+    'category',
+    'weight',
+    isConversionCategory
+  );
   const [inputValue, setInputValue] = useState<string>('');
-  const [fromUnit, setFromUnit] = useState<string>(copy.categories.weight.units[0] ?? 'kg');
-  const [toUnit, setToUnit] = useState<string>(copy.categories.weight.units[1] ?? 'lb');
+  const [selectedFromUnit, setFromUnit] = useState<string>(copy.categories.weight.units[0] ?? 'kg');
+  const [selectedToUnit, setToUnit] = useState<string>(copy.categories.weight.units[1] ?? 'lb');
+  // Derive units valid for the current category (e.g. when it came from the URL).
+  const units = copy.categories[category].units;
+  const fromUnit = units.includes(selectedFromUnit) ? selectedFromUnit : units[0];
+  const toUnit = units.includes(selectedToUnit) ? selectedToUnit : (units[1] ?? units[0]);
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState<string>('');
 
@@ -292,8 +313,10 @@ function MeasurementConversionsView({
             {Object.entries(copy.categories).map(([key, config]) => (
               <button
                 key={key}
+                type="button"
                 onClick={() => handleCategoryChange(key as ConversionCategory)}
-                className={`w-full p-3 rounded-lg text-left transition-all ${
+                aria-pressed={category === key}
+                className={`w-full p-3 rounded-lg text-left transition ${
                   category === key
                     ? 'bg-accent text-white shadow-lg'
                     : 'neumorph hover:shadow-neumorph-inset'
@@ -313,25 +336,35 @@ function MeasurementConversionsView({
           <div className="space-y-4">
             {/* Input Value */}
             <div>
-              <label className="block text-sm font-medium mb-2">{copy.ui.valueLabel}</label>
+              <label htmlFor="conversion-value" className="block text-sm font-medium mb-2">
+                {copy.ui.valueLabel}
+              </label>
               <input
+                id="conversion-value"
+                name="value"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && handleConvert()}
                 placeholder={copy.ui.valuePlaceholder}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 step="any"
               />
             </div>
 
             {/* From Unit */}
             <div>
-              <label className="block text-sm font-medium mb-2">{copy.ui.fromLabel}</label>
+              <label htmlFor="conversion-from" className="block text-sm font-medium mb-2">
+                {copy.ui.fromLabel}
+              </label>
               <select
+                id="conversion-from"
+                name="from"
                 value={fromUnit}
                 onChange={e => setFromUnit(e.target.value)}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {categoryConfig.units.map((unit: string) => (
                   <option key={unit} value={unit}>
@@ -344,11 +377,19 @@ function MeasurementConversionsView({
             {/* Swap Button */}
             <div className="flex justify-center">
               <button
+                type="button"
                 onClick={handleSwapUnits}
-                className="p-3 neumorph rounded-lg hover:shadow-neumorph-inset transition-all"
+                className="p-3 neumorph rounded-lg hover:shadow-neumorph-inset transition"
                 title={copy.ui.swapUnitsTitle}
+                aria-label={copy.ui.swapUnitsTitle}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  aria-hidden="true"
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -361,11 +402,15 @@ function MeasurementConversionsView({
 
             {/* To Unit */}
             <div>
-              <label className="block text-sm font-medium mb-2">{copy.ui.toLabel}</label>
+              <label htmlFor="conversion-to" className="block text-sm font-medium mb-2">
+                {copy.ui.toLabel}
+              </label>
               <select
+                id="conversion-to"
+                name="to"
                 value={toUnit}
                 onChange={e => setToUnit(e.target.value)}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {categoryConfig.units.map((unit: string) => (
                   <option key={unit} value={unit}>
@@ -378,36 +423,41 @@ function MeasurementConversionsView({
             {/* Convert Button */}
             <button
               onClick={handleConvert}
-              className="w-full py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="w-full py-3 px-4 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition"
             >
               {copy.ui.convertButton}
             </button>
 
             {/* Error Message */}
             {error && (
-              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+              <div
+                className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+                role="alert"
+              >
                 <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
               </div>
             )}
 
-            {/* Result */}
-            {result !== null && (
-              <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg text-center">
-                <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                  {copy.ui.resultLabel}
+            {/* Result (announced when it appears or changes) */}
+            <div aria-live="polite">
+              {result !== null && (
+                <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg text-center">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    {copy.ui.resultLabel}
+                  </div>
+                  <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    {formatNumber(result, 4)}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    {categoryConfig.labels[toUnit]}
+                  </div>
+                  <div className="mt-4 text-sm text-gray-500 dark:text-gray-500">
+                    {inputValue} {categoryConfig.labels[fromUnit]} = {formatNumber(result, 4)}{' '}
+                    {categoryConfig.labels[toUnit]}
+                  </div>
                 </div>
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  {result.toFixed(4)}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {categoryConfig.labels[toUnit]}
-                </div>
-                <div className="mt-4 text-sm text-gray-500 dark:text-gray-500">
-                  {inputValue} {categoryConfig.labels[fromUnit]} = {result.toFixed(4)}{' '}
-                  {categoryConfig.labels[toUnit]}
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </Card>
 

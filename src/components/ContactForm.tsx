@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, FormEvent } from 'react';
+import React, { useRef, useState, FormEvent } from 'react';
 import { useLocale } from '@/context/LocaleContext';
+import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -44,6 +45,8 @@ export default function ContactForm() {
     statusMessage,
     setStatusMessage,
   } = useContactFormState();
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
+  useUnsavedChangesWarning(status !== 'success' && Boolean(name || email || subject || message));
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
@@ -61,6 +64,9 @@ export default function ContactForm() {
 
       if (data.success) {
         setStatus('success');
+        // The form is replaced by the confirmation; move focus there instead
+        // of letting it drop to <body>.
+        requestAnimationFrame(() => successHeadingRef.current?.focus());
         setStatusMessage(data.message);
         setName('');
         setEmail('');
@@ -80,6 +86,7 @@ export default function ContactForm() {
     return (
       <div className="neumorph p-6 rounded-lg text-center">
         <svg
+          aria-hidden="true"
           className="mx-auto h-12 w-12 text-green-500 mb-4"
           fill="none"
           viewBox="0 0 24 24"
@@ -92,7 +99,9 @@ export default function ContactForm() {
             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 className="text-xl font-semibold mb-2">{t('contactForm.success.title')}</h3>
+        <h3 ref={successHeadingRef} tabIndex={-1} className="text-xl font-semibold mb-2">
+          {t('contactForm.success.title')}
+        </h3>
         <p className="text-gray-600 mb-4" role="status" aria-live="polite">
           {statusMessage}
         </p>
@@ -115,7 +124,7 @@ export default function ContactForm() {
           name="name"
           value={name}
           onChange={e => setName(e.target.value)}
-          className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           placeholder={t('contactForm.placeholder.name')}
           autoComplete="name"
           required
@@ -129,12 +138,13 @@ export default function ContactForm() {
           {t('contactForm.label.email')}
         </label>
         <input
+          spellCheck={false}
           type="email"
           id="email"
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="ui-input w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-input w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           placeholder={t('contactForm.placeholder.email')}
           autoComplete="email"
           inputMode="email"
@@ -152,7 +162,7 @@ export default function ContactForm() {
           name="subject"
           value={subject}
           onChange={e => setSubject(e.target.value)}
-          className="ui-select w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-select w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           required
         >
           <option value="">{t('contactForm.subject.placeholder')}</option>
@@ -174,7 +184,7 @@ export default function ContactForm() {
           rows={5}
           value={message}
           onChange={e => setMessage(e.target.value)}
-          className="ui-textarea w-full p-3 focus:outline-none focus:ring-2 focus:ring-accent"
+          className="ui-textarea w-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           placeholder={t('contactForm.placeholder.message')}
           autoComplete="off"
           enterKeyHint="send"

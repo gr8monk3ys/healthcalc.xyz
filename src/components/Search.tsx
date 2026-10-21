@@ -1,6 +1,13 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  useSyncExternalStore,
+} from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createLogger } from '@/utils/logger';
@@ -13,6 +20,7 @@ type SearchResultType = 'calculator' | 'article' | 'page';
 
 type SearchStrings = {
   inputPlaceholder: string;
+  searching: string;
   ariaLabel: string;
   dropdownNoResults: string;
   dropdownViewAllResults: string;
@@ -31,7 +39,8 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
   switch (locale) {
     case 'es':
       return {
-        inputPlaceholder: 'Buscar calculadoras, artículos...',
+        inputPlaceholder: 'Buscar calculadoras, artículos…',
+        searching: 'Buscando…',
         ariaLabel: 'Buscar',
         dropdownNoResults: 'No se encontraron resultados',
         dropdownViewAllResults: 'Ver todos los resultados',
@@ -57,7 +66,8 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'fr':
       return {
-        inputPlaceholder: 'Rechercher des calculateurs, articles...',
+        inputPlaceholder: 'Rechercher des calculateurs, articles…',
+        searching: 'Recherche…',
         ariaLabel: 'Rechercher',
         dropdownNoResults: 'Aucun résultat',
         dropdownViewAllResults: 'Voir tous les résultats',
@@ -83,7 +93,8 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'de':
       return {
-        inputPlaceholder: 'Rechner, Artikel suchen...',
+        inputPlaceholder: 'Rechner, Artikel suchen…',
+        searching: 'Suche läuft…',
         ariaLabel: 'Suchen',
         dropdownNoResults: 'Keine Ergebnisse gefunden',
         dropdownViewAllResults: 'Alle Ergebnisse ansehen',
@@ -109,7 +120,8 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'pt':
       return {
-        inputPlaceholder: 'Buscar calculadoras, artigos...',
+        inputPlaceholder: 'Buscar calculadoras, artigos…',
+        searching: 'Buscando…',
         ariaLabel: 'Buscar',
         dropdownNoResults: 'Nenhum resultado encontrado',
         dropdownViewAllResults: 'Ver todos os resultados',
@@ -135,7 +147,8 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
       };
     case 'zh':
       return {
-        inputPlaceholder: '搜索计算器、文章...',
+        inputPlaceholder: '搜索计算器、文章…',
+        searching: '搜索中…',
         ariaLabel: '搜索',
         dropdownNoResults: '未找到结果',
         dropdownViewAllResults: '查看全部结果',
@@ -160,7 +173,8 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
     case 'en':
     default:
       return {
-        inputPlaceholder: 'Search calculators, articles...',
+        inputPlaceholder: 'Search calculators, articles…',
+        searching: 'Searching…',
         ariaLabel: 'Search',
         dropdownNoResults: 'No results found',
         dropdownViewAllResults: 'View all results',
@@ -171,7 +185,7 @@ function getSearchStrings(locale: SupportedLocale): SearchStrings {
         summaryNone: query => `No results found for "${query}"`,
         noResultsPanelTitle: 'No results found',
         noResultsPanelBody: query =>
-          `We couldn't find any matches for "${query}". Please try another search.`,
+          `We couldn’t find any matches for “${query}”. Try a shorter or different search term.`,
         popularTitle: 'Popular Calculators',
         popularCalculators: [
           { href: '/bmi', label: 'BMI Calculator' },
@@ -202,12 +216,6 @@ interface SearchResult {
   score: number;
 }
 
-interface SearchUiState {
-  results: SearchResult[];
-  isLoading: boolean;
-  showResults: boolean;
-}
-
 interface SearchIndex {
   [key: string]: {
     title: string;
@@ -236,6 +244,7 @@ function getSearchResultTypeIcon(type: string) {
     case 'calculator':
       return (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
           fill="none"
@@ -253,6 +262,7 @@ function getSearchResultTypeIcon(type: string) {
     case 'article':
       return (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
           fill="none"
@@ -270,6 +280,7 @@ function getSearchResultTypeIcon(type: string) {
     default:
       return (
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
           fill="none"
@@ -297,6 +308,104 @@ interface SearchProps {
   initialQuery?: string; // Initial query value
 }
 
+const NO_RESULTS: SearchResult[] = [];
+
+/** Score every index entry against the query; pure, so it can be memoized. */
+function scoreSearchResults(
+  searchIndex: SearchIndex,
+  searchQuery: string,
+  maxResults: number
+): SearchResult[] {
+  // Split query into terms
+  const terms = searchQuery.toLowerCase().trim().split(/\s+/);
+
+  // Search through index
+  return Object.values(searchIndex)
+    .map(item => {
+      // Calculate score based on matches in title, description, content, tags
+      let score = 0;
+
+      // Title matches (highest weight)
+      terms.forEach(term => {
+        if (item.title.toLowerCase().includes(term)) {
+          score += 10;
+          // Exact title match or starts with term
+          if (
+            item.title.toLowerCase() === term ||
+            item.title.toLowerCase().startsWith(`${term} `)
+          ) {
+            score += 15;
+          }
+        }
+      });
+
+      // Description matches
+      terms.forEach(term => {
+        if (item.description.toLowerCase().includes(term)) {
+          score += 5;
+        }
+      });
+
+      // Content matches
+      if (item.content) {
+        const contentLower = item.content.toLowerCase();
+        terms.forEach(term => {
+          if (!term) return;
+          const contentMatches = contentLower.split(term).length - 1;
+          score += contentMatches * 0.5; // Lower weight for content matches
+        });
+      }
+
+      // Tag matches
+      if (item.tags) {
+        terms.forEach(term => {
+          item.tags?.forEach(tag => {
+            if (tag.toLowerCase().includes(term)) {
+              score += 8;
+              // Exact tag match
+              if (tag.toLowerCase() === term) {
+                score += 5;
+              }
+            }
+          });
+        });
+      }
+
+      // Category matches
+      if (item.category) {
+        terms.forEach(term => {
+          if (item.category?.toLowerCase().includes(term)) {
+            score += 7;
+          }
+        });
+      }
+
+      // URL matches (for direct page searches)
+      terms.forEach(term => {
+        if (item.url.toLowerCase().includes(term)) {
+          score += 3;
+        }
+      });
+      // Type-specific boosts
+      if (item.type === 'calculator') {
+        score *= 1.2; // Boost calculators
+      }
+
+      return {
+        title: item.title,
+        description: item.description,
+        url: item.url,
+        type: item.type,
+        category: item.category,
+        tags: item.tags,
+        score,
+      };
+    })
+    .filter(item => item.score > 0) // Only include items with matches
+    .sort((a, b) => b.score - a.score) // Sort by score (descending)
+    .slice(0, maxResults); // Limit results
+}
+
 /**
  * Search component for implementing search functionality with proper indexing
  * Helps users find content and improves SEO by ensuring all content is indexed
@@ -316,12 +425,7 @@ export default function Search({
   const resolvedPlaceholder = placeholder ?? strings.inputPlaceholder;
   const initialQueryRef = useRef(initialQuery);
   const [query, setQuery] = useState(initialQueryRef.current);
-  const [searchUi, setSearchUi] = useState<SearchUiState>({
-    results: [],
-    isLoading: false,
-    showResults: false,
-  });
-  const { results, isLoading, showResults } = searchUi;
+  const [showResults, setShowResults] = useState(() => initialQueryRef.current.trim().length >= 2);
   const [searchIndex, setSearchIndex] = useState<SearchIndex | null>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -350,10 +454,7 @@ export default function Search({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setSearchUi(prevState => ({
-          ...prevState,
-          showResults: false,
-        }));
+        setShowResults(false);
       }
     };
 
@@ -365,150 +466,38 @@ export default function Search({
 
   // Auto-focus input if specified
   useEffect(() => {
-    if (shouldAutoFocus && inputRef.current) {
+    // Desktop only: focusing on touch devices pops the on-screen keyboard.
+    if (
+      shouldAutoFocus &&
+      inputRef.current &&
+      (typeof window.matchMedia !== 'function' || window.matchMedia('(pointer: fine)').matches)
+    ) {
       inputRef.current.focus();
     }
   }, [shouldAutoFocus]);
 
-  // Handle search
-  const handleSearch = useCallback(
-    (searchQuery: string) => {
-      if (!searchIndex) {
-        return;
-      }
-
-      setSearchUi(prevState => ({
-        ...prevState,
-        isLoading: true,
-      }));
-
-      // Split query into terms
-      const terms = searchQuery.toLowerCase().trim().split(/\s+/);
-
-      // Search through index
-      const searchResults: SearchResult[] = Object.values(searchIndex)
-        .map(item => {
-          // Calculate score based on matches in title, description, content, tags
-          let score = 0;
-
-          // Title matches (highest weight)
-          terms.forEach(term => {
-            if (item.title.toLowerCase().includes(term)) {
-              score += 10;
-              // Exact title match or starts with term
-              if (
-                item.title.toLowerCase() === term ||
-                item.title.toLowerCase().startsWith(`${term} `)
-              ) {
-                score += 15;
-              }
-            }
-          });
-
-          // Description matches
-          terms.forEach(term => {
-            if (item.description.toLowerCase().includes(term)) {
-              score += 5;
-            }
-          });
-
-          // Content matches
-          if (item.content) {
-            const contentLower = item.content.toLowerCase();
-            terms.forEach(term => {
-              if (!term) return;
-              const contentMatches = contentLower.split(term).length - 1;
-              score += contentMatches * 0.5; // Lower weight for content matches
-            });
-          }
-
-          // Tag matches
-          if (item.tags) {
-            terms.forEach(term => {
-              item.tags?.forEach(tag => {
-                if (tag.toLowerCase().includes(term)) {
-                  score += 8;
-                  // Exact tag match
-                  if (tag.toLowerCase() === term) {
-                    score += 5;
-                  }
-                }
-              });
-            });
-          }
-
-          // Category matches
-          if (item.category) {
-            terms.forEach(term => {
-              if (item.category?.toLowerCase().includes(term)) {
-                score += 7;
-              }
-            });
-          }
-
-          // URL matches (for direct page searches)
-          terms.forEach(term => {
-            if (item.url.toLowerCase().includes(term)) {
-              score += 3;
-            }
-          });
-          // Type-specific boosts
-          if (item.type === 'calculator') {
-            score *= 1.2; // Boost calculators
-          }
-
-          return {
-            title: item.title,
-            description: item.description,
-            url: item.url,
-            type: item.type,
-            category: item.category,
-            tags: item.tags,
-            score,
-          };
-        })
-        .filter(item => item.score > 0) // Only include items with matches
-        .sort((a, b) => b.score - a.score) // Sort by score (descending)
-        .slice(0, maxResults); // Limit results
-
-      setSearchUi({
-        results: searchResults,
-        showResults: true,
-        isLoading: false,
-      });
-      onSearchRef.current?.(searchQuery, searchResults);
-    },
-    [maxResults, searchIndex]
+  // Results are derived from the query and the loaded index, not stored.
+  const trimmedQuery = query.trim();
+  const results = useMemo(
+    () =>
+      trimmedQuery.length < 2 || !searchIndex
+        ? NO_RESULTS
+        : scoreSearchResults(searchIndex, query, maxResults),
+    [maxResults, query, searchIndex, trimmedQuery.length]
   );
+  const isLoading = trimmedQuery.length >= 2 && !searchIndex;
 
+  // Report results to the parent (the search page) once they are known.
   useEffect(() => {
-    const trimmedQuery = query.trim();
-
-    if (trimmedQuery.length < 2) {
-      setSearchUi({
-        results: [],
-        showResults: false,
-        isLoading: false,
-      });
-      onSearchRef.current?.(query, []);
-      return;
-    }
-
-    if (!searchIndex) {
-      setSearchUi(prevState => ({
-        ...prevState,
-        isLoading: true,
-      }));
-      return;
-    }
-
-    handleSearch(query);
-  }, [handleSearch, query, searchIndex]);
+    if (isLoading) return;
+    onSearchRef.current?.(query, results);
+  }, [isLoading, query, results]);
 
   // Handle input change
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
+    setShowResults(value.trim().length >= 2);
   };
 
   // Handle form submission
@@ -518,39 +507,21 @@ export default function Search({
     if (query.trim().length >= 2) {
       // Navigate to search results page
       router.push(`${localizePath('/search')}?q=${encodeURIComponent(query)}`);
-      setSearchUi(prevState => ({
-        ...prevState,
-        showResults: false,
-      }));
+      setShowResults(false);
     }
   };
 
-  // Handle result click
-  const handleResultClick = (url: string) => {
-    setSearchUi(prevState => ({
-      ...prevState,
-      showResults: false,
-    }));
-    const localizedUrl = url.startsWith('/') ? localizePath(url) : url;
-    router.push(localizedUrl);
-  };
+  // Close the dropdown when a result or "view all" link is followed.
+  const closeResults = useCallback(() => {
+    setShowResults(false);
+  }, []);
 
   const handleInputFocus = useCallback(() => {
     if (query.trim().length < 2) {
       return;
     }
-    setSearchUi(prevState => ({
-      ...prevState,
-      showResults: true,
-    }));
+    setShowResults(true);
   }, [query]);
-
-  const handleViewAllResultsClick = useCallback(() => {
-    setSearchUi(prevState => ({
-      ...prevState,
-      showResults: false,
-    }));
-  }, []);
 
   return (
     <SearchAutocompleteView
@@ -567,9 +538,9 @@ export default function Search({
       isLoading={isLoading}
       showResults={showResults}
       results={results}
-      handleResultClick={handleResultClick}
+      onResultClick={closeResults}
       localizePath={localizePath}
-      onViewAllResultsClick={handleViewAllResultsClick}
+      onViewAllResultsClick={closeResults}
     />
   );
 }
@@ -588,7 +559,7 @@ interface SearchAutocompleteViewProps {
   isLoading: boolean;
   showResults: boolean;
   results: SearchResult[];
-  handleResultClick: (url: string) => void;
+  onResultClick: () => void;
   localizePath: (path: string) => string;
   onViewAllResultsClick: () => void;
 }
@@ -607,7 +578,7 @@ function SearchAutocompleteView({
   isLoading,
   showResults,
   results,
-  handleResultClick,
+  onResultClick,
   localizePath,
   onViewAllResultsClick,
 }: SearchAutocompleteViewProps) {
@@ -618,6 +589,7 @@ function SearchAutocompleteView({
           {showIcon && (
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-gray-400 dark:text-gray-500"
                 fill="none"
@@ -635,9 +607,10 @@ function SearchAutocompleteView({
           )}
 
           <input
+            name="q"
             ref={inputRef}
             type="search"
-            className={`block w-full rounded-lg border border-gray-300 bg-white py-2 ${showIcon ? 'pl-10' : 'pl-4'} pr-4 text-gray-900 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100`}
+            className={`block w-full rounded-lg border border-gray-300 bg-white py-2 ${showIcon ? 'pl-10' : 'pl-4'} pr-4 text-gray-900 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100`}
             placeholder={resolvedPlaceholder}
             value={query}
             onChange={handleInputChange}
@@ -647,27 +620,34 @@ function SearchAutocompleteView({
           />
 
           {isLoading && (
-            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg
-                className="animate-spin h-5 w-5 text-gray-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
+            <div
+              className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+              role="status"
+            >
+              <span className="sr-only">{strings.searching}</span>
+              <span className="inline-flex animate-spin" aria-hidden="true">
+                <svg
+                  aria-hidden="true"
+                  className="h-5 w-5 text-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              </span>
             </div>
           )}
         </div>
@@ -680,9 +660,10 @@ function SearchAutocompleteView({
               <ul className="divide-y divide-gray-100 dark:divide-gray-700">
                 {results.map(result => (
                   <li key={`${result.type}-${result.url}`}>
-                    <button
+                    <Link
+                      href={result.url.startsWith('/') ? localizePath(result.url) : result.url}
                       className="flex w-full items-start px-4 py-2 text-left hover:bg-gray-50 dark:hover:bg-gray-700"
-                      onClick={() => handleResultClick(result.url)}
+                      onClick={onResultClick}
                     >
                       <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-100 text-gray-500 mr-3 dark:bg-gray-700 dark:text-gray-400">
                         {getSearchResultTypeIcon(result.type)}
@@ -700,7 +681,7 @@ function SearchAutocompleteView({
                           </span>
                         )}
                       </div>
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -720,6 +701,7 @@ function SearchAutocompleteView({
               >
                 {strings.dropdownViewAllResults}
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   className="inline-block h-4 w-4 ml-1"
                   fill="none"
@@ -742,19 +724,29 @@ function SearchAutocompleteView({
   );
 }
 
+function subscribeToHistory(onChange: () => void): () => void {
+  window.addEventListener('popstate', onChange);
+  return () => window.removeEventListener('popstate', onChange);
+}
+
+function readUrlQuery(): string {
+  return new URLSearchParams(window.location.search).get('q') ?? '';
+}
+
+function readServerQuery(): string {
+  return '';
+}
+
 /**
  * SearchPage component for displaying search results page
  */
 export function SearchPage() {
   const { locale, localizePath } = useLocale();
   const strings = getSearchStrings(locale);
-  const [query, setQuery] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const searchParams = new URLSearchParams(window.location.search);
-      return searchParams.get('q') || '';
-    }
-    return '';
-  });
+  // Read ?q= without a hydration mismatch: the prerendered HTML (and the
+  // hydration pass) use '', then the client snapshot takes over.
+  const urlQuery = useSyncExternalStore(subscribeToHistory, readUrlQuery, readServerQuery);
+  const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -771,39 +763,45 @@ export function SearchPage() {
 
       <div className="mb-8">
         <Search
+          key={urlQuery}
           maxResults={100}
           shouldAutoFocus={true}
           onSearch={handleSearchResults}
-          initialQuery={query}
+          initialQuery={urlQuery}
         />
       </div>
 
       {isLoading ? (
-        <div className="flex justify-center py-12">
-          <svg
-            className="animate-spin h-8 w-8 text-accent"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
+        <div className="flex justify-center py-12" role="status">
+          <span className="sr-only">{strings.searching}</span>
+          <span className="inline-flex animate-spin" aria-hidden="true">
+            <svg
+              aria-hidden="true"
+              className="h-8 w-8 text-accent"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </span>
         </div>
       ) : query.trim().length === 0 ? (
         <div className="neumorph p-6 rounded-lg text-center">
           <svg
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             className="h-12 w-12 mx-auto text-gray-400 mb-4"
             fill="none"
@@ -835,14 +833,18 @@ export function SearchPage() {
         </div>
       ) : (
         <>
-          <p className="text-gray-600 mb-6 dark:text-gray-400">
+          <p className="text-gray-600 mb-6 dark:text-gray-400" role="status">
             {formatResultsSummary(locale, results.length, query)}
           </p>
 
           {results.length > 0 ? (
             <ul className="space-y-6">
               {results.map(result => (
-                <li key={`${result.type}-${result.url}`} className="neumorph p-4 rounded-lg">
+                <li
+                  key={`${result.type}-${result.url}`}
+                  // Up to 100 results: skip layout/paint for off-screen ones.
+                  className="neumorph p-4 rounded-lg [content-visibility:auto] [contain-intrinsic-size:auto_7rem]"
+                >
                   <Link
                     href={result.url.startsWith('/') ? localizePath(result.url) : result.url}
                     className="block hover:no-underline"
@@ -851,6 +853,7 @@ export function SearchPage() {
                       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent mr-3">
                         {result.type === 'calculator' ? (
                           <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
                             fill="none"
@@ -866,6 +869,7 @@ export function SearchPage() {
                           </svg>
                         ) : result.type === 'article' ? (
                           <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
                             fill="none"
@@ -881,6 +885,7 @@ export function SearchPage() {
                           </svg>
                         ) : (
                           <svg
+                            aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
                             fill="none"
@@ -931,6 +936,7 @@ export function SearchPage() {
           ) : (
             <div className="neumorph p-6 rounded-lg text-center">
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-12 w-12 mx-auto text-gray-400 mb-4"
                 fill="none"

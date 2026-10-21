@@ -21,7 +21,7 @@ export default function PregnancyDueDateResult({ result }: PregnancyDueDateResul
       <p className="text-3xl font-bold text-accent">{result.dueDate}</p>
       {typeof result.gestationalWeeks === 'number' && (
         <p className="text-sm text-gray-600 mt-1">
-          Estimated gestational age: {result.gestationalWeeks} weeks
+          Estimated gestational age: {result.gestationalWeeks} weeks
         </p>
       )}
 

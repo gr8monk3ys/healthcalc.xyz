@@ -1,17 +1,21 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import StepsToMilesResult from '@/components/calculators/steps-to-miles/StepsToMilesResult';
 import StepsToMilesInfo from '@/components/calculators/steps-to-miles/StepsToMilesInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateStepsToMiles } from '@/utils/calculators/stepsToMiles';
 import { convertLength } from '@/utils/conversions';
 import type { StepsToMilesResult as StepsToMilesResultType } from '@/types/stepsToMiles';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 type StrideUnit = 'in' | 'cm';
 
@@ -89,7 +93,7 @@ export default function StepsToMilesCalculator({
         );
         setTimeout(() => {
           const element = document.getElementById('steps-to-miles-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -134,7 +138,7 @@ export default function StepsToMilesCalculator({
               value: steps,
               onChange: setSteps,
               error: errors.steps,
-              placeholder: 'e.g. 8000',
+              placeholder: 'e.g. 8000…',
               min: 1,
             },
             {
@@ -144,7 +148,7 @@ export default function StepsToMilesCalculator({
               value: strideLength,
               onChange: setStrideLength,
               error: errors.strideLength,
-              placeholder: strideUnit === 'in' ? 'Inches' : 'Centimeters',
+              placeholder: strideUnit === 'in' ? 'e.g. 30…' : 'e.g. 75…',
               unit: strideUnit,
               unitToggle: toggleStrideUnit,
               step: '0.1',

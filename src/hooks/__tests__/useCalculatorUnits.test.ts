@@ -31,7 +31,7 @@ describe('useHeight', () => {
 
     expect(result.current.value).toBe('');
     expect(result.current.unit).toBe('cm');
-    expect(result.current.placeholder).toBe('Centimeters');
+    expect(result.current.placeholder).toBe('e.g. 175…');
   });
 
   it('should initialize with custom values', () => {
@@ -41,7 +41,7 @@ describe('useHeight', () => {
 
     expect(result.current.value).toBe(5.5);
     expect(result.current.unit).toBe('ft');
-    expect(result.current.placeholder).toBe('Feet');
+    expect(result.current.placeholder).toBe('e.g. 5.8…');
   });
 
   it('should update value when setValue is called', () => {
@@ -67,7 +67,7 @@ describe('useHeight', () => {
 
     expect(result.current.unit).toBe('ft');
     expect(result.current.value).toBeCloseTo(6, 1);
-    expect(result.current.placeholder).toBe('Feet');
+    expect(result.current.placeholder).toBe('e.g. 5.8…');
   });
 
   it('should toggle from ft to cm and convert value', () => {
@@ -81,7 +81,7 @@ describe('useHeight', () => {
 
     expect(result.current.unit).toBe('cm');
     expect(result.current.value).toBeCloseTo(182.9, 1);
-    expect(result.current.placeholder).toBe('Centimeters');
+    expect(result.current.placeholder).toBe('e.g. 175…');
   });
 
   it('should toggle unit without value when value is empty', () => {
@@ -126,7 +126,7 @@ describe('useWeight', () => {
 
     expect(result.current.value).toBe('');
     expect(result.current.unit).toBe('kg');
-    expect(result.current.placeholder).toBe('Kilograms');
+    expect(result.current.placeholder).toBe('e.g. 70…');
   });
 
   it('should initialize with custom values', () => {
@@ -136,7 +136,7 @@ describe('useWeight', () => {
 
     expect(result.current.value).toBe(150);
     expect(result.current.unit).toBe('lb');
-    expect(result.current.placeholder).toBe('Pounds');
+    expect(result.current.placeholder).toBe('e.g. 155…');
   });
 
   it('should update value when setValue is called', () => {
@@ -162,7 +162,7 @@ describe('useWeight', () => {
 
     expect(result.current.unit).toBe('lb');
     expect(result.current.value).toBeCloseTo(154.3, 1);
-    expect(result.current.placeholder).toBe('Pounds');
+    expect(result.current.placeholder).toBe('e.g. 155…');
   });
 
   it('should toggle from lb to kg and convert value', () => {
@@ -176,7 +176,7 @@ describe('useWeight', () => {
 
     expect(result.current.unit).toBe('kg');
     expect(result.current.value).toBeCloseTo(70, 1);
-    expect(result.current.placeholder).toBe('Kilograms');
+    expect(result.current.placeholder).toBe('e.g. 70…');
   });
 
   it('should toggle unit without value when value is empty', () => {
@@ -276,7 +276,7 @@ describe('createHeightField', () => {
     expect(field.type).toBe('number');
     expect(field.value).toBe(175);
     expect(field.error).toBe('Height is required');
-    expect(field.placeholder).toBe('Centimeters');
+    expect(field.placeholder).toBe('e.g. 175…');
     expect(field.unit).toBe('cm');
     expect(field.step).toBe('0.1');
     expect(typeof field.onChange).toBe('function');
@@ -306,7 +306,7 @@ describe('createWeightField', () => {
     expect(field.type).toBe('number');
     expect(field.value).toBe(70);
     expect(field.error).toBe('Weight is required');
-    expect(field.placeholder).toBe('Kilograms');
+    expect(field.placeholder).toBe('e.g. 70…');
     expect(field.unit).toBe('kg');
     expect(field.step).toBe('0.1');
     expect(typeof field.onChange).toBe('function');

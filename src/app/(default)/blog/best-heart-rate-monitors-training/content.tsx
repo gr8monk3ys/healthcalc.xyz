@@ -119,7 +119,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Heart Rate Monitors for Training in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 18 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 18 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -192,7 +192,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
         <p>
           I spent the last two years training with wrist-based optical heart rate sensors. They
           worked fine for easy runs. But the moment I started doing intervals or lifting heavy, the
-          numbers fell apart. Mid-sprint, my watch would show 120 bpm when I was clearly above 170.
+          numbers fell apart. Mid-sprint, my watch would show 120 bpm when I was clearly above 170.
           That is when I switched to a chest strap, and the difference was immediate.
         </p>
 
@@ -269,7 +269,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
 
         <p>
           Your heart rate is the single best proxy for exercise intensity. A watch that reads 10 or
-          15 bpm low during a tempo run does not just give you bad data. It changes how you train.
+          15 bpm low during a tempo run does not just give you bad data. It changes how you train.
           You think you are in Zone 3 when you are actually in Zone 4. You end up going too hard on
           easy days and not hard enough on hard days, because the numbers are misleading you.
         </p>
@@ -326,7 +326,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           The most convenient option. You already wear a watch. But wrist sensors have a fundamental
           problem: the wrist moves a lot, and tightening your watch enough for a good read during
           intervals is uncomfortable. Wrist sensors also lag behind real-time heart rate by several
-          seconds, sometimes 10 to 15 seconds during rapid changes. For steady-state cardio they are
+          seconds, sometimes 10 to 15 seconds during rapid changes. For steady-state cardio they are
           adequate. For anything involving intervals, weight training, or fast-changing intensity,
           they are unreliable.
         </p>
@@ -375,7 +375,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           <p className="mb-4">
             The onboard memory stores one training session, which means you can swim without your
             phone and sync the data afterward. I tested this during open-water swims and it worked
-            perfectly. Battery life is rated at 400 hours, and after eight months of near-daily use,
+            perfectly. Battery life is rated at 400 hours, and after eight months of near-daily use,
             I have not replaced the battery yet.
           </p>
 
@@ -483,7 +483,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
             <li>Stores and forwards heart rate data when away from watch</li>
             <li>Tracks indoor running pace without a foot pod</li>
             <li>Waterproof to 50 meters</li>
-            <li>Replaceable CR2032 battery, up to 1 year life</li>
+            <li>Replaceable CR2032 battery, up to 1 year life</li>
             <li>Quick-release strap design</li>
           </ul>
 
@@ -550,25 +550,25 @@ const BestHeartRateMonitorsTrainingPageContent = (
 
           <p className="mb-4">
             Heart rate accuracy is very close to the Polar H10, though I noticed the TICKR X was
-            occasionally 2-3 bpm slower to respond during very fast interval transitions. In
+            occasionally 2-3 bpm slower to respond during very fast interval transitions. In
             practice, this difference is negligible. Where the TICKR X falls behind is the strap
             comfort. The rubber pods that make contact with your skin are a bit stiffer than the
-            Polar strap, and after about 90 minutes they can start to chafe if you are sweating
+            Polar strap, and after about 90 minutes they can start to chafe if you are sweating
             heavily.
           </p>
 
           <p className="mb-4">
             The Wahoo app is clean and straightforward. It broadcasts over both ANT+ and Bluetooth
             simultaneously, so it works with everything: Zwift, Peloton, Garmin, Apple Watch via
-            third-party apps, Strava. Setup takes about 30 seconds. The internal memory can store up
-            to 50 hours of workout data, which is far more than the H10.
+            third-party apps, Strava. Setup takes about 30 seconds. The internal memory can store up
+            to 50 hours of workout data, which is far more than the H10.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>Built-in accelerometer for motion tracking and rep counting</li>
             <li>ANT+ and Bluetooth simultaneous transmission</li>
-            <li>50 hours of onboard workout memory</li>
+            <li>50 hours of onboard workout memory</li>
             <li>Running analytics: cadence, vertical oscillation, ground contact</li>
             <li>Works with Wahoo, Zwift, Peloton, Strava, TrainerRoad, and most fitness apps</li>
             <li>Waterproof (IPX7)</li>
@@ -631,7 +631,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           <p className="mb-4">
             I bought the COOSPO H808S as a backup strap, expecting it to be noticeably worse than my
             Polar H10. I was wrong. In a direct comparison over 20 workouts, the H808S tracked
-            within 1-2 bpm of the H10 during steady-state efforts and within 3-4 bpm during hard
+            within 1-2 bpm of the H10 during steady-state efforts and within 3-4 bpm during hard
             intervals. For a strap that costs less than half the price, that is remarkable.
           </p>
 
@@ -722,8 +722,8 @@ const BestHeartRateMonitorsTrainingPageContent = (
 
           <p className="mb-4">
             I wore the Verity Sense on my left forearm for four weeks of mixed training. During
-            steady-state running and cycling, it tracked within 2-3 bpm of my Polar H10 chest strap.
-            During intervals, the gap widened to 4-6 bpm, and there was a noticeable 3-5 second lag
+            steady-state running and cycling, it tracked within 2-3 bpm of my Polar H10 chest strap.
+            During intervals, the gap widened to 4-6 bpm, and there was a noticeable 3-5 second lag
             when my heart rate changed quickly. That lag is the nature of optical sensing, not a
             flaw specific to this product.
           </p>
@@ -737,7 +737,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           </p>
 
           <p className="mb-4">
-            The rechargeable battery lasts about 20 hours, which means roughly two weeks of daily
+            The rechargeable battery lasts about 20 hours, which means roughly two weeks of daily
             one-hour workouts between charges. The sensor pod is small, light, and has built-in
             memory for multiple sessions. Pairing over Bluetooth and ANT+ is seamless.
           </p>
@@ -864,11 +864,11 @@ const BestHeartRateMonitorsTrainingPageContent = (
         <h3 className="text-xl font-semibold mt-6 mb-3">1. Know your max heart rate</h3>
         <p>
           The old &ldquo;220 minus your age&rdquo; formula is a rough average that can be off by
-          10-20 bpm for any individual. Use our{' '}
+          10-20 bpm for any individual. Use our{' '}
           <Link href="/max-heart-rate" className="text-accent hover:underline">
             Max Heart Rate Calculator
           </Link>{' '}
-          for a better estimate, or do a field test: warm up for 15 minutes, then run three minutes
+          for a better estimate, or do a field test: warm up for 15 minutes, then run three minutes
           as hard as you can, jog for two minutes, then repeat the three-minute effort. The highest
           number you see in the last interval is close to your max.
         </p>
@@ -880,7 +880,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
             Heart Rate Zones Calculator
           </Link>{' '}
           to get your five training zones. Program these into your watch or app. Most people skip
-          this step and use the default zones, which are often wrong by 5-10 bpm per zone boundary.
+          this step and use the default zones, which are often wrong by 5-10 bpm per zone boundary.
           Getting this right changes everything about how useful your heart rate data is.
         </p>
 
@@ -899,7 +899,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
         <p>
           This is a small thing that makes a big difference. Wet the electrode pads on the back of
           your strap before putting it on. Tap water, saliva, electrode gel, whatever works. A dry
-          strap will give erratic readings for the first 5-10 minutes until you start sweating. I
+          strap will give erratic readings for the first 5-10 minutes until you start sweating. I
           keep a small spray bottle in my gym bag.
         </p>
 
@@ -963,7 +963,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/heart-rate-zones"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Heart Rate Zones Calculator</h4>
               <p className="text-sm text-gray-600">
@@ -972,14 +972,14 @@ const BestHeartRateMonitorsTrainingPageContent = (
             </Link>
             <Link
               href="/max-heart-rate"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Max Heart Rate Calculator</h4>
               <p className="text-sm text-gray-600">Find your estimated maximum heart rate</p>
             </Link>
             <Link
               href="/target-heart-rate"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Target Heart Rate Calculator</h4>
               <p className="text-sm text-gray-600">

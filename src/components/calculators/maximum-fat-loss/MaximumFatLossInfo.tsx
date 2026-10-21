@@ -12,8 +12,8 @@ export default function MaximumFatLossInfo() {
         <h2 className="text-2xl font-bold mb-4">How It Works</h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           This calculator uses research-based science to determine the maximum calorie deficit you
-          can sustain while primarily losing fat, not muscle. Based on Dr. Alpert's 2005 study, your
-          body can only mobilize about 22-31 calories per pound of body fat per day.
+          can sustain while primarily losing fat, not muscle. Based on Dr. Alpert’s 2005 study, your
+          body can only mobilize about 22-31 calories per pound of body fat per day.
         </p>
         <p className="text-gray-700 dark:text-gray-300">
           Enter your stats and body fat percentage to find your optimal cutting calories that
@@ -35,10 +35,11 @@ export default function MaximumFatLossInfo() {
       </Card>
 
       <Card className="p-6">
-        <h3 className="text-lg font-semibold mb-3">What You'll Get</h3>
+        <h3 className="text-lg font-semibold mb-3">What You’ll Get</h3>
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -62,6 +63,7 @@ export default function MaximumFatLossInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -85,6 +87,7 @@ export default function MaximumFatLossInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -108,6 +111,7 @@ export default function MaximumFatLossInfo() {
           </li>
           <li className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"

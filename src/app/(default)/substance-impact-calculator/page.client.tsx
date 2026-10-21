@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { calculateSubstanceImpact } from '@/utils/calculators/substanceImpact';
 import {
@@ -11,9 +12,13 @@ import {
 import { isEmpty, validateAge } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import SubstanceImpactResultDisplay from '@/components/calculators/substanceImpact/SubstanceImpactResult';
-import SaveResult from '@/components/SaveResult';
 import { ALCOHOL_TYPE_LABELS, SMOKING_TYPE_LABELS } from '@/constants/substanceImpact';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const faqs = [
   {
@@ -29,7 +34,7 @@ const faqs = [
   {
     question: 'How many calories are in alcoholic drinks?',
     answer:
-      'Alcohol contains 7 calories per gram, making it the second most calorie-dense macronutrient after fat. A standard beer (12 oz) has about 153 calories, a glass of wine (5 oz) has about 125 calories, a shot of spirits (1.5 oz) has about 97 calories, and a mixed cocktail averages around 200 calories. These "empty calories" provide no nutritional value and can contribute significantly to weight gain over time.',
+      'Alcohol contains 7 calories per gram, making it the second most calorie-dense macronutrient after fat. A standard beer (12 oz) has about 153 calories, a glass of wine (5 oz) has about 125 calories, a shot of spirits (1.5 oz) has about 97 calories, and a mixed cocktail averages around 200 calories. These “empty calories” provide no nutritional value and can contribute significantly to weight gain over time.',
   },
   {
     question: 'What are the health benefits of quitting smoking?',
@@ -271,7 +276,7 @@ export default function SubstanceImpactCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('substance-impact-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -383,7 +388,13 @@ function renderSubstanceImpactCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your Substance Impact</h2>
 
           {/* Mode Selector Tabs */}
@@ -395,7 +406,7 @@ function renderSubstanceImpactCalculatorView({
                   key={option.value}
                   type="button"
                   onClick={() => setMode(option.value)}
-                  className={`flex-1 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+                  className={`flex-1 px-4 py-2 rounded-lg font-medium text-sm transition duration-200 ${
                     mode === option.value
                       ? 'neumorph-inset text-accent'
                       : 'neumorph hover:shadow-lg'
@@ -415,18 +426,27 @@ function renderSubstanceImpactCalculatorView({
                 Age
               </label>
               <input
+                aria-invalid={errors.age ? true : undefined}
+                aria-describedby={errors.age ? 'age-error' : undefined}
+                name="age"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="age"
                 value={age}
                 onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.age ? 'border border-red-500' : ''
                 }`}
-                placeholder="Enter age"
+                placeholder="e.g. 45…"
                 min="1"
                 max="120"
               />
-              {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
+              {errors.age && (
+                <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {errors.age}
+                </p>
+              )}
             </div>
 
             <div>
@@ -434,10 +454,11 @@ function renderSubstanceImpactCalculatorView({
                 Gender
               </label>
               <select
+                name="gender"
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -455,10 +476,11 @@ function renderSubstanceImpactCalculatorView({
                   Alcohol Type
                 </label>
                 <select
+                  name="alcoholType"
                   id="alcoholType"
                   value={alcoholType}
                   onChange={e => setAlcoholType(e.target.value as AlcoholType)}
-                  className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {Object.entries(ALCOHOL_TYPE_LABELS).map(([value, label]) => (
                     <option key={value} value={value}>
@@ -474,21 +496,28 @@ function renderSubstanceImpactCalculatorView({
                     Drinks Per Week
                   </label>
                   <input
+                    aria-invalid={errors.drinksPerWeek ? true : undefined}
+                    aria-describedby={errors.drinksPerWeek ? 'drinksPerWeek-error' : undefined}
+                    name="drinksPerWeek"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="drinksPerWeek"
                     value={drinksPerWeek}
                     onChange={e =>
                       setDrinksPerWeek(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.drinksPerWeek ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 7"
+                    placeholder="e.g. 7…"
                     min="0"
                     step="1"
                   />
                   {errors.drinksPerWeek && (
-                    <p className="text-red-500 text-sm mt-1">{errors.drinksPerWeek}</p>
+                    <p id="drinksPerWeek-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.drinksPerWeek}
+                    </p>
                   )}
                 </div>
 
@@ -497,21 +526,32 @@ function renderSubstanceImpactCalculatorView({
                     Years of Drinking
                   </label>
                   <input
+                    aria-invalid={errors.yearsOfDrinking ? true : undefined}
+                    aria-describedby={errors.yearsOfDrinking ? 'yearsOfDrinking-error' : undefined}
+                    name="yearsOfDrinking"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="yearsOfDrinking"
                     value={yearsOfDrinking}
                     onChange={e =>
                       setYearsOfDrinking(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.yearsOfDrinking ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 10"
+                    placeholder="e.g. 10…"
                     min="0"
                     step="1"
                   />
                   {errors.yearsOfDrinking && (
-                    <p className="text-red-500 text-sm mt-1">{errors.yearsOfDrinking}</p>
+                    <p
+                      id="yearsOfDrinking-error"
+                      role="alert"
+                      className="text-red-500 text-sm mt-1"
+                    >
+                      {errors.yearsOfDrinking}
+                    </p>
                   )}
                 </div>
 
@@ -520,21 +560,28 @@ function renderSubstanceImpactCalculatorView({
                     Avg. Drink Cost ($)
                   </label>
                   <input
+                    aria-invalid={errors.avgDrinkCost ? true : undefined}
+                    aria-describedby={errors.avgDrinkCost ? 'avgDrinkCost-error' : undefined}
+                    name="avgDrinkCost"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="avgDrinkCost"
                     value={avgDrinkCost}
                     onChange={e =>
                       setAvgDrinkCost(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.avgDrinkCost ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 8"
+                    placeholder="e.g. 8…"
                     min="0"
                     step="0.5"
                   />
                   {errors.avgDrinkCost && (
-                    <p className="text-red-500 text-sm mt-1">{errors.avgDrinkCost}</p>
+                    <p id="avgDrinkCost-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.avgDrinkCost}
+                    </p>
                   )}
                 </div>
               </div>
@@ -551,10 +598,11 @@ function renderSubstanceImpactCalculatorView({
                   Smoking Type
                 </label>
                 <select
+                  name="smokingType"
                   id="smokingType"
                   value={smokingType}
                   onChange={e => setSmokingType(e.target.value as SmokingType)}
-                  className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {Object.entries(SMOKING_TYPE_LABELS).map(([value, label]) => (
                     <option key={value} value={value}>
@@ -570,20 +618,29 @@ function renderSubstanceImpactCalculatorView({
                     Amount Per Day
                   </label>
                   <input
+                    aria-invalid={errors.perDay ? true : undefined}
+                    aria-describedby={errors.perDay ? 'perDay-error' : undefined}
+                    name="perDay"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="perDay"
                     value={perDay}
                     onChange={e =>
                       setPerDay(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.perDay ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 10"
+                    placeholder="e.g. 10…"
                     min="0"
                     step="1"
                   />
-                  {errors.perDay && <p className="text-red-500 text-sm mt-1">{errors.perDay}</p>}
+                  {errors.perDay && (
+                    <p id="perDay-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.perDay}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -591,21 +648,28 @@ function renderSubstanceImpactCalculatorView({
                     Years of Smoking
                   </label>
                   <input
+                    aria-invalid={errors.yearsOfSmoking ? true : undefined}
+                    aria-describedby={errors.yearsOfSmoking ? 'yearsOfSmoking-error' : undefined}
+                    name="yearsOfSmoking"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="yearsOfSmoking"
                     value={yearsOfSmoking}
                     onChange={e =>
                       setYearsOfSmoking(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.yearsOfSmoking ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 15"
+                    placeholder="e.g. 15…"
                     min="0"
                     step="1"
                   />
                   {errors.yearsOfSmoking && (
-                    <p className="text-red-500 text-sm mt-1">{errors.yearsOfSmoking}</p>
+                    <p id="yearsOfSmoking-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.yearsOfSmoking}
+                    </p>
                   )}
                 </div>
 
@@ -614,21 +678,28 @@ function renderSubstanceImpactCalculatorView({
                     Cost Per Pack/Pod ($)
                   </label>
                   <input
+                    aria-invalid={errors.costPerPack ? true : undefined}
+                    aria-describedby={errors.costPerPack ? 'costPerPack-error' : undefined}
+                    name="costPerPack"
+                    autoComplete="off"
+                    inputMode="decimal"
                     type="number"
                     id="costPerPack"
                     value={costPerPack}
                     onChange={e =>
                       setCostPerPack(e.target.value === '' ? '' : parseFloat(e.target.value))
                     }
-                    className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                    className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       errors.costPerPack ? 'border border-red-500' : ''
                     }`}
-                    placeholder="e.g. 8"
+                    placeholder="e.g. 8…"
                     min="0"
                     step="0.5"
                   />
                   {errors.costPerPack && (
-                    <p className="text-red-500 text-sm mt-1">{errors.costPerPack}</p>
+                    <p id="costPerPack-error" role="alert" className="text-red-500 text-sm mt-1">
+                      {errors.costPerPack}
+                    </p>
                   )}
                 </div>
               </div>
@@ -639,14 +710,14 @@ function renderSubstanceImpactCalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate Impact
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>
@@ -687,19 +758,19 @@ function renderSubstanceImpactCalculatorView({
                 <p>
                   <strong>Financial Cost:</strong> Projected spending based on your current
                   consumption rate. Lifetime cost assumes continued use at the same rate through an
-                  average life expectancy of 80 years. Actual costs may differ due to price changes
+                  average life expectancy of 80 years. Actual costs may differ due to price changes
                   and consumption pattern shifts.
                 </p>
                 <p>
                   <strong>Recovery Timeline:</strong> Based on CDC and WHO data showing the
                   progressive health benefits of quitting. The body begins recovering almost
-                  immediately after cessation, with major milestones at 1 year, 5 years, and 10-15
+                  immediately after cessation, with major milestones at 1 year, 5 years, and 10-15
                   years.
                 </p>
                 <p>
-                  <strong>Calories from Alcohol:</strong> Alcohol contains 7 calories per gram.
-                  These "empty calories" contribute to weight gain without providing nutritional
-                  value. The fat equivalent is calculated at 3,500 calories per pound.
+                  <strong>Calories from Alcohol:</strong> Alcohol contains 7 calories per gram.
+                  These “empty calories” contribute to weight gain without providing nutritional
+                  value. The fat equivalent is calculated at 3,500 calories per pound.
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useId, useMemo } from 'react';
 import Link from 'next/link';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 import {
@@ -12,6 +12,7 @@ import {
   getProductsForCalculator,
   getGuidesForCalculator,
 } from '@/constants/affiliates';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface AffiliateLinksProps {
   calculatorType: CalculatorType;
@@ -108,6 +109,8 @@ function CategoryIcon({ category }: { category: ProductCategory }) {
  * Renders star rating display
  */
 function StarRating({ rating }: { rating: number }) {
+  // Unique per instance: several ratings render on one page.
+  const halfStarGradientId = `${useId()}-half-star`;
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -118,7 +121,11 @@ function StarRating({ rating }: { rating: number }) {
   );
 
   return (
-    <div className="flex items-center gap-0.5" aria-label={`Rating: ${rating} out of 5 stars`}>
+    <div
+      className="flex items-center gap-0.5"
+      role="img"
+      aria-label={`Rating: ${rating} out of 5 stars`}
+    >
       {fullStarKeys.map(starKey => (
         <svg
           key={starKey}
@@ -138,13 +145,13 @@ function StarRating({ rating }: { rating: number }) {
           aria-hidden="true"
         >
           <defs>
-            <linearGradient id="half-star">
+            <linearGradient id={halfStarGradientId}>
               <stop offset="50%" stopColor="currentColor" />
               <stop offset="50%" stopColor="#d1d5db" />
             </linearGradient>
           </defs>
           <path
-            fill="url(#half-star)"
+            fill={`url(#${halfStarGradientId})`}
             d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
           />
         </svg>
@@ -160,7 +167,9 @@ function StarRating({ rating }: { rating: number }) {
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
-      <span className="ml-1 text-sm text-gray-600 dark:text-gray-400">{rating.toFixed(1)}</span>
+      <span className="ml-1 text-sm text-gray-600 dark:text-gray-400">
+        {formatNumber(rating, 1)}
+      </span>
     </div>
   );
 }
@@ -184,7 +193,7 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
           category: product.category,
         })
       }
-      className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+      className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
       aria-label={`View ${product.name} - ${product.price || 'Check price'}`}
     >
       <div className="flex items-start gap-3">
@@ -204,7 +213,7 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
             {product.description}
           </p>
           <div className="flex items-center justify-between mt-2">
-            {product.rating && <StarRating rating={product.rating} />}
+            {product.rating != null ? <StarRating rating={product.rating} /> : null}
             {product.price && (
               <span className="text-sm font-medium text-accent">{product.price}</span>
             )}
@@ -229,7 +238,7 @@ function GuideCard({ title, description, href, category, calculatorType }: Guide
           category,
         })
       }
-      className="glass-panel block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+      className="glass-panel block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">

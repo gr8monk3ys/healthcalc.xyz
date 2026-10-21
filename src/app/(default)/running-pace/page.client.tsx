@@ -1,17 +1,21 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import RunningPaceResult from '@/components/calculators/running-pace/RunningPaceResult';
 import RunningPaceInfo from '@/components/calculators/running-pace/RunningPaceInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { isEmpty } from '@/utils/validation';
 import { calculateRunningPace } from '@/utils/calculators/runningPace';
 import type { RunningPaceResult as RunningPaceResultType, DistanceUnit } from '@/types/runningPace';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -112,7 +116,7 @@ export default function RunningPaceCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('running-pace-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -159,7 +163,7 @@ export default function RunningPaceCalculator({
               value: distance,
               onChange: setDistance,
               error: errors.distance,
-              placeholder: 'e.g., 5',
+              placeholder: 'e.g. 5…',
             },
             {
               name: 'distanceUnit',
@@ -178,7 +182,7 @@ export default function RunningPaceCalculator({
               type: 'number',
               value: hours,
               onChange: setHours,
-              placeholder: '0',
+              placeholder: 'e.g. 0…',
             },
             {
               name: 'minutes',
@@ -186,7 +190,7 @@ export default function RunningPaceCalculator({
               type: 'number',
               value: minutes,
               onChange: setMinutes,
-              placeholder: '25',
+              placeholder: 'e.g. 25…',
               error: errors.time,
             },
             {
@@ -195,7 +199,7 @@ export default function RunningPaceCalculator({
               type: 'number',
               value: seconds,
               onChange: setSeconds,
-              placeholder: '0',
+              placeholder: 'e.g. 0…',
             },
           ]}
           submitButtonText="Calculate Pace"

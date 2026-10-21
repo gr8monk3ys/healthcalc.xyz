@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+import React, { useState, useSyncExternalStore } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { WeightManagementResult, DietType, GoalType } from '@/types/weightManagement';
 import { calculateWeightManagement } from '@/app/api/weightManagement';
@@ -13,7 +14,6 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import WeightManagementResultDisplay from '@/components/calculators/weight-management/WeightManagementResult';
 import WeightManagementInfo from '@/components/calculators/weight-management/WeightManagementInfo';
 import WeightManagementUnderstanding from '@/components/calculators/weight-management/WeightManagementUnderstanding';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -21,6 +21,11 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { formatNumber } from '@/utils/formatNumber';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -28,7 +33,7 @@ const faqs = [
     question:
       'How does the Weight Management Calculator differ from the Calorie Deficit Calculator?',
     answer:
-      "While the Calorie Deficit Calculator focuses on how long it will take to reach a goal weight, the Weight Management Calculator provides a complete plan with a specific target date. It includes detailed macro breakdowns (protein, carbs, fats) tailored to your chosen diet type, weekly progress milestones, and adaptive calorie adjustments. It's designed for those who want a comprehensive roadmap with a deadline.",
+      'While the Calorie Deficit Calculator focuses on how long it will take to reach a goal weight, the Weight Management Calculator provides a complete plan with a specific target date. It includes detailed macro breakdowns (protein, carbs, fats) tailored to your chosen diet type, weekly progress milestones, and adaptive calorie adjustments. It’s designed for those who want a comprehensive roadmap with a deadline.',
   },
   {
     question: 'Why does the calculator suggest different macros for different diet types?',
@@ -38,12 +43,12 @@ const faqs = [
   {
     question: 'What if my target date is too aggressive or not challenging enough?',
     answer:
-      "The calculator will warn you if your target date results in unsafe weight loss or gain rates (more than 1kg/2.2lb per week for loss, or 0.5kg/1.1lb per week for gain). If your timeline is too aggressive, it will adjust your calorie target to the minimum safe level and show a realistic completion date. If it's not challenging enough, consider setting a more ambitious date or adjusting your goal weight.",
+      'The calculator will warn you if your target date results in unsafe weight loss or gain rates (more than 1kg/2.2lb per week for loss, or 0.5kg/1.1lb per week for gain). If your timeline is too aggressive, it will adjust your calorie target to the minimum safe level and show a realistic completion date. If it’s not challenging enough, consider setting a more ambitious date or adjusting your goal weight.',
   },
   {
     question: 'How should I adjust my plan if I miss a week or plateau?',
     answer:
-      "Weight loss and gain aren't always linear. If you miss a week or plateau, first review your tracking accuracy and ensure you're consistent with your calorie target. If you plateau for 2-3 weeks despite accurate tracking, recalculate using your current weight as a starting point and adjust your target date accordingly. The calculator provides weekly milestones to help you monitor progress and make timely adjustments.",
+      'Weight loss and gain aren’t always linear. If you miss a week or plateau, first review your tracking accuracy and ensure you’re consistent with your calorie target. If you plateau for 2-3 weeks despite accurate tracking, recalculate using your current weight as a starting point and adjust your target date accordingly. The calculator provides weekly milestones to help you monitor progress and make timely adjustments.',
   },
   {
     question: 'Can I use this calculator for muscle gain?',
@@ -57,7 +62,7 @@ const blogArticles = [
   {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
     slug: 'calorie-deficit-myths',
     date: 'February 25, 2025',
     readTime: '8 min read',
@@ -66,7 +71,7 @@ const blogArticles = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
     slug: 'tdee-explained',
     date: 'February 20, 2025',
     readTime: '10 min read',
@@ -100,6 +105,24 @@ function useWeightManagementCalculatorState() {
     setDietType,
   };
 }
+
+function subscribeNever(): () => void {
+  return () => {};
+}
+
+/** yyyy-mm-dd for tomorrow in local time (the format <input type="date"> expects). */
+function getTomorrowIsoDate(): string {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+  const day = String(tomorrow.getDate()).padStart(2, '0');
+  return `${tomorrow.getFullYear()}-${month}-${day}`;
+}
+
+function getNoDate(): undefined {
+  return undefined;
+}
+
 export default function WeightManagementCalculator({
   serverHeader,
 }: {
@@ -217,7 +240,7 @@ export default function WeightManagementCalculator({
           setTimeout(() => {
             const resultElement = document.getElementById('weight-management-result');
             if (resultElement) {
-              resultElement.scrollIntoView({ behavior: 'smooth' });
+              resultElement.scrollIntoView({ behavior: scrollBehavior() });
             }
           }, 100);
 
@@ -232,11 +255,9 @@ export default function WeightManagementCalculator({
     });
 
   // Calculate minimum date (tomorrow)
-  const getMinDate = () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split('T')[0];
-  };
+  // Tomorrow in the visitor's own time zone. Read on the client only: the
+  // prerendered HTML has no min, so the build date never leaks into it.
+  const minGoalDate = useSyncExternalStore(subscribeNever, getTomorrowIsoDate, getNoDate);
 
   // Wrap the weight toggle to also convert goalWeight
   const toggleWeightUnitWithGoal = () => {
@@ -283,7 +304,7 @@ export default function WeightManagementCalculator({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     {
@@ -309,7 +330,7 @@ export default function WeightManagementCalculator({
       value: targetDate,
       onChange: setTargetDate,
       error: errors.targetDate,
-      min: getMinDate(),
+      min: minGoalDate,
     },
     {
       name: 'activity',
@@ -424,7 +445,7 @@ function renderWeightManagementCalculatorView({
                   carbsGrams: result.macros.carbsGrams,
                   fatGrams: result.macros.fatGrams,
                   targetDate: targetDate,
-                  weightToChange: `${Math.abs(typeof weight.value === 'number' && typeof goalWeight === 'number' ? weight.value - goalWeight : 0).toFixed(1)} ${weight.unit}`,
+                  weightToChange: `${formatNumber(Math.abs(typeof weight.value === 'number' && typeof goalWeight === 'number' ? weight.value - goalWeight : 0), 1)} ${weight.unit}`,
                 }}
               />
 

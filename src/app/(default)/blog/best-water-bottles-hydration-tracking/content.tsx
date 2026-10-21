@@ -119,7 +119,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Water Bottles for Hydration Tracking in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 14 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 &bull; 14 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -202,7 +202,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </Link>{' '}
           and realizing I was hitting maybe half of what my body actually needs. The right water
           bottle made a real difference for me. Not in some life-changing, Instagram-transformation
-          way. Just in a quiet, consistent &quot;oh, I actually feel better&quot; kind of way.
+          way. Just in a quiet, consistent “oh, I actually feel better” kind of way.
         </p>
 
         <p className="mt-4">
@@ -287,7 +287,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </li>
           <li>
             <strong>Appetite:</strong> Thirst often disguises itself as hunger. Drinking water
-            before meals can reduce calorie intake by 75-90 calories per meal
+            before meals can reduce calorie intake by 75-90 calories per meal
           </li>
           <li>
             <strong>Exercise performance:</strong> A 2% loss in body water reduces endurance by up
@@ -324,10 +324,9 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </div>
 
           <p className="mb-4">
-            I was skeptical about a &quot;smart&quot; water bottle. It felt like one of those
-            products that exists just because it can, not because it should. Then the bottle glowed
-            at me during a long work session and I realized I had not had a sip in three hours. OK.
-            Point taken.
+            I was skeptical about a “smart” water bottle. It felt like one of those products that
+            exists just because it can, not because it should. Then the bottle glowed at me during a
+            long work session and I realized I had not had a sip in three hours. OK. Point taken.
           </p>
 
           <p className="mb-4">
@@ -352,7 +351,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             <li>Syncs with Apple Health, Fitbit, and Garmin</li>
             <li>Double-wall vacuum insulated stainless steel</li>
             <li>32oz capacity with measurement markings</li>
-            <li>Rechargeable battery lasts about 2 weeks</li>
+            <li>Rechargeable battery lasts about 2 weeks</li>
             <li>Personalized daily hydration goals based on your stats</li>
           </ul>
 
@@ -373,7 +372,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
               reminders, solid insulation, app integrations with major fitness platforms
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Battery needs charging every 10-14 days, straw lid is fiddly to
+              <strong>Cons:</strong> Battery needs charging every 10-14 days, straw lid is fiddly to
               clean, app can be buggy after updates, pricey for a water bottle
             </p>
           </div>
@@ -498,7 +497,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </p>
 
           <p className="mb-4">
-            The double-wall vacuum insulation keeps cold drinks cold for up to 24 hours and hot
+            The double-wall vacuum insulation keeps cold drinks cold for up to 24 hours and hot
             drinks hot for up to 12. The stainless steel does not retain flavors, so you can switch
             between water, coffee, and smoothies without any ghosting. The powder coat finish gives
             it a nice grip and it does not sweat, which means no puddles on your desk.
@@ -508,13 +507,13 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             For tracking, you are relying on the volume markings on the inside of the bottle (not as
             visible as the Nalgene) or just counting refills. The straw lid version has a small
             window that helps you estimate where you are. It is not precise, but if your tracking
-            method is &quot;I need to empty this bottle three times today,&quot; it works fine.
+            method is “I need to empty this bottle three times today,” it works fine.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
             <li>TempShield double-wall vacuum insulation</li>
-            <li>Keeps drinks cold 24 hours, hot 12 hours</li>
+            <li>Keeps drinks cold 24 hours, hot 12 hours</li>
             <li>18/8 pro-grade stainless steel</li>
             <li>No flavor transfer between drinks</li>
             <li>Sweat-free exterior with powder coat</li>
@@ -587,11 +586,11 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           </p>
 
           <p className="mb-4">
-            The downside is that it only works if you start at the &quot;right&quot; time. If you
-            sleep in and fill it at 10 AM instead of 7, the markers are off for the rest of the day.
-            Also, you only get 32 ounces from one fill, so you still need to refill at least once if
-            you are aiming for the standard 64oz recommendation. But for under fifteen bucks, it is
-            a hard deal to argue with.
+            The downside is that it only works if you start at the “right” time. If you sleep in and
+            fill it at 10 AM instead of 7, the markers are off for the rest of the day. Also, you
+            only get 32 ounces from one fill, so you still need to refill at least once if you are
+            aiming for the standard 64oz recommendation. But for under fifteen bucks, it is a hard
+            deal to argue with.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -786,28 +785,28 @@ const BestWaterBottlesHydrationTrackingPageContent = (
         </h2>
 
         <p>
-          I have tried a lot of hydration &quot;hacks&quot; over the years. Most of them are
-          overthinking a simple problem. Here is what has actually worked for me:
+          I have tried a lot of hydration “hacks” over the years. Most of them are overthinking a
+          simple problem. Here is what has actually worked for me:
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h4 className="font-semibold mb-2">1. Start before you are thirsty</h4>
+          <h3 className="font-semibold mb-2">1. Start before you are thirsty</h3>
           <p className="mb-4">
             By the time you feel thirsty, you are already mildly dehydrated. Drink a full glass of
-            water first thing in the morning before coffee. Your body has gone 7-8 hours without
+            water first thing in the morning before coffee. Your body has gone 7-8 hours without
             water. It needs it.
           </p>
 
-          <h4 className="font-semibold mb-2">2. Keep your bottle visible</h4>
+          <h3 className="font-semibold mb-2">2. Keep your bottle visible</h3>
           <p className="mb-4">
             This sounds too simple to work but it does. A bottle sitting on your desk where you can
             see it leads to more drinking than one stashed in a bag. Out of sight, out of mind is
             real.
           </p>
 
-          <h4 className="font-semibold mb-2">3. Set refill goals, not sip goals</h4>
+          <h3 className="font-semibold mb-2">3. Set refill goals, not sip goals</h3>
           <p className="mb-4">
-            Trying to sip water every 15 minutes is annoying and unsustainable. Instead, aim to
+            Trying to sip water every 15 minutes is annoying and unsustainable. Instead, aim to
             empty and refill your 32oz bottle a specific number of times per day. Use our{' '}
             <Link href="/water-intake" className="text-accent hover:underline">
               Water Intake Calculator
@@ -815,7 +814,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             to figure out how many refills that is for your body weight and activity level.
           </p>
 
-          <h4 className="font-semibold mb-2">4. Drink more when you exercise</h4>
+          <h3 className="font-semibold mb-2">4. Drink more when you exercise</h3>
           <p className="mb-4">
             Add 16-20oz of water for every hour of exercise. If you are using our{' '}
             <Link href="/tdee" className="text-accent hover:underline">
@@ -824,7 +823,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             and working out regularly, your hydration needs go up with your activity level.
           </p>
 
-          <h4 className="font-semibold mb-2">5. Make it taste good</h4>
+          <h3 className="font-semibold mb-2">5. Make it taste good</h3>
           <p>
             If plain water bores you, add lemon, cucumber, or frozen berries. A wide-mouth bottle
             like the Nalgene or Hydro Flask makes this easy. You are more likely to drink something
@@ -881,21 +880,21 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/water-intake"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Water Intake Calculator</h4>
               <p className="text-sm text-gray-600">Find your personalized daily water target</p>
             </Link>
             <Link
               href="/tdee"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">TDEE Calculator</h4>
               <p className="text-sm text-gray-600">Calculate your daily calorie needs</p>
             </Link>
             <Link
               href="/calorie-deficit"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calorie Deficit Calculator</h4>
               <p className="text-sm text-gray-600">Plan your weight loss journey</p>

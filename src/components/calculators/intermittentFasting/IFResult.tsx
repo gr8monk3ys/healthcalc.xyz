@@ -1,5 +1,6 @@
 import React from 'react';
 import { IFResult as IFResultType } from '@/types/intermittentFasting';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface IFResultProps {
   result: IFResultType;
@@ -38,7 +39,7 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
               {formatTime12Hour(result.eatingWindowEnd)}
             </p>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {result.eatingHours} hours eating, {result.fastingHours} hours fasting
+              {result.eatingHours} hours eating, {result.fastingHours} hours fasting
             </p>
           </div>
         </div>
@@ -232,14 +233,14 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
                     <td className="py-2 px-3 text-gray-900 dark:text-white">{projection.week}</td>
                     <td className="text-right py-2 px-3 text-gray-900 dark:text-white">
                       {weightUnit === 'lb'
-                        ? (projection.projectedWeight * 2.20462).toFixed(1)
-                        : projection.projectedWeight.toFixed(1)}
+                        ? formatNumber(projection.projectedWeight * 2.20462, 1)
+                        : formatNumber(projection.projectedWeight, 1)}
                     </td>
                     <td className="text-right py-2 px-3 text-green-600 dark:text-green-400 font-medium">
                       -
                       {weightUnit === 'lb'
-                        ? (projection.cumulativeWeightLoss * 2.20462).toFixed(1)
-                        : projection.cumulativeWeightLoss.toFixed(1)}
+                        ? formatNumber(projection.cumulativeWeightLoss * 2.20462, 1)
+                        : formatNumber(projection.cumulativeWeightLoss, 1)}
                     </td>
                   </tr>
                 ))}
@@ -261,6 +262,7 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
           {result.benefits.map(benefit => (
             <li key={benefit} className="flex items-start">
               <svg
+                aria-hidden="true"
                 className="w-5 h-5 text-green-500 dark:text-green-400 mr-2 flex-shrink-0 mt-0.5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -286,6 +288,7 @@ export default function IFResult({ result, weightUnit }: IFResultProps) {
           {result.tips.map(tip => (
             <li key={tip} className="flex items-start">
               <svg
+                aria-hidden="true"
                 className="w-5 h-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-0.5"
                 fill="currentColor"
                 viewBox="0 0 20 20"

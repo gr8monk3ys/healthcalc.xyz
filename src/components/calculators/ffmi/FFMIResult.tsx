@@ -3,6 +3,7 @@
 import React from 'react';
 import { FFMIResult } from '@/types/ffmi';
 import { FFMI_CATEGORIES, NATURAL_FFMI_LIMIT } from '@/constants/ffmi';
+import { formatNumber } from '@/utils/formatNumber';
 
 interface FFMIResultDisplayProps {
   result: FFMIResult;
@@ -26,10 +27,7 @@ const FFMIResultDisplay: React.FC<FFMIResultDisplayProps> = ({ result }) => {
   const naturalLimitPosition = (NATURAL_FFMI_LIMIT / 30) * 100;
 
   return (
-    <div
-      id="ffmi-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="ffmi-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your FFMI Results</h2>
 
       <div className="mb-6">
@@ -58,7 +56,7 @@ const FFMIResultDisplay: React.FC<FFMIResultDisplayProps> = ({ result }) => {
 
           {/* User's position marker */}
           <div
-            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2 transition-all duration-500"
+            className="absolute top-0 h-6 w-3 bg-accent rounded-full transform -translate-x-1/2"
             style={{ left: `${getGaugePosition()}%` }}
           ></div>
         </div>
@@ -101,7 +99,7 @@ const FFMIResultDisplay: React.FC<FFMIResultDisplayProps> = ({ result }) => {
         <div className="neumorph-inset p-4 rounded-lg">
           <h3 className="text-sm font-medium text-gray-500">Lean Mass</h3>
           <p className="text-2xl font-bold">
-            {result.leanMass.toFixed(1)} {result.weightUnit}
+            {formatNumber(result.leanMass, 1)} {result.weightUnit}
           </p>
           <p className="text-xs text-gray-500 mt-1">Muscle, bone, organs, water</p>
         </div>
@@ -109,7 +107,7 @@ const FFMIResultDisplay: React.FC<FFMIResultDisplayProps> = ({ result }) => {
         <div className="neumorph-inset p-4 rounded-lg">
           <h3 className="text-sm font-medium text-gray-500">Fat Mass</h3>
           <p className="text-2xl font-bold">
-            {result.fatMass.toFixed(1)} {result.weightUnit}
+            {formatNumber(result.fatMass, 1)} {result.weightUnit}
           </p>
           <p className="text-xs text-gray-500 mt-1">Body fat weight</p>
         </div>

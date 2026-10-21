@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useReducer, useCallback, useRef, useEffect } from 'react';
+import React, { useReducer, useCallback, useRef, useEffect, useState } from 'react';
 import { getPublicSiteUrl } from '@/lib/site';
 
 interface EmbedCodeGeneratorProps {
@@ -105,18 +105,31 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
     };
   }, []);
 
-  const handleWidthChange = useCallback((value: string) => {
+  // Let people clear and retype a size: keep the raw text while typing and
+  // clamp into range when the field loses focus.
+  const [widthDraft, setWidthDraft] = useState<string | null>(null);
+  const [heightDraft, setHeightDraft] = useState<string | null>(null);
+
+  const commitWidth = useCallback((value: string) => {
     const num = parseInt(value, 10);
-    if (!isNaN(num) && num >= MIN_WIDTH && num <= MAX_WIDTH) {
-      dispatchUiState({ type: 'setWidth', value: num });
+    if (!isNaN(num)) {
+      dispatchUiState({
+        type: 'setWidth',
+        value: Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, num)),
+      });
     }
+    setWidthDraft(null);
   }, []);
 
-  const handleHeightChange = useCallback((value: string) => {
+  const commitHeight = useCallback((value: string) => {
     const num = parseInt(value, 10);
-    if (!isNaN(num) && num >= MIN_HEIGHT && num <= MAX_HEIGHT) {
-      dispatchUiState({ type: 'setHeight', value: num });
+    if (!isNaN(num)) {
+      dispatchUiState({
+        type: 'setHeight',
+        value: Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, num)),
+      });
     }
+    setHeightDraft(null);
   }, []);
 
   return (
@@ -134,14 +147,24 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             Width (px)
           </label>
           <input
+            name="embed-width"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             id="embed-width"
-            value={width}
-            onChange={e => handleWidthChange(e.target.value)}
+            value={widthDraft ?? width}
+            onChange={e => {
+              setWidthDraft(e.target.value);
+              const num = parseInt(e.target.value, 10);
+              if (!isNaN(num) && num >= MIN_WIDTH && num <= MAX_WIDTH) {
+                dispatchUiState({ type: 'setWidth', value: num });
+              }
+            }}
+            onBlur={e => commitWidth(e.target.value)}
             min={MIN_WIDTH}
             max={MAX_WIDTH}
             step={10}
-            className="w-full p-2 neumorph-inset rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 neumorph-inset rounded-lg text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
         </div>
         <div>
@@ -149,14 +172,24 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             Height (px)
           </label>
           <input
+            name="embed-height"
+            autoComplete="off"
+            inputMode="decimal"
             type="number"
             id="embed-height"
-            value={height}
-            onChange={e => handleHeightChange(e.target.value)}
+            value={heightDraft ?? height}
+            onChange={e => {
+              setHeightDraft(e.target.value);
+              const num = parseInt(e.target.value, 10);
+              if (!isNaN(num) && num >= MIN_HEIGHT && num <= MAX_HEIGHT) {
+                dispatchUiState({ type: 'setHeight', value: num });
+              }
+            }}
+            onBlur={e => commitHeight(e.target.value)}
             min={MIN_HEIGHT}
             max={MAX_HEIGHT}
             step={10}
-            className="w-full p-2 neumorph-inset rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 neumorph-inset rounded-lg text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           />
         </div>
         <div>
@@ -164,12 +197,13 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
             Theme
           </label>
           <select
+            name="embed-theme"
             id="embed-theme"
             value={theme}
             onChange={e =>
               dispatchUiState({ type: 'setTheme', value: e.target.value as EmbedTheme })
             }
-            className="w-full p-2 neumorph-inset rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 neumorph-inset rounded-lg text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <option value="light">Light</option>
             <option value="dark">Dark</option>
@@ -183,12 +217,14 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
           Embed Code
         </label>
         <textarea
+          name="embed-code"
+          autoComplete="off"
           ref={codeRef}
           id="embed-code"
           readOnly
           value={embedCode}
           rows={3}
-          className="w-full p-3 neumorph-inset rounded-lg text-sm font-mono focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+          className="w-full p-3 neumorph-inset rounded-lg text-sm font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent resize-none"
           onClick={e => (e.target as HTMLTextAreaElement).select()}
         />
       </div>
@@ -196,15 +232,19 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
       {/* Action Buttons */}
       <div className="flex flex-wrap gap-3 mb-4">
         <button
+          type="button"
           onClick={handleCopy}
-          className="px-4 py-2 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
-          aria-label="Copy embed code to clipboard"
+          className="px-4 py-2 neumorph text-accent font-medium rounded-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
         >
           {copied ? 'Copied!' : 'Copy to Clipboard'}
         </button>
+        <span className="sr-only" role="status">
+          {copied ? 'Embed code copied to clipboard' : ''}
+        </span>
         <button
+          type="button"
           onClick={() => dispatchUiState({ type: 'togglePreview' })}
-          className="px-4 py-2 neumorph text-gray-600 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition-all focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
+          className="px-4 py-2 neumorph text-gray-600 dark:text-gray-400 font-medium rounded-lg hover:shadow-neumorph-inset transition focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-sm"
           aria-expanded={showPreview}
           aria-controls="embed-preview"
         >
@@ -233,9 +273,9 @@ export const EmbedCodeGenerator: React.FC<EmbedCodeGeneratorProps> = ({
       <div className="text-xs text-gray-500 dark:text-gray-500 border-t border-gray-200 dark:border-gray-700 pt-3">
         <p className="font-medium mb-1">Attribution requirement</p>
         <p>
-          The embedded calculator includes a &quot;Powered by HealthCalc&quot; link. This
-          attribution must remain visible and unmodified. By using this embed code, you agree to
-          keep the attribution link intact.
+          The embedded calculator includes a “Powered by HealthCalc” link. This attribution must
+          remain visible and unmodified. By using this embed code, you agree to keep the attribution
+          link intact.
         </p>
       </div>
     </div>

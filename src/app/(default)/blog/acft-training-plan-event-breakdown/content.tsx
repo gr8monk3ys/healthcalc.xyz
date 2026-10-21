@@ -11,7 +11,7 @@ const ACFTTrainingPlanPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         ACFT Training: Event-by-Event Workout Plans That Actually Work
       </h1>
-      <p className="text-gray-500 italic">Published: January 15, 2026 &bull; 21 min read</p>
+      <p className="text-gray-500 italic">Published: January 15, 2026 &bull; 21 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -54,8 +54,8 @@ const ACFTTrainingPlanPageContent = (
 
       <p>
         The right way was building a structured program that addressed each event with specific
-        training methods, progressed intensity over 8 weeks, and peaked for test day. That approach
-        took me from 430 to 548 in a single training cycle. The program I am sharing here is based
+        training methods, progressed intensity over 8 weeks, and peaked for test day. That approach
+        took me from 430 to 548 in a single training cycle. The program I am sharing here is based
         on what worked for me and for the soldiers I have coached since.
       </p>
 
@@ -88,7 +88,7 @@ const ACFTTrainingPlanPageContent = (
         <ul className="list-disc list-inside space-y-1">
           <li>Reduce volume but maintain intensity</li>
           <li>Practice full ACFT simulation in Week 7</li>
-          <li>Light activity only in the 3-4 days before the test</li>
+          <li>Light activity only in the 3-4 days before the test</li>
           <li>Focus on sleep, nutrition, and mental preparation</li>
         </ul>
       </div>
@@ -98,7 +98,7 @@ const ACFTTrainingPlanPageContent = (
       <p>
         Here is my strong opinion on ACFT deadlift training: most soldiers do not deadlift heavy
         enough in training. They get nervous about injury, stick to moderate weights, and then
-        wonder why they stall at 200 lbs on test day. The deadlift is a strength event. You need to
+        wonder why they stall at 200 lbs on test day. The deadlift is a strength event. You need to
         train heavy to get stronger. Period.
       </p>
 
@@ -132,8 +132,8 @@ const ACFTTrainingPlanPageContent = (
             floor where most soldiers are weakest.
           </li>
           <li>
-            Add 10-20 lbs to your working weight each week. If you cannot complete the reps with
-            good form, the weight is too heavy. Drop 10 lbs and try again next week.
+            Add 10-20 lbs to your working weight each week. If you cannot complete the reps with
+            good form, the weight is too heavy. Drop 10 lbs and try again next week.
           </li>
         </ul>
 
@@ -163,7 +163,7 @@ const ACFTTrainingPlanPageContent = (
 
       <p>
         The power throw is the most technique-dependent event on the ACFT. Strength helps, but a
-        well-trained athlete at 160 lbs can out-throw a strong soldier at 220 lbs if the lighter
+        well-trained athlete at 160 lbs can out-throw a strong soldier at 220 lbs if the lighter
         athlete has better hip extension timing and release mechanics. This event is about
         coordination and explosiveness, not just brute force.
       </p>
@@ -202,7 +202,7 @@ const ACFTTrainingPlanPageContent = (
             Track your best throw each session.
           </li>
           <li>
-            Jump squats with light weight (40-60 lbs): 4 sets of 5. Speed of the movement matters
+            Jump squats with light weight (40-60 lbs): 4 sets of 5. Speed of the movement matters
             more than the weight.
           </li>
           <li>
@@ -226,8 +226,8 @@ const ACFTTrainingPlanPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">Event 3: Hand-Release Push-Ups (HRP)</h2>
 
       <p>
-        This is where I disagree with most ACFT training advice. The standard recommendation is "do
-        more push-ups." That is lazy coaching. If you are stuck at 25 hand-release push-ups and you
+        This is where I disagree with most ACFT training advice. The standard recommendation is “do
+        more push-ups.” That is lazy coaching. If you are stuck at 25 hand-release push-ups and you
         just do more sets of 25, you will stay stuck at 25. You need to build the muscles that
         perform the push-up and train the endurance of those muscles separately.
       </p>
@@ -247,7 +247,7 @@ const ACFTTrainingPlanPageContent = (
           </li>
           <li>
             Hand-release push-ups: 3 sets to 75% of your max. If your max is 30, do 3 sets of 22-23.
-            Rest 90 seconds between sets.
+            Rest 90 seconds between sets.
           </li>
           <li>Overhead press: 3 sets of 8. Builds shoulder endurance for the lockout portion.</li>
         </ul>
@@ -259,7 +259,7 @@ const ACFTTrainingPlanPageContent = (
             forces adaptation).
           </li>
           <li>
-            Add timed sets: do as many hand-release push-ups as possible in 60 seconds. Rest 2
+            Add timed sets: do as many hand-release push-ups as possible in 60 seconds. Rest 2
             minutes. Repeat 3 times. This mimics the pacing demand of the actual event.
           </li>
           <li>Continue bench press but shift to higher reps: 3 sets of 15 with moderate weight.</li>
@@ -282,10 +282,10 @@ const ACFTTrainingPlanPageContent = (
       <div className="neumorph p-6 rounded-lg my-6 bg-yellow-50 dark:bg-yellow-900/10">
         <p className="font-semibold mb-2">The pacing trap:</p>
         <p>
-          Soldiers who go fast in the first 30 seconds typically get 5-8 fewer reps than soldiers
-          who pace themselves. My recommendation: aim for one rep every 2 seconds for the first
-          minute (30 reps), then push harder in the second minute. This prevents the "arms turn to
-          jelly at 45 seconds" phenomenon that kills scores.
+          Soldiers who go fast in the first 30 seconds typically get 5-8 fewer reps than soldiers
+          who pace themselves. My recommendation: aim for one rep every 2 seconds for the first
+          minute (30 reps), then push harder in the second minute. This prevents the “arms turn to
+          jelly at 45 seconds” phenomenon that kills scores.
         </p>
       </div>
 
@@ -293,7 +293,7 @@ const ACFTTrainingPlanPageContent = (
 
       <p>
         The SDC is the event that separates soldiers who train specifically from soldiers who just
-        "work out." General fitness helps, but if you have not practiced dragging a sled, carrying
+        “work out.” General fitness helps, but if you have not practiced dragging a sled, carrying
         kettlebells at speed, and performing lateral shuffles while exhausted, you will be slower
         than you should be.
       </p>
@@ -304,7 +304,7 @@ const ACFTTrainingPlanPageContent = (
         <p className="font-semibold mb-2">Phase 1 (Weeks 1-3): Build the components</p>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            Sled drags: If you have access to a sled, drag 90 lbs (the test weight) for 4 x 50
+            Sled drags: If you have access to a sled, drag 90 lbs (the test weight) for 4 x 50
             meters. If no sled is available, use a heavy tire or even a training buddy on a towel on
             a smooth floor.
           </li>
@@ -317,7 +317,7 @@ const ACFTTrainingPlanPageContent = (
             your feet cross. Speed increases as technique improves.
           </li>
           <li>
-            Sprint intervals: 6 x 50-meter sprints with 60 seconds rest. Build your acceleration and
+            Sprint intervals: 6 x 50-meter sprints with 60 seconds rest. Build your acceleration and
             top speed.
           </li>
         </ul>
@@ -329,8 +329,8 @@ const ACFTTrainingPlanPageContent = (
             important training data point.
           </li>
           <li>
-            On separate days, do "SDC intervals": pick two phases of the SDC (like sled drag and
-            sprint) and alternate them for 5 rounds with 90 seconds rest. This builds event-specific
+            On separate days, do “SDC intervals”: pick two phases of the SDC (like sled drag and
+            sprint) and alternate them for 5 rounds with 90 seconds rest. This builds event-specific
             conditioning.
           </li>
           <li>
@@ -339,7 +339,7 @@ const ACFTTrainingPlanPageContent = (
           </li>
           <li>
             Add shuttle runs (down-and-back 25-meter sprints) to your conditioning work. 8 sets with
-            45 seconds rest builds the specific energy system the SDC demands.
+            45 seconds rest builds the specific energy system the SDC demands.
           </li>
         </ul>
 
@@ -368,8 +368,8 @@ const ACFTTrainingPlanPageContent = (
         <p className="font-semibold mb-2">Phase 1 (Weeks 1-3): Build the base</p>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            Plank holds: 3 sets at 70% of your max hold time. If you can hold for 2 minutes, do 3 x
-            1:24. Rest 60 seconds between sets.
+            Plank holds: 3 sets at 70% of your max hold time. If you can hold for 2 minutes, do 3 x
+            1:24. Rest 60 seconds between sets.
           </li>
           <li>
             Dead bugs: 3 sets of 10 per side. Builds anti-extension core strength, which is exactly
@@ -388,11 +388,11 @@ const ACFTTrainingPlanPageContent = (
         <p className="font-semibold mt-4 mb-2">Phase 2 (Weeks 4-6): Progressive overload</p>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            Increase plank hold to 80% of max, 3 sets, with only 45 seconds rest. The shorter rest
+            Increase plank hold to 80% of max, 3 sets, with only 45 seconds rest. The shorter rest
             forces your core to recover faster.
           </li>
           <li>
-            Add weighted planks: put a 10-25 lb plate on your back. Hold for 60% of your bodyweight
+            Add weighted planks: put a 10-25 lb plate on your back. Hold for 60% of your bodyweight
             plank time. When you remove the weight on test day, the plank will feel noticeably
             easier.
           </li>
@@ -439,14 +439,14 @@ const ACFTTrainingPlanPageContent = (
         <ul className="list-disc list-inside space-y-1">
           <li>
             3 runs per week. Two easy runs at conversational pace (you should be able to talk in
-            full sentences), one tempo run at a "comfortably hard" pace for 15-20 minutes.
+            full sentences), one tempo run at a “comfortably hard” pace for 15-20 minutes.
           </li>
           <li>
-            Easy run distance: 2-3 miles. Do not worry about pace. These runs build your aerobic
+            Easy run distance: 2-3 miles. Do not worry about pace. These runs build your aerobic
             engine and prepare your joints for the training to come.
           </li>
           <li>
-            Tempo run: Find a pace you can sustain for 20 minutes but not 40. Run at that pace after
+            Tempo run: Find a pace you can sustain for 20 minutes but not 40. Run at that pace after
             a 10-minute warmup. This should feel like a 7 out of 10 effort.
           </li>
         </ul>
@@ -459,14 +459,14 @@ const ACFTTrainingPlanPageContent = (
           </li>
           <li>
             Week 4: 6 x 400 meters at your goal 2-mile pace (divide your goal time by 8 for your
-            400m split). Rest 90 seconds between repeats. Example: 16:00 goal = 2:00 per 400m.
+            400m split). Rest 90 seconds between repeats. Example: 16:00 goal = 2:00 per 400m.
           </li>
           <li>
-            Week 5: 5 x 600 meters at goal pace, 2 minutes rest. Longer intervals build your ability
+            Week 5: 5 x 600 meters at goal pace, 2 minutes rest. Longer intervals build your ability
             to sustain speed.
           </li>
           <li>
-            Week 6: 4 x 800 meters at goal pace, 2 minutes rest. If you can hit these splits, your
+            Week 6: 4 x 800 meters at goal pace, 2 minutes rest. If you can hit these splits, your
             goal time is realistic.
           </li>
           <li>
@@ -478,9 +478,9 @@ const ACFTTrainingPlanPageContent = (
         <p className="font-semibold mt-4 mb-2">Phase 3 (Weeks 7-8): Race-specific prep</p>
         <ul className="list-disc list-inside space-y-1">
           <li>
-            Week 7: Time trial. Run 2 miles at max effort after a proper warmup. This is your test
+            Week 7: Time trial. Run 2 miles at max effort after a proper warmup. This is your test
             day predictor. Note: on the actual ACFT, you will be fatigued from 5 previous events, so
-            add 30-60 seconds to this time for a realistic prediction.
+            add 30-60 seconds to this time for a realistic prediction.
           </li>
           <li>Week 8: Two easy 20-minute runs. Nothing intense. Let your legs recover fully.</li>
         </ul>
@@ -500,7 +500,7 @@ const ACFTTrainingPlanPageContent = (
 
       <p>
         Here is how I structure a typical training week during Phase 2 (Weeks 4-6). This assumes you
-        are training 5 days per week with 2 rest days. Adjust based on your unit schedule.
+        are training 5 days per week with 2 rest days. Adjust based on your unit schedule.
       </p>
 
       <div className="overflow-x-auto my-6">
@@ -625,7 +625,7 @@ const ACFTTrainingPlanPageContent = (
       <div className="neumorph p-6 rounded-lg my-4">
         <p className="font-semibold mb-2">Calorie intake:</p>
         <p>
-          If you are actively training 5 days per week, you need to eat enough to support that
+          If you are actively training 5 days per week, you need to eat enough to support that
           training. Undereating is the number one recovery killer I see in soldiers. The DFAC meals
           may not be gourmet, but eat enough of them. If you are losing weight unintentionally
           during your training block, you are not eating enough.
@@ -648,7 +648,7 @@ const ACFTTrainingPlanPageContent = (
 
         <p className="font-semibold mt-4 mb-2">Pre-test meal (morning of the ACFT):</p>
         <p>
-          Eat 2-3 hours before the test. Something you have eaten before training and tolerated
+          Eat 2-3 hours before the test. Something you have eaten before training and tolerated
           well. My go-to recommendation: oatmeal with a banana and a tablespoon of peanut butter.
           Carbs for energy, some protein, easy to digest. Do not try anything new on test day.
         </p>
@@ -667,43 +667,43 @@ const ACFTTrainingPlanPageContent = (
       <p>
         Peaking is the art of arriving at test day fresh, strong, and ready. The biggest mistake
         soldiers make is training hard right up until the test. I see it every cycle. Soldiers
-        grinding through heavy deadlifts and hard runs 48 hours before the ACFT, then wondering why
+        grinding through heavy deadlifts and hard runs 48 hours before the ACFT, then wondering why
         their legs feel like concrete on test morning.
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-lg font-semibold mb-3">Taper Protocol (Last 7 Days)</h3>
 
-        <p className="font-semibold mt-2 mb-1">7 days out:</p>
+        <p className="font-semibold mt-2 mb-1">7 days out:</p>
         <p className="mb-3">
           Last hard session. Full ACFT simulation or a challenging combined workout. After this, you
           are done with intense training.
         </p>
 
-        <p className="font-semibold mb-1">6 days out:</p>
+        <p className="font-semibold mb-1">6 days out:</p>
         <p className="mb-3">Complete rest.</p>
 
-        <p className="font-semibold mb-1">5 days out:</p>
+        <p className="font-semibold mb-1">5 days out:</p>
         <p className="mb-3">
           Light 20-minute run at easy pace. A few sets of push-ups. Light deadlift work (3x3 at 50%
           max). Nothing challenging.
         </p>
 
-        <p className="font-semibold mb-1">4 days out:</p>
+        <p className="font-semibold mb-1">4 days out:</p>
         <p className="mb-3">
           20-minute walk or light jog. Core work (2 sets of planks at 50% max time). That is it.
         </p>
 
-        <p className="font-semibold mb-1">3 days out:</p>
+        <p className="font-semibold mb-1">3 days out:</p>
         <p className="mb-3">Complete rest. Focus on hydration and sleep.</p>
 
-        <p className="font-semibold mb-1">2 days out:</p>
+        <p className="font-semibold mb-1">2 days out:</p>
         <p className="mb-3">
           15-minute easy jog. A few bodyweight squats and push-ups. Keep the nervous system active
           without fatigue.
         </p>
 
-        <p className="font-semibold mb-1">1 day out:</p>
+        <p className="font-semibold mb-1">1 day out:</p>
         <p className="mb-3">
           Complete rest. Prepare your gear. Eat a normal dinner. Go to bed early. Visualize each
           event.
@@ -742,8 +742,8 @@ const ACFTTrainingPlanPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">The Bottom Line</h2>
 
       <p>
-        The ACFT rewards structured, specific training over general fitness. You cannot just "work
-        out" and expect to excel. Each event requires targeted training methods, and your program
+        The ACFT rewards structured, specific training over general fitness. You cannot just “work
+        out” and expect to excel. Each event requires targeted training methods, and your program
         needs to account for the fact that you perform all six events sequentially under fatigue.
       </p>
 
@@ -766,7 +766,7 @@ const ACFTTrainingPlanPageContent = (
             Haff, G. G., &amp; Triplett, N. T. (2016). Essentials of Strength Training and
             Conditioning (4th ed.). National Strength and Conditioning Association.
           </li>
-          <li>Daniels, J. (2013). Daniels&apos; Running Formula (3rd ed.). Human Kinetics.</li>
+          <li>Daniels, J. (2013). Daniels’ Running Formula (3rd ed.). Human Kinetics.</li>
           <li>
             Mujika, I., &amp; Padilla, S. (2003). Scientific bases for precompetition tapering
             strategies. Medicine and Science in Sports and Exercise, 35(7), 1182-1187.

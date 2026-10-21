@@ -1,17 +1,21 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalculatorErrorDisplay from '@/components/calculators/CalculatorErrorDisplay';
 import TargetHeartRateResult from '@/components/calculators/target-heart-rate/TargetHeartRateResult';
 import TargetHeartRateInfo from '@/components/calculators/target-heart-rate/TargetHeartRateInfo';
-import AffiliateLinks from '@/components/AffiliateLinks';
-import SaveResult from '@/components/SaveResult';
 import { calculateTargetHeartRate } from '@/utils/calculators/targetHeartRate';
 import { validateAge, validateHeartRate } from '@/utils/validation';
 import type { TargetHeartRateResult as TargetHeartRateResultType } from '@/types/targetHeartRate';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
+const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
 
 const faqs = [
   {
@@ -99,7 +103,7 @@ export default function TargetHeartRateCalculator({
         });
         setTimeout(() => {
           const element = document.getElementById('target-heart-rate-result');
-          element?.scrollIntoView({ behavior: 'smooth' });
+          element?.scrollIntoView({ behavior: scrollBehavior() });
         }, 100);
         return calculated;
       },
@@ -145,7 +149,7 @@ export default function TargetHeartRateCalculator({
               value: age,
               onChange: setAge,
               error: errors.age,
-              placeholder: 'Years',
+              placeholder: 'e.g. 35…',
               min: 10,
               max: 100,
             },
@@ -156,7 +160,7 @@ export default function TargetHeartRateCalculator({
               value: restingHeartRate,
               onChange: setRestingHeartRate,
               error: errors.restingHeartRate,
-              placeholder: 'e.g. 60',
+              placeholder: 'e.g. 60…',
               min: 40,
               max: 120,
             },

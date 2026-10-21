@@ -5,7 +5,7 @@
  * Centralizes height/weight state management and unit conversion logic.
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { HeightUnit, WeightUnit } from '@/types/common';
 import { convertHeight, convertWeight } from '@/utils/conversions';
 import { useLocale } from '@/context/LocaleContext';
@@ -79,14 +79,12 @@ export function useHeight(options: UseHeightOptions = {}): HeightState {
 
   const placeholder = unit === 'cm' ? t('unit.height.cm') : t('unit.height.ft');
 
-  return {
-    value,
-    unit,
-    setValue,
-    toggle,
-    toCm,
-    placeholder,
-  };
+  // Stable identity until something in it changes, so consumers can list the
+  // object in effect/memo deps without re-running on every render.
+  return useMemo(
+    () => ({ value, unit, setValue, toggle, toCm, placeholder }),
+    [value, unit, setValue, toggle, toCm, placeholder]
+  );
 }
 
 /**
@@ -126,14 +124,10 @@ export function useWeight(options: UseWeightOptions = {}): WeightState {
 
   const placeholder = unit === 'kg' ? t('unit.weight.kg') : t('unit.weight.lb');
 
-  return {
-    value,
-    unit,
-    setValue,
-    toggle,
-    toKg,
-    placeholder,
-  };
+  return useMemo(
+    () => ({ value, unit, setValue, toggle, toKg, placeholder }),
+    [value, unit, setValue, toggle, toKg, placeholder]
+  );
 }
 
 /**
@@ -148,16 +142,14 @@ export function useCalculatorUnits(
   const height = useHeight(options.height);
   const weight = useWeight(options.weight);
 
+  const { setValue: setHeightValue } = height;
+  const { setValue: setWeightValue } = weight;
   const reset = useCallback(() => {
-    height.setValue('');
-    weight.setValue('');
-  }, [height, weight]);
+    setHeightValue('');
+    setWeightValue('');
+  }, [setHeightValue, setWeightValue]);
 
-  return {
-    height,
-    weight,
-    reset,
-  };
+  return useMemo(() => ({ height, weight, reset }), [height, weight, reset]);
 }
 
 /**

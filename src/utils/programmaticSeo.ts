@@ -4,6 +4,7 @@ import { calculateBMR, calculateTDEE } from '@/utils/calculators/tdee';
 import { calculateCalorieDeficit } from '@/utils/calculators/calorieDeficit';
 import { calculateBMIMethodBodyFat, getBodyFatCategory } from '@/utils/calculators/bodyFat';
 import { calculateMacros } from '@/utils/calculators/macro';
+import { formatOrdinal } from '@/utils/formatNumber';
 
 const LB_TO_KG = 0.45359237;
 const KG_TO_LB = 1 / LB_TO_KG;
@@ -701,7 +702,7 @@ export function buildBmiProgrammaticPage(slug: string): ProgrammaticPageData | n
     heroValue: bmi.toFixed(1),
     heroLabel: `${category} BMI category`,
     heroSummary: `A BMI of ${bmi.toFixed(1)} is classified as ${category.toLowerCase()} for adults. At this height, the typical healthy-weight range is about ${healthyWeightRangeLb.min}-${healthyWeightRangeLb.max} lb.`,
-    percentileText: `Estimated around the ${percentile}th percentile for ${gender} adults in population BMI distributions.`,
+    percentileText: `Estimated around the ${formatOrdinal(percentile)} percentile for ${gender} adults in population BMI distributions.`,
     comparisonTitle: `${GENDER_LABEL[gender]} BMI Averages by Age Group`,
     comparisonDescription:
       'The table compares this pre-computed BMI to reference averages across adult age groups.',
@@ -870,7 +871,7 @@ export function buildTdeeProgrammaticPage(slug: string): ProgrammaticPageData | 
     heroValue: `${tdee.toLocaleString()} kcal/day`,
     heroLabel: 'Estimated total daily energy expenditure',
     heroSummary: `Estimated BMR is ${bmr.toLocaleString()} kcal/day. At ${activityOption.label.toLowerCase()} activity, maintenance intake is around ${tdee.toLocaleString()} kcal/day, with common cutting targets near ${mildCut.toLocaleString()}-${moderateCut.toLocaleString()} kcal/day.`,
-    percentileText: `Estimated around the ${percentile}th percentile versus same-gender adults in this age bracket at a similar activity level.`,
+    percentileText: `Estimated around the ${formatOrdinal(percentile)} percentile versus same-gender adults in this age bracket at a similar activity level.`,
     comparisonTitle: `${GENDER_LABEL[gender]} TDEE Benchmarks (${activityOption.label})`,
     comparisonDescription:
       'Each row uses age-band average body weight with the same activity multiplier to show how this result compares.',
@@ -1002,7 +1003,7 @@ export function buildCalorieDeficitProgrammaticPage(slug: string): ProgrammaticP
     heroValue: `${result.dailyCalorieTarget.toLocaleString()} kcal/day`,
     heroLabel: `${rateOption.label} deficit target`,
     heroSummary: `Projected weekly loss is about ${(result.weeklyWeightLoss * 2.20462).toFixed(1)} lb/week, with an estimated timeline of ${result.estimatedWeeks} weeks to lose ${goalLossLb} lb (target date: ${targetDate}).`,
-    percentileText: `Daily target is near the ${percentile}th percentile of typical intake levels for ${gender} adults.`,
+    percentileText: `Daily target is near the ${formatOrdinal(percentile)} percentile of typical intake levels for ${gender} adults.`,
     comparisonTitle: 'Deficit Plan Comparison',
     comparisonDescription:
       'All options below use the same starting profile and goal weight so pace and calorie differences are easy to compare.',
@@ -1109,7 +1110,7 @@ export function buildBodyFatProgrammaticPage(slug: string): ProgrammaticPageData
     heroValue: `${estimatedBodyFat.toFixed(1)}%`,
     heroLabel: `${category} category estimate`,
     heroSummary: `Estimated body fat is ${estimatedBodyFat.toFixed(1)}% for this profile. The estimate uses age ${age}, a representative BMI, and standard BMI-to-body-fat conversion equations.`,
-    percentileText: `Estimated around the ${percentile}th percentile versus same-gender adults in this age band.`,
+    percentileText: `Estimated around the ${formatOrdinal(percentile)} percentile versus same-gender adults in this age band.`,
     comparisonTitle: `${GENDER_LABEL[gender]} Body Fat Reference Ranges`,
     comparisonDescription:
       'Rows show typical body-fat averages by age group and the difference from this pre-computed estimate.',
@@ -1225,7 +1226,7 @@ export function buildMacroProgrammaticPage(slug: string): ProgrammaticPageData |
     heroValue: `${macros.protein.grams}g P • ${macros.carbs.grams}g C • ${macros.fat.grams}g F`,
     heroLabel: `Daily macros at ${calories} kcal`,
     heroSummary: `${dietOption.label} uses a ${dietOption.proteinPercent}/${dietOption.carbsPercent}/${dietOption.fatPercent} split, giving ${macros.protein.grams} g protein, ${macros.carbs.grams} g carbs, and ${macros.fat.grams} g fat per day.`,
-    percentileText: `This calorie target sits around the ${percentile}th percentile for typical ${goalOption.label.toLowerCase()} plans.`,
+    percentileText: `This calorie target sits around the ${formatOrdinal(percentile)} percentile for typical ${goalOption.label.toLowerCase()} plans.`,
     comparisonTitle: `Diet Split Comparison at ${calories} Calories`,
     comparisonDescription:
       'Same calories, different macro distributions. Compare how grams shift across common diet styles.',

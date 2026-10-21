@@ -17,7 +17,6 @@ import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout'
 import CalculatorForm from '@/components/calculators/CalculatorForm';
 import ABSIResultDisplay from '@/components/calculators/absi/ABSIResult';
 import ABSIInfo from '@/components/calculators/absi/ABSIInfo';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -25,6 +24,10 @@ import {
   createWeightField,
 } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // Dynamic imports for below-the-fold components
 const ABSIUnderstanding = dynamic(() => import('@/components/calculators/absi/ABSIUnderstanding'));
@@ -39,7 +42,7 @@ const faqs = [
   {
     question: 'How do I accurately measure my waist for ABSI?',
     answer:
-      "To measure your waist circumference correctly: 1) Stand upright and breathe normally, 2) Locate the top of your hip bones (iliac crest), 3) Wrap a flexible measuring tape around your waist at this level, ensuring it's parallel to the floor, 4) The tape should be snug but not compress your skin, 5) Measure at the end of a normal exhale. Take 2-3 measurements and use the average. Common mistakes include measuring too high (at the belly button) or too low (at the hips). Measure in centimeters for best accuracy.",
+      'To measure your waist circumference correctly: 1) Stand upright and breathe normally, 2) Locate the top of your hip bones (iliac crest), 3) Wrap a flexible measuring tape around your waist at this level, ensuring it’s parallel to the floor, 4) The tape should be snug but not compress your skin, 5) Measure at the end of a normal exhale. Take 2-3 measurements and use the average. Common mistakes include measuring too high (at the belly button) or too low (at the hips). Measure in centimeters for best accuracy.',
   },
   {
     question: 'What is a healthy ABSI score?',
@@ -54,7 +57,7 @@ const faqs = [
   {
     question: 'How can I improve my ABSI score?',
     answer:
-      "To reduce ABSI, focus on reducing visceral fat through: 1) Calorie deficit combined with whole foods diet, 2) Regular cardiovascular exercise (150+ minutes/week), 3) Resistance training to build muscle and boost metabolism, 4) Adequate sleep (7-9 hours), 5) Stress management to reduce cortisol. Spot reduction doesn't work - you cannot target abdominal fat specifically. Focus on overall fat loss through sustainable lifestyle changes. Even modest reductions in waist circumference (5-10 cm) can significantly improve health markers.",
+      'To reduce ABSI, focus on reducing visceral fat through: 1) Calorie deficit combined with whole foods diet, 2) Regular cardiovascular exercise (150+ minutes/week), 3) Resistance training to build muscle and boost metabolism, 4) Adequate sleep (7-9 hours), 5) Stress management to reduce cortisol. Spot reduction doesn’t work - you cannot target abdominal fat specifically. Focus on overall fat loss through sustainable lifestyle changes. Even modest reductions in waist circumference (5-10 cm) can significantly improve health markers.',
   },
 ];
 
@@ -162,7 +165,7 @@ export default function ABSICalculator({ serverHeader }: { serverHeader?: React.
         setTimeout(() => {
           const resultElement = document.getElementById('absi-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -201,7 +204,7 @@ export default function ABSICalculator({ serverHeader }: { serverHeader?: React.
         value: age,
         onChange: setAge,
         error: errors.age,
-        placeholder: 'Years',
+        placeholder: 'e.g. 35…',
       },
       createHeightField(height, errors.height),
       createWeightField(weight, errors.weight),
@@ -212,7 +215,7 @@ export default function ABSICalculator({ serverHeader }: { serverHeader?: React.
         value: waist,
         onChange: setWaist,
         error: errors.waist,
-        placeholder: 'Centimeters',
+        placeholder: 'e.g. 85…',
         step: '0.1',
       },
     ],
@@ -254,7 +257,10 @@ export default function ABSICalculator({ serverHeader }: { serverHeader?: React.
 
         {/* User-facing error state */}
         {calculationError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4">
+          <div
+            className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 mt-4"
+            role="alert"
+          >
             {calculationError}
           </div>
         )}

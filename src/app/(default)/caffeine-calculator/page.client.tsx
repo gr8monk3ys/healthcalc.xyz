@@ -1,12 +1,12 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState, useCallback, useRef } from 'react';
 import { processCaffeineCalculation } from '@/utils/calculators/caffeineCalculator';
 import { CaffeineResult, CaffeineSource, SensitivityLevel } from '@/types/caffeineCalculator';
 import { validateWeight, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import CaffeineResultDisplay from '@/components/calculators/caffeineCalculator/CaffeineResult';
-import SaveResult from '@/components/SaveResult';
 import {
   CAFFEINE_SOURCE_LABELS,
   CAFFEINE_CONTENT,
@@ -14,6 +14,11 @@ import {
 } from '@/constants/caffeineCalculator';
 import { useWeight } from '@/hooks/useCalculatorUnits';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for Caffeine calculator
 const faqs = [
@@ -45,7 +50,7 @@ const faqs = [
   {
     question: 'Are coffee and energy drinks the same?',
     answer:
-      "No. While both contain caffeine, they differ significantly. Coffee (8oz) contains ~95mg caffeine plus antioxidants and beneficial compounds. Energy drinks (8.4oz can) contain ~80mg caffeine plus high sugar content (often 27g+), artificial ingredients, and additional stimulants like taurine and guarana. Coffee is associated with health benefits (reduced risk of type 2 diabetes, liver disease, Parkinson's), while energy drinks are linked to increased heart rate, blood pressure spikes, and potential cardiovascular issues, especially when combined with alcohol. Energy drinks also cause rapid blood sugar spikes followed by crashes. For sustained energy, black coffee or tea is a healthier choice than sugar-laden energy drinks.",
+      'No. While both contain caffeine, they differ significantly. Coffee (8oz) contains ~95mg caffeine plus antioxidants and beneficial compounds. Energy drinks (8.4oz can) contain ~80mg caffeine plus high sugar content (often 27g+), artificial ingredients, and additional stimulants like taurine and guarana. Coffee is associated with health benefits (reduced risk of type 2 diabetes, liver disease, Parkinson’s), while energy drinks are linked to increased heart rate, blood pressure spikes, and potential cardiovascular issues, especially when combined with alcohol. Energy drinks also cause rapid blood sugar spikes followed by crashes. For sustained energy, black coffee or tea is a healthier choice than sugar-laden energy drinks.',
   },
 ];
 
@@ -137,7 +142,7 @@ export default function CaffeineCalculator({ serverHeader }: { serverHeader?: Re
         setTimeout(() => {
           const resultElement = document.getElementById('caffeine-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -257,7 +262,13 @@ function renderCaffeineCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Calculate Your Caffeine Intake</h2>
 
           {/* Weight Field */}
@@ -267,16 +278,21 @@ function renderCaffeineCalculatorView({
             </label>
             <div className="flex">
               <input
+                aria-invalid={errors.weight ? true : undefined}
+                aria-describedby={errors.weight ? 'weight-error' : undefined}
+                name="weight"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="weight"
                 value={weight.value}
                 onChange={e =>
                   weight.setValue(e.target.value === '' ? '' : parseFloat(e.target.value))
                 }
-                className={`w-full p-3 neumorph-inset rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-l-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.weight ? 'border border-red-500' : ''
                 }`}
-                placeholder="Enter weight"
+                placeholder={weight.placeholder}
                 step="0.1"
                 min="1"
                 max="600"
@@ -284,13 +300,17 @@ function renderCaffeineCalculatorView({
               <button
                 type="button"
                 onClick={weight.toggle}
-                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition-all"
+                className="px-4 neumorph rounded-r-lg hover:shadow-neumorph-inset transition"
                 aria-label={`Toggle weight unit, currently ${weight.unit}`}
               >
                 {weight.unit}
               </button>
             </div>
-            {errors.weight && <p className="text-red-500 text-sm mt-1">{errors.weight}</p>}
+            {errors.weight && (
+              <p id="weight-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.weight}
+              </p>
+            )}
           </div>
 
           {/* Caffeine Sources */}
@@ -309,6 +329,7 @@ function renderCaffeineCalculatorView({
                       </label>
                       <select
                         id={`caffeine-source-${sourceItem.id}`}
+                        name={`caffeine-source-${sourceItem.id}`}
                         value={sourceItem.source}
                         onChange={e =>
                           handleUpdateSource(
@@ -317,7 +338,7 @@ function renderCaffeineCalculatorView({
                             e.target.value as CaffeineSource
                           )
                         }
-                        className="w-full px-3 py-2 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-sm"
+                        className="w-full px-3 py-2 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm"
                       >
                         {Object.entries(CAFFEINE_SOURCE_LABELS).map(([value, label]) => (
                           <option key={value} value={value}>
@@ -336,7 +357,10 @@ function renderCaffeineCalculatorView({
                       </label>
                       <div className="flex gap-2">
                         <input
+                          autoComplete="off"
+                          inputMode="decimal"
                           id={`caffeine-servings-${sourceItem.id}`}
+                          name={`caffeine-servings-${sourceItem.id}`}
                           type="number"
                           min="0"
                           max="20"
@@ -349,8 +373,8 @@ function renderCaffeineCalculatorView({
                               parseFloat(e.target.value) || 0
                             )
                           }
-                          className="flex-1 px-3 py-2 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-sm"
-                          placeholder="Servings"
+                          className="flex-1 px-3 py-2 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-sm"
+                          placeholder="e.g. 2…"
                         />
                         {sources.length > 1 && (
                           <button
@@ -360,6 +384,7 @@ function renderCaffeineCalculatorView({
                             aria-label="Remove source"
                           >
                             <svg
+                              aria-hidden="true"
                               className="w-5 h-5 text-red-500"
                               fill="none"
                               stroke="currentColor"
@@ -383,9 +408,15 @@ function renderCaffeineCalculatorView({
                 <button
                   type="button"
                   onClick={handleAddSource}
-                  className="w-full neumorph px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full neumorph px-4 py-2 rounded-lg hover:shadow-lg transition duration-200 flex items-center justify-center gap-2"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    aria-hidden="true"
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -405,10 +436,11 @@ function renderCaffeineCalculatorView({
               Caffeine Sensitivity
             </label>
             <select
+              name="sensitivityLevel"
               id="sensitivityLevel"
               value={sensitivityLevel}
               onChange={e => setSensitivityLevel(e.target.value as SensitivityLevel)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="low">Low (Fast Metabolizer)</option>
               <option value="normal">Normal (Average)</option>
@@ -424,9 +456,10 @@ function renderCaffeineCalculatorView({
             <label className="flex items-center">
               <input
                 type="checkbox"
+                name="preWorkoutTiming"
                 checked={preWorkoutTiming}
                 onChange={e => setPreWorkoutTiming(e.target.checked)}
-                className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
               />
               <span className="text-sm font-medium">Pre-Workout Timing</span>
             </label>
@@ -439,14 +472,14 @@ function renderCaffeineCalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate Caffeine Intake
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>
@@ -484,11 +517,11 @@ function renderCaffeineCalculatorView({
                 </p>
                 <p>
                   <strong>Pre-Workout Dose:</strong> For performance enhancement, research
-                  recommends 3-6mg per kg body weight, taken 30-60 minutes before exercise. This
+                  recommends 3-6mg per kg body weight, taken 30-60 minutes before exercise. This
                   improves endurance, power, and focus.
                 </p>
                 <p>
-                  <strong>Half-Life & Clearance:</strong> Caffeine half-life varies from 3-7 hours
+                  <strong>Half-Life & Clearance:</strong> Caffeine half-life varies from 3-7 hours
                   based on genetics and metabolism. Full clearance takes about 5 half-lives. Avoid
                   caffeine 6+ hours before bedtime for better sleep.
                 </p>

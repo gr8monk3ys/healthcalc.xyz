@@ -17,6 +17,7 @@ export default function Footer(): React.JSX.Element {
           <div>
             <Link
               href={localizePath('/')}
+              translate="no"
               className="notranslate inline-flex items-center gap-2 text-xl font-black tracking-tight text-accent"
             >
               <span
@@ -24,6 +25,7 @@ export default function Footer(): React.JSX.Element {
                 className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-md shadow-accent/25"
               >
                 <svg
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
                   fill="none"
@@ -46,9 +48,9 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
               {t('footer.section.calculators')}
-            </h3>
+            </h2>
             <ul className="space-y-2">
               <li>
                 <Link href={localizePath('/bmi')} className={footerLinkClass}>
@@ -74,9 +76,9 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
               {t('footer.section.company')}
-            </h3>
+            </h2>
             <ul className="space-y-2">
               <li>
                 <Link href={localizePath('/about')} className={footerLinkClass}>
@@ -102,9 +104,9 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
               {t('footer.section.legal')}
-            </h3>
+            </h2>
             <ul className="space-y-2">
               <li>
                 <Link href={localizePath('/privacy')} className={footerLinkClass}>
@@ -160,7 +162,8 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         <div className="mt-4 border-t border-white/40 pt-4 text-center text-sm text-slate-700 dark:border-indigo-200/10 dark:text-slate-300">
-          &copy; {new Date().getFullYear()} HealthCalc. {t('footer.rightsReserved')}
+          &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span>{' '}
+          <span translate="no">HealthCalc</span>. {t('footer.rightsReserved')}
         </div>
       </div>
     </footer>

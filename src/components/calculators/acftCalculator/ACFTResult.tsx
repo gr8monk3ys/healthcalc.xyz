@@ -51,10 +51,7 @@ function getProgressBarColor(points: number): string {
 
 const ACFTResultDisplay: React.FC<ACFTResultDisplayProps> = ({ result }) => {
   return (
-    <div
-      id="acft-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="acft-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">Your ACFT Results</h2>
 
       {/* Total Score */}
@@ -65,7 +62,7 @@ const ACFTResultDisplay: React.FC<ACFTResultDisplayProps> = ({ result }) => {
 
         <div className="relative h-4 neumorph-inset rounded-full overflow-hidden mt-3 mx-auto max-w-md">
           <div
-            className={`h-full transition-all duration-700 ${
+            className={`h-full ${
               result.passing
                 ? 'bg-gradient-to-r from-green-400 to-blue-500'
                 : 'bg-gradient-to-r from-red-400 to-orange-400'
@@ -116,7 +113,7 @@ const ACFTResultDisplay: React.FC<ACFTResultDisplayProps> = ({ result }) => {
               {/* Progress bar */}
               <div className="relative h-3 neumorph-inset rounded-full overflow-hidden mb-2">
                 <div
-                  className={`h-full transition-all duration-500 ${getProgressBarColor(event.points)}`}
+                  className={`h-full ${getProgressBarColor(event.points)}`}
                   style={{ width: `${event.points}%` }}
                 ></div>
               </div>

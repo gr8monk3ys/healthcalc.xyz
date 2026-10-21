@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Pool } from 'pg';
 import { createLogger } from '@/utils/logger';
+import { runAfterResponse } from '@/lib/afterResponse';
 
 type DatabaseSync = import('node:sqlite').DatabaseSync;
 
@@ -342,18 +343,21 @@ async function runPostgresRetentionSweep(pool: Pool): Promise<void> {
   const retentionDays = getRetentionDays();
   if (retentionDays <= 0 || !shouldRunRetentionSweep('postgres')) return;
 
-  await pool.query(
-    "DELETE FROM newsletter_submissions WHERE created_at < NOW() - ($1::int * INTERVAL '1 day')",
-    [retentionDays]
-  );
-  await pool.query(
-    "DELETE FROM contact_submissions WHERE created_at < NOW() - ($1::int * INTERVAL '1 day')",
-    [retentionDays]
-  );
-  await pool.query(
-    "DELETE FROM embed_request_submissions WHERE created_at < NOW() - ($1::int * INTERVAL '1 day')",
-    [retentionDays]
-  );
+  // Independent tables: sweep them concurrently.
+  await Promise.all([
+    pool.query(
+      "DELETE FROM newsletter_submissions WHERE created_at < NOW() - ($1::int * INTERVAL '1 day')",
+      [retentionDays]
+    ),
+    pool.query(
+      "DELETE FROM contact_submissions WHERE created_at < NOW() - ($1::int * INTERVAL '1 day')",
+      [retentionDays]
+    ),
+    pool.query(
+      "DELETE FROM embed_request_submissions WHERE created_at < NOW() - ($1::int * INTERVAL '1 day')",
+      [retentionDays]
+    ),
+  ]);
 }
 
 async function executeWrite(
@@ -367,7 +371,13 @@ async function executeWrite(
     if (driver === 'postgres') {
       const pool = await ensurePostgresDatabase();
       await postgresWriter(pool);
-      await runPostgresRetentionSweep(pool);
+      // Housekeeping must not delay the response or turn a saved row into a
+      // reported failure: run it after the response is sent.
+      runAfterResponse(() =>
+        runPostgresRetentionSweep(pool).catch(error =>
+          reportPersistenceFailure(operation, driver, error)
+        )
+      );
     } else {
       const database = ensureSqliteDatabase();
       sqliteWriter(database);
@@ -376,7 +386,7 @@ async function executeWrite(
 
     return { success: true, driver };
   } catch (error) {
-    await reportPersistenceFailure(operation, driver, error);
+    runAfterResponse(() => reportPersistenceFailure(operation, driver, error));
     return {
       success: false,
       driver,

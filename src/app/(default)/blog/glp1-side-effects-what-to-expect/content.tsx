@@ -11,7 +11,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         GLP-1 Side Effects: What Actually Happens and How to Manage Them
       </h1>
-      <p className="text-gray-500 italic">Published: January 12, 2026 &bull; 16 min read</p>
+      <p className="text-gray-500 italic">Published: January 12, 2026 &bull; 16 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -20,15 +20,15 @@ const GLP1SideEffectsWhatToExpectPageContent = (
         <ul className="space-y-2">
           <li>
             Nausea affects 40-44% of people starting semaglutide and typically peaks during dose
-            escalation, then improves significantly after 4-8 weeks at each dose level
+            escalation, then improves significantly after 4-8 weeks at each dose level
           </li>
           <li>
             Most GI side effects are dose-dependent and can be managed with slower titration,
             smaller meals, and specific dietary adjustments
           </li>
           <li>
-            &quot;Ozempic face&quot; is not a drug side effect per se. It is what rapid weight loss
-            looks like on anyone&apos;s face, especially over age 40.
+            “Ozempic face” is not a drug side effect per se. It is what rapid weight loss looks like
+            on anyone’s face, especially over age 40.
           </li>
           <li>
             The thyroid cancer signal seen in rodent studies has not been confirmed in human data
@@ -65,7 +65,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       </p>
 
       <p>
-        In the STEP 1 trial (semaglutide 2.4 mg), 44.2% of participants in the drug group reported
+        In the STEP 1 trial (semaglutide 2.4 mg), 44.2% of participants in the drug group reported
         nausea, compared to 17.4% on placebo. In SURMOUNT-1 (tirzepatide), the rates were 24-33%
         depending on the dose, somewhat lower than semaglutide.
       </p>
@@ -79,7 +79,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       <p>
         Nausea follows a predictable pattern. It typically appears within the first few days of
         starting the medication or increasing the dose. It peaks during week 1-2 at each new dose
-        level. It gradually fades over 4-8 weeks as your body adjusts. Then it comes back when you
+        level. It gradually fades over 4-8 weeks as your body adjusts. Then it comes back when you
         titrate up to the next dose. And the cycle repeats.
       </p>
 
@@ -103,7 +103,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
           GLP-1 drug that slows your stomach with a greasy meal is a recipe for misery.
         </li>
         <li>
-          <strong>Do not lie down after eating.</strong> Stay upright for at least 30 minutes. This
+          <strong>Do not lie down after eating.</strong> Stay upright for at least 30 minutes. This
           is simple gravity helping food move in the right direction.
         </li>
         <li>
@@ -118,7 +118,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
         <li>
           <strong>Talk to your doctor about slower titration.</strong> There is no rule that says
           you must follow the standard dose escalation timeline. Many prescribers will extend each
-          dose level from 4 weeks to 6 or 8 weeks if side effects are significant.
+          dose level from 4 weeks to 6 or 8 weeks if side effects are significant.
         </li>
       </ul>
 
@@ -134,8 +134,8 @@ const GLP1SideEffectsWhatToExpectPageContent = (
           <thead>
             <tr className="bg-gray-50 dark:bg-gray-800">
               <th className="px-4 py-3 text-left font-semibold">Side Effect</th>
-              <th className="px-4 py-3 text-left font-semibold">Semaglutide 2.4 mg (STEP 1)</th>
-              <th className="px-4 py-3 text-left font-semibold">Tirzepatide 15 mg (SURMOUNT-1)</th>
+              <th className="px-4 py-3 text-left font-semibold">Semaglutide 2.4 mg (STEP 1)</th>
+              <th className="px-4 py-3 text-left font-semibold">Tirzepatide 15 mg (SURMOUNT-1)</th>
               <th className="px-4 py-3 text-left font-semibold">Placebo</th>
             </tr>
           </thead>
@@ -222,23 +222,23 @@ const GLP1SideEffectsWhatToExpectPageContent = (
 
       <p>
         Practical fixes: increase fiber intake gradually (too much too fast will make things worse),
-        drink at least 2 liters of water daily, and walk for 15-20 minutes after meals. If those do
+        drink at least 2 liters of water daily, and walk for 15-20 minutes after meals. If those do
         not work, an over-the-counter osmotic laxative like polyethylene glycol (Miralax) is safe
         for daily use. Stool softeners like docusate (Colace) are another option.
       </p>
 
       <p>
         Do not ignore constipation for weeks. Severe cases can progress to bowel obstruction, which
-        is a medical emergency. If you have not had a bowel movement in 3-4 days, call your doctor.
+        is a medical emergency. If you have not had a bowel movement in 3-4 days, call your doctor.
       </p>
 
       <AdBlock format="horizontal" />
 
-      <h2 className="text-2xl font-bold mt-10 mb-4">&quot;Ozempic Face&quot; and Muscle Loss</h2>
+      <h2 className="text-2xl font-bold mt-10 mb-4">“Ozempic Face” and Muscle Loss</h2>
 
       <p>
-        The term "Ozempic face" went viral in 2023 and has caused more anxiety than it probably
-        should have. What people call "Ozempic face" is not a drug-specific side effect. It is what
+        The term “Ozempic face” went viral in 2023 and has caused more anxiety than it probably
+        should have. What people call “Ozempic face” is not a drug-specific side effect. It is what
         happens when anyone loses 15-25% of their body weight relatively quickly: the fat pads in
         the face deflate, and the skin (especially in people over 40 whose skin has less elasticity)
         sags.
@@ -259,13 +259,13 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       <p>
         Data from STEP trials and body composition substudy analyses consistently show that
         approximately 25-40% of weight lost on semaglutide is lean body mass. In a person who loses
-        40 pounds, that means 10-16 pounds of muscle gone along with the fat.
+        40 pounds, that means 10-16 pounds of muscle gone along with the fat.
       </p>
 
       <p>
         This is not inevitable. A 2024 study in JAMA Network Open found that participants who
         combined semaglutide with a structured resistance training program and high-protein diet
-        (1.6 g/kg/day) lost significantly less lean mass than those on medication alone. The
+        (1.6 g/kg/day) lost significantly less lean mass than those on medication alone. The
         resistance training group preserved roughly 80% of their lean mass compared to about 65% in
         the medication-only group.
       </p>
@@ -315,7 +315,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
 
       <p>
         Risk factors that increase your chances: being female (gallstones are 2-3 times more common
-        in women), rapid weight loss (more than 1.5 kg per week), history of gallstones, and being
+        in women), rapid weight loss (more than 1.5 kg per week), history of gallstones, and being
         over age 40.
       </p>
 
@@ -369,7 +369,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
         The background: in rodent studies, semaglutide and tirzepatide caused dose-dependent
         increases in thyroid C-cell tumors, including medullary thyroid carcinoma (MTC). The doses
         used were significantly higher relative to body weight than human doses, and rodents were
-        exposed for their entire lifetimes (2 years, which is roughly equivalent to a human
+        exposed for their entire lifetimes (2 years, which is roughly equivalent to a human
         lifetime).
       </p>
 
@@ -381,7 +381,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
 
       <p>
         What does the human data show? A 2024 analysis published in The BMJ looked at semaglutide
-        use in over 300,000 patients with a median follow-up of about 3 years and found no signal
+        use in over 300,000 patients with a median follow-up of about 3 years and found no signal
         for increased thyroid cancer risk. A separate Scandinavian study using national registry
         data from Denmark, Norway, and Sweden that tracked GLP-1 use over multiple years also found
         no increased risk of MTC.
@@ -416,7 +416,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
 
       <p>
         Reported in about 14% of semaglutide users versus 10% on placebo. Often related to
-        dehydration or reduced caloric intake. If you went from eating 2,500 calories to 1,400
+        dehydration or reduced caloric intake. If you went from eating 2,500 calories to 1,400
         calories in a week because your appetite vanished, a headache is not surprising. Ensure
         adequate hydration and do not let your calorie intake drop below 1,200 (women) or 1,500
         (men) without medical supervision.
@@ -435,8 +435,8 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       <p>
         This has been widely reported anecdotally, though clinical trial data is limited. Rapid
         weight loss of any kind can trigger telogen effluvium, a temporary shedding caused by the
-        physiological stress of significant calorie restriction. It typically begins 2-4 months
-        after starting the medication and resolves within 6-12 months as the body adjusts to its new
+        physiological stress of significant calorie restriction. It typically begins 2-4 months
+        after starting the medication and resolves within 6-12 months as the body adjusts to its new
         weight. Ensuring adequate protein, iron, zinc, and biotin intake can help.
       </p>
 
@@ -503,19 +503,19 @@ const GLP1SideEffectsWhatToExpectPageContent = (
             </tr>
             <tr>
               <td className="px-4 py-3">Diarrhea</td>
-              <td className="px-4 py-3">First 4-6 weeks</td>
+              <td className="px-4 py-3">First 4-6 weeks</td>
               <td className="px-4 py-3">
                 Avoid sugar alcohols and high-fat foods, stay hydrated, usually self-resolving
               </td>
             </tr>
             <tr>
               <td className="px-4 py-3">Headache</td>
-              <td className="px-4 py-3">First 2-4 weeks</td>
+              <td className="px-4 py-3">First 2-4 weeks</td>
               <td className="px-4 py-3">Hydration, adequate calorie intake, OTC pain relief</td>
             </tr>
             <tr>
               <td className="px-4 py-3">Fatigue</td>
-              <td className="px-4 py-3">First 2-4 weeks and during dose increases</td>
+              <td className="px-4 py-3">First 2-4 weeks and during dose increases</td>
               <td className="px-4 py-3">
                 Ensure adequate calories and protein, prioritize sleep, usually temporary
               </td>
@@ -560,7 +560,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
             to the back). Could indicate pancreatitis.
           </li>
           <li>
-            <strong>Persistent vomiting for more than 24 hours</strong> or inability to keep fluids
+            <strong>Persistent vomiting for more than 24 hours</strong> or inability to keep fluids
             down. Dehydration risk is real.
           </li>
           <li>
@@ -621,7 +621,7 @@ const GLP1SideEffectsWhatToExpectPageContent = (
       </p>
 
       <p>
-        <strong>The "last meal" phenomenon.</strong> Some people find that their ability to enjoy
+        <strong>The “last meal” phenomenon.</strong> Some people find that their ability to enjoy
         certain foods disappears entirely. Foods they used to love become nauseating. This is
         usually temporary, but in some cases, specific food aversions persist for the duration of
         treatment.
@@ -663,34 +663,34 @@ const GLP1SideEffectsWhatToExpectPageContent = (
         <h2 className="text-xl font-semibold mb-4">Sources</h2>
         <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
           <li>
-            Wilding JPH, et al. &quot;Once-Weekly Semaglutide in Adults with Overweight or
-            Obesity.&quot; NEJM, 2021. (STEP 1 safety data)
+            Wilding JPH, et al. “Once-Weekly Semaglutide in Adults with Overweight or Obesity.”
+            NEJM, 2021. (STEP 1 safety data)
           </li>
           <li>
-            Jastreboff AM, et al. &quot;Tirzepatide Once Weekly for the Treatment of Obesity.&quot;
-            NEJM, 2022. (SURMOUNT-1 safety data)
+            Jastreboff AM, et al. “Tirzepatide Once Weekly for the Treatment of Obesity.” NEJM,
+            2022. (SURMOUNT-1 safety data)
           </li>
           <li>Wegovy (semaglutide) Prescribing Information. Novo Nordisk, 2024 revision.</li>
           <li>Zepbound (tirzepatide) Prescribing Information. Eli Lilly, 2024 revision.</li>
           <li>
-            Sodhi M, et al. &quot;Risk of Gastrointestinal Adverse Events Associated With
-            Glucagon-Like Peptide-1 Receptor Agonists for Weight Loss.&quot; JAMA, 2023.
+            Sodhi M, et al. “Risk of Gastrointestinal Adverse Events Associated With Glucagon-Like
+            Peptide-1 Receptor Agonists for Weight Loss.” JAMA, 2023.
           </li>
           <li>
-            European Medicines Agency. &quot;GLP-1 receptor agonists: reports of suicidal ideation
-            and self-harm.&quot; EMA Review, 2023.
+            European Medicines Agency. “GLP-1 receptor agonists: reports of suicidal ideation and
+            self-harm.” EMA Review, 2023.
           </li>
           <li>
-            FDA. &quot;Update on FDA&apos;s ongoing evaluation of reports of suicidal thoughts or
-            actions in patients taking GLP-1 receptor agonists.&quot; 2024.
+            FDA. “Update on FDA’s ongoing evaluation of reports of suicidal thoughts or actions in
+            patients taking GLP-1 receptor agonists.” 2024.
           </li>
           <li>
-            American Society of Anesthesiologists. &quot;Consensus-Based Guidance on Preoperative
-            Management of Patients on GLP-1 Receptor Agonists.&quot; 2023.
+            American Society of Anesthesiologists. “Consensus-Based Guidance on Preoperative
+            Management of Patients on GLP-1 Receptor Agonists.” 2023.
           </li>
           <li>
-            Wharton S, et al. &quot;Semaglutide, Alcohol Consumption, and Alcohol Use
-            Disorder.&quot; JCEM, 2023.
+            Wharton S, et al. “Semaglutide, Alcohol Consumption, and Alcohol Use Disorder.” JCEM,
+            2023.
           </li>
         </ul>
       </div>

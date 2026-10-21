@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { LifeExpectancyResult } from '@/types/lifeExpectancy';
+import { formatOrdinal } from '@/utils/formatNumber';
 
 interface LifeExpectancyResultDisplayProps {
   result: LifeExpectancyResult;
@@ -11,10 +12,7 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
   const netPositive = result.netEffect >= 0;
 
   return (
-    <div
-      id="life-expectancy-result"
-      className="neumorph p-6 rounded-lg transition-all duration-500 transform animate-fade-in"
-    >
+    <div id="life-expectancy-result" className="neumorph p-6 rounded-lg animate-fade-in">
       <h2 className="text-xl font-semibold mb-6">Your Life Expectancy Results</h2>
 
       {/* Estimated Life Expectancy - Hero Number */}
@@ -29,18 +27,18 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
         <h3 className="font-medium mb-3">Baseline Comparison</h3>
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm text-gray-600">Gender Average</span>
-          <span className="font-semibold">{result.baselineLifeExpectancy} years</span>
+          <span className="font-semibold">{result.baselineLifeExpectancy} years</span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-600">Your Estimate</span>
-          <span className="font-semibold">{result.estimatedLifeExpectancy} years</span>
+          <span className="font-semibold">{result.estimatedLifeExpectancy} years</span>
         </div>
         <div className="mt-2 pt-2 border-t border-gray-200">
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">Difference</span>
             <span className={`font-semibold ${netPositive ? 'text-green-600' : 'text-red-600'}`}>
               {netPositive ? '+' : ''}
-              {result.netEffect} years
+              {result.netEffect} years
             </span>
           </div>
         </div>
@@ -69,7 +67,7 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
           <div className="flex-1">
             <div className="relative h-4 neumorph-inset rounded-full overflow-hidden">
               <div
-                className={`h-full transition-all duration-700 rounded-full ${
+                className={`h-full rounded-full ${
                   result.percentileRank >= 70
                     ? 'bg-gradient-to-r from-green-400 to-emerald-500'
                     : result.percentileRank >= 40
@@ -85,8 +83,8 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
           </span>
         </div>
         <p className="text-xs text-gray-600 mt-2">
-          You rank in the {result.percentileRank}th percentile compared to the general population
-          for your gender.
+          You rank in the {formatOrdinal(result.percentileRank)} percentile compared to the general
+          population for your gender.
         </p>
       </div>
 
@@ -96,19 +94,19 @@ const LifeExpectancyResultDisplay: React.FC<LifeExpectancyResultDisplayProps> = 
         <div className="flex items-center gap-4">
           <div className="flex-1">
             <div className="flex justify-between text-sm mb-1">
-              <span className="text-green-600">+{result.yearsAdded} years gained</span>
-              <span className="text-red-600">-{result.yearsLost} years lost</span>
+              <span className="text-green-600">+{result.yearsAdded} years gained</span>
+              <span className="text-red-600">-{result.yearsLost} years lost</span>
             </div>
             <div className="relative h-6 neumorph-inset rounded-full overflow-hidden">
               <div className="absolute inset-0 flex">
                 <div
-                  className="h-full bg-gradient-to-r from-green-400 to-green-500 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-green-400 to-green-500"
                   style={{
                     width: `${result.yearsAdded + result.yearsLost > 0 ? (result.yearsAdded / (result.yearsAdded + result.yearsLost)) * 100 : 50}%`,
                   }}
                 ></div>
                 <div
-                  className="h-full bg-gradient-to-r from-red-400 to-red-500 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-red-400 to-red-500"
                   style={{
                     width: `${result.yearsAdded + result.yearsLost > 0 ? (result.yearsLost / (result.yearsAdded + result.yearsLost)) * 100 : 50}%`,
                   }}

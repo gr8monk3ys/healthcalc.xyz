@@ -21,9 +21,9 @@ export default function HeartRateZonesResult({ result }: HeartRateZonesResultPro
   return (
     <div className="neumorph p-6 rounded-lg" id="heart-rate-zones-result">
       <h2 className="text-xl font-semibold mb-2">Heart Rate Zones</h2>
-      <p className="text-2xl font-bold text-accent">Max HR: {result.maxHeartRate} bpm</p>
+      <p className="text-2xl font-bold text-accent">Max HR: {result.maxHeartRate} bpm</p>
       {result.restingHeartRate ? (
-        <p className="text-sm text-gray-600 mt-1">Resting HR: {result.restingHeartRate} bpm</p>
+        <p className="text-sm text-gray-600 mt-1">Resting HR: {result.restingHeartRate} bpm</p>
       ) : null}
 
       <div className="mt-4 overflow-x-auto">

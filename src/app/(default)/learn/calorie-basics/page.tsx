@@ -23,7 +23,7 @@ export default function CalorieBasicsGuide() {
           level. For weight loss, reduce by 10-20%. For muscle gain, increase by 5-15%.
         </p>
         <p className="text-gray-600">
-          Track results for 2-3 weeks and adjust by 100-200 calories if your progress stalls.
+          Track results for 2-3 weeks and adjust by 100-200 calories if your progress stalls.
         </p>
       </div>
 

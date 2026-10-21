@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import { calculateLifeExpectancy } from '@/utils/calculators/lifeExpectancy';
 import {
@@ -15,8 +16,12 @@ import {
 import { validateAge, isEmpty } from '@/utils/validation';
 import CalculatorPageLayout from '@/components/calculators/CalculatorPageLayout';
 import LifeExpectancyResultDisplay from '@/components/calculators/lifeExpectancy/LifeExpectancyResult';
-import SaveResult from '@/components/SaveResult';
 import { useCalculatorForm } from '@/hooks/useCalculatorForm';
+import { focusFirstInvalidField } from '@/utils/focusFirstInvalidField';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 const CHRONIC_CONDITIONS = [
   { value: 'diabetes', label: 'Diabetes' },
@@ -256,7 +261,7 @@ export default function LifeExpectancyCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('life-expectancy-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 
@@ -377,7 +382,13 @@ function renderLifeExpectancyCalculatorView({
       showResultsCapture={showResult}
     >
       <div className="space-y-8">
-        <form onSubmit={handleSubmit} className="neumorph p-6 rounded-lg space-y-6">
+        <form
+          onSubmit={e => {
+            handleSubmit(e);
+            focusFirstInvalidField(e.currentTarget);
+          }}
+          className="neumorph p-6 rounded-lg space-y-6"
+        >
           <h2 className="text-xl font-semibold mb-4">Estimate Your Life Expectancy</h2>
 
           {/* Age and Gender */}
@@ -387,18 +398,27 @@ function renderLifeExpectancyCalculatorView({
                 Age
               </label>
               <input
+                aria-invalid={errors.age ? true : undefined}
+                aria-describedby={errors.age ? 'age-error' : undefined}
+                name="age"
+                autoComplete="off"
+                inputMode="decimal"
                 type="number"
                 id="age"
                 value={age}
                 onChange={e => setAge(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+                className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                   errors.age ? 'border border-red-500' : ''
                 }`}
-                placeholder="Enter your age"
+                placeholder="e.g. 45…"
                 min="1"
                 max="120"
               />
-              {errors.age && <p className="text-red-500 text-sm mt-1">{errors.age}</p>}
+              {errors.age && (
+                <p id="age-error" role="alert" className="text-red-500 text-sm mt-1">
+                  {errors.age}
+                </p>
+              )}
             </div>
 
             <div>
@@ -406,10 +426,11 @@ function renderLifeExpectancyCalculatorView({
                 Gender
               </label>
               <select
+                name="gender"
                 id="gender"
                 value={gender}
                 onChange={e => setGender(e.target.value as 'male' | 'female')}
-                className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -423,19 +444,28 @@ function renderLifeExpectancyCalculatorView({
               BMI (Body Mass Index)
             </label>
             <input
+              aria-invalid={errors.bmi ? true : undefined}
+              aria-describedby={errors.bmi ? 'bmi-error' : undefined}
+              name="bmi"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="bmi"
               value={bmi}
               onChange={e => setBmi(e.target.value === '' ? '' : parseFloat(e.target.value))}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.bmi ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter your BMI (e.g. 22.5)"
+              placeholder="e.g. 22.5…"
               step="0.1"
               min="10"
               max="60"
             />
-            {errors.bmi && <p className="text-red-500 text-sm mt-1">{errors.bmi}</p>}
+            {errors.bmi && (
+              <p id="bmi-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.bmi}
+              </p>
+            )}
             <p className="text-xs text-gray-600 mt-1">
               Not sure of your BMI? Use our BMI calculator first.
             </p>
@@ -447,10 +477,11 @@ function renderLifeExpectancyCalculatorView({
               Smoking Status
             </label>
             <select
+              name="smokingStatus"
               id="smokingStatus"
               value={smokingStatus}
               onChange={e => setSmokingStatus(e.target.value as SmokingStatus)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="never">Never Smoked</option>
               <option value="former">Former Smoker</option>
@@ -465,10 +496,11 @@ function renderLifeExpectancyCalculatorView({
               Alcohol Intake
             </label>
             <select
+              name="alcoholIntake"
               id="alcoholIntake"
               value={alcoholIntake}
               onChange={e => setAlcoholIntake(e.target.value as AlcoholIntake)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="none">None</option>
               <option value="light">Light (1-7 drinks/week)</option>
@@ -483,15 +515,16 @@ function renderLifeExpectancyCalculatorView({
               Exercise Frequency
             </label>
             <select
+              name="exerciseFrequency"
               id="exerciseFrequency"
               value={exerciseFrequency}
               onChange={e => setExerciseFrequency(e.target.value as ExerciseFrequency)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="sedentary">Sedentary (little to no exercise)</option>
-              <option value="light">Light (1-2 days/week)</option>
-              <option value="moderate">Moderate (3-4 days/week)</option>
-              <option value="active">Active (5-6 days/week)</option>
+              <option value="light">Light (1-2 days/week)</option>
+              <option value="moderate">Moderate (3-4 days/week)</option>
+              <option value="active">Active (5-6 days/week)</option>
               <option value="very-active">Very Active (daily intense exercise)</option>
             </select>
           </div>
@@ -502,10 +535,11 @@ function renderLifeExpectancyCalculatorView({
               Diet Quality
             </label>
             <select
+              name="dietQuality"
               id="dietQuality"
               value={dietQuality}
               onChange={e => setDietQuality(e.target.value as DietQuality)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="poor">Poor (high processed food, low fruits/vegetables)</option>
               <option value="average">Average (mixed diet)</option>
@@ -520,19 +554,28 @@ function renderLifeExpectancyCalculatorView({
               Average Sleep (hours per night)
             </label>
             <input
+              aria-invalid={errors.sleepHours ? true : undefined}
+              aria-describedby={errors.sleepHours ? 'sleepHours-error' : undefined}
+              name="sleepHours"
+              autoComplete="off"
+              inputMode="decimal"
               type="number"
               id="sleepHours"
               value={sleepHours}
               onChange={e => setSleepHours(e.target.value === '' ? '' : parseFloat(e.target.value))}
-              className={`w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent ${
+              className={`w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 errors.sleepHours ? 'border border-red-500' : ''
               }`}
-              placeholder="Enter average hours of sleep"
+              placeholder="e.g. 7.5…"
               step="0.5"
               min="3"
               max="12"
             />
-            {errors.sleepHours && <p className="text-red-500 text-sm mt-1">{errors.sleepHours}</p>}
+            {errors.sleepHours && (
+              <p id="sleepHours-error" role="alert" className="text-red-500 text-sm mt-1">
+                {errors.sleepHours}
+              </p>
+            )}
           </div>
 
           {/* Stress Level */}
@@ -541,10 +584,11 @@ function renderLifeExpectancyCalculatorView({
               Stress Level
             </label>
             <select
+              name="stressLevel"
               id="stressLevel"
               value={stressLevel}
               onChange={e => setStressLevel(e.target.value as StressLevel)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="low">Low</option>
               <option value="moderate">Moderate</option>
@@ -558,9 +602,10 @@ function renderLifeExpectancyCalculatorView({
             <label className="flex items-center">
               <input
                 type="checkbox"
+                name="familyHistoryLongevity"
                 checked={familyHistoryLongevity}
                 onChange={e => setFamilyHistoryLongevity(e.target.checked)}
-                className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
               />
               <span className="text-sm font-medium">Family History of Longevity</span>
             </label>
@@ -580,9 +625,11 @@ function renderLifeExpectancyCalculatorView({
                   <label key={condition.value} className="flex items-center cursor-pointer">
                     <input
                       type="checkbox"
+                      name="chronicConditions"
+                      value={condition.value}
                       checked={chronicConditions.includes(condition.value)}
                       onChange={() => handleConditionToggle(condition.value)}
-                      className="mr-2 w-4 h-4 text-accent focus:ring-2 focus:ring-accent"
+                      className="mr-2 w-4 h-4 text-accent focus-visible:ring-2 focus-visible:ring-accent"
                     />
                     <span className="text-sm">{condition.label}</span>
                   </label>
@@ -597,10 +644,11 @@ function renderLifeExpectancyCalculatorView({
               Social Connections
             </label>
             <select
+              name="socialConnections"
               id="socialConnections"
               value={socialConnections}
               onChange={e => setSocialConnections(e.target.value as SocialConnection)}
-              className="w-full p-3 neumorph-inset rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+              className="w-full p-3 neumorph-inset rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <option value="isolated">Isolated (few or no close relationships)</option>
               <option value="some">Some (a few close friends/family)</option>
@@ -612,14 +660,14 @@ function renderLifeExpectancyCalculatorView({
           <div className="flex gap-4">
             <button
               type="submit"
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Calculate Life Expectancy
             </button>
             <button
               type="button"
               onClick={onReset}
-              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium"
+              className="flex-1 neumorph px-6 py-3 rounded-lg hover:shadow-lg transition duration-200 font-medium"
             >
               Reset
             </button>

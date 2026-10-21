@@ -11,7 +11,7 @@ const ACFTScoringStandardsPageContent = (
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
         ACFT Scoring Standards 2026: Passing, Excelling, and Maxing Out
       </h1>
-      <p className="text-gray-500 italic">Published: January 22, 2026 &bull; 19 min read</p>
+      <p className="text-gray-500 italic">Published: January 22, 2026 &bull; 19 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
@@ -712,7 +712,7 @@ const ACFTScoringStandardsPageContent = (
         , which accounts for these variations.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">What "Gold" and "Black" Standards Mean</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">What “Gold” and “Black” Standards Mean</h2>
 
       <p>
         The ACFT uses a color-coded category system to classify overall performance beyond just
@@ -787,7 +787,7 @@ const ACFTScoringStandardsPageContent = (
       </div>
 
       <p>
-        The "Black" designation for the minimum passing tier is worth understanding. It is not
+        The “Black” designation for the minimum passing tier is worth understanding. It is not
         explicitly a negative mark, but in a competitive promotion environment, scoring in the Black
         tier while your peers are Silver and Gold puts you at a disadvantage. Senior leaders notice.
         If you are sitting at 380, your goal should be to get above 420 as quickly as possible.
@@ -927,10 +927,10 @@ const ACFTScoringStandardsPageContent = (
                 Time to administer
               </td>
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-2">
-                ~45 min per group
+                ~45 min per group
               </td>
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-2">
-                ~90-120 min per group
+                ~90-120 min per group
               </td>
             </tr>
             <tr className="bg-gray-50 dark:bg-gray-800/50">
@@ -989,7 +989,7 @@ const ACFTScoringStandardsPageContent = (
 
         <p className="font-semibold mb-1">Deadlift, Power Throw, SDC: Lower failure rates</p>
         <p>
-          These events have relatively low failure rates. The deadlift minimum (200 lbs for men, 130
+          These events have relatively low failure rates. The deadlift minimum (200 lbs for men, 130
           lbs for women) is achievable for most soldiers who have spent any time in a gym. The power
           throw and SDC favor raw athleticism, which most young soldiers possess.
         </p>
@@ -1031,11 +1031,11 @@ const ACFTScoringStandardsPageContent = (
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
                 MDL
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">200 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">230 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">260 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">300 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">340 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">200 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">230 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">260 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">300 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">340 lbs</td>
             </tr>
             <tr className="bg-gray-50 dark:bg-gray-800/50">
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
@@ -1123,11 +1123,11 @@ const ACFTScoringStandardsPageContent = (
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
                 MDL
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">130 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">150 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">170 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">190 lbs</td>
-              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">210 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">130 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">150 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">170 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">190 lbs</td>
+              <td className="border border-gray-300 dark:border-gray-600 px-3 py-2">210 lbs</td>
             </tr>
             <tr className="bg-gray-50 dark:bg-gray-800/50">
               <td className="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">
@@ -1288,16 +1288,16 @@ const ACFTScoringStandardsPageContent = (
           <li>Army Regulation 350-1: Army Training and Leader Development (2022).</li>
           <li>Army Regulation 600-8-19: Enlisted Promotions and Reductions.</li>
           <li>
-            Military.com. &quot;Nearly Half of Female Soldiers Still Failing New Army Fitness Test,
-            While Males Pass Easily.&quot; May 2021.
+            Military.com. “Nearly Half of Female Soldiers Still Failing New Army Fitness Test, While
+            Males Pass Easily.” May 2021.
           </li>
           <li>
-            Military.com. &quot;More Female Soldiers Are Passing the ACFT, But Their Scores Still
-            Trail Men&apos;s.&quot; May 2021.
+            Military.com. “More Female Soldiers Are Passing the ACFT, But Their Scores Still Trail
+            Men’s.” May 2021.
           </li>
           <li>
-            Army Times. &quot;New data shows performance divide on Army Combat Fitness Test.&quot;
-            November 2019.
+            Army Times. “New data shows performance divide on Army Combat Fitness Test.” November
+            2019.
           </li>
         </ul>
       </div>

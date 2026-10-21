@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { Gender, ActivityLevel } from '@/types/common';
 import { CalorieDeficitResult as CalorieDeficitResultType } from '@/types/calorieDeficit';
@@ -13,7 +14,6 @@ import CalculatorForm from '@/components/calculators/CalculatorForm';
 import CalorieDeficitResultDisplay from '@/components/calculators/calorie-deficit/CalorieDeficitResult';
 import CalorieDeficitInfo from '@/components/calculators/calorie-deficit/CalorieDeficitInfo';
 import CalorieDeficitUnderstanding from '@/components/calculators/calorie-deficit/CalorieDeficitUnderstanding';
-import SaveResult from '@/components/SaveResult';
 import {
   useHeight,
   useWeight,
@@ -27,6 +27,11 @@ import {
   useSharedResultPrefill,
 } from '@/hooks/useSharedResultPrefill';
 import type { SharedResultInputMap } from '@/utils/resultSharing';
+import { formatNumber } from '@/utils/formatNumber';
+import { scrollBehavior } from '@/utils/scrollBehavior';
+
+// Below-the-fold / result-only UI: split out of the page bundle.
+const SaveResult = dynamic(() => import('@/components/SaveResult'));
 
 // FAQ data for the calculator
 const faqs = [
@@ -62,7 +67,7 @@ const blogArticles = [
   {
     title: '5 Myths About Calorie Deficits Debunked',
     description:
-      "Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn't always linear and how to set realistic expectations.",
+      'Discover the truth behind common misconceptions about calorie deficits, weight loss, and metabolism. Learn why weight loss isn’t always linear and how to set realistic expectations.',
     slug: 'calorie-deficit-myths',
     date: 'February 25, 2025',
     readTime: '8 min read',
@@ -71,7 +76,7 @@ const blogArticles = [
   {
     title: 'TDEE Explained: How Many Calories Do You Really Need?',
     description:
-      "Understand the components of Total Daily Energy Expenditure (TDEE), how it's calculated, and why knowing your TDEE is crucial for effective weight management.",
+      'Understand the components of Total Daily Energy Expenditure (TDEE), how it’s calculated, and why knowing your TDEE is crucial for effective weight management.',
     slug: 'tdee-explained',
     date: 'February 20, 2025',
     readTime: '10 min read',
@@ -185,7 +190,7 @@ function createCalorieDeficitFormFields({
       value: age,
       onChange: setAge,
       error: errors.age,
-      placeholder: 'Years',
+      placeholder: 'e.g. 35…',
     },
     createHeightField(height, errors.height),
     {
@@ -332,7 +337,7 @@ function CalorieDeficitContent({
                   estimatedWeeks: result.estimatedWeeks,
                   weightToLose: `${
                     typeof weight.value === 'number' && typeof goalWeight === 'number'
-                      ? (weight.value - goalWeight).toFixed(1)
+                      ? formatNumber(weight.value - goalWeight, 1)
                       : 0
                   } ${weight.unit}`,
                 }}
@@ -369,6 +374,10 @@ export default function CalorieDeficitCalculator({
   const sharedPrefill = initialSharedPrefill ?? querySharedPrefill;
   const hasAppliedSharedPrefill = useRef(false);
 
+  const setHeightValue = height.setValue;
+
+  const setWeightValue = weight.setValue;
+
   useEffect(() => {
     if (!chainPrefill) return;
     dispatchState({
@@ -383,9 +392,9 @@ export default function CalorieDeficitCalculator({
           : {}),
       },
     });
-    if (typeof chainPrefill.height === 'number') height.setValue(chainPrefill.height);
-    if (typeof chainPrefill.weight === 'number') weight.setValue(chainPrefill.weight);
-  }, [chainPrefill, height, weight]);
+    if (typeof chainPrefill.height === 'number') setHeightValue(chainPrefill.height);
+    if (typeof chainPrefill.weight === 'number') setWeightValue(chainPrefill.weight);
+  }, [chainPrefill, setHeightValue, setWeightValue]);
 
   useEffect(() => {
     if (!sharedPrefill || hasAppliedSharedPrefill.current) return;
@@ -521,7 +530,7 @@ export default function CalorieDeficitCalculator({
         setTimeout(() => {
           const resultElement = document.getElementById('calorie-deficit-result');
           if (resultElement) {
-            resultElement.scrollIntoView({ behavior: 'smooth' });
+            resultElement.scrollIntoView({ behavior: scrollBehavior() });
           }
         }, 100);
 

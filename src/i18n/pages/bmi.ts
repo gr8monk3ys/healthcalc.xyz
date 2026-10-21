@@ -128,7 +128,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
     form: {
       title: 'Enter Your Details',
       ageLabel: 'Age',
-      agePlaceholder: 'Years',
+      agePlaceholder: 'e.g. 35…',
       genderLabel: 'Gender',
       genderMale: 'Male',
       genderFemale: 'Female',
@@ -152,11 +152,10 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
       },
       classificationAdult: 'BMI Classification',
       classificationChild: 'BMI Percentile Classification',
-      percentileTemplate: '{percentile}th Percentile - {category}',
+      percentileTemplate: '{ordinal} Percentile - {category}',
       healthyWeightRangeTitle: 'Healthy Weight Range for Your Height',
       whatThisMeansTitle: 'What This Means',
-      childIntroTemplate:
-        "Your child's BMI is at the {percentile}th percentile for their age and sex.",
+      childIntroTemplate: 'Your child’s BMI is at the {ordinal} percentile for their age and sex.',
       childUnderweight:
         'This is considered underweight. Consult with a healthcare provider to ensure proper growth and nutrition.',
       childHealthy: 'This is within the healthy weight range.',
@@ -177,7 +176,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
     info: {
       title: 'About BMI',
       intro:
-        "Body Mass Index (BMI) is a simple calculation using a person's height and weight. The formula is BMI = kg/m² where kg is a person's weight in kilograms and m² is their height in meters squared.",
+        'Body Mass Index (BMI) is a simple calculation using a person’s height and weight. The formula is BMI = kg/m² where kg is a person’s weight in kilograms and m² is their height in meters squared.',
       adultCategoriesTitle: 'BMI Categories for Adults:',
       adultCategories: [
         { label: 'Underweight:', body: 'BMI less than 18.5' },
@@ -196,7 +195,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
       ],
       limitationsTitle: 'Limitations of BMI:',
       limitationsBody:
-        "BMI is a useful screening tool, but it has limitations. It doesn't distinguish between muscle and fat, nor does it account for factors like age, sex, ethnicity, or muscle mass. Athletes and muscular individuals may have a high BMI without excess fat.",
+        'BMI is a useful screening tool, but it has limitations. It doesn’t distinguish between muscle and fat, nor does it account for factors like age, sex, ethnicity, or muscle mass. Athletes and muscular individuals may have a high BMI without excess fat.',
     },
     understanding: {
       title: 'Understanding Your BMI',
@@ -215,7 +214,7 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
       ],
       beyondTitle: 'Beyond BMI',
       beyondBody:
-        "While BMI is useful for population studies and general screening, it doesn't tell the complete story about your health. Other factors to consider include:",
+        'While BMI is useful for population studies and general screening, it doesn’t tell the complete story about your health. Other factors to consider include:',
       beyondList: [
         { label: 'Body composition:', body: 'The ratio of fat to muscle in your body' },
         {
@@ -240,12 +239,12 @@ const COPY: Record<SupportedLocale, BMIPageCopy> = {
       {
         question: 'What is a healthy BMI range?',
         answer:
-          "For adults, a healthy BMI typically ranges from 18.5 to 24.9 according to WHO standards. BMI under 18.5 is considered underweight, 25.0–29.9 is overweight, and 30.0 or higher is obese. BMI is a useful screening tool, but it doesn't distinguish muscle from fat and should be interpreted alongside other health markers.",
+          'For adults, a healthy BMI typically ranges from 18.5 to 24.9 according to WHO standards. BMI under 18.5 is considered underweight, 25.0–29.9 is overweight, and 30.0 or higher is obese. BMI is a useful screening tool, but it doesn’t distinguish muscle from fat and should be interpreted alongside other health markers.',
       },
       {
         question: 'Is BMI accurate for everyone?',
         answer:
-          "BMI is helpful for population screening but has limitations. It may misclassify athletes with high muscle mass, and it doesn't account for fat distribution or differences by age and ethnicity. Consider pairing BMI with waist measurements or body fat percentage.",
+          'BMI is helpful for population screening but has limitations. It may misclassify athletes with high muscle mass, and it doesn’t account for fat distribution or differences by age and ethnicity. Consider pairing BMI with waist measurements or body fat percentage.',
       },
       {
         question: 'How do I calculate BMI manually?',

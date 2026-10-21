@@ -53,7 +53,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
                   Fat: {result.fatGrams}g ({result.fatPercentage}%)
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {result.fatCalories} calories
+                  {result.fatCalories} calories
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
                   Protein: {result.proteinGrams}g ({result.proteinPercentage}%)
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {result.proteinCalories} calories
+                  {result.proteinCalories} calories
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
                   Net Carbs: {result.netCarbGrams}g ({result.netCarbPercentage}%)
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {result.netCarbCalories} calories
+                  {result.netCarbCalories} calories
                 </div>
               </div>
             </div>
@@ -93,6 +93,7 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
         <Card className="p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
           <div className="flex items-start gap-3">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
@@ -204,14 +205,12 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
             <span>
-              Track your macros carefully during the first 2-4 weeks until you learn portion sizes
+              Track your macros carefully during the first 2-4 weeks until you learn portion sizes
             </span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>
-              Drink plenty of water and supplement electrolytes to avoid the &quot;keto flu&quot;
-            </span>
+            <span>Drink plenty of water and supplement electrolytes to avoid the “keto flu”</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
@@ -219,13 +218,11 @@ export default function KetoResultDisplay({ result, ketoType }: KetoResultDispla
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>
-              Focus on whole, nutrient-dense foods rather than processed &quot;keto&quot; products
-            </span>
+            <span>Focus on whole, nutrient-dense foods rather than processed “keto” products</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>
-            <span>Give your body 2-4 weeks to fully adapt before judging results</span>
+            <span>Give your body 2-4 weeks to fully adapt before judging results</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-green-500 flex-shrink-0">✓</span>

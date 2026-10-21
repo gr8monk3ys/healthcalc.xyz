@@ -119,7 +119,7 @@ const BestAbRollersPageContent = (
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
           Best Ab Rollers for Core Training in 2026
         </h1>
-        <p className="text-gray-500 italic">Published: February 8, 2026 • 10 min read</p>
+        <p className="text-gray-500 italic">Published: February 8, 2026 • 10 min read</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -181,18 +181,18 @@ const BestAbRollersPageContent = (
         </div>
 
         <p>
-          I'm going to be honest here. The ab roller intimidated me for years. It looked simple, but
-          the first time I tried one, I face-planted after three reps. Turns out that's normal. The
-          ab roller is one of the most effective core training tools you can own, but it's also
+          I’m going to be honest here. The ab roller intimidated me for years. It looked simple, but
+          the first time I tried one, I face-planted after three reps. Turns out that’s normal. The
+          ab roller is one of the most effective core training tools you can own, but it’s also
           brutally humbling.
         </p>
 
         <p>
-          If you've used our{' '}
+          If you’ve used our{' '}
           <Link href="/body-fat" className="text-accent hover:underline">
             Body Fat Calculator
           </Link>{' '}
-          and want to actually see visible abs, or if you're tracking progress with our{' '}
+          and want to actually see visible abs, or if you’re tracking progress with our{' '}
           <Link href="/absi" className="text-accent hover:underline">
             ABSI Calculator
           </Link>
@@ -223,11 +223,11 @@ const BestAbRollersPageContent = (
 
         <p>
           Research shows ab rollouts activate your rectus abdominis 2x more than traditional
-          crunches. That's because you're working through a full range of motion under constant
+          crunches. That’s because you’re working through a full range of motion under constant
           tension, not just flexing your spine repeatedly.
         </p>
 
-        <p>Here's what makes ab rollers so effective:</p>
+        <p>Here’s what makes ab rollers so effective:</p>
 
         <ul className="list-disc list-inside my-4 space-y-2">
           <li>
@@ -243,14 +243,14 @@ const BestAbRollersPageContent = (
             rollouts as you get stronger
           </li>
           <li>
-            <strong>Time-efficient:</strong> 3 sets of 10 reps takes under 5 minutes but delivers
+            <strong>Time-efficient:</strong> 3 sets of 10 reps takes under 5 minutes but delivers
             serious results
           </li>
         </ul>
 
         <p>
           The catch? Form matters more than with any other ab exercise. Roll out too far before
-          you're ready and you'll strain your lower back. That's where choosing the right roller
+          you’re ready and you’ll strain your lower back. That’s where choosing the right roller
           comes in.
         </p>
 
@@ -262,7 +262,7 @@ const BestAbRollersPageContent = (
           <div className="flex justify-between items-start mb-4">
             <div>
               <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">
-                Editor's Choice
+                Editor’s Choice
               </span>
               <h3 className="text-xl font-semibold">Perfect Fitness Ab Carver Pro</h3>
             </div>
@@ -277,15 +277,15 @@ const BestAbRollersPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
-            <li>Ultra-wide wheel (4 inches) provides superior stability</li>
+            <li>Ultra-wide wheel (4 inches) provides superior stability</li>
             <li>Internal kinetic spring adds resistance on the rollout and assistance on return</li>
             <li>Ergonomic hand grips angled for better wrist alignment</li>
             <li>Includes foam knee pad for comfort</li>
-            <li>300 lb weight capacity</li>
+            <li>300 lb weight capacity</li>
             <li>Backed by Perfect Fitness quality guarantee</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">Why it's the best:</h4>
+          <h4 className="font-semibold mt-4 mb-2">Why it’s the best:</h4>
           <p>
             The kinetic spring is the game changer here. It provides just enough resistance on the
             way out to slow you down and prevent overextension, then helps you roll back to the
@@ -294,8 +294,8 @@ const BestAbRollersPageContent = (
           </p>
 
           <p className="mt-2">
-            I've used cheaper ab rollers that twist sideways mid-rep. The Ab Carver Pro's wide wheel
-            tracks perfectly straight every time. After 6 months of regular use, mine still rolls
+            I’ve used cheaper ab rollers that twist sideways mid-rep. The Ab Carver Pro’s wide wheel
+            tracks perfectly straight every time. After 6 months of regular use, mine still rolls
             smoothly with zero wobble.
           </p>
 
@@ -349,21 +349,21 @@ const BestAbRollersPageContent = (
             <li>Non-slip rubber wheels work on any surface</li>
             <li>Comfortable foam handles with secure grip</li>
             <li>Comes with thick knee pad for floor protection</li>
-            <li>Supports up to 500 lbs</li>
+            <li>Supports up to 500 lbs</li>
             <li>Assembly-free, ready to use out of the box</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">The honest truth:</h4>
           <p>
             This is a basic ab roller. No resistance spring, no automatic rollback assistance. You
-            get a wheel, handles, and a knee pad. But for most people, that's all you need. If
-            you're not sure whether ab rolling is for you, this is a low-risk way to find out.
+            get a wheel, handles, and a knee pad. But for most people, that’s all you need. If
+            you’re not sure whether ab rolling is for you, this is a low-risk way to find out.
           </p>
 
           <p className="mt-2">
-            The dual wheels help with stability, though you'll still wobble more than with the Ab
-            Carver Pro's wide single wheel. But at this price, I'm not complaining. I bought one for
-            my garage gym and it's held up fine for a year.
+            The dual wheels help with stability, though you’ll still wobble more than with the Ab
+            Carver Pro’s wide single wheel. But at this price, I’m not complaining. I bought one for
+            my garage gym and it’s held up fine for a year.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -413,7 +413,7 @@ const BestAbRollersPageContent = (
           <ul className="list-disc list-inside space-y-1">
             <li>Ergonomic elbow support pads eliminate wrist pressure</li>
             <li>Auto-rebound spring system assists the return motion</li>
-            <li>Extra-wide wheel (5 inches) for maximum stability</li>
+            <li>Extra-wide wheel (5 inches) for maximum stability</li>
             <li>Anti-slip textured wheel surface works on carpet or hardwood</li>
             <li>Adjustable elbow pad height for different arm lengths</li>
             <li>Includes thick knee mat and resistance band set</li>
@@ -430,7 +430,7 @@ const BestAbRollersPageContent = (
           <p className="mt-2">
             The trade-off is that elbow positioning takes some getting used to. Your first few
             sessions might feel awkward compared to a standard hand-grip roller. But once you dial
-            in the form, you'll be able to do longer sets without any upper body fatigue limiting
+            in the form, you’ll be able to do longer sets without any upper body fatigue limiting
             you.
           </p>
 
@@ -483,22 +483,22 @@ const BestAbRollersPageContent = (
             <li>Ergonomic handles with comfort foam grips</li>
             <li>Extra thick knee pad (15mm) for joint protection</li>
             <li>Includes digital workout guide and nutrition eBook</li>
-            <li>Lightweight design (1.5 lbs) for easy portability</li>
+            <li>Lightweight design (1.5 lbs) for easy portability</li>
             <li>Works on hardwood, carpet, and gym mats</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">What you get for $17:</h4>
           <p>
             The roller itself is comparable to the Vinsguir. Simple dual-wheel design, foam handles,
-            nothing fancy. Where Fitnessery adds value is the included workout guide. If you're new
-            to ab rollers and don't know how to progress from knee rollouts to standing rollouts,
+            nothing fancy. Where Fitnessery adds value is the included workout guide. If you’re new
+            to ab rollers and don’t know how to progress from knee rollouts to standing rollouts,
             the guide actually helps.
           </p>
 
           <p className="mt-2">
-            I wouldn't say the build quality is better than other budget options, but at this price
-            point, you're getting everything you need to start training. The knee pad is noticeably
-            thicker than most, which matters if you're doing rollouts on hardwood floors.
+            I wouldn’t say the build quality is better than other budget options, but at this price
+            point, you’re getting everything you need to start training. The knee pad is noticeably
+            thicker than most, which matters if you’re doing rollouts on hardwood floors.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -551,7 +551,7 @@ const BestAbRollersPageContent = (
             <li>High-density PVC wheel with smooth bearings</li>
             <li>Non-slip rubber grips on handles</li>
             <li>Includes knee pad and carry bag</li>
-            <li>Weighs less than 1 pound fully assembled</li>
+            <li>Weighs less than 1 pound fully assembled</li>
           </ul>
 
           <h4 className="font-semibold mt-4 mb-2">The portability angle:</h4>
@@ -563,10 +563,10 @@ const BestAbRollersPageContent = (
           </p>
 
           <p className="mt-2">
-            The single-wheel design is less stable than dual wheels, so you'll need decent core
-            strength to keep it tracking straight. I wouldn't recommend this as your first ab roller
-            unless you're already fairly strong. But for experienced users who need portability,
-            it's perfect.
+            The single-wheel design is less stable than dual wheels, so you’ll need decent core
+            strength to keep it tracking straight. I wouldn’t recommend this as your first ab roller
+            unless you’re already fairly strong. But for experienced users who need portability,
+            it’s perfect.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -595,33 +595,33 @@ const BestAbRollersPageContent = (
 
         <div className="neumorph p-6 rounded-lg my-6">
           <p>
-            Here's the progression I followed, and what I recommend to anyone starting out. Don't
+            Here’s the progression I followed, and what I recommend to anyone starting out. Don’t
             rush these phases. Bad form on ab rollouts can wreck your lower back.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Phase 1: Wall Rollouts (Weeks 1-2)</h4>
+          <h3 className="font-semibold mt-4 mb-2">Phase 1: Wall Rollouts (Weeks 1-2)</h3>
           <p>
             Start by rolling out to a wall. This limits your range of motion and prevents you from
             overextending. Do 3 sets of 10 reps with perfect form before progressing.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Phase 2: Knee Rollouts (Weeks 3-8)</h4>
+          <h3 className="font-semibold mt-4 mb-2">Phase 2: Knee Rollouts (Weeks 3-8)</h3>
           <p>
             Roll out from your knees with no wall assistance. Focus on keeping your hips extended,
             not letting your lower back sag. Work up to 3 sets of 15 clean reps.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Phase 3: Standing Rollouts (Week 9+)</h4>
+          <h3 className="font-semibold mt-4 mb-2">Phase 3: Standing Rollouts (Week 9+)</h3>
           <p>
             Once knee rollouts feel easy, try standing rollouts. Start with a limited range of
             motion and gradually increase as your core gets stronger. Even elite athletes struggle
             with full standing rollouts.
           </p>
 
-          <h4 className="font-semibold mt-4 mb-2">Form checklist:</h4>
+          <h3 className="font-semibold mt-4 mb-2">Form checklist:</h3>
           <ul className="list-disc list-inside mt-2 space-y-1">
-            <li>Keep your core braced like someone's about to punch your stomach</li>
-            <li>Don't let your hips sag or your lower back arch</li>
+            <li>Keep your core braced like someone’s about to punch your stomach</li>
+            <li>Don’t let your hips sag or your lower back arch</li>
             <li>Roll out only as far as you can maintain form</li>
             <li>Squeeze your glutes throughout the movement</li>
             <li>Breathe out on the rollout, breathe in on the return</li>
@@ -685,17 +685,17 @@ const BestAbRollersPageContent = (
 
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>If you're new to ab rollers:</strong> Get the{' '}
+            <strong>If you’re new to ab rollers:</strong> Get the{' '}
             <strong>Perfect Fitness Ab Carver Pro</strong>. The stability and spring assistance will
             help you learn proper form without face-planting.
           </li>
           <li>
-            <strong>If you're on a tight budget:</strong> The <strong>Vinsguir Ab Roller</strong>{' '}
-            does everything you need for $15. Skip the coffee shop twice and you've paid for it.
+            <strong>If you’re on a tight budget:</strong> The <strong>Vinsguir Ab Roller</strong>{' '}
+            does everything you need for $15. Skip the coffee shop twice and you’ve paid for it.
           </li>
           <li>
             <strong>If you have wrist problems:</strong> The <strong>FLYBIRD Ab Roller</strong> with
-            elbow support is worth every penny. Don't let wrist pain stop you from building a strong
+            elbow support is worth every penny. Don’t let wrist pain stop you from building a strong
             core.
           </li>
           <li>
@@ -752,21 +752,21 @@ const BestAbRollersPageContent = (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link
               href="/body-fat"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Body Fat Calculator</h4>
               <p className="text-sm text-gray-600">Measure your body composition</p>
             </Link>
             <Link
               href="/absi"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">ABSI Calculator</h4>
               <p className="text-sm text-gray-600">Assess abdominal health risk</p>
             </Link>
             <Link
               href="/calories-burned"
-              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition-all"
+              className="neumorph p-4 rounded-lg hover:shadow-neumorph-inset transition"
             >
               <h4 className="font-semibold">Calories Burned Calculator</h4>
               <p className="text-sm text-gray-600">Track workout energy expenditure</p>

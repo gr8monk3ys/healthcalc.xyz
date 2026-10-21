@@ -9,6 +9,7 @@ export const metadata = {
 const icons = {
   calories: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -21,6 +22,7 @@ const icons = {
   ),
   macros: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -37,6 +39,7 @@ const icons = {
   ),
   heart: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -49,6 +52,7 @@ const icons = {
   ),
   composition: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -65,6 +69,7 @@ const icons = {
   ),
   walking: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -81,6 +86,7 @@ const icons = {
   ),
   pregnancy: (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6"
       fill="none"
@@ -219,7 +225,7 @@ export default function LearnIndexPage() {
 
       <div className="mt-10 glass-panel rounded-3xl p-6 text-center">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-          Prefer to jump straight to a number?
+          Prefer to Jump Straight to a Number?
         </h2>
         <p className="mx-auto mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-300">
           Every guide links to the relevant tools, but you can also browse the full calculator
@@ -227,7 +233,7 @@ export default function LearnIndexPage() {
         </p>
         <Link
           href="/calculators"
-          className="elevated-pill mt-5 inline-flex rounded-full px-6 py-3 font-semibold text-accent transition-all hover:-translate-y-0.5 hover:border-accent/40"
+          className="elevated-pill mt-5 inline-flex rounded-full px-6 py-3 font-semibold text-accent transition hover:-translate-y-0.5 hover:border-accent/40"
         >
           Browse all calculators
         </Link>
