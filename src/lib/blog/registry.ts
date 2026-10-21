@@ -39,16 +39,16 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
   {
     title: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters',
     description:
-      'Understand healthy body fat ranges, how body fat is measured, and what the numbers mean for your overall health.',
+      'Understand healthy body fat ranges by age and sex, how body fat is measured (DEXA, BIA, calipers, smart scales), and how to track changes accurately over time.',
     slug: 'understanding-body-fat-percentage',
-    date: 'January 3, 2026',
-    readTime: '11 min read',
+    date: 'September 28, 2026',
+    readTime: '12 min read',
     category: 'Health & Science',
     image: '/images/blog/understanding-body-fat-percentage.jpg',
     featured: true,
     keywords:
-      'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat',
-    seoTitle: 'Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc',
+      'body fat percentage, healthy body fat, body composition, body fat ranges, how to measure body fat, smart scale body fat, tracking body fat over time',
+    seoTitle: "Understanding Body Fat Percentage: What’s Healthy and Why It Matters | HealthCalc",
   },
   {
     title: 'Understanding ABSI: Beyond BMI for Health Risk Assessment',
@@ -65,7 +65,7 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
   {
     title: 'The Pros and Cons of Different Body Fat Measurement Methods',
     description:
-      'Compare the accuracy, accessibility, and practicality of various body fat assessment techniques, from DEXA scans to skinfold calipers to Navy method measurements.',
+      'Compare DEXA scans, skinfold calipers, smart scales, and the Navy method for measuring body fat, with real accuracy ranges and typical costs for each method.',
     slug: 'measuring-body-fat',
     date: 'January 5, 2026',
     readTime: '12 min read',
@@ -944,6 +944,19 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
     keywords:
       'metabolic adaptation, weight loss plateau, adaptive thermogenesis, Biggest Loser study, diet breaks, MATADOR study, reverse dieting, NEAT suppression',
     seoTitle: 'Metabolic Adaptation and Weight Loss Plateaus | HealthCalc',
+  },
+  {
+    title: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Suddenly Tracking',
+    description:
+      'VO2 max predicts long-term mortality risk better than many traditional risk factors. What the research actually shows, and how to raise yours.',
+    slug: 'vo2-max-longevity-biomarker',
+    date: 'February 20, 2026',
+    readTime: '12 min read',
+    category: 'Training',
+    image: '/images/blog/vo2-max-longevity-biomarker.jpg',
+    keywords:
+      'VO2 max, VO2 max calculator, cardiorespiratory fitness, longevity biomarker, VO2 max training, Zone 2 training, HIIT VO2 max, VO2 max norms, Rockport walk test, cardiorespiratory fitness mortality',
+    seoTitle: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Tracking | HealthCalc',
   },
 ];
 
