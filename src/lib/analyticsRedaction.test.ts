@@ -79,6 +79,17 @@ describe('installGaHitRedaction', () => {
     expect(JSON.stringify(beaconSpy.mock.calls)).not.toContain(TOKEN);
   });
 
+  it('drops GA hits it cannot read instead of sending them', async () => {
+    const blob = new Blob([`dl=${TOKEN}`]);
+
+    expect(navigator.sendBeacon(hit, blob)).toBe(true);
+    await window.fetch(hit, { method: 'POST', body: blob });
+    await window.fetch(new Request(hit));
+
+    expect(beaconSpy).not.toHaveBeenCalled();
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
   it('leaves every other request untouched', async () => {
     const init = { method: 'POST', body: `dl=${TOKEN}` };
     await window.fetch(`/api/saved-results?r=${TOKEN}`, init);

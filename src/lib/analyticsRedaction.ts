@@ -49,24 +49,31 @@ export function redactGaPayload(payload: string): string {
  * reports `?q=` as search_term, so those can only be caught as they leave.
  */
 export function installGaHitRedaction(): void {
+  // A hit whose body can't be read here is dropped rather than sent unredacted.
+  const isReadable = (body: unknown) =>
+    body === undefined || body === null || typeof body === 'string';
+
   const nativeBeacon = navigator.sendBeacon?.bind(navigator);
   if (nativeBeacon) {
-    navigator.sendBeacon = (url, data) =>
-      GA_HIT_URL.test(String(url))
-        ? nativeBeacon(
-            redactGaPayload(String(url)),
-            typeof data === 'string' ? redactGaPayload(data) : data
-          )
-        : nativeBeacon(url, data);
+    navigator.sendBeacon = (url, data) => {
+      if (!GA_HIT_URL.test(String(url))) return nativeBeacon(url, data);
+      if (!isReadable(data)) return true;
+      return nativeBeacon(
+        redactGaPayload(String(url)),
+        typeof data === 'string' ? redactGaPayload(data) : data
+      );
+    };
   }
 
   const nativeFetch = window.fetch.bind(window);
   window.fetch = (input, init) => {
-    if (input instanceof Request || !GA_HIT_URL.test(String(input))) {
-      return nativeFetch(input, init);
+    const url = input instanceof Request ? input.url : String(input);
+    if (!GA_HIT_URL.test(url)) return nativeFetch(input, init);
+    if (input instanceof Request || !isReadable(init?.body)) {
+      return Promise.resolve(new Response(null, { status: 204 }));
     }
     return nativeFetch(
-      redactGaPayload(String(input)),
+      redactGaPayload(url),
       typeof init?.body === 'string' ? { ...init, body: redactGaPayload(init.body) } : init
     );
   };

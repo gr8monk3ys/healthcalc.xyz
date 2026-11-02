@@ -1,7 +1,7 @@
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { render } from '@testing-library/react';
-import { CookieConsentProvider } from './CookieConsent';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { CookieConsentProvider, useCookieConsent } from './CookieConsent';
 
 const route = vi.hoisted(() => ({ pathname: '/bmi' }));
 
@@ -22,9 +22,14 @@ function storeConsent(analytics: boolean): void {
   );
 }
 
+function OpenBanner(): React.JSX.Element {
+  const { openConsentBanner } = useCookieConsent();
+  return <button onClick={openConsentBanner}>open banner</button>;
+}
+
 const provider = (
   <CookieConsentProvider>
-    <div />
+    <OpenBanner />
   </CookieConsentProvider>
 );
 
@@ -56,6 +61,7 @@ describe('Google Analytics loading', () => {
     vi.unstubAllGlobals();
     document.head.querySelectorAll('script').forEach(script => script.remove());
     delete (window as unknown as { gtag?: unknown }).gtag;
+    delete (window as unknown as Record<string, unknown>)['ga-disable-G-TEST123'];
     window.fetch = nativeFetch;
     navigator.sendBeacon = nativeBeacon;
     window.history.pushState({}, '', '/');
@@ -87,6 +93,21 @@ describe('Google Analytics loading', () => {
     ]);
     expect(gtag.mock.calls[1]).toEqual(['config', 'G-TEST123']);
     expect(JSON.stringify(gtag.mock.calls)).not.toContain(TOKEN);
+  });
+
+  it('turns GA off when consent is withdrawn and back on when it is given again', async () => {
+    storeConsent(true);
+    render(provider);
+    const disabled = () => (window as unknown as Record<string, unknown>)['ga-disable-G-TEST123'];
+    expect(disabled()).toBe(false);
+
+    fireEvent.click(screen.getByRole('button', { name: 'open banner' }));
+    fireEvent.click(screen.getByRole('button', { name: 'cookie.action.rejectNonEssential' }));
+    expect(disabled()).toBe(true);
+
+    fireEvent.click(screen.getByRole('button', { name: 'open banner' }));
+    fireEvent.click(screen.getByRole('button', { name: 'cookie.action.acceptAll' }));
+    expect(disabled()).toBe(false);
   });
 
   it('keeps page_location current across client-side navigation, without the query', () => {

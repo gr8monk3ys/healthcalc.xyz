@@ -212,6 +212,14 @@ function GoogleAnalyticsLoader(): React.JSX.Element | null {
     setLoaded(true);
   }, [analytics, loaded]);
 
+  // A loaded gtag.js cannot be unloaded, so a visitor who withdraws consent
+  // mid-session is covered by Google's per-property off switch.
+  useEffect(() => {
+    if (!loaded) return;
+    (window as unknown as Record<string, unknown>)[`ga-disable-${process.env.NEXT_PUBLIC_GA_ID}`] =
+      !analytics;
+  }, [analytics, loaded]);
+
   // Without this, events after a client-side navigation report the first page.
   useEffect(() => {
     if (loaded) callGtag('set', { page_location: pathOnlyUrl(window.location.href) });
