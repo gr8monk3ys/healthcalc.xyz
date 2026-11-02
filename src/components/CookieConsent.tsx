@@ -10,6 +10,8 @@ import React, {
   useRef,
   ReactNode,
 } from 'react';
+import { usePathname } from 'next/navigation';
+import { installGaHitRedaction, pathOnlyUrl } from '@/lib/analyticsRedaction';
 import { getAdSensePublisherId, getAdSenseScriptSrc, shouldLoadAdSense } from '@/lib/adsense';
 import { useLocale } from '@/context/LocaleContext';
 
@@ -160,9 +162,14 @@ function AdSenseLoader(): React.JSX.Element | null {
 /*  Google Analytics Loader                                                   */
 /* -------------------------------------------------------------------------- */
 
+function callGtag(...args: unknown[]): void {
+  (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.(...args);
+}
+
 function GoogleAnalyticsLoader(): React.JSX.Element | null {
   const { analytics } = useCookieConsent();
   const [loaded, setLoaded] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const gaId = process.env.NEXT_PUBLIC_GA_ID;
@@ -181,6 +188,8 @@ function GoogleAnalyticsLoader(): React.JSX.Element | null {
       return;
     }
 
+    installGaHitRedaction();
+
     // gtag.js loader
     const gtagScript = document.createElement('script');
     gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
@@ -193,11 +202,20 @@ function GoogleAnalyticsLoader(): React.JSX.Element | null {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', '${gaId}');
     `;
     document.head.appendChild(inlineScript);
+    callGtag('set', {
+      page_location: pathOnlyUrl(window.location.href),
+      page_referrer: pathOnlyUrl(document.referrer),
+    });
+    callGtag('config', gaId);
     setLoaded(true);
   }, [analytics, loaded]);
+
+  // Without this, events after a client-side navigation report the first page.
+  useEffect(() => {
+    if (loaded) callGtag('set', { page_location: pathOnlyUrl(window.location.href) });
+  }, [loaded, pathname]);
 
   return null;
 }
