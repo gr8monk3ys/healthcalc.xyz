@@ -42,6 +42,21 @@ describe('AdUnit', () => {
     expect(container.querySelector('ins.adsbygoogle')).toBeInTheDocument();
   });
 
+  it.each(['?r=eyJ2IjoxfQ', '?q=term'])('renders and queues nothing on %s', async search => {
+    window.history.pushState({}, '', `/bmi${search}`);
+
+    const { container } = render(<AdUnit slot="1234567890" />);
+
+    await waitFor(() => {
+      expect(container.querySelector('ins.adsbygoogle')).not.toBeInTheDocument();
+    });
+    expect(
+      (window as Window & { adsbygoogle?: Array<Record<string, never>> }).adsbygoogle
+    ).toBeUndefined();
+
+    window.history.pushState({}, '', '/');
+  });
+
   it('suppresses ad loading in automated browsers', async () => {
     Object.defineProperty(window.navigator, 'webdriver', {
       configurable: true,
