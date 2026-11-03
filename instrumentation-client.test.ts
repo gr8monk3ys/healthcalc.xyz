@@ -16,6 +16,7 @@ describe('client instrumentation', () => {
   afterEach(() => {
     vi.doUnmock('@sentry/nextjs');
     vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
   });
 
   it('skips browser Sentry when the public DSN is absent', async () => {
@@ -83,7 +84,6 @@ describe('client instrumentation', () => {
         dsn: 'https://public@example.ingest.sentry.io/1',
         debug: false,
         environment: 'production',
-        tracesSampleRate: 1,
       })
     );
 
@@ -95,6 +95,32 @@ describe('client instrumentation', () => {
 
     expect(captureRouterTransitionStart).toHaveBeenCalledTimes(1);
     expect(captureRouterTransitionStart).toHaveBeenCalledWith('/body-fat');
+  });
+
+  it('samples traces only after analytics consent, and rereads the choice each time', async () => {
+    vi.stubEnv('NEXT_PUBLIC_SENTRY_DSN', 'https://public@example.ingest.sentry.io/1');
+    vi.stubEnv('NEXT_PUBLIC_VERCEL_ENV', 'production');
+
+    const init = vi.fn();
+    vi.doMock('@sentry/nextjs', () => ({ init, captureRouterTransitionStart: vi.fn() }));
+
+    const instrumentationClient = await import('./instrumentation-client');
+    await instrumentationClient.registerBrowserSentry();
+
+    const stored = new Map<string, string>();
+    vi.stubGlobal('window', {
+      localStorage: { getItem: (key: string) => stored.get(key) ?? null },
+    });
+
+    const options = init.mock.calls[0][0];
+    expect(options).not.toHaveProperty('tracesSampleRate');
+    expect(options.tracesSampler()).toBe(0);
+
+    stored.set('cookie-consent', JSON.stringify({ analytics: true }));
+    expect(options.tracesSampler()).toBeGreaterThan(0);
+
+    stored.set('cookie-consent', JSON.stringify({ analytics: false }));
+    expect(options.tracesSampler()).toBe(0);
   });
 
   it('scrubs result tokens and search terms from errors and transactions alike', async () => {

@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   hasConfiguredAnySentryDsn,
   hasConfiguredBrowserSentryDsn,
+  hasAnalyticsConsent,
   isDeployedSentryEnvironment,
   scrubSentryEvent,
   sentryDataCollection,
@@ -107,6 +108,48 @@ describe('DSN configuration helpers', () => {
 
     vi.stubEnv('NEXT_PUBLIC_SENTRY_DSN', DSN);
     expect(hasConfiguredBrowserSentryDsn()).toBe(true);
+  });
+});
+
+describe('hasAnalyticsConsent', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  function stubStored(value: string | null): void {
+    vi.stubGlobal('window', { localStorage: { getItem: () => value } });
+  }
+
+  it('is yes only when analytics was accepted', () => {
+    stubStored(JSON.stringify({ essential: true, analytics: true, advertising: false }));
+    expect(hasAnalyticsConsent()).toBe(true);
+
+    stubStored(JSON.stringify({ essential: true, analytics: false, advertising: true }));
+    expect(hasAnalyticsConsent()).toBe(false);
+  });
+
+  it('is no when nothing was chosen or the stored value is unusable', () => {
+    stubStored(null);
+    expect(hasAnalyticsConsent()).toBe(false);
+
+    for (const bad of ['{not json', 'null', '"true"', JSON.stringify({ analytics: 'true' })]) {
+      stubStored(bad);
+      expect(hasAnalyticsConsent()).toBe(false);
+    }
+  });
+
+  it('is no when storage throws, and on the server', () => {
+    vi.stubGlobal('window', {
+      localStorage: {
+        getItem: () => {
+          throw new Error('blocked');
+        },
+      },
+    });
+    expect(hasAnalyticsConsent()).toBe(false);
+
+    vi.unstubAllGlobals();
+    expect(hasAnalyticsConsent()).toBe(false);
   });
 });
 
