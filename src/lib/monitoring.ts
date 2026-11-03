@@ -144,6 +144,21 @@ export function scrubSentryEvent<T>(event: T): T {
 }
 
 /**
+ * Whether this visitor said yes to analytics in the cookie banner. Performance
+ * traces record how someone moves through the site, so they wait for that yes;
+ * error reports do not. Reads what CookieConsent stores, because instrumentation
+ * runs outside React and must not pull the banner into its bundle.
+ */
+export function hasAnalyticsConsent(): boolean {
+  try {
+    const stored = window.localStorage.getItem('cookie-consent');
+    return stored !== null && JSON.parse(stored)?.analytics === true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * v11 streams spans by default, which lifts the per-transaction span cap.
  * The org quota is shared and already exhausted (see above), so keep the
  * transaction model until someone decides to spend more on tracing.
