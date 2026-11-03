@@ -309,9 +309,11 @@ export default function EmbedPage(): React.JSX.Element {
           <div>
             <h3 className="font-semibold mb-1">Does the embed affect my page performance?</h3>
             <p className="text-sm text-slate-600 dark:text-slate-300">
-              The embeds are lightweight HTML pages with no external dependencies, no frameworks,
-              and no tracking scripts. They load fast and have minimal impact on your page
-              performance. The iframe uses lazy loading by default.
+              The embeds are lightweight HTML pages with no external dependencies, no frameworks, no
+              third-party scripts and no cookies. They load fast and have minimal impact on your
+              page performance. The iframe uses lazy loading by default. Each embed reports usage to
+              HealthCalc: a view, a completed calculation, which calculator, and the hostname of the
+              site it is on. The values people enter are never sent.
             </p>
           </div>
         </div>
