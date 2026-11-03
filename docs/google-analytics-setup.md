@@ -282,6 +282,7 @@ export const trackEvent = (eventName, eventParams) => {
 ### Important Implementation Details
 
 - **Production Only**: Analytics only runs when `NODE_ENV === 'production'`
+- **No query strings**: `?r=` holds a shared result's health values and `?q=` holds typed search text, so `src/lib/analyticsRedaction.ts` removes the query string from every URL GA receives and replaces search terms with `(redacted)`. UTM parameters go with it, so campaign reports will not show them. Google's own control is a useful second layer: in the web stream, under **Redact data**, turn on URL query parameter redaction and add `r,q`.
 - **Automatic**: Page views are tracked automatically via Next.js routing
 - **Custom Events**: Use `trackEvent()` function for custom tracking
 - **Privacy**: No PII (personally identifiable information) is tracked by default
