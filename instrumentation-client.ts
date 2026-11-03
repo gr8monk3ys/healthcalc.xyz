@@ -1,4 +1,5 @@
 import {
+  scrubSentryEvent,
   sentryDataCollection,
   sentryEnvironmentTag,
   sentryTraceLifecycle,
@@ -98,8 +99,9 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
               return null;
             }
 
-            return event;
+            return scrubSentryEvent(event);
           },
+          beforeSendTransaction: scrubSentryEvent,
         });
 
         flushPreInitErrors(Sentry);

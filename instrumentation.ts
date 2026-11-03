@@ -9,6 +9,7 @@
 
 import * as Sentry from '@sentry/nextjs';
 import {
+  scrubSentryEvent,
   sentryDataCollection,
   sentryEnvironmentTag,
   sentryTraceLifecycle,
@@ -20,11 +21,10 @@ import {
  * This helps capture server-side errors automatically
  */
 export async function onRequestError(
-  error: Error,
+  error: unknown,
   request: {
     method: string;
-    url: string;
-    headers: Headers;
+    path: string;
   }
 ) {
   // Nothing was initialised outside a deploy, so this would be a no-op that
@@ -33,14 +33,14 @@ export async function onRequestError(
     return;
   }
 
-  // Capture the error with Sentry
+  // Capture the error with Sentry. Method and path only: the path Next passes
+  // includes the query string, and the raw headers include the referer and cookies.
   Sentry.captureException(error, {
     contexts: {
       nextjs: {
         request: {
           method: request.method,
-          url: request.url,
-          headers: Object.fromEntries(request.headers.entries()),
+          path: request.path.split('?')[0],
         },
       },
     },
@@ -91,8 +91,9 @@ export async function register() {
             return null;
           }
 
-          return event;
+          return scrubSentryEvent(event);
         },
+        beforeSendTransaction: scrubSentryEvent,
       });
     } else if (process.env.NODE_ENV !== 'production') {
       console.warn('Sentry is off here: no DSN, or this is not a deployed environment.');
@@ -112,6 +113,8 @@ export async function register() {
         environment: sentryEnvironmentTag(),
         dataCollection: sentryDataCollection,
         traceLifecycle: sentryTraceLifecycle,
+        beforeSend: scrubSentryEvent,
+        beforeSendTransaction: scrubSentryEvent,
       });
     }
   }
