@@ -19,7 +19,9 @@ export function withoutQueryString<T extends { url: string }>(event: T): T {
 }
 
 const GA_URL_FIELDS = /(^|[?&\n])(dl|dr|ep\.page_location|ep\.page_referrer)=([^&\r\n]*)/g;
-const GA_URL_VALUES = /(^|[?&\n])([^=&\r\n]+)=(https?(?::|%3A)[^&\r\n]*)/gi;
+const GA_ANY_FIELD = /(^|[?&\n])([^=&\r\n]+)=([^&\r\n]*)/g;
+const QUERY_START = /\?|#|%3f|%23/i;
+const HOLDS_SENSITIVE_PARAM = /(?:\?|&|#|%3f|%26|%23)(?:r|q)(?:=|%3d)/i;
 const GA_SEARCH_FIELDS = /(^|[?&\n])(ep\.search_term|ep\.q_[^=&\r\n]*)=[^&\r\n]*/g;
 const GA_HIT_URL =
   /^https:\/\/(?:[^/]+\.)?(?:google-analytics\.com|doubleclick\.net|google\.com|googletagmanager\.com)\/(?:(?:[a-z]+\/)?collect|ads\/ga-audiences)(?:[/?]|$)/;
@@ -40,6 +42,17 @@ function isGaHit(url: unknown): boolean {
   }
 }
 
+/**
+ * Any field can hold a URL, and a relative or double-encoded one doesn't look like
+ * it, so this goes by what the value holds. A title ending in `?` is left alone.
+ */
+function stripQueryFromField(match: string, lead: string, key: string, value: string): string {
+  if (!value) return match;
+  const decoded = decodeOrEmpty(value);
+  if (decoded && !/^https?:/i.test(decoded) && !HOLDS_SENSITIVE_PARAM.test(decoded)) return match;
+  return `${lead}${key}=${encodeURIComponent(decoded.split(QUERY_START)[0])}`;
+}
+
 /** Rewrites a GA4 hit, either its URL or its newline-separated POST body. */
 export function redactGaPayload(payload: string): string {
   const stripUrl = (_match: string, lead: string, key: string, value: string) =>
@@ -47,7 +60,7 @@ export function redactGaPayload(payload: string): string {
 
   return payload
     .replace(GA_URL_FIELDS, stripUrl)
-    .replace(GA_URL_VALUES, stripUrl)
+    .replace(GA_ANY_FIELD, stripQueryFromField)
     .replace(GA_SEARCH_FIELDS, '$1$2=(redacted)');
 }
 

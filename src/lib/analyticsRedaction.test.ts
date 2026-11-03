@@ -49,6 +49,27 @@ describe('redactGaPayload', () => {
       `en=click&ep.link_url=${encoded('/tdee')}&dt=TDEE`
     );
   });
+
+  it('strips a relative or double-encoded URL held in any field', () => {
+    const relative = encodeURIComponent(`/tdee?r=${TOKEN}`);
+
+    expect(redactGaPayload(`en=x&ep.page_path=${relative}`)).toBe(
+      `en=x&ep.page_path=${encodeURIComponent('/tdee')}`
+    );
+    expect(redactGaPayload(`en=x&ep.page_path=${encodeURIComponent(relative)}`)).toBe(
+      `en=x&ep.page_path=${encodeURIComponent(encodeURIComponent('/tdee'))}`
+    );
+  });
+
+  it('empties any field it cannot decode', () => {
+    expect(redactGaPayload('en=x&ep.page_path=%E0%A4%A')).toBe('en=x&ep.page_path=');
+  });
+
+  it('leaves a value alone when it is not a URL and holds no r or q', () => {
+    const fields = `en=x&dt=${encodeURIComponent('What is BMI? A guide')}&ep.calculator=bmi&sr=1280x720`;
+
+    expect(redactGaPayload(fields)).toBe(fields);
+  });
 });
 
 describe('installGaHitRedaction', () => {
