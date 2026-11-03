@@ -67,6 +67,10 @@ export function shouldReportToSentry(dsn: string | undefined): boolean {
  * request/response bodies. On a health calculator those bodies and query
  * strings are people's measurements, so every `init` passes this explicitly
  * instead of inheriting the new default.
+ *
+ * `urlQueryParams` is off rather than a deny list: a shared result's `?r=` token
+ * encodes age, sex, height and weight, `?q=` is typed search text, and deny terms
+ * match by substring, so denying `r` would mean every key containing an r.
  */
 const SENTRY_PII_KEY_DENYLIST = ['forwarded', '-ip', 'remote-', 'via', '-user'];
 
@@ -78,12 +82,66 @@ export const sentryDataCollection = {
     response: { deny: SENTRY_PII_KEY_DENYLIST },
   },
   httpBodies: [],
-  urlQueryParams: { deny: SENTRY_PII_KEY_DENYLIST },
+  urlQueryParams: false,
   genAI: { inputs: false, outputs: false },
   databaseQueryData: false,
   queues: false,
   graphQL: { document: false, variables: false },
 };
+
+const FILTERED = '[Filtered]';
+// `r=` and `q=` anywhere in a string, also when the URL around them is percent-encoded.
+const SENSITIVE_QUERY_PARAM = /(%(?:25)*(?:3F|26)|\b)(r|q)(%(?:25)*3D|=)[^&#\s"'<>]*/gi;
+// A result token with no `r=` in front of it: base64url JSON always starts `eyJ`.
+const BARE_RESULT_TOKEN = /\beyJ[\w-]{16,}/g;
+
+function scrubText(text: string): string {
+  return text
+    .replace(SENSITIVE_QUERY_PARAM, `$1$2$3${FILTERED}`)
+    .replace(BARE_RESULT_TOKEN, FILTERED);
+}
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  if (typeof value !== 'object' || value === null) return false;
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+}
+
+function scrubValue(value: unknown, seen: WeakMap<object, unknown>): unknown {
+  if (typeof value === 'string') return scrubText(value);
+
+  if (Array.isArray(value)) {
+    if (seen.has(value)) return seen.get(value);
+    const copy: unknown[] = [];
+    seen.set(value, copy);
+    for (const item of value) copy.push(scrubValue(item, seen));
+    return copy;
+  }
+
+  if (isPlainObject(value)) {
+    if (seen.has(value)) return seen.get(value);
+    const copy: Record<string, unknown> = {};
+    seen.set(value, copy);
+    for (const [key, item] of Object.entries(value)) {
+      // SDK bookkeeping, never sent: it holds live scopes and is read back after this hook.
+      copy[key] = key === 'sdkProcessingMetadata' ? item : scrubValue(item, seen);
+    }
+    return copy;
+  }
+
+  return value;
+}
+
+/**
+ * `urlQueryParams: false` covers the URLs the SDK collects itself. It does not
+ * reach free text (exception messages, console breadcrumbs) or what the server
+ * copies raw (`http.target`, the `referer` header), so every string in an outgoing
+ * event goes through here. Use as both `beforeSend` and `beforeSendTransaction`:
+ * `beforeSend` never sees transactions.
+ */
+export function scrubSentryEvent<T>(event: T): T {
+  return scrubValue(event, new WeakMap()) as T;
+}
 
 /**
  * v11 streams spans by default, which lifts the per-transaction span cap.

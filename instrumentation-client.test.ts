@@ -97,6 +97,24 @@ describe('client instrumentation', () => {
     expect(captureRouterTransitionStart).toHaveBeenCalledWith('/body-fat');
   });
 
+  it('scrubs result tokens and search terms from errors and transactions alike', async () => {
+    vi.stubEnv('NEXT_PUBLIC_SENTRY_DSN', 'https://public@example.ingest.sentry.io/1');
+    vi.stubEnv('NEXT_PUBLIC_VERCEL_ENV', 'production');
+
+    const init = vi.fn();
+    vi.doMock('@sentry/nextjs', () => ({ init, captureRouterTransitionStart: vi.fn() }));
+
+    const instrumentationClient = await import('./instrumentation-client');
+    await instrumentationClient.registerBrowserSentry();
+
+    const options = init.mock.calls[0][0];
+    const event = { request: { url: 'https://www.healthcalc.xyz/search?q=zzcanaryterm7q' } };
+
+    expect(options.dataCollection.urlQueryParams).toBe(false);
+    expect(JSON.stringify(options.beforeSend(event))).not.toContain('zzcanaryterm7q');
+    expect(JSON.stringify(options.beforeSendTransaction(event))).not.toContain('zzcanaryterm7q');
+  });
+
   it('initializes on a preview deploy, tagged apart from production', async () => {
     vi.stubEnv('NEXT_PUBLIC_SENTRY_DSN', 'https://public@example.ingest.sentry.io/1');
     vi.stubEnv('NEXT_PUBLIC_VERCEL_ENV', 'preview');
