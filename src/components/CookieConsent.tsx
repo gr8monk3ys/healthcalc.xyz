@@ -119,6 +119,7 @@ function writeConsent(state: CookieConsentState): void {
 function AdSenseLoader(): React.JSX.Element | null {
   const { advertising } = useCookieConsent();
   const [loaded, setLoaded] = useState(false);
+  const pathname = usePathname();
   const publisherId = getAdSensePublisherId();
   const hasConfiguredAdSlot = Boolean(
     process.env.NEXT_PUBLIC_ADSENSE_SLOT_CONTENT?.trim() ||
@@ -153,7 +154,9 @@ function AdSenseLoader(): React.JSX.Element | null {
     script.crossOrigin = 'anonymous';
     document.head.appendChild(script);
     setLoaded(true);
-  }, [advertising, hasConfiguredAdSlot, loaded, publisherId]);
+    // pathname: a visitor who lands on a URL AdSense must not see can still get
+    // ads on the next page they move to without a full load.
+  }, [advertising, hasConfiguredAdSlot, loaded, pathname, publisherId]);
 
   return null;
 }

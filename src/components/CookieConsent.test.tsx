@@ -129,3 +129,62 @@ describe('Google Analytics loading', () => {
     expect(JSON.stringify(gtag.mock.calls)).not.toContain(TOKEN);
   });
 });
+
+describe('AdSense loading', () => {
+  const adSenseScript = () => document.querySelector('script[src*="adsbygoogle.js"]');
+
+  beforeEach(() => {
+    vi.stubEnv('NODE_ENV', 'production');
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        observe(): void {}
+        disconnect(): void {}
+      }
+    );
+    Object.defineProperty(window.navigator, 'webdriver', { configurable: true, value: false });
+    localStorage.clear();
+    localStorage.setItem(
+      'cookie-consent',
+      JSON.stringify({ essential: true, analytics: false, advertising: true, tcfVersion: '2.2' })
+    );
+    route.pathname = '/bmi';
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
+    document.head.querySelectorAll('script').forEach(script => script.remove());
+    window.history.pushState({}, '', '/');
+  });
+
+  it('loads with advertising consent on a URL with no sensitive query', () => {
+    window.history.pushState({}, '', '/bmi?utm_source=x');
+    render(provider);
+
+    expect(adSenseScript()).not.toBeNull();
+  });
+
+  it.each([`/bmi?r=${TOKEN}`, '/search?q=term'])('does not load on %s', url => {
+    window.history.pushState({}, '', url);
+    render(provider);
+
+    expect(adSenseScript()).toBeNull();
+  });
+
+  it('loads after client-side navigation off a sensitive URL', () => {
+    window.history.pushState({}, '', `/bmi?r=${TOKEN}`);
+    const { rerender } = render(provider);
+    expect(adSenseScript()).toBeNull();
+
+    route.pathname = '/tdee';
+    window.history.pushState({}, '', '/tdee');
+    rerender(
+      <CookieConsentProvider>
+        <div />
+      </CookieConsentProvider>
+    );
+
+    expect(adSenseScript()).not.toBeNull();
+  });
+});

@@ -1,6 +1,9 @@
 const DEFAULT_ADSENSE_PUBLISHER_ID = 'ca-pub-4505962980988232';
 const ADSENSE_PUBLISHER_ID_PATTERN = /^ca-pub-\d{16}$/;
 const AUTOMATED_BROWSER_PATTERN = /\b(?:HeadlessChrome|PhantomJS|Playwright|puppeteer)\b/i;
+// AdSense copies the page URL into every ad request. `r` is a shared result's
+// token (age, sex, height, weight) and `q` is whatever was typed into search.
+const SENSITIVE_QUERY_PARAMS = ['r', 'q'];
 
 interface NavigatorLike {
   userAgent?: string;
@@ -36,7 +39,12 @@ export function isAutomatedBrowser(navigatorLike: NavigatorLike | undefined): bo
   );
 }
 
+export function hasSensitiveQuery(search: string): boolean {
+  const params = new URLSearchParams(search);
+  return SENSITIVE_QUERY_PARAMS.some(param => params.has(param));
+}
+
 export function shouldLoadAdSense(target: Window | undefined = globalThis.window): boolean {
   if (!target) return true;
-  return !isAutomatedBrowser(target.navigator);
+  return !isAutomatedBrowser(target.navigator) && !hasSensitiveQuery(target.location.search);
 }
