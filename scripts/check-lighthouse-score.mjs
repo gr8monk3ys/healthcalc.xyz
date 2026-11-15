@@ -31,15 +31,15 @@ const SCORE_FLOORS = {
 };
 
 // Document byte budget for the home route, compressed, as a browser would
-// receive it. `experimental.inlineCss` moved the global stylesheet into the
-// HTML, so the document is now the one asset whose growth nothing else
-// measures: a stray import that pulls more CSS into the inline block, or a
-// component that starts server-rendering a large data table, shows up here and
-// nowhere in the JS bundle stats. Measured 2026-09-16 on the production build:
-// 65,064 bytes gzipped locally, 66,113 bytes on www.healthcalc.xyz. The cap is
-// ~25% over that; the measured number is printed on every run so the trend is
-// visible in the job log before the cap ever trips.
-const HOME_DOCUMENT_MAX_BYTES = 81_000;
+// receive it. Nothing else measures the HTML: a component that starts
+// server-rendering a large data table, or CSS finding its way back inline,
+// shows up here and nowhere in the JS bundle stats. The global stylesheet used
+// to be inlined (`experimental.inlineCss`), which put 140 KB of CSS into every
+// document twice (a <style> block plus the RSC payload) and made it 67 KB
+// gzipped; it is a cached <link> again. Measured 2026-11-15 on the production
+// build: 19,146 bytes gzipped. The cap is ~25% over that; the measured number
+// is printed on every run so the trend is visible before the cap ever trips.
+const HOME_DOCUMENT_MAX_BYTES = 24_000;
 
 const MAX_ATTEMPTS = 4;
 const artifactDir = join(process.cwd(), 'artifacts', 'lighthouse');
@@ -174,8 +174,8 @@ function checkDocumentBudget(url) {
   if (bytes > HOME_DOCUMENT_MAX_BYTES) {
     console.error(
       `[document] home document is ${bytes} bytes compressed, over the ${HOME_DOCUMENT_MAX_BYTES} byte budget. ` +
-        'With inlineCss on, this usually means more CSS reached the global stylesheet or a ' +
-        'server component started rendering something large. Trim it or, if the growth is ' +
+        'This usually means a server component started rendering something large or CSS ' +
+        'is being inlined again. Trim it or, if the growth is ' +
         'deliberate, raise HOME_DOCUMENT_MAX_BYTES in scripts/check-lighthouse-score.mjs ' +
         'and say why in the PR.'
     );
