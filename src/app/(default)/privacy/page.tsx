@@ -42,6 +42,20 @@ export default function PrivacyPolicyPage() {
             <strong>Usage analytics:</strong> we may collect aggregate site usage data (e.g., page
             views, browser type, approximate location by IP) through analytics providers.
           </li>
+          <li>
+            <strong>Error reports:</strong> when something on the site breaks, we send a report to
+            our error monitoring provider, Sentry, so we can fix it. A report holds the error
+            details, the page address without its query string, your browser, device type, language
+            and time zone, and a short record of recent activity on the page, such as clicks,
+            navigation and requests the page made. We set these reports up to leave out
+            shared-result links, search terms, cookies and the values you type into a calculator,
+            and we ask Sentry not to store your IP address. Error reports, and a simple count of
+            visits, are sent whether or not you accept analytics cookies.
+          </li>
+          <li>
+            <strong>Performance traces:</strong> if you accept analytics cookies, we also send
+            Sentry timing data for a sample of page loads and navigations, set up the same way.
+          </li>
         </ul>
       </div>
 
@@ -71,8 +85,8 @@ export default function PrivacyPolicyPage() {
       <div className="neumorph mb-8 rounded-lg p-6">
         <h2 className="mb-4 text-2xl font-semibold">Third-Party Services</h2>
         <p>
-          We use third-party analytics and advertising tools. Their handling of data is governed by
-          their own privacy policies.
+          We use third-party analytics and advertising tools, and Sentry for error monitoring. Their
+          handling of data is governed by their own privacy policies.
         </p>
       </div>
 

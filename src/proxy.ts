@@ -81,7 +81,10 @@ function applySecurityHeaders(request: NextRequest, response: NextResponse): Nex
     response.headers.delete('X-Frame-Options');
   }
   response.headers.set('X-XSS-Protection', '1; mode=block');
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  // Not the default strict-origin-when-cross-origin: that leaves the full previous
+  // URL, query string included, in document.referrer on same-origin navigation,
+  // and AdSense copies document.referrer into its ad requests.
+  response.headers.set('Referrer-Policy', 'strict-origin');
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
   response.headers.set('Vary', 'Accept-Language, Cookie');
   return response;

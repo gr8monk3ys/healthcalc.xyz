@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   getAdSensePublisherId,
   getAdSenseScriptSrc,
+  hasSensitiveQuery,
   isAutomatedBrowser,
   shouldLoadAdSense,
 } from './adsense';
@@ -50,4 +51,30 @@ describe('adsense helpers', () => {
       } as Window)
     ).toBe(false);
   });
+
+  it.each(['?r=abc', '?q=term', '?utm_source=x&r=abc', '?%72=abc', '?q='])(
+    'treats %s as a URL AdSense must not see',
+    search => {
+      expect(hasSensitiveQuery(search)).toBe(true);
+      expect(
+        shouldLoadAdSense({
+          navigator: { webdriver: false, userAgent: 'Chrome' },
+          location: { search },
+        } as Window)
+      ).toBe(false);
+    }
+  );
+
+  it.each(['', '?utm_source=x', '?tab=metric', '?query=term', '?ref=abc'])(
+    'allows AdSense on "%s"',
+    search => {
+      expect(hasSensitiveQuery(search)).toBe(false);
+      expect(
+        shouldLoadAdSense({
+          navigator: { webdriver: false, userAgent: 'Chrome' },
+          location: { search },
+        } as Window)
+      ).toBe(true);
+    }
+  );
 });

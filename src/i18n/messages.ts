@@ -236,7 +236,7 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'cookie.option.essential.desc': 'Required for the site to function. Cannot be disabled.',
   'cookie.option.analytics.label': 'Analytics',
   'cookie.option.analytics.desc':
-    'Help us understand how visitors interact with the site via Google Analytics.',
+    'Help us understand how visitors use the site and how fast it loads, via Google Analytics and Sentry.',
   'cookie.option.advertising.label': 'Advertising',
   'cookie.option.advertising.desc':
     'Allow personalised ads through Google AdSense (TCF 2.2 compliant).',

@@ -1,4 +1,6 @@
 import {
+  hasAnalyticsConsent,
+  scrubSentryEvent,
   sentryDataCollection,
   sentryEnvironmentTag,
   sentryTraceLifecycle,
@@ -71,7 +73,10 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
       .then(Sentry => {
         Sentry.init({
           dsn: BROWSER_SENTRY_DSN,
-          tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+          // Asked at the start of each trace, so a choice made in the banner
+          // applies from the next navigation. An unsampled trace sends nothing.
+          tracesSampler: () =>
+            hasAnalyticsConsent() ? (process.env.NODE_ENV === 'production' ? 0.1 : 1.0) : 0,
           debug: false,
           // 'production' or 'preview' from Vercel, so the two deployed
           // environments stay distinguishable in the issue stream.
@@ -98,8 +103,9 @@ function getBrowserSentryModule(): Promise<BrowserSentryModule | null> {
               return null;
             }
 
-            return event;
+            return scrubSentryEvent(event);
           },
+          beforeSendTransaction: scrubSentryEvent,
         });
 
         flushPreInitErrors(Sentry);
