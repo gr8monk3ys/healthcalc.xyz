@@ -43,14 +43,14 @@ const WaistToHeightRatioExplainedPageContent = (
         Health &amp; Science
       </span>
       <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-        Waist-to-Height Ratio Explained: Why Half Your Height Matters
+        Waist-to-height ratio explained: why half your height matters
       </h1>
       <p className="text-gray-500 italic">8 min read</p>
     </div>
 
     <div className="prose prose-lg max-w-none">
       <div className="neumorph p-6 rounded-lg mb-8">
-        <h2 className="text-xl font-semibold mb-4">Key Takeaways</h2>
+        <h2 className="text-xl font-semibold mb-4">Key takeaways</h2>
         <ul className="space-y-2">
           <li>Waist-to-height ratio (WHtR) is your waist circumference divided by your height</li>
           <li>
@@ -90,7 +90,7 @@ const WaistToHeightRatioExplainedPageContent = (
         limits.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">The Formula</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">The formula</h2>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <p className="text-lg font-semibold text-center">
@@ -110,20 +110,24 @@ const WaistToHeightRatioExplainedPageContent = (
         dividing.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">How to Measure Your Waist</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">How to measure your waist</h2>
 
       <p>
         Waist circumference is the part people get wrong, and a couple of centimetres moves the
-        ratio by about 0.01. NICE describes the method this way:
+        ratio by about 0.01. NICE&rsquo;s instruction is to measure halfway between the bottom of
+        your lowest rib and the top of your hip bone, which for most people is just above the belly
+        button.
       </p>
+
+      <p>A few general tape-measure habits make the reading more repeatable:</p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <ol className="list-decimal list-inside space-y-2">
-          <li>Stand up straight with your feet together and remove or lift clothing</li>
+          <li>Stand up straight and measure against bare skin or thin clothing</li>
           <li>Find the bottom of your lowest rib and the top of your hip bone</li>
-          <li>Place the tape midway between the two - for many people this is near the navel</li>
-          <li>Keep the tape level all the way around and snug but not compressing the skin</li>
-          <li>Breathe out naturally and read the measurement at the end of the breath</li>
+          <li>Place the tape midway between the two</li>
+          <li>Keep the tape level all the way around, snug but not pressing into the skin</li>
+          <li>Breathe out normally before you read the number</li>
         </ol>
       </div>
 
@@ -137,7 +141,7 @@ const WaistToHeightRatioExplainedPageContent = (
         covers tape technique in more detail.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">What the Numbers Mean</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">What the numbers mean</h2>
 
       <p>
         Our calculator uses these adult ranges. The 0.5 and 0.6 boundaries match those NICE added to
@@ -182,36 +186,30 @@ const WaistToHeightRatioExplainedPageContent = (
         as well, and talk to a clinician if you have lost weight without trying.
       </p>
 
-      <h3 className="text-xl font-semibold mt-6 mb-3">Worked Examples</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-3">Worked examples</h3>
 
       <p>These are the ratios and categories our calculator returns for a few measurements:</p>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-2">
+          <li>Waist 85 cm, height 175 cm: 0.49 - lower risk range.</li>
           <li>
-            <strong>Waist 85 cm, height 175 cm</strong>: 0.49 - lower risk range.
+            Waist 82 cm, height 160 cm: 0.51 - increased risk range, even though an 82 cm waist
+            sounds modest.
           </li>
-          <li>
-            <strong>Waist 82 cm, height 160 cm</strong>: 0.51 - increased risk range, even though an
-            82 cm waist sounds modest.
-          </li>
-          <li>
-            <strong>Waist 105 cm, height 170 cm</strong>: 0.62 - higher risk range.
-          </li>
-          <li>
-            <strong>Waist 66 cm, height 170 cm</strong>: 0.39 - below typical range.
-          </li>
+          <li>Waist 105 cm, height 170 cm: 0.62 - higher risk range.</li>
+          <li>Waist 66 cm, height 170 cm: 0.39 - below typical range.</li>
         </ul>
       </div>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Why Divide by Height?</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Why divide by height?</h2>
 
       <p>
         Waist circumference on its own is already a useful risk marker. The World Health
         Organization&rsquo;s commonly quoted thresholds for European-origin adults flag increased
         risk above 94 cm (37 in) for men and 80 cm (31.5 in) for women, and substantially increased
-        risk above 102 cm (40 in) and 88 cm (34.5 in). But a single cut-off treats a short person
-        and a tall person the same.
+        risk above 102 cm (40 in) and 88 cm (35 in). But a single cut-off treats a short person and
+        a tall person the same.
       </p>
 
       <p>
@@ -223,7 +221,7 @@ const WaistToHeightRatioExplainedPageContent = (
 
       <AdBlock format="horizontal" />
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">What the Research Shows</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">What the research shows</h2>
 
       <p>
         The &ldquo;half your height&rdquo; boundary was proposed in the 1990s and has been tested
@@ -233,12 +231,12 @@ const WaistToHeightRatioExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-3">
           <li>
-            <strong>Browning, Hsieh, and Ashwell (2010)</strong> reviewed 78 studies and concluded
-            that 0.5 was a reasonable global boundary for increased cardiovascular and diabetes risk
-            in adults of both sexes and in different ethnic groups.
+            A 2010 systematic review by Browning, Hsieh, and Ashwell covered 78 studies and
+            concluded that 0.5 was a reasonable global boundary for increased cardiovascular and
+            diabetes risk in adults of both sexes and in different ethnic groups.
           </li>
           <li>
-            <strong>Ashwell, Gunn, and Gibson (2012)</strong> pooled 31 studies of more than 300,000
+            A 2012 meta-analysis by Ashwell, Gunn, and Gibson pooled 31 studies of more than 300,000
             adults and found that WHtR discriminated cardiometabolic risk factors - such as
             diabetes, high blood pressure, and abnormal blood lipids - better than waist
             circumference and better than BMI.
@@ -250,9 +248,16 @@ const WaistToHeightRatioExplainedPageContent = (
         The advantage over BMI is real but not dramatic in every study, and some research suggests
         the best cut-off differs slightly between populations. That is part of why guidelines use
         WHtR <em>alongside</em> BMI rather than instead of it. NICE recommends that adults with a
-        BMI under 35 also measure their waist-to-height ratio, because it can reveal central fat
-        that BMI misses - including in people whose BMI is in the healthy range. Above a BMI of 35,
-        health risk is already considered high, so the extra measurement adds less.
+        BMI under 35 also measure their waist-to-height ratio (
+        <a
+          href="https://www.nice.org.uk/guidance/ng246"
+          className="text-accent hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          NICE NG246
+        </a>
+        ).
       </p>
 
       <p>
@@ -263,32 +268,29 @@ const WaistToHeightRatioExplainedPageContent = (
         .
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">How It Compares With Other Waist Measures</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">How it compares with other waist measures</h2>
 
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-3">
           <li>
-            <strong>Waist-to-hip ratio</strong> compares your waist with your hips. It is well
-            studied, but it needs a second tape measurement and has separate cut-offs for men and
-            women. Our{' '}
+            Waist-to-hip ratio compares your waist with your hips. It is well studied, but it needs
+            a second tape measurement and has separate cut-offs for men and women. Our{' '}
             <Link href="/blog/waist-to-hip-ratio-guide" className="text-accent hover:underline">
               waist-to-hip ratio guide
             </Link>{' '}
             explains it.
           </li>
           <li>
-            <strong>A Body Shape Index (ABSI)</strong> combines waist, height, and weight to
-            separate body shape from overall size. It is more complex and mainly used in research.
-            See{' '}
+            A Body Shape Index (ABSI) combines waist, height, and weight to separate body shape from
+            overall size. It is more complex and mainly used in research. See{' '}
             <Link href="/blog/understanding-absi" className="text-accent hover:underline">
               Understanding ABSI
             </Link>
             .
           </li>
           <li>
-            <strong>Waist-to-height ratio</strong> needs only a tape measure and your height, and
-            uses one boundary for everyone. That simplicity is its main strength as a screening
-            tool.
+            Waist-to-height ratio needs only a tape measure and your height, and uses one boundary
+            for everyone. That simplicity is its main strength as a screening tool.
           </li>
         </ul>
       </div>
@@ -297,32 +299,28 @@ const WaistToHeightRatioExplainedPageContent = (
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>
-          <strong>It is a screening measure.</strong> A ratio above 0.5 means higher average risk
-          across a population, not that you have or will develop a condition.
+          It is a screening measure: a ratio above 0.5 means higher average risk across a
+          population, not that you have or will develop a condition.
         </li>
         <li>
-          <strong>It does not separate fat types.</strong> A tape cannot tell visceral fat from fat
-          under the skin, or from abdominal bloating.
+          A tape cannot tell visceral fat from fat under the skin, or from abdominal bloating.
+        </li>
+        <li>The ratio is not meaningful during pregnancy.</li>
+        <li>
+          The categories in this article and in our calculator are for adults. Growth in children is
+          assessed differently, so ask a pediatrician.
         </li>
         <li>
-          <strong>Pregnancy.</strong> The ratio is not meaningful during pregnancy.
+          Height tends to decrease with age, which nudges the ratio up slightly even if the waist
+          has not changed.
         </li>
         <li>
-          <strong>Children and teenagers.</strong> The categories in this article and in our
-          calculator are for adults. Growth in children is assessed differently, so ask a
-          pediatrician.
-        </li>
-        <li>
-          <strong>Older adults.</strong> Height tends to decrease with age, which nudges the ratio
-          up slightly even if the waist has not changed.
-        </li>
-        <li>
-          <strong>Measurement error.</strong> Measuring at a different spot, or after a large meal,
-          can shift the waist by a few centimetres.
+          Measuring at a different spot, or after a large meal, can shift the waist by a few
+          centimetres.
         </li>
       </ul>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">If Your Ratio Is 0.5 or Higher</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">If your ratio is 0.5 or higher</h2>
 
       <p>
         A higher ratio is a prompt to look at the rest of the picture, not a reason to panic. Useful
@@ -361,10 +359,10 @@ const WaistToHeightRatioExplainedPageContent = (
         alone.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Common mistakes</h2>
 
       <div className="neumorph p-6 rounded-lg my-6">
-        <h3 className="text-xl font-semibold mb-3">Mistake #1: Measuring at the Belt Line</h3>
+        <h3 className="text-xl font-semibold mb-3">Mistake #1: measuring at the belt line</h3>
         <p>
           Trouser waistbands often sit on the hips, below the point the cut-offs were defined at.
           Measure midway between your lowest rib and the top of your hip bone.
@@ -372,7 +370,7 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <div className="neumorph p-6 rounded-lg my-6">
-        <h3 className="text-xl font-semibold mb-3">Mistake #2: Mixing Units</h3>
+        <h3 className="text-xl font-semibold mb-3">Mistake #2: mixing units</h3>
         <p>
           A 32-inch waist divided by a height of 170 cm gives a meaningless 0.19. Convert both to
           the same unit first, or let the calculator do it.
@@ -380,7 +378,7 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <div className="neumorph p-6 rounded-lg my-6">
-        <h3 className="text-xl font-semibold mb-3">Mistake #3: Using It Instead of BMI</h3>
+        <h3 className="text-xl font-semibold mb-3">Mistake #3: using it instead of BMI</h3>
         <p>
           The two answer different questions - overall size and where fat is stored. Guidelines use
           them together.
@@ -389,7 +387,7 @@ const WaistToHeightRatioExplainedPageContent = (
 
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">
-          Mistake #4: Reading Too Much Into Small Changes
+          Mistake #4: reading too much into small changes
         </h3>
         <p>
           A change of 0.01 is within normal measurement error. Look at the trend over weeks, not a
@@ -408,21 +406,53 @@ const WaistToHeightRatioExplainedPageContent = (
           <li>
             Ashwell M, Gunn P, Gibson S. Waist-to-height ratio is a better screening tool than waist
             circumference and BMI for adult cardiometabolic risk factors: systematic review and
-            meta-analysis. Obesity Reviews. 2012;13(3):275-286.
+            meta-analysis. Obesity Reviews. 2012;13(3):275-286.{' '}
+            <a
+              href="https://doi.org/10.1111/j.1467-789X.2011.00952.x"
+              className="text-accent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1111/j.1467-789X.2011.00952.x
+            </a>
           </li>
           <li>
             Browning LM, Hsieh SD, Ashwell M. A systematic review of waist-to-height ratio as a
             screening tool for the prediction of cardiovascular disease and diabetes: 0.5 could be a
-            suitable global boundary value. Nutrition Research Reviews. 2010;23(2):247-269.
+            suitable global boundary value. Nutrition Research Reviews. 2010;23(2):247-269.{' '}
+            <a
+              href="https://doi.org/10.1017/S0954422410000144"
+              className="text-accent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://doi.org/10.1017/S0954422410000144
+            </a>
           </li>
           <li>
             National Institute for Health and Care Excellence. Obesity: identification, assessment
             and management (CG189), waist-to-height ratio recommendations added 2022; carried
-            forward in Overweight and obesity management (NG246), 2025.
+            forward in Overweight and obesity management (NG246), 2025.{' '}
+            <a
+              href="https://www.nice.org.uk/guidance/ng246"
+              className="text-accent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.nice.org.uk/guidance/ng246
+            </a>
           </li>
           <li>
             World Health Organization. Waist circumference and waist-hip ratio: report of a WHO
-            expert consultation. Geneva; 2008.
+            expert consultation. Geneva; 2008.{' '}
+            <a
+              href="https://www.who.int/publications/i/item/9789241501491"
+              className="text-accent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.who.int/publications/i/item/9789241501491
+            </a>
           </li>
         </ul>
       </div>
