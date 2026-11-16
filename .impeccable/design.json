@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T00:00:00Z",
+  "title": "Design System: HealthCalc",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Electric Indigo",
+        "canonical": "#4d55e8",
+        "tonalRamp": [
+          "#0c102b",
+          "#1f2470",
+          "#3a41c9",
+          "#4d55e8",
+          "#7b82ff",
+          "#a6acff",
+          "#cfd2ff",
+          "#eef0fc"
+        ]
+      },
+      "accent-alt": {
+        "role": "secondary",
+        "displayName": "Teal",
+        "canonical": "#0d9488",
+        "tonalRamp": [
+          "#042f2e",
+          "#134e4a",
+          "#0f766e",
+          "#0d9488",
+          "#14b8a6",
+          "#2dd4bf",
+          "#5eead4",
+          "#ccfbf1"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "hsl(38 25% 97%)",
+        "tonalRamp": [
+          "hsl(38 15% 15%)",
+          "hsl(38 15% 30%)",
+          "hsl(38 18% 50%)",
+          "hsl(38 18% 70%)",
+          "hsl(38 20% 86%)",
+          "hsl(38 22% 92%)",
+          "hsl(38 25% 97%)",
+          "hsl(38 25% 99%)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "hsl(210 15% 12%)",
+        "tonalRamp": [
+          "hsl(210 15% 12%)",
+          "hsl(210 15% 22%)",
+          "hsl(210 12% 35%)",
+          "hsl(215 10% 42%)",
+          "hsl(215 10% 60%)",
+          "hsl(215 12% 75%)",
+          "hsl(215 14% 88%)",
+          "hsl(215 14% 96%)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#565d8f",
+        "tonalRamp": [
+          "#1a1d33",
+          "#2c3055",
+          "#414778",
+          "#565d8f",
+          "#7a80ab",
+          "#a2a8d8",
+          "#c9cdea",
+          "#eaebf7"
+        ]
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Success Green",
+        "canonical": "#0e9f6e",
+        "tonalRamp": [
+          "#03301f",
+          "#065f3f",
+          "#0a7f57",
+          "#0e9f6e",
+          "#34d399",
+          "#6ee7b7",
+          "#a7f3d0",
+          "#ecfdf5"
+        ]
+      },
+      "warning": {
+        "role": "tertiary",
+        "displayName": "Warning Amber",
+        "canonical": "#d97706",
+        "tonalRamp": [
+          "#3d2003",
+          "#78350f",
+          "#b45309",
+          "#d97706",
+          "#f59e0b",
+          "#fbbf24",
+          "#fde68a",
+          "#fffbeb"
+        ]
+      },
+      "danger": {
+        "role": "tertiary",
+        "displayName": "Danger Red",
+        "canonical": "#dc2626",
+        "tonalRamp": [
+          "#450a0a",
+          "#7f1d1d",
+          "#b91c1c",
+          "#dc2626",
+          "#ef4444",
+          "#f87171",
+          "#fecaca",
+          "#fef2f2"
+        ]
+      },
+      "info": {
+        "role": "tertiary",
+        "displayName": "Info Blue",
+        "canonical": "#4f7bff",
+        "tonalRamp": [
+          "#0f1f4d",
+          "#1e3a8a",
+          "#2f5bd9",
+          "#4f7bff",
+          "#6da0ff",
+          "#93c5fd",
+          "#c7dbff",
+          "#eff6ff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Calculator page h1 inside .calc-hero; the home hero goes larger."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings and result-card titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Catalog card titles and result sub-headings."
+      },
+      "metric": {
+        "displayName": "Metric",
+        "purpose": "The answer: large, heavy, tabular, colored by status."
+      },
+      "body": { "displayName": "Body", "purpose": "Default copy; prose measure 38rem." },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase 0.75rem captions on ResultCard and stat rows."
+      },
+      "mono-label": {
+        "displayName": "Mono label",
+        "purpose": "The identity's label-mono kicker: dates, tags, catalogue numbers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient",
+        "value": "0 1px 2px rgba(30, 34, 90, 0.04), 0 10px 30px -12px rgba(48, 53, 140, 0.18)",
+        "purpose": "Resting state of glass panels, pills and soft buttons."
+      },
+      {
+        "name": "raised",
+        "value": "0 1px 2px rgba(30, 34, 90, 0.05), 0 18px 44px -16px rgba(48, 53, 140, 0.26)",
+        "purpose": "Hero panel, strong glass panels, floating metric cards."
+      },
+      {
+        "name": "hover",
+        "value": "0 2px 4px rgba(30, 34, 90, 0.06), 0 24px 52px -18px rgba(58, 65, 201, 0.34)",
+        "purpose": "Interactive card and soft button hover, paired with a lift."
+      },
+      {
+        "name": "button-primary",
+        "value": "inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 6px rgba(58, 65, 201, 0.25), 0 12px 28px -8px rgba(58, 65, 201, 0.45)",
+        "purpose": "The only saturated shadow; under the primary button."
+      },
+      {
+        "name": "focus",
+        "value": "0 0 0 2px hsl(var(--background)), 0 0 0 4px var(--focus-ring)",
+        "purpose": "Two-ring focus on every control."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-lift",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Card hover lift (250ms) and the identity's scroll reveal (650ms)."
+      },
+      {
+        "name": "ease-state",
+        "value": "ease",
+        "purpose": "150 to 200ms border, background and shadow state changes."
+      },
+      { "name": "duration-fast", "value": "150ms", "purpose": "Input and pill state changes." },
+      { "name": "duration-default", "value": "200ms", "purpose": "Button and card state changes." },
+      {
+        "name": "fade-in",
+        "value": "fadeIn 0.5s ease-in-out",
+        "purpose": "Result panel entrance."
+      },
+      {
+        "name": "slide-in-up",
+        "value": "slideInUp 0.5s ease-out",
+        "purpose": "Result section entrance, 14px travel."
+      },
+      {
+        "name": "hero-float",
+        "value": "heroFloat 7s / 9s ease-in-out infinite",
+        "purpose": "Decorative hero metric cards; stilled by prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one saturated control: Calculate, Save, Sign in.",
+      "html": "<button class=\"ds-btn-primary\">Calculate</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.875rem; border: 0; border-radius: 0.875rem; padding: 0.625rem 1.25rem; color: #fff; font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; cursor: pointer; background: linear-gradient(135deg, var(--accent-light, #7b82ff) -20%, var(--accent, #4d55e8) 45%, var(--accent-dark, #3a41c9) 115%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 6px rgba(58,65,201,0.25), 0 12px 28px -8px rgba(58,65,201,0.45); transition: transform 0.18s ease, filter 0.18s ease, box-shadow 0.18s ease; } .ds-btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 3px 8px rgba(58,65,201,0.28), 0 16px 34px -8px rgba(58,65,201,0.55); } .ds-btn-primary:active { transform: translateY(0) scale(0.985); } .ds-btn-primary:focus-visible { outline: 2px solid transparent; box-shadow: 0 0 0 2px #faf8f5, 0 0 0 4px rgba(77,85,232,0.4); } .ds-btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }"
+    },
+    {
+      "name": "Soft Button",
+      "kind": "button",
+      "refersTo": "button-soft",
+      "description": "Secondary action on glass: Reset, Share, Copy embed code.",
+      "html": "<button class=\"ds-btn-soft\">Share result</button>",
+      "css": ".ds-btn-soft { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.875rem; border-radius: 0.875rem; padding: 0.5rem 1.125rem; font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); font-size: 1rem; font-weight: 600; color: var(--accent, #4d55e8); background-color: var(--glass-fill-strong, rgba(255,255,255,0.82)); border: 1px solid var(--card-border, rgba(129,136,220,0.2)); box-shadow: 0 1px 2px rgba(30,34,90,0.04), 0 10px 30px -12px rgba(48,53,140,0.18); cursor: pointer; transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; } .ds-btn-soft:hover { transform: translateY(-1px); border-color: rgba(123,130,255,0.5); box-shadow: 0 2px 4px rgba(30,34,90,0.06), 0 24px 52px -18px rgba(58,65,201,0.34); } .ds-btn-soft:focus-visible { outline: 2px solid transparent; box-shadow: 0 0 0 2px #faf8f5, 0 0 0 4px rgba(77,85,232,0.4); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Weight, height, age fields on every calculator form.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Weight (kg)</span><input class=\"ds-input\" type=\"number\" placeholder=\"70\" /></label>",
+      "css": ".ds-field { display: block; font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); } .ds-field-label { display: block; margin-bottom: 0.375rem; font-size: 0.875rem; font-weight: 500; color: var(--foreground-hex, #1a1f24); } .ds-input { width: 100%; min-height: 2.875rem; padding: 0.625rem 0.875rem; border: 1px solid var(--card-border, rgba(129,136,220,0.2)); border-radius: 0.75rem; background-color: var(--glass-fill-strong, rgba(255,255,255,0.82)); color: inherit; font: inherit; transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; } .ds-input::placeholder { color: rgba(86,93,143,0.75); } .ds-input:hover { border-color: rgba(123,130,255,0.45); } .ds-input:focus { outline: none; border-color: var(--accent, #4d55e8); box-shadow: 0 0 0 3px rgba(77,85,232,0.4); }"
+    },
+    {
+      "name": "Segment Pill",
+      "kind": "chip",
+      "refersTo": "segment-pill",
+      "description": "Radio option (Male / Female, Metric / Imperial) with a visible accent radio.",
+      "html": "<div class=\"ds-seg\"><label class=\"ds-seg-pill ds-seg-pill--on\"><input type=\"radio\" name=\"u\" checked /> Metric</label><label class=\"ds-seg-pill\"><input type=\"radio\" name=\"u\" /> Imperial</label></div>",
+      "css": ".ds-seg { display: inline-flex; gap: 0.5rem; font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); } .ds-seg-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.875rem; border-radius: 0.75rem; border: 1px solid var(--card-border, rgba(129,136,220,0.2)); background-color: var(--glass-fill, rgba(252,252,255,0.72)); font-size: 0.9375rem; font-weight: 500; cursor: pointer; transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease; } .ds-seg-pill input { accent-color: var(--accent, #4d55e8); width: 1rem; height: 1rem; margin: 0; } .ds-seg-pill:hover { border-color: rgba(123,130,255,0.5); } .ds-seg-pill--on, .ds-seg-pill:has(input:checked) { border-color: var(--accent, #4d55e8); background-color: rgba(77,85,232,0.09); box-shadow: inset 0 0 0 1px var(--accent, #4d55e8); color: var(--accent, #4d55e8); font-weight: 600; }"
+    },
+    {
+      "name": "Nav Pill",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Sticky header links; the same glass pill is reused for unit toggles.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-pill\" href=\"#\">Calculators</a><a class=\"ds-nav-pill\" href=\"#\">Blog</a><a class=\"ds-nav-pill\" href=\"#\">Learn</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.5rem; font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); } .ds-nav-pill { display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 600; color: var(--accent, #4d55e8); text-decoration: none; border: 1px solid var(--card-border, rgba(129,136,220,0.2)); background-color: var(--glass-fill-strong, rgba(255,255,255,0.82)); backdrop-filter: blur(8px); box-shadow: 0 1px 2px rgba(30,34,90,0.04), 0 10px 30px -12px rgba(48,53,140,0.18); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; } .ds-nav-pill:hover { transform: translateY(-2px); border-color: rgba(123,130,255,0.5); box-shadow: 0 2px 4px rgba(30,34,90,0.06), 0 24px 52px -18px rgba(58,65,201,0.34); } .ds-nav-pill:focus-visible { outline: 2px solid transparent; box-shadow: 0 0 0 2px #faf8f5, 0 0 0 4px rgba(77,85,232,0.4); }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "The Card primitive wrapping forms and result sections.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Your Daily Calories</h3><p class=\"ds-card-body\">Maintenance estimate from Mifflin-St Jeor with your activity multiplier.</p></div>",
+      "css": ".ds-card { padding: 1rem; border-radius: 1.25rem; background-color: var(--glass-fill, rgba(252,252,255,0.72)); border: 1px solid var(--glass-stroke, rgba(255,255,255,0.72)); backdrop-filter: blur(12px); box-shadow: 0 1px 2px rgba(30,34,90,0.04), 0 10px 30px -12px rgba(48,53,140,0.18); font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); } .ds-card-title { margin: 0 0 0.5rem; font-family: var(--font-display, 'Fraunces', Georgia, serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; } .ds-card-body { margin: 0; font-size: 0.9375rem; line-height: 1.6; color: var(--muted-ink, #565d8f); }"
+    },
+    {
+      "name": "Result Card",
+      "kind": "custom",
+      "refersTo": "panel-inset",
+      "description": "The signature answer panel: status rail, uppercase label, tabular metric, interpretation.",
+      "html": "<div class=\"ds-result ds-result--success\"><span class=\"ds-result-rail\"></span><div class=\"ds-result-body\"><p class=\"ds-result-label\">Body mass index</p><p class=\"ds-result-metric\">22.4 <span class=\"ds-result-unit\">kg/m²</span></p><p class=\"ds-result-note\">Within the WHO normal range.</p></div></div>",
+      "css": ".ds-result { position: relative; overflow: hidden; padding: 1rem 1rem 1rem 1.5rem; border-radius: 1.25rem; background-color: var(--glass-fill, rgba(252,252,255,0.72)); border: 1px solid var(--glass-stroke, rgba(255,255,255,0.72)); box-shadow: 0 1px 2px rgba(30,34,90,0.04), 0 10px 30px -12px rgba(48,53,140,0.18); font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); } .ds-result-rail { position: absolute; top: 0.75rem; bottom: 0.75rem; left: 0; width: 4px; border-radius: 0 9999px 9999px 0; background: var(--success, #0e9f6e); } .ds-result--warning .ds-result-rail { background: var(--warning, #d97706); } .ds-result--danger .ds-result-rail { background: var(--danger, #dc2626); } .ds-result-label { margin: 0 0 0.25rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-ink, #565d8f); } .ds-result-metric { margin: 0; font-size: 1.875rem; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--success, #0e9f6e); } .ds-result--warning .ds-result-metric { color: var(--warning, #d97706); } .ds-result--danger .ds-result-metric { color: var(--danger, #dc2626); } .ds-result-unit { font-size: 0.875rem; font-weight: 500; color: var(--muted-ink, #565d8f); letter-spacing: 0; } .ds-result-note { margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--muted-ink, #565d8f); }"
+    },
+    {
+      "name": "Inset Status Panel",
+      "kind": "card",
+      "refersTo": "panel-inset",
+      "description": "Sub-panel inside a result; status arrives as a 1px hairline, never a side tab.",
+      "html": "<div class=\"ds-inset ds-inset--warning\"><p class=\"ds-inset-title\">92% of safe daily limit</p><p class=\"ds-inset-text\">Close to the 400 mg guideline for healthy adults.</p></div>",
+      "css": ".ds-inset { padding: 1rem; border-radius: 0.875rem; background-color: var(--glass-fill-strong, rgba(255,255,255,0.82)); border: 1px solid var(--card-border, rgba(129,136,220,0.2)); font-family: var(--font-body, 'Instrument Sans', system-ui, sans-serif); } .ds-inset--warning { border-color: rgba(249,115,22,0.4); } .ds-inset--danger { border-color: rgba(239,68,68,0.4); } .ds-inset--success { border-color: rgba(34,197,94,0.4); } .ds-inset-title { margin: 0 0 0.25rem; font-size: 1.125rem; font-weight: 500; } .ds-inset-text { margin: 0; font-size: 0.875rem; color: var(--muted-ink, #565d8f); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Frosted Worksheet",
+    "overview": "HealthCalc looks like a clean worksheet laid on warm paper: the page ground is a faintly warm off-white with two soft indigo-and-teal radial washes in the corners, and every working surface (the calculator form, the result panel, the catalog card) is a frosted, near-white glass pane with a one-pixel lavender hairline and a long, low, blue-tinted shadow. One accent, an electric indigo, does all the pointing: primary buttons, selected segments, links, the brand mark, the hero eyebrow. Teal appears only as the second color in gradients and washes, never as a control color.\n\nDensity is moderate and forgiving. Controls are tall (2.875rem), corners are generously rounded (0.75rem to 1.75rem depending on the container's size), and result numbers are set large, heavy and tabular so the answer is the loudest thing on the page. Status is communicated by hue on the number or on a hairline, not by filling panels with color. Dark mode is a slate night: the same glass panes, now translucent indigo-black, over the same three radial washes, with the accent lifted to a lighter periwinkle so it still reads on dark.\n\nThe system is inherited from the shared ~/code/ui identity (warm paper, gallery hairlines, Fraunces display) with two app knobs, --primary and --radius, and a full layer of HealthCalc-specific glass, shadow and accent tokens on top. The identity's forest-green primary is overridden by the indigo accent everywhere it shows.",
+    "keyCharacteristics": [
+      "Warm paper ground with corner washes; frosted white panels with 1px lavender hairlines.",
+      "One indigo accent; teal only as a gradient partner; status hues reserved for status.",
+      "Fraunces headings, Instrument Sans body, IBM Plex Mono for wall-label metadata.",
+      "Big tabular result numbers; secondary text in a muted indigo-gray, never neutral gray on tinted surfaces.",
+      "Long, soft, blue-tinted shadows at rest; a 4px lift on hover; nothing bounces."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Indigo is the only color that means \"interactive\". Teal, green, amber, red and blue may describe a result; they may not invite a click.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hairline Status Rule",
+        "body": "A status color touches a panel only as a 1px hairline border, a 4px inset rail inside ResultCard, or the color of the number. It never becomes a 4px side tab and never floods a background beyond a 10% tint.",
+        "section": "colors"
+      },
+      {
+        "name": "The Muted-Ink Rule",
+        "body": "Secondary text on any tinted surface is muted-ink (or the text-slate-700 dark:text-slate-200 pair), never text-gray-*.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Number Rule",
+        "body": "Every result number is tabular-nums; digits must not reflow as the value changes.",
+        "section": "typography"
+      },
+      {
+        "name": "The Balanced Heading Rule",
+        "body": "Headings get text-wrap: balance on desktop and fall back to wrap under 768px.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tinted Shadow Rule",
+        "body": "Shadows are indigo-tinted and offset downward with a soft blur; no neutral gray shadows, no zero-offset halos.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Mobile Flattening Rule",
+        "body": "At or below 768px, blur is off and shadows collapse to 0 1px 3px; borders carry the definition.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put the answer in a ResultCard or an inset panel with a tabular, 800-weight number and a status hue on the number.",
+      "Do use text-accent, text-accent-dark dark:text-accent-light and bg-accent/10 for emphasis and tints; from-accent/10 to-accent-alt/10 when a card needs a wash.",
+      "Do carry status onto a panel as a 1px hairline (border-<tone>-500/40) or an inline color-mix border color.",
+      "Do keep every control at least 2.75rem tall with the two-ring focus visible.",
+      "Do give secondary text on tinted surfaces the muted-ink / text-slate-700 dark:text-slate-200 treatment.",
+      "Do pair every animation with the existing prefers-reduced-motion block; the only ambient motion is the hero float and sparkline.",
+      "Do leave AdUnit placements where they are; ads are part of the page layout."
+    ],
+    "donts": [
+      "Don't use Tailwind purple, violet or indigo classes; the accent tokens are the indigo.",
+      "Don't put a colored border-l-4 (or any side border above 1px) on a card, callout, alert or list item; that includes inline borderLeft styles.",
+      "Don't add bounce, elastic or spring easing; the bounce keyframes were removed and nothing should re-add them.",
+      "Don't flood a panel with a status color; a 10% tint is the ceiling.",
+      "Don't use neutral gray shadows or zero-offset glows; every shadow is indigo-tinted and offset downward.",
+      "Don't put text-gray-* copy on a tinted or glass surface.",
+      "Don't rely on tailwind.config.js; it is inert under Tailwind v4 and the tokens live in globals.css @theme and identity.css."
+    ]
+  }
+}
