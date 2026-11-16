@@ -5,6 +5,7 @@ import ProgrammaticResultPage from '@/components/programmatic/ProgrammaticResult
 import {
   buildCalorieDeficitProgrammaticPage,
   getCalorieDeficitProgrammaticSlugs,
+  PROGRAMMATIC_RESULT_ROBOTS,
 } from '@/utils/programmaticSeo';
 
 export const revalidate = 86400;
@@ -38,6 +39,7 @@ export async function generateMetadata({
   return {
     title: data.metadataTitle,
     description: data.metadataDescription,
+    robots: PROGRAMMATIC_RESULT_ROBOTS,
     alternates: {
       canonical: data.canonicalPath,
     },

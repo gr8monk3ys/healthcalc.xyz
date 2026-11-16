@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
 
 export const metadata = {
   title: 'About Us | HealthCalc',
@@ -15,10 +16,10 @@ export default function AboutPage() {
       <div className="neumorph p-6 mb-8 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">What We Do</h2>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          HealthCalc is a collection of 52 health and fitness calculators. Body fat, BMI, TDEE,
-          macros, calorie deficit planning, and dozens more. Each one runs a published,
-          peer-reviewed formula on the numbers you type in, and gives you a result you can actually
-          use.
+          HealthCalc is a collection of {CALCULATOR_CATALOG.length} health and fitness calculators.
+          Body fat, BMI, TDEE, macros, calorie deficit planning, and dozens more. Each one runs a
+          published, peer-reviewed formula on the numbers you type in, and gives you a result you
+          can actually use.
         </p>
         <p className="text-gray-600 dark:text-gray-400">
           That is the whole idea. No accounts required, no paywalls, no selling your data. The

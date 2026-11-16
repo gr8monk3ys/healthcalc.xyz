@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { toAbsoluteUrl } from '@/lib/site';
 import ProgrammaticResultPage from '@/components/programmatic/ProgrammaticResultPage';
-import { buildBodyFatProgrammaticPage, getBodyFatProgrammaticSlugs } from '@/utils/programmaticSeo';
+import {
+  PROGRAMMATIC_RESULT_ROBOTS,
+  buildBodyFatProgrammaticPage,
+  getBodyFatProgrammaticSlugs,
+} from '@/utils/programmaticSeo';
 
 export const revalidate = 86400;
 
@@ -35,6 +39,7 @@ export async function generateMetadata({
   return {
     title: data.metadataTitle,
     description: data.metadataDescription,
+    robots: PROGRAMMATIC_RESULT_ROBOTS,
     alternates: {
       canonical: data.canonicalPath,
     },

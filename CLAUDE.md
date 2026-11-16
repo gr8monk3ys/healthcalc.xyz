@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-HealthCalc (healthcalc.xyz): Next.js 16 / React 19 / TypeScript / Tailwind v4 site with ~60 health calculators and a blog. Package manager is Bun (`bun.lock`). Default branch: `master`.
+HealthCalc (healthcalc.xyz): Next.js 16 / React 19 / TypeScript / Tailwind v4 site with health calculators (counted from `CALCULATOR_CATALOG`; never hardcode the number in copy) and a blog. Package manager is Bun (`bun.lock`). Default branch: `master`.
 
 ## Commands
 

@@ -635,15 +635,8 @@ export function getMacroProgrammaticSlugs(): string[] {
   return slugs;
 }
 
-export function getAllProgrammaticPaths(): string[] {
-  return [
-    ...getBmiProgrammaticSlugs().map(slug => `/bmi/results/${slug}`),
-    ...getTdeeProgrammaticSlugs().map(slug => `/tdee/results/${slug}`),
-    ...getCalorieDeficitProgrammaticSlugs().map(slug => `/calorie-deficit/results/${slug}`),
-    ...getBodyFatProgrammaticSlugs().map(slug => `/body-fat/results/${slug}`),
-    ...getMacroProgrammaticSlugs().map(slug => `/macro/results/${slug}`),
-  ];
-}
+// Thin, templated result pages: reachable for users and crawl paths, but kept out of the index.
+export const PROGRAMMATIC_RESULT_ROBOTS = { index: false, follow: true } as const;
 
 export function buildBmiProgrammaticPage(slug: string): ProgrammaticPageData | null {
   const params = parseBmiResultSlug(slug);
