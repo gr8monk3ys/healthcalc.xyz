@@ -44,7 +44,7 @@ Visit [Google Analytics](https://analytics.google.com/) and sign in with your Go
    - Page views ✓
    - Scrolls ✓
    - Outbound clicks ✓
-   - Site search ✓
+   - Site search: leave off (see "No query strings" below)
    - Form interactions ✓
    - Video engagement ✓
    - File downloads ✓
@@ -282,7 +282,7 @@ export const trackEvent = (eventName, eventParams) => {
 ### Important Implementation Details
 
 - **Production Only**: Analytics only runs when `NODE_ENV === 'production'`
-- **No query strings**: `?r=` holds a shared result's health values and `?q=` holds typed search text, so `src/lib/analyticsRedaction.ts` removes the query string from every URL GA receives and replaces search terms with `(redacted)`. UTM parameters go with it, so campaign reports will not show them. Google's own control is a useful second layer: in the web stream, under **Redact data**, turn on URL query parameter redaction and add `r,q`.
+- **No query strings**: `?r=` holds a shared result's health values and `?q=` holds typed search text, so `src/lib/analyticsRedaction.ts` removes the query string from every URL GA receives and replaces search terms with `(redacted)`. UTM parameters go with it, so campaign reports will not show them. This works by rewriting hits as they leave the page (beacon, fetch, XHR and element `src`), so a new way of sending in a future gtag.js could get past it. Google's own control is the second layer and should be on before `NEXT_PUBLIC_GA_ID` is set: in the web stream, under **Redact data**, turn on URL query parameter redaction and add `r,q`. Also turn off **Site search** under Enhanced measurement, since its search terms arrive here as `(redacted)` anyway.
 - **Automatic**: Page views are tracked automatically via Next.js routing
 - **Custom Events**: Use `trackEvent()` function for custom tracking
 - **Privacy**: No PII (personally identifiable information) is tracked by default
