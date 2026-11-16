@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     url: 'https://www.healthcalc.xyz/blog/waist-to-height-ratio-explained',
     images: [
       {
-        url: '/images/blog/waist-to-height-ratio-explained.jpg',
+        url: '/images/calculators/waist-to-height-ratio-calculator.jpg',
         width: 1200,
         height: 630,
         alt: 'Waist-to-Height Ratio Explained',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Waist-to-Height Ratio Explained: Why Half Your Height Matters | HealthCalc Blog',
     description:
       'How to measure and calculate waist-to-height ratio, what the 0.4, 0.5, and 0.6 boundaries mean, why it can flag risk that BMI misses, and where it falls short.',
-    images: ['/images/blog/waist-to-height-ratio-explained.jpg'],
+    images: ['/images/calculators/waist-to-height-ratio-calculator.jpg'],
   },
 };
 
@@ -65,8 +65,8 @@ const WaistToHeightRatioExplainedPageContent = (
             It measures where fat is stored, so it can flag risk in people whose BMI looks normal
           </li>
           <li>
-            It is a screening measure for adults, not a diagnosis, and it does not apply during
-            pregnancy
+            It is a screening measure, not a diagnosis, and the calculator&rsquo;s categories are
+            for adults
           </li>
         </ul>
       </div>
@@ -245,10 +245,8 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <p>
-        The advantage over BMI is real but not dramatic in every study, and some research suggests
-        the best cut-off differs slightly between populations. That is part of why guidelines use
-        WHtR <em>alongside</em> BMI rather than instead of it. NICE recommends that adults with a
-        BMI under 35 also measure their waist-to-height ratio (
+        Guidelines still use WHtR <em>alongside</em> BMI rather than instead of it. NICE recommends
+        that adults with a BMI under 35 also measure their waist-to-height ratio (
         <a
           href="https://www.nice.org.uk/guidance/ng246"
           className="text-accent hover:underline"
@@ -305,10 +303,14 @@ const WaistToHeightRatioExplainedPageContent = (
         <li>
           A tape cannot tell visceral fat from fat under the skin, or from abdominal bloating.
         </li>
-        <li>The ratio is not meaningful during pregnancy.</li>
         <li>
-          The categories in this article and in our calculator are for adults. Growth in children is
-          assessed differently, so ask a pediatrician.
+          If you are pregnant, your waist measurement mostly reflects the pregnancy, so ask your
+          midwife or doctor rather than relying on the ratio.
+        </li>
+        <li>
+          The categories in this article and in our calculator are for adults. NICE also uses
+          waist-to-height ratio for children and young people aged 5 and over, with its own
+          guidance, so ask a pediatrician how to read a child&rsquo;s result.
         </li>
         <li>
           Height tends to decrease with age, which nudges the ratio up slightly even if the waist
@@ -353,12 +355,6 @@ const WaistToHeightRatioExplainedPageContent = (
         <li>Re-measure every few weeks rather than every day, using the same technique</li>
       </ul>
 
-      <p>
-        Waist size often falls before the scale moves much, particularly if you are also doing
-        strength training, so the ratio can be a more encouraging progress measure than weight
-        alone.
-      </p>
-
       <h2 className="text-2xl font-bold mt-8 mb-4">Common mistakes</h2>
 
       <div className="neumorph p-6 rounded-lg my-6">
@@ -390,8 +386,8 @@ const WaistToHeightRatioExplainedPageContent = (
           Mistake #4: reading too much into small changes
         </h3>
         <p>
-          A change of 0.01 is within normal measurement error. Look at the trend over weeks, not a
-          single reading.
+          Small changes are hard to measure reliably with a tape, so look at the trend over several
+          weeks rather than a single reading.
         </p>
       </div>
 
