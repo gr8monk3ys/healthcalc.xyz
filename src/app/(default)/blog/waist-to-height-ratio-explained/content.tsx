@@ -65,8 +65,8 @@ const WaistToHeightRatioExplainedPageContent = (
             It measures where fat is stored, so it can flag risk in people whose BMI looks normal
           </li>
           <li>
-            It is a screening measure, not a diagnosis, and the calculator&rsquo;s categories are
-            for adults
+            It is a screening measure, not a diagnosis, and NICE uses the same bands for adults and
+            for children aged 5 and over
           </li>
         </ul>
       </div>
@@ -144,8 +144,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">What the numbers mean</h2>
 
       <p>
-        Our calculator uses these adult ranges. The 0.5 and 0.6 boundaries match those NICE added to
-        its obesity guidance in 2022:
+        Our calculator uses these ranges. All three boundaries match NICE guideline NG246
+        (recommendation 1.9.14), which describes 0.4 to 0.49 as healthy central adiposity:
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6 overflow-x-auto">
@@ -178,8 +178,7 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <p>
-        A ratio under 0.4 is not a disease marker in itself, but it is lower than usual for adults
-        and can go along with being underweight. If yours is in that range, check your{' '}
+        NICE does not describe ratios under 0.4. If yours is in that range, check your{' '}
         <Link href="/bmi" className="text-accent hover:underline">
           BMI
         </Link>{' '}
@@ -308,17 +307,12 @@ const WaistToHeightRatioExplainedPageContent = (
           midwife or doctor rather than relying on the ratio.
         </li>
         <li>
-          The categories in this article and in our calculator are for adults. NICE also uses
-          waist-to-height ratio for children and young people aged 5 and over, with its own
-          guidance, so ask a pediatrician how to read a child&rsquo;s result.
+          NICE applies the same bands to children and young people aged 5 and over (NG246
+          recommendation 1.10.10); for younger children, ask a pediatrician.
         </li>
         <li>
-          Height tends to decrease with age, which nudges the ratio up slightly even if the waist
-          has not changed.
-        </li>
-        <li>
-          Measuring at a different spot, or after a large meal, can shift the waist by a few
-          centimetres.
+          Measuring at a different spot or a different time of day changes the reading, so keep both
+          the same each time.
         </li>
       </ul>
 
