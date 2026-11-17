@@ -319,8 +319,8 @@ const HomeContent = (
         <div>
           <p className="section-eyebrow">HealthCalc Platform</p>
           <h1 className="mt-4 text-[2.15rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-4xl md:text-[3.4rem]">
-            BMI, body fat, TDEE, and <span className="text-gradient">50+ more</span> health
-            calculators
+            BMI, body fat, TDEE, and{' '}
+            <span className="text-gradient">{CALCULATOR_COUNT - 3} more</span> health calculators
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-200 sm:text-lg">
             Free tools for calorie planning, body composition, GLP-1 tracking, Army fitness testing,

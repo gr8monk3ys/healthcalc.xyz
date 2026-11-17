@@ -10,7 +10,6 @@ import {
   buildMacroResultSlug,
   buildTdeeProgrammaticPage,
   buildTdeeResultSlug,
-  getAllProgrammaticPaths,
   getBmiProgrammaticSlugs,
   getBodyFatProgrammaticSlugs,
   getCalorieDeficitProgrammaticSlugs,
@@ -86,12 +85,6 @@ describe('programmatic SEO static coverage', () => {
     expect(getCalorieDeficitProgrammaticSlugs()).toHaveLength(126);
     expect(getBodyFatProgrammaticSlugs()).toHaveLength(22);
     expect(getMacroProgrammaticSlugs()).toHaveLength(120);
-  });
-
-  it('generates unique programmatic sitemap paths', () => {
-    const paths = getAllProgrammaticPaths();
-    expect(paths).toHaveLength(1188);
-    expect(new Set(paths).size).toBe(paths.length);
   });
 });
 

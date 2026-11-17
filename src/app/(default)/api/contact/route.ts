@@ -8,6 +8,7 @@ import {
   saveContactSubmission,
 } from '@/lib/db/submissions';
 import { runAfterResponse } from '@/lib/afterResponse';
+import { getContactMailApiKey } from '@/lib/contactMail';
 
 const logger = createLogger({ component: 'ContactAPI' });
 
@@ -101,7 +102,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactRe
 
     const { name, email, subject, message } = parsed.data;
 
-    const resendApiKey = process.env.RESEND_API_KEY?.trim();
+    const resendApiKey = getContactMailApiKey();
     const contactEmail = process.env.CONTACT_EMAIL?.trim() || 'info@healthcalc.xyz';
     const resendFrom =
       process.env.RESEND_FROM_EMAIL?.trim() || 'HealthCalc Contact <noreply@healthcalc.xyz>';

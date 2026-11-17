@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactForm from '@/components/ContactForm';
+import { getContactMailApiKey } from '@/lib/contactMail';
 
 export const metadata = {
   title: 'Contact Us | HealthCalc',
@@ -14,12 +15,30 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="neumorph p-6 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-          <p className="mb-6">
-            Have questions, feedback, or suggestions? We’d love to hear from you! Fill out the form
-            and we’ll get back to you as soon as possible.
-          </p>
+          {getContactMailApiKey() ? (
+            <>
+              <p className="mb-6">
+                Have questions, feedback, or suggestions? We’d love to hear from you! Fill out the
+                form and we’ll get back to you as soon as possible.
+              </p>
 
-          <ContactForm />
+              <ContactForm />
+            </>
+          ) : (
+            <div
+              role="alert"
+              className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700 dark:border-red-800 dark:bg-red-900/20 dark:text-red-300"
+            >
+              <p className="font-semibold">The contact form is unavailable right now.</p>
+              <p className="mt-2 text-sm">
+                Please email us at{' '}
+                <a href="mailto:info@healthcalc.xyz" className="underline">
+                  info@healthcalc.xyz
+                </a>{' '}
+                instead.
+              </p>
+            </div>
+          )}
         </div>
 
         <div>

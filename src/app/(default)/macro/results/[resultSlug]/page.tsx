@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { toAbsoluteUrl } from '@/lib/site';
 import ProgrammaticResultPage from '@/components/programmatic/ProgrammaticResultPage';
-import { buildMacroProgrammaticPage, getMacroProgrammaticSlugs } from '@/utils/programmaticSeo';
+import {
+  PROGRAMMATIC_RESULT_ROBOTS,
+  buildMacroProgrammaticPage,
+  getMacroProgrammaticSlugs,
+} from '@/utils/programmaticSeo';
 
 export const revalidate = 86400;
 
@@ -33,6 +37,7 @@ export async function generateMetadata({ params }: MacroProgrammaticPageProps): 
   return {
     title: data.metadataTitle,
     description: data.metadataDescription,
+    robots: PROGRAMMATIC_RESULT_ROBOTS,
     alternates: {
       canonical: data.canonicalPath,
     },
