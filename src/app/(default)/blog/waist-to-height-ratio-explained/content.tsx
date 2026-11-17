@@ -278,7 +278,7 @@ const WaistToHeightRatioExplainedPageContent = (
           </li>
           <li>
             A Body Shape Index (ABSI) combines waist, height, and weight to separate body shape from
-            overall size. It needs your weight as well. See{' '}
+            overall size. See{' '}
             <Link href="/blog/understanding-absi" className="text-accent hover:underline">
               Understanding ABSI
             </Link>
