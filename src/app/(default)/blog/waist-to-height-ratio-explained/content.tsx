@@ -62,7 +62,8 @@ const WaistToHeightRatioExplainedPageContent = (
             increased risk
           </li>
           <li>
-            It measures where fat is stored, so it can flag risk in people whose BMI looks normal
+            It measures fat around the middle, which BMI does not, so NICE recommends it alongside
+            BMI
           </li>
           <li>
             It is a screening measure, not a diagnosis, and NICE uses the same bands for adults and
@@ -75,9 +76,8 @@ const WaistToHeightRatioExplainedPageContent = (
 
       <p>
         Two people can weigh the same and have the same BMI but store their fat very differently.
-        Fat carried around the abdomen, and especially the visceral fat packed around the organs, is
-        more closely linked to type 2 diabetes, high blood pressure, and heart disease than fat
-        carried on the hips and thighs. BMI cannot see that difference. A tape measure can.
+        NICE uses waist-to-height ratio to assess central adiposity, the fat carried around the
+        middle, and recommends measuring it alongside BMI for adults with a BMI under 35.
       </p>
 
       <p>
@@ -113,10 +113,9 @@ const WaistToHeightRatioExplainedPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">How to measure your waist</h2>
 
       <p>
-        Waist circumference is the part people get wrong, and a couple of centimetres moves the
-        ratio by about 0.01. NICE&rsquo;s instruction is to measure halfway between the bottom of
-        your lowest rib and the top of your hip bone, which for most people is just above the belly
-        button.
+        On a typical adult height, a couple of centimetres of waist moves the ratio by about 0.01.
+        NICE&rsquo;s instruction is to measure halfway between the bottom of your lowest rib and the
+        top of your hip bone, which for most people is just above the belly button.
       </p>
 
       <p>A few general tape-measure habits make the reading more repeatable:</p>
@@ -132,8 +131,8 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <p>
-        Don&rsquo;t suck in your stomach, and don&rsquo;t measure at your trouser waistband, which
-        often sits lower on the hips. Measure height without shoes. If you track the ratio over
+        Don&rsquo;t suck in your stomach, and measure at the midpoint rather than wherever your
+        trouser waistband happens to sit. Measure height without shoes. If you track the ratio over
         time, use the same tape, the same spot, and the same time of day. Our guide to{' '}
         <Link href="/blog/how-to-measure-body-fat-at-home" className="text-accent hover:underline">
           measuring body fat at home
@@ -223,8 +222,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">What the research shows</h2>
 
       <p>
-        The &ldquo;half your height&rdquo; boundary was proposed in the 1990s and has been tested
-        many times since. Two systematic reviews are the backbone of the evidence:
+        Two systematic reviews are the backbone of the evidence for the &ldquo;half your
+        height&rdquo; boundary:
       </p>
 
       <div className="neumorph p-6 rounded-lg my-6">
@@ -236,9 +235,9 @@ const WaistToHeightRatioExplainedPageContent = (
           </li>
           <li>
             A 2012 meta-analysis by Ashwell, Gunn, and Gibson pooled 31 studies of more than 300,000
-            adults and found that WHtR discriminated cardiometabolic risk factors - such as
-            diabetes, high blood pressure, and abnormal blood lipids - better than waist
-            circumference and better than BMI.
+            adults and found that WHtR was a better screening tool than waist circumference and BMI
+            for cardiometabolic outcomes, including diabetes, high blood pressure and cardiovascular
+            disease.
           </li>
         </ul>
       </div>
@@ -270,8 +269,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <ul className="list-disc list-inside space-y-3">
           <li>
-            Waist-to-hip ratio compares your waist with your hips. It is well studied, but it needs
-            a second tape measurement and has separate cut-offs for men and women. Our{' '}
+            Waist-to-hip ratio compares your waist with your hips. It needs a second tape
+            measurement and has separate cut-offs for men and women. Our{' '}
             <Link href="/blog/waist-to-hip-ratio-guide" className="text-accent hover:underline">
               waist-to-hip ratio guide
             </Link>{' '}
@@ -279,7 +278,7 @@ const WaistToHeightRatioExplainedPageContent = (
           </li>
           <li>
             A Body Shape Index (ABSI) combines waist, height, and weight to separate body shape from
-            overall size. It is more complex and mainly used in research. See{' '}
+            overall size. It needs your weight as well. See{' '}
             <Link href="/blog/understanding-absi" className="text-accent hover:underline">
               Understanding ABSI
             </Link>
@@ -287,7 +286,7 @@ const WaistToHeightRatioExplainedPageContent = (
           </li>
           <li>
             Waist-to-height ratio needs only a tape measure and your height, and uses one boundary
-            for everyone. That simplicity is its main strength as a screening tool.
+            for everyone, which makes it simple to use as a screening tool.
           </li>
         </ul>
       </div>
@@ -340,11 +339,11 @@ const WaistToHeightRatioExplainedPageContent = (
           as a starting point for that conversation
         </li>
         <li>
-          Regular physical activity and a sustained, moderate calorie deficit reduce waist size; our{' '}
+          If you want to bring your waist down, ask a clinician for a plan; our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}
-          estimates your maintenance calories
+          estimates your maintenance calories as a starting point
         </li>
         <li>Re-measure every few weeks rather than every day, using the same technique</li>
       </ul>
@@ -354,8 +353,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">Mistake #1: measuring at the belt line</h3>
         <p>
-          Trouser waistbands often sit on the hips, below the point the cut-offs were defined at.
-          Measure midway between your lowest rib and the top of your hip bone.
+          The cut-offs were defined for a measurement taken midway between your lowest rib and the
+          top of your hip bone, so measure there, wherever your belt or waistband sits.
         </p>
       </div>
 
