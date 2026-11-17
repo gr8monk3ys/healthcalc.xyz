@@ -3,6 +3,7 @@
  */
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+import { CALCULATOR_CATALOG } from '@/constants/calculatorCatalog';
 import Home from './page';
 
 vi.mock('next/link', () => ({
@@ -35,7 +36,7 @@ describe('Home Page', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /BMI, body fat, TDEE, and 50\+ more health calculators/i,
+        name: `BMI, body fat, TDEE, and ${CALCULATOR_CATALOG.length - 3} more health calculators`,
       })
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Browse Calculators' })).toHaveAttribute(
@@ -70,7 +71,7 @@ describe('Home Page', () => {
   it('renders trust signals and Why HealthCalc section', () => {
     const { container } = render(<Home />);
 
-    expect(container.textContent).toContain('56 Calculators');
+    expect(container.textContent).toContain(`${CALCULATOR_CATALOG.length} Calculators`);
     expect(container.textContent).toContain('Evidence-Based Formulas');
     expect(container.textContent).toContain('100% Free');
     expect(screen.getByRole('heading', { name: /Why HealthCalc/i })).toBeInTheDocument();

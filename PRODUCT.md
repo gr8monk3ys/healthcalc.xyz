@@ -73,7 +73,7 @@ Success (inferred): a visitor lands on a calculator, gets a correct result with 
 2. Answer first, then context. A visitor arriving from search should get the result with the fewest inputs possible; interpretation, related calculators, guides, and ads come after (inferred from the calculator page structure).
 3. Free and frictionless. No account, no paywall, client-side math; sign-in is only ever an upgrade for saving history.
 4. Estimates, honestly labeled. Every result is an estimate and says so; the medical disclaimer and reviewer byline are part of the page, not a footer afterthought.
-5. Consistency across ~70 calculators beats novelty in one. Shared hooks, shared result components, shared validation; a new calculator should look and behave like the existing ones.
+5. Consistency across every calculator beats novelty in one. Shared hooks, shared result components, shared validation; a new calculator should look and behave like the existing ones.
 
 ## Accessibility & Inclusion
 
