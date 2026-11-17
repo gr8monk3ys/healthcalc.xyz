@@ -66,8 +66,8 @@ const WaistToHeightRatioExplainedPageContent = (
             BMI
           </li>
           <li>
-            It is a screening measure, not a diagnosis, and NICE uses the same bands for adults and
-            for children aged 5 and over
+            It is a screening measure, and NICE uses the same bands for adults and for children aged
+            5 and over
           </li>
         </ul>
       </div>
@@ -113,7 +113,6 @@ const WaistToHeightRatioExplainedPageContent = (
       <h2 className="text-2xl font-bold mt-8 mb-4">How to measure your waist</h2>
 
       <p>
-        On a typical adult height, a couple of centimetres of waist moves the ratio by about 0.01.
         NICE&rsquo;s instruction is to measure halfway between the bottom of your lowest rib and the
         top of your hip bone, which for most people is just above the belly button.
       </p>
@@ -131,9 +130,9 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <p>
-        Don&rsquo;t suck in your stomach, and measure at the midpoint rather than wherever your
-        trouser waistband happens to sit. Measure height without shoes. If you track the ratio over
-        time, use the same tape, the same spot, and the same time of day. Our guide to{' '}
+        Don&rsquo;t suck in your stomach, and measure at the midpoint, wherever your trouser
+        waistband happens to sit. Measure height without shoes. If you track the ratio over time,
+        measure the same way each time. Our guide to{' '}
         <Link href="/blog/how-to-measure-body-fat-at-home" className="text-accent hover:underline">
           measuring body fat at home
         </Link>{' '}
@@ -243,8 +242,8 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <p>
-        Guidelines still use WHtR <em>alongside</em> BMI rather than instead of it. NICE recommends
-        that adults with a BMI under 35 also measure their waist-to-height ratio (
+        NICE uses WHtR <em>alongside</em> BMI: it recommends that adults with a BMI under 35 also
+        measure their waist-to-height ratio (
         <a
           href="https://www.nice.org.uk/guidance/ng246"
           className="text-accent hover:underline"
@@ -257,7 +256,7 @@ const WaistToHeightRatioExplainedPageContent = (
       </p>
 
       <p>
-        For a wider comparison of BMI, waist measures, and body fat estimates, see{' '}
+        For a wider comparison of BMI and other body measures, see{' '}
         <Link href="/blog/body-composition-beyond-bmi" className="text-accent hover:underline">
           Body Composition Beyond BMI: What Actually Matters
         </Link>
@@ -303,24 +302,26 @@ const WaistToHeightRatioExplainedPageContent = (
         </li>
         <li>
           If you are pregnant, your waist measurement mostly reflects the pregnancy, so ask your
-          midwife or doctor rather than relying on the ratio.
+          midwife or doctor how to read it (see the{' '}
+          <a
+            href="https://www.nhs.uk/health-assessment-tools/calculate-your-waist-to-height-ratio"
+            className="text-accent hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            NHS waist-to-height ratio calculator
+          </a>
+          ).
         </li>
         <li>
           NICE applies the same bands to children and young people aged 5 and over (NG246
           recommendation 1.10.10); for younger children, ask a pediatrician.
         </li>
-        <li>
-          Measuring at a different spot or a different time of day changes the reading, so keep both
-          the same each time.
-        </li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">If your ratio is 0.5 or higher</h2>
 
-      <p>
-        A higher ratio is a prompt to look at the rest of the picture, not a reason to panic. Useful
-        next steps:
-      </p>
+      <p>A higher ratio is a prompt to look at the rest of the picture. Useful next steps:</p>
 
       <ul className="list-disc list-inside space-y-2 my-4">
         <li>
@@ -345,7 +346,6 @@ const WaistToHeightRatioExplainedPageContent = (
           </Link>{' '}
           estimates your maintenance calories as a starting point
         </li>
-        <li>Re-measure every few weeks rather than every day, using the same technique</li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">Common mistakes</h2>
@@ -353,8 +353,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">Mistake #1: measuring at the belt line</h3>
         <p>
-          The cut-offs were defined for a measurement taken midway between your lowest rib and the
-          top of your hip bone, so measure there, wherever your belt or waistband sits.
+          NICE&rsquo;s method, which its bands go with, measures midway between your lowest rib and
+          the top of your hip bone, so measure there, wherever your belt or waistband sits.
         </p>
       </div>
 
@@ -369,8 +369,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <div className="neumorph p-6 rounded-lg my-6">
         <h3 className="text-xl font-semibold mb-3">Mistake #3: using it instead of BMI</h3>
         <p>
-          The two answer different questions - overall size and where fat is stored. Guidelines use
-          them together.
+          The two answer different questions - overall size and where fat is stored. NICE uses them
+          together.
         </p>
       </div>
 
@@ -379,8 +379,9 @@ const WaistToHeightRatioExplainedPageContent = (
           Mistake #4: reading too much into small changes
         </h3>
         <p>
-          Small changes are hard to measure reliably with a tape, so look at the trend over several
-          weeks rather than a single reading.
+          On a typical adult height, a couple of centimetres of waist moves the ratio by about 0.01,
+          and small changes are hard to measure reliably with a tape. Look at the trend over several
+          weeks.
         </p>
       </div>
 
@@ -433,7 +434,7 @@ const WaistToHeightRatioExplainedPageContent = (
           </li>
           <li>
             World Health Organization. Waist circumference and waist-hip ratio: report of a WHO
-            expert consultation. Geneva; 2008.{' '}
+            expert consultation. Geneva: World Health Organization; 2011.{' '}
             <a
               href="https://www.who.int/publications/i/item/9789241501491"
               className="text-accent hover:underline"
