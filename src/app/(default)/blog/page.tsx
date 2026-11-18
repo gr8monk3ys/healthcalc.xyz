@@ -25,12 +25,7 @@ export const metadata: Metadata = {
     'Explore articles on weight management, body composition, nutrition, and fitness to help you make informed decisions about your health.',
   keywords:
     'health blog, fitness blog, weight loss articles, body fat, nutrition, TDEE, calorie deficit, body composition',
-  alternates: {
-    canonical: './',
-    types: {
-      'application/rss+xml': '/feed.xml',
-    },
-  },
+  alternates: { canonical: './' },
 };
 
 export default function BlogPage() {

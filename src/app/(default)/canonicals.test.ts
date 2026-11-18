@@ -25,10 +25,6 @@ describe('canonical and robots metadata', () => {
     }
   );
 
-  it('keeps the RSS feed discoverable from /blog', () => {
-    expect(blogMetadata.alternates?.types).toEqual({ 'application/rss+xml': '/feed.xml' });
-  });
-
   it('/search is noindex and not canonicalised', () => {
     expect(searchMetadata.robots).toMatchObject({ index: false, follow: true });
     expect(searchMetadata.alternates?.canonical).toBeUndefined();

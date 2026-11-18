@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Terms of Service | HealthCalc',
   description: 'HealthCalc terms of service for using our health and fitness calculator tools.',
 };

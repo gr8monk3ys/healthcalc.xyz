@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { CALCULATOR_HUBS, getCalculatorsForHub } from '@/constants/calculatorCatalog';
 
 export const metadata: Metadata = {
+  alternates: { canonical: './' },
   title: 'Calculator Categories | HealthCalc',
   description:
     'Browse HealthCalc calculator categories for weight loss, body composition, nutrition, performance, wellness, pregnancy, and more.',

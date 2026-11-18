@@ -11,5 +11,5 @@ export interface Reviewer {
 export const EDITORIAL_TEAM: Reviewer = {
   name: 'HealthCalc Editorial Team',
   credentials: '',
-  title: 'Editorial Review Board',
+  title: 'Writers and editors',
 };

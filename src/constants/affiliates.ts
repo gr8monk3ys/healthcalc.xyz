@@ -721,10 +721,19 @@ export function getProductsForCalculator(
 ): AffiliateProduct[] {
   const relevantCategories = CALCULATOR_PRODUCT_MAPPING[calculatorType] || [];
 
-  return AFFILIATE_PRODUCTS.filter(product => relevantCategories.includes(product.category)).slice(
-    0,
-    maxProducts
+  // Take one product per category in turn, in the mapping's order, so every
+  // category a calculator lists is represented before any category repeats.
+  const byCategory = relevantCategories.map(category =>
+    AFFILIATE_PRODUCTS.filter(product => product.category === category)
   );
+  const longest = Math.max(0, ...byCategory.map(products => products.length));
+  const picked: AffiliateProduct[] = [];
+  for (let rank = 0; rank < longest; rank += 1) {
+    for (const products of byCategory) {
+      if (rank < products.length) picked.push(products[rank]);
+    }
+  }
+  return picked.slice(0, maxProducts);
 }
 
 export function getGuidesForCalculator(
@@ -750,5 +759,5 @@ const AMAZON_ASSOCIATE_STATEMENT = 'As an Amazon Associate I earn from qualifyin
 // Affiliate disclosure text
 export const AFFILIATE_DISCLOSURE = {
   short: `${AMAZON_ASSOCIATE_STATEMENT} We may also earn a commission from other affiliate links, at no extra cost to you.`,
-  full: `Disclosure: ${AMAZON_ASSOCIATE_STATEMENT} Some of the links on this page are affiliate links, meaning we may earn a small commission if you click through and make a purchase. This comes at no additional cost to you and helps support our free health calculators. We only recommend products we believe will be valuable to our users.`,
+  full: `${AMAZON_ASSOCIATE_STATEMENT} Some of the links on this page are affiliate links, meaning we may earn a small commission if you click through and make a purchase. This comes at no additional cost to you and helps support our free health calculators. We only recommend products we believe will be valuable to our users.`,
 };

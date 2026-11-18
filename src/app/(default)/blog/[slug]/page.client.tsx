@@ -427,7 +427,7 @@ export default function BlogPost(): React.JSX.Element {
     <Suspense fallback={<BlogLoadingFallback />}>
       <AuthorBio variant="compact" className="mb-6" />
       {hasAffiliateLinks && <AffiliateDisclosure variant="short" />}
-      <div onClick={trackAffiliateClick}>
+      <div onClick={trackAffiliateClick} onAuxClick={trackAffiliateClick}>
         <PostContent />
       </div>
       <BlogEmailCapture className="mt-8 mb-8" />

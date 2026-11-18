@@ -1,4 +1,4 @@
-export const DEFAULT_ADSENSE_PUBLISHER_ID = 'ca-pub-4505962980988232';
+const DEFAULT_ADSENSE_PUBLISHER_ID = 'ca-pub-4505962980988232';
 const ADSENSE_PUBLISHER_ID_PATTERN = /^ca-pub-\d{16}$/;
 const AUTOMATED_BROWSER_PATTERN = /\b(?:HeadlessChrome|PhantomJS|Playwright|puppeteer)\b/i;
 // AdSense copies the page URL into every ad request. `r` is a shared result's

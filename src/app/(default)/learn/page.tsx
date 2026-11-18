@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Health Guides | HealthCalc',
   description: 'Quick guides that explain key health metrics and link to the right calculators.',
 };

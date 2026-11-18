@@ -10,7 +10,7 @@ import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import LayoutProviders from '@/components/LayoutProviders';
 import { fontVariables } from '@/lib/fonts';
-import { DEFAULT_ADSENSE_PUBLISHER_ID } from '@/lib/adsense';
+import { getAdSensePublisherId } from '@/lib/adsense';
 
 const siteUrl = getPublicSiteUrl();
 
@@ -72,15 +72,10 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
-  alternates: {
-    types: {
-      'application/rss+xml': '/feed.xml',
-    },
-  },
   category: 'health',
   // Lets AdSense verify site ownership without loading its script, which
   // only happens after advertising consent.
-  other: { 'google-adsense-account': DEFAULT_ADSENSE_PUBLISHER_ID },
+  other: { 'google-adsense-account': getAdSensePublisherId() },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -90,6 +85,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Core Web Vitals optimizations */}
         {/* PWA and app settings */}
         <link rel="manifest" href="/manifest.json" />
+        {/* A <link>, not metadata.alternates: any page that sets its own
+            alternates (a canonical) would replace the inherited RSS entry. */}
+        <link rel="alternate" type="application/rss+xml" title="HealthCalc" href="/feed.xml" />
         {/* The header bar is black in both themes. */}
         <meta name="theme-color" content="#0b0b0b" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Walking & Running Energy | HealthCalc',
   description: 'Estimate calorie burn from walking and running sessions.',
 };
