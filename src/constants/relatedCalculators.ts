@@ -4,7 +4,7 @@ interface RelatedCalculator {
   description: string;
 }
 
-const calculators: RelatedCalculator[] = [
+export const calculators: RelatedCalculator[] = [
   { slug: 'bmi', title: 'BMI Calculator', description: 'Calculate your Body Mass Index' },
   { slug: 'body-fat', title: 'Body Fat Calculator', description: 'Estimate body fat percentage' },
   { slug: 'absi', title: 'ABSI Calculator', description: 'Calculate A Body Shape Index' },
@@ -161,7 +161,7 @@ const calculators: RelatedCalculator[] = [
   },
 ];
 
-const relatedMap: Record<string, string[]> = {
+export const relatedMap: Record<string, string[]> = {
   bmi: ['body-fat', 'ideal-weight', 'tdee'],
   'body-fat': ['bmi', 'ffmi', 'whr'],
   tdee: ['bmr', 'calorie-deficit', 'macro'],
