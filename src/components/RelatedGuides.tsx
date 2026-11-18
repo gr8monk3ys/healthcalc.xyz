@@ -38,7 +38,7 @@ export default function RelatedGuides({ title, className = '' }: RelatedGuidesPr
 
   return (
     <section className={`my-8 ${className}`}>
-      <h2 className="text-2xl font-semibold mb-4">{resolvedTitle}</h2>
+      <h2 className="mb-4 border-b-4 border-ink pb-1 text-2xl font-black">{resolvedTitle}</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {RELATED_GUIDES.map(guide => (
           <Link

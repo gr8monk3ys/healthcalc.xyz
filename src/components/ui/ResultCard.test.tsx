@@ -1,6 +1,6 @@
 /**
  * Tests for ResultCard component
- * Tests rendering of calculator result values, units, status colors, descriptions, and icons
+ * Tests rendering of calculator result values, units, status markers, descriptions, and icons
  */
 
 import { describe, it, expect } from 'vitest';
@@ -52,14 +52,16 @@ describe('ResultCard', () => {
       expect(screen.getByText('kg/m2')).toBeInTheDocument();
     });
 
-    it('should not render unit element when not provided', () => {
-      const { container } = render(<ResultCard {...defaultProps} />);
+    it('should render the value alone when no unit is provided', () => {
+      render(<ResultCard {...defaultProps} />);
 
-      // Only the value span should be in the baseline container,
-      // no unit span
-      const baselineContainer = container.querySelector('.items-baseline');
-      const spans = baselineContainer?.querySelectorAll('span');
-      expect(spans).toHaveLength(1); // only value, no unit
+      expect(screen.getByText('22.5').parentElement).toHaveTextContent(/^22\.5$/);
+    });
+
+    it('should render the unit after the value', () => {
+      render(<ResultCard {...defaultProps} unit="kg/m2" />);
+
+      expect(screen.getByText('22.5').parentElement).toHaveTextContent(/^22\.5 kg\/m2$/);
     });
   });
 
@@ -70,11 +72,10 @@ describe('ResultCard', () => {
       expect(screen.getByText('Normal weight range')).toBeInTheDocument();
     });
 
-    it('should not render description element when not provided', () => {
+    it('should render only the title and value when no description is provided', () => {
       const { container } = render(<ResultCard {...defaultProps} />);
 
-      const paragraphs = container.querySelectorAll('p');
-      expect(paragraphs).toHaveLength(0);
+      expect(container).toHaveTextContent(/^BMI22\.5$/);
     });
   });
 
@@ -90,11 +91,10 @@ describe('ResultCard', () => {
     it('should hide icon from assistive technology', () => {
       const icon = <svg data-testid="result-icon" />;
 
-      const { container } = render(<ResultCard {...defaultProps} icon={icon} />);
+      render(<ResultCard {...defaultProps} icon={icon} />);
 
-      const iconWrapper = container.querySelector('[aria-hidden="true"]');
-      expect(iconWrapper).toBeInTheDocument();
-      expect(iconWrapper).toContainElement(screen.getByTestId('result-icon'));
+      expect(screen.getByTestId('result-icon').closest('[aria-hidden="true"]')).not.toBeNull();
+      expect(screen.getByRole('heading', { name: 'BMI' })).toBeInTheDocument();
     });
 
     it('should not render icon container when icon is not provided', () => {
@@ -104,41 +104,31 @@ describe('ResultCard', () => {
     });
   });
 
-  describe('Status Variants', () => {
-    it('should apply info status colors by default', () => {
+  describe('Status Marker', () => {
+    it('should render no status marker by default', () => {
       const { container } = render(<ResultCard {...defaultProps} />);
 
-      const valueElement = container.querySelector('.text-accent');
-      expect(valueElement).toBeInTheDocument();
+      expect(container.querySelector('[data-status]')).not.toBeInTheDocument();
     });
 
-    it('should apply success status colors', () => {
-      const { container } = render(<ResultCard {...defaultProps} status="success" />);
+    it.each(['success', 'warning', 'danger', 'info'] as const)(
+      'should mark %s status before the title without adding text',
+      status => {
+        render(<ResultCard {...defaultProps} status={status} />);
 
-      const valueElement = container.querySelector('.text-emerald-600');
-      expect(valueElement).toBeInTheDocument();
-    });
+        const marker = screen
+          .getByRole('heading', { name: 'BMI' })
+          .querySelector(`[data-status="${status}"]`);
+        expect(marker).toBeInTheDocument();
+        expect(marker).toBeEmptyDOMElement();
+        expect(marker).toHaveAttribute('aria-hidden', 'true');
+      }
+    );
 
-    it('should apply warning status colors', () => {
-      const { container } = render(<ResultCard {...defaultProps} status="warning" />);
+    it('should keep the status marker out of the value', () => {
+      render(<ResultCard {...defaultProps} status="danger" />);
 
-      const valueElement = container.querySelector('.text-amber-600');
-      expect(valueElement).toBeInTheDocument();
-    });
-
-    it('should apply danger status colors', () => {
-      const { container } = render(<ResultCard {...defaultProps} status="danger" />);
-
-      const valueElement = container.querySelector('.text-red-600');
-      expect(valueElement).toBeInTheDocument();
-    });
-
-    it('should apply status color to icon container as well', () => {
-      const icon = <svg data-testid="status-icon" />;
-      const { container } = render(<ResultCard {...defaultProps} icon={icon} status="danger" />);
-
-      const iconWrapper = container.querySelector('[aria-hidden="true"]');
-      expect(iconWrapper).toHaveClass('text-red-600');
+      expect(screen.getByText('22.5').querySelector('[data-status]')).toBeNull();
     });
   });
 

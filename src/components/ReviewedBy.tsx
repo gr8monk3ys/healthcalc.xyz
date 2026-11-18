@@ -44,7 +44,7 @@ const ReviewedBy: React.FC<ReviewedByProps> = ({ reviewer, lastReviewed, classNa
   return (
     <Link
       href="/about/editorial"
-      className={`group mt-6 flex items-center gap-3 rounded-xl border border-slate-200/60 bg-white/50 px-4 py-3 backdrop-blur-sm transition duration-200 hover:border-accent/30 hover:bg-white/70 dark:border-slate-700/50 dark:bg-slate-800/40 dark:hover:border-accent/30 dark:hover:bg-slate-800/60 ${className}`}
+      className={`group mt-6 flex items-center gap-3 border-t border-ink pt-3 ${className}`}
       aria-label={`Reviewed by ${reviewer.name}. Learn about our editorial process.`}
     >
       {/* Reviewer avatar or initials */}
@@ -69,22 +69,22 @@ const ReviewedBy: React.FC<ReviewedByProps> = ({ reviewer, lastReviewed, classNa
       {/* Text content */}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5">
-          <ShieldIcon className="h-3.5 w-3.5 shrink-0 text-green-600 dark:text-green-400" />
-          <span className="text-sm font-medium leading-tight text-slate-800 dark:text-slate-200">
+          <ShieldIcon className="h-3.5 w-3.5 shrink-0" />
+          <span className="text-sm font-bold leading-tight underline-offset-4 group-hover:underline">
             {reviewer.name}
             {reviewer.credentials && (
-              <span className="text-slate-500 dark:text-slate-400">, {reviewer.credentials}</span>
+              <span className="font-normal text-ink-2">, {reviewer.credentials}</span>
             )}
           </span>
         </div>
-        <p className="mt-0.5 text-xs leading-tight text-slate-500 dark:text-slate-400">
+        <p className="mt-0.5 text-xs leading-tight text-ink-2">
           {reviewer.title} &middot; Last reviewed {formatReviewDate(lastReviewed)}
         </p>
       </div>
 
       {/* Arrow hint */}
       <svg
-        className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
+        className="h-4 w-4 shrink-0"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

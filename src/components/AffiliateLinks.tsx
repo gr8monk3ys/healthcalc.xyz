@@ -225,9 +225,7 @@ export default function AffiliateLinks({
 
       {guides.length > 0 && (
         <div className="mb-6">
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
-            Top Guides
-          </h4>
+          <h4 className="mb-3 border-t-4 border-ink pt-2 text-base">Top Guides</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {guides.map(guide => (
               <GuideCard
@@ -243,7 +241,7 @@ export default function AffiliateLinks({
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {products.map(product => (
           <ProductCard key={product.id} product={product} calculatorType={calculatorType} />
         ))}

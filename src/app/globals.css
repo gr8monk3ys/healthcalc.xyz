@@ -334,6 +334,67 @@ a.text-accent:hover,
   font-variant-numeric: tabular-nums;
 }
 
+/* A result set as label rows: bold label left, tabular figure right. */
+.facts-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--ink);
+  padding: 0.45rem 0;
+}
+
+.facts-row > :first-child {
+  font-weight: 800;
+}
+
+.facts-row > :last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.facts-row--figure {
+  border-top: 0;
+  border-bottom: 4px solid var(--ink);
+}
+
+.facts-row--figure > :first-child,
+.facts-row--figure > :last-child {
+  font-weight: 900;
+}
+
+.facts-row--figure > :last-child {
+  font-size: clamp(3rem, 8vw, 4.25rem);
+  line-height: 1;
+}
+
+/* The figure's 4px bar already separates it from the row below. */
+.facts-row--figure + .facts-row {
+  border-top: 0;
+}
+
+.facts-row--sub {
+  padding-left: 1rem;
+}
+
+.facts-row--sub > :first-child {
+  font-weight: 400;
+}
+
+.facts-mark {
+  background: var(--mark);
+  color: var(--on-mark);
+  padding: 0 0.3em;
+  font-weight: 800;
+}
+
+.facts-note {
+  border-top: 4px solid var(--ink);
+  font-size: 0.8125rem;
+  padding-top: 0.5rem;
+  color: var(--ink);
+}
+
 :where(input, select, textarea, button).neumorph-inset,
 .neumorph-input,
 .neumorph-select,

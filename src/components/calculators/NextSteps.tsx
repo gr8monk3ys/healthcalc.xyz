@@ -16,53 +16,36 @@ interface NextStepsProps {
   insight?: string;
 }
 
-const ArrowIcon: React.FC = () => (
-  <svg
-    className="w-5 h-5 text-accent flex-shrink-0"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M13 7l5 5m0 0l-5 5m5-5H6"
-    />
-  </svg>
-);
-
 const NextSteps: React.FC<NextStepsProps> = ({ title = 'What to Do Next', steps, insight }) => {
   if (steps.length === 0) return null;
 
   return (
-    <div className="glass-panel rounded-2xl p-6 md:p-8 mt-6">
-      <h3 className="text-lg font-semibold mb-3">{title}</h3>
+    <div className="mt-6">
+      <h3 className="text-lg">{title}</h3>
 
-      {insight && (
-        <p className="text-sm text-gray-700 dark:text-gray-300 mb-5 leading-relaxed">{insight}</p>
-      )}
+      {insight && <p className="mt-2 text-sm leading-relaxed text-ink-2">{insight}</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <ul className="mt-3">
         {steps.map(step => (
-          <Link
-            key={step.href}
-            href={step.href}
-            className={`glass-panel-strong rounded-2xl p-4 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 flex items-start gap-3 ${
-              step.highlight ? 'ring-1 ring-accent/30' : ''
-            }`}
-          >
-            <ArrowIcon />
-            <div className="min-w-0">
-              <span className="font-medium text-accent block">{step.label}</span>
-              <span className="text-sm text-gray-600 dark:text-gray-400 mt-0.5 block">
-                {step.description}
+          <li key={step.href} className="border-t border-ink first:border-t-4">
+            <Link href={step.href} className="group flex items-baseline justify-between gap-4 py-3">
+              <span className="min-w-0">
+                <span
+                  className={`block underline-offset-4 group-hover:underline ${
+                    step.highlight ? 'font-black' : 'font-bold'
+                  }`}
+                >
+                  {step.label}
+                </span>
+                <span className="mt-0.5 block text-sm text-ink-2">{step.description}</span>
               </span>
-            </div>
-          </Link>
+              <span className="font-bold" aria-hidden="true">
+                {'→'}
+              </span>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

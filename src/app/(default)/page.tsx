@@ -285,13 +285,12 @@ const HomeContent = (
             href={post.href}
             className="group flex flex-col border-t-4 border-ink pt-3"
           >
-            <span className="text-xs font-extrabold uppercase tracking-wide">{post.category}</span>
-            <h3 className="mt-2 text-lg font-extrabold underline-offset-4 group-hover:underline">
+            <h3 className="text-lg font-extrabold underline-offset-4 group-hover:underline">
               {post.title}
             </h3>
             <p className="mt-2 text-sm text-ink-2">{post.excerpt}</p>
             <p className="mt-4 text-sm font-bold">
-              Read Article <span aria-hidden="true">&rarr;</span>
+              {post.category} &middot; Read Article <span aria-hidden="true">&rarr;</span>
             </p>
           </Link>
         ))}

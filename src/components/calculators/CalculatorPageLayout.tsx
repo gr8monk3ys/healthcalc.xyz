@@ -361,7 +361,9 @@ function CalculatorPageLayoutContent({
 
           {availableChains.length > 0 && (
             <div className="perf-defer-section my-8">
-              <h3 className="section-eyebrow mb-3">Guided Workflows</h3>
+              <h2 className="mb-4 border-b-4 border-ink pb-1 text-2xl font-black">
+                Guided Workflows
+              </h2>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {availableChains.map(chain => (
                   <Link
