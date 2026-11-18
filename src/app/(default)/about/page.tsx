@@ -6,6 +6,9 @@ export const metadata = {
   title: 'About Us | HealthCalc',
   description:
     'Learn about HealthCalc, our mission, and the science behind our health and fitness calculators.',
+  alternates: {
+    canonical: './',
+  },
 };
 
 export default function AboutPage() {

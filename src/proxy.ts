@@ -47,13 +47,13 @@ function buildContentSecurityPolicy(frameAncestors: string): string {
 
   const policy = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.google-analytics.com https://va.vercel-scripts.com https://*.adtrafficquality.google`,
+    `script-src 'self' 'unsafe-inline'${unsafeEval} https://www.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://www.google-analytics.com https://va.vercel-scripts.com https://*.adtrafficquality.google`,
     "worker-src 'self' blob:",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: https:",
     "font-src 'self'",
-    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://*.sentry.io https://*.ingest.sentry.io https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://*.adtrafficquality.google",
-    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.adtrafficquality.google',
+    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://*.sentry.io https://*.ingest.sentry.io https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://google.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google",
+    'frame-src https://www.google.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.safeframe.googlesyndication.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google',
     "object-src 'none'",
     "base-uri 'self'",
     `frame-ancestors ${frameAncestors}`,

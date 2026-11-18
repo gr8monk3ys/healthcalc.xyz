@@ -105,6 +105,33 @@ describe('proxy', () => {
       expect(csp).toContain("object-src 'none'");
     });
 
+    it('allows the Google hosts AdSense creatives and consent messages load from', () => {
+      const csp =
+        proxy(makeRequest('https://www.healthcalc.xyz/bmi')).headers.get(
+          'Content-Security-Policy'
+        ) ?? '';
+      const sources = (directive: string) =>
+        csp
+          .split('; ')
+          .find(entry => entry.startsWith(`${directive} `))
+          ?.split(' ') ?? [];
+
+      expect(sources('script-src')).toEqual(
+        expect.arrayContaining([
+          'https://tpc.googlesyndication.com',
+          'https://fundingchoicesmessages.google.com',
+        ])
+      );
+      expect(sources('frame-src')).toEqual(
+        expect.arrayContaining([
+          'https://*.safeframe.googlesyndication.com',
+          'https://tpc.googlesyndication.com',
+          'https://fundingchoicesmessages.google.com',
+        ])
+      );
+      expect(sources('connect-src')).toContain('https://fundingchoicesmessages.google.com');
+    });
+
     it('sets security headers on redirects too', () => {
       const response = proxy(makeRequest('https://www.healthcalc.xyz/es/bmi'));
 

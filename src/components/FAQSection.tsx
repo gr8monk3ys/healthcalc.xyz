@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import StructuredData, { createFAQSchema } from './StructuredData';
 
 interface FAQ {
   question: string;
@@ -15,9 +14,8 @@ interface FAQSectionProps {
 }
 
 /**
- * FAQ Section component with structured data
- * Displays a list of FAQs with expandable answers
- * Adds FAQ schema for SEO
+ * Displays a list of FAQs with expandable answers.
+ * The FAQPage JSON-LD is emitted once by CalculatorPageLayout, not here.
  */
 export default function FAQSection({
   faqs,
@@ -30,7 +28,7 @@ export default function FAQSection({
     setOpenIndex(current => (current === index ? null : index));
   };
 
-  // Nothing to show: no heading over an empty list, no empty FAQ schema.
+  // Nothing to show: no heading over an empty list.
   if (faqs.length === 0) return null;
 
   return (
@@ -82,9 +80,6 @@ export default function FAQSection({
           </div>
         ))}
       </div>
-
-      {/* Add structured data for FAQs */}
-      <StructuredData data={createFAQSchema(faqs)} />
     </div>
   );
 }
