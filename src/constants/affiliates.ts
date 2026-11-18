@@ -71,8 +71,6 @@ export interface AffiliateProduct {
   category: ProductCategory;
   url: string;
   imageUrl?: string;
-  price?: string;
-  rating?: number;
   badge?: string;
 }
 
@@ -133,8 +131,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Advanced fitness tracker with heart rate monitoring, GPS, and sleep tracking',
     category: 'fitness-tracker',
     url: amazonProductUrl('B0CC63GZ3R'),
-    price: '$159.95',
-    rating: 4.5,
     badge: 'Popular',
   },
   {
@@ -143,8 +139,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Powerful fitness features including workout detection and activity rings',
     category: 'fitness-tracker',
     url: amazonProductUrl('B0CHX7R6WJ'),
-    price: '$249.00',
-    rating: 4.7,
   },
   {
     id: 'garmin-vivosmart-5',
@@ -152,8 +146,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Slim fitness tracker with Body Battery energy monitoring and stress tracking',
     category: 'fitness-tracker',
     url: amazonProductUrl('B09VY63659'),
-    price: '$149.99',
-    rating: 4.4,
   },
 
   // Smart Scales
@@ -163,8 +155,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Wi-Fi smart scale with body composition analysis and app sync',
     category: 'smart-scale',
     url: amazonProductUrl('B0C3JNJPZ7'),
-    price: '$99.95',
-    rating: 4.6,
     badge: 'Best Value',
   },
   {
@@ -173,8 +163,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Affordable scale measuring 13 body metrics including BMI and body fat',
     category: 'smart-scale',
     url: amazonProductUrl('B01N1UX8RW'),
-    price: '$29.99',
-    rating: 4.5,
   },
   {
     id: 'etekcity-smart-scale',
@@ -182,8 +170,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Popular smart scale with body composition tracking and app sync',
     category: 'smart-scale',
     url: amazonProductUrl('B09HCJD6H1'),
-    price: '$49.99',
-    rating: 4.4,
   },
 
   // Supplements
@@ -193,8 +179,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'High-quality whey protein for muscle recovery and growth',
     category: 'supplement',
     url: amazonProductUrl('B002DYIZH6'),
-    price: '$32.99',
-    rating: 4.7,
     badge: 'Best Seller',
   },
   {
@@ -203,8 +187,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Whole food multivitamin for men and women',
     category: 'supplement',
     url: amazonProductUrl('B00323NW5C'),
-    price: '$44.99',
-    rating: 4.5,
   },
   {
     id: 'omega-3',
@@ -212,8 +194,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Pure, sustainable fish oil for heart and brain health',
     category: 'supplement',
     url: amazonProductUrl('B002CQU564'),
-    price: '$27.95',
-    rating: 4.6,
   },
 
   // Fitness Equipment
@@ -223,8 +203,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Set of 5 exercise bands for strength training anywhere',
     category: 'equipment',
     url: amazonProductUrl('B01AVDVHTI'),
-    price: '$12.95',
-    rating: 4.5,
   },
   {
     id: 'yoga-mat',
@@ -232,8 +210,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Premium, eco-friendly yoga mat with lifetime guarantee',
     category: 'equipment',
     url: amazonProductUrl('B00DJQFAV6'),
-    price: '$120.00',
-    rating: 4.8,
   },
 
   // Running Shoes
@@ -243,8 +219,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Neutral running shoe with DNA LOFT v2 cushioning for beginners',
     category: 'equipment',
     url: amazonProductUrl('B0CLMHGPYP'),
-    price: '$139.95',
-    rating: 4.7,
     badge: 'Best Seller',
   },
   {
@@ -253,8 +227,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Maximum cushion running shoe at minimal weight with Meta-Rocker',
     category: 'equipment',
     url: amazonProductUrl('B0BWJXRXQ5'),
-    price: '$145.00',
-    rating: 4.6,
   },
   {
     id: 'nike-pegasus-41',
@@ -262,8 +234,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Versatile daily trainer with React X foam and Zoom Air',
     category: 'equipment',
     url: amazonProductUrl('B0D2DQ8S6X'),
-    price: '$130.00',
-    rating: 4.5,
   },
 
   // Resistance Bands
@@ -273,8 +243,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: '11-piece tube set with handles, door anchor, and ankle straps',
     category: 'equipment',
     url: amazonProductUrl('B0CDHBJYX3'),
-    price: '$29.99',
-    rating: 4.5,
   },
   {
     id: 'undersun-resistance-bands',
@@ -282,8 +250,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Premium 5-band set for full-body strength training',
     category: 'equipment',
     url: amazonProductUrl('B07BKRTB3V'),
-    price: '$79.95',
-    rating: 4.7,
   },
 
   // Body Tape Measures
@@ -293,8 +259,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Self-retracting tape for consistent one-handed body measurements',
     category: 'equipment',
     url: amazonProductUrl('B000G7YW7Y'),
-    price: '$7.95',
-    rating: 4.4,
   },
   {
     id: 'renpho-bluetooth-tape',
@@ -302,8 +266,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Smart tape that syncs measurements to your phone via app',
     category: 'equipment',
     url: amazonProductUrl('B09QWFWTTL'),
-    price: '$19.99',
-    rating: 4.3,
   },
 
   // Protein Bars
@@ -313,8 +275,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: '21g protein, 1g sugar, gluten-free protein bars',
     category: 'supplement',
     url: amazonProductUrl('B07J2MM23Z'),
-    price: '$25.99',
-    rating: 4.5,
     badge: 'Popular',
   },
   {
@@ -323,8 +283,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: '20g protein, no added sugar, candy bar taste',
     category: 'supplement',
     url: amazonProductUrl('B09PYB4MQS'),
-    price: '$29.99',
-    rating: 4.6,
   },
   {
     id: 'rxbar-protein-bars',
@@ -332,8 +290,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Whole food protein bars with egg whites, dates, and nuts',
     category: 'supplement',
     url: amazonProductUrl('B018H3LFJG'),
-    price: '$28.99',
-    rating: 4.4,
   },
 
   // Recovery Tools
@@ -343,8 +299,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Multi-density foam roller with hollow ABS core for deep tissue massage',
     category: 'equipment',
     url: amazonProductUrl('B0040EKZDY'),
-    price: '$36.99',
-    rating: 4.6,
   },
   {
     id: 'theragun-mini',
@@ -352,8 +306,6 @@ const AFFILIATE_PRODUCTS: AffiliateProduct[] = [
     description: 'Ultra-portable percussion massage gun with 180-min battery',
     category: 'equipment',
     url: amazonProductUrl('B0DV7JN7ZD'),
-    price: '$149.99',
-    rating: 4.5,
   },
 ];
 
@@ -769,12 +721,10 @@ export function getProductsForCalculator(
 ): AffiliateProduct[] {
   const relevantCategories = CALCULATOR_PRODUCT_MAPPING[calculatorType] || [];
 
-  const products = AFFILIATE_PRODUCTS.filter(product =>
-    relevantCategories.includes(product.category)
+  return AFFILIATE_PRODUCTS.filter(product => relevantCategories.includes(product.category)).slice(
+    0,
+    maxProducts
   );
-
-  // Sort by rating (if available) and return top products
-  return products.sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, maxProducts);
 }
 
 export function getGuidesForCalculator(
@@ -794,9 +744,11 @@ function _getProductsByCategory(category: ProductCategory): AffiliateProduct[] {
   return AFFILIATE_PRODUCTS.filter(product => product.category === category);
 }
 
+// Amazon's Operating Agreement requires this sentence verbatim wherever Associates links appear.
+const AMAZON_ASSOCIATE_STATEMENT = 'As an Amazon Associate I earn from qualifying purchases.';
+
 // Affiliate disclosure text
 export const AFFILIATE_DISCLOSURE = {
-  short:
-    'As an affiliate, we may earn a commission from qualifying purchases at no extra cost to you.',
-  full: `Disclosure: Some of the links on this page are affiliate links, meaning we may earn a small commission if you click through and make a purchase. This comes at no additional cost to you and helps support our free health calculators. We only recommend products we believe will be valuable to our users.`,
+  short: `${AMAZON_ASSOCIATE_STATEMENT} We may also earn a commission from other affiliate links, at no extra cost to you.`,
+  full: `Disclosure: ${AMAZON_ASSOCIATE_STATEMENT} Some of the links on this page are affiliate links, meaning we may earn a small commission if you click through and make a purchase. This comes at no additional cost to you and helps support our free health calculators. We only recommend products we believe will be valuable to our users.`,
 };

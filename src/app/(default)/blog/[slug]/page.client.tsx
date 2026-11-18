@@ -450,13 +450,15 @@ export default function BlogPost(): React.JSX.Element {
   }
 
   const reviewer = reviewerForSlug(slug);
+  const hasAffiliateLinks = BLOG_REGISTRY.find(p => p.slug === slug)?.affiliate;
 
   return (
     <Suspense fallback={<BlogLoadingFallback />}>
       <AuthorBio variant="compact" reviewer={reviewer} className="mb-6" />
+      {hasAffiliateLinks && <AffiliateDisclosure variant="short" />}
       <PostContent />
       <BlogEmailCapture className="mt-8 mb-8" />
-      {BLOG_REGISTRY.find(p => p.slug === slug)?.affiliate && <AffiliateDisclosure />}
+      {hasAffiliateLinks && <AffiliateDisclosure />}
     </Suspense>
   );
 }
