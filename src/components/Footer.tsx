@@ -4,51 +4,28 @@ import React from 'react';
 import Link from 'next/link';
 import { useCookieConsent } from '@/components/CookieConsent';
 import { useLocale } from '@/context/LocaleContext';
+import Logo from '@/components/Logo';
 
 export default function Footer(): React.JSX.Element {
   const { openConsentBanner } = useCookieConsent();
   const { localizePath, t } = useLocale();
   const footerLinkClass =
-    'inline-flex min-h-6 items-center py-1 text-sm text-slate-700 hover:text-accent dark:text-slate-200';
+    'inline-flex min-h-6 items-center py-1 text-sm text-ink underline-offset-4 hover:underline';
   return (
-    <footer className="px-3 pb-6 pt-4 md:px-4 md:pb-8">
-      <div className="glass-panel-strong container mx-auto rounded-[1.75rem] px-6 py-8 md:px-10">
+    <footer className="mt-8 border-t-[10px] border-ink">
+      <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
-            <Link
-              href={localizePath('/')}
-              translate="no"
-              className="notranslate inline-flex items-center gap-2 text-xl font-black tracking-tight text-accent"
-            >
-              <span
-                aria-hidden="true"
-                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-accent-light via-accent to-accent-dark text-white shadow-md shadow-accent/25"
-              >
-                <svg
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.4}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 12h4l2.5-6 4 12L16 12h5"
-                  />
-                </svg>
-              </span>
-              HealthCalc
+            <Link href={localizePath('/')} className="inline-flex">
+              <Logo className="text-xl" markClassName="h-7 w-7" />
             </Link>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+            <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-2">
               {t('footer.tagline')}
             </p>
           </div>
 
           <div>
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 border-b-4 border-ink pb-1 text-sm font-extrabold">
               {t('footer.section.calculators')}
             </h2>
             <ul className="space-y-2">
@@ -76,7 +53,7 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 border-b-4 border-ink pb-1 text-sm font-extrabold">
               {t('footer.section.company')}
             </h2>
             <ul className="space-y-2">
@@ -104,7 +81,7 @@ export default function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-accent/80">
+            <h2 className="mb-3 border-b-4 border-ink pb-1 text-sm font-extrabold">
               {t('footer.section.legal')}
             </h2>
             <ul className="space-y-2">
@@ -133,10 +110,10 @@ export default function Footer(): React.JSX.Element {
         </div>
 
         {/* Trust signals */}
-        <div className="mt-7 flex items-center justify-center gap-2 border-t border-white/40 pt-5 text-xs text-slate-600 dark:border-indigo-200/10 dark:text-slate-400">
+        <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-ink pt-4 text-xs text-ink-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 text-accent shrink-0"
+            className="h-4 w-4 shrink-0"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -150,18 +127,17 @@ export default function Footer(): React.JSX.Element {
             />
           </svg>
           <span>{t('footer.trust.reviewed')}</span>
-          <span className="mx-1">|</span>
           <Link href={localizePath('/about/editorial')} className="text-accent hover:underline">
             {t('footer.trust.learnProcess')}
           </Link>
         </div>
 
         {/* Medical disclaimer */}
-        <div className="mt-4 border-t border-white/40 pt-4 text-center text-xs text-slate-600 dark:border-indigo-200/10 dark:text-slate-400">
+        <div className="mt-4 border-t border-ink pt-4 text-xs text-ink-2">
           <p>{t('footer.medicalDisclaimer')}</p>
         </div>
 
-        <div className="mt-4 border-t border-white/40 pt-4 text-center text-sm text-slate-700 dark:border-indigo-200/10 dark:text-slate-300">
+        <div className="mt-4 border-t border-ink pt-4 text-sm font-bold">
           &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span>{' '}
           <span translate="no">HealthCalc</span>. {t('footer.rightsReserved')}
         </div>

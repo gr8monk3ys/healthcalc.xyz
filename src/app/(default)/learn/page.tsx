@@ -167,7 +167,6 @@ export default function LearnIndexPage() {
   return (
     <div className="mx-auto max-w-5xl">
       <header className="mb-10">
-        <p className="section-eyebrow">Learn</p>
         <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-4xl">
           Health Guides
         </h1>

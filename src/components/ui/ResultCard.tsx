@@ -28,16 +28,16 @@ export default function ResultCard({
   };
 
   const statusBars = {
-    success: 'bg-emerald-500/70',
-    warning: 'bg-amber-500/70',
-    danger: 'bg-red-500/70',
-    info: 'bg-accent/70',
+    success: 'bg-emerald-600',
+    warning: 'bg-amber-500',
+    danger: 'bg-red-600',
+    info: 'bg-accent',
   };
 
   return (
     <Card className={`relative overflow-hidden ${className}`}>
-      <span className={`absolute inset-y-3 left-0 w-1 rounded-r-full ${statusBars[status]}`} />
-      <div className="flex items-start pl-2">
+      <span className={`absolute inset-x-0 top-0 h-1.5 ${statusBars[status]}`} />
+      <div className="flex items-start pt-1.5">
         {icon && (
           <div className={`mr-4 ${statusColors[status]}`} aria-hidden="true">
             {icon}
@@ -45,13 +45,11 @@ export default function ResultCard({
         )}
 
         <div className="flex-1">
-          <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400 mb-1">
-            {title}
-          </h3>
+          <h3 className="mb-1 text-sm font-bold text-ink-2">{title}</h3>
 
           <div className="flex items-baseline gap-1.5">
             <span
-              className={`text-3xl font-extrabold tracking-tight tabular-nums ${statusColors[status]}`}
+              className={`text-4xl font-black tracking-tight tabular-nums ${statusColors[status]}`}
             >
               {value}
             </span>

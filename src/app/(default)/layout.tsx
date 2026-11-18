@@ -9,15 +9,14 @@ import SkipToMainLink from '@/components/SkipToMainLink';
 import { getPublicSiteUrl } from '@/lib/site';
 import VercelAnalyticsGate from '@/components/VercelAnalyticsGate';
 import LayoutProviders from '@/components/LayoutProviders';
-// ~/code/ui theme fonts (Fraunces / Instrument Sans / IBM Plex Mono),
-// wired the same way as lscaturchio.xyz's root layout.
 import { fontVariables } from '@/lib/fonts';
+import { DEFAULT_ADSENSE_PUBLISHER_ID } from '@/lib/adsense';
 
 const siteUrl = getPublicSiteUrl();
 
 // Runs before first paint. Each step is isolated so a bad value in one key
 // cannot skip the others.
-const preferencesBootstrapScript = `(function(){var h=document.documentElement;function read(k,l){try{var ls=window.localStorage;return JSON.parse(ls.getItem(k)||ls.getItem(l))}catch(e){return null}}var d=read('dark-mode-preferences:v1','dark-mode-preferences');if(d&&d.darkMode===true){h.classList.add('dark');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#111318')}var u=read('unit-system-preferences:v1','unit-system-preferences');if(u&&u.unitSystem==='imperial')h.dataset.units='imperial';try{if(new URLSearchParams(location.search).get('embed')==='1')h.dataset.embed='1'}catch(e){}})()`;
+const preferencesBootstrapScript = `(function(){var h=document.documentElement;function read(k,l){try{var ls=window.localStorage;return JSON.parse(ls.getItem(k)||ls.getItem(l))}catch(e){return null}}var d=read('dark-mode-preferences:v1','dark-mode-preferences');if(d&&d.darkMode===true)h.classList.add('dark');var u=read('unit-system-preferences:v1','unit-system-preferences');if(u&&u.unitSystem==='imperial')h.dataset.units='imperial';try{if(new URLSearchParams(location.search).get('embed')==='1')h.dataset.embed='1'}catch(e){}})()`;
 const organizationSchemaJson = JSON.stringify(createOrganizationSchema()).replace(/</g, '\\u003c');
 const websiteSchemaJson = JSON.stringify(createWebsiteSchema()).replace(/</g, '\\u003c');
 
@@ -79,6 +78,9 @@ export const metadata: Metadata = {
     },
   },
   category: 'health',
+  // Lets AdSense verify site ownership without loading its script, which
+  // only happens after advertising consent.
+  other: { 'google-adsense-account': DEFAULT_ADSENSE_PUBLISHER_ID },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -88,7 +90,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Core Web Vitals optimizations */}
         {/* PWA and app settings */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#f9f8f5" />
+        {/* The header bar is black in both themes. */}
+        <meta name="theme-color" content="#0b0b0b" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
         {/* Mobile web app settings - updated for modern standards */}

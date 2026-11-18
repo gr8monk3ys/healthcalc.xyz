@@ -22,18 +22,18 @@ export default function UnitToggle({ className = '' }: UnitToggleProps): React.J
 
   return (
     <div className={`flex items-center ${className}`}>
-      <span className="mr-2 text-sm font-medium text-slate-600 dark:text-slate-300">Units:</span>
+      <span className="mr-2 text-sm font-medium text-ink-2">Units:</span>
       {/* Which option is highlighted comes from <html data-units> (set before
           first paint from stored preferences), so it never flashes. */}
       <button
         type="button"
         onClick={toggleUnitSystem}
-        className="elevated-pill flex items-center rounded-full px-3 py-1 text-sm hover:border-accent/40"
+        className="elevated-pill flex items-center px-3 py-1 text-sm"
       >
         <span className="unit-toggle-option" data-unit="metric">
           Metric
         </span>
-        <span className="mx-2 text-slate-400 dark:text-slate-500">|</span>
+        <span className="mx-2 text-ink-2">|</span>
         <span className="unit-toggle-option" data-unit="imperial">
           Imperial
         </span>
@@ -60,7 +60,7 @@ export function HeightUnitToggle({ className = '' }: UnitToggleProps): React.JSX
     <button
       type="button"
       onClick={toggleHeightUnit}
-      className={`elevated-pill rounded-full px-3 py-1 text-sm hover:border-accent/40 ${className}`}
+      className={`elevated-pill px-3 py-1 text-sm ${className}`}
       aria-label={`${heightUnit === 'cm' ? 'cm' : 'ft'}, switch to ${heightUnit === 'cm' ? 'feet' : 'centimeters'}`}
     >
       {heightUnit === 'cm' ? 'cm' : 'ft'}
@@ -83,7 +83,7 @@ export function WeightUnitToggle({ className = '' }: UnitToggleProps): React.JSX
     <button
       type="button"
       onClick={toggleWeightUnit}
-      className={`elevated-pill rounded-full px-3 py-1 text-sm hover:border-accent/40 ${className}`}
+      className={`elevated-pill px-3 py-1 text-sm ${className}`}
       aria-label={`${weightUnit === 'kg' ? 'kg' : 'lb'}, switch to ${weightUnit === 'kg' ? 'pounds' : 'kilograms'}`}
     >
       {weightUnit === 'kg' ? 'kg' : 'lb'}
@@ -106,7 +106,7 @@ export function EnergyUnitToggle({ className = '' }: UnitToggleProps): React.JSX
     <button
       type="button"
       onClick={toggleEnergyUnit}
-      className={`elevated-pill rounded-full px-3 py-1 text-sm hover:border-accent/40 ${className}`}
+      className={`elevated-pill px-3 py-1 text-sm ${className}`}
       aria-label={`${energyUnit === 'kcal' ? 'kcal' : 'kJ'}, switch to ${energyUnit === 'kcal' ? 'kilojoules' : 'kilocalories'}`}
     >
       {energyUnit === 'kcal' ? 'kcal' : 'kJ'}

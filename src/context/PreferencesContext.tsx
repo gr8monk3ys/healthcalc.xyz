@@ -11,19 +11,11 @@ import React, {
 } from 'react';
 import { useLocalStorage, LocalStorageError } from '@/hooks/useLocalStorage';
 
-// Page background (identity.css --background) for <meta name="theme-color">.
-const THEME_COLOR_LIGHT = '#f9f8f5';
-const THEME_COLOR_DARK = '#111318';
-
 /** Also read by the pre-paint bootstrap script in (default)/layout.tsx. */
 export const DARK_MODE_STORAGE_KEY = 'dark-mode-preferences:v1';
 
 function applyDarkModeToDocument(enabled: boolean): void {
   document.documentElement.classList.toggle('dark', enabled);
-  // Keep the browser chrome color in step with the page background.
-  document
-    .querySelector('meta[name="theme-color"]')
-    ?.setAttribute('content', enabled ? THEME_COLOR_DARK : THEME_COLOR_LIGHT);
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

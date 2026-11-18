@@ -17,6 +17,7 @@
     "test:coverage": "vitest --coverage",
     "test:e2e": "playwright test",
     "create:calculator": "bun run scripts/create-calculator.ts",
+    "generate:covers": "bun run scripts/generate-covers.ts",
     "smoke": "playwright test e2e/calculators-all.spec.ts e2e/navigation.spec.ts e2e/fitness-age.spec.ts",
     "lighthouse:ci": "node scripts/check-lighthouse-score.mjs http://127.0.0.1:3000 / /bmi /tdee /calculators",
     "validate": "bun run format:check && bun run lint && bun run type-check && bun run test",

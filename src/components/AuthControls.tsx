@@ -10,9 +10,7 @@ import { useAuth } from '@/context/AuthContext';
 const UserMenu = dynamic(() => import('@/components/auth/UserMenu'), {
   ssr: false,
   loading: () => (
-    <div className="elevated-pill flex h-9 items-center rounded-full px-4 py-2 text-sm font-semibold text-accent">
-      Account
-    </div>
+    <div className="elevated-pill flex h-9 items-center px-4 py-2 text-sm">Account</div>
   ),
 });
 
@@ -31,10 +29,7 @@ function AuthControlsContent(): React.JSX.Element {
   // Fallback: simple link when Supabase is not configured.
   return (
     <div className="flex items-center gap-2">
-      <Link
-        href="/saved-results"
-        className="elevated-pill rounded-full px-4 py-2 text-sm font-semibold text-accent transition hover:-translate-y-0.5"
-      >
+      <Link href="/saved-results" className="elevated-pill px-4 py-2 text-sm">
         {t('auth.login')}
       </Link>
     </div>
