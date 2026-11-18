@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 interface ResultsEmailCaptureProps {
@@ -26,7 +27,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Positioned at the moment of highest user engagement for maximum conversion.
  * Submits to the existing /api/newsletter endpoint.
  */
-export function ResultsEmailCapture({
+function ResultsEmailCaptureForm({
   headline = 'Get Personalized Health Insights',
   description = 'Track your progress and stay informed with evidence-based tips.',
   className = '',
@@ -263,4 +264,8 @@ export function ResultsEmailCapture({
       </p>
     </div>
   );
+}
+
+export function ResultsEmailCapture(props: ResultsEmailCaptureProps): React.ReactElement | null {
+  return NEWSLETTER_ENABLED ? <ResultsEmailCaptureForm {...props} /> : null;
 }

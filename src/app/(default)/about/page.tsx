@@ -55,28 +55,11 @@ export default function AboutPage() {
       </div>
 
       <div className="neumorph p-6 mb-8 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4">Who Reviews the Content</h2>
+        <h2 className="text-2xl font-semibold mb-4">Who Writes the Content</h2>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          Three subject-matter reviewers check our calculator logic, result interpretations, and
-          blog posts before they go live.
-        </p>
-        <p className="mb-4 text-gray-600 dark:text-gray-400">
-          <strong className="text-gray-800 dark:text-gray-200">Sarah Chen, MS, CSCS</strong> reviews
-          exercise science content. She has a Master of Science in Exercise Physiology from the
-          University of Florida and is an NSCA-certified Strength and Conditioning Specialist with
-          over eight years of experience in clinical exercise testing and sports performance.
-        </p>
-        <p className="mb-4 text-gray-600 dark:text-gray-400">
-          <strong className="text-gray-800 dark:text-gray-200">James Morton, RD, CSSD</strong>{' '}
-          handles nutrition and dietetics. He is a Registered Dietitian and Board Certified
-          Specialist in Sports Dietetics who spent five years in hospital clinical nutrition before
-          moving into sports and public health nutrition.
-        </p>
-        <p className="mb-4 text-gray-600 dark:text-gray-400">
-          <strong className="text-gray-800 dark:text-gray-200">Lisa Patel, PhD, CPH</strong> covers
-          public health and epidemiology. She earned her doctorate in Epidemiology from Emory
-          University and holds a Certified in Public Health credential. Her research focused on
-          population-level body composition metrics and mortality risk prediction.
+          HealthCalc is written and maintained by the HealthCalc editorial team. Each calculator is
+          checked against the published formula it cites, and its results are tested against
+          hand-computed reference values.
         </p>
         <p className="text-gray-600 dark:text-gray-400">
           You can read more about our review process on the{' '}

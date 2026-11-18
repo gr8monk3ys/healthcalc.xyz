@@ -34,7 +34,6 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'footer.legal.terms': 'Términos del servicio',
     'footer.legal.disclaimer': 'Descargo de responsabilidad',
     'footer.legal.cookies': 'Configuración de cookies',
-    'footer.trust.reviewed': 'Contenido revisado por profesionales certificados en salud y fitness',
     'footer.trust.learnProcess': 'Conoce nuestro proceso',
     'footer.medicalDisclaimer':
       'HealthCalc ofrece solo contenido y herramientas informativas generales. Nada en este sitio web constituye consejo médico. Consulta siempre a un profesional de la salud calificado antes de cambiar tu dieta, ejercicio o régimen de salud.',
@@ -194,8 +193,6 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'footer.legal.terms': 'Conditions d’utilisation',
     'footer.legal.disclaimer': 'Avertissement',
     'footer.legal.cookies': 'Paramètres des cookies',
-    'footer.trust.reviewed':
-      'Contenu vérifié par des professionnels certifiés de la santé et du fitness',
     'footer.trust.learnProcess': 'En savoir plus sur notre processus',
     'footer.medicalDisclaimer':
       'HealthCalc fournit uniquement du contenu et des outils d’information générale. Rien sur ce site ne constitue un avis médical. Consultez toujours un professionnel de santé qualifié avant de modifier votre alimentation, votre exercice ou votre régime de santé.',
@@ -357,8 +354,6 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'footer.legal.terms': 'Nutzungsbedingungen',
     'footer.legal.disclaimer': 'Haftungsausschluss',
     'footer.legal.cookies': 'Cookie-Einstellungen',
-    'footer.trust.reviewed':
-      'Inhalte geprüft von zertifizierten Gesundheits- und Fitnessfachkräften',
     'footer.trust.learnProcess': 'Mehr ueber unseren Prozess',
     'footer.medicalDisclaimer':
       'HealthCalc bietet nur allgemeine Informationsinhalte und Tools. Nichts auf dieser Website stellt medizinischen Rat dar. Konsultieren Sie immer qualifiziertes medizinisches Fachpersonal, bevor Sie Ihre Ernährung, Ihr Training oder Ihr Gesundheitsprogramm ändern.',
@@ -521,7 +516,6 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'footer.legal.terms': 'Termos de servico',
     'footer.legal.disclaimer': 'Isencao de responsabilidade',
     'footer.legal.cookies': 'Configuracoes de cookies',
-    'footer.trust.reviewed': 'Conteudo revisado por profissionais certificados de saude e fitness',
     'footer.trust.learnProcess': 'Saiba mais sobre nosso processo',
     'footer.medicalDisclaimer':
       'A HealthCalc fornece apenas conteudo e ferramentas informativas gerais. Nada neste site constitui aconselhamento medico. Sempre consulte um profissional de saude qualificado antes de mudar sua dieta, exercicios ou rotina de saude.',
@@ -680,7 +674,6 @@ export const LOCALE_MESSAGES: Record<Exclude<SupportedLocale, 'en'>, LocaleMessa
     'footer.legal.terms': '服务条款',
     'footer.legal.disclaimer': '免责声明',
     'footer.legal.cookies': 'Cookie 设置',
-    'footer.trust.reviewed': '内容由认证健康和健身专业人士审核',
     'footer.trust.learnProcess': '了解我们的流程',
     'footer.medicalDisclaimer':
       'HealthCalc 仅提供一般信息内容和工具。本站内容不构成医疗建议。在更改饮食、运动或健康方案前，请务必咨询合格的医疗专业人士。',

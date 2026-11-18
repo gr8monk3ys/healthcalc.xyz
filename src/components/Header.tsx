@@ -13,7 +13,10 @@ import { stripLocaleFromPathname } from '@/i18n/config';
 const AuthControls = dynamic(() => import('@/components/AuthControls'), {
   ssr: false,
   loading: () => (
-    <Link href="/saved-results" className="elevated-pill inline-flex items-center px-4 py-2 text-sm">
+    <Link
+      href="/saved-results"
+      className="elevated-pill inline-flex items-center px-4 py-2 text-sm"
+    >
       Account
     </Link>
   ),

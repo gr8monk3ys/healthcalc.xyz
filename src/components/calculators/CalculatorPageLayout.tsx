@@ -19,6 +19,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 import Accordion from '@/components/ui/Accordion';
 import { ResultsEmailCapture } from '@/components/ResultsEmailCapture';
 import { toAbsoluteUrl } from '@/lib/site';
+import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { ResultsShareBar, ResultsShareProvider } from '@/components/ResultsShare';
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
@@ -417,16 +418,18 @@ function CalculatorPageLayoutContent({
             </SupplementalDisclosure>
           ) : null}
 
-          <SupplementalDisclosure
-            summary={newsletterTitle ?? 'Newsletter'}
-            className="perf-defer-section my-8"
-          >
-            <NewsletterSignup
-              title={newsletterTitle}
-              description={newsletterDescription}
-              className="my-0"
-            />
-          </SupplementalDisclosure>
+          {NEWSLETTER_ENABLED ? (
+            <SupplementalDisclosure
+              summary={newsletterTitle ?? 'Newsletter'}
+              className="perf-defer-section my-8"
+            >
+              <NewsletterSignup
+                title={newsletterTitle}
+                description={newsletterDescription}
+                className="my-0"
+              />
+            </SupplementalDisclosure>
+          ) : null}
 
           <StructuredData data={structuredData} />
           <StructuredData

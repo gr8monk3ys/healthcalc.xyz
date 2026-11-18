@@ -3,6 +3,9 @@ import { expect, afterEach, beforeEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
 
+// Signup forms only render when an email provider is configured.
+process.env.NEXT_PUBLIC_NEWSLETTER_ENABLED = '1';
+
 // Extend Vitest's expect with jest-dom matchers
 expect.extend(matchers);
 

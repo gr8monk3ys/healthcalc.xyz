@@ -9,12 +9,6 @@ import { BlogEmailCapture } from '@/components/BlogEmailCapture';
 import { AuthorBio } from '@/components/AuthorBio';
 import { BLOG_REGISTRY } from '@/lib/blog/registry';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
-import type { Reviewer } from '@/constants/reviewers';
-import {
-  REVIEWER_SARAH_CHEN,
-  REVIEWER_JAMES_MORTON,
-  REVIEWER_LISA_PATEL,
-} from '@/constants/reviewers';
 
 // Map of blog post slugs to their dynamic components
 const BLOG_POSTS: Record<string, React.ComponentType<Record<string, never>>> = {
@@ -404,38 +398,6 @@ const BLOG_POSTS: Record<string, React.ComponentType<Record<string, never>>> = {
   ),
 };
 
-/** Pick a reviewer by slug topic. Nutrition/diet posts go to James,
- *  body-composition and public-health posts go to Lisa, everything
- *  else defaults to Sarah (exercise science). */
-function reviewerForSlug(slug: string): Reviewer {
-  const nutritionSlugs = new Set([
-    'complete-guide-to-macronutrients',
-    'calorie-deficit-myths',
-    'calorie-counting-does-it-work',
-    'counting-calories-vs-tracking-macros',
-    'evidence-based-weight-loss-guide',
-    'metabolic-adaptation-plateaus',
-    'pregnancy-nutrition-guide',
-    'hydration-science-how-much-water',
-    'meal-delivery-services-weight-loss',
-  ]);
-  const publicHealthSlugs = new Set([
-    'understanding-absi',
-    'body-composition-beyond-bmi',
-    'measuring-body-fat',
-    'understanding-body-fat-percentage',
-    'how-to-measure-body-fat-at-home',
-    'waist-to-hip-ratio-guide',
-    'complete-guide-glp1-weight-loss',
-    'glp1-side-effects-what-to-expect',
-    'ozempic-vs-wegovy-vs-mounjaro-comparison',
-  ]);
-
-  if (nutritionSlugs.has(slug)) return REVIEWER_JAMES_MORTON;
-  if (publicHealthSlugs.has(slug)) return REVIEWER_LISA_PATEL;
-  return REVIEWER_SARAH_CHEN;
-}
-
 /**
  * Dynamic blog post page that uses code splitting to load content
  */
@@ -459,12 +421,11 @@ export default function BlogPost(): React.JSX.Element {
     notFound();
   }
 
-  const reviewer = reviewerForSlug(slug);
   const hasAffiliateLinks = BLOG_REGISTRY.find(p => p.slug === slug)?.affiliate;
 
   return (
     <Suspense fallback={<BlogLoadingFallback />}>
-      <AuthorBio variant="compact" reviewer={reviewer} className="mb-6" />
+      <AuthorBio variant="compact" className="mb-6" />
       {hasAffiliateLinks && <AffiliateDisclosure variant="short" />}
       <div onClick={trackAffiliateClick}>
         <PostContent />
