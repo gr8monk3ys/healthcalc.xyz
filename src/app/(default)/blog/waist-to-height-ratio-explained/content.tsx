@@ -301,8 +301,8 @@ const WaistToHeightRatioExplainedPageContent = (
           A tape cannot tell visceral fat from fat under the skin, or from abdominal bloating.
         </li>
         <li>
-          If you are pregnant, your waist measurement mostly reflects the pregnancy, so ask your
-          midwife or doctor how to read it (see the{' '}
+          The NHS says not to use waist-to-height ratio if you are pregnant, have an eating
+          disorder, or have a condition that affects your height (see the{' '}
           <a
             href="https://www.nhs.uk/health-assessment-tools/calculate-your-waist-to-height-ratio"
             className="text-accent hover:underline"
@@ -379,9 +379,8 @@ const WaistToHeightRatioExplainedPageContent = (
           Mistake #4: reading too much into small changes
         </h3>
         <p>
-          On a typical adult height, a couple of centimetres of waist moves the ratio by about 0.01,
-          and small changes are hard to measure reliably with a tape. Look at the trend over several
-          weeks.
+          On a typical adult height, a couple of centimetres of waist moves the ratio by about 0.01.
+          Look at the trend over several weeks.
         </p>
       </div>
 
