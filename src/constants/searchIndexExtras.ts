@@ -1,0 +1,633 @@
+import type { SearchIndex, SearchIndexEntry } from '@/lib/searchIndex';
+
+/** Pages that have no catalog or registry entry to derive a search entry from. */
+export const SEARCH_INDEX_PAGES: SearchIndex = {
+  home: {
+    title: 'HealthCalc - Health and Fitness Calculators',
+    description: 'Free health and fitness calculators for body fat, BMI, TDEE, and more',
+    url: '/',
+    type: 'page',
+    content:
+      'HealthCalc provides free health and fitness calculators to help you track and improve your health. Our calculators include BMI, body fat percentage, TDEE, calorie deficit, and more.',
+  },
+  calculators: {
+    title: 'Calculator Categories',
+    description: 'Browse HealthCalc calculators by category',
+    url: '/calculators',
+    type: 'page',
+    category: 'Calculators',
+    content:
+      'Explore HealthCalc calculators grouped by weight loss, body composition, nutrition, performance, wellness, pregnancy, and more.',
+  },
+  'calculator-widgets': {
+    title: 'Calculator Widgets',
+    description: 'Embed HealthCalc calculators on your site with attribution',
+    url: '/calculator-widgets',
+    type: 'page',
+    category: 'Calculators',
+    content:
+      'Embed HealthCalc calculators with an attribution link. Request approval, copy embed code, and publish the widget.',
+  },
+  'embed-terms': {
+    title: 'Embed Terms',
+    description: 'Terms for embedding HealthCalc calculators on external websites',
+    url: '/embed-terms',
+    type: 'page',
+    category: 'Legal',
+    content:
+      'HealthCalc embed terms outline attribution requirements, allowed modifications, and acceptable use of embedded calculators.',
+  },
+  learn: {
+    title: 'Health Guides',
+    description: 'Quick guides that explain key health metrics and link to the right calculators',
+    url: '/learn',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Health guides cover calorie basics, macro planning, heart rate training, body composition, walking and running energy, and pregnancy health.',
+  },
+  'learn-calorie-basics': {
+    title: 'Calorie Basics',
+    description: 'How calories work for maintenance, loss, and gain',
+    url: '/learn/calorie-basics',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Calorie basics explains maintenance calories, calorie deficits, and how to set targets for weight loss or gain.',
+  },
+  'learn-macro-planning': {
+    title: 'Macro Planning',
+    description: 'Set carb, fat, and protein targets that align with your goals',
+    url: '/learn/macro-planning',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Macro planning helps you set protein, carb, and fat targets using HealthCalc nutrition calculators.',
+  },
+  'learn-heart-rate-training': {
+    title: 'Heart Rate Training',
+    description: 'Use zones and max heart rate to train smarter',
+    url: '/learn/heart-rate-training',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Heart rate training explains max HR, target zones, and resting heart rate to guide workouts.',
+  },
+  'learn-body-composition-guide': {
+    title: 'Body Composition Guide',
+    description: 'Understand BMI, body fat, and lean mass together',
+    url: '/learn/body-composition-guide',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Body composition guide connects BMI, body fat percentage, and lean body mass to assess health risk.',
+  },
+  'learn-walking-running-energy': {
+    title: 'Walking & Running Energy',
+    description: 'Estimate calories burned from walking or running',
+    url: '/learn/walking-running-energy',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Walking and running energy explains how speed, duration, and body weight affect calories burned.',
+  },
+  'learn-pregnancy-health': {
+    title: 'Pregnancy Health',
+    description: 'Key calculators for due dates and weight gain guidance',
+    url: '/learn/pregnancy-health',
+    type: 'page',
+    category: 'Guides',
+    content:
+      'Pregnancy health covers due dates, conception timing, and recommended weight gain ranges.',
+  },
+  'calculators-weight-loss': {
+    title: 'Weight Loss & Management Calculators',
+    description: 'Plan sustainable fat loss with calorie, activity, and timeline tools.',
+    url: '/calculators/weight-loss',
+    type: 'page',
+    category: 'Calculators',
+    content:
+      'Weight loss calculators to plan calorie deficits, fat loss timelines, and sustainable progress.',
+  },
+  'calculators-body-composition': {
+    title: 'Body Composition Calculators',
+    description:
+      'Understand body fat, shape, and healthy weight ranges with science-backed metrics.',
+    url: '/calculators/body-composition',
+    type: 'page',
+    category: 'Calculators',
+    content:
+      'Body composition calculators for BMI, body fat percentage, ABSI, and waist-to-hip ratio.',
+  },
+  'calculators-metabolism-energy': {
+    title: 'Metabolism & Energy Calculators',
+    description: 'Calculate calories burned at rest and across daily activity.',
+    url: '/calculators/metabolism-energy',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Metabolism calculators for BMR and TDEE to estimate daily energy needs.',
+  },
+  'calculators-nutrition': {
+    title: 'Nutrition & Macros Calculators',
+    description: 'Set protein and macro targets for weight loss, maintenance, or muscle gain.',
+    url: '/calculators/nutrition',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Nutrition calculators to plan macros and protein intake.',
+  },
+  'calculators-performance': {
+    title: 'Performance & Training Calculators',
+    description: 'Optimize workouts with pacing, heart rate, and strength tools.',
+    url: '/calculators/performance',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Performance calculators for heart rate zones, VO2 max, running pace, and strength.',
+  },
+  'calculators-wellness-recovery': {
+    title: 'Wellness & Recovery Calculators',
+    description: 'Support hydration and sleep with daily recovery targets.',
+    url: '/calculators/wellness-recovery',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Wellness calculators for hydration and sleep planning.',
+  },
+  'calculators-pregnancy': {
+    title: 'Pregnancy & Fertility Calculators',
+    description: 'Track due dates and ovulation windows with confidence.',
+    url: '/calculators/pregnancy',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Pregnancy calculators for due dates and ovulation tracking.',
+  },
+  'calculators-health-vitals': {
+    title: 'Health & Vitals Calculators',
+    description: 'Monitor key vitals like blood pressure with clear categories.',
+    url: '/calculators/health-vitals',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Health calculators for blood pressure and vital monitoring.',
+  },
+  'calculators-utilities': {
+    title: 'Utility Calculators',
+    description: 'Quick conversions for weight, height, and fitness-related units.',
+    url: '/calculators/utilities',
+    type: 'page',
+    category: 'Calculators',
+    content: 'Utility tools for unit conversions used in health and fitness.',
+  },
+  blog: {
+    title: 'Health and Fitness Blog',
+    description: 'Articles and guides on health, fitness, nutrition, and weight management',
+    url: '/blog',
+    type: 'page',
+    category: 'Blog',
+    content:
+      'The HealthCalc blog provides evidence-based articles and guides on health, fitness, nutrition, and weight management. Our content is written by health professionals and fitness experts to help you make informed decisions about your health and fitness journey.',
+  },
+  about: {
+    title: 'About HealthCalc',
+    description:
+      'Learn about our mission to provide accurate, evidence-based health and fitness calculators and information',
+    url: '/about',
+    type: 'page',
+    content:
+      'HealthCalc is dedicated to providing accurate, evidence-based health and fitness calculators and information to help you make informed decisions about your health. Our team of health professionals and fitness experts develops and reviews all content to ensure it meets the highest standards of accuracy and reliability.',
+  },
+  contact: {
+    title: 'Contact HealthCalc',
+    description:
+      'Get in touch with the HealthCalc team for questions, feedback, or collaboration opportunities',
+    url: '/contact',
+    type: 'page',
+    content:
+      'Have questions, feedback, or collaboration opportunities? Get in touch with the HealthCalc team through our contact form. We value your input and are committed to continuously improving our calculators and content based on user feedback.',
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    description:
+      "HealthCalc's privacy policy explaining how we collect, use, and protect your data",
+    url: '/privacy',
+    type: 'page',
+    content:
+      "HealthCalc's privacy policy explains how we collect, use, and protect your data. We are committed to protecting your privacy and ensuring the security of your personal information. This policy outlines our practices regarding data collection, usage, and your rights concerning your information.",
+  },
+  terms: {
+    title: 'Terms of Service',
+    description:
+      "HealthCalc's terms of service outlining the rules and guidelines for using our website and calculators",
+    url: '/terms',
+    type: 'page',
+    content:
+      "HealthCalc's terms of service outline the rules and guidelines for using our website and calculators. By using our services, you agree to these terms, which include information about acceptable use, intellectual property, disclaimers, and limitations of liability.",
+  },
+  disclaimer: {
+    title: 'Medical Disclaimer',
+    description:
+      "Important information about the limitations of HealthCalc's calculators and content",
+    url: '/disclaimer',
+    type: 'page',
+    content:
+      "HealthCalc's medical disclaimer provides important information about the limitations of our calculators and content. Our tools and information are for educational purposes only and are not intended to replace professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider before making any health-related decisions.",
+  },
+};
+
+/**
+ * Hand-written search terms layered onto the derived entries, keyed like the
+ * index: a calculator slug, or `blog-<slug>` for a post.
+ */
+export const SEARCH_INDEX_EXTRAS: Record<string, Pick<SearchIndexEntry, 'tags' | 'content'>> = {
+  bmi: {
+    tags: [
+      'BMI',
+      'weight',
+      'height',
+      'body mass index',
+      'obesity',
+      'underweight',
+      'overweight',
+      'normal weight',
+    ],
+    content:
+      "The Body Mass Index (BMI) calculator helps you assess your weight relative to your height. BMI is a widely used measure to identify possible weight problems in adults. It calculates your weight in kilograms divided by the square of your height in meters. While BMI doesn't directly measure body fat, it provides a reasonable estimate of body fat for most people and is used to categorize individuals as underweight, normal weight, overweight, or obese.",
+  },
+  'body-fat': {
+    tags: [
+      'body fat',
+      'body fat percentage',
+      'Navy method',
+      'skinfold',
+      'lean mass',
+      'fat mass',
+      'body composition',
+    ],
+    content:
+      'The Body Fat Calculator helps you estimate your body fat percentage using various methods including the Navy method, which uses waist, neck, and hip measurements. Body fat percentage is a better indicator of health than BMI as it distinguishes between fat mass and lean mass. Knowing your body fat percentage can help you set realistic fitness goals and track your progress over time.',
+  },
+  'army-body-fat': {
+    tags: ['army body fat', 'body fat percentage', 'circumference method', 'waist neck hip'],
+    content:
+      'The Army Body Fat Calculator estimates body fat using the U.S. Army circumference method. It uses waist, neck, height, and hip measurements to provide a quick screening estimate.',
+  },
+  'body-fat-burn': {
+    tags: [
+      'calories burned',
+      'weight loss',
+      'fat loss',
+      'exercise',
+      'activity',
+      'calorie deficit',
+      'workout',
+    ],
+    content:
+      'The Body Fat Burn Calculator helps you estimate how many calories you burn during various physical activities and how long it will take to reach your weight loss goals through exercise. By inputting your gender, age, height, weight, activity type, duration, and frequency, you can get a personalized estimate of your calorie expenditure and fat loss timeline.',
+  },
+  tdee: {
+    tags: [
+      'TDEE',
+      'total daily energy expenditure',
+      'calories',
+      'metabolism',
+      'BMR',
+      'basal metabolic rate',
+      'maintenance calories',
+    ],
+    content:
+      'The TDEE (Total Daily Energy Expenditure) Calculator helps you determine how many calories you burn each day based on your age, gender, height, weight, and activity level. TDEE includes your Basal Metabolic Rate (BMR) plus additional calories burned through physical activity and digestion. Knowing your TDEE is essential for weight management, as it represents your maintenance calories.',
+  },
+  calorie: {
+    tags: [
+      'calorie calculator',
+      'daily calories',
+      'maintenance calories',
+      'weight loss calories',
+      'weight gain calories',
+      'BMR',
+      'TDEE',
+    ],
+    content:
+      'The Calorie Calculator estimates your daily calorie needs based on age, sex, height, weight, and activity level. It provides maintenance calories plus targets for weight loss or gain. Use the results as a starting point and adjust based on real-world progress.',
+  },
+  'calories-burned': {
+    tags: ['calories burned', 'workout calories', 'exercise', 'METs', 'activity'],
+    content:
+      'The Calories Burned Calculator estimates how many calories you burn during an activity based on MET values, weight, and time. Use it to compare workouts and plan energy expenditure.',
+  },
+  'calories-burned-walking': {
+    tags: ['calories burned walking', 'walking calories', 'walking speed', 'METs'],
+    content:
+      'The Calories Burned Walking Calculator estimates energy expenditure based on walking speed, time, and body weight.',
+  },
+  'calories-burned-running': {
+    tags: ['calories burned running', 'running calories', 'running speed', 'METs'],
+    content:
+      'The Calories Burned Running Calculator estimates energy expenditure based on running speed, time, and body weight.',
+  },
+  'calories-burned-cycling': {
+    tags: ['calories burned cycling', 'cycling calories', 'bike speed', 'METs'],
+    content:
+      'The Calories Burned Cycling Calculator estimates energy expenditure based on cycling speed, time, and body weight.',
+  },
+  'calories-burned-swimming': {
+    tags: ['calories burned swimming', 'swimming calories', 'swim intensity', 'METs'],
+    content:
+      'The Calories Burned Swimming Calculator estimates energy expenditure based on swim intensity, time, and body weight.',
+  },
+  'steps-to-calories': {
+    tags: ['steps to calories', 'step calories', 'walking calories', 'step count'],
+    content:
+      'The Steps to Calories Calculator estimates calorie burn based on steps, stride length, duration, and body weight.',
+  },
+  'calorie-deficit': {
+    tags: [
+      'calorie deficit',
+      'weight loss',
+      'diet',
+      'nutrition',
+      'fat loss',
+      'calorie restriction',
+      'weight management',
+    ],
+    content:
+      'The Calorie Deficit Calculator helps you determine the optimal calorie deficit for weight loss based on your current weight, goal weight, and timeline. A calorie deficit occurs when you consume fewer calories than your body burns, leading to weight loss. This calculator helps you create a sustainable plan that balances effective weight loss with proper nutrition.',
+  },
+  'weight-management': {
+    tags: [
+      'weight management',
+      'weight loss',
+      'weight gain',
+      'calorie planning',
+      'diet plan',
+      'nutrition plan',
+      'meal planning',
+    ],
+    content:
+      "The Weight Management Calculator helps you plan your weight loss or gain journey with a target date. By entering your current weight, goal weight, and target date, you'll get a personalized calorie plan that tells you exactly how many calories to consume each day to reach your goal. The calculator ensures your plan is realistic and healthy.",
+  },
+  'maximum-fat-loss': {
+    tags: [
+      'maximum fat loss',
+      'fat loss limit',
+      'body fat',
+      'weight loss',
+      'calorie deficit',
+      'sustainable weight loss',
+    ],
+    content:
+      'The Maximum Fat Loss Calculator helps you determine the maximum rate of fat loss that is physiologically possible based on your current body fat percentage and weight. This calculator uses research-based formulas to ensure your weight loss goals are realistic and sustainable, preventing muscle loss and metabolic adaptation.',
+  },
+  absi: {
+    tags: [
+      'ABSI',
+      'A Body Shape Index',
+      'waist circumference',
+      'body shape',
+      'health risk',
+      'mortality risk',
+      'central obesity',
+    ],
+    content:
+      'The ABSI (A Body Shape Index) Calculator helps you assess your health risk based on your waist circumference relative to your BMI and height. ABSI is a newer metric that may better predict mortality risk than BMI alone, particularly for individuals with central obesity. A higher ABSI indicates a more concentrated weight around the waist and potentially higher health risks.',
+  },
+  whr: {
+    tags: [
+      'waist-to-hip ratio',
+      'WHR',
+      'body fat distribution',
+      'apple shape',
+      'pear shape',
+      'central obesity',
+      'health risk',
+    ],
+    content:
+      "The Waist-to-Hip Ratio (WHR) Calculator helps you assess your body fat distribution and associated health risks. WHR is calculated by dividing your waist circumference by your hip circumference. A higher ratio indicates more fat stored around the waist ('apple shape'), which is associated with a higher risk of heart disease and type 2 diabetes compared to fat stored around the hips ('pear shape').",
+  },
+  'waist-to-height-ratio': {
+    tags: [
+      'waist-to-height ratio',
+      'WHtR',
+      'central obesity',
+      'body shape',
+      'health risk',
+      'waist circumference',
+    ],
+    content:
+      'The Waist-to-Height Ratio Calculator compares your waist circumference to your height to assess central body fat. A waist less than half your height is a common guideline. Use this ratio with other metrics like BMI and body fat percentage.',
+  },
+  'body-frame-size': {
+    tags: ['body frame size', 'wrist circumference', 'small frame', 'medium frame', 'large frame'],
+    content:
+      'The Body Frame Size Calculator uses wrist circumference and height to classify small, medium, or large frame size.',
+  },
+  'adjusted-body-weight': {
+    tags: ['adjusted body weight', 'ideal body weight', 'Devine', 'ABW'],
+    content:
+      'The Adjusted Body Weight Calculator uses the Devine formula for ideal body weight and adjusts based on actual weight.',
+  },
+  conversions: {
+    tags: [
+      'conversions',
+      'unit converter',
+      'kg to lb',
+      'cm to inches',
+      'pounds to kilograms',
+      'feet to centimeters',
+    ],
+    content:
+      'The Health and Fitness Conversions calculator helps you convert between different units of measurement commonly used in health and fitness contexts. Convert between metric and imperial units for weight (kg/lb), height (cm/ft/in), and more. This tool is useful for international users and for understanding measurements in different systems.',
+  },
+  age: {
+    tags: ['age calculator', 'date of birth', 'age in years', 'age in months', 'age in days'],
+    content:
+      'The Age Calculator determines your exact age in years, months, and days based on your birth date. You can also choose a reference date to calculate your age at any point in time.',
+  },
+  'steps-to-miles': {
+    tags: ['steps to miles', 'step length', 'distance', 'walking'],
+    content:
+      'The Steps to Miles Calculator converts step counts into miles or kilometers using stride length.',
+  },
+  macro: {
+    tags: ['macros', 'macronutrients', 'protein', 'carbs', 'fat', 'calories', 'macro calculator'],
+    content:
+      'The Macro Calculator helps you break daily calories into protein, carbohydrate, and fat targets based on your goal. It is useful for meal planning and body composition goals.',
+  },
+  'carb-intake': {
+    tags: ['carb intake', 'carbohydrates', 'macros', 'carb grams', 'nutrition'],
+    content:
+      'The Carb Intake Calculator converts your calorie target and carb percentage into daily grams of carbohydrates.',
+  },
+  'fat-intake': {
+    tags: ['fat intake', 'dietary fat', 'macro calculator', 'fat grams', 'nutrition'],
+    content:
+      'The Fat Intake Calculator converts your calorie target and fat percentage into daily grams of fat.',
+  },
+  protein: {
+    tags: ['protein', 'protein intake', 'muscle growth', 'recovery', 'nutrition'],
+    content:
+      'The Protein Intake Calculator estimates how much protein you need daily based on body weight, activity level, and goals.',
+  },
+  'one-rep-max': {
+    tags: ['one rep max', '1RM', 'strength', 'weightlifting', 'powerlifting'],
+    content:
+      'The One Rep Max Calculator estimates your maximum lift using common strength formulas.',
+  },
+  'ideal-weight': {
+    tags: ['ideal weight', 'healthy weight', 'devine', 'hamwi', 'robinson', 'miller'],
+    content:
+      'The Ideal Weight Calculator estimates a healthy weight range based on height and gender using multiple formulas.',
+  },
+  'body-surface-area': {
+    tags: ['body surface area', 'BSA', 'height and weight', 'clinical metric'],
+    content:
+      'The Body Surface Area Calculator estimates your total body surface area based on height and weight. BSA is commonly used in clinical settings for medication dosing and health assessments.',
+  },
+  'lean-body-mass': {
+    tags: ['lean body mass', 'LBM', 'muscle mass', 'body composition'],
+    content:
+      'The Lean Body Mass Calculator estimates how much of your weight is lean tissue. Use it to track progress beyond scale weight.',
+  },
+  'heart-rate-zones': {
+    tags: ['heart rate zones', 'training zones', 'karvonen', 'max heart rate', 'cardio'],
+    content:
+      'The Heart Rate Zones Calculator provides target training zones based on age and optional resting heart rate.',
+  },
+  'max-heart-rate': {
+    tags: ['max heart rate', '220 minus age', 'Tanaka', 'HRmax'],
+    content:
+      'The Max Heart Rate Calculator estimates HRmax using common formulas like 220 minus age and Tanaka.',
+  },
+  'target-heart-rate': {
+    tags: ['target heart rate', 'heart rate zone', 'cardio', 'max heart rate'],
+    content:
+      'The Target Heart Rate Calculator estimates training zones based on your age and optional resting heart rate.',
+  },
+  'resting-heart-rate': {
+    tags: ['resting heart rate', 'fitness level', 'RHR'],
+    content:
+      'The Resting Heart Rate Calculator classifies resting heart rate and provides context on cardiovascular fitness.',
+  },
+  'water-intake': {
+    tags: ['water intake', 'hydration', 'daily water', 'how much water to drink'],
+    content:
+      'The Water Intake Calculator estimates daily water intake targets based on body weight and activity level.',
+  },
+  sleep: {
+    tags: ['sleep', 'sleep cycles', 'bedtime', 'wake time', 'sleep calculator'],
+    content:
+      'The Sleep Calculator suggests bedtimes or wake times aligned to 90-minute sleep cycles.',
+  },
+  'blood-pressure': {
+    tags: ['blood pressure', 'systolic', 'diastolic', 'hypertension', 'blood pressure category'],
+    content:
+      'The Blood Pressure Calculator classifies readings into normal, elevated, or hypertension ranges.',
+  },
+  bmr: {
+    tags: ['BMR', 'basal metabolic rate', 'mifflin st jeor', 'katch mcardle', 'calories at rest'],
+    content:
+      'The BMR Calculator estimates the calories your body burns at rest using multiple formulas.',
+  },
+  'vo2-max': {
+    tags: ['VO2 max', 'rockport walk test', 'cardio fitness', 'oxygen uptake'],
+    content:
+      'The VO2 Max Calculator estimates cardiovascular fitness from a 1-mile walk time and heart rate.',
+  },
+  'running-pace': {
+    tags: ['running pace', 'pace per mile', 'pace per km', 'running speed'],
+    content:
+      'The Running Pace Calculator converts distance and time into pace per mile, pace per kilometer, and speed.',
+  },
+  'pregnancy-due-date': {
+    tags: ['due date', 'pregnancy', 'LMP', 'conception date', 'gestational age'],
+    content:
+      'The Pregnancy Due Date Calculator estimates due date using last menstrual period or conception date.',
+  },
+  'due-date-by-conception': {
+    tags: ['conception date', 'due date', 'pregnancy calculator'],
+    content:
+      'The Due Date by Conception Calculator estimates due date by adding 38 weeks to the conception date.',
+  },
+  'pregnancy-weight-gain': {
+    tags: ['pregnancy weight gain', 'BMI', 'prenatal weight'],
+    content:
+      'The Pregnancy Weight Gain Calculator provides guideline ranges based on pre-pregnancy BMI.',
+  },
+  ovulation: {
+    tags: ['ovulation', 'fertile window', 'cycle length', 'fertility'],
+    content:
+      'The Ovulation Calculator estimates ovulation date and fertile window based on cycle length.',
+  },
+  'blog-tdee-explained': {
+    tags: [
+      'TDEE',
+      'calories',
+      'metabolism',
+      'BMR',
+      'energy expenditure',
+      'weight management',
+      'nutrition',
+    ],
+    content:
+      "Total Daily Energy Expenditure (TDEE) represents the total number of calories your body burns in a day. It consists of your Basal Metabolic Rate (BMR), the energy used during physical activity, and the thermic effect of food. Understanding your TDEE is crucial for effective weight management as it helps you determine how many calories you need to maintain, lose, or gain weight. This article explains the components of TDEE, how it's calculated, factors that affect it, and how to use this knowledge for your health and fitness goals.",
+  },
+  'blog-calorie-deficit-myths': {
+    tags: [
+      'calorie deficit',
+      'weight loss myths',
+      'metabolism',
+      'starvation mode',
+      'plateau',
+      'sustainable weight loss',
+    ],
+    content:
+      'Calorie deficits are essential for weight loss, but there are many myths and misconceptions surrounding them. This article debunks five common myths about calorie deficits: that extreme deficits lead to faster results, that metabolism permanently slows down during weight loss, that starvation mode will prevent weight loss, that weight loss should be linear, and that all calories are equal. Understanding the truth behind these myths can help you create a more effective and sustainable weight loss plan.',
+  },
+  'blog-measuring-body-fat': {
+    tags: [
+      'body fat measurement',
+      'DEXA scan',
+      'skinfold calipers',
+      'Navy method',
+      'bioelectrical impedance',
+      'body composition',
+    ],
+    content:
+      'Measuring body fat percentage can be done through various methods, each with its own advantages and limitations. This article compares different body fat measurement techniques including DEXA scans, hydrostatic weighing, air displacement plethysmography (Bod Pod), bioelectrical impedance analysis, skinfold calipers, and the Navy method. It discusses the accuracy, accessibility, cost, and practicality of each method to help you choose the most appropriate approach for your needs.',
+  },
+  'blog-understanding-absi': {
+    tags: [
+      'ABSI',
+      'body shape',
+      'central obesity',
+      'waist circumference',
+      'mortality risk',
+      'BMI limitations',
+    ],
+    content:
+      "A Body Shape Index (ABSI) is a relatively new metric that aims to improve upon the limitations of BMI by incorporating waist circumference relative to height and weight. This article explains what ABSI is, how it's calculated, and why it may be a better predictor of mortality risk than BMI alone, particularly for individuals with central obesity. It also discusses how to interpret your ABSI score and how to use this information to assess and improve your health.",
+  },
+  'blog-understanding-body-fat-percentage': {
+    tags: [
+      'body fat percentage',
+      'essential fat',
+      'athletic',
+      'fitness',
+      'obesity',
+      'body composition',
+      'health risks',
+    ],
+    content:
+      'Body fat percentage is a key indicator of health and fitness that measures the proportion of fat mass to total body mass. This article explains what body fat percentage means, healthy ranges for men and women, the difference between essential fat and storage fat, and how body fat percentage relates to health and fitness goals. It also discusses how to interpret your body fat percentage results and set realistic goals based on your current level.',
+  },
+  'blog-waist-to-hip-ratio-guide': {
+    tags: [
+      'waist-to-hip ratio',
+      'WHR',
+      'apple shape',
+      'pear shape',
+      'body fat distribution',
+      'health risks',
+      'cardiovascular disease',
+    ],
+    content:
+      "Waist-to-Hip Ratio (WHR) is a simple measurement that can provide valuable insights into your health risks based on how your body fat is distributed. This article explains what WHR is, how to measure it accurately, healthy ranges for men and women, and the health implications of different body shapes ('apple' versus 'pear'). It also discusses strategies for reducing WHR and improving overall health through diet, exercise, and lifestyle changes.",
+  },
+};
