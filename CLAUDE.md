@@ -25,7 +25,7 @@ HealthCalc (healthcalc.xyz): Next.js 16 / React 19 / TypeScript / Tailwind v4 si
 
 ## Adding a calculator
 
-Add to `CALCULATOR_CATALOG`, create the route folder, types in `src/types/`, logic + tests in `src/utils/calculators/`, constants in `src/constants/`, components in `src/components/calculators/<name>/`, the API route, and append the slug to `CALCULATOR_SLUGS` in `e2e/calculators-all.spec.ts`. `bun run create:calculator` scaffolds most of this.
+Add to `CALCULATOR_CATALOG`, create the route folder, types in `src/types/`, logic + tests in `src/utils/calculators/`, constants in `src/constants/`, components in `src/components/calculators/<name>/`, and the API route. `bun run create:calculator` scaffolds most of this. The smoke suite (`e2e/calculators-all.spec.ts`) iterates the catalog, so there is no slug list to update.
 
 ## Gotchas
 
