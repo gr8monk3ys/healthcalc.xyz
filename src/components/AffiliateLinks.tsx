@@ -131,8 +131,8 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
           <CategoryIcon category={product.category} />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2">
-            <h4 className="font-semibold text-sm truncate">{product.name}</h4>
+          <div className="flex flex-col items-start gap-1">
+            <h4 className="text-sm font-semibold">{product.name}</h4>
             {product.badge && (
               <span className="flex-shrink-0 inline-block bg-accent/10 text-accent text-xs px-2 py-0.5 rounded-full">
                 {product.badge}
