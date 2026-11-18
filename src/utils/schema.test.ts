@@ -169,10 +169,10 @@ describe('createArticleSchema', () => {
     expect(schema.dateModified).toBe('2024-06-01');
   });
 
-  it('should include author as Person', () => {
+  it('should include author as Organization', () => {
     const schema = createArticleSchema(baseArticle);
     const author = schema.author as { '@type': string; name: string };
-    expect(author['@type']).toBe('Person');
+    expect(author['@type']).toBe('Organization');
     expect(author.name).toBe('HealthCalc Team');
   });
 
