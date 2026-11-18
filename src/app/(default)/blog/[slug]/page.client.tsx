@@ -8,6 +8,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import { BlogEmailCapture } from '@/components/BlogEmailCapture';
 import { AuthorBio } from '@/components/AuthorBio';
 import { BLOG_REGISTRY } from '@/lib/blog/registry';
+import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 import type { Reviewer } from '@/constants/reviewers';
 import {
   REVIEWER_SARAH_CHEN,
@@ -441,6 +442,15 @@ function reviewerForSlug(slug: string): Reviewer {
 export default function BlogPost(): React.JSX.Element {
   const params = useParams<{ slug: string }>();
   const slug = params.slug as string;
+  const { trackEvent } = useFunnelTracking();
+
+  // Post bodies render their Amazon links as plain anchors, so clicks are
+  // tracked by delegation here rather than in each post.
+  const trackAffiliateClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const link = (event.target as Element).closest<HTMLAnchorElement>('a[rel~="sponsored"]');
+    if (!link) return;
+    trackEvent('affiliate_click', { kind: 'blog', post: slug, destination: link.href });
+  };
 
   // Get the dynamic component for this slug
   const PostContent = BLOG_POSTS[slug];
@@ -456,7 +466,9 @@ export default function BlogPost(): React.JSX.Element {
     <Suspense fallback={<BlogLoadingFallback />}>
       <AuthorBio variant="compact" reviewer={reviewer} className="mb-6" />
       {hasAffiliateLinks && <AffiliateDisclosure variant="short" />}
-      <PostContent />
+      <div onClick={trackAffiliateClick}>
+        <PostContent />
+      </div>
       <BlogEmailCapture className="mt-8 mb-8" />
       {hasAffiliateLinks && <AffiliateDisclosure />}
     </Suspense>

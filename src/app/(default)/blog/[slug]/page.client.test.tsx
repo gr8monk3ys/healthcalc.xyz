@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { AFFILIATE_DISCLOSURE } from '@/constants/affiliates';
 import { BLOG_REGISTRY } from '@/lib/blog/registry';
@@ -32,6 +32,12 @@ vi.mock('next/dynamic', () => ({
 
 vi.mock('@/components/BlogEmailCapture', () => ({ BlogEmailCapture: () => null }));
 
+const trackEvent = vi.hoisted(() => vi.fn());
+
+vi.mock('@/hooks/useFunnelTracking', () => ({
+  useFunnelTracking: () => ({ canTrack: true, trackEvent }),
+}));
+
 const affiliatePost = BLOG_REGISTRY.find(post => post.affiliate)!;
 const editorialPost = BLOG_REGISTRY.find(post => !post.affiliate)!;
 
@@ -63,5 +69,21 @@ describe('blog post shell', () => {
 
     expect(screen.getByTestId('post-content')).toBeInTheDocument();
     expect(screen.queryByText(/Amazon Associate/)).toBeNull();
+  });
+
+  it('fires affiliate_click only for sponsored links in the post body', () => {
+    renderPost(affiliatePost.slug);
+    // jsdom does not implement navigation.
+    screen.getByTestId('post-content').addEventListener('click', event => event.preventDefault());
+
+    fireEvent.click(screen.getByText('BMI calculator'));
+    expect(trackEvent).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByText('Check price on Amazon'));
+    expect(trackEvent).toHaveBeenCalledExactlyOnceWith('affiliate_click', {
+      kind: 'blog',
+      post: affiliatePost.slug,
+      destination: 'https://www.amazon.com/dp/B0TEST?tag=test-20',
+    });
   });
 });
