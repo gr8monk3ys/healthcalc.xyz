@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     'keto diet plan',
     'ketosis calculator',
   ],
+  alternates: {
+    canonical: './',
+  },
   openGraph: {
     title: 'Keto Macro Calculator | Personalized Ketogenic Diet Plan',
     description:

@@ -34,6 +34,9 @@ export async function generateMetadata({ params }: CalculatorHubPageProps): Prom
   return {
     title: `${hub.title} Calculators | HealthCalc`,
     description: hub.description,
+    alternates: {
+      canonical: './',
+    },
   };
 }
 
