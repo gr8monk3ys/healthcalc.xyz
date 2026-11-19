@@ -9,13 +9,13 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata: Metadata = {
   title: 'Waist-to-Height Ratio Explained: Why Half Your Height Matters | HealthCalc Blog',
   description:
-    'How to measure and calculate waist-to-height ratio, what the 0.4, 0.5, and 0.6 boundaries mean, why it can flag risk that BMI misses, and where it falls short.',
+    'How to measure waist-to-height ratio, what NICE’s 0.4, 0.5 and 0.6 bands mean, and where the measure falls short.',
   keywords:
     'waist-to-height ratio, WHtR, waist to height ratio chart, keep your waist to less than half your height, central obesity, abdominal fat, how to measure waist, BMI vs waist-to-height ratio',
   openGraph: {
     title: 'Waist-to-Height Ratio Explained: Why Half Your Height Matters | HealthCalc Blog',
     description:
-      'How to measure and calculate waist-to-height ratio, what the 0.4, 0.5, and 0.6 boundaries mean, why it can flag risk that BMI misses, and where it falls short.',
+      'How to measure waist-to-height ratio, what NICE’s 0.4, 0.5 and 0.6 bands mean, and where the measure falls short.',
     type: 'article',
     url: 'https://www.healthcalc.xyz/blog/waist-to-height-ratio-explained',
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Waist-to-Height Ratio Explained: Why Half Your Height Matters | HealthCalc Blog',
     description:
-      'How to measure and calculate waist-to-height ratio, what the 0.4, 0.5, and 0.6 boundaries mean, why it can flag risk that BMI misses, and where it falls short.',
+      'How to measure waist-to-height ratio, what NICE’s 0.4, 0.5 and 0.6 bands mean, and where the measure falls short.',
     images: ['/images/calculators/waist-to-height-ratio-calculator.jpg'],
   },
 };
@@ -99,7 +99,7 @@ const WaistToHeightRatioExplainedPageContent = (
       </div>
 
       <p>
-        Both measurements must be in the same unit - centimetres and centimetres, or inches and
+        Both measurements must be in the same unit - centimeters and centimeters, or inches and
         inches. Because it is a ratio, the result has no unit, and it comes out the same either way.
         A 34-inch waist on someone 5&apos;10&quot; (70 inches) gives 34 &divide; 70 = 0.49, exactly
         what you get from 86.4 cm &divide; 177.8 cm.
@@ -212,8 +212,8 @@ const WaistToHeightRatioExplainedPageContent = (
       <p>
         Take a 90 cm waist. On someone 185 cm tall the ratio is 0.49 - lower risk. On someone 165 cm
         tall it is 0.55 - increased risk. Dividing by height scales the waist to the frame it sits
-        on, which is why one boundary can be used for men and women and across a range of body sizes
-        instead of separate tables.
+        on, and a 2010 review by Browning and colleagues found that the same 0.5 boundary works for
+        men and women.
       </p>
 
       <AdBlock format="horizontal" />
@@ -284,8 +284,8 @@ const WaistToHeightRatioExplainedPageContent = (
             .
           </li>
           <li>
-            Waist-to-height ratio needs only a tape measure and your height, and uses one boundary
-            for everyone, which makes it simple to use as a screening tool.
+            Waist-to-height ratio needs only a tape measure and your height, and uses the same
+            boundary for men and women, which makes it simple to use as a screening tool.
           </li>
         </ul>
       </div>
@@ -379,7 +379,7 @@ const WaistToHeightRatioExplainedPageContent = (
           Mistake #4: reading too much into small changes
         </h3>
         <p>
-          On a typical adult height, a couple of centimetres of waist moves the ratio by about 0.01.
+          On a typical adult height, a couple of centimeters of waist moves the ratio by about 0.01.
           Look at the trend over several weeks.
         </p>
       </div>
