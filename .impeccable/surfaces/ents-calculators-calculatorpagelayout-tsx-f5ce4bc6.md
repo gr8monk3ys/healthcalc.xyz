@@ -1,8 +1,8 @@
 ---
 version: 1
-slug: "ents-calculators-calculatorpagelayout-tsx-f5ce4bc6"
-primary_target: "src/components/calculators/CalculatorPageLayout.tsx"
-related_targets: ["src/components/Header.tsx","src/components/Footer.tsx","src/app/globals.css"]
+slug: 'ents-calculators-calculatorpagelayout-tsx-f5ce4bc6'
+primary_target: 'src/components/calculators/CalculatorPageLayout.tsx'
+related_targets: ['src/components/Header.tsx', 'src/components/Footer.tsx', 'src/app/globals.css']
 ---
 
 # Calculator shell and shared chrome
