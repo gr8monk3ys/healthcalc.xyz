@@ -119,20 +119,17 @@ const BestKitchenScalesPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> OXO Good Grips ($49.99) - Pull-out display, chef
-              recommended
+              <strong>Best Overall:</strong> OXO Good Grips - Pull-out display, chef recommended
             </li>
             <li>
-              <strong>Best Budget:</strong> Etekcity Digital Scale ($14.99) - Amazon bestseller,
-              reliable
+              <strong>Best Budget:</strong> Etekcity Digital Scale - Amazon bestseller, reliable
             </li>
             <li>
-              <strong>Best with Nutrition:</strong> Greater Goods Nourish ($29.99) - Built-in
-              calorie database
+              <strong>Best with Nutrition:</strong> Greater Goods Nourish - Built-in calorie
+              database
             </li>
             <li>
-              <strong>Best Smart:</strong> URAMAZ Smart Scale ($24.99) - App-connected nutrition
-              tracking
+              <strong>Best Smart:</strong> URAMAZ Smart Scale - App-connected nutrition tracking
             </li>
           </ul>
         </div>
@@ -295,7 +292,7 @@ const BestKitchenScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">OXO Good Grips Food Scale</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$49.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -357,7 +354,7 @@ const BestKitchenScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Etekcity Digital Kitchen Scale</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$14.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -417,7 +414,7 @@ const BestKitchenScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Greater Goods Nourish Scale</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$29.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -477,7 +474,7 @@ const BestKitchenScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">URAMAZ Smart Food Scale</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$24.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -558,7 +555,7 @@ const BestKitchenScalesPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Scale</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Capacity</th>
                 <th className="border p-3 text-center">Special Feature</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -567,28 +564,28 @@ const BestKitchenScalesPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">OXO Good Grips</td>
-                <td className="border p-3 text-center">$49.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Pull-out display</td>
                 <td className="border p-3 text-center">Serious cooks</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Etekcity</td>
-                <td className="border p-3 text-center">$14.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Low price</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr>
                 <td className="border p-3">Greater Goods</td>
-                <td className="border p-3 text-center">$29.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">Nutrition display</td>
                 <td className="border p-3 text-center">No-app users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">URAMAZ</td>
-                <td className="border p-3 text-center">$24.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">11 lb</td>
                 <td className="border p-3 text-center">App connected</td>
                 <td className="border p-3 text-center">Tech lovers</td>
@@ -601,8 +598,8 @@ const BestKitchenScalesPageContent = (
 
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Just starting out:</strong> Get the <strong>Etekcity</strong> - $15 removes any
-            excuse not to weigh your food
+            <strong>Just starting out:</strong> Get the <strong>Etekcity</strong> - the budget price
+            removes any excuse not to weigh your food
           </li>
           <li>
             <strong>Want quality:</strong> The <strong>OXO Good Grips</strong> pull-out display is

@@ -127,23 +127,23 @@ const BestSleepTrackersRecoveryPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Oura Ring Gen 3 ($299) - Most accurate sleep staging
-              with zero screen distraction
+              <strong>Best Overall:</strong> Oura Ring Gen 3 - Most accurate sleep staging with zero
+              screen distraction
             </li>
             <li>
-              <strong>Best for Athletes:</strong> Whoop 4.0 Band ($239/yr) - Recovery scores and
-              strain tracking built for serious training
+              <strong>Best for Athletes:</strong> Whoop 4.0 Band (annual membership) - Recovery
+              scores and strain tracking built for serious training
             </li>
             <li>
-              <strong>Best Smartwatch:</strong> Fitbit Sense 2 ($199) - Sleep profiles, stress
-              management, and solid all-day wear
+              <strong>Best Smartwatch:</strong> Fitbit Sense 2 - Sleep profiles, stress management,
+              and solid all-day wear
             </li>
             <li>
-              <strong>Best All-Around:</strong> Garmin Venu 3 ($449) - Body Battery, nap detection,
-              and a full sleep coach
+              <strong>Best All-Around:</strong> Garmin Venu 3 - Body Battery, nap detection, and a
+              full sleep coach
             </li>
             <li>
-              <strong>Best Budget:</strong> Amazfit GTR 4 ($149) - 14 day battery with surprisingly
+              <strong>Best Budget:</strong> Amazfit GTR 4 - 14 day battery with surprisingly
               detailed sleep data
             </li>
           </ul>
@@ -329,7 +329,7 @@ const BestSleepTrackersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$299</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -355,10 +355,10 @@ const BestSleepTrackersRecoveryPageContent = (
           </p>
 
           <p className="mb-4">
-            The downside is the subscription. You get the hardware for $299, but the full feature
-            set requires a $5.99/month membership. Without it, you lose detailed sleep staging,
-            long-term trends, and some readiness insights. I think that is frustrating for a $300
-            device.
+            The downside is the subscription. You pay for the hardware up front, but the full
+            feature set requires a monthly membership. Without it, you lose detailed sleep staging,
+            long-term trends, and some readiness insights. I think that is frustrating for a device
+            at this price.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -391,7 +391,7 @@ const BestSleepTrackersRecoveryPageContent = (
               to sleep in
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Requires $5.99/month subscription for full features, no display
+              <strong>Cons:</strong> Requires a monthly subscription for full features, no display
               means you need your phone for data, ring sizing can be tricky, limited daytime fitness
               tracking compared to watches
             </p>
@@ -423,7 +423,7 @@ const BestSleepTrackersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$239/yr</span>
+            <span className="text-2xl font-bold text-accent">Subscription</span>
           </div>
 
           <p className="mb-4">
@@ -520,7 +520,7 @@ const BestSleepTrackersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$199</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -615,7 +615,7 @@ const BestSleepTrackersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$449</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -643,9 +643,9 @@ const BestSleepTrackersRecoveryPageContent = (
           </p>
 
           <p className="mb-4">
-            The price is the obvious barrier. At $449, this is the most expensive device here. But
-            if you want one watch that handles everything from marathon training to sleep monitoring
-            to daily wear, the Venu 3 is the most complete option. No subscriptions needed for any
+            The price is the obvious barrier. This is the most expensive device here. But if you
+            want one watch that handles everything from marathon training to sleep monitoring to
+            daily wear, the Venu 3 is the most complete option. No subscriptions needed for any
             feature.
           </p>
 
@@ -679,9 +679,9 @@ const BestSleepTrackersRecoveryPageContent = (
               smartwatch functionality, Sleep Coach is accurate
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Most expensive option at $449, Garmin Connect app has a steep
-              learning curve, bulkier than dedicated sleep trackers, sleep stage accuracy is good
-              but not best in class
+              <strong>Cons:</strong> Most expensive option, Garmin Connect app has a steep learning
+              curve, bulkier than dedicated sleep trackers, sleep stage accuracy is good but not
+              best in class
             </p>
           </div>
           <div className="mt-4">
@@ -711,15 +711,15 @@ const BestSleepTrackersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$149</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
             I expected the Amazfit GTR 4 to be a significant step down from the premium options. It
-            was not. For $149, you get sleep staging, HRV monitoring, SpO2 tracking, and a sleep
-            quality score that is roughly in the right ballpark. Is it as accurate as the Oura Ring?
-            No. But it is in the same neighborhood, and that is impressive for a watch that costs
-            half as much as most competitors.
+            was not. For a budget price, you get sleep staging, HRV monitoring, SpO2 tracking, and a
+            sleep quality score that is roughly in the right ballpark. Is it as accurate as the Oura
+            Ring? No. But it is in the same neighborhood, and that is impressive for a watch that
+            costs half as much as most competitors.
           </p>
 
           <p className="mb-4">
@@ -760,9 +760,9 @@ const BestSleepTrackersRecoveryPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            Budget-conscious buyers who want decent sleep data without spending $300 or more. If you
-            are just starting to pay attention to your sleep and want to see how tracking changes
-            your habits, the GTR 4 is a smart first purchase. Pair it with our{' '}
+            Budget-conscious buyers who want decent sleep data without spending much. If you are
+            just starting to pay attention to your sleep and want to see how tracking changes your
+            habits, the GTR 4 is a smart first purchase. Pair it with our{' '}
             <Link href="/sleep" className="text-accent hover:underline">
               Sleep Calculator
             </Link>{' '}
@@ -802,7 +802,7 @@ const BestSleepTrackersRecoveryPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Battery</th>
                 <th className="border p-3 text-center">Form Factor</th>
                 <th className="border p-3 text-center">HRV</th>
@@ -812,7 +812,7 @@ const BestSleepTrackersRecoveryPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Oura Ring Gen 3</td>
-                <td className="border p-3 text-center">$299</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">Ring</td>
                 <td className="border p-3 text-center">Yes</td>
@@ -820,7 +820,7 @@ const BestSleepTrackersRecoveryPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Whoop 4.0</td>
-                <td className="border p-3 text-center">$239/yr</td>
+                <td className="border p-3 text-center">Subscription</td>
                 <td className="border p-3 text-center">5 days</td>
                 <td className="border p-3 text-center">Band</td>
                 <td className="border p-3 text-center">Yes</td>
@@ -828,7 +828,7 @@ const BestSleepTrackersRecoveryPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Fitbit Sense 2</td>
-                <td className="border p-3 text-center">$199</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">6 days</td>
                 <td className="border p-3 text-center">Watch</td>
                 <td className="border p-3 text-center">Yes</td>
@@ -836,7 +836,7 @@ const BestSleepTrackersRecoveryPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garmin Venu 3</td>
-                <td className="border p-3 text-center">$449</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">14 days</td>
                 <td className="border p-3 text-center">Watch</td>
                 <td className="border p-3 text-center">Yes</td>
@@ -844,7 +844,7 @@ const BestSleepTrackersRecoveryPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Amazfit GTR 4</td>
-                <td className="border p-3 text-center">$149</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">14 days</td>
                 <td className="border p-3 text-center">Watch</td>
                 <td className="border p-3 text-center">Yes</td>
@@ -875,21 +875,21 @@ const BestSleepTrackersRecoveryPageContent = (
             worth it if you actually use it to guide your training.
           </li>
           <li>
-            <strong>For one-device simplicity:</strong> The <strong>Fitbit Sense 2</strong> at $199
-            is the best smartwatch for sleep tracking. You get notifications, apps, GPS, and sleep
-            data in one package. The EDA stress sensor adds useful context.
+            <strong>For one-device simplicity:</strong> The <strong>Fitbit Sense 2</strong> is the
+            best smartwatch for sleep tracking. You get notifications, apps, GPS, and sleep data in
+            one package. The EDA stress sensor adds useful context.
           </li>
           <li>
             <strong>For the premium all-rounder:</strong> The <strong>Garmin Venu 3</strong> does
             everything well with no subscription fees. Body Battery is one of the most intuitive
-            recovery metrics available. The $449 price is justified if you want one device that
+            recovery metrics available. The premium price is justified if you want one device that
             handles all your health and fitness needs.
           </li>
           <li>
-            <strong>For budget-conscious starters:</strong> The <strong>Amazfit GTR 4</strong> at
-            $149 proves you do not need to spend a fortune to start tracking sleep. The 14-day
-            battery means you will actually wear it consistently, which is more important than
-            having the most accurate sensor.
+            <strong>For budget-conscious starters:</strong> The <strong>Amazfit GTR 4</strong>{' '}
+            proves you do not need to spend a fortune to start tracking sleep. The 14-day battery
+            means you will actually wear it consistently, which is more important than having the
+            most accurate sensor.
           </li>
         </ul>
 
@@ -901,8 +901,8 @@ const BestSleepTrackersRecoveryPageContent = (
             Sleep Calculator
           </Link>
           , watch your HRV trends, and actually adjust your habits when the numbers tell you to. A
-          $149 Amazfit worn every night will do more for your recovery than a $300 Oura sitting on
-          your nightstand.
+          budget Amazfit worn every night will do more for your recovery than a pricier Oura sitting
+          on your nightstand.
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">

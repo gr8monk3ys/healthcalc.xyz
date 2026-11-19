@@ -93,24 +93,22 @@ const BestFoamRollersRecoveryPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> TriggerPoint GRID ($36.99) - Multi-density surface,
-              hollow core, 13 inches
+              <strong>Best Overall:</strong> TriggerPoint GRID - Multi-density surface, hollow core,
+              13 inches
             </li>
             <li>
-              <strong>Best Budget:</strong> LuxFit High Density ($19.99) - Simple, firm, 36 inches,
-              will not deform
+              <strong>Best Budget:</strong> LuxFit High Density - Simple, firm, 36 inches, will not
+              deform
             </li>
             <li>
-              <strong>Best Value:</strong> LuxFit Speckled ($24.95) - 3-year warranty,
-              multi-density, 36 inches
+              <strong>Best Value:</strong> LuxFit Speckled - 3-year warranty, multi-density,
+              36 inches
             </li>
             <li>
-              <strong>Best Portable:</strong> TheraGun Mini ($149.99) - Percussion massage, fits in
-              a bag
+              <strong>Best Portable:</strong> TheraGun Mini - Percussion massage, fits in a bag
             </li>
             <li>
-              <strong>Best for Back:</strong> Chirp Wheel+ ($69.99) - 3 sizes, designed for spinal
-              relief
+              <strong>Best for Back:</strong> Chirp Wheel+ - 3 sizes, designed for spinal relief
             </li>
           </ul>
         </div>
@@ -241,7 +239,7 @@ const BestFoamRollersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$36.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The GRID is the foam roller that most gyms and physical therapy offices stock. The
@@ -301,15 +299,15 @@ const BestFoamRollersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$19.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             This is a simple, solid, extra-firm foam roller. No textures. No hollow core. No
             gimmicks. It is a 36-inch cylinder of molded polypropylene foam that will not lose its
             shape after hundreds of uses. The extra length means you can lay on it lengthwise for
-            chest-opening stretches and thoracic spine work. At $20, it is a no-brainer for a home
-            gym. The firm density might be too much for complete beginners, but anyone with some
-            rolling experience will appreciate it.
+            chest-opening stretches and thoracic spine work. At a budget price, it is a no-brainer
+            for a home gym. The firm density might be too much for complete beginners, but anyone
+            with some rolling experience will appreciate it.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -360,13 +358,13 @@ const BestFoamRollersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$24.95</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             The speckled version of the LuxFit roller adds multi-density foam to the formula. The
             speckled areas are slightly softer than the solid areas, creating subtle pressure
-            variation as you roll. It comes with a 3-year warranty, which is unusual for a $25 foam
-            roller. If you want something between the budget-firm LuxFit and the premium
+            variation as you roll. It comes with a 3-year warranty, which is unusual for a budget
+            foam roller. If you want something between the budget-firm LuxFit and the premium
             TriggerPoint GRID, this fills that gap.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -418,16 +416,16 @@ const BestFoamRollersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$149.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The TheraGun Mini is not a foam roller. It is a percussion massage gun small enough to
             fit in a work bag. I include it here because it solves a different recovery problem:
             targeted muscle knots that a foam roller cannot reach easily (upper traps, forearms,
             feet). The 3rd gen model is 30% smaller and quieter than the previous version, charges
-            via USB-C, and lasts 180 minutes on a single charge. At $150 it is the most expensive
-            item on this list, but if you travel frequently and need recovery on the road, nothing
-            else fits in a carry-on as well.
+            via USB-C, and lasts 180 minutes on a single charge. It is the most expensive item on
+            this list, but if you travel frequently and need recovery on the road, nothing else fits
+            in a carry-on as well.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -449,8 +447,8 @@ const BestFoamRollersRecoveryPageContent = (
               knots, TSA friendly
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $150 is a lot for a recovery tool, cannot replace full-body
-              foam rolling, only one attachment head
+              <strong>Cons:</strong> Expensive for a recovery tool, cannot replace full-body foam
+              rolling, only one attachment head
             </p>
           </div>
           <div className="mt-4">
@@ -480,7 +478,7 @@ const BestFoamRollersRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$69.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Chirp Wheel is a foam roller specifically designed for your back. The narrow width
@@ -533,7 +531,7 @@ const BestFoamRollersRecoveryPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Type</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -542,35 +540,35 @@ const BestFoamRollersRecoveryPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">TriggerPoint GRID</td>
-                <td className="border p-3 text-center">$36.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
                 <td className="border p-3 text-center">Textured 13″</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">LuxFit HD</td>
-                <td className="border p-3 text-center">$19.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Solid 36″</td>
                 <td className="border p-3 text-center">Budget</td>
               </tr>
               <tr>
                 <td className="border p-3">LuxFit Speckled</td>
-                <td className="border p-3 text-center">$24.95</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Multi-density 36″</td>
                 <td className="border p-3 text-center">Value</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">TheraGun Mini</td>
-                <td className="border p-3 text-center">$149.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Massage gun</td>
                 <td className="border p-3 text-center">Travel</td>
               </tr>
               <tr>
                 <td className="border p-3">Chirp Wheel+</td>
-                <td className="border p-3 text-center">$69.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Back wheel (3)</td>
                 <td className="border p-3 text-center">Back pain</td>
@@ -612,27 +610,27 @@ const BestFoamRollersRecoveryPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best overall:</strong> <strong>TriggerPoint GRID at $36.99</strong> is the gold
-            standard for a reason. Durable, portable, effective.
+            <strong>Best overall:</strong> <strong>TriggerPoint GRID</strong> is the gold standard
+            for a reason. Durable, portable, effective.
           </li>
           <li>
-            <strong>Best budget:</strong> <strong>LuxFit HD at $19.99</strong> for a no-frills
-            roller that will last years.
+            <strong>Best budget:</strong> <strong>LuxFit HD</strong> for a no-frills roller that
+            will last years.
           </li>
           <li>
-            <strong>Best for travel:</strong> <strong>TheraGun Mini at $149.99</strong> if you need
-            recovery on the road.
+            <strong>Best for travel:</strong> <strong>TheraGun Mini</strong> if you need recovery on
+            the road.
           </li>
           <li>
-            <strong>Best for back pain:</strong> <strong>Chirp Wheel+ at $69.99</strong> gets
-            between your shoulder blades where regular rollers cannot.
+            <strong>Best for back pain:</strong> <strong>Chirp Wheel+</strong> gets between your
+            shoulder blades where regular rollers cannot.
           </li>
         </ul>
 
         <p>
-          Recovery does not need to be complicated or expensive. A $20 foam roller and ten minutes
-          after each workout will make a noticeable difference in how you feel. Track your training
-          with our{' '}
+          Recovery does not need to be complicated or expensive. A budget foam roller and ten
+          minutes after each workout will make a noticeable difference in how you feel. Track your
+          training with our{' '}
           <Link href="/body-fat-burn" className="text-accent hover:underline">
             Body Fat Burn Calculator
           </Link>{' '}

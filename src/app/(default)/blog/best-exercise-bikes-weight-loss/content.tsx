@@ -127,24 +127,24 @@ const BestExerciseBikesWeightLossPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Schwinn IC4 Indoor Cycling Bike ($799) - 100 magnetic
+              <strong>Best Overall:</strong> Schwinn IC4 Indoor Cycling Bike - 100 magnetic
               resistance levels with Peloton app support
             </li>
             <li>
-              <strong>Best Budget:</strong> Sunny Health SF-B1805 ($399) - Heavy 44lb flywheel at
-              half the price of premium bikes
+              <strong>Best Budget:</strong> Sunny Health SF-B1805 - Heavy 44lb flywheel at half the
+              price of premium bikes
             </li>
             <li>
-              <strong>Best Premium:</strong> Bowflex VeloCore ($1,699) - Leaning mode and built-in
-              HD screen for immersive rides
+              <strong>Best Premium:</strong> Bowflex VeloCore - Leaning mode and built-in HD screen
+              for immersive rides
             </li>
             <li>
-              <strong>Best Compact:</strong> Exerpeutic Folding Magnetic ($199) - Folds to half size
-              for apartment living
+              <strong>Best Compact:</strong> Exerpeutic Folding Magnetic - Folds to half size for
+              apartment living
             </li>
             <li>
-              <strong>Best Value:</strong> YOSUDA Indoor Cycling Bike ($279) - Heavy flywheel and
-              solid build at a fair price
+              <strong>Best Value:</strong> YOSUDA Indoor Cycling Bike - Heavy flywheel and solid
+              build at a fair price
             </li>
           </ul>
         </div>
@@ -297,7 +297,7 @@ const BestExerciseBikesWeightLossPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Schwinn IC4 Indoor Cycling Bike</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$799</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -322,10 +322,10 @@ const BestExerciseBikesWeightLossPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Why I picked it as the best:</h4>
           <p>
             The Bluetooth connectivity is what separates the IC4 from bikes twice its price. You can
-            pair it with the Peloton app (at $13/month, way cheaper than a Peloton bike) and get
-            instructor-led classes that actually make you push harder. I burned 15% more calories
-            during guided rides compared to solo sessions. That’s not willpower. That’s just having
-            someone yell at you through a screen.
+            pair it with the Peloton app (a monthly subscription, way cheaper than a Peloton bike)
+            and get instructor-led classes that actually make you push harder. I burned 15% more
+            calories during guided rides compared to solo sessions. That’s not willpower. That’s
+            just having someone yell at you through a screen.
           </p>
 
           <p className="mt-2">
@@ -374,7 +374,7 @@ const BestExerciseBikesWeightLossPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Sunny Health SF-B1805</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$399</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -398,10 +398,10 @@ const BestExerciseBikesWeightLossPageContent = (
           <h4 className="font-semibold mt-4 mb-2">The honest assessment:</h4>
           <p>
             This bike punches way above its weight class. I expected the ride quality to feel cheap
-            at $399, but that heavy flywheel genuinely delivers. The momentum carries through the
-            dead spots in your pedal stroke in a way that lighter flywheels just can’t replicate. If
-            you’ve never ridden a bike with a flywheel under 30 pounds, trust me, the difference is
-            night and day.
+            at this price, but that heavy flywheel genuinely delivers. The momentum carries through
+            the dead spots in your pedal stroke in a way that lighter flywheels just can’t
+            replicate. If you’ve never ridden a bike with a flywheel under 30 pounds, trust me, the
+            difference is night and day.
           </p>
 
           <p className="mt-2">
@@ -450,11 +450,11 @@ const BestExerciseBikesWeightLossPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Bowflex VeloCore</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$1,699</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
-            I’ll be straight with you. $1,700 is a lot of money for an exercise bike. The VeloCore
+            I’ll be straight with you. This is a lot of money for an exercise bike. The VeloCore
             knows this, and it tries very hard to justify the price tag. The 16-inch HD touchscreen
             is gorgeous. The JRNY app integration is seamless. And the leaning mode, where the
             entire bike tilts side to side as you ride, is genuinely unlike anything else I’ve
@@ -474,20 +474,20 @@ const BestExerciseBikesWeightLossPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Is it worth the money?</h4>
           <p>
             That depends entirely on whether you’ll actually use the leaning mode. If you lock the
-            bike upright, you’re basically paying $1,700 for features you can get on the Schwinn IC4
-            with a $200 tablet. But in lean mode, the VeloCore becomes something different entirely.
-            Turning the bike side to side during sprints fires up your obliques and stabilizer
-            muscles in a way that standard cycling never touches. After a 45-minute lean ride, my
-            core was sore in places I didn’t know could get sore from cycling.
+            bike upright, you’re basically paying a premium for features you can get on the Schwinn
+            IC4 with an inexpensive tablet. But in lean mode, the VeloCore becomes something
+            different entirely. Turning the bike side to side during sprints fires up your obliques
+            and stabilizer muscles in a way that standard cycling never touches. After a 45-minute
+            lean ride, my core was sore in places I didn’t know could get sore from cycling.
           </p>
 
           <p className="mt-2">
             The JRNY app has solid programming. The adaptive workouts adjust difficulty based on
             your fitness level, and the virtual ride-through courses are entertaining enough to make
-            an hour fly by. But the app requires a subscription ($149/year after your trial ends),
-            which is worth noting. The built-in screen also means you’re not squinting at a phone
-            propped against the handlebars, which sounds trivial until you’ve done it for six months
-            on a cheaper bike.
+            an hour fly by. But the app requires a subscription (billed annually after your trial
+            ends), which is worth noting. The built-in screen also means you’re not squinting at a
+            phone propped against the handlebars, which sounds trivial until you’ve done it for six
+            months on a cheaper bike.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -496,8 +496,8 @@ const BestExerciseBikesWeightLossPageContent = (
               JRNY adaptive programming, auto-adjusting resistance during classes, premium build
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Very expensive, JRNY subscription required ($149/year), heavy
-              and difficult to move (154 lbs), leaning mode has a learning curve
+              <strong>Cons:</strong> Very expensive, JRNY subscription required, heavy and difficult
+              to move (154 lbs), leaning mode has a learning curve
             </p>
           </div>
           <div className="mt-4">
@@ -524,7 +524,7 @@ const BestExerciseBikesWeightLossPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Exerpeutic Folding Magnetic Bike</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$199</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -556,10 +556,10 @@ const BestExerciseBikesWeightLossPageContent = (
           <p className="mt-2">
             But if you’re just starting your weight loss journey, or if you have joint issues that
             make upright cycling uncomfortable, or if you simply need something that fits in a small
-            apartment, the Exerpeutic is hard to beat at $199. The reclined seating position is much
-            easier on your lower back than traditional cycling posture. I know several people over
-            50 who started their fitness journey on exactly this kind of bike because it felt
-            accessible rather than intimidating. Use our{' '}
+            apartment, the Exerpeutic is hard to beat for the price. The reclined seating position
+            is much easier on your lower back than traditional cycling posture. I know several
+            people over 50 who started their fitness journey on exactly this kind of bike because it
+            felt accessible rather than intimidating. Use our{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               Calorie Deficit Calculator
             </Link>{' '}
@@ -601,15 +601,15 @@ const BestExerciseBikesWeightLossPageContent = (
               </span>
               <h3 className="text-xl font-semibold">YOSUDA Indoor Cycling Bike</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$279</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
             YOSUDA is one of those brands you’ve never heard of until you start reading exercise
-            bike reviews, and then you see it everywhere. There’s a reason for that. At $279, this
-            bike delivers a ride quality that feels like it should cost $500. The 35-pound flywheel
-            is heavier than what most sub-$300 bikes offer, and it makes a real difference in how
-            natural the pedaling feels.
+            bike reviews, and then you see it everywhere. There’s a reason for that. This budget
+            bike delivers a ride quality that feels like it should cost far more. The 35-pound
+            flywheel is heavier than what most budget bikes offer, and it makes a real difference in
+            how natural the pedaling feels.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -628,7 +628,7 @@ const BestExerciseBikesWeightLossPageContent = (
             pressing against the flywheel) instead of magnetic resistance. This means it will make
             some noise during high-resistance intervals. Not loud enough to wake someone sleeping in
             the next room, but noticeably louder than the Schwinn IC4 or Sunny Health. The felt pad
-            will also wear down over time and eventually need replacing, though that’s a $15 fix.
+            will also wear down over time and eventually need replacing, though that’s a cheap fix.
           </p>
 
           <p className="mt-2">
@@ -726,7 +726,7 @@ const BestExerciseBikesWeightLossPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Exercise Bike</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Resistance</th>
                 <th className="border p-3 text-center">Flywheel</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -735,35 +735,35 @@ const BestExerciseBikesWeightLossPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Schwinn IC4</td>
-                <td className="border p-3 text-center">$799</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">100 Magnetic</td>
                 <td className="border p-3 text-center">40 lb</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Sunny Health SF-B1805</td>
-                <td className="border p-3 text-center">$399</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Magnetic</td>
                 <td className="border p-3 text-center">44 lb</td>
                 <td className="border p-3 text-center">Budget riders</td>
               </tr>
               <tr>
                 <td className="border p-3">Bowflex VeloCore</td>
-                <td className="border p-3 text-center">$1,699</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">100 Magnetic</td>
                 <td className="border p-3 text-center">N/A</td>
                 <td className="border p-3 text-center">Premium experience</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Exerpeutic Folding</td>
-                <td className="border p-3 text-center">$199</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">8 Magnetic</td>
                 <td className="border p-3 text-center">N/A</td>
                 <td className="border p-3 text-center">Small spaces</td>
               </tr>
               <tr>
                 <td className="border p-3">YOSUDA Indoor</td>
-                <td className="border p-3 text-center">$279</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Friction</td>
                 <td className="border p-3 text-center">35 lb</td>
                 <td className="border p-3 text-center">Value seekers</td>
@@ -796,13 +796,13 @@ const BestExerciseBikesWeightLossPageContent = (
           <li>
             <strong>If you live in a small apartment:</strong> The{' '}
             <strong>Exerpeutic Folding Magnetic</strong> is the only bike on this list that
-            genuinely disappears when you’re done. At $199, it’s an easy entry point for anyone just
-            getting started.
+            genuinely disappears when you’re done. At a budget price, it’s an easy entry point for
+            anyone just getting started.
           </li>
           <li>
             <strong>If you want the most for your money:</strong> The{' '}
             <strong>YOSUDA Indoor Cycling Bike</strong> punches above its weight class. The heavy
-            flywheel and solid construction feel like a $500 bike at just $279.
+            flywheel and solid construction feel like a much more expensive bike at a budget price.
           </li>
         </ul>
 

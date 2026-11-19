@@ -191,11 +191,13 @@ function getSqliteDbPath(): string {
 
 function getPostgresConnectionString(required: boolean): string | null {
   const connection =
-    process.env.SUBMISSIONS_POSTGRES_URL?.trim() || process.env.DATABASE_URL?.trim();
+    process.env.SUBMISSIONS_POSTGRES_URL?.trim() ||
+    process.env.DATABASE_URL?.trim() ||
+    process.env.POSTGRES_URL?.trim();
   if (connection) return connection;
   if (required) {
     throw new Error(
-      'Missing Postgres connection string. Set SUBMISSIONS_POSTGRES_URL or DATABASE_URL.'
+      'Missing Postgres connection string. Set SUBMISSIONS_POSTGRES_URL, DATABASE_URL or POSTGRES_URL.'
     );
   }
   return null;

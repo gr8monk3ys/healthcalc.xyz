@@ -294,8 +294,8 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           <h3 className="text-lg font-semibold mb-3">Adjustable dumbbells</h3>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>
-              <strong>Dumbbells:</strong> $300 to $500 for a quality pair (Bowflex SelectTech 552 at
-              $349, PowerBlock Elite at $339)
+              <strong>Dumbbells:</strong> a mid-range purchase for a quality pair (Bowflex
+              SelectTech 552, PowerBlock Elite)
             </li>
             <li>
               <strong>Bench (optional but recommended):</strong> $100 to $200 for an adjustable
@@ -309,8 +309,8 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           <h3 className="text-lg font-semibold mb-3 mt-6">Barbell setup</h3>
           <ul className="list-disc list-inside space-y-1 mb-4">
             <li>
-              <strong>Bar and plates:</strong> $350 for a budget set (CAP Barbell 300-lb Olympic
-              Set) up to $800+ for quality plates and a decent bar separately
+              <strong>Bar and plates:</strong> A budget set (CAP Barbell 300-lb Olympic Set) at the
+              low end, up to $800+ for quality plates and a decent bar separately
             </li>
             <li>
               <strong>Squat rack or power cage:</strong> $200 to $500 for something sturdy enough to
@@ -335,9 +335,9 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           </p>
 
           <p>
-            I know some people will point to the CAP Barbell set at $350 and say that is comparable
-            to dumbbell pricing. Sure, but you still need a rack and a bench on top of that. The
-            total cost of a functional barbell station is roughly double what dumbbells cost.
+            I know some people will point to the CAP Barbell set and say its price is comparable to
+            dumbbell pricing. Sure, but you still need a rack and a bench on top of that. The total
+            cost of a functional barbell station is roughly double what dumbbells cost.
           </p>
 
           <div className="mt-4 p-3 bg-green-50 rounded-lg">
@@ -528,7 +528,6 @@ const AdjustableDumbbellsVsBarbellContentContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.00</span>
           </div>
 
           <p className="mb-4">
@@ -581,7 +580,6 @@ const AdjustableDumbbellsVsBarbellContentContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$339.00</span>
           </div>
 
           <p className="mb-4">
@@ -604,7 +602,7 @@ const AdjustableDumbbellsVsBarbellContentContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Block shape takes getting used to, pin adjustment is slower
-              than a dial, expansion kits cost $130-$160 each
+              than a dial, expansion kits cost extra
             </p>
           </div>
 
@@ -635,13 +633,13 @@ const AdjustableDumbbellsVsBarbellContentContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.99</span>
           </div>
 
           <p className="mb-4">
-            This is the most complete barbell package under $400. You get a 7-foot Olympic bar, 255
-            pounds of grip plates, and spring collars. The plates have integrated handles that make
-            loading easier, which matters when you are moving 45-lb plates around by yourself.
+            This is the most complete barbell package in the budget range. You get a 7-foot Olympic
+            bar, 255 pounds of grip plates, and spring collars. The plates have integrated handles
+            that make loading easier, which matters when you are moving 45-lb plates around by
+            yourself.
           </p>
 
           <p className="mb-4">
@@ -690,7 +688,6 @@ const AdjustableDumbbellsVsBarbellContentContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.8 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$249.99</span>
           </div>
 
           <p className="mb-4">
@@ -779,10 +776,9 @@ const AdjustableDumbbellsVsBarbellContentContent = (
           <div className="mt-4 p-3 bg-green-50 rounded-lg">
             <p className="text-sm font-semibold">My honest recommendation:</p>
             <p className="text-sm mt-2">
-              Bowflex SelectTech 552 ($349) + an adjustable bench ($150) = $500 total. That is your
-              starting point. Train for 6 to 12 months. When you are ready, add a CAP Barbell 300-lb
-              set ($350) + a squat rack ($250) = $600 more. Now you have a complete home gym for
-              about $1,100 total, purchased in two phases that spread the cost and match your
+              Bowflex SelectTech 552 + an adjustable bench. That is your starting point. Train for 6
+              to 12 months. When you are ready, add a CAP Barbell 300-lb set + a squat rack. Now you
+              have a complete home gym, purchased in two phases that spread the cost and match your
               progression.
             </p>
           </div>

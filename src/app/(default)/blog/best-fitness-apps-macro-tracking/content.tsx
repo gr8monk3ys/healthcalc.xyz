@@ -119,16 +119,13 @@ const BestFitnessAppsPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> MyFitnessPal Premium ($79.99/year) - Largest database,
-              most features
+              <strong>Best Overall:</strong> MyFitnessPal Premium - Largest database, most features
             </li>
             <li>
-              <strong>Best for Accuracy:</strong> Cronometer ($49.99/year) - Verified database,
-              micronutrients
+              <strong>Best for Accuracy:</strong> Cronometer - Verified database, micronutrients
             </li>
             <li>
-              <strong>Best for Adaptive Dieting:</strong> MacroFactor ($71.99/year) - Auto-adjusts
-              your TDEE
+              <strong>Best for Adaptive Dieting:</strong> MacroFactor - Auto-adjusts your TDEE
             </li>
             <li>
               <strong>Best Free Option:</strong> Lose It! (Free tier) - Simple and effective
@@ -271,7 +268,7 @@ const BestFitnessAppsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">MyFitnessPal Premium</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$79.99/year</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -325,7 +322,7 @@ const BestFitnessAppsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Cronometer Gold</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$49.99/year</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -378,7 +375,7 @@ const BestFitnessAppsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">MacroFactor</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$71.99/year</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -435,7 +432,7 @@ const BestFitnessAppsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Lose It!</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">Free / $39.99/year</span>
+            <span className="text-2xl font-bold text-accent">Free / Budget</span>
           </div>
 
           <p className="mb-4">
@@ -483,7 +480,7 @@ const BestFitnessAppsPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">App</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Database</th>
                 <th className="border p-3 text-center">Unique Feature</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -492,28 +489,28 @@ const BestFitnessAppsPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">MyFitnessPal</td>
-                <td className="border p-3 text-center">$79.99/yr</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">14M+ foods</td>
                 <td className="border p-3 text-center">Barcode scanner</td>
                 <td className="border p-3 text-center">Most users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Cronometer</td>
-                <td className="border p-3 text-center">$49.99/yr</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">Verified only</td>
                 <td className="border p-3 text-center">82+ nutrients</td>
                 <td className="border p-3 text-center">Health-focused</td>
               </tr>
               <tr>
                 <td className="border p-3">MacroFactor</td>
-                <td className="border p-3 text-center">$71.99/yr</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">26.5K verified</td>
                 <td className="border p-3 text-center">Adaptive TDEE</td>
                 <td className="border p-3 text-center">Data lovers</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Lose It!</td>
-                <td className="border p-3 text-center">Free/$39.99</td>
+                <td className="border p-3 text-center">Free / Budget</td>
                 <td className="border p-3 text-center">Large</td>
                 <td className="border p-3 text-center">Photo logging</td>
                 <td className="border p-3 text-center">Beginners</td>

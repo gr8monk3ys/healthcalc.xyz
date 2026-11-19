@@ -105,24 +105,24 @@ const BestYogaMatsHomeWorkoutsPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Premium Mat:</strong> Manduka PRO ($120) - Dense 6mm cushion, lifetime
-              warranty, built to outlast you
+              <strong>Best Premium Mat:</strong> Manduka PRO - Dense 6mm cushion, lifetime warranty,
+              built to outlast you
             </li>
             <li>
-              <strong>Best for Alignment:</strong> Liforme Original ($140) - Patented alignment
-              markers, natural rubber grip
+              <strong>Best for Alignment:</strong> Liforme Original - Patented alignment markers,
+              natural rubber grip
             </li>
             <li>
-              <strong>Best Budget:</strong> Gaiam Essentials Thick ($20) - 10mm thick, includes
-              carrying strap
+              <strong>Best Budget:</strong> Gaiam Essentials Thick - 10mm thick, includes carrying
+              strap
             </li>
             <li>
-              <strong>Best Eco-Friendly:</strong> Jade Harmony ($80) - Natural rubber, a tree
-              planted per mat sold
+              <strong>Best Eco-Friendly:</strong> Jade Harmony - Natural rubber, a tree planted per
+              mat sold
             </li>
             <li>
-              <strong>Best Seller:</strong> BalanceFrom GoYoga ($20) - Amazon top seller, reliable
-              and cheap
+              <strong>Best Seller:</strong> BalanceFrom GoYoga - Amazon top seller, reliable and
+              cheap
             </li>
           </ul>
         </div>
@@ -172,9 +172,9 @@ const BestYogaMatsHomeWorkoutsPageContent = (
         </p>
 
         <p className="mt-4">
-          I tested five popular yoga mats across different price points, from $20 to $140, over
-          several weeks of daily home practice. Hot yoga, vinyasa flow, slow stretching, core work.
-          Here is what I found.
+          I tested five popular yoga mats across different price points, from budget to premium,
+          over several weeks of daily home practice. Hot yoga, vinyasa flow, slow stretching, core
+          work. Here is what I found.
         </p>
 
         <div className="neumorph p-6 rounded-lg my-6">
@@ -293,7 +293,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$120</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The Manduka PRO is the mat I see in every serious yoga studio. There is a reason for
@@ -343,8 +343,8 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               does not bottom out, improves with age, no latex smell
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Needs a break-in period for grip, heavy at 7.5 lbs, expensive
-              at $120, slippery when brand new
+              <strong>Cons:</strong> Needs a break-in period for grip, heavy at 7.5 lbs, expensive,
+              slippery when brand new
             </p>
           </div>
           <div className="mt-4">
@@ -374,7 +374,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$140</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The Liforme is the most expensive mat on this list, and the one feature that justifies
@@ -425,9 +425,9 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               no break-in period, eco-friendly materials, wider and longer than standard
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Most expensive mat here at $140, surface can absorb stains over
-              time, natural rubber base has a noticeable smell for the first week, 4.2mm may not be
-              thick enough for very sensitive knees
+              <strong>Cons:</strong> Most expensive mat here, surface can absorb stains over time,
+              natural rubber base has a noticeable smell for the first week, 4.2mm may not be thick
+              enough for very sensitive knees
             </p>
           </div>
           <div className="mt-4">
@@ -457,11 +457,11 @@ const BestYogaMatsHomeWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$20</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            At $20, the Gaiam Essentials is the mat I recommend to anyone who says “I want to try
-            yoga but I am not sure I will stick with it.” It is 10mm thick, which is double the
+            The budget-priced Gaiam Essentials is the mat I recommend to anyone who says “I want to
+            try yoga but I am not sure I will stick with it.” It is 10mm thick, which is double the
             standard thickness, and that extra padding is immediately noticeable. Kneeling poses
             feel comfortable. Lying on your back does not press your spine into the floor. If joint
             comfort is your priority and you are mostly doing gentle or restorative yoga, this
@@ -540,7 +540,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$80</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Jade is a company that plants a tree for every mat sold. That is a real commitment, not
@@ -625,21 +625,20 @@ const BestYogaMatsHomeWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$20</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             The BalanceFrom GoYoga is one of the highest-selling yoga mats on Amazon, and the reason
-            is simple: it works fine and costs almost nothing. At about $20 for a 1/4-inch thick mat
-            with a carrying strap, the value is hard to argue with. The grip is decent on dry hands,
-            the cushioning is adequate for most floor exercises, and it comes in a huge range of
-            colors.
+            is simple: it works fine and costs almost nothing. For a 1/4-inch thick mat with a
+            carrying strap, the value is hard to argue with. The grip is decent on dry hands, the
+            cushioning is adequate for most floor exercises, and it comes in a huge range of colors.
           </p>
           <p className="mb-4">
             I want to be honest about what you get at this price though. The foam material
             compresses over time. After a few months of regular use, you will notice thin spots
             where your feet land in downward dog. The surface gets slippery when wet, so it is not a
             mat for hot yoga or particularly sweaty sessions. And the edges can start curling if you
-            do not store it flat. None of these are deal-breakers at $20, but they are worth
+            do not store it flat. None of these are deal-breakers at this price, but they are worth
             knowing.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -700,7 +699,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Thickness</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Rating</th>
@@ -710,7 +709,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Manduka PRO</td>
-                <td className="border p-3 text-center">$120</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">6mm</td>
                 <td className="border p-3 text-center">PVC (closed-cell)</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
@@ -718,7 +717,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Liforme Original</td>
-                <td className="border p-3 text-center">$140</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">4.2mm</td>
                 <td className="border p-3 text-center">PU + Natural Rubber</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
@@ -726,7 +725,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Gaiam Essentials</td>
-                <td className="border p-3 text-center">$20</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">10mm</td>
                 <td className="border p-3 text-center">NBR Foam</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
@@ -734,7 +733,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Jade Harmony</td>
-                <td className="border p-3 text-center">$80</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.7mm</td>
                 <td className="border p-3 text-center">Natural Rubber</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
@@ -742,7 +741,7 @@ const BestYogaMatsHomeWorkoutsPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">BalanceFrom GoYoga</td>
-                <td className="border p-3 text-center">$20</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">6mm</td>
                 <td className="border p-3 text-center">NBR Foam</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
@@ -792,28 +791,26 @@ const BestYogaMatsHomeWorkoutsPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>If budget is not a concern:</strong> The <strong>Manduka PRO at $120</strong> is
-            the mat I keep coming back to. The lifetime warranty means you buy it once. The dense
-            cushioning and closed-cell surface work for every yoga style except maybe hot yoga,
-            where the Liforme wins.
+            <strong>If budget is not a concern:</strong> The <strong>Manduka PRO</strong> is the mat
+            I keep coming back to. The lifetime warranty means you buy it once. The dense cushioning
+            and closed-cell surface work for every yoga style except maybe hot yoga, where the
+            Liforme wins.
           </li>
           <li>
-            <strong>If you want the best grip:</strong> The{' '}
-            <strong>Liforme Original at $140</strong> has no break-in period and gets grippier when
-            wet. The alignment lines are a genuine learning tool, not a gimmick. Worth it if you can
-            afford it.
+            <strong>If you want the best grip:</strong> The <strong>Liforme Original</strong> has no
+            break-in period and gets grippier when wet. The alignment lines are a genuine learning
+            tool, not a gimmick. Worth it if you can afford it.
           </li>
           <li>
-            <strong>If you are just starting out:</strong> Get the{' '}
-            <strong>Gaiam Essentials at $20</strong> or the{' '}
-            <strong>BalanceFrom GoYoga at $20</strong>. Do not spend $120 on a mat until you know
-            yoga is something you want to do regularly. The Gaiam is thicker and more comfortable.
-            The BalanceFrom is thinner and more stable.
+            <strong>If you are just starting out:</strong> Get the <strong>Gaiam Essentials</strong>{' '}
+            or the <strong>BalanceFrom GoYoga</strong>. Do not spend premium money on a mat until
+            you know yoga is something you want to do regularly. The Gaiam is thicker and more
+            comfortable. The BalanceFrom is thinner and more stable.
           </li>
           <li>
-            <strong>If sustainability matters to you:</strong> The{' '}
-            <strong>Jade Harmony at $80</strong> is the clear winner. Natural rubber, made in the
-            USA, and a tree planted with your purchase. The grip is excellent too.
+            <strong>If sustainability matters to you:</strong> The <strong>Jade Harmony</strong> is
+            the clear winner. Natural rubber, made in the USA, and a tree planted with your
+            purchase. The grip is excellent too.
           </li>
         </ul>
 

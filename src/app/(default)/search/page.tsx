@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     'Search for health and fitness calculators, articles, and information on HealthCalc.',
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };

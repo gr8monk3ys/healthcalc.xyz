@@ -9,6 +9,7 @@ import BodyCompositionVisual from '@/components/calculators/BodyCompositionVisua
 import ReviewedBy from '@/components/ReviewedBy';
 import { EDITORIAL_TEAM } from '@/constants/reviewers';
 import { formatNumber, formatOrdinal } from '@/utils/formatNumber';
+import { BMI_GAUGE_SEGMENTS, getBMIGaugePosition } from './bmiGauge';
 
 interface BMIResultDisplayProps {
   result: BMIResult;
@@ -52,47 +53,16 @@ const FALLBACK_COPY: BMIPageCopy['result'] = {
   note: 'Note: BMI is a screening tool but does not diagnose body fatness or health. Athletes may have a high BMI due to muscle mass. Consult a healthcare provider for a complete health assessment.',
 };
 
+const GAUGE_COLUMNS = BMI_GAUGE_SEGMENTS.map(
+  ({ from, to }) => `minmax(min-content, ${to - from}fr)`
+).join(' ');
+
 function formatTemplate(template: string, vars: Record<string, string | number>): string {
   let output = template;
   for (const [key, value] of Object.entries(vars)) {
     output = output.replaceAll(`{${key}}`, String(value));
   }
   return output;
-}
-
-type ResultTone = 'healthy' | 'caution' | 'elevated';
-
-const TONE_STYLES: Record<ResultTone, { panel: string; value: string; badge: string }> = {
-  healthy: {
-    panel: 'border-emerald-500/25 bg-emerald-500/[0.07]',
-    value: 'text-emerald-600 dark:text-emerald-400',
-    badge: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300',
-  },
-  caution: {
-    panel: 'border-amber-500/25 bg-amber-500/[0.07]',
-    value: 'text-amber-600 dark:text-amber-400',
-    badge: 'bg-amber-500/15 text-amber-700 dark:text-amber-300',
-  },
-  elevated: {
-    panel: 'border-red-500/25 bg-red-500/[0.07]',
-    value: 'text-red-600 dark:text-red-400',
-    badge: 'bg-red-500/15 text-red-700 dark:text-red-300',
-  },
-};
-
-/** Maps a result to a severity tone so the headline number is colour-coded. */
-function getResultTone(bmi: number, isChild: boolean, percentile?: number): ResultTone {
-  if (isChild && percentile !== undefined) {
-    if (percentile < 5) return 'caution';
-    if (percentile < 85) return 'healthy';
-    if (percentile < 95) return 'caution';
-    return 'elevated';
-  }
-
-  if (bmi < 18.5) return 'caution';
-  if (bmi < 25) return 'healthy';
-  if (bmi < 30) return 'caution';
-  return 'elevated';
 }
 
 function getBMINextSteps(
@@ -228,7 +198,7 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
   const content = copy ?? FALLBACK_COPY;
 
   const nextStepsData = useMemo(() => getBMINextSteps(result.bmi, isChild), [result.bmi, isChild]);
-  const tone = TONE_STYLES[getResultTone(result.bmi, isChild, result.percentile)];
+  const gauge = getBMIGaugePosition(result.bmi);
   const classificationLabel = isChild ? content.classificationChild : content.classificationAdult;
   const classificationValue =
     isChild && result.percentile !== undefined
@@ -242,123 +212,96 @@ const BMIResultDisplay: React.FC<BMIResultDisplayProps> = ({
   return (
     <div
       id="bmi-result"
-      className="neumorph p-6 rounded-lg animate-fade-in"
+      className="neumorph p-6 animate-fade-in"
       tabIndex={-1}
       aria-live="polite"
       role="region"
       aria-label={content.title}
     >
-      <h2 className="mb-5 text-xl font-bold tracking-tight">{content.title}</h2>
+      <h2>{content.title}</h2>
 
-      {/* Headline metric: the number and what it means, read together. */}
-      <div className={`mb-6 rounded-2xl border p-5 ${tone.panel}`}>
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400">
-              {content.bmiValueLabel}
-            </p>
-            <p
-              className={`mt-1 text-5xl font-extrabold leading-none tracking-tight tabular-nums ${tone.value}`}
-            >
-              {formatNumber(result.bmi, 1)}
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400">
-              {classificationLabel}
-            </p>
-            <span
-              className={`mt-1.5 inline-flex rounded-full px-3 py-1 text-sm font-bold ${tone.badge}`}
-            >
-              {classificationValue}
-            </span>
-          </div>
-        </div>
-
-        <div className="relative mt-5 h-3 overflow-hidden rounded-full bg-white/60 dark:bg-slate-900/40">
-          <div className="absolute inset-0 flex">
-            <div className="h-full bg-blue-300 dark:bg-blue-500/60" style={{ width: '20%' }}></div>
-            <div
-              className="h-full bg-emerald-300 dark:bg-emerald-500/60"
-              style={{ width: '15%' }}
-            ></div>
-            <div
-              className="h-full bg-amber-300 dark:bg-amber-500/60"
-              style={{ width: '15%' }}
-            ></div>
-            <div
-              className="h-full bg-orange-300 dark:bg-orange-500/60"
-              style={{ width: '15%' }}
-            ></div>
-            <div className="h-full bg-red-300 dark:bg-red-500/60" style={{ width: '35%' }}></div>
-          </div>
-
-          <div
-            className="absolute -top-0.5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-white bg-slate-900 shadow-md dark:border-slate-900 dark:bg-white"
-            style={{
-              left: `${Math.min(Math.max(((result.bmi - 10) / 30) * 100, 0), 100)}%`,
-            }}
-          ></div>
-        </div>
-
-        <div className="mt-2 flex justify-between text-[0.7rem] font-medium text-slate-500 dark:text-slate-400">
-          <span>{content.gaugeLabels.underweight}</span>
-          <span>{content.gaugeLabels.normal}</span>
-          <span>{content.gaugeLabels.overweight}</span>
-          <span>{content.gaugeLabels.obese}</span>
-        </div>
+      <div className="facts-row facts-row--figure">
+        <span>{content.bmiValueLabel}</span>
+        <span>{formatNumber(result.bmi, 1)}</span>
+      </div>
+      <div className="facts-row">
+        <span>{classificationLabel}</span>
+        <span className="facts-mark">{classificationValue}</span>
       </div>
 
-      <div className="mb-6 flex items-baseline justify-between gap-4 rounded-xl border border-[var(--card-border)] px-4 py-3.5">
-        <h3 className="text-sm font-semibold text-slate-600 dark:text-slate-300">
-          {content.healthyWeightRangeTitle}
-        </h3>
-        <p className="shrink-0 text-lg font-bold tabular-nums">
+      {/* Bar cells and labels share the columns; the marker sits inside its own
+          segment, so it cannot land over a neighbouring one. */}
+      <div
+        className="mb-4 mt-3 grid text-center text-[0.6875rem] font-semibold"
+        style={{ gridTemplateColumns: GAUGE_COLUMNS }}
+      >
+        {BMI_GAUGE_SEGMENTS.map((segment, index) => (
+          <div
+            key={segment.key}
+            className={`relative h-3 border border-ink ${index > 0 ? 'border-l-0' : ''} ${
+              segment.key === gauge.segment ? 'bg-mark' : ''
+            }`}
+          >
+            {segment.key === gauge.segment && (
+              <span
+                className="absolute -inset-y-1 w-1 -translate-x-1/2 bg-[#0b0b0b] dark:outline dark:outline-1 dark:outline-[#f6f3ea]"
+                style={{ left: `${gauge.offset}%` }}
+              />
+            )}
+          </div>
+        ))}
+        {BMI_GAUGE_SEGMENTS.map(segment => (
+          <span key={segment.key} className="px-0.5 pt-1.5">
+            {content.gaugeLabels[segment.key]}
+          </span>
+        ))}
+      </div>
+
+      <div className="facts-row mb-6">
+        <span>{content.healthyWeightRangeTitle}</span>
+        <span className="shrink-0 font-bold">
           {formatNumber(result.healthyWeightRange.min, 1)} -{' '}
           {formatNumber(result.healthyWeightRange.max, 1)}{' '}
-          <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
-            {weightUnit}
-          </span>
-        </p>
+          <span className="font-normal">{weightUnit}</span>
+        </span>
       </div>
 
       <BodyCompositionVisual bmi={result.bmi} age={age} gender={gender} className="mb-6" />
 
-      <div>
-        <h3 className="font-medium mb-2">{content.whatThisMeansTitle}</h3>
-        <p className="mb-2">
-          {isChild && result.percentile !== undefined ? (
-            <>
-              {formatTemplate(content.childIntroTemplate, {
-                percentile: result.percentile,
-                ordinal: formatOrdinal(result.percentile),
-              })}
-              {result.percentile < 5
-                ? ` ${content.childUnderweight}`
-                : result.percentile >= 5 && result.percentile < 85
-                  ? ` ${content.childHealthy}`
-                  : result.percentile >= 85 && result.percentile < 95
-                    ? ` ${content.childOverweight}`
-                    : ` ${content.childObese}`}
-            </>
-          ) : (
-            <>
-              {result.bmi < 18.5
-                ? content.adultUnderweight
-                : result.bmi >= 18.5 && result.bmi < 25
-                  ? content.adultNormal
-                  : result.bmi >= 25 && result.bmi < 30
-                    ? content.adultOverweight
-                    : content.adultObese}
-            </>
-          )}
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">{content.note}</p>
-      </div>
+      <h3 className="border-t-4 border-ink pt-2">{content.whatThisMeansTitle}</h3>
+      <p className="mt-2">
+        {isChild && result.percentile !== undefined ? (
+          <>
+            {formatTemplate(content.childIntroTemplate, {
+              percentile: result.percentile,
+              ordinal: formatOrdinal(result.percentile),
+            })}
+            {result.percentile < 5
+              ? ` ${content.childUnderweight}`
+              : result.percentile >= 5 && result.percentile < 85
+                ? ` ${content.childHealthy}`
+                : result.percentile >= 85 && result.percentile < 95
+                  ? ` ${content.childOverweight}`
+                  : ` ${content.childObese}`}
+          </>
+        ) : (
+          <>
+            {result.bmi < 18.5
+              ? content.adultUnderweight
+              : result.bmi >= 18.5 && result.bmi < 25
+                ? content.adultNormal
+                : result.bmi >= 25 && result.bmi < 30
+                  ? content.adultOverweight
+                  : content.adultObese}
+          </>
+        )}
+      </p>
 
       <NextSteps insight={nextStepsData.insight} steps={nextStepsData.steps} />
 
       <ReviewedBy reviewer={EDITORIAL_TEAM} lastReviewed="2026-02-01" />
+
+      <p className="facts-note mt-6">{content.note}</p>
     </div>
   );
 };

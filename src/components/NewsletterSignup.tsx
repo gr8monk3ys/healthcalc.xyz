@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import React, { useId, useRef, useState } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
@@ -19,7 +20,7 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Newsletter signup component for email capture
  * Helps with user engagement and building an audience
  */
-export default function NewsletterSignup({
+function NewsletterSignupForm({
   title,
   description,
   buttonText,
@@ -184,4 +185,8 @@ export default function NewsletterSignup({
       </p>
     </div>
   );
+}
+
+export default function NewsletterSignup(props: NewsletterSignupProps): React.ReactElement | null {
+  return NEWSLETTER_ENABLED ? <NewsletterSignupForm {...props} /> : null;
 }

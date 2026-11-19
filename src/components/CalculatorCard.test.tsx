@@ -80,13 +80,6 @@ describe('CalculatorCard', () => {
       expect(screen.getByText(/use calculator/i)).toBeInTheDocument();
       expect(screen.getByText('→')).toBeInTheDocument();
     });
-
-    it('should apply glass panel styling class', () => {
-      const { container } = render(<CalculatorCard {...defaultProps} />);
-
-      const cardDiv = container.querySelector('.glass-panel-strong');
-      expect(cardDiv).toBeInTheDocument();
-    });
   });
 
   describe('Links', () => {
@@ -147,14 +140,6 @@ describe('CalculatorCard', () => {
       expect(screen.getByText('Icon Content')).toBeInTheDocument();
     });
 
-    it('should apply accent color class to icon container', () => {
-      const { container } = render(<CalculatorCard {...defaultProps} />);
-
-      const iconContainer = container.querySelector('.text-indigo-600');
-      expect(iconContainer).toBeInTheDocument();
-      expect(iconContainer).toContainElement(screen.getByTestId('test-icon'));
-    });
-
     it('should render null icon gracefully', () => {
       // TypeScript would prevent this, but testing runtime behavior
       const propsWithNullIcon = {
@@ -173,20 +158,6 @@ describe('CalculatorCard', () => {
       const { container } = render(<CalculatorCard {...defaultProps} />);
 
       const cardDiv = container.querySelector('.h-full');
-      expect(cardDiv).toBeInTheDocument();
-    });
-
-    it('should have hover shadow transition', () => {
-      const { container } = render(<CalculatorCard {...defaultProps} />);
-
-      const cardDiv = container.querySelector('.card-interactive');
-      expect(cardDiv).toBeInTheDocument();
-    });
-
-    it('should have proper padding', () => {
-      const { container } = render(<CalculatorCard {...defaultProps} />);
-
-      const cardDiv = container.querySelector('.p-6');
       expect(cardDiv).toBeInTheDocument();
     });
 

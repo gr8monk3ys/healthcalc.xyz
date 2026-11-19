@@ -12,7 +12,12 @@ import React, {
 } from 'react';
 import { usePathname } from 'next/navigation';
 import { installGaHitRedaction, pathOnlyUrl } from '@/lib/analyticsRedaction';
-import { getAdSensePublisherId, getAdSenseScriptSrc, shouldLoadAdSense } from '@/lib/adsense';
+import {
+  GOOGLE_CMP_MANAGES_AD_CONSENT,
+  getAdSensePublisherId,
+  getAdSenseScriptSrc,
+  shouldLoadAdSense,
+} from '@/lib/adsense';
 import { useLocale } from '@/context/LocaleContext';
 
 /* -------------------------------------------------------------------------- */
@@ -376,15 +381,19 @@ function CookieConsentBanner({
               description={t('cookie.option.analytics.desc')}
             />
 
-            <div className="border-t border-current/10" />
+            {GOOGLE_CMP_MANAGES_AD_CONSENT ? null : (
+              <>
+                <div className="border-t border-current/10" />
 
-            <ToggleSwitch
-              id="cookie-advertising"
-              checked={advertisingChecked}
-              onChange={setAdvertisingChecked}
-              label={t('cookie.option.advertising.label')}
-              description={t('cookie.option.advertising.desc')}
-            />
+                <ToggleSwitch
+                  id="cookie-advertising"
+                  checked={advertisingChecked}
+                  onChange={setAdvertisingChecked}
+                  label={t('cookie.option.advertising.label')}
+                  description={t('cookie.option.advertising.desc')}
+                />
+              </>
+            )}
 
             <div className="border-t border-current/10 pt-3">
               <p className="text-xs leading-snug opacity-75">{t('cookie.banner.body')}</p>
@@ -523,7 +532,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }): Re
   const contextValue = useMemo<CookieConsentContextValue>(
     () => ({
       analytics: consent.analytics,
-      advertising: consent.advertising,
+      advertising: GOOGLE_CMP_MANAGES_AD_CONSENT || consent.advertising,
       openConsentBanner,
     }),
     [consent.analytics, consent.advertising, openConsentBanner]

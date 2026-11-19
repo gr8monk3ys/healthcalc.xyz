@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Metadata } from 'next';
 
+import { BLOG_REGISTRY } from '@/lib/blog/registry';
 import sitemap from './sitemap';
 import * as bmiResult from './bmi/results/[resultSlug]/page';
 import * as bodyFatResult from './body-fat/results/[resultSlug]/page';
@@ -21,12 +22,43 @@ const RESULT_ROUTES: Record<string, ResultRouteModule> = {
   tdee: tdeeResult,
 };
 
+const BASE_URL = 'https://www.healthcalc.xyz';
+
 describe('sitemap', () => {
   it('lists no programmatic /*/results/* pages', () => {
     const resultUrls = sitemap()
       .map(entry => new URL(entry.url).pathname)
       .filter(path => path.includes('/results/'));
     expect(resultUrls).toEqual([]);
+  });
+
+  it('lists every registered blog post exactly once', () => {
+    const blogUrls = sitemap()
+      .map(entry => entry.url)
+      .filter(url => url.startsWith(`${BASE_URL}/blog/`));
+
+    expect(blogUrls.sort()).toEqual(
+      BLOG_REGISTRY.map(post => `${BASE_URL}/blog/${post.slug}`).sort()
+    );
+  });
+
+  it("uses each post's registry date as lastModified", () => {
+    const byUrl = new Map(sitemap().map(entry => [entry.url, entry]));
+
+    for (const post of BLOG_REGISTRY) {
+      const lastModified = byUrl.get(`${BASE_URL}/blog/${post.slug}`)?.lastModified;
+
+      expect(lastModified, post.slug).toBeInstanceOf(Date);
+      expect(
+        (lastModified as Date).toLocaleDateString('en-US', {
+          timeZone: 'UTC',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }),
+        post.slug
+      ).toBe(post.date);
+    }
   });
 });
 

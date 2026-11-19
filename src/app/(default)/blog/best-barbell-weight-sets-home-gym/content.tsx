@@ -113,24 +113,24 @@ const BestBarbellWeightSetsHomeGymPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> CAP Barbell 300-lb Olympic Set ($350) - Complete set
-              with bar, 255 lbs of plates, spring collars
+              <strong>Best Overall:</strong> CAP Barbell 300-lb Olympic Set - Complete set with bar,
+              255 lbs of plates, spring collars
             </li>
             <li>
-              <strong>Best Quality:</strong> REP Fitness Iron Plates ($250) - Premium machined
-              plates, tight tolerances, smooth finish
+              <strong>Best Quality:</strong> REP Fitness Iron Plates - Premium machined plates,
+              tight tolerances, smooth finish
             </li>
             <li>
-              <strong>Best Budget:</strong> BalanceFrom Cast Iron Plates ($180) - Solid plates, good
+              <strong>Best Budget:</strong> BalanceFrom Cast Iron Plates - Solid plates, good
               coating, unbeatable price per pound
             </li>
             <li>
-              <strong>Best for Beginners:</strong> Fitness Gear 300 lb Set ($300) - Easy grip
-              handles, full set included, beginner-friendly
+              <strong>Best for Beginners:</strong> Fitness Gear 300 lb Set - Easy grip handles, full
+              set included, beginner-friendly
             </li>
             <li>
-              <strong>Best Bumper Plates:</strong> Rogue Echo Bumper Plates ($400) - Drop-safe
-              rubber, durable for Olympic lifts, premium quality
+              <strong>Best Bumper Plates:</strong> Rogue Echo Bumper Plates - Drop-safe rubber,
+              durable for Olympic lifts, premium quality
             </li>
           </ul>
         </div>
@@ -191,8 +191,8 @@ const BestBarbellWeightSetsHomeGymPageContent = (
         </p>
 
         <p>
-          I tested five different options ranging from $180 budget cast iron to $400 premium bumper
-          plates. Here is what actually holds up under heavy training.
+          I tested five different options ranging from budget cast iron to premium bumper plates.
+          Here is what actually holds up under heavy training.
         </p>
 
         {/* Toolkit Box */}
@@ -329,15 +329,15 @@ const BestBarbellWeightSetsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
-            The CAP Barbell 300-lb set is the most complete package you can buy under $400. You get
-            a 7-foot Olympic bar rated for 300 pounds, 255 pounds of grip plates (two 45s, two 35s,
-            two 25s, four 10s, two 5s, and four 2.5s), spring collars, and everything ships
-            together. I have been training with this exact set for two years and it still looks
-            almost new.
+            The CAP Barbell 300-lb set is the most complete package you can buy without paying
+            premium prices. You get a 7-foot Olympic bar rated for 300 pounds, 255 pounds of grip
+            plates (two 45s, two 35s, two 25s, four 10s, two 5s, and four 2.5s), spring collars, and
+            everything ships together. I have been training with this exact set for two years and it
+            still looks almost new.
           </p>
 
           <p className="mb-4">
@@ -422,7 +422,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.8 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$250.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -514,15 +514,15 @@ const BestBarbellWeightSetsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$179.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
             The BalanceFrom plates are the cheapest option that I can still recommend without major
-            reservations. At around $0.60 per pound, they cost half what REP Fitness charges and
-            about 30% less than the CAP Barbell set. The coating is basic enamel paint, not powder
-            coat, so you will see some chipping after a few months of use. But the iron underneath
-            is solid and the plates are heavy enough to train with for years.
+            reservations. They cost half what REP Fitness charges and about 30% less than the CAP
+            Barbell set. The coating is basic enamel paint, not powder coat, so you will see some
+            chipping after a few months of use. But the iron underneath is solid and the plates are
+            heavy enough to train with for years.
           </p>
 
           <p className="mb-4">
@@ -545,10 +545,10 @@ const BestBarbellWeightSetsHomeGymPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            Beginners who want to start barbell training without spending $300+ on a premium set. If
-            you are not sure how committed you will be to lifting, or if you need to spread out the
-            cost of building a home gym, these plates let you get started now. Also good for garage
-            gyms where cosmetic wear does not matter.
+            Beginners who want to start barbell training without paying for a premium set. If you
+            are not sure how committed you will be to lifting, or if you need to spread out the cost
+            of building a home gym, these plates let you get started now. Also good for garage gyms
+            where cosmetic wear does not matter.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
@@ -604,7 +604,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$299.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -697,7 +697,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.9 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$399.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -782,7 +782,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Weight Included</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Rating</th>
@@ -792,7 +792,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">CAP Barbell 300-lb Set</td>
-                <td className="border p-3 text-center">$350</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">255 lbs + bar</td>
                 <td className="border p-3 text-center">Cast iron</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
@@ -800,7 +800,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">REP Fitness Iron Plates</td>
-                <td className="border p-3 text-center">$250</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">Varies by pair</td>
                 <td className="border p-3 text-center">Machined iron</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.8</td>
@@ -808,7 +808,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">BalanceFrom Cast Iron</td>
-                <td className="border p-3 text-center">$180</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Varies by set</td>
                 <td className="border p-3 text-center">Cast iron</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
@@ -816,7 +816,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Fitness Gear 300 lb Set</td>
-                <td className="border p-3 text-center">$300</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">255 lbs + bar</td>
                 <td className="border p-3 text-center">Rubber-coated</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
@@ -824,7 +824,7 @@ const BestBarbellWeightSetsHomeGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Rogue Echo Bumper Plates</td>
-                <td className="border p-3 text-center">$400</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Sold individually</td>
                 <td className="border p-3 text-center">Rubber bumper</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</td>
@@ -879,32 +879,31 @@ const BestBarbellWeightSetsHomeGymPageContent = (
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
             <strong>Best for most people:</strong> The{' '}
-            <strong>CAP Barbell 300-lb Olympic Set at $350</strong> gives you everything you need in
-            one package. Bar, plates, collars, and enough weight to train for years. This is the set
-            I recommend most often.
+            <strong>CAP Barbell 300-lb Olympic Set</strong> gives you everything you need in one
+            package. Bar, plates, collars, and enough weight to train for years. This is the set I
+            recommend most often.
           </li>
           <li>
-            <strong>Best long-term investment:</strong> The{' '}
-            <strong>REP Fitness Iron Plates at $250</strong> (for plates only) are worth the premium
-            if you want accurate weights and exceptional durability. Pair them with a quality bar
-            and you have a setup that lasts a lifetime.
+            <strong>Best long-term investment:</strong> The <strong>REP Fitness Iron Plates</strong>{' '}
+            (for plates only) are worth the premium if you want accurate weights and exceptional
+            durability. Pair them with a quality bar and you have a setup that lasts a lifetime.
           </li>
           <li>
-            <strong>Best value:</strong> The <strong>BalanceFrom Cast Iron Plates at $180</strong>{' '}
-            get you under the bar for the lowest cost. The coating will chip, but the iron
-            underneath is solid. Buy these if budget is your main constraint.
+            <strong>Best value:</strong> The <strong>BalanceFrom Cast Iron Plates</strong> get you
+            under the bar for the lowest cost. The coating will chip, but the iron underneath is
+            solid. Buy these if budget is your main constraint.
           </li>
           <li>
             <strong>Best for brand-new lifters:</strong> The{' '}
-            <strong>Fitness Gear 300 lb Set at $300</strong> makes loading and unloading easier with
+            <strong>Fitness Gear 300 lb Set</strong> makes loading and unloading easier with
             integrated grip handles. If you have never loaded a barbell before, this removes some
             intimidation.
           </li>
           <li>
             <strong>Best if you drop barbells:</strong> The{' '}
-            <strong>Rogue Echo Bumper Plates at $400</strong> are the only option on this list built
-            to handle repeated drops from overhead. If you do Olympic lifts or CrossFit, do not
-            cheap out here.
+            <strong>Rogue Echo Bumper Plates</strong> are the only option on this list built to
+            handle repeated drops from overhead. If you do Olympic lifts or CrossFit, do not cheap
+            out here.
           </li>
         </ul>
 

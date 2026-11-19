@@ -545,9 +545,9 @@ const SmartScaleVsBodyFatCalipersContentContent = (
             </table>
           </div>
           <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-            Calipers are cheaper at every tier. A $9 Accu-Measure caliper and a $29 RENPHO scale
-            together cost less than a single premium smart scale. That is the setup I recommend for
-            most people.
+            Calipers are cheaper at every tier. An Accu-Measure caliper and a RENPHO scale together
+            cost less than a single premium smart scale. That is the setup I recommend for most
+            people.
           </p>
         </div>
 
@@ -572,7 +572,7 @@ const SmartScaleVsBodyFatCalipersContentContent = (
               </span>
               <h4 className="text-xl font-semibold">Withings Body+ Smart Scale</h4>
             </div>
-            <span className="text-2xl font-bold text-accent">$79</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -621,14 +621,14 @@ const SmartScaleVsBodyFatCalipersContentContent = (
               </span>
               <h4 className="text-xl font-semibold">RENPHO Smart Scale</h4>
             </div>
-            <span className="text-2xl font-bold text-accent">$29</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
-            This is the scale I recommend to friends who are just getting started. At $29, it does
-            90% of what the Withings does. The body fat readings are slightly less consistent in my
-            testing (plus or minus 1-2% on repeated readings vs 0.5% for the Withings), but for the
-            price difference? That is totally fine.
+            This is the scale I recommend to friends who are just getting started. At a budget
+            price, it does 90% of what the Withings does. The body fat readings are slightly less
+            consistent in my testing (plus or minus 1-2% on repeated readings vs 0.5% for the
+            Withings), but for the price difference? That is totally fine.
           </p>
 
           <ul className="list-disc list-inside space-y-1 mb-4">
@@ -672,7 +672,7 @@ const SmartScaleVsBodyFatCalipersContentContent = (
               </span>
               <h4 className="text-xl font-semibold">Accu-Measure Body Fat Caliper</h4>
             </div>
-            <span className="text-2xl font-bold text-accent">$9</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -722,7 +722,7 @@ const SmartScaleVsBodyFatCalipersContentContent = (
               </span>
               <h4 className="text-xl font-semibold">Lange Skinfold Caliper</h4>
             </div>
-            <span className="text-2xl font-bold text-accent">$199</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -809,8 +809,8 @@ const SmartScaleVsBodyFatCalipersContentContent = (
               </tr>
               <tr>
                 <td className="border p-3">Budget option cost</td>
-                <td className="border p-3 text-center">$29</td>
-                <td className="border p-3 text-center">$9</td>
+                <td className="border p-3 text-center">Higher</td>
+                <td className="border p-3 text-center">Lower</td>
                 <td className="border p-3 text-center">Calipers</td>
               </tr>
               <tr className="bg-gray-50">
@@ -884,16 +884,15 @@ const SmartScaleVsBodyFatCalipersContentContent = (
         </div>
 
         <p>
-          The total cost of this setup? A RENPHO scale ($29) plus an Accu-Measure caliper ($9) plus
-          a{' '}
+          The total cost of this setup? A RENPHO scale plus an Accu-Measure caliper plus a{' '}
           <Link
             href="/blog/best-body-tape-measures-composition"
             className="text-accent hover:underline"
           >
             body tape measure
-          </Link>{' '}
-          ($8). Under $50 for three different measurement methods that cross-reference each other.
-          That is not a bad deal.
+          </Link>
+          . Three budget-tier measurement methods that cross-reference each other. That is not a bad
+          deal.
         </p>
 
         <p>

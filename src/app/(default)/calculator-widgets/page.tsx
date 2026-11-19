@@ -7,6 +7,7 @@ import EmbedWidgetPicker from '@/components/calculators/EmbedWidgetPicker';
 import { getEmbedPartners, getEmbedShowcase } from '@/data/embedShowcase';
 
 export const metadata: Metadata = {
+  alternates: { canonical: './' },
   title: 'Calculator Widgets | HealthCalc',
   description:
     'Embed HealthCalc calculators on your site with an attribution link. Request approval, copy the code, and go live.',

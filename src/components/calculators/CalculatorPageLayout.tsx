@@ -19,6 +19,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 import Accordion from '@/components/ui/Accordion';
 import { ResultsEmailCapture } from '@/components/ResultsEmailCapture';
 import { toAbsoluteUrl } from '@/lib/site';
+import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { ResultsShareBar, ResultsShareProvider } from '@/components/ResultsShare';
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
@@ -360,7 +361,9 @@ function CalculatorPageLayoutContent({
 
           {availableChains.length > 0 && (
             <div className="perf-defer-section my-8">
-              <h3 className="section-eyebrow mb-3">Guided Workflows</h3>
+              <h2 className="mb-4 border-b-4 border-ink pb-1 text-2xl font-black">
+                Guided Workflows
+              </h2>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {availableChains.map(chain => (
                   <Link
@@ -417,16 +420,18 @@ function CalculatorPageLayoutContent({
             </SupplementalDisclosure>
           ) : null}
 
-          <SupplementalDisclosure
-            summary={newsletterTitle ?? 'Newsletter'}
-            className="perf-defer-section my-8"
-          >
-            <NewsletterSignup
-              title={newsletterTitle}
-              description={newsletterDescription}
-              className="my-0"
-            />
-          </SupplementalDisclosure>
+          {NEWSLETTER_ENABLED ? (
+            <SupplementalDisclosure
+              summary={newsletterTitle ?? 'Newsletter'}
+              className="perf-defer-section my-8"
+            >
+              <NewsletterSignup
+                title={newsletterTitle}
+                description={newsletterDescription}
+                className="my-0"
+              />
+            </SupplementalDisclosure>
+          ) : null}
 
           <StructuredData data={structuredData} />
           <StructuredData

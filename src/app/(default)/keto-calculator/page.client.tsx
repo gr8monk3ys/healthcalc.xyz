@@ -356,10 +356,7 @@ export default function KetoCalculator({ serverHeader }: { serverHeader?: React.
                 }}
               />
 
-              <button
-                onClick={onReset}
-                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
-              >
+              <button onClick={onReset} className="ui-btn-soft">
                 New Calculation
               </button>
             </div>

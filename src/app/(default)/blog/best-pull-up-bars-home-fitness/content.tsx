@@ -113,24 +113,23 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Iron Gym Total Upper Body Workout Bar ($30) - No
-              screws, three grip positions, just works
+              <strong>Best Overall:</strong> Iron Gym Total Upper Body Workout Bar - No screws,
+              three grip positions, just works
             </li>
             <li>
-              <strong>Best Budget:</strong> Garren Fitness Maximiza ($35) - Screw-in mounts, rock
-              solid once installed
+              <strong>Best Budget:</strong> Garren Fitness Maximiza - Screw-in mounts, rock solid
+              once installed
             </li>
             <li>
-              <strong>Best Value:</strong> ALLY PEAKS Pull Up Bar ($40) - 440 lb capacity, thickened
-              steel
+              <strong>Best Value:</strong> ALLY PEAKS Pull Up Bar - 440 lb capacity, thickened steel
             </li>
             <li>
-              <strong>Best Mounted:</strong> Yes4All Wall Mounted Pull Up Bar ($50) - Permanent
-              setup, no doorframe limits
+              <strong>Best Mounted:</strong> Yes4All Wall Mounted Pull Up Bar - Permanent setup, no
+              doorframe limits
             </li>
             <li>
-              <strong>Best Premium:</strong> Sportsroyals Power Tower ($150) - Full station with dip
-              bars and more
+              <strong>Best Premium:</strong> Sportsroyals Power Tower - Full station with dip bars
+              and more
             </li>
           </ul>
         </div>
@@ -172,7 +171,8 @@ const BestPullUpBarsHomeFitnessPageContent = (
           I could not do a single pull-up when I started training at home. Not one. I would hang
           from my doorway bar, try to pull myself up, and nothing happened. That was three years
           ago. Now I can knock out sets of 12 with a 25-pound plate hanging from a belt. The pull-up
-          bar I bought for $30 made that possible. If you have been running your numbers through our{' '}
+          bar I bought on a tight budget made that possible. If you have been running your numbers
+          through our{' '}
           <Link href="/body-fat" className="text-accent hover:underline">
             Body Fat Calculator
           </Link>{' '}
@@ -275,8 +275,8 @@ const BestPullUpBarsHomeFitnessPageContent = (
               to see for yourself.
             </li>
             <li>
-              <strong>No gym required:</strong> A $30 bar in your doorway and you are set. That is
-              the whole point of this article.
+              <strong>No gym required:</strong> A budget bar in your doorway and you are set. That
+              is the whole point of this article.
             </li>
           </ul>
         </div>
@@ -302,7 +302,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$30</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             This is the pull-up bar that started it all for me. I mounted it in my bedroom doorway
@@ -315,7 +315,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
             The Iron Gym gives you three grip positions: wide for standard pull-ups, narrow for
             chin-ups, and neutral (palms facing each other) for a shoulder-friendly variation. You
             can also flip it on the ground and use it for push-ups and dips, though I honestly never
-            do that. The pull-up function alone is worth the $30.
+            do that. The pull-up function alone is worth the price.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -381,7 +381,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$35</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             The Garren Fitness Maximiza takes a different approach than the Iron Gym. Instead of
@@ -461,10 +461,10 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$40</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            For ten bucks more than the Iron Gym, the ALLY PEAKS bar gives you a much beefier build.
+            For a little more than the Iron Gym, the ALLY PEAKS bar gives you a much beefier build.
             The steel is 1.7mm thick instead of the usual 1.2mm on budget bars, and the weight
             capacity jumps to 440 lbs. That is not just marketing. You can feel the difference when
             you grab it. No flex, no creaking. It holds a US patent on the locking mechanism, which
@@ -541,7 +541,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$50</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Doorway bars are convenient, but they come with limitations. You cannot do a full swing,
@@ -623,14 +623,14 @@ const BestPullUpBarsHomeFitnessPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$150</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             This is not just a pull-up bar. It is a full upper body station that handles pull-ups,
-            dips, vertical knee raises, push-ups, and more. At $150, it costs five times more than
-            the Iron Gym. But it also does five times as many exercises. If you have the floor space
-            for it (about 2.5 by 2.5 feet), it becomes the centerpiece of a home gym that can keep
-            you busy for years.
+            dips, vertical knee raises, push-ups, and more. It costs five times more than the Iron
+            Gym. But it also does five times as many exercises. If you have the floor space for it
+            (about 2.5 by 2.5 feet), it becomes the centerpiece of a home gym that can keep you busy
+            for years.
           </p>
           <p className="mb-4">
             I trained on a friend’s Sportsroyals tower for a month when I was between apartments.
@@ -699,7 +699,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Type</th>
                 <th className="border p-3 text-center">Weight Capacity</th>
@@ -709,7 +709,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Iron Gym Total Upper Body</td>
-                <td className="border p-3 text-center">$30</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Doorway</td>
                 <td className="border p-3 text-center">300 lbs</td>
@@ -717,7 +717,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garren Fitness Maximiza</td>
-                <td className="border p-3 text-center">$35</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Doorway (screw-in)</td>
                 <td className="border p-3 text-center">300 lbs</td>
@@ -725,7 +725,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">ALLY PEAKS Pull Up Bar</td>
-                <td className="border p-3 text-center">$40</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Doorway</td>
                 <td className="border p-3 text-center">440 lbs</td>
@@ -733,7 +733,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Yes4All Wall Mounted</td>
-                <td className="border p-3 text-center">$50</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Wall mount</td>
                 <td className="border p-3 text-center">500 lbs</td>
@@ -741,7 +741,7 @@ const BestPullUpBarsHomeFitnessPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Sportsroyals Power Tower</td>
-                <td className="border p-3 text-center">$150</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
                 <td className="border p-3 text-center">Freestanding</td>
                 <td className="border p-3 text-center">450 lbs</td>
@@ -811,28 +811,28 @@ const BestPullUpBarsHomeFitnessPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Just getting started:</strong> The <strong>Iron Gym at $30</strong> is the
-            answer. No fuss, no tools, works immediately. I started here and have zero regrets.
+            <strong>Just getting started:</strong> The <strong>Iron Gym</strong> is the answer. No
+            fuss, no tools, works immediately. I started here and have zero regrets.
           </li>
           <li>
             <strong>Want maximum stability in a doorway:</strong> The{' '}
-            <strong>Garren Fitness Maximiza at $35</strong> with its screw-in mounts will not budge.
-            Great if you own your home and want confidence during heavy sets.
+            <strong>Garren Fitness Maximiza</strong> with its screw-in mounts will not budge. Great
+            if you own your home and want confidence during heavy sets.
           </li>
           <li>
-            <strong>Best overall value:</strong> The <strong>ALLY PEAKS at $40</strong> gives you
-            premium build quality and a 440 lb capacity for only $10 more than the basic options.
-            Hard to argue with that.
+            <strong>Best overall value:</strong> The <strong>ALLY PEAKS</strong> gives you premium
+            build quality and a 440 lb capacity for only a little more than the basic options. Hard
+            to argue with that.
           </li>
           <li>
-            <strong>Ready for a permanent setup:</strong> The{' '}
-            <strong>Yes4All Wall Mount at $50</strong> is what you graduate to when you want a real
-            gym feel. True wide grip, 500 lb capacity, bombproof.
+            <strong>Ready for a permanent setup:</strong> The <strong>Yes4All Wall Mount</strong> is
+            what you graduate to when you want a real gym feel. True wide grip, 500 lb capacity,
+            bombproof.
           </li>
           <li>
             <strong>Want a full training station:</strong> The{' '}
-            <strong>Sportsroyals Power Tower at $150</strong> does it all. Pull-ups, dips, knee
-            raises, and more. If you have the space, this is the most training variety per dollar.
+            <strong>Sportsroyals Power Tower</strong> does it all. Pull-ups, dips, knee raises, and
+            more. If you have the space, this is the most training variety per dollar.
           </li>
         </ul>
 
@@ -852,8 +852,8 @@ const BestPullUpBarsHomeFitnessPageContent = (
           <Link href="/body-fat" className="text-accent hover:underline">
             Body Fat Calculator
           </Link>
-          , and watch what happens when consistent effort meets a $30 piece of steel in your
-          doorway.
+          , and watch what happens when consistent effort meets an inexpensive piece of steel in
+          your doorway.
         </p>
 
         {/* Related Calculators Grid */}

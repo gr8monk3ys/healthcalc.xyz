@@ -85,23 +85,21 @@ const BestMassageGunsRecoveryPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Theragun Elite ($399) - Professional grade, OLED
-              screen, 5 attachments
+              <strong>Best Overall:</strong> Theragun Elite - Professional grade, OLED screen, 5
+              attachments
             </li>
             <li>
-              <strong>Best Mid-Range:</strong> Hypervolt 2 ($199) - Quiet operation, 3 speeds,
-              HyperSmart app
+              <strong>Best Mid-Range:</strong> Hypervolt 2 - Quiet operation, 3 speeds, HyperSmart
+              app
             </li>
             <li>
-              <strong>Best Budget:</strong> RENPHO R3 ($99) - 5 speeds, 20 speeds, solid performance
+              <strong>Best Budget:</strong> RENPHO R3 - 5 speeds, 20 speeds, solid performance
             </li>
             <li>
-              <strong>Best Battery Life:</strong> Ekrin B37 ($229) - 8 hour battery, 56 lbs stall
-              force
+              <strong>Best Battery Life:</strong> Ekrin B37 - 8 hour battery, 56 lbs stall force
             </li>
             <li>
-              <strong>Best Portable:</strong> Bob and Brad Q2 Mini ($59) - Travel-friendly, TSA
-              approved
+              <strong>Best Portable:</strong> Bob and Brad Q2 Mini - Travel-friendly, TSA approved
             </li>
           </ul>
         </div>
@@ -238,15 +236,15 @@ const BestMassageGunsRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$399</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The Theragun Elite is the professional-grade option. It has 16mm amplitude (one of the
             deepest in the category), 40 lbs of stall force, and an OLED screen that shows speed and
             force level in real time. The rotating arm lets you reach your back without contorting,
             and the motor is quieter than earlier Theragun models. It comes with 5 attachment heads
-            and a hard carrying case. At $399 it is expensive, but if you train seriously and
-            recovery is a priority, this is the best tool available.
+            and a hard carrying case. It is expensive, but if you train seriously and recovery is a
+            priority, this is the best tool available.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -268,8 +266,8 @@ const BestMassageGunsRecoveryPageContent = (
               quietest Theragun model, 2 batteries included
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $399 is a lot for a massage gun, heavy at 2.2 lbs, Bluetooth
-              app is not essential
+              <strong>Cons:</strong> Expensive for a massage gun, heavy at 2.2 lbs, Bluetooth app is
+              not essential
             </p>
           </div>
           <div className="mt-4">
@@ -299,7 +297,7 @@ const BestMassageGunsRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$199</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Hypervolt 2 is noticeably quieter than most massage guns in this price range. At 3
@@ -320,8 +318,8 @@ const BestMassageGunsRecoveryPageContent = (
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            People who want effective percussion massage without spending $400. Good for home gyms,
-            post-run recovery, and general muscle maintenance.
+            People who want effective percussion massage without paying premium prices. Good for
+            home gyms, post-run recovery, and general muscle maintenance.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
@@ -360,15 +358,15 @@ const BestMassageGunsRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            The RENPHO R3 is the best massage gun under $100. It has 5 speed levels, 20 different
-            speeds total, and 5 attachment heads. The amplitude is 10mm, which is shallower than
-            premium models but still effective for most muscle groups. It is louder than the
-            Hypervolt or Theragun, but at $99 that is expected. The battery lasts 6 hours, which is
-            longer than most budget guns. This is a good first massage gun if you are not sure how
-            often you will use it.
+            The RENPHO R3 is the best budget massage gun. It has 5 speed levels, 20 different speeds
+            total, and 5 attachment heads. The amplitude is 10mm, which is shallower than premium
+            models but still effective for most muscle groups. It is louder than the Hypervolt or
+            Theragun, but at this price that is expected. The battery lasts 6 hours, which is longer
+            than most budget guns. This is a good first massage gun if you are not sure how often
+            you will use it.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -381,11 +379,11 @@ const BestMassageGunsRecoveryPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Budget buyers, first-time massage gun users, and anyone who wants to try percussion
-            massage without spending $200+.
+            massage without spending much.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Under $100, 6-hour battery, 20 speed settings, decent build
+              <strong>Pros:</strong> Budget price, 6-hour battery, 20 speed settings, decent build
               quality for the price
             </p>
             <p className="text-sm mt-2">
@@ -420,7 +418,7 @@ const BestMassageGunsRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$229</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Ekrin B37 has an 8-hour battery life, which is the longest on this list. If you
@@ -428,7 +426,7 @@ const BestMassageGunsRecoveryPageContent = (
             still turn on. It also has 56 lbs of stall force, which is higher than the Theragun
             Elite. The amplitude is 12mm and it has 5 speed settings. The build quality is solid and
             it comes with a lifetime warranty on the motor. This is the massage gun for people who
-            want something reliable and powerful without paying $400.
+            want something reliable and powerful without paying top-tier prices.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -481,7 +479,7 @@ const BestMassageGunsRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$59</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             The Q2 Mini is the smallest and cheapest massage gun on this list. It fits in a gym bag,
@@ -506,8 +504,8 @@ const BestMassageGunsRecoveryPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Ultra-portable, TSA approved, under $60, USB-C charging, light
-              enough to use one-handed
+              <strong>Pros:</strong> Ultra-portable, TSA approved, budget price, USB-C charging,
+              light enough to use one-handed
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Low amplitude, stalls under moderate pressure, only 2-hour
@@ -533,7 +531,7 @@ const BestMassageGunsRecoveryPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Amplitude</th>
                 <th className="border p-3 text-center">Battery</th>
@@ -543,7 +541,7 @@ const BestMassageGunsRecoveryPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Theragun Elite</td>
-                <td className="border p-3 text-center">$399</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.7</td>
                 <td className="border p-3 text-center">16mm</td>
                 <td className="border p-3 text-center">120 min</td>
@@ -551,7 +549,7 @@ const BestMassageGunsRecoveryPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Hypervolt 2</td>
-                <td className="border p-3 text-center">$199</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">12mm</td>
                 <td className="border p-3 text-center">180 min</td>
@@ -559,7 +557,7 @@ const BestMassageGunsRecoveryPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">RENPHO R3</td>
-                <td className="border p-3 text-center">$99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">10mm</td>
                 <td className="border p-3 text-center">360 min</td>
@@ -567,7 +565,7 @@ const BestMassageGunsRecoveryPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Ekrin B37</td>
-                <td className="border p-3 text-center">$229</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.6</td>
                 <td className="border p-3 text-center">12mm</td>
                 <td className="border p-3 text-center">480 min</td>
@@ -575,7 +573,7 @@ const BestMassageGunsRecoveryPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Bob and Brad Q2 Mini</td>
-                <td className="border p-3 text-center">$59</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">7mm</td>
                 <td className="border p-3 text-center">120 min</td>
@@ -647,26 +645,25 @@ const BestMassageGunsRecoveryPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best overall:</strong> <strong>Theragun Elite at $399</strong> if you train
-            seriously and use a massage gun daily. The rotating arm and 16mm amplitude justify the
-            price.
+            <strong>Best overall:</strong> <strong>Theragun Elite</strong> if you train seriously
+            and use a massage gun daily. The rotating arm and 16mm amplitude justify the price.
           </li>
           <li>
-            <strong>Best value:</strong> <strong>Hypervolt 2 at $199</strong> hits the sweet spot
-            between price and performance. Quiet, effective, and has an app.
+            <strong>Best value:</strong> <strong>Hypervolt 2</strong> hits the sweet spot between
+            price and performance. Quiet, effective, and has an app.
           </li>
           <li>
-            <strong>Best budget:</strong> <strong>RENPHO R3 at $99</strong> is the best entry-level
-            option. Good for trying percussion massage without spending $200+.
+            <strong>Best budget:</strong> <strong>RENPHO R3</strong> is the best entry-level option.
+            Good for trying percussion massage without spending much.
           </li>
           <li>
-            <strong>Best for long battery:</strong> <strong>Ekrin B37 at $229</strong> lasts 8 hours
-            and has a lifetime motor warranty. Great for frequent travelers.
+            <strong>Best for long battery:</strong> <strong>Ekrin B37</strong> lasts 8 hours and has
+            a lifetime motor warranty. Great for frequent travelers.
           </li>
           <li>
-            <strong>Best portable:</strong> <strong>Bob and Brad Q2 Mini at $59</strong> fits in a
-            gym bag and is TSA approved. Not a replacement for a full-size gun, but useful as a
-            second device.
+            <strong>Best portable:</strong> <strong>Bob and Brad Q2 Mini</strong> fits in a gym bag
+            and is TSA approved. Not a replacement for a full-size gun, but useful as a second
+            device.
           </li>
         </ul>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Reviewer } from '@/constants/reviewers';
-import { REVIEWER_SARAH_CHEN } from '@/constants/reviewers';
+import { EDITORIAL_TEAM } from '@/constants/reviewers';
 
 interface AuthorBioProps {
   variant?: 'compact' | 'full';
@@ -37,7 +37,7 @@ function InitialsAvatar({
 
 export function AuthorBio({
   variant = 'compact',
-  reviewer = REVIEWER_SARAH_CHEN,
+  reviewer = EDITORIAL_TEAM,
   className = '',
 }: AuthorBioProps): React.JSX.Element {
   const displayName = reviewer.credentials

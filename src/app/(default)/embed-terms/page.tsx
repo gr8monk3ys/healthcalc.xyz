@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
+  alternates: { canonical: './' },
   title: 'Embed Terms | HealthCalc',
   description: 'Terms for embedding HealthCalc calculators on external websites.',
 };

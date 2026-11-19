@@ -11,6 +11,7 @@ import {
   calculateFatAndLeanMass,
 } from '@/utils/calculators/bodyFat';
 import { BODY_FAT_METHODS } from '@/constants/bodyFat';
+import { getCalculatorBySlug } from '@/constants/calculatorCatalog';
 import { calculateBMI } from '@/utils/calculators/bmi';
 import {
   validateAge,
@@ -43,6 +44,8 @@ import { scrollBehavior } from '@/utils/scrollBehavior';
 
 // Below-the-fold / result-only UI: split out of the page bundle.
 const AffiliateLinks = dynamic(() => import('@/components/AffiliateLinks'));
+
+const faqs = getCalculatorBySlug('body-fat')?.detail?.faqs ?? [];
 
 // Dynamic imports for below-the-fold components
 const BodyFatUnderstanding = dynamic(
@@ -647,7 +650,7 @@ function renderBodyFatCalculatorView({
       title="Body Fat Calculator"
       description="Calculate your body fat percentage using various methods including Navy, skinfold, and BMI"
       calculatorSlug="body-fat"
-      faqs={[]}
+      faqs={faqs}
       relatedArticles={[]}
       structuredData={{
         '@context': 'https://schema.org',

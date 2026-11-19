@@ -128,24 +128,24 @@ const BestWaterBottlesHydrationTrackingPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Smart Bottle:</strong> HidrateSpark PRO ($44.95) - LED glow reminders and
-              app tracking
+              <strong>Best Smart Bottle:</strong> HidrateSpark PRO - LED glow reminders and app
+              tracking
             </li>
             <li>
-              <strong>Best Classic:</strong> Nalgene Sustain Wide Mouth ($14.99) - Indestructible,
-              BPA-free, and dead simple
+              <strong>Best Classic:</strong> Nalgene Sustain Wide Mouth - Indestructible, BPA-free,
+              and dead simple
             </li>
             <li>
-              <strong>Best Insulated:</strong> Hydro Flask Wide Mouth 32oz ($44.95) - Keeps water
-              cold all day
+              <strong>Best Insulated:</strong> Hydro Flask Wide Mouth 32oz - Keeps water cold all
+              day
             </li>
             <li>
-              <strong>Best Budget Tracker:</strong> Hydration Nation 32oz ($14.99) - Time markers
-              without the tech price
+              <strong>Best Budget Tracker:</strong> Hydration Nation 32oz - Time markers without the
+              tech price
             </li>
             <li>
-              <strong>Best Everyday Carry:</strong> CamelBak Eddy+ 32oz ($16.00) - Bite valve that
-              never leaks
+              <strong>Best Everyday Carry:</strong> CamelBak Eddy+ 32oz - Bite valve that never
+              leaks
             </li>
           </ul>
         </div>
@@ -320,7 +320,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$44.95</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -405,7 +405,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.8 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$14.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -487,7 +487,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$44.95</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -568,7 +568,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$14.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -589,8 +589,8 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             The downside is that it only works if you start at the “right” time. If you sleep in and
             fill it at 10 AM instead of 7, the markers are off for the rest of the day. Also, you
             only get 32 ounces from one fill, so you still need to refill at least once if you are
-            aiming for the standard 64oz recommendation. But for under fifteen bucks, it is a hard
-            deal to argue with.
+            aiming for the standard 64oz recommendation. But at a budget price, it is a hard deal to
+            argue with.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -606,10 +606,10 @@ const BestWaterBottlesHydrationTrackingPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            People who want a low-tech reminder system and do not want to spend $45 on a water
-            bottle. If you have a regular schedule and tend to forget to drink until you are already
-            dehydrated, the time markers create a simple visual accountability system. Great for
-            someone just starting to build better hydration habits.
+            People who want a low-tech reminder system and do not want to pay premium prices for a
+            water bottle. If you have a regular schedule and tend to forget to drink until you are
+            already dehydrated, the time markers create a simple visual accountability system. Great
+            for someone just starting to build better hydration habits.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -651,7 +651,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$16.00</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -727,7 +727,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Bottle</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Insulated</th>
                 <th className="border p-3 text-center">Tracking</th>
@@ -737,7 +737,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">HidrateSpark PRO</td>
-                <td className="border p-3 text-center">$44.95</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Stainless Steel</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">App + LED</td>
@@ -745,7 +745,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Nalgene Sustain</td>
-                <td className="border p-3 text-center">$14.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Tritan Plastic</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Volume marks</td>
@@ -753,7 +753,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Hydro Flask 32oz</td>
-                <td className="border p-3 text-center">$44.95</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Stainless Steel</td>
                 <td className="border p-3 text-center">Yes (24hr cold)</td>
                 <td className="border p-3 text-center">Refill counting</td>
@@ -761,7 +761,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Hydration Nation</td>
-                <td className="border p-3 text-center">$14.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Tritan Plastic</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Time markers</td>
@@ -769,7 +769,7 @@ const BestWaterBottlesHydrationTrackingPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">CamelBak Eddy+</td>
-                <td className="border p-3 text-center">$16.00</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Tritan Renew</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Volume marks</td>
@@ -865,9 +865,9 @@ const BestWaterBottlesHydrationTrackingPageContent = (
         </ul>
 
         <p>
-          Whichever bottle you pick, the real trick is consistency. A $15 bottle you use every day
-          will do more for your hydration than a $50 bottle collecting dust on a shelf. Figure out
-          your daily target with our{' '}
+          Whichever bottle you pick, the real trick is consistency. A budget bottle you use every
+          day will do more for your hydration than a premium bottle collecting dust on a shelf.
+          Figure out your daily target with our{' '}
           <Link href="/water-intake" className="text-accent hover:underline">
             Water Intake Calculator
           </Link>

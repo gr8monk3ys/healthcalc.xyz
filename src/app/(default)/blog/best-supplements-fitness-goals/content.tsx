@@ -135,28 +135,28 @@ const BestSupplementsFitnessGoalsPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall Protein:</strong> Optimum Nutrition Gold Standard Whey ($32.99) -
-              Industry gold standard with 24g protein per scoop
+              <strong>Best Overall Protein:</strong> Optimum Nutrition Gold Standard Whey - Industry
+              gold standard with 24g protein per scoop
             </li>
             <li>
-              <strong>Best Budget Protein:</strong> Myprotein Impact Whey ($24.99) - Great quality
-              at a lower price point
+              <strong>Best Budget Protein:</strong> Myprotein Impact Whey - Great quality at a lower
+              price point
             </li>
             <li>
-              <strong>Best Creatine:</strong> Thorne Creatine Monohydrate ($32.00) - NSF Certified
-              for Sport, ultra-pure
+              <strong>Best Creatine:</strong> Thorne Creatine Monohydrate - NSF Certified for Sport,
+              ultra-pure
             </li>
             <li>
-              <strong>Best Multivitamin:</strong> Garden of Life Multivitamin for Men ($44.99) -
-              Whole food sourced, organic
+              <strong>Best Multivitamin:</strong> Garden of Life Multivitamin for Men - Whole food
+              sourced, organic
             </li>
             <li>
-              <strong>Best Omega-3:</strong> Nordic Naturals Ultimate Omega ($27.95) - Third-party
-              tested, high potency
+              <strong>Best Omega-3:</strong> Nordic Naturals Ultimate Omega - Third-party tested,
+              high potency
             </li>
             <li>
-              <strong>Best Pre-Workout:</strong> Transparent Labs BULK ($49.99) - Clinically dosed,
-              no proprietary blends
+              <strong>Best Pre-Workout:</strong> Transparent Labs BULK - Clinically dosed, no
+              proprietary blends
             </li>
           </ul>
         </div>
@@ -343,7 +343,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               <h3 className="text-xl font-semibold">Optimum Nutrition Gold Standard 100% Whey</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★★ 4.7 out of 5 stars</p>
             </div>
-            <span className="text-2xl font-bold text-accent">$32.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -426,7 +426,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               <h3 className="text-xl font-semibold">Myprotein Impact Whey Protein</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★☆ 4.5 out of 5 stars</p>
             </div>
-            <span className="text-2xl font-bold text-accent">$24.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -506,7 +506,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               <h3 className="text-xl font-semibold">Thorne Creatine Monohydrate</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★★ 4.6 out of 5 stars</p>
             </div>
-            <span className="text-2xl font-bold text-accent">$32.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -586,7 +586,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               <h3 className="text-xl font-semibold">Garden of Life Vitamin Code Men</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★☆ 4.5 out of 5 stars</p>
             </div>
-            <span className="text-2xl font-bold text-accent">$44.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -663,7 +663,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               <h3 className="text-xl font-semibold">Nordic Naturals Ultimate Omega</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★★ 4.6 out of 5 stars</p>
             </div>
-            <span className="text-2xl font-bold text-accent">$27.95</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -743,7 +743,7 @@ const BestSupplementsFitnessGoalsPageContent = (
               <h3 className="text-xl font-semibold">Transparent Labs BULK Pre-Workout</h3>
               <p className="text-sm text-yellow-600 mt-1">★★★★☆ 4.5 out of 5 stars</p>
             </div>
-            <span className="text-2xl font-bold text-accent">$49.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -818,7 +818,7 @@ const BestSupplementsFitnessGoalsPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Supplement</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Category</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -827,42 +827,42 @@ const BestSupplementsFitnessGoalsPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">ON Gold Standard Whey</td>
-                <td className="border p-3 text-center">$32.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">★★★★★ 4.7</td>
                 <td className="border p-3 text-center">Protein</td>
                 <td className="border p-3 text-center">Overall best protein</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Myprotein Impact Whey</td>
-                <td className="border p-3 text-center">$24.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">★★★★☆ 4.5</td>
                 <td className="border p-3 text-center">Protein</td>
                 <td className="border p-3 text-center">Budget protein</td>
               </tr>
               <tr>
                 <td className="border p-3">Thorne Creatine</td>
-                <td className="border p-3 text-center">$32.00</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">★★★★★ 4.6</td>
                 <td className="border p-3 text-center">Creatine</td>
                 <td className="border p-3 text-center">Strength & power</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garden of Life Multi</td>
-                <td className="border p-3 text-center">$44.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">★★★★☆ 4.5</td>
                 <td className="border p-3 text-center">Multivitamin</td>
                 <td className="border p-3 text-center">Micronutrient gaps</td>
               </tr>
               <tr>
                 <td className="border p-3">Nordic Naturals Omega</td>
-                <td className="border p-3 text-center">$27.95</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">★★★★★ 4.6</td>
                 <td className="border p-3 text-center">Omega-3</td>
                 <td className="border p-3 text-center">Joint & heart health</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Transparent Labs BULK</td>
-                <td className="border p-3 text-center">$49.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">★★★★☆ 4.5</td>
                 <td className="border p-3 text-center">Pre-Workout</td>
                 <td className="border p-3 text-center">Training performance</td>

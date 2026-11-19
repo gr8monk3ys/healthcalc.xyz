@@ -111,7 +111,7 @@ export function createArticleSchema({
     datePublished: datePublished,
     dateModified: dateModified || datePublished,
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: authorName,
     },
     publisher: {

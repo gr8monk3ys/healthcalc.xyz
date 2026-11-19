@@ -26,7 +26,7 @@ export default function RelatedCalculatorLinks({
         {calculators.map(calculator => (
           <Link
             key={calculator.slug}
-            href={`/calculator/${calculator.slug}`}
+            href={`/${calculator.slug}`}
             className="glass-panel-strong rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5"
           >
             <h3 className="text-lg font-semibold text-accent">{calculator.title}</h3>

@@ -103,24 +103,24 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> C4 Original ($25) - 150mg caffeine, proven formula,
-              wide availability
+              <strong>Best Overall:</strong> C4 Original - 150mg caffeine, proven formula, wide
+              availability
             </li>
             <li>
-              <strong>Best for Beginners:</strong> Optimum Nutrition Gold Standard ($32) - Moderate
+              <strong>Best for Beginners:</strong> Optimum Nutrition Gold Standard - Moderate
               caffeine, clean formula
             </li>
             <li>
-              <strong>Best Natural:</strong> Legion Pulse ($40) - No artificial ingredients,
+              <strong>Best Natural:</strong> Legion Pulse - No artificial ingredients,
               science-backed dosing
             </li>
             <li>
-              <strong>Best for Strength:</strong> Transparent Labs BULK ($50) - Citrulline malate,
+              <strong>Best for Strength:</strong> Transparent Labs BULK - Citrulline malate,
               beta-alanine, betaine
             </li>
             <li>
-              <strong>Best Tasting:</strong> Ghost Legend ($45) - Sour Patch Kids, Warheads, Swedish
-              Fish flavors
+              <strong>Best Tasting:</strong> Ghost Legend - Sour Patch Kids, Warheads, Swedish Fish
+              flavors
             </li>
           </ul>
         </div>
@@ -280,7 +280,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$25</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             C4 Original is the best-selling pre-workout in the United States for a reason. It works
@@ -347,7 +347,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$32</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Optimum Nutrition makes the most popular whey protein powder in the world and their
@@ -415,7 +415,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$40</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Legion Pulse is for people who actually read ingredient labels and care about what they
@@ -483,7 +483,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$50</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             Transparent Labs BULK is built for powerlifters and bodybuilders who need every rep to
@@ -551,7 +551,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.8 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$45</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             Ghost Legend tastes better than any other pre-workout on this list and it is not even
@@ -612,7 +612,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Caffeine</th>
                 <th className="border p-3 text-center">Citrulline</th>
                 <th className="border p-3 text-center">Beta-Alanine</th>
@@ -622,7 +622,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">C4 Original</td>
-                <td className="border p-3 text-center">$25</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">150mg</td>
                 <td className="border p-3 text-center">-</td>
                 <td className="border p-3 text-center">1.6g</td>
@@ -630,7 +630,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Optimum Nutrition</td>
-                <td className="border p-3 text-center">$32</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">175mg</td>
                 <td className="border p-3 text-center">3g</td>
                 <td className="border p-3 text-center">1.5g</td>
@@ -638,7 +638,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Legion Pulse</td>
-                <td className="border p-3 text-center">$40</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">350mg</td>
                 <td className="border p-3 text-center">8g</td>
                 <td className="border p-3 text-center">3.6g</td>
@@ -646,7 +646,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Transparent Labs BULK</td>
-                <td className="border p-3 text-center">$50</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">180mg</td>
                 <td className="border p-3 text-center">6g</td>
                 <td className="border p-3 text-center">4g</td>
@@ -654,7 +654,7 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Ghost Legend</td>
-                <td className="border p-3 text-center">$45</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">202mg</td>
                 <td className="border p-3 text-center">4g</td>
                 <td className="border p-3 text-center">3.2g</td>
@@ -728,24 +728,24 @@ const BestPreWorkoutSupplementsEnergyPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best overall value:</strong> <strong>C4 Original at $25</strong> is the safe
-            choice that works for most people.
+            <strong>Best overall value:</strong> <strong>C4 Original</strong> is the safe choice
+            that works for most people.
           </li>
           <li>
-            <strong>For first-timers:</strong>{' '}
-            <strong>Optimum Nutrition Gold Standard at $32</strong> is gentle and effective.
+            <strong>For first-timers:</strong> <strong>Optimum Nutrition Gold Standard</strong> is
+            gentle and effective.
           </li>
           <li>
-            <strong>For serious lifters:</strong> <strong>Legion Pulse at $40</strong> has
-            clinically effective doses of everything that matters.
+            <strong>For serious lifters:</strong> <strong>Legion Pulse</strong> has clinically
+            effective doses of everything that matters.
           </li>
           <li>
-            <strong>For strength training:</strong> <strong>Transparent Labs BULK at $50</strong> is
-            built specifically for heavy compound lifts.
+            <strong>For strength training:</strong> <strong>Transparent Labs BULK</strong> is built
+            specifically for heavy compound lifts.
           </li>
           <li>
-            <strong>For taste:</strong> <strong>Ghost Legend at $45</strong> if you need something
-            that does not taste like chemical waste.
+            <strong>For taste:</strong> <strong>Ghost Legend</strong> if you need something that
+            does not taste like chemical waste.
           </li>
         </ul>
 

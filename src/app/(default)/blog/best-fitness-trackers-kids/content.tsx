@@ -127,24 +127,24 @@ const BestFitnessTrackersKidsPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Fitbit Ace 3 ($49) - Water resistant with family
-              account and animated clock faces
+              <strong>Best Overall:</strong> Fitbit Ace 3 - Water resistant with family account and
+              animated clock faces
             </li>
             <li>
-              <strong>Best Features:</strong> Garmin Vivofit Jr 3 ($89) - Adventure quests,
-              swim-proof, 1-year battery
+              <strong>Best Features:</strong> Garmin Vivofit Jr 3 - Adventure quests, swim-proof,
+              1-year battery
             </li>
             <li>
-              <strong>Best Budget:</strong> BIGGERFIVE Vigor 2 ($35) - Heart rate and sleep tracking
-              at a low price
+              <strong>Best Budget:</strong> BIGGERFIVE Vigor 2 - Heart rate and sleep tracking at a
+              low price
             </li>
             <li>
-              <strong>Best Smartwatch:</strong> Garmin Bounce ($149) - GPS, messaging, and geofence
-              alerts for parents
+              <strong>Best Smartwatch:</strong> Garmin Bounce - GPS, messaging, and geofence alerts
+              for parents
             </li>
             <li>
-              <strong>Best Phone Alternative:</strong> XPLORA X6 Play ($169) - GPS tracking, SOS
-              button, and phone calls
+              <strong>Best Phone Alternative:</strong> XPLORA X6 Play - GPS tracking, SOS button,
+              and phone calls
             </li>
           </ul>
         </div>
@@ -346,7 +346,7 @@ const BestFitnessTrackersKidsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Fitbit Ace 3</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$49.00</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -422,7 +422,7 @@ const BestFitnessTrackersKidsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Garmin Vivofit Jr 3</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$89.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -500,14 +500,14 @@ const BestFitnessTrackersKidsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">BIGGERFIVE Vigor 2</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$35.00</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
-            At $35, the BIGGERFIVE Vigor 2 packs features you would not expect at this price point.
-            It has a heart rate monitor and sleep tracking, which neither the Fitbit Ace 3 nor the
-            Garmin Vivofit Jr 3 offer. If your child is old enough to care about that data (probably
-            age eight and up), this is a lot of tracker for very little money.
+            The budget-priced BIGGERFIVE Vigor 2 packs features you would not expect at this price
+            point. It has a heart rate monitor and sleep tracking, which neither the Fitbit Ace 3
+            nor the Garmin Vivofit Jr 3 offer. If your child is old enough to care about that data
+            (probably age eight and up), this is a lot of tracker for very little money.
           </p>
 
           <p className="mb-4">
@@ -573,7 +573,7 @@ const BestFitnessTrackersKidsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Garmin Bounce</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$149.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -654,7 +654,7 @@ const BestFitnessTrackersKidsPageContent = (
               </span>
               <h3 className="text-xl font-semibold">XPLORA X6 Play</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$169.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -789,7 +789,7 @@ const BestFitnessTrackersKidsPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Tracker</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Battery</th>
                 <th className="border p-3 text-center">GPS</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -798,35 +798,35 @@ const BestFitnessTrackersKidsPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Fitbit Ace 3</td>
-                <td className="border p-3 text-center">$49</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">8 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Ages 6-12</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garmin Vivofit Jr 3</td>
-                <td className="border p-3 text-center">$89</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">1 year</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Ages 4-10</td>
               </tr>
               <tr>
                 <td className="border p-3">BIGGERFIVE Vigor 2</td>
-                <td className="border p-3 text-center">$35</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Budget pick</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garmin Bounce</td>
-                <td className="border p-3 text-center">$149</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">2+ days</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Ages 8-12</td>
               </tr>
               <tr>
                 <td className="border p-3">XPLORA X6 Play</td>
-                <td className="border p-3 text-center">$169</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">2 days</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Phone alternative</td>
@@ -866,9 +866,9 @@ const BestFitnessTrackersKidsPageContent = (
 
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>For most families:</strong> The <strong>Fitbit Ace 3</strong> at $49 is the
-            safest bet. Good parental controls, fun for kids, and affordable enough that you will
-            not be upset if it gets lost at camp.
+            <strong>For most families:</strong> The <strong>Fitbit Ace 3</strong> is the safest bet.
+            Good parental controls, fun for kids, and affordable enough that you will not be upset
+            if it gets lost at camp.
           </li>
           <li>
             <strong>For younger kids (4-8):</strong> The <strong>Garmin Vivofit Jr 3</strong> is
@@ -876,8 +876,8 @@ const BestFitnessTrackersKidsPageContent = (
             younger children.
           </li>
           <li>
-            <strong>On a tight budget:</strong> The <strong>BIGGERFIVE Vigor 2</strong> at $35 gives
-            you more features than the Fitbit, but you sacrifice parental controls and brand trust.
+            <strong>On a tight budget:</strong> The <strong>BIGGERFIVE Vigor 2</strong> gives you
+            more features than the Fitbit, but you sacrifice parental controls and brand trust.
           </li>
           <li>
             <strong>For independence without a phone:</strong> The <strong>Garmin Bounce</strong>{' '}
