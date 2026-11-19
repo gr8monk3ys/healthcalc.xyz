@@ -43,7 +43,8 @@ function getPostgresConnectionString(required: boolean): string | null {
   const connection =
     process.env.SAVED_RESULTS_POSTGRES_URL?.trim() ||
     process.env.SUBMISSIONS_POSTGRES_URL?.trim() ||
-    process.env.DATABASE_URL?.trim();
+    process.env.DATABASE_URL?.trim() ||
+    process.env.POSTGRES_URL?.trim();
   if (connection) return connection;
   if (required) {
     throw new Error(
@@ -97,7 +98,8 @@ export function isSavedResultsPostgresConfigured(): boolean {
   return (
     has(process.env.SAVED_RESULTS_POSTGRES_URL) ||
     has(process.env.SUBMISSIONS_POSTGRES_URL) ||
-    has(process.env.DATABASE_URL)
+    has(process.env.DATABASE_URL) ||
+    has(process.env.POSTGRES_URL)
   );
 }
 
