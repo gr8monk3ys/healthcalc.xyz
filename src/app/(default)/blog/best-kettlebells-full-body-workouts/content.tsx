@@ -112,24 +112,24 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Kettlebell Kings Powder Coat ($56-72) - Gravity-cast
-              iron, lifetime warranty, recessed logo
+              <strong>Best Overall:</strong> Kettlebell Kings Powder Coat - Gravity-cast iron,
+              lifetime warranty, recessed logo
             </li>
             <li>
-              <strong>Best Budget:</strong> CAP Barbell Cast Iron ($20-40) - Solid no-frills
-              kettlebell, wide handle, good for basics
+              <strong>Best Budget:</strong> CAP Barbell Cast Iron - Solid no-frills kettlebell, wide
+              handle, good for basics
             </li>
             <li>
-              <strong>Best Value:</strong> Amazon Basics Cast Iron ($15-35) - Cheapest reliable
-              option, enamel coating, decent grip
+              <strong>Best Value:</strong> Amazon Basics Cast Iron - Cheapest reliable option,
+              enamel coating, decent grip
             </li>
             <li>
-              <strong>Best Premium:</strong> Rogue Fitness Kettlebell ($55-80) - Single-cast ductile
-              iron, e-coat finish, competition handle
+              <strong>Best Premium:</strong> Rogue Fitness Kettlebell - Single-cast ductile iron,
+              e-coat finish, competition handle
             </li>
             <li>
-              <strong>Best Starter:</strong> JFIT Vinyl Coated ($25-40) - Floor-safe coating,
-              color-coded by weight, quiet on drops
+              <strong>Best Starter:</strong> JFIT Vinyl Coated - Floor-safe coating, color-coded by
+              weight, quiet on drops
             </li>
           </ul>
         </div>
@@ -330,7 +330,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$56-72</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -406,7 +406,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$20-40</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -438,9 +438,9 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Anyone who wants a functional kettlebell without spending much. If you are building a
-            home gym on a tight budget and need multiple weights, buying CAP bells at $1-1.50 per
-            pound is a smart way to build a collection. They are also fine for occasional use or as
-            a gym addition alongside other equipment.
+            home gym on a tight budget and need multiple weights, buying CAP bells is a smart way to
+            build a collection. They are also fine for occasional use or as a gym addition alongside
+            other equipment.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -481,7 +481,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$15-35</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -513,10 +513,9 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             People who want the cheapest possible kettlebell that still works. If you are testing
-            whether kettlebell training is for you and do not want to spend $60-70 on a premium
-            bell, this is a low-risk entry point. Also a solid choice if you need multiple weights
-            and cost is the priority. The Prime shipping alone saves $10-15 compared to other
-            brands.
+            whether kettlebell training is for you and do not want to pay for a premium bell, this
+            is a low-risk entry point. Also a solid choice if you need multiple weights and cost is
+            the priority. The Prime shipping alone saves money compared to other brands.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -558,7 +557,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$55-80</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -637,7 +636,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$25-40</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -707,7 +706,7 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -716,35 +715,35 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Kettlebell Kings Powder Coat</td>
-                <td className="border p-3 text-center">$56-72</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Cast iron, powder coat</td>
                 <td className="border p-3 text-center">Overall quality</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">CAP Barbell Cast Iron</td>
-                <td className="border p-3 text-center">$20-40</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Cast iron, enamel</td>
                 <td className="border p-3 text-center">Budget training</td>
               </tr>
               <tr>
                 <td className="border p-3">Amazon Basics Cast Iron</td>
-                <td className="border p-3 text-center">$15-35</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Cast iron, enamel</td>
                 <td className="border p-3 text-center">Cheapest reliable option</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Rogue Fitness E-Coat</td>
-                <td className="border p-3 text-center">$55-80</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.7</td>
                 <td className="border p-3 text-center">Ductile iron, e-coat</td>
                 <td className="border p-3 text-center">Serious athletes</td>
               </tr>
               <tr>
                 <td className="border p-3">JFIT Vinyl Coated</td>
-                <td className="border p-3 text-center">$25-40</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Cast iron, vinyl</td>
                 <td className="border p-3 text-center">Beginners, apartments</td>
@@ -798,28 +797,27 @@ const BestKettlebellsFullBodyWorkoutsPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best overall:</strong> The{' '}
-            <strong>Kettlebell Kings Powder Coat at $56-72</strong> is my top recommendation for
-            most people. The handle quality is noticeably better than anything else at this price,
-            and the lifetime warranty means you are buying one kettlebell for life. I have abused
-            mine for over two years and it still looks and feels great.
+            <strong>Best overall:</strong> The <strong>Kettlebell Kings Powder Coat</strong> is my
+            top recommendation for most people. The handle quality is noticeably better than
+            anything else at this price, and the lifetime warranty means you are buying one
+            kettlebell for life. I have abused mine for over two years and it still looks and feels
+            great.
           </li>
           <li>
-            <strong>Best on a budget:</strong> The <strong>CAP Barbell at $20-40</strong> gets the
-            job done without pretending to be anything it is not. It is a chunk of iron with a
-            handle. Use chalk and you are good.
+            <strong>Best on a budget:</strong> The <strong>CAP Barbell</strong> gets the job done
+            without pretending to be anything it is not. It is a chunk of iron with a handle. Use
+            chalk and you are good.
           </li>
           <li>
-            <strong>Best for absolute beginners:</strong> The{' '}
-            <strong>JFIT Vinyl Coated at $25-40</strong> is the safest choice if you have nice
-            floors and want something that will not wake up the house when you put it down. You
-            might upgrade later, and that is fine.
+            <strong>Best for absolute beginners:</strong> The <strong>JFIT Vinyl Coated</strong> is
+            the safest choice if you have nice floors and want something that will not wake up the
+            house when you put it down. You might upgrade later, and that is fine.
           </li>
           <li>
-            <strong>Best if money is no object:</strong> The{' '}
-            <strong>Rogue Fitness E-Coat at $55-80</strong> is the best-built kettlebell on this
-            list. Period. The ductile iron construction and handle finish are in a different class.
-            If you train hard and want the best tool for the job, this is it.
+            <strong>Best if money is no object:</strong> The <strong>Rogue Fitness E-Coat</strong>{' '}
+            is the best-built kettlebell on this list. Period. The ductile iron construction and
+            handle finish are in a different class. If you train hard and want the best tool for the
+            job, this is it.
           </li>
         </ul>
 

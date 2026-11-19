@@ -119,20 +119,18 @@ const BestFitnessTrackersPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Garmin Venu 4 ($549) - Most accurate calorie tracking
-              with nutrition features
+              <strong>Best Overall:</strong> Garmin Venu 4 - Most accurate calorie tracking with
+              nutrition features
             </li>
             <li>
-              <strong>Best Value:</strong> Fitbit Charge 6 ($159.95) - Excellent accuracy at a
-              reasonable price
-            </li>
-            <li>
-              <strong>Best for iPhone Users:</strong> Apple Watch Ultra 2 ($799) - Seamless iOS
-              integration
-            </li>
-            <li>
-              <strong>Best Budget:</strong> Xiaomi Mi Band 9 ($39.99) - Surprisingly capable for the
+              <strong>Best Value:</strong> Fitbit Charge 6 - Excellent accuracy at a reasonable
               price
+            </li>
+            <li>
+              <strong>Best for iPhone Users:</strong> Apple Watch Ultra 2 - Seamless iOS integration
+            </li>
+            <li>
+              <strong>Best Budget:</strong> Xiaomi Mi Band 9 - Surprisingly capable for the price
             </li>
           </ul>
         </div>
@@ -284,7 +282,7 @@ const BestFitnessTrackersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Garmin Venu 4</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$549.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -351,7 +349,7 @@ const BestFitnessTrackersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Fitbit Charge 6</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$159.95</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -414,7 +412,7 @@ const BestFitnessTrackersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Apple Watch Ultra 2</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$799.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -476,7 +474,7 @@ const BestFitnessTrackersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Samsung Galaxy Watch 7</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$299.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -538,7 +536,7 @@ const BestFitnessTrackersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Xiaomi Mi Band 9</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$39.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -613,7 +611,7 @@ const BestFitnessTrackersPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Tracker</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Battery</th>
                 <th className="border p-3 text-center">GPS</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -622,35 +620,35 @@ const BestFitnessTrackersPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Garmin Venu 4</td>
-                <td className="border p-3 text-center">$549</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">11 days</td>
                 <td className="border p-3 text-center">Yes (Dual)</td>
                 <td className="border p-3 text-center">Serious athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Fitbit Charge 6</td>
-                <td className="border p-3 text-center">$159</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">7 days</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Most users</td>
               </tr>
               <tr>
                 <td className="border p-3">Apple Watch Ultra 2</td>
-                <td className="border p-3 text-center">$799</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">36 hours</td>
                 <td className="border p-3 text-center">Yes (Dual)</td>
                 <td className="border p-3 text-center">iPhone users</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Galaxy Watch 7</td>
-                <td className="border p-3 text-center">$299</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">40 hours</td>
                 <td className="border p-3 text-center">Yes</td>
                 <td className="border p-3 text-center">Android users</td>
               </tr>
               <tr>
                 <td className="border p-3">Xiaomi Mi Band 9</td>
-                <td className="border p-3 text-center">$39</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">21 days</td>
                 <td className="border p-3 text-center">No</td>
                 <td className="border p-3 text-center">Budget-conscious</td>

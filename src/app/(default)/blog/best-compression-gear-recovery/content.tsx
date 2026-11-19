@@ -103,24 +103,24 @@ const BestCompressionGearRecoveryPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> 2XU MCS Run Compression Tights ($120) - Medical-grade
+              <strong>Best Overall:</strong> 2XU MCS Run Compression Tights - Medical-grade
               graduated compression, muscle mapping
             </li>
             <li>
-              <strong>Best Socks:</strong> CEP Compression Socks ($60) - True 20-30 mmHg
-              compression, German engineering
+              <strong>Best Socks:</strong> CEP Compression Socks - True 20-30 mmHg compression,
+              German engineering
             </li>
             <li>
-              <strong>Best Budget:</strong> Under Armour HeatGear Compression ($30) - Everyday
-              compression at an accessible price
+              <strong>Best Budget:</strong> Under Armour HeatGear Compression - Everyday compression
+              at an accessible price
             </li>
             <li>
-              <strong>Best for Joint Support:</strong> CW-X Stabilyx Tights ($90) - Targeted taping
+              <strong>Best for Joint Support:</strong> CW-X Stabilyx Tights - Targeted taping
               panels, stabilizes knees and hips
             </li>
             <li>
-              <strong>Best Value:</strong> CompressionZ Men’s Leggings ($22) - Surprisingly durable,
-              mild compression
+              <strong>Best Value:</strong> CompressionZ Men’s Leggings - Surprisingly durable, mild
+              compression
             </li>
           </ul>
         </div>
@@ -284,7 +284,7 @@ const BestCompressionGearRecoveryPageContent = (
               all last 50+ wears.
             </li>
             <li>
-              <strong>Price range:</strong> From $22 budget picks to $120 medical-grade options.
+              <strong>Price range:</strong> From budget picks to premium medical-grade options.
             </li>
           </ul>
         </div>
@@ -303,7 +303,7 @@ const BestCompressionGearRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$120</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             2XU stands for “two times you” and their Muscle Containment Stamping (MCS) technology is
@@ -333,8 +333,8 @@ const BestCompressionGearRecoveryPageContent = (
               proven recovery benefits, durable fabric, can wear during or after workouts
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $120 is expensive, runs small (size up), takes 2-3 wears to
-              break in, the muscle panels show through light-colored shorts
+              <strong>Cons:</strong> Expensive, runs small (size up), takes 2-3 wears to break in,
+              the muscle panels show through light-colored shorts
             </p>
           </div>
           <div className="mt-4">
@@ -364,7 +364,7 @@ const BestCompressionGearRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$60</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             CEP is a German brand that makes medical compression stockings for post-surgery
@@ -394,8 +394,8 @@ const BestCompressionGearRecoveryPageContent = (
               wears), five sizing options, works overnight without discomfort
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $60 for socks, difficult to put on (use gloves), only available
-              in knee-high (no ankle option), hot in summer
+              <strong>Cons:</strong> Pricey for socks, difficult to put on (use gloves), only
+              available in knee-high (no ankle option), hot in summer
             </p>
           </div>
           <div className="mt-4">
@@ -425,13 +425,13 @@ const BestCompressionGearRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$30</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            These are not medical-grade compression (closer to 10-15 mmHg), but for $30 they are
-            good enough for everyday recovery and light training. The HeatGear fabric wicks sweat
-            better than any other compression gear on this list, which makes them the best option
-            for wearing during workouts in hot weather. I use these for lifting sessions and
+            These are not medical-grade compression (closer to 10-15 mmHg), but for the price they
+            are good enough for everyday recovery and light training. The HeatGear fabric wicks
+            sweat better than any other compression gear on this list, which makes them the best
+            option for wearing during workouts in hot weather. I use these for lifting sessions and
             moderate runs where I want mild compression without feeling constricted. They last about
             6 months of regular use before losing elasticity, which is acceptable at this price
             point.
@@ -451,8 +451,8 @@ const BestCompressionGearRecoveryPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Affordable at $30, excellent moisture wicking, versatile for
-              training and recovery, widely available in stores
+              <strong>Pros:</strong> Affordable, excellent moisture wicking, versatile for training
+              and recovery, widely available in stores
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Lower compression than medical-grade options, loses elasticity
@@ -486,7 +486,7 @@ const BestCompressionGearRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$90</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             CW-X takes a different approach. Instead of uniform compression, they use targeted
@@ -517,9 +517,9 @@ const BestCompressionGearRecoveryPageContent = (
               risk, comfortable for 2-3 hour runs, good durability
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $90 is mid-range expensive, the support panels feel bulky under
-              shorts, not ideal for post-workout recovery (better during activity), sizing runs
-              small
+              <strong>Cons:</strong> Mid-range but still expensive, the support panels feel bulky
+              under shorts, not ideal for post-workout recovery (better during activity), sizing
+              runs small
             </p>
           </div>
           <div className="mt-4">
@@ -549,16 +549,16 @@ const BestCompressionGearRecoveryPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$22</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            These should not work as well as they do for $22. The compression measures around 12-15
-            mmHg, which is on the lower end but still better than most budget options. The fabric is
-            thicker than Under Armour HeatGear and holds up surprisingly well. I bought a pair to
-            test against the expensive options and ended up buying three more for post-lift recovery
-            days. They are not medical grade and they will not replace 2XU for serious training, but
-            for casual gym-goers or beginners who want to try compression without spending $100,
-            these are a solid entry point.
+            These should not work as well as they do at this price. The compression measures around
+            12-15 mmHg, which is on the lower end but still better than most budget options. The
+            fabric is thicker than Under Armour HeatGear and holds up surprisingly well. I bought a
+            pair to test against the expensive options and ended up buying three more for post-lift
+            recovery days. They are not medical grade and they will not replace 2XU for serious
+            training, but for casual gym-goers or beginners who want to try compression without
+            spending much, these are a solid entry point.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -575,8 +575,8 @@ const BestCompressionGearRecoveryPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Unbeatable value at $22, decent compression for the price,
-              durable fabric, available on Amazon Prime, good for layering in cold weather
+              <strong>Pros:</strong> Unbeatable value, decent compression for the price, durable
+              fabric, available on Amazon Prime, good for layering in cold weather
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Lower compression than premium options, fabric thins after
@@ -602,7 +602,7 @@ const BestCompressionGearRecoveryPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Compression</th>
                 <th className="border p-3 text-center">Use Case</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -611,35 +611,35 @@ const BestCompressionGearRecoveryPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">2XU MCS Tights</td>
-                <td className="border p-3 text-center">$120</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">20-25 mmHg</td>
                 <td className="border p-3 text-center">Recovery</td>
                 <td className="border p-3 text-center">Serious athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">CEP Socks</td>
-                <td className="border p-3 text-center">$60</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">20-30 mmHg</td>
                 <td className="border p-3 text-center">Recovery</td>
                 <td className="border p-3 text-center">Runners</td>
               </tr>
               <tr>
                 <td className="border p-3">Under Armour HeatGear</td>
-                <td className="border p-3 text-center">$30</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">10-15 mmHg</td>
                 <td className="border p-3 text-center">Training/Recovery</td>
                 <td className="border p-3 text-center">Budget option</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">CW-X Stabilyx</td>
-                <td className="border p-3 text-center">$90</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">15-20 mmHg</td>
                 <td className="border p-3 text-center">During activity</td>
                 <td className="border p-3 text-center">Joint support</td>
               </tr>
               <tr>
                 <td className="border p-3">CompressionZ</td>
-                <td className="border p-3 text-center">$22</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">12-15 mmHg</td>
                 <td className="border p-3 text-center">Training/Recovery</td>
                 <td className="border p-3 text-center">Best value</td>
@@ -708,27 +708,25 @@ const BestCompressionGearRecoveryPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Serious recovery needs:</strong>{' '}
-            <strong>2XU MCS Run Compression Tights at $120</strong> are the gold standard with
-            clinically proven muscle mapping technology.
+            <strong>Serious recovery needs:</strong> <strong>2XU MCS Run Compression Tights</strong>{' '}
+            are the gold standard with clinically proven muscle mapping technology.
           </li>
           <li>
-            <strong>Post-run recovery:</strong> <strong>CEP Compression Socks at $60</strong>{' '}
-            provide true medical-grade compression for overnight wear.
+            <strong>Post-run recovery:</strong> <strong>CEP Compression Socks</strong> provide true
+            medical-grade compression for overnight wear.
           </li>
           <li>
-            <strong>Budget option:</strong>{' '}
-            <strong>Under Armour HeatGear Compression at $30</strong> works for training and light
-            recovery at an accessible price.
+            <strong>Budget option:</strong> <strong>Under Armour HeatGear Compression</strong> works
+            for training and light recovery at an accessible price.
           </li>
           <li>
-            <strong>Joint support during activity:</strong>{' '}
-            <strong>CW-X Stabilyx Tights at $90</strong> stabilize knees and hips to prevent injury.
+            <strong>Joint support during activity:</strong> <strong>CW-X Stabilyx Tights</strong>{' '}
+            stabilize knees and hips to prevent injury.
           </li>
           <li>
             <strong>Testing compression for the first time:</strong>{' '}
-            <strong>CompressionZ Men’s Leggings at $22</strong> offer real compression without the
-            premium price tag.
+            <strong>CompressionZ Men’s Leggings</strong> offer real compression without the premium
+            price tag.
           </li>
         </ul>
 

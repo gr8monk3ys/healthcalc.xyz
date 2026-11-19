@@ -98,24 +98,19 @@ const BestProteinBarsOnTheGoPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Quest ($25.99/12ct) - 20g protein, 1g sugar,
-              keto-friendly
+              <strong>Best Overall:</strong> Quest - 20g protein, 1g sugar, keto-friendly
             </li>
             <li>
-              <strong>Best Tasting:</strong> Barebells ($29.99/12ct) - 20g protein, candy bar
-              texture
+              <strong>Best Tasting:</strong> Barebells - 20g protein, candy bar texture
             </li>
             <li>
-              <strong>Best Clean Ingredients:</strong> RXBAR ($28.99/12ct) - Egg whites, nuts,
-              dates, nothing else
+              <strong>Best Clean Ingredients:</strong> RXBAR - Egg whites, nuts, dates, nothing else
             </li>
             <li>
-              <strong>Best Dessert Flavors:</strong> ONE ($22.99/12ct) - Birthday Cake, Maple Glazed
-              Doughnut
+              <strong>Best Dessert Flavors:</strong> ONE - Birthday Cake, Maple Glazed Doughnut
             </li>
             <li>
-              <strong>Best Low Calorie:</strong> Built Bar ($34.99/18ct) - 130 calories,
-              chocolate-coated
+              <strong>Best Low Calorie:</strong> Built Bar - 130 calories, chocolate-coated
             </li>
           </ul>
         </div>
@@ -284,7 +279,7 @@ const BestProteinBarsOnTheGoPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$25.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Quest bars have been around long enough that most gym-goers have tried them. The macro
@@ -348,7 +343,7 @@ const BestProteinBarsOnTheGoPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$29.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             Barebells bars taste like they should not have 20g of protein in them. The Cookies and
@@ -412,7 +407,7 @@ const BestProteinBarsOnTheGoPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$28.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             RXBAR prints their ingredients right on the front of the wrapper: &ldquo;3 Egg Whites, 6
@@ -477,14 +472,14 @@ const BestProteinBarsOnTheGoPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$22.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             ONE bars are the sleeper pick on this list. They get less hype than Quest or Barebells
             but the flavors are wild in a good way. Birthday Cake, Maple Glazed Doughnut, Peanut
             Butter Pie. Each one tastes like what it says on the wrapper. The macros are solid too:
             20g protein and only 1g sugar per bar. The texture is softer than Quest, closer to a
-            nougat. They are also the cheapest option here at under $2 per bar.
+            nougat. They are also the cheapest option here.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -502,8 +497,8 @@ const BestProteinBarsOnTheGoPageContent = (
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               calorie deficit
             </Link>
-            . These bars scratch the dessert itch while keeping protein high and sugar at 1g. At
-            under $2 per bar, they are also the most budget-friendly option with 20g protein.
+            . These bars scratch the dessert itch while keeping protein high and sugar at 1g. They
+            are also the most budget-friendly option with 20g protein.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
@@ -542,7 +537,7 @@ const BestProteinBarsOnTheGoPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$34.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             Built Bars have a different texture from every other protein bar. The inside is a
@@ -602,7 +597,7 @@ const BestProteinBarsOnTheGoPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Bar</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Protein</th>
                 <th className="border p-3 text-center">Sugar</th>
                 <th className="border p-3 text-center">Calories</th>
@@ -612,7 +607,7 @@ const BestProteinBarsOnTheGoPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Quest</td>
-                <td className="border p-3 text-center">$25.99/12</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">20g</td>
                 <td className="border p-3 text-center">1g</td>
                 <td className="border p-3 text-center">190-200</td>
@@ -620,7 +615,7 @@ const BestProteinBarsOnTheGoPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Barebells</td>
-                <td className="border p-3 text-center">$29.99/12</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">20g</td>
                 <td className="border p-3 text-center">1g</td>
                 <td className="border p-3 text-center">200-230</td>
@@ -628,7 +623,7 @@ const BestProteinBarsOnTheGoPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">RXBAR</td>
-                <td className="border p-3 text-center">$28.99/12</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">12g</td>
                 <td className="border p-3 text-center">13g</td>
                 <td className="border p-3 text-center">210</td>
@@ -636,7 +631,7 @@ const BestProteinBarsOnTheGoPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">ONE</td>
-                <td className="border p-3 text-center">$22.99/12</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">20g</td>
                 <td className="border p-3 text-center">1g</td>
                 <td className="border p-3 text-center">220</td>
@@ -644,7 +639,7 @@ const BestProteinBarsOnTheGoPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Built Bar</td>
-                <td className="border p-3 text-center">$34.99/18</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">17g</td>
                 <td className="border p-3 text-center">4g</td>
                 <td className="border p-3 text-center">130</td>
@@ -683,24 +678,24 @@ const BestProteinBarsOnTheGoPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best macros:</strong> <strong>Quest at $25.99</strong> gives you the best
+            <strong>Best macros:</strong> <strong>Quest</strong> gives you the best
             protein-to-calorie ratio with minimal sugar.
           </li>
           <li>
-            <strong>Best taste:</strong> <strong>Barebells at $29.99</strong> if you want a bar that
-            actually tastes like dessert.
+            <strong>Best taste:</strong> <strong>Barebells</strong> if you want a bar that actually
+            tastes like dessert.
           </li>
           <li>
-            <strong>Clean eating:</strong> <strong>RXBAR at $28.99</strong> for real food
-            ingredients, but accept the lower protein.
+            <strong>Clean eating:</strong> <strong>RXBAR</strong> for real food ingredients, but
+            accept the lower protein.
           </li>
           <li>
-            <strong>Best value:</strong> <strong>ONE at $22.99</strong> is the cheapest way to get
-            20g protein per bar.
+            <strong>Best value:</strong> <strong>ONE</strong> is the cheapest way to get 20g protein
+            per bar.
           </li>
           <li>
-            <strong>Cutting hard:</strong> <strong>Built Bar at $34.99/18ct</strong> for maximum
-            protein per calorie.
+            <strong>Cutting hard:</strong> <strong>Built Bar</strong> for maximum protein per
+            calorie.
           </li>
         </ul>
 

@@ -115,24 +115,22 @@ const BestBlenderBottlesProteinShakesPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall Value:</strong> BlenderBottle Classic V2 28oz ($10-12) - the
-              standard for a reason
+              <strong>Best Overall Value:</strong> BlenderBottle Classic V2 28oz - the standard for
+              a reason
             </li>
             <li>
-              <strong>Best Upgrade:</strong> BlenderBottle Pro Series 28oz (~$15) - odor-resistant,
-              rounded base
+              <strong>Best Upgrade:</strong> BlenderBottle Pro Series 28oz - odor-resistant, rounded
+              base
             </li>
             <li>
-              <strong>Most Innovative:</strong> Helimix 2.0 Vortex 28oz (~$16) - no blending ball
-              needed
+              <strong>Most Innovative:</strong> Helimix 2.0 Vortex 28oz - no blending ball needed
             </li>
             <li>
-              <strong>Best Insulated:</strong> Ice Shaker 26oz (~$30) - stainless steel, cold for
-              30+ hours
+              <strong>Best Insulated:</strong> Ice Shaker 26oz - stainless steel, cold for 30+ hours
             </li>
             <li>
-              <strong>Most Unique:</strong> SHAKESPHERE Tumbler 24oz (~$20) - capsule shape,
-              bladeless mixing
+              <strong>Most Unique:</strong> SHAKESPHERE Tumbler 24oz - capsule shape, bladeless
+              mixing
             </li>
           </ul>
         </div>
@@ -288,7 +286,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$10.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             There is a reason the BlenderBottle Classic is the best-selling shaker bottle on Amazon.
@@ -301,8 +299,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
             The V2 version fixed the main complaint about the original: the flip cap now has a wider
             opening and a more secure snap. I have carried this in my bag upside down without a
             single leak. The plastic is BPA-free and the measurements on the side are easy to read.
-            At around $11, you could buy three of these for the price of one premium option and just
-            rotate them.
+            You could buy three of these for the price of one premium option and just rotate them.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -360,7 +357,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$14.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Pro Series is what you get when you take the Classic V2 and fix the two things
@@ -375,7 +372,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
             where protein powder collects and hardens if you do not wash it right away. The Pro
             Series rounded bottom means the BlenderBall reaches everything, and cleaning takes half
             the effort. It also has a locking mechanism on the flip cap that prevents accidental
-            opening in your bag. Worth the extra $4 if you use a shaker daily.
+            opening in your bag. Worth the small price difference if you use a shaker daily.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -434,7 +431,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$15.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Helimix takes a completely different approach. There is no blending ball, no whisk,
@@ -510,7 +507,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$29.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             If you have ever mixed a protein shake at 7 AM and not gotten around to drinking it
@@ -525,8 +522,8 @@ const BestBlenderBottlesProteinShakesPageContent = (
             works well with whey but is not quite as effective as a BlenderBall for thicker mixes.
             The stainless steel construction means zero odor absorption. I left one in my gym bag
             for a week once and learned a lesson about washing promptly, but even then, the bottle
-            itself did not hold the smell after a proper wash. The downside is the price. At $30,
-            this is three times the cost of a BlenderBottle Classic. And it is heavier.
+            itself did not hold the smell after a proper wash. The downside is the price. This is
+            three times the cost of a BlenderBottle Classic. And it is heavier.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -586,7 +583,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$19.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The SHAKESPHERE looks nothing like any other shaker bottle. It has a capsule shape,
@@ -651,7 +648,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Bottle</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Capacity</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Mixing</th>
@@ -662,7 +659,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">BlenderBottle Classic V2</td>
-                <td className="border p-3 text-center">~$11</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">28oz</td>
                 <td className="border p-3 text-center">Tritan plastic</td>
                 <td className="border p-3 text-center">BlenderBall</td>
@@ -671,7 +668,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">BlenderBottle Pro Series</td>
-                <td className="border p-3 text-center">~$15</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">28oz</td>
                 <td className="border p-3 text-center">Odor-resistant plastic</td>
                 <td className="border p-3 text-center">BlenderBall</td>
@@ -680,7 +677,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Helimix 2.0 Vortex</td>
-                <td className="border p-3 text-center">~$16</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">28oz</td>
                 <td className="border p-3 text-center">BPA-free plastic</td>
                 <td className="border p-3 text-center">Vortex (no ball)</td>
@@ -689,7 +686,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Ice Shaker</td>
-                <td className="border p-3 text-center">~$30</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">26oz</td>
                 <td className="border p-3 text-center">Stainless steel</td>
                 <td className="border p-3 text-center">Twist-on agitator</td>
@@ -698,7 +695,7 @@ const BestBlenderBottlesProteinShakesPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">SHAKESPHERE Tumbler</td>
-                <td className="border p-3 text-center">~$20</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">24oz</td>
                 <td className="border p-3 text-center">BPA-free plastic</td>
                 <td className="border p-3 text-center">Capsule shape</td>
@@ -754,36 +751,36 @@ const BestBlenderBottlesProteinShakesPageContent = (
         </p>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Tightest budget:</strong> <strong>BlenderBottle Classic V2 at ~$11.</strong> You
-            are getting the most popular shaker in the world for the price of a fast food combo
-            meal. Hard to argue with that.
+            <strong>Tightest budget:</strong> <strong>BlenderBottle Classic V2.</strong> You are
+            getting the most popular shaker in the world for the price of a fast food combo meal.
+            Hard to argue with that.
           </li>
           <li>
-            <strong>Daily driver:</strong> <strong>BlenderBottle Pro Series at ~$15.</strong> The
-            odor-resistant plastic and rounded base make it worth the extra $4 if you mix a shake
-            every day. I would pick this over the Classic for long-term use.
+            <strong>Daily driver:</strong> <strong>BlenderBottle Pro Series.</strong> The
+            odor-resistant plastic and rounded base make it worth the small price difference if you
+            mix a shake every day. I would pick this over the Classic for long-term use.
           </li>
           <li>
-            <strong>Hate the BlenderBall:</strong> <strong>Helimix 2.0 Vortex at ~$16.</strong> No
-            loose parts, quiet shaking, genuinely effective mixing. This is the bottle I grab when I
-            am mixing a shake at work.
+            <strong>Hate the BlenderBall:</strong> <strong>Helimix 2.0 Vortex.</strong> No loose
+            parts, quiet shaking, genuinely effective mixing. This is the bottle I grab when I am
+            mixing a shake at work.
           </li>
           <li>
-            <strong>Pre-made shakes:</strong> <strong>Ice Shaker at ~$30.</strong> If you mix shakes
-            in advance or work out in heat, the insulation is a game-changer. Expensive, but nothing
+            <strong>Pre-made shakes:</strong> <strong>Ice Shaker.</strong> If you mix shakes in
+            advance or work out in heat, the insulation is a game-changer. Expensive, but nothing
             else keeps drinks cold this long.
           </li>
           <li>
-            <strong>Easiest cleanup:</strong> <strong>SHAKESPHERE at ~$20.</strong> The capsule
-            shape is fun, cleaning is a breeze, and it fits in cup holders. Just be aware of the
-            smaller capacity and the fact that it rolls off counters.
+            <strong>Easiest cleanup:</strong> <strong>SHAKESPHERE.</strong> The capsule shape is
+            fun, cleaning is a breeze, and it fits in cup holders. Just be aware of the smaller
+            capacity and the fact that it rolls off counters.
           </li>
         </ul>
 
         <p>
-          Whichever bottle you pick, the most important thing is that you actually use it. A $10
-          BlenderBottle with a daily shake habit will do more for your fitness goals than a $30 Ice
-          Shaker collecting dust. Use our{' '}
+          Whichever bottle you pick, the most important thing is that you actually use it. A budget
+          BlenderBottle with a daily shake habit will do more for your fitness goals than a premium
+          Ice Shaker collecting dust. Use our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}

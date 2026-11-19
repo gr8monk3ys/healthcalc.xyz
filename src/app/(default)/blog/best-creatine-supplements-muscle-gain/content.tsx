@@ -112,23 +112,23 @@ const BestCreatineSupplementsMuscleGainPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Optimum Nutrition Micronized Creatine ($23) - Pure
+              <strong>Best Overall:</strong> Optimum Nutrition Micronized Creatine - Pure
               monohydrate, 60 servings, trusted brand
             </li>
             <li>
-              <strong>Best Value:</strong> BulkSupplements Creatine Monohydrate ($17) - Lab tested,
-              1kg bag, dirt cheap per serving
+              <strong>Best Value:</strong> BulkSupplements Creatine Monohydrate - Lab tested, 1kg
+              bag, dirt cheap per serving
             </li>
             <li>
-              <strong>Best Premium:</strong> Thorne Creatine ($36) - NSF certified, Creapure brand,
+              <strong>Best Premium:</strong> Thorne Creatine - NSF certified, Creapure brand,
               Informed Sport approved
             </li>
             <li>
-              <strong>Best for Hardgainers:</strong> MuscleTech Cell-Tech ($30) - Added carbs for
-              insulin spike, flavored
+              <strong>Best for Hardgainers:</strong> MuscleTech Cell-Tech - Added carbs for insulin
+              spike, flavored
             </li>
             <li>
-              <strong>Best Formula:</strong> Transparent Labs Creatine HMB ($49) - Creatine + HMB +
+              <strong>Best Formula:</strong> Transparent Labs Creatine HMB - Creatine + HMB +
               Vitamin D, no fillers
             </li>
           </ul>
@@ -353,15 +353,15 @@ const BestCreatineSupplementsMuscleGainPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$23</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             Optimum Nutrition has been making this product for over twenty years. There is a reason
             it is still the best seller. The powder is micronized, which means the particles are
             smaller and it mixes better in water without clumping into a sandy mess at the bottom of
             your glass. It is unflavored so you can throw it into a protein shake, juice, or just
-            plain water. At about $0.38 per serving for 60 servings, the cost per gram is reasonable
-            without being the absolute cheapest option out there.
+            plain water. With 60 servings per container, the cost per gram is reasonable without
+            being the absolute cheapest option out there.
           </p>
           <p className="mb-4">
             I have used this exact product for years. It dissolves well enough, never causes stomach
@@ -428,14 +428,15 @@ const BestCreatineSupplementsMuscleGainPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$17</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             If you want the most creatine for the least money, this is it. A full kilogram of
-            creatine monohydrate for $17. That is 200 servings at 5g each. Less than nine cents per
-            serving. BulkSupplements does not spend money on flashy packaging or sponsored athletes.
-            They sell ingredients in bulk and pass the savings along. The 1kg bag is a resealable
-            pouch that looks boring and works perfectly.
+            creatine monohydrate at the lowest price on this list. That is 200 servings at 5g each,
+            which also makes it the lowest cost per serving here. BulkSupplements does not spend
+            money on flashy packaging or sponsored athletes. They sell ingredients in bulk and pass
+            the savings along. The 1kg bag is a resealable pouch that looks boring and works
+            perfectly.
           </p>
           <p className="mb-4">
             The product is lab tested for purity and they publish certificates of analysis. It is
@@ -450,7 +451,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             <li>1kg bag (200 servings at 5g)</li>
             <li>Lab tested with certificates of analysis</li>
             <li>No additives, fillers, or artificial ingredients</li>
-            <li>Under $0.09 per serving</li>
+            <li>Lowest cost per serving on this list</li>
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
@@ -498,7 +499,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$36</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             Thorne is the brand that professional and Olympic athletes trust when they absolutely
@@ -571,7 +572,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$30</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Cell-Tech is different from every other product on this list because it is not just
@@ -648,7 +649,7 @@ const BestCreatineSupplementsMuscleGainPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$49</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             This is the most expensive creatine on the list and it is the only one that is not just
@@ -659,13 +660,13 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             function.
           </p>
           <p className="mb-4">
-            Is the combination worth $49? That depends. If you would be buying creatine, HMB, and
-            Vitamin D separately anyway, bundling them saves you money and hassle. If you just want
-            creatine and nothing else, you are paying a premium for ingredients you may not need. I
-            think this product makes the most sense for intermediate to advanced lifters during a
-            cut, when preserving muscle mass matters most. The HMB could provide a small but real
-            benefit in that context. During a bulk, I would just buy plain creatine monohydrate
-            instead.
+            Is the combination worth the premium price? That depends. If you would be buying
+            creatine, HMB, and Vitamin D separately anyway, bundling them saves you money and
+            hassle. If you just want creatine and nothing else, you are paying a premium for
+            ingredients you may not need. I think this product makes the most sense for intermediate
+            to advanced lifters during a cut, when preserving muscle mass matters most. The HMB
+            could provide a small but real benefit in that context. During a bulk, I would just buy
+            plain creatine monohydrate instead.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -721,9 +722,9 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Servings</th>
-                <th className="border p-3 text-center">Cost/Serving</th>
+                <th className="border p-3 text-center">Cost/Serving tier</th>
                 <th className="border p-3 text-center">Type</th>
                 <th className="border p-3 text-center">Best for</th>
               </tr>
@@ -731,41 +732,41 @@ const BestCreatineSupplementsMuscleGainPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Optimum Nutrition</td>
-                <td className="border p-3 text-center">$23</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">60</td>
-                <td className="border p-3 text-center">$0.38</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">Micronized Mono</td>
                 <td className="border p-3 text-center">Overall</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">BulkSupplements</td>
-                <td className="border p-3 text-center">$17</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">200</td>
-                <td className="border p-3 text-center">$0.09</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Monohydrate</td>
                 <td className="border p-3 text-center">Value</td>
               </tr>
               <tr>
                 <td className="border p-3">Thorne</td>
-                <td className="border p-3 text-center">$36</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">90</td>
-                <td className="border p-3 text-center">$0.40</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">Creapure Mono</td>
                 <td className="border p-3 text-center">Tested athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">MuscleTech Cell-Tech</td>
-                <td className="border p-3 text-center">$30</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">28</td>
-                <td className="border p-3 text-center">$1.07</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Mono + Carbs</td>
                 <td className="border p-3 text-center">Hardgainers</td>
               </tr>
               <tr>
                 <td className="border p-3">Transparent Labs</td>
-                <td className="border p-3 text-center">$49</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">30</td>
-                <td className="border p-3 text-center">$1.63</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Mono + HMB + D3</td>
                 <td className="border p-3 text-center">Advanced formula</td>
               </tr>
@@ -839,25 +840,24 @@ const BestCreatineSupplementsMuscleGainPageContent = (
         </p>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>For most people:</strong> <strong>Optimum Nutrition at $23</strong> is the safe,
+            <strong>For most people:</strong> <strong>Optimum Nutrition</strong> is the safe,
             reliable choice that mixes well and is available everywhere.
           </li>
           <li>
-            <strong>On a tight budget:</strong> <strong>BulkSupplements at $17</strong> gives you a
+            <strong>On a tight budget:</strong> <strong>BulkSupplements</strong> gives you a
             kilogram of creatine for less than the price of lunch.
           </li>
           <li>
-            <strong>For tested athletes:</strong> <strong>Thorne at $36</strong> is worth it for the
-            NSF and Informed Sport certifications alone.
+            <strong>For tested athletes:</strong> <strong>Thorne</strong> is worth it for the NSF
+            and Informed Sport certifications alone.
           </li>
           <li>
-            <strong>For hardgainers bulking:</strong> <strong>MuscleTech Cell-Tech at $30</strong>{' '}
-            adds easy carbs and calories alongside your creatine.
+            <strong>For hardgainers bulking:</strong> <strong>MuscleTech Cell-Tech</strong> adds
+            easy carbs and calories alongside your creatine.
           </li>
           <li>
-            <strong>For cutting phases:</strong>{' '}
-            <strong>Transparent Labs Creatine HMB at $49</strong> if you want the added benefit of
-            HMB for muscle preservation during a deficit.
+            <strong>For cutting phases:</strong> <strong>Transparent Labs Creatine HMB</strong> if
+            you want the added benefit of HMB for muscle preservation during a deficit.
           </li>
         </ul>
 

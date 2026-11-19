@@ -102,24 +102,24 @@ const BestJumpRopesCardioWeightLossPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Crossrope Get Lean Set ($89.99) - Weighted ropes with
+              <strong>Best Overall:</strong> Crossrope Get Lean Set - Weighted ropes with
               interchangeable system, built to last years
             </li>
             <li>
-              <strong>Best for Speed/Double-Unders:</strong> WOD Nation Speed Jump Rope ($15.99) -
-              Dual cable system, lightning fast rotation
+              <strong>Best for Speed/Double-Unders:</strong> WOD Nation Speed Jump Rope - Dual cable
+              system, lightning fast rotation
             </li>
             <li>
-              <strong>Best for CrossFit:</strong> Rogue SR-2S Speed Rope 3.0 ($45.00) -
-              Aircraft-grade aluminum, precision bearings, made in USA
+              <strong>Best for CrossFit:</strong> Rogue SR-2S Speed Rope 3.0 - Aircraft-grade
+              aluminum, precision bearings, made in USA
             </li>
             <li>
-              <strong>Best Budget:</strong> DEGOL Skipping Rope ($9.99) - Ball bearings, foam
-              handles, hard to beat at this price
+              <strong>Best Budget:</strong> DEGOL Skipping Rope - Ball bearings, foam handles, hard
+              to beat at this price
             </li>
             <li>
-              <strong>Best for Boxers:</strong> Buddy Lee Aero Speed 2.0 ($29.99) - Designed by an
-              Olympian, perfect for footwork drills
+              <strong>Best for Boxers:</strong> Buddy Lee Aero Speed 2.0 - Designed by an Olympian,
+              perfect for footwork drills
             </li>
           </ul>
         </div>
@@ -280,8 +280,8 @@ const BestJumpRopesCardioWeightLossPageContent = (
               armpits when you stand on the center of the rope.
             </li>
             <li>
-              <strong>Price-to-quality ratio:</strong> I included options from $10 to $90. The most
-              expensive rope is not always the best one for your goals.
+              <strong>Price-to-quality ratio:</strong> I included options from budget to premium.
+              The most expensive rope is not always the best one for your goals.
             </li>
           </ul>
         </div>
@@ -301,7 +301,7 @@ const BestJumpRopesCardioWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$89.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The Crossrope system is different from every other rope on this list because the ropes
@@ -320,12 +320,12 @@ const BestJumpRopesCardioWeightLossPageContent = (
             interchangeable rope systems and most of them feel clunky. This one does not.
           </p>
           <p className="mb-4">
-            The downside is the price. At $90 for two ropes and a pair of handles, it costs
-            significantly more than everything else on this list. But the build quality is
-            noticeably better. The ropes have a coated cable that spins true and the handles feel
-            like they will last a decade. If you are serious about making jump rope a regular part
-            of your fitness routine, this is the set I recommend. If you are just curious about
-            whether you will enjoy jumping rope, start with the DEGOL below and upgrade later.
+            The downside is the price. For two ropes and a pair of handles, it costs significantly
+            more than everything else on this list. But the build quality is noticeably better. The
+            ropes have a coated cable that spins true and the handles feel like they will last a
+            decade. If you are serious about making jump rope a regular part of your fitness
+            routine, this is the set I recommend. If you are just curious about whether you will
+            enjoy jumping rope, start with the DEGOL below and upgrade later.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -350,10 +350,9 @@ const BestJumpRopesCardioWeightLossPageContent = (
               build quality, strong community and app with workouts
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Most expensive option at $90, the ropes are not as fast as
-              dedicated speed ropes, handle length may feel short for people with large hands, you
-              need to buy the correct size for your height since the ropes are not adjustable by
-              cutting
+              <strong>Cons:</strong> Most expensive option, the ropes are not as fast as dedicated
+              speed ropes, handle length may feel short for people with large hands, you need to buy
+              the correct size for your height since the ropes are not adjustable by cutting
             </p>
           </div>
           <div className="mt-4">
@@ -383,14 +382,14 @@ const BestJumpRopesCardioWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$15.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             This is the rope that taught me double-unders. The WOD Nation comes with two cables, a
             thin 2.2mm speed cable and a thicker 3.3mm training cable. Start with the thicker cable
             to learn the timing, then switch to the thin one when you are ready for maximum speed.
             The alloy steel handles are lightweight and the ball bearing system spins fast enough
-            for competitive CrossFit workouts. For $16, the value here is absurd.
+            for competitive CrossFit workouts. For the price, the value here is absurd.
           </p>
           <p className="mb-4">
             I have been using the WOD Nation for about eight months now and the cables show no signs
@@ -460,7 +459,7 @@ const BestJumpRopesCardioWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$45.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Rogue makes gym equipment the way it should be made: overbuilt and no-nonsense. The
@@ -479,13 +478,13 @@ const BestJumpRopesCardioWeightLossPageContent = (
             struggling to string 20 together on other ropes.
           </p>
           <p className="mb-4">
-            The tradeoff is price and versatility. At $45 for a single speed rope with one cable, it
-            costs three times the WOD Nation. And this is a pure speed rope. It is not weighted, it
-            is not a general fitness rope. It is built for fast, skilled jumping. If you are a
-            beginner who wants to learn the basics, this rope will frustrate you because the thin
-            cable spins so fast that timing mistakes are punishing. But if you can already do basic
-            bounce jumps and want to progress to advanced skills, this is the upgrade that makes a
-            real difference.
+            The tradeoff is price and versatility. For a single speed rope with one cable, it costs
+            three times the WOD Nation. And this is a pure speed rope. It is not weighted, it is not
+            a general fitness rope. It is built for fast, skilled jumping. If you are a beginner who
+            wants to learn the basics, this rope will frustrate you because the thin cable spins so
+            fast that timing mistakes are punishing. But if you can already do basic bounce jumps
+            and want to progress to advanced skills, this is the upgrade that makes a real
+            difference.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -542,10 +541,10 @@ const BestJumpRopesCardioWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$9.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            Ten dollars. That is what this rope costs. And it is genuinely good. The DEGOL has ball
+            This is the cheapest rope on this list. And it is genuinely good. The DEGOL has ball
             bearings in the handles, which is something you usually do not find at this price point.
             The 6-inch memory foam handles are thick and comfortable, good for people with larger
             hands or anyone who finds thin metal handles uncomfortable. The 9-foot PVC-coated steel
@@ -558,7 +557,7 @@ const BestJumpRopesCardioWeightLossPageContent = (
             tossed in gym bags, left in a hot trunk, and used on parking lot asphalt for over six
             months. It still works fine. The cable has not frayed. The bearings still spin. The foam
             handles are a little compressed from being gripped thousands of times, but they are
-            still comfortable. For ten bucks, that kind of durability is impressive.
+            still comfortable. For a budget rope, that kind of durability is impressive.
           </p>
           <p className="mb-4">
             Where the DEGOL falls short compared to the more expensive ropes is rotation speed and
@@ -588,9 +587,9 @@ const BestJumpRopesCardioWeightLossPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Incredible value at $10, comfortable foam handles, ball
-              bearings at this price point, durable for the cost, adjustable length,
-              beginner-friendly weight and rotation speed
+              <strong>Pros:</strong> Incredible value, comfortable foam handles, ball bearings at
+              this price point, durable for the cost, adjustable length, beginner-friendly weight
+              and rotation speed
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Bearings are not as smooth as premium ropes, too slow for
@@ -625,7 +624,7 @@ const BestJumpRopesCardioWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$29.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Buddy Lee is a former U.S. Olympic wrestler who has spent decades teaching jump rope
@@ -646,11 +645,11 @@ const BestJumpRopesCardioWeightLossPageContent = (
           </p>
           <p className="mb-4">
             The honest downside: this rope is not as fast as the Rogue or WOD Nation for pure speed
-            work. The slightly heavier cable creates more drag. And at $30, you are paying partly
-            for the Buddy Lee brand name when the WOD Nation gives you comparable hardware for half
-            the price. But if boxing-style footwork drills are your thing, or if you want a rope
-            that encourages varied, creative jumping instead of just cranking out reps, the Aero
-            Speed has a character that other ropes do not.
+            work. The slightly heavier cable creates more drag. And you are paying partly for the
+            Buddy Lee brand name when the WOD Nation gives you comparable hardware for half the
+            price. But if boxing-style footwork drills are your thing, or if you want a rope that
+            encourages varied, creative jumping instead of just cranking out reps, the Aero Speed
+            has a character that other ropes do not.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -675,9 +674,9 @@ const BestJumpRopesCardioWeightLossPageContent = (
               learning new tricks and patterns
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Not fast enough for competitive double-unders, $30 is mid-range
-              when faster ropes exist for less, cable is PVC rather than coated steel so it wears
-              faster on rough surfaces, handle grip can get slick after extended use
+              <strong>Cons:</strong> Not fast enough for competitive double-unders, mid-range
+              pricing when faster ropes exist for less, cable is PVC rather than coated steel so it
+              wears faster on rough surfaces, handle grip can get slick after extended use
             </p>
           </div>
           <div className="mt-4">
@@ -699,7 +698,7 @@ const BestJumpRopesCardioWeightLossPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Type</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -708,35 +707,35 @@ const BestJumpRopesCardioWeightLossPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Crossrope Get Lean Set</td>
-                <td className="border p-3 text-center">$89.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">4.6/5</td>
                 <td className="border p-3 text-center">Weighted</td>
                 <td className="border p-3 text-center">Overall fitness</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">WOD Nation Speed</td>
-                <td className="border p-3 text-center">$15.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">4.4/5</td>
                 <td className="border p-3 text-center">Speed</td>
                 <td className="border p-3 text-center">Double-unders</td>
               </tr>
               <tr>
                 <td className="border p-3">Rogue SR-2S 3.0</td>
-                <td className="border p-3 text-center">$45.00</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.7/5</td>
                 <td className="border p-3 text-center">Speed</td>
                 <td className="border p-3 text-center">CrossFit</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">DEGOL Skipping Rope</td>
-                <td className="border p-3 text-center">$9.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">4.3/5</td>
                 <td className="border p-3 text-center">General</td>
                 <td className="border p-3 text-center">Beginners/Budget</td>
               </tr>
               <tr>
                 <td className="border p-3">Buddy Lee Aero Speed 2.0</td>
-                <td className="border p-3 text-center">$29.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.5/5</td>
                 <td className="border p-3 text-center">Rhythm/Speed</td>
                 <td className="border p-3 text-center">Boxing footwork</td>
@@ -803,38 +802,36 @@ const BestJumpRopesCardioWeightLossPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Serious about jump rope cardio:</strong>{' '}
-            <strong>Crossrope Get Lean Set at $89.99</strong> gives you two weighted ropes and a
-            system that grows with you. The weight in the rope makes it the best option for
-            calorie-burning workouts.
+            <strong>Serious about jump rope cardio:</strong> <strong>Crossrope Get Lean Set</strong>{' '}
+            gives you two weighted ropes and a system that grows with you. The weight in the rope
+            makes it the best option for calorie-burning workouts.
           </li>
           <li>
-            <strong>Want speed and value:</strong> <strong>WOD Nation at $15.99</strong> is the rope
-            I recommend most often because it performs well above its price. Two cables included.
-            Just add grip tape to the handles.
+            <strong>Want speed and value:</strong> <strong>WOD Nation</strong> is the rope I
+            recommend most often because it performs well above its price. Two cables included. Just
+            add grip tape to the handles.
           </li>
           <li>
-            <strong>CrossFit competition:</strong> <strong>Rogue SR-2S at $45.00</strong> if
-            double-unders are in your WODs regularly and you want the smoothest, most reliable
-            rotation money can buy.
+            <strong>CrossFit competition:</strong> <strong>Rogue SR-2S</strong> if double-unders are
+            in your WODs regularly and you want the smoothest, most reliable rotation money can buy.
           </li>
           <li>
-            <strong>Just getting started:</strong> <strong>DEGOL at $9.99</strong> is the smart
-            first purchase. Find out if you like jumping rope before spending $50+. If the foam
-            handles and basic bearings eventually feel limiting, that is a good sign to upgrade.
+            <strong>Just getting started:</strong> <strong>DEGOL</strong> is the smart first
+            purchase. Find out if you like jumping rope before spending more. If the foam handles
+            and basic bearings eventually feel limiting, that is a good sign to upgrade.
           </li>
           <li>
-            <strong>Boxing and rhythm work:</strong> <strong>Buddy Lee Aero Speed at $29.99</strong>{' '}
-            for footwork drills, criss-crosses, and the kind of varied jumping that keeps your brain
-            as engaged as your body.
+            <strong>Boxing and rhythm work:</strong> <strong>Buddy Lee Aero Speed</strong> for
+            footwork drills, criss-crosses, and the kind of varied jumping that keeps your brain as
+            engaged as your body.
           </li>
         </ul>
 
         <p>
           The best jump rope for weight loss is the one you will actually use three or four times a
-          week. A $10 rope used consistently beats a $90 rope collecting dust in a drawer. Pick the
-          one that matches your budget and your goals, then pair it with a solid nutrition plan.
-          Calculate your daily calorie target with our{' '}
+          week. A budget rope used consistently beats a premium rope collecting dust in a drawer.
+          Pick the one that matches your budget and your goals, then pair it with a solid nutrition
+          plan. Calculate your daily calorie target with our{' '}
           <Link href="/tdee" className="text-accent hover:underline">
             TDEE Calculator
           </Link>{' '}

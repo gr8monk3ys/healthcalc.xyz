@@ -104,24 +104,22 @@ const BestWorkoutGlovesWeightliftingPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Harbinger Pro WristWrap ($19) - Wrist support, durable,
+              <strong>Best Overall:</strong> Harbinger Pro WristWrap - Wrist support, durable,
               trusted by lifters
             </li>
             <li>
-              <strong>Best Budget:</strong> Fit Active Sports ($13) - Ventilated, comfortable, great
-              value
+              <strong>Best Budget:</strong> Fit Active Sports - Ventilated, comfortable, great value
             </li>
             <li>
-              <strong>Best Value:</strong> RIMSports Gym Gloves ($15) - Grip pads, wrist wraps, full
+              <strong>Best Value:</strong> RIMSports Gym Gloves - Grip pads, wrist wraps, full
               protection
             </li>
             <li>
-              <strong>Best for Women:</strong> Trideer Padded Gloves ($12) - Smaller sizing,
-              lightweight padding
+              <strong>Best for Women:</strong> Trideer Padded Gloves - Smaller sizing, lightweight
+              padding
             </li>
             <li>
-              <strong>Best for CrossFit:</strong> Bear Grips ($25) - 2-finger design, pull-up bar
-              friendly
+              <strong>Best for CrossFit:</strong> Bear Grips - 2-finger design, pull-up bar friendly
             </li>
           </ul>
         </div>
@@ -273,7 +271,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$19</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             Harbinger has been making gym gloves since before most current lifters were born. The
@@ -348,16 +346,16 @@ const BestWorkoutGlovesWeightliftingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$13</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            At $13, these are the cheapest gloves on the list that I would actually recommend. Fit
-            Active Sports prioritized breathability here, with full mesh backs and ventilated palms
-            that let air flow through during high-rep sets. The padding is thinner than the
-            Harbinger gloves, which some people prefer for better bar feel. They include 18-inch
-            wrist wraps, longer than most competitors. Durability is fine for the price, but do not
-            expect these to last two years. I got about five months of regular use before the
-            stitching on the wrist wrap started to fray.
+            These are the cheapest gloves on the list that I would actually recommend. Fit Active
+            Sports prioritized breathability here, with full mesh backs and ventilated palms that
+            let air flow through during high-rep sets. The padding is thinner than the Harbinger
+            gloves, which some people prefer for better bar feel. They include 18-inch wrist wraps,
+            longer than most competitors. Durability is fine for the price, but do not expect these
+            to last two years. I got about five months of regular use before the stitching on the
+            wrist wrap started to fray.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -371,7 +369,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
           <p>
             Budget-conscious lifters who sweat a lot during training. The ventilation is genuinely
             better than most gloves at double the price. Also good for beginners who want to try
-            gloves without spending $25 on premium options. If you lift in a hot gym or do circuit
+            gloves without paying for premium options. If you lift in a hot gym or do circuit
             training, these stay cooler than leather gloves.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
@@ -423,12 +421,12 @@ const BestWorkoutGlovesWeightliftingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$15</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             RIMSports gloves sit right in the middle of the pack on price and quality. What makes
-            them stand out is the combination of features you get for $15. They have thicker gel
-            padding than the Fit Active gloves, double-stitched seams for better durability,
+            them stand out is the combination of features you get for the price. They have thicker
+            gel padding than the Fit Active gloves, double-stitched seams for better durability,
             silicone grip pads on the palms, and adjustable wrist wraps. The fit runs true to size,
             which is rare in this category. Most brands run small. I like these for general gym work
             where you are mixing compound lifts with accessory movements and do not want to swap
@@ -499,15 +497,15 @@ const BestWorkoutGlovesWeightliftingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.2 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$12</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             Most gym gloves are designed for men and scaled down for women as an afterthought.
             Trideer actually built these with smaller hand proportions in mind. The finger length is
             shorter, the palm width is narrower, and the padding placement accounts for differences
-            in grip position. At $12, they are cheap enough to try without much risk. The padding is
-            lighter than men-focused gloves, which works fine for lighter weight and higher reps. If
-            you deadlift or row heavy, you might want more palm protection, but for general training
+            in grip position. They are cheap enough to try without much risk. The padding is lighter
+            than men-focused gloves, which works fine for lighter weight and higher reps. If you
+            deadlift or row heavy, you might want more palm protection, but for general training
             these are solid.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -573,15 +571,15 @@ const BestWorkoutGlovesWeightliftingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$25</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             Bear Grips are not traditional gloves. They only cover your palm and the base of your
             middle and ring fingers, leaving your thumb, index, and pinky free. This design is
             specifically for CrossFit, gymnastics, and high-rep pull-up work where you need grip
             protection without losing dexterity. The leather is thick, double-layered in high-wear
-            zones, and designed to prevent rips during bar work. At $25, they are the most expensive
-            option here, but if you do a lot of pull-ups, toes-to-bar, or muscle-ups, they solve the
+            zones, and designed to prevent rips during bar work. They are the most expensive option
+            here, but if you do a lot of pull-ups, toes-to-bar, or muscle-ups, they solve the
             hand-tearing problem better than full gloves.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -640,7 +638,7 @@ const BestWorkoutGlovesWeightliftingPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Style</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -649,35 +647,35 @@ const BestWorkoutGlovesWeightliftingPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Harbinger Pro WristWrap</td>
-                <td className="border p-3 text-center">$19</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Full glove</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Fit Active Sports</td>
-                <td className="border p-3 text-center">$13</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Full glove</td>
                 <td className="border p-3 text-center">Budget pick</td>
               </tr>
               <tr>
                 <td className="border p-3">RIMSports Gym Gloves</td>
-                <td className="border p-3 text-center">$15</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Full glove</td>
                 <td className="border p-3 text-center">Best value</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Trideer Padded</td>
-                <td className="border p-3 text-center">$12</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.2</td>
                 <td className="border p-3 text-center">Full glove</td>
                 <td className="border p-3 text-center">Women</td>
               </tr>
               <tr>
                 <td className="border p-3">Bear Grips Crossfit</td>
-                <td className="border p-3 text-center">$25</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.5</td>
                 <td className="border p-3 text-center">2-finger</td>
                 <td className="border p-3 text-center">CrossFit</td>
@@ -707,8 +705,8 @@ const BestWorkoutGlovesWeightliftingPageContent = (
               verified Amazon reviews.
             </li>
             <li>
-              <strong>Value:</strong> Price matters, but only in context. A $12 pair that lasts
-              three months costs more long-term than a $20 pair that lasts a year.
+              <strong>Value:</strong> Price matters, but only in context. A budget pair that lasts
+              three months costs more long-term than a pricier pair that lasts a year.
             </li>
           </ul>
         </div>
@@ -744,24 +742,23 @@ const BestWorkoutGlovesWeightliftingPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best overall:</strong> The <strong>Harbinger Pro WristWrap at $19</strong> is
-            the most well-rounded option. Durable leather, integrated wrist support, and proven
-            reliability make it worth the price.
+            <strong>Best overall:</strong> The <strong>Harbinger Pro WristWrap</strong> is the most
+            well-rounded option. Durable leather, integrated wrist support, and proven reliability
+            make it worth the price.
           </li>
           <li>
             <strong>Best for most people:</strong> If you want solid protection without spending
-            much, the <strong>Fit Active Sports gloves at $13</strong> deliver good value and
-            excellent ventilation.
+            much, the <strong>Fit Active Sports gloves</strong> deliver good value and excellent
+            ventilation.
           </li>
           <li>
             <strong>Best for CrossFit and gymnastics:</strong>{' '}
-            <strong>Bear Grips 2-finger gloves at $25</strong> solve the hand-tearing problem for
-            bar work better than anything else available.
+            <strong>Bear Grips 2-finger gloves</strong> solve the hand-tearing problem for bar work
+            better than anything else available.
           </li>
           <li>
-            <strong>Best for women or smaller hands:</strong>{' '}
-            <strong>Trideer Padded gloves at $12</strong> are designed for proper fit instead of
-            being scaled-down men’s gloves.
+            <strong>Best for women or smaller hands:</strong> <strong>Trideer Padded gloves</strong>{' '}
+            are designed for proper fit instead of being scaled-down men’s gloves.
           </li>
         </ul>
 

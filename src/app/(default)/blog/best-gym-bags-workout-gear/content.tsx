@@ -128,24 +128,24 @@ const BestGymBagsWorkoutGearPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Adidas Defender IV Duffel ($35) - Water-resistant base,
-              shoe compartment, multiple size options
+              <strong>Best Overall:</strong> Adidas Defender IV Duffel - Water-resistant base, shoe
+              compartment, multiple size options
             </li>
             <li>
-              <strong>Best Durability:</strong> Under Armour Undeniable 5.0 ($45) - Storm tech water
+              <strong>Best Durability:</strong> Under Armour Undeniable 5.0 - Storm tech water
               repel, abrasion-resistant bottom panel
             </li>
             <li>
-              <strong>Best Value:</strong> Nike Brasilia 9.5 ($30) - 41L capacity, ventilated shoe
-              pocket, padded shoulder strap
+              <strong>Best Value:</strong> Nike Brasilia 9.5 - 41L capacity, ventilated shoe pocket,
+              padded shoulder strap
             </li>
             <li>
-              <strong>Best Premium:</strong> King Kong CORE Gym Bag ($95) - 1000D nylon, waterproof
-              base, lifetime warranty
+              <strong>Best Premium:</strong> King Kong CORE Gym Bag - 1000D nylon, waterproof base,
+              lifetime warranty
             </li>
             <li>
-              <strong>Best Compact:</strong> Vooray Burner Gym Duffel ($40) - Separate shoe and
-              laundry pocket, lightweight, stylish designs
+              <strong>Best Compact:</strong> Vooray Burner Gym Duffel - Separate shoe and laundry
+              pocket, lightweight, stylish designs
             </li>
           </ul>
         </div>
@@ -343,7 +343,7 @@ const BestGymBagsWorkoutGearPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$35</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -424,7 +424,7 @@ const BestGymBagsWorkoutGearPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$45</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -485,8 +485,7 @@ const BestGymBagsWorkoutGearPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Large UA branding is not subtle, slightly heavier than
-              competitors at the same size, $45 is mid-range pricing for what is still a polyester
-              bag
+              competitors at the same size, mid-range pricing for what is still a polyester bag
             </p>
           </div>
 
@@ -518,19 +517,19 @@ const BestGymBagsWorkoutGearPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$30</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
-            At $30, the Brasilia gives you more bag per dollar than anything else on this list. The
-            41-liter capacity is surprisingly roomy for the price point. I could fit running shoes,
-            a full change of clothes including a towel, my shaker bottle, lifting belt, and still
-            have room for a hoodie. Nike uses 600D polyester that feels sturdy without being stiff,
-            and the main zipper has held up well through months of daily use.
+            The Brasilia gives you more bag per dollar than anything else on this list. The 41-liter
+            capacity is surprisingly roomy for the price point. I could fit running shoes, a full
+            change of clothes including a towel, my shaker bottle, lifting belt, and still have room
+            for a hoodie. Nike uses 600D polyester that feels sturdy without being stiff, and the
+            main zipper has held up well through months of daily use.
           </p>
 
           <p className="mb-4">
-            The ventilated shoe pocket on the side is a nice touch at this price. Most sub-$30 bags
+            The ventilated shoe pocket on the side is a nice touch at this price. Most budget bags
             skip this feature entirely. The padded shoulder strap is detachable and adjustable,
             which is useful if you prefer carrying by the handles. There is also a small external
             zippered pocket at one end that fits a phone and keys. Nothing fancy, nothing missing.
@@ -550,9 +549,9 @@ const BestGymBagsWorkoutGearPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Budget-conscious gym-goers who still want a quality bag with proper organization. If you
-            are new to regular training and not sure whether you want to invest $50 or more in a gym
-            bag, the Brasilia is a safe starting point. It does everything you need without the
-            premium price tag. Good option for students and anyone watching their spending.
+            are new to regular training and not sure whether you want to invest more in a gym bag,
+            the Brasilia is a safe starting point. It does everything you need without the premium
+            price tag. Good option for students and anyone watching their spending.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
@@ -609,11 +608,11 @@ const BestGymBagsWorkoutGearPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$95</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
-            I will be upfront: $95 for a gym bag is a lot of money. But after using the King Kong
+            I will be upfront: this is a lot of money for a gym bag. But after using the King Kong
             CORE for several months, I understand why people pay for it. This bag is built from
             1000-denier nylon, which is the same material used in military-grade gear and high-end
             backpacks. Pick it up and the difference in construction quality is obvious immediately.
@@ -669,7 +668,7 @@ const BestGymBagsWorkoutGearPageContent = (
               means you buy it once
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $95 is a serious investment for a gym bag, heavier than budget
+              <strong>Cons:</strong> A serious investment for a gym bag, heavier than budget
               alternatives, limited style options compared to mainstream brands, overkill if you
               only train a few times per week
             </p>
@@ -703,7 +702,7 @@ const BestGymBagsWorkoutGearPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$40</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -786,7 +785,7 @@ const BestGymBagsWorkoutGearPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -795,35 +794,35 @@ const BestGymBagsWorkoutGearPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Adidas Defender IV</td>
-                <td className="border p-3 text-center">$35</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Polyester</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">UA Undeniable 5.0</td>
-                <td className="border p-3 text-center">$45</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
                 <td className="border p-3 text-center">Polyester + DWR</td>
                 <td className="border p-3 text-center">Durability</td>
               </tr>
               <tr>
                 <td className="border p-3">Nike Brasilia 9.5</td>
-                <td className="border p-3 text-center">$30</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">600D Polyester</td>
                 <td className="border p-3 text-center">Value</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">King Kong CORE</td>
-                <td className="border p-3 text-center">$95</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.7</td>
                 <td className="border p-3 text-center">1000D Nylon</td>
                 <td className="border p-3 text-center">Premium</td>
               </tr>
               <tr>
                 <td className="border p-3">Vooray Burner</td>
-                <td className="border p-3 text-center">$40</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Polyester</td>
                 <td className="border p-3 text-center">Compact</td>
@@ -885,28 +884,27 @@ const BestGymBagsWorkoutGearPageContent = (
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
             <strong>If you want the best all-around option:</strong> The{' '}
-            <strong>Adidas Defender IV at $35</strong> nails the balance between price, durability,
-            and organization. It is the bag I reach for most often.
+            <strong>Adidas Defender IV</strong> nails the balance between price, durability, and
+            organization. It is the bag I reach for most often.
           </li>
           <li>
             <strong>If durability is your top priority:</strong> The{' '}
-            <strong>Under Armour Undeniable 5.0 at $45</strong> handles weather and rough treatment
-            better than anything else in this price range.
+            <strong>Under Armour Undeniable 5.0</strong> handles weather and rough treatment better
+            than anything else in this price range.
           </li>
           <li>
-            <strong>If you are watching your budget:</strong> The{' '}
-            <strong>Nike Brasilia 9.5 at $30</strong> gives you the most capacity and features for
-            the least money. Hard to beat that.
+            <strong>If you are watching your budget:</strong> The <strong>Nike Brasilia 9.5</strong>{' '}
+            gives you the most capacity and features for the least money. Hard to beat that.
           </li>
           <li>
             <strong>If you want buy-it-for-life quality:</strong> The{' '}
-            <strong>King Kong CORE at $95</strong> costs more upfront but the lifetime warranty and
+            <strong>King Kong CORE</strong> costs more upfront but the lifetime warranty and
             military-grade materials mean you will never buy another gym bag.
           </li>
           <li>
             <strong>If you want something compact and stylish:</strong> The{' '}
-            <strong>Vooray Burner at $40</strong> packs smart organization into a smaller footprint
-            and looks good doing it.
+            <strong>Vooray Burner</strong> packs smart organization into a smaller footprint and
+            looks good doing it.
           </li>
         </ul>
 

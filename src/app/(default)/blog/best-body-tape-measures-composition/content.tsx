@@ -97,20 +97,20 @@ const BestBodyTapeMeasuresCompositionPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> MyoTape ($7.95) - One-handed use, consistent readings,
-              dead simple
+              <strong>Best Overall:</strong> MyoTape - One-handed use, consistent readings, dead
+              simple
             </li>
             <li>
-              <strong>Best Smart Option:</strong> RENPHO Bluetooth ($19.99) - Syncs with app, tracks
-              12 body areas
+              <strong>Best Smart Option:</strong> RENPHO Bluetooth - Syncs with app, tracks 12 body
+              areas
             </li>
             <li>
-              <strong>Best Budget Smart:</strong> RENPHO Standard ($14.99) - App-connected, works
-              with Apple Health
+              <strong>Best Budget Smart:</strong> RENPHO Standard - App-connected, works with Apple
+              Health
             </li>
             <li>
-              <strong>Best for Accuracy:</strong> Lightstuff Digital ($12.99) - LCD readout,
-              eliminates guessing
+              <strong>Best for Accuracy:</strong> Lightstuff Digital - LCD readout, eliminates
+              guessing
             </li>
           </ul>
         </div>
@@ -282,7 +282,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$7.95</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             The MyoTape has been the go-to body tape for personal trainers and fitness enthusiasts
@@ -350,7 +350,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$19.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             If you want your body measurements to sync to an app automatically, the RENPHO Bluetooth
@@ -416,14 +416,14 @@ const BestBodyTapeMeasuresCompositionPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$14.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             This is the older, slightly cheaper version of the RENPHO smart tape. It does most of
-            what the Bluetooth model does at $5 less. The app integration works the same way, and it
-            still syncs with Apple Health and Google Fit. The main difference is the build quality
-            feels a bit less premium. If you want smart tracking on a budget, this gets the job
-            done.
+            what the Bluetooth model does for a little less. The app integration works the same way,
+            and it still syncs with Apple Health and Google Fit. The main difference is the build
+            quality feels a bit less premium. If you want smart tracking on a budget, this gets the
+            job done.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -434,8 +434,8 @@ const BestBodyTapeMeasuresCompositionPageContent = (
           </ul>
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            Beginners who want app-based tracking without spending $20. Good enough for regular body
-            measurements to feed into our{' '}
+            Beginners who want app-based tracking without spending much. Good enough for regular
+            body measurements to feed into our{' '}
             <Link href="/absi" className="text-accent hover:underline">
               ABSI Calculator
             </Link>{' '}
@@ -482,7 +482,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$12.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             If you have trouble reading small numbers on a tape measure (especially when the tape is
@@ -541,7 +541,7 @@ const BestBodyTapeMeasuresCompositionPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Type</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -550,28 +550,28 @@ const BestBodyTapeMeasuresCompositionPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">MyoTape</td>
-                <td className="border p-3 text-center">$7.95</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
                 <td className="border p-3 text-center">Manual</td>
                 <td className="border p-3 text-center">Overall best</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">RENPHO Bluetooth</td>
-                <td className="border p-3 text-center">$19.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Smart</td>
                 <td className="border p-3 text-center">App tracking</td>
               </tr>
               <tr>
                 <td className="border p-3">RENPHO Standard</td>
-                <td className="border p-3 text-center">$14.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Smart</td>
                 <td className="border p-3 text-center">Budget smart</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Lightstuff Digital</td>
-                <td className="border p-3 text-center">$12.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.4</td>
                 <td className="border p-3 text-center">Digital</td>
                 <td className="border p-3 text-center">Accuracy</td>
@@ -621,17 +621,16 @@ const BestBodyTapeMeasuresCompositionPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best for most people:</strong> The <strong>MyoTape at $7.95</strong> is cheap,
-            reliable, and does not need batteries or an app. It will last years.
+            <strong>Best for most people:</strong> The <strong>MyoTape</strong> is cheap, reliable,
+            and does not need batteries or an app. It will last years.
           </li>
           <li>
-            <strong>Best for data nerds:</strong> The <strong>RENPHO Bluetooth at $19.99</strong>{' '}
-            tracks everything in an app and graphs your progress automatically.
+            <strong>Best for data nerds:</strong> The <strong>RENPHO Bluetooth</strong> tracks
+            everything in an app and graphs your progress automatically.
           </li>
           <li>
-            <strong>Best for clear readings:</strong> The{' '}
-            <strong>Lightstuff Digital at $12.99</strong> shows big numbers on an LCD so you never
-            misread.
+            <strong>Best for clear readings:</strong> The <strong>Lightstuff Digital</strong> shows
+            big numbers on an LCD so you never misread.
           </li>
         </ul>
 

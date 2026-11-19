@@ -127,23 +127,21 @@ const BestMealPrepContainersPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Glass:</strong> Prep Naturals Glass Containers (~$30) - Durable,
-              microwave-safe, and dishwasher-friendly
+              <strong>Best Glass:</strong> Prep Naturals Glass Containers - Durable, microwave-safe,
+              and dishwasher-friendly
             </li>
             <li>
-              <strong>Best Budget:</strong> Freshware 15-Pack (~$14) - Incredible value for
-              beginners
+              <strong>Best Budget:</strong> Freshware 15-Pack - Incredible value for beginners
             </li>
             <li>
-              <strong>Best Value:</strong> Fitpacker Meal Prep (~$22) - Perfect balance of price and
+              <strong>Best Value:</strong> Fitpacker Meal Prep - Perfect balance of price and
               quality
             </li>
             <li>
-              <strong>Best Design:</strong> Bentgo Prep 2-Compartment (~$20) - Stylish and
-              functional
+              <strong>Best Design:</strong> Bentgo Prep 2-Compartment - Stylish and functional
             </li>
             <li>
-              <strong>Best Leak-Proof:</strong> Rubbermaid Brilliance (~$28) - Nothing gets out
+              <strong>Best Leak-Proof:</strong> Rubbermaid Brilliance - Nothing gets out
             </li>
           </ul>
         </div>
@@ -206,7 +204,7 @@ const BestMealPrepContainersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Prep Naturals Glass Containers</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">~$30</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -275,12 +273,12 @@ const BestMealPrepContainersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Freshware 15-Pack</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">~$14</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
-            Fifteen containers for under $15. That’s less than a dollar each. If you’re new to meal
-            prep and don’t want to drop $30+ on containers you might not use, start here.
+            Fifteen containers at the lowest price on this list. If you’re new to meal prep and
+            don’t want to spend much on containers you might not use, start here.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -342,7 +340,7 @@ const BestMealPrepContainersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Fitpacker Meal Prep</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">~$22</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -411,7 +409,7 @@ const BestMealPrepContainersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Bentgo Prep 2-Compartment</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">~$20</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -480,7 +478,7 @@ const BestMealPrepContainersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Rubbermaid Brilliance</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">~$28</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -603,7 +601,7 @@ const BestMealPrepContainersPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Container</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Material</th>
                 <th className="border p-3 text-center">Count</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -612,35 +610,35 @@ const BestMealPrepContainersPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Prep Naturals Glass</td>
-                <td className="border p-3 text-center">~$30</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Glass</td>
                 <td className="border p-3 text-center">5</td>
                 <td className="border p-3 text-center">Quality seekers</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Freshware 15-Pack</td>
-                <td className="border p-3 text-center">~$14</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Plastic</td>
                 <td className="border p-3 text-center">15</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr>
                 <td className="border p-3">Fitpacker Meal Prep</td>
-                <td className="border p-3 text-center">~$22</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">Plastic</td>
                 <td className="border p-3 text-center">7</td>
                 <td className="border p-3 text-center">Most people</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Bentgo Prep</td>
-                <td className="border p-3 text-center">~$20</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">Plastic</td>
                 <td className="border p-3 text-center">10</td>
                 <td className="border p-3 text-center">Small fridges</td>
               </tr>
               <tr>
                 <td className="border p-3">Rubbermaid Brilliance</td>
-                <td className="border p-3 text-center">~$28</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Tritan</td>
                 <td className="border p-3 text-center">5</td>
                 <td className="border p-3 text-center">Liquid meals</td>
@@ -679,7 +677,7 @@ const BestMealPrepContainersPageContent = (
             storing leftovers or meals I’ll eat right away.
           </p>
           <p className="mt-3">
-            If I could only buy one set? Fitpacker. The $22 price point is reasonable, the quality
+            If I could only buy one set? Fitpacker. The mid-range price is reasonable, the quality
             is solid, and 7 containers is enough for a work week of lunches or 3-4 days of lunch and
             dinner.
           </p>

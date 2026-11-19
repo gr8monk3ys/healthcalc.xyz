@@ -111,24 +111,24 @@ const BestWorkoutHeadphonesGymPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Beats Fit Pro ($159.99) - Wingtip fit that actually
-              stays put, solid ANC, works with Apple and Android
+              <strong>Best Overall:</strong> Beats Fit Pro - Wingtip fit that actually stays put,
+              solid ANC, works with Apple and Android
             </li>
             <li>
-              <strong>Best for Running:</strong> Jabra Elite 8 Active ($149.99) - IP68 waterproof,
+              <strong>Best for Running:</strong> Jabra Elite 8 Active - IP68 waterproof,
               military-grade durability, rock solid Bluetooth
             </li>
             <li>
-              <strong>Best Value:</strong> JBL Reflect Aero ($99.95) - IP68 rated with ANC at under
-              $100
+              <strong>Best Value:</strong> JBL Reflect Aero - IP68 rated with ANC at the lowest
+              price here
             </li>
             <li>
-              <strong>Best Bone Conduction:</strong> Shokz OpenRun Pro ($129.95) - Open-ear design
-              for outdoor runners who need situational awareness
+              <strong>Best Bone Conduction:</strong> Shokz OpenRun Pro - Open-ear design for outdoor
+              runners who need situational awareness
             </li>
             <li>
-              <strong>Best ANC for Gym:</strong> Sony WF-1000XM5 ($229.99) - Premium noise
-              cancelling when you want to block out everything
+              <strong>Best ANC for Gym:</strong> Sony WF-1000XM5 - Premium noise cancelling when you
+              want to block out everything
             </li>
           </ul>
         </div>
@@ -287,8 +287,8 @@ const BestWorkoutHeadphonesGymPageContent = (
               a podcast on the treadmill.
             </li>
             <li>
-              <strong>Price under $250:</strong> No $400 earbuds here. Gym earbuds take a beating. I
-              picked options from $100 to $230 that can handle that abuse.
+              <strong>Sensible pricing:</strong> No flagship-priced earbuds here. Gym earbuds take a
+              beating. I picked options that can handle that abuse.
             </li>
           </ul>
         </div>
@@ -308,7 +308,7 @@ const BestWorkoutHeadphonesGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$159.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The flexible wingtip on the Beats Fit Pro is what separates these from every other
@@ -385,7 +385,7 @@ const BestWorkoutHeadphonesGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$149.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             I run three mornings a week, usually 5-7 miles. The Jabra Elite 8 Active has been my
@@ -470,13 +470,13 @@ const BestWorkoutHeadphonesGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$99.95</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            The JBL Reflect Aero has no business being this good at $100. You get active noise
+            The JBL Reflect Aero has no business being this good at this price. You get active noise
             cancelling, IP68 waterproofing, and 8 hours of battery life for forty percent less than
             the Beats or Jabra. I recommended these to a friend who was not sure if she wanted to
-            spend $150+ on gym earbuds, and after three months she has zero complaints. That says a
+            spend more on gym earbuds, and after three months she has zero complaints. That says a
             lot.
           </p>
           <p className="mb-4">
@@ -496,8 +496,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               calorie deficit
             </Link>
-            , spending $100 instead of $200 on earbuds frees up cash for better food or a gym
-            membership.
+            , spending less on earbuds frees up cash for better food or a gym membership.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -512,14 +511,15 @@ const BestWorkoutHeadphonesGymPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Anyone who wants solid gym earbuds without paying premium prices. If you lose earbuds
-            often, tend to be rough with your gear, or just do not want to spend $150+ on something
+            often, tend to be rough with your gear, or just do not want to spend more on something
             you sweat all over, the Reflect Aero is the smart pick. They are also a good backup pair
             if you own something nicer and want a beater set for the gym bag.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Under $100 with ANC and IP68, solid battery life, good bass
-              response for workouts, fast charging when you forget, comfortable for long sessions
+              <strong>Pros:</strong> Least expensive option here with ANC and IP68, solid battery
+              life, good bass response for workouts, fast charging when you forget, comfortable for
+              long sessions
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> ANC is noticeably weaker than Beats or Sony, fit is not as
@@ -554,7 +554,7 @@ const BestWorkoutHeadphonesGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$129.95</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             These are completely different from everything else on this list. The Shokz OpenRun Pro
@@ -639,7 +639,7 @@ const BestWorkoutHeadphonesGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$229.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             If noise cancellation is your top priority, the Sony XM5 is in a different league from
@@ -663,7 +663,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             foam-tip earbuds designed for comfort, not sport security. During lifting, rowing, and
             cycling, they stay in fine. During anything bouncy (running, jump rope, box jumps), they
             gradually work loose. I have to reseat them every 15-20 minutes during a HIIT session.
-            At $230, that is frustrating.
+            At this price, that is frustrating.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -696,9 +696,9 @@ const BestWorkoutHeadphonesGymPageContent = (
               Speak-to-Chat is genuinely useful at the gym
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $230 is the most expensive option here, fit is not secure
-              enough for running or HIIT, only IPX4 (not waterproof), foam tips collect earwax and
-              need frequent replacement ($10-15 per set), the case is a fingerprint magnet
+              <strong>Cons:</strong> The most expensive option here, fit is not secure enough for
+              running or HIIT, only IPX4 (not waterproof), foam tips collect earwax and need
+              frequent replacement, the case is a fingerprint magnet
             </p>
           </div>
           <div className="mt-4">
@@ -720,7 +720,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">IP Rating</th>
                 <th className="border p-3 text-center">Battery</th>
@@ -730,7 +730,7 @@ const BestWorkoutHeadphonesGymPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Beats Fit Pro</td>
-                <td className="border p-3 text-center">$159.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.5/5</td>
                 <td className="border p-3 text-center">IPX4</td>
                 <td className="border p-3 text-center">6h (24h)</td>
@@ -738,7 +738,7 @@ const BestWorkoutHeadphonesGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Jabra Elite 8 Active</td>
-                <td className="border p-3 text-center">$149.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.4/5</td>
                 <td className="border p-3 text-center">IP68</td>
                 <td className="border p-3 text-center">8h (32h)</td>
@@ -746,7 +746,7 @@ const BestWorkoutHeadphonesGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">JBL Reflect Aero</td>
-                <td className="border p-3 text-center">$99.95</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">4.3/5</td>
                 <td className="border p-3 text-center">IP68</td>
                 <td className="border p-3 text-center">8h (24h)</td>
@@ -754,7 +754,7 @@ const BestWorkoutHeadphonesGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Shokz OpenRun Pro</td>
-                <td className="border p-3 text-center">$129.95</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.4/5</td>
                 <td className="border p-3 text-center">IP55</td>
                 <td className="border p-3 text-center">10h</td>
@@ -762,7 +762,7 @@ const BestWorkoutHeadphonesGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Sony WF-1000XM5</td>
-                <td className="border p-3 text-center">$229.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">4.6/5</td>
                 <td className="border p-3 text-center">IPX4</td>
                 <td className="border p-3 text-center">8h (24h)</td>
@@ -816,26 +816,24 @@ const BestWorkoutHeadphonesGymPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>General gym use:</strong> <strong>Beats Fit Pro at $159.99</strong> are the
-            safest pick. The wingtip fit works for every type of training and the ANC is good enough
-            without being isolating. If I could only own one pair for the gym, these are it.
+            <strong>General gym use:</strong> <strong>Beats Fit Pro</strong> are the safest pick.
+            The wingtip fit works for every type of training and the ANC is good enough without
+            being isolating. If I could only own one pair for the gym, these are it.
           </li>
           <li>
-            <strong>Running (outdoor or treadmill):</strong>{' '}
-            <strong>Jabra Elite 8 Active at $149.99</strong> for the waterproofing, battery life,
-            and HearThrough mode. Or <strong>Shokz OpenRun Pro at $129.95</strong> if you run on
-            roads and safety is the priority.
+            <strong>Running (outdoor or treadmill):</strong> <strong>Jabra Elite 8 Active</strong>{' '}
+            for the waterproofing, battery life, and HearThrough mode. Or{' '}
+            <strong>Shokz OpenRun Pro</strong> if you run on roads and safety is the priority.
           </li>
           <li>
-            <strong>Tight budget:</strong> <strong>JBL Reflect Aero at $99.95</strong> gives you 90%
-            of what the Beats and Jabra offer for 60% of the price. The best value on this list by a
-            wide margin.
+            <strong>Tight budget:</strong> <strong>JBL Reflect Aero</strong> gives you 90% of what
+            the Beats and Jabra offer for 60% of the price. The best value on this list by a wide
+            margin.
           </li>
           <li>
-            <strong>Lifting only (no running or HIIT):</strong>{' '}
-            <strong>Sony WF-1000XM5 at $229.99</strong> if you want the absolute best sound and
-            noise cancellation and your workouts do not involve much bouncing. Overkill for most
-            people but nothing else sounds this good.
+            <strong>Lifting only (no running or HIIT):</strong> <strong>Sony WF-1000XM5</strong> if
+            you want the absolute best sound and noise cancellation and your workouts do not involve
+            much bouncing. Overkill for most people but nothing else sounds this good.
           </li>
         </ul>
 
