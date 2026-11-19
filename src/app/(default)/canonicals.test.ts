@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { CALCULATOR_HUBS } from '@/constants/calculatorCatalog';
 import { metadata as aboutMetadata } from './about/page';
 import { metadata as blogMetadata } from './blog/page';
 import { generateMetadata as generateHubMetadata } from './calculators/[hub]/page';
 import { metadata as ketoMetadata } from './keto-calculator/layout';
 import { metadata as searchMetadata } from './search/page';
+
+// Only the pages' metadata is under test; their client UI has its own tests.
+vi.mock('@/components/BlogIndexClient', () => ({ default: () => null }));
 
 describe('canonical and robots metadata', () => {
   it.each<[string, Metadata]>([

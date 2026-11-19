@@ -13,22 +13,20 @@ vi.mock('next/navigation', () => ({
   },
 }));
 
-vi.mock('next/dynamic', () => ({
-  default: () =>
-    function PostContent() {
-      return (
-        <article data-testid="post-content">
-          <a
-            href="https://www.amazon.com/dp/B0TEST?tag=test-20"
-            rel="noopener noreferrer sponsored"
-          >
-            Check price on Amazon
-          </a>
-          <a href="/bmi">BMI calculator</a>
-        </article>
-      );
-    },
-}));
+vi.mock('./postBodies', () => {
+  function PostContent() {
+    return (
+      <article data-testid="post-content">
+        <a href="https://www.amazon.com/dp/B0TEST?tag=test-20" rel="noopener noreferrer sponsored">
+          Check price on Amazon
+        </a>
+        <a href="/bmi">BMI calculator</a>
+      </article>
+    );
+  }
+  // Any slug resolves to the stand-in body.
+  return { POST_BODIES: new Proxy({}, { get: () => PostContent }) };
+});
 
 vi.mock('@/components/BlogEmailCapture', () => ({ BlogEmailCapture: () => null }));
 
