@@ -99,24 +99,24 @@ const BestRowingMachinesFullBodyPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Concept2 Model D ($990) - Industry standard, air
-              resistance, PM5 monitor
+              <strong>Best Overall:</strong> Concept2 Model D - Industry standard, air resistance,
+              PM5 monitor
             </li>
             <li>
-              <strong>Best Budget:</strong> Sunny Health SF-RW5515 ($299) - Magnetic resistance,
-              quiet, foldable
+              <strong>Best Budget:</strong> Sunny Health SF-RW5515 - Magnetic resistance, quiet,
+              foldable
             </li>
             <li>
-              <strong>Best Ultra-Budget:</strong> Stamina BodyTrac Glider ($149) - Basic hydraulic
-              piston, apartment-friendly
+              <strong>Best Ultra-Budget:</strong> Stamina BodyTrac Glider - Basic hydraulic piston,
+              apartment-friendly
             </li>
             <li>
-              <strong>Best Premium:</strong> Hydrow ($2,495) - Immersive classes, water resistance
-              feel, live coaching
+              <strong>Best Premium:</strong> Hydrow - Immersive classes, water resistance feel, live
+              coaching
             </li>
             <li>
-              <strong>Best Value:</strong> Fitness Reality 1000 Plus ($179) - Magnetic, LCD monitor,
-              solid for the price
+              <strong>Best Value:</strong> Fitness Reality 1000 Plus - Magnetic, LCD monitor, solid
+              for the price
             </li>
           </ul>
         </div>
@@ -234,14 +234,14 @@ const BestRowingMachinesFullBodyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.9 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$990</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Concept2 Model D is what you find in gyms, CrossFit boxes, and Olympic training
             centers. It is the standard. Air resistance means the harder you pull, the more
             resistance you get. The PM5 monitor tracks everything and connects to apps like ErgData
             and Strava. This machine will outlast you. People row millions of meters on these
-            without issues. At $990, it is not cheap, but you will never need to replace it.
+            without issues. It is not cheap, but you will never need to replace it.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -310,14 +310,15 @@ const BestRowingMachinesFullBodyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$299</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            For $299, the Sunny Health SF-RW5515 is shockingly functional. Magnetic resistance means
-            it runs silent, which matters if you live in an apartment or row while other people
-            sleep. It has eight resistance levels controlled by a knob. The monitor is basic but
-            shows time, count, calories, and total count. The rail is steel. The seat glides
-            smoothly. It folds upright for storage. This is not a Concept2, but it does the job.
+            For a budget price, the Sunny Health SF-RW5515 is shockingly functional. Magnetic
+            resistance means it runs silent, which matters if you live in an apartment or row while
+            other people sleep. It has eight resistance levels controlled by a knob. The monitor is
+            basic but shows time, count, calories, and total count. The rail is steel. The seat
+            glides smoothly. It folds upright for storage. This is not a Concept2, but it does the
+            job.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -350,7 +351,7 @@ const BestRowingMachinesFullBodyPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Silent magnetic resistance, folds for storage, under $300,
+              <strong>Pros:</strong> Silent magnetic resistance, folds for storage, budget price,
               smooth glide, decent for daily 20-minute sessions
             </p>
             <p className="text-sm mt-2">
@@ -385,15 +386,15 @@ const BestRowingMachinesFullBodyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.1 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$149</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
-            At $149, the Stamina BodyTrac Glider is as cheap as rowing machines get without being
-            complete garbage. It uses hydraulic pistons instead of a flywheel. The motion does not
-            feel like real rowing, but it does work your legs, back, and arms. The resistance
-            adjusts with a knob on each piston. The monitor is extremely basic. This machine is
-            small, lightweight, and fits under a bed. If you have never rowed before and want to
-            test the waters without financial commitment, this is an option.
+            The Stamina BodyTrac Glider is as cheap as rowing machines get without being complete
+            garbage. It uses hydraulic pistons instead of a flywheel. The motion does not feel like
+            real rowing, but it does work your legs, back, and arms. The resistance adjusts with a
+            knob on each piston. The monitor is extremely basic. This machine is small, lightweight,
+            and fits under a bed. If you have never rowed before and want to test the waters without
+            financial commitment, this is an option.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -422,8 +423,8 @@ const BestRowingMachinesFullBodyPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Under $150, fits in tiny apartments, very light (stores under
-              beds), quiet operation, easy assembly
+              <strong>Pros:</strong> Cheapest option here, fits in tiny apartments, very light
+              (stores under beds), quiet operation, easy assembly
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Hydraulic motion does not feel like real rowing, resistance is
@@ -457,10 +458,10 @@ const BestRowingMachinesFullBodyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$2,495</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
-            The Hydrow is the Peloton of rowing machines. It costs $2,495 plus a $44/month
+            The Hydrow is the Peloton of rowing machines. It carries a premium price plus a monthly
             membership for live and on-demand classes. The 22-inch HD touchscreen shows you rowing
             on rivers with instructors coaching in real time. The electromagnetic resistance mimics
             the feel of water rowing. The build quality is exceptional. The classes are legitimately
@@ -504,9 +505,9 @@ const BestRowingMachinesFullBodyPageContent = (
               electromagnetic resistance, excellent build quality, large active community
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $2,495 upfront plus $44/month subscription, classes require
-              internet connection, overkill if you prefer solo workouts, heavier and harder to move
-              than other rowers
+              <strong>Cons:</strong> Premium upfront price plus a monthly subscription, classes
+              require internet connection, overkill if you prefer solo workouts, heavier and harder
+              to move than other rowers
             </p>
           </div>
           <div className="mt-4">
@@ -535,16 +536,15 @@ const BestRowingMachinesFullBodyPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.2 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$179</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             The Fitness Reality 1000 Plus sits between the ultra-budget Stamina and the mid-tier
-            Sunny Health. At $179, it offers magnetic resistance with 14 levels, a better monitor
-            than the Stamina, and a sturdier frame than you would expect at this price. It is not
-            silent like the Sunny, but it is quieter than air rowers. The LCD shows time, strokes,
-            distance, and calories. It does not have Bluetooth or app connectivity, but that is fine
-            for most people. If you want a solid budget rower with more resistance options, this is
-            the pick.
+            Sunny Health. It offers magnetic resistance with 14 levels, a better monitor than the
+            Stamina, and a sturdier frame than you would expect at this price. It is not silent like
+            the Sunny, but it is quieter than air rowers. The LCD shows time, strokes, distance, and
+            calories. It does not have Bluetooth or app connectivity, but that is fine for most
+            people. If you want a solid budget rower with more resistance options, this is the pick.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
           <ul className="list-disc list-inside space-y-1">
@@ -560,8 +560,8 @@ const BestRowingMachinesFullBodyPageContent = (
           <p>
             Budget buyers who want more than the bare minimum. The 14 resistance levels give you
             more room to progress compared to 8-level models. Taller users appreciate the extended
-            rail. If you are deciding between spending $150 or $300, the $179 price here is a sweet
-            spot.
+            rail. If you are deciding between the cheapest rower here and the Sunny Health, the
+            price here is a sweet spot.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Calculator relevance:</h4>
           <p>
@@ -579,7 +579,7 @@ const BestRowingMachinesFullBodyPageContent = (
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
               <strong>Pros:</strong> 14 resistance levels is more than most budget rowers, folds for
-              storage, solid frame, good value at $179, extended rail fits tall users
+              storage, solid frame, good value, extended rail fits tall users
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> No Bluetooth or app sync, monitor is basic, resistance curve is
@@ -604,7 +604,7 @@ const BestRowingMachinesFullBodyPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Resistance</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -613,35 +613,35 @@ const BestRowingMachinesFullBodyPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Concept2 Model D</td>
-                <td className="border p-3 text-center">$990</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9</td>
                 <td className="border p-3 text-center">Air</td>
                 <td className="border p-3 text-center">Serious rowers</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Sunny Health SF-RW5515</td>
-                <td className="border p-3 text-center">$299</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.3</td>
                 <td className="border p-3 text-center">Magnetic (8)</td>
                 <td className="border p-3 text-center">Budget buyers</td>
               </tr>
               <tr>
                 <td className="border p-3">Stamina BodyTrac Glider</td>
-                <td className="border p-3 text-center">$149</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.1</td>
                 <td className="border p-3 text-center">Hydraulic</td>
                 <td className="border p-3 text-center">Ultra-budget</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Hydrow Rower</td>
-                <td className="border p-3 text-center">$2,495</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9733; 4.7</td>
                 <td className="border p-3 text-center">Electromagnetic</td>
                 <td className="border p-3 text-center">Connected fitness</td>
               </tr>
               <tr>
                 <td className="border p-3">Fitness Reality 1000 Plus</td>
-                <td className="border p-3 text-center">$179</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.2</td>
                 <td className="border p-3 text-center">Magnetic (14)</td>
                 <td className="border p-3 text-center">Best value</td>
@@ -673,8 +673,8 @@ const BestRowingMachinesFullBodyPageContent = (
               Amazon reviews. I filtered for long-term durability feedback.
             </li>
             <li>
-              <strong>Value:</strong> A $150 rower that breaks in six months is worse than a $990
-              rower that lasts a decade.
+              <strong>Value:</strong> A budget rower that breaks in six months is worse than a
+              pricier rower that lasts a decade.
             </li>
           </ul>
         </div>
@@ -715,24 +715,23 @@ const BestRowingMachinesFullBodyPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best overall:</strong> The <strong>Concept2 Model D at $990</strong> is the
-            industry standard for good reason. It will outlast everything else on this list. If you
-            can afford it, buy it.
+            <strong>Best overall:</strong> The <strong>Concept2 Model D</strong> is the industry
+            standard for good reason. It will outlast everything else on this list. If you can
+            afford it, buy it.
           </li>
           <li>
-            <strong>Best budget pick:</strong> The <strong>Sunny Health SF-RW5515 at $299</strong>{' '}
-            is the best compromise between price and functionality. Silent magnetic resistance and
-            foldable storage.
+            <strong>Best budget pick:</strong> The <strong>Sunny Health SF-RW5515</strong> is the
+            best compromise between price and functionality. Silent magnetic resistance and foldable
+            storage.
           </li>
           <li>
-            <strong>Best if money is tight:</strong> The{' '}
-            <strong>Stamina BodyTrac Glider at $149</strong> is not great, but it works for light
-            cardio. Buy this if you genuinely cannot spend more.
+            <strong>Best if money is tight:</strong> The <strong>Stamina BodyTrac Glider</strong> is
+            not great, but it works for light cardio. Buy this if you genuinely cannot spend more.
           </li>
           <li>
-            <strong>Best for connected fitness:</strong> The <strong>Hydrow at $2,495</strong> is
-            worth it only if you love the class experience and will actually use the subscription.
-            Otherwise, skip.
+            <strong>Best for connected fitness:</strong> The <strong>Hydrow</strong> is worth it
+            only if you love the class experience and will actually use the subscription. Otherwise,
+            skip.
           </li>
         </ul>
 

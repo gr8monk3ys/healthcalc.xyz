@@ -216,7 +216,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
               aria-labelledby={`${field.name}-group-label`}
             >
               {field.options?.map(option => (
-                <label key={option.value} className="seg-pill">
+                <label key={option.value} className="seg-pill flex-1">
                   <input
                     type="radio"
                     name={field.name}
@@ -366,14 +366,14 @@ const CalculatorForm: React.FC<CalculatorFormProps> = memo(function CalculatorFo
       >
         {fields.map(renderField)}
 
-        <div className="flex gap-3 pt-2">
-          <button type="submit" className="ui-btn-primary flex-1 sm:max-w-xs">
+        <div className="pt-2">
+          <button type="submit" className="ui-btn-primary w-full">
             {resolvedSubmitButtonText}
           </button>
           <button
             type="button"
             onClick={onReset}
-            className="rounded-[0.875rem] border border-transparent px-4 py-3 font-medium text-slate-500 transition-colors hover:border-[var(--card-border)] hover:bg-[var(--surface-muted)] hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+            className="mt-1 block px-1 text-sm font-semibold underline decoration-[1.5px] underline-offset-[0.18em] hover:bg-mark hover:text-[var(--on-mark)]"
           >
             {resolvedResetButtonText}
           </button>

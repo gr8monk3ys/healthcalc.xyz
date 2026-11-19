@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Calorie Basics | HealthCalc',
   description:
     'Learn how calories relate to maintenance, loss, and gain, plus tools to calculate targets.',

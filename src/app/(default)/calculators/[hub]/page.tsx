@@ -34,6 +34,9 @@ export async function generateMetadata({ params }: CalculatorHubPageProps): Prom
   return {
     title: `${hub.title} Calculators | HealthCalc`,
     description: hub.description,
+    alternates: {
+      canonical: './',
+    },
   };
 }
 
@@ -65,7 +68,7 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
         {calculators.map(calculator => (
           <Link
             key={calculator.slug}
-            href={`/calculator/${calculator.slug}`}
+            href={`/${calculator.slug}`}
             className="neumorph rounded-xl p-6 transition hover:shadow-neumorph-inset"
           >
             <div className="flex items-start gap-4">

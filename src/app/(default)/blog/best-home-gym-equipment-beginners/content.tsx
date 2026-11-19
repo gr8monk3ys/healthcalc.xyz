@@ -135,27 +135,27 @@ const BestHomeGymEquipmentPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Resistance Bands:</strong> Fit Simplify Resistance Bands Set ($12.95) -
-              Versatile, portable, five resistance levels
+              <strong>Best Resistance Bands:</strong> Fit Simplify Resistance Bands Set - Versatile,
+              portable, five resistance levels
             </li>
             <li>
-              <strong>Best Yoga Mat:</strong> Manduka PRO Yoga Mat ($120.00) - Lifetime guarantee,
-              unmatched durability
+              <strong>Best Yoga Mat:</strong> Manduka PRO Yoga Mat - Lifetime guarantee, unmatched
+              durability
             </li>
             <li>
-              <strong>Best Adjustable Dumbbells:</strong> Bowflex SelectTech 552 ($429.00) - Replace
-              15 pairs of dumbbells
+              <strong>Best Adjustable Dumbbells:</strong> Bowflex SelectTech 552 - Replace 15 pairs
+              of dumbbells
             </li>
             <li>
-              <strong>Best Pull-Up Bar:</strong> Iron Age Pull Up Bar ($32.97) - No screws, fits
-              most doorframes
+              <strong>Best Pull-Up Bar:</strong> Iron Age Pull Up Bar - No screws, fits most
+              doorframes
             </li>
             <li>
-              <strong>Best Kettlebell:</strong> Amazon Basics Cast Iron Kettlebell ($28.08) - Solid
-              build, great starting weight
+              <strong>Best Kettlebell:</strong> Amazon Basics Cast Iron Kettlebell - Solid build,
+              great starting weight
             </li>
             <li>
-              <strong>Best Jump Rope:</strong> Crossrope Get Lean Set ($69.00) - Weighted ropes,
+              <strong>Best Jump Rope:</strong> Crossrope Get Lean Set - Weighted ropes,
               app-connected
             </li>
           </ul>
@@ -325,7 +325,7 @@ const BestHomeGymEquipmentPageContent = (
                 ★★★★☆ <span className="text-sm text-gray-500 ml-1">4.5/5</span>
               </div>
             </div>
-            <span className="text-2xl font-bold text-accent">$12.95</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -404,7 +404,7 @@ const BestHomeGymEquipmentPageContent = (
                 ★★★★★ <span className="text-sm text-gray-500 ml-1">4.8/5</span>
               </div>
             </div>
-            <span className="text-2xl font-bold text-accent">$120.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -482,7 +482,7 @@ const BestHomeGymEquipmentPageContent = (
                 ★★★★★ <span className="text-sm text-gray-500 ml-1">4.7/5</span>
               </div>
             </div>
-            <span className="text-2xl font-bold text-accent">$429.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -563,7 +563,7 @@ const BestHomeGymEquipmentPageContent = (
                 ★★★★☆ <span className="text-sm text-gray-500 ml-1">4.5/5</span>
               </div>
             </div>
-            <span className="text-2xl font-bold text-accent">$32.97</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -641,7 +641,7 @@ const BestHomeGymEquipmentPageContent = (
                 ★★★★★ <span className="text-sm text-gray-500 ml-1">4.7/5</span>
               </div>
             </div>
-            <span className="text-2xl font-bold text-accent">$28.08</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -726,7 +726,7 @@ const BestHomeGymEquipmentPageContent = (
                 ★★★★☆ <span className="text-sm text-gray-500 ml-1">4.4/5</span>
               </div>
             </div>
-            <span className="text-2xl font-bold text-accent">$69.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -801,7 +801,7 @@ const BestHomeGymEquipmentPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Equipment</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Primary Use</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -810,42 +810,42 @@ const BestHomeGymEquipmentPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Fit Simplify Resistance Bands</td>
-                <td className="border p-3 text-center">$12.95</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">★★★★☆</td>
                 <td className="border p-3 text-center">Strength / Rehab</td>
                 <td className="border p-3 text-center">Absolute beginners</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Manduka PRO Yoga Mat</td>
-                <td className="border p-3 text-center">$120.00</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">★★★★★</td>
                 <td className="border p-3 text-center">Floor work / Yoga</td>
                 <td className="border p-3 text-center">Yoga & bodyweight</td>
               </tr>
               <tr>
                 <td className="border p-3">Bowflex SelectTech 552</td>
-                <td className="border p-3 text-center">$429.00</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">★★★★★</td>
                 <td className="border p-3 text-center">Strength training</td>
                 <td className="border p-3 text-center">Serious lifters</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Iron Age Pull Up Bar</td>
-                <td className="border p-3 text-center">$32.97</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">★★★★☆</td>
                 <td className="border p-3 text-center">Upper body / Back</td>
                 <td className="border p-3 text-center">Back strength</td>
               </tr>
               <tr>
                 <td className="border p-3">Amazon Basics Kettlebell</td>
-                <td className="border p-3 text-center">$28.08</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">★★★★★</td>
                 <td className="border p-3 text-center">Strength + Cardio</td>
                 <td className="border p-3 text-center">All-in-one training</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Crossrope Get Lean Set</td>
-                <td className="border p-3 text-center">$69.00</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">★★★★☆</td>
                 <td className="border p-3 text-center">Cardio / HIIT</td>
                 <td className="border p-3 text-center">Efficient cardio</td>
@@ -881,7 +881,7 @@ const BestHomeGymEquipmentPageContent = (
             </li>
             <li>
               <strong>Value:</strong> We prioritized products where the cost-to-benefit ratio is
-              highest, from the $12.95 resistance bands to the space-saving Bowflex dumbbells
+              highest, from the budget resistance bands to the space-saving Bowflex dumbbells
             </li>
             <li>
               <strong>Longevity:</strong> These are durable products that will last years with
@@ -894,29 +894,22 @@ const BestHomeGymEquipmentPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Building Your Home Gym by Budget</h2>
 
         <div className="neumorph p-6 rounded-lg my-6">
-          <h3 className="font-semibold mb-3">Starter Tier - Under $75:</h3>
-          <p className="mb-2">
-            Resistance bands ($12.95) + Kettlebell ($28.08) + Pull-up bar ($32.97) ={' '}
-            <strong>$74.00</strong>
-          </p>
+          <h3 className="font-semibold mb-3">Starter Tier:</h3>
+          <p className="mb-2">Resistance bands + Kettlebell + Pull-up bar</p>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
             This trio covers full-body strength and lets you do hundreds of different exercises.
             Pair with a towel on the floor for mat work.
           </p>
 
-          <h3 className="font-semibold mb-3">Mid Tier - Under $200:</h3>
-          <p className="mb-2">
-            Everything above + Yoga mat ($120.00) + Jump rope ($69.00) = <strong>$263.00</strong>
-          </p>
+          <h3 className="font-semibold mb-3">Mid Tier:</h3>
+          <p className="mb-2">Everything above + Yoga mat + Jump rope</p>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
             Adds premium floor comfort and high-efficiency cardio. This setup rivals most gym
             memberships in training variety.
           </p>
 
-          <h3 className="font-semibold mb-3">Complete Home Gym - Under $700:</h3>
-          <p className="mb-2">
-            All six items = <strong>$692.00</strong>
-          </p>
+          <h3 className="font-semibold mb-3">Complete Home Gym:</h3>
+          <p className="mb-2">All six items</p>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
             The Bowflex dumbbells add serious progressive overload potential. This complete setup
             will serve a beginner for 2-3+ years of training without needing additional equipment.
@@ -929,8 +922,8 @@ const BestHomeGymEquipmentPageContent = (
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
             <strong>On a tight budget:</strong> Start with{' '}
-            <strong>resistance bands and a kettlebell</strong> - under $45 for a full-body workout
-            arsenal
+            <strong>resistance bands and a kettlebell</strong> - two budget picks for a full-body
+            workout arsenal
           </li>
           <li>
             <strong>For strength training:</strong> The{' '}

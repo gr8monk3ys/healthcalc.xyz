@@ -17,6 +17,7 @@
     "test:coverage": "vitest --coverage",
     "test:e2e": "playwright test",
     "create:calculator": "bun run scripts/create-calculator.ts",
+    "generate:covers": "bun run scripts/generate-covers.ts",
     "smoke": "playwright test e2e/calculators-all.spec.ts e2e/navigation.spec.ts e2e/fitness-age.spec.ts",
     "lighthouse:ci": "node scripts/check-lighthouse-score.mjs http://127.0.0.1:3000 / /bmi /tdee /calculators",
     "validate": "bun run format:check && bun run lint && bun run type-check && bun run test",
@@ -56,22 +57,18 @@
   },
   "dependencies": {
     "@gr8monk3ys/next-kit": "https://github.com/gr8monk3ys/next-kit/archive/refs/tags/v0.1.2.tar.gz",
-    "@radix-ui/react-radio-group": "^1.5.1",
     "@sentry/nextjs": "^11.9.0",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.118.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vercel/analytics": "^2.0.1",
-    "clsx": "^2.1.1",
     "html-to-image": "^1.11.13",
     "jspdf": "^4.2.1",
     "next": "^16.4.3",
     "pg": "^8.23.1",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "react-intersection-observer": "^11.0.1",
-    "tailwind-merge": "^3.7.0"
+    "react-dom": "^19.3.1"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

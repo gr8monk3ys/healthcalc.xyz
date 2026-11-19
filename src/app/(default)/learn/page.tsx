@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Health Guides | HealthCalc',
   description: 'Quick guides that explain key health metrics and link to the right calculators.',
 };
@@ -167,7 +168,6 @@ export default function LearnIndexPage() {
   return (
     <div className="mx-auto max-w-5xl">
       <header className="mb-10">
-        <p className="section-eyebrow">Learn</p>
         <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-4xl">
           Health Guides
         </h1>

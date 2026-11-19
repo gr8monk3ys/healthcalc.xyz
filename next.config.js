@@ -16,6 +16,15 @@ const nextConfig = {
   // Vercel and '' everywhere else — which is exactly what the gate wants.
   env: {
     NEXT_PUBLIC_VERCEL_ENV: process.env.NEXT_PUBLIC_VERCEL_ENV ?? process.env.VERCEL_ENV ?? '',
+    // Mirrors api/newsletter/route.ts: any configured provider, and always in
+    // development, where the route accepts signups without one.
+    NEXT_PUBLIC_NEWSLETTER_ENABLED:
+      process.env.NODE_ENV === 'development' ||
+      (process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_AUDIENCE_ID) ||
+      (process.env.CONVERTKIT_API_KEY && process.env.CONVERTKIT_FORM_ID) ||
+      (process.env.RESEND_API_KEY && process.env.RESEND_AUDIENCE_ID)
+        ? '1'
+        : '',
   },
   // The kit's `import` condition points at its TypeScript source, so Next has
   // to compile it like first-party code.

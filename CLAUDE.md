@@ -12,12 +12,12 @@ HealthCalc (healthcalc.xyz): Next.js 16 / React 19 / TypeScript / Tailwind v4 si
 
 ## Where things live
 
-- `src/constants/calculatorCatalog.ts` — single source of truth for calculators (slug, title, category, hub). `src/app/(default)/sitemap.ts` builds `/sitemap.xml` from it; there is no static sitemap.
-- `src/app/(default)/<slug>/` — one `page.tsx` (client component) + `layout.tsx` (metadata) per calculator. API mirrors at `src/app/(default)/api/<slug>/route.ts`.
+- `src/constants/calculatorCatalog.ts` — single source of truth for calculators (slug, title, category, hub); 56 entries today. `src/app/(default)/sitemap.ts` builds `/sitemap.xml` from it and `src/lib/searchIndex.ts` builds `/search-index.json` from it and the blog registry; neither is a static file.
+- `src/app/(default)/<slug>/` — per calculator: `page.tsx` (server shim: static header, re-exports metadata), `page.client.tsx` (the calculator; `bmi` and `conversions` keep theirs under `src/components/`) and `layout.tsx` (metadata). Every calculator renders through `CalculatorPageLayout`. There are no `/api/<slug>` routes; the only calculator API is `/api/embed/[calculator]`.
 - `src/utils/calculators/` — pure calculation functions with colocated tests. `calculateBMR`/`calculateTDEE` in `tdee.ts` are shared; do not reimplement.
 - `src/utils/validation.ts` (`validateAge`, `validateWeight`, ... return `{ isValid, error?, sanitized? }`) and `src/utils/conversions.ts` — the only places for input validation and unit conversion.
-- `src/hooks/useCalculatorForm.ts` — shared form state; about a third of calculators still hand-roll it.
-- `src/lib/blog/registry.ts` — blog post metadata; post bodies are TSX at `src/app/(default)/blog/<slug>/content.tsx`, registered in `blog/[slug]/page.client.tsx`.
+- `src/hooks/useCalculatorForm.ts` — shared submit/validate/result state, used by 54 of 56 calculators (all but `bmi` and `conversions`).
+- `src/lib/blog/registry.ts` — blog post metadata; post bodies are TSX at `src/app/(default)/blog/<slug>/content.tsx`, registered in `blog/[slug]/postBodies.tsx`.
 - `src/lib/db/` — submissions and saved results; Postgres (`pg`) in production, `node:sqlite` locally, selected by `SUBMISSIONS_DB_DRIVER`.
 - `src/lib/supabase/` — magic-link auth; saved results use RLS.
 - `src/proxy.ts` — the Next.js proxy (there is no `middleware.ts`): canonical-host and trailing-slash redirects, `/en/*` → unprefixed, other locale prefixes → English (302), and security headers (CSP, `X-Frame-Options: DENY` except embed routes).
@@ -25,7 +25,7 @@ HealthCalc (healthcalc.xyz): Next.js 16 / React 19 / TypeScript / Tailwind v4 si
 
 ## Adding a calculator
 
-Add to `CALCULATOR_CATALOG`, create the route folder, types in `src/types/`, logic + tests in `src/utils/calculators/`, constants in `src/constants/`, components in `src/components/calculators/<name>/`, the API route, and append the slug to `CALCULATOR_SLUGS` in `e2e/calculators-all.spec.ts`. `bun run create:calculator` scaffolds most of this.
+Add to `CALCULATOR_CATALOG`, create the route folder, types in `src/types/`, logic + tests in `src/utils/calculators/`, constants in `src/constants/`, and components in `src/components/calculators/<name>/`. `bun run create:calculator` scaffolds most of this. The smoke suite (`e2e/calculators-all.spec.ts`) iterates the catalog, so there is no slug list to update.
 
 ## Gotchas
 

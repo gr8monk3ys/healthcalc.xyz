@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Medical Disclaimer | HealthCalc',
   description: 'Important medical disclaimer for HealthCalc calculators and content.',
 };

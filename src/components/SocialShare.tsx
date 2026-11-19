@@ -75,7 +75,6 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.twitter'),
-      color: 'text-[#1d9bf0]',
     },
     facebook: {
       icon: (
@@ -90,7 +89,6 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.facebook'),
-      color: 'text-[#1877f2]',
     },
     linkedin: {
       icon: (
@@ -105,7 +103,6 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.linkedin'),
-      color: 'text-[#0a66c2]',
     },
     pinterest: {
       icon: (
@@ -120,7 +117,6 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.pinterest'),
-      color: 'text-[#e60023]',
     },
     reddit: {
       icon: (
@@ -135,7 +131,6 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.reddit'),
-      color: 'text-[#ff4500]',
     },
     email: {
       icon: (
@@ -156,7 +151,6 @@ export default function SocialShare({
         </svg>
       ),
       label: t('socialShare.platform.email'),
-      color: 'text-slate-500 dark:text-slate-300',
     },
   };
 
@@ -198,9 +192,7 @@ export default function SocialShare({
               aria-label={formatTemplate(t('socialShare.ariaTemplate'), { platform: config.label })}
               rel="noopener noreferrer"
             >
-              <span className={config.color} aria-hidden="true">
-                {config.icon}
-              </span>
+              <span aria-hidden="true">{config.icon}</span>
               {showLabel && <span>{config.label}</span>}
             </a>
           );

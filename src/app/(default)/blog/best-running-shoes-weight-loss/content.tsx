@@ -89,23 +89,23 @@ const BestRunningShoesWeightLossPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best for Beginners:</strong> Brooks Ghost 16 ($139.95) - Smooth ride, neutral
-              cushion, great out of the box
+              <strong>Best for Beginners:</strong> Brooks Ghost 16 - Smooth ride, neutral cushion,
+              great out of the box
             </li>
             <li>
-              <strong>Best Cushioning:</strong> HOKA Clifton 9 ($145.00) - Marshmallow soft,
-              lightweight for its stack height
+              <strong>Best Cushioning:</strong> HOKA Clifton 9 - Marshmallow soft, lightweight for
+              its stack height
             </li>
             <li>
-              <strong>Best All-Around:</strong> Nike Pegasus 41 ($130.00) - Versatile workhorse,
-              React X foam, Zoom Air unit
+              <strong>Best All-Around:</strong> Nike Pegasus 41 - Versatile workhorse, React X foam,
+              Zoom Air unit
             </li>
             <li>
-              <strong>Best Stability:</strong> ASICS Gel-Kayano 31 ($159.95) - 4D Guidance system
-              for overpronators
+              <strong>Best Stability:</strong> ASICS Gel-Kayano 31 - 4D Guidance system for
+              overpronators
             </li>
             <li>
-              <strong>Best Premium:</strong> New Balance 1080v13 ($159.99) - Fresh Foam X, plush but
+              <strong>Best Premium:</strong> New Balance 1080v13 - Fresh Foam X, plush but
               responsive
             </li>
           </ul>
@@ -259,8 +259,8 @@ const BestRunningShoesWeightLossPageContent = (
               250+ pounds.
             </li>
             <li>
-              <strong>Price under $170:</strong> No carbon-plated race day shoes. These are daily
-              trainers you will wear 3-5 times per week.
+              <strong>Daily-trainer pricing:</strong> No carbon-plated race day shoes. These are
+              daily trainers you will wear 3-5 times per week.
             </li>
             <li>
               <strong>Wide sizes available:</strong> Every shoe on this list comes in wide or
@@ -284,7 +284,7 @@ const BestRunningShoesWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$139.95</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Ghost is the best-selling running shoe in America for a reason. It works for almost
@@ -345,7 +345,7 @@ const BestRunningShoesWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$145.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Clifton is why HOKA became a household name. The compression-molded EVA midsole
@@ -407,7 +407,7 @@ const BestRunningShoesWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$130.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The Pegasus has been around for 41 versions and the formula is simple: it does
@@ -429,7 +429,7 @@ const BestRunningShoesWeightLossPageContent = (
           <p>
             Runners who want one shoe for everything. If you run 3-4 times per week at different
             paces and do not want to own multiple pairs, the Pegasus covers all your bases. Also the
-            cheapest shoe on this list at $130.
+            cheapest shoe on this list.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
@@ -468,7 +468,7 @@ const BestRunningShoesWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$159.95</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             If you overpronate (your feet roll inward when you run), you need a stability shoe. The
@@ -500,7 +500,7 @@ const BestRunningShoesWeightLossPageContent = (
               durable outsole (500+ miles), good for heavier runners
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> Heavy at 10.9 oz, not great for speed work, $160 is on the
+              <strong>Cons:</strong> Heavy at 10.9 oz, not great for speed work, priced on the
               expensive side, overkill if you have a neutral gait
             </p>
           </div>
@@ -531,7 +531,7 @@ const BestRunningShoesWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$159.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The 1080 is New Balance’s flagship daily trainer and it feels like it. The Fresh Foam X
@@ -562,8 +562,8 @@ const BestRunningShoesWeightLossPageContent = (
               like a sock, great wide options, improved durability in v13
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $160 price tag, slightly heavier than the Clifton at 10.1 oz,
-              the soft midsole can feel mushy for very fast paces
+              <strong>Cons:</strong> Premium price tag, slightly heavier than the Clifton at
+              10.1 oz, the soft midsole can feel mushy for very fast paces
             </p>
           </div>
           <div className="mt-4">
@@ -585,7 +585,7 @@ const BestRunningShoesWeightLossPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Shoe</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Weight</th>
                 <th className="border p-3 text-center">Drop</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -594,35 +594,35 @@ const BestRunningShoesWeightLossPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Brooks Ghost 16</td>
-                <td className="border p-3 text-center">$139.95</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">9.6 oz</td>
                 <td className="border p-3 text-center">12mm</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">HOKA Clifton 9</td>
-                <td className="border p-3 text-center">$145.00</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">8.9 oz</td>
                 <td className="border p-3 text-center">5mm</td>
                 <td className="border p-3 text-center">Cushioning</td>
               </tr>
               <tr>
                 <td className="border p-3">Nike Pegasus 41</td>
-                <td className="border p-3 text-center">$130.00</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">9.4 oz</td>
                 <td className="border p-3 text-center">10mm</td>
                 <td className="border p-3 text-center">All-around</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">ASICS Gel-Kayano 31</td>
-                <td className="border p-3 text-center">$159.95</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">10.9 oz</td>
                 <td className="border p-3 text-center">10mm</td>
                 <td className="border p-3 text-center">Stability</td>
               </tr>
               <tr>
                 <td className="border p-3">NB 1080v13</td>
-                <td className="border p-3 text-center">$159.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">10.1 oz</td>
                 <td className="border p-3 text-center">6mm</td>
                 <td className="border p-3 text-center">Premium comfort</td>
@@ -699,26 +699,24 @@ const BestRunningShoesWeightLossPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>New to running:</strong> <strong>Brooks Ghost 16 at $139.95</strong> works for
-            almost everyone and feels good from the first run.
+            <strong>New to running:</strong> <strong>Brooks Ghost 16</strong> works for almost
+            everyone and feels good from the first run.
           </li>
           <li>
-            <strong>Joint pain or heavier weight:</strong>{' '}
-            <strong>HOKA Clifton 9 at $145.00</strong> has the most cushioning per ounce of shoe
-            weight.
+            <strong>Joint pain or heavier weight:</strong> <strong>HOKA Clifton 9</strong> has the
+            most cushioning per ounce of shoe weight.
           </li>
           <li>
-            <strong>One shoe for everything:</strong> <strong>Nike Pegasus 41 at $130.00</strong>{' '}
-            handles easy runs, tempo runs, and races at the lowest price here.
+            <strong>One shoe for everything:</strong> <strong>Nike Pegasus 41</strong> handles easy
+            runs, tempo runs, and races at the lowest price here.
           </li>
           <li>
-            <strong>Overpronation:</strong> <strong>ASICS Gel-Kayano 31 at $159.95</strong> is the
-            stability shoe that does not feel like a stability shoe.
+            <strong>Overpronation:</strong> <strong>ASICS Gel-Kayano 31</strong> is the stability
+            shoe that does not feel like a stability shoe.
           </li>
           <li>
-            <strong>Want the best of everything:</strong>{' '}
-            <strong>New Balance 1080v13 at $159.99</strong> if comfort, responsiveness, and fit
-            quality all matter equally to you.
+            <strong>Want the best of everything:</strong> <strong>New Balance 1080v13</strong> if
+            comfort, responsiveness, and fit quality all matter equally to you.
           </li>
         </ul>
 

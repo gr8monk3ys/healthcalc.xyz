@@ -31,7 +31,7 @@ Success (inferred): a visitor lands on a calculator, gets a correct result with 
 
 - Formula transparency: "Every calculator cites the specific formula it uses" (about page). The `/about/editorial` page lists the formulas (Mifflin-St Jeor, Harris-Benedict, Katch-McArdle, U.S. Navy circumference, Jackson-Pollock, and others).
 - Correctness as an engineering discipline (README): every calculator is a pure function with a colocated test asserting against hand-computed reference values; `calculateBMR` / `calculateTDEE` are the single BMR/TDEE implementation that dependent calculators import.
-- Breadth in one place: about 70 catalog entries (`src/constants/calculatorCatalog.ts`, 70 slugs; the about page says 52 and the hero says "50+", so the exact count in copy is stale (inferred)).
+- Breadth in one place: 56 calculators in 9 hubs (`src/constants/calculatorCatalog.ts`); copy derives the count from the catalog and never hardcodes it.
 - Free, no account required, calculations run client-side.
 
 ## Operating Context
@@ -56,7 +56,7 @@ Success (inferred): a visitor lands on a calculator, gets a correct result with 
 
 - Name: HealthCalc; domain healthcalc.xyz; canonical host www.healthcalc.xyz (owner brief).
 - Voice as shipped: plain, direct, second person, short sentences, no hype ("That is the whole idea.", "These are still estimates. A DEXA scan will always beat a circumference formula."). Treat this as binding for new copy (inferred from about-page copy).
-- The about page names three subject-matter reviewers with credentials (`src/constants/reviewers.ts`). Their existence and credentials are asserted by site copy only; the repository contains no independent evidence, so do not extend or embellish those claims.
+- Content is credited to the HealthCalc Editorial Team (`src/constants/reviewers.ts`). Named reviewers were removed on 2026-11-18 because they could not be verified (owner decision); only name an individual reviewer when the owner supplies a real, linkable person.
 - Visual identity is documented separately in DESIGN.md; the brief for this record did not make any visual constraint binding.
 
 ## Evidence on Hand

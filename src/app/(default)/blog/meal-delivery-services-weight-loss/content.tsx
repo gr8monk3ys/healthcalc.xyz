@@ -119,19 +119,18 @@ const MealDeliveryServicesPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Factor ($11/meal) - Chef-prepared, ready-to-eat,
-              calorie-smart options
+              <strong>Best Overall:</strong> Factor - Chef-prepared, ready-to-eat, calorie-smart
+              options
             </li>
             <li>
-              <strong>Best for Cooking:</strong> HelloFresh ($8/serving) - Fresh ingredients with
+              <strong>Best for Cooking:</strong> HelloFresh - Fresh ingredients with
               calorie-controlled recipes
             </li>
             <li>
-              <strong>Best for Athletes:</strong> Trifecta ($13/meal) - Macro-balanced, organic
-              ingredients
+              <strong>Best for Athletes:</strong> Trifecta - Macro-balanced, organic ingredients
             </li>
             <li>
-              <strong>Best Budget:</strong> MealPro ($9/meal) - Customizable macros at lower cost
+              <strong>Best Budget:</strong> MealPro - Customizable macros at lower cost
             </li>
           </ul>
         </div>
@@ -281,7 +280,7 @@ const MealDeliveryServicesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Factor</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">From $11/meal</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -341,7 +340,7 @@ const MealDeliveryServicesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">HelloFresh</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">From $8/serving</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -395,7 +394,7 @@ const MealDeliveryServicesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Trifecta Nutrition</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">From $13/meal</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -449,7 +448,7 @@ const MealDeliveryServicesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">MealPro</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">From $9/meal</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -527,7 +526,7 @@ const MealDeliveryServicesPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Service</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Prep Time</th>
                 <th className="border p-3 text-center">Low-Cal Options</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -536,28 +535,28 @@ const MealDeliveryServicesPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Factor</td>
-                <td className="border p-3 text-center">$11/meal</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">2-7 min</td>
                 <td className="border p-3 text-center">&lt;550 cal</td>
                 <td className="border p-3 text-center">Convenience</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">HelloFresh</td>
-                <td className="border p-3 text-center">$8/serving</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">30-45 min</td>
                 <td className="border p-3 text-center">&lt;650 cal</td>
                 <td className="border p-3 text-center">Home cooking</td>
               </tr>
               <tr>
                 <td className="border p-3">Trifecta</td>
-                <td className="border p-3 text-center">$13/meal</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">2-5 min</td>
                 <td className="border p-3 text-center">Varies</td>
                 <td className="border p-3 text-center">Athletes</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">MealPro</td>
-                <td className="border p-3 text-center">$9/meal</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">3-5 min</td>
                 <td className="border p-3 text-center">Customizable</td>
                 <td className="border p-3 text-center">Budget/Macros</td>

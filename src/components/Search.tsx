@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import { createLogger } from '@/utils/logger';
 import { useLocale } from '@/context/LocaleContext';
 import type { SupportedLocale } from '@/i18n/config';
+import type { SearchIndex } from '@/lib/searchIndex';
 
 const logger = createLogger({ component: 'Search' });
 
@@ -214,18 +215,6 @@ interface SearchResult {
   category?: string;
   tags?: string[];
   score: number;
-}
-
-interface SearchIndex {
-  [key: string]: {
-    title: string;
-    description: string;
-    url: string;
-    type: 'calculator' | 'article' | 'page';
-    category?: string;
-    tags?: string[];
-    content?: string;
-  };
 }
 
 async function loadSearchIndexData(): Promise<SearchIndex> {

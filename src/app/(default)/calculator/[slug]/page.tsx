@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: CalculatorDetailPageProps): P
     title: `${calculator.title} | HealthCalc`,
     description: calculator.detail?.intro || calculator.description,
     alternates: {
-      canonical: './',
+      canonical: `/${calculator.slug}`,
     },
     openGraph: {
       title: `${calculator.title} | HealthCalc`,
       description: calculator.detail?.intro || calculator.description,
-      url: './',
+      url: `/${calculator.slug}`,
       images: [
         {
           url: calculator.image,
@@ -74,7 +74,7 @@ export default async function CalculatorDetailPage({ params }: CalculatorDetailP
         customItems={[
           { name: 'Home', path: '/' },
           { name: 'Calculators', path: '/calculators' },
-          { name: calculator.title, path: `/calculator/${calculator.slug}` },
+          { name: calculator.title, path: `/${calculator.slug}` },
         ]}
       />
 
@@ -134,7 +134,7 @@ export default async function CalculatorDetailPage({ params }: CalculatorDetailP
         data={createCalculatorSchema({
           name: calculator.title,
           description: detail?.intro || calculator.description,
-          url: `https://www.healthcalc.xyz/calculator/${calculator.slug}`,
+          url: `https://www.healthcalc.xyz/${calculator.slug}`,
         })}
       />
       {detail?.faqs?.length ? <StructuredData data={createFAQSchema(detail.faqs)} /> : null}

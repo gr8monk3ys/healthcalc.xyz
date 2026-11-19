@@ -6,6 +6,7 @@ interface ChainsPageProps {
 }
 
 export const metadata: Metadata = {
+  alternates: { canonical: './' },
   title: 'Guided Health Workflows | HealthCalc',
   description:
     'Start guided health workflows that carry your inputs between calculators for a smoother assessment flow.',

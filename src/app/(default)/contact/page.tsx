@@ -3,6 +3,7 @@ import ContactForm from '@/components/ContactForm';
 import { getContactMailApiKey } from '@/lib/contactMail';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Contact Us | HealthCalc',
   description: 'Get in touch with the HealthCalc team for questions, feedback, or support.',
 };

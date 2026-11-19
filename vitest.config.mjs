@@ -35,7 +35,9 @@ export default defineConfig({
     },
   },
   resolve: {
+    // Mirrors tsconfig.json `paths`; the more specific alias must come first.
     alias: {
+      '@/app': path.resolve(__dirname, './src/app/(default)'),
       '@': path.resolve(__dirname, './src'),
     },
   },

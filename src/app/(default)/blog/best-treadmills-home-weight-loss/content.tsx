@@ -90,24 +90,24 @@ const BestTreadmillsHomeWeightLossPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> NordicTrack Commercial 1750 ($1,799) - 14″ touchscreen,
+              <strong>Best Overall:</strong> NordicTrack Commercial 1750 - 14″ touchscreen,
               incline/decline, iFit integration
             </li>
             <li>
-              <strong>Best for Durability:</strong> Sole F80 ($1,599) - Lifetime frame warranty,
+              <strong>Best for Durability:</strong> Sole F80 - Lifetime frame warranty,
               commercial-grade feel, no subscriptions
             </li>
             <li>
-              <strong>Best Mid-Range:</strong> ProForm Pro 2000 ($1,299) - 10% decline, decent
-              motor, good value
+              <strong>Best Mid-Range:</strong> ProForm Pro 2000 - 10% decline, decent motor, good
+              value
             </li>
             <li>
-              <strong>Best Value:</strong> Horizon 7.0 AT ($999) - Solid basics, minimal tech,
-              reliable motor
+              <strong>Best Value:</strong> Horizon 7.0 AT - Solid basics, minimal tech, reliable
+              motor
             </li>
             <li>
-              <strong>Best Budget:</strong> Sunny Health SF-T4400 ($349) - Manual incline, compact
-              fold, no frills
+              <strong>Best Budget:</strong> Sunny Health SF-T4400 - Manual incline, compact fold, no
+              frills
             </li>
           </ul>
         </div>
@@ -241,10 +241,10 @@ const BestTreadmillsHomeWeightLossPageContent = (
             restructuring your entire life.
           </p>
           <p>
-            The treadmills below range from $349 to $1,799. That is a big spread, but each one
-            serves a different need. If you are walking for weight loss, you do not need the $1,799
-            model. If you are training for a marathon, the $349 model will break. I will tell you
-            what each treadmill does well and who should buy it.
+            The treadmills below range from budget to premium. That is a big spread, but each one
+            serves a different need. If you are walking for weight loss, you do not need the most
+            expensive model. If you are training for a marathon, the cheapest model will break. I
+            will tell you what each treadmill does well and who should buy it.
           </p>
         </div>
 
@@ -296,7 +296,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$1,799</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             The Commercial 1750 is the treadmill I own and the one I recommend to anyone who can
@@ -329,8 +329,8 @@ const BestTreadmillsHomeWeightLossPageContent = (
               quality, works without iFit subscription
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $1,799 is expensive, requires iFit subscription for guided
-              workouts ($39/month), heavy (340 lbs, hard to move), assembly is a pain
+              <strong>Cons:</strong> Expensive, requires a paid iFit subscription for guided
+              workouts, heavy (340 lbs, hard to move), assembly is a pain
             </p>
           </div>
           <div className="mt-4">
@@ -360,7 +360,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$1,599</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
           <p className="mb-4">
             Sole builds treadmills for hotels and physical therapy clinics. The F80 is their
@@ -425,7 +425,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$1,299</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             ProForm is owned by the same company as NordicTrack, so the Pro 2000 shares some DNA
@@ -449,7 +449,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
             Runners on a budget who still want incline/decline training. The narrower belt and
-            smaller screen are acceptable trade-offs if you save $500 compared to the NordicTrack.
+            smaller screen are acceptable trade-offs if you save money compared to the NordicTrack.
             Good for households where multiple people run at different paces.
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -489,15 +489,15 @@ const BestTreadmillsHomeWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$999</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
           <p className="mb-4">
             The 7.0 AT is what I recommend to friends who want a treadmill for walking and
-            occasional jogging but do not want to spend $1,500. The 3.0 CHP motor is adequate for
-            speeds up to 10 mph. The 20″ x 60″ belt is standard size. The incline goes to 15% but
-            there is no decline. The console is basic: backlit LCD with speed, time, distance, and
-            calories. No touchscreen, no apps, no Bluetooth. That simplicity keeps the price at $999
-            and reduces long-term maintenance. Horizon offers a lifetime frame warranty and a
+            occasional jogging but do not want to pay premium prices. The 3.0 CHP motor is adequate
+            for speeds up to 10 mph. The 20″ x 60″ belt is standard size. The incline goes to 15%
+            but there is no decline. The console is basic: backlit LCD with speed, time, distance,
+            and calories. No touchscreen, no apps, no Bluetooth. That simplicity keeps the price
+            down and reduces long-term maintenance. Horizon offers a lifetime frame warranty and a
             10-year motor warranty, which tells me they trust the build quality.
           </p>
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -518,8 +518,8 @@ const BestTreadmillsHomeWeightLossPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Under $1,000, lifetime frame warranty, 350 lb capacity, simple
-              and reliable, easy assembly
+              <strong>Pros:</strong> Mid-range price, lifetime frame warranty, 350 lb capacity,
+              simple and reliable, easy assembly
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> No decline feature, basic console with no apps, 3.0 CHP motor
@@ -553,14 +553,14 @@ const BestTreadmillsHomeWeightLossPageContent = (
                 &#9733;&#9733;&#9733;&#9734;&#9734; 3.9 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$349</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
           <p className="mb-4">
             This is the treadmill you buy when you are not sure if you will stick with it. The 2.2
             HP peak motor (not continuous) is only strong enough for walking and light jogging. The
             16″ x 49″ belt is narrow and short. The incline is manual (you have to stop, get off,
-            and adjust a pin). The LCD shows basic stats. But here is the thing: it costs $349 and
-            it folds up when you are done. If you are starting a{' '}
+            and adjust a pin). The LCD shows basic stats. But here is the thing: it is the cheapest
+            treadmill here and it folds up when you are done. If you are starting a{' '}
             <Link href="/calorie-deficit" className="text-accent hover:underline">
               calorie deficit
             </Link>{' '}
@@ -585,7 +585,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
           </p>
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
             <p className="text-sm">
-              <strong>Pros:</strong> Extremely affordable at $349, folds up easily, lightweight and
+              <strong>Pros:</strong> Extremely affordable, folds up easily, lightweight and
               portable, simple assembly
             </p>
             <p className="text-sm mt-2">
@@ -612,7 +612,7 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Treadmill</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Motor</th>
                 <th className="border p-3 text-center">Belt Size</th>
                 <th className="border p-3 text-center">Best for</th>
@@ -621,35 +621,35 @@ const BestTreadmillsHomeWeightLossPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">NordicTrack Commercial 1750</td>
-                <td className="border p-3 text-center">$1,799</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">3.75 CHP</td>
                 <td className="border p-3 text-center">22″ x 60″</td>
                 <td className="border p-3 text-center">Serious runners</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Sole F80</td>
-                <td className="border p-3 text-center">$1,599</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">3.5 CHP</td>
                 <td className="border p-3 text-center">22″ x 60″</td>
                 <td className="border p-3 text-center">Durability</td>
               </tr>
               <tr>
                 <td className="border p-3">ProForm Pro 2000</td>
-                <td className="border p-3 text-center">$1,299</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">3.5 CHP</td>
                 <td className="border p-3 text-center">20″ x 60″</td>
                 <td className="border p-3 text-center">Mid-range value</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Horizon 7.0 AT</td>
-                <td className="border p-3 text-center">$999</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">3.0 CHP</td>
                 <td className="border p-3 text-center">20″ x 60″</td>
                 <td className="border p-3 text-center">Walkers and joggers</td>
               </tr>
               <tr>
                 <td className="border p-3">Sunny Health SF-T4400</td>
-                <td className="border p-3 text-center">$349</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">2.2 HP</td>
                 <td className="border p-3 text-center">16″ x 49″</td>
                 <td className="border p-3 text-center">Budget walkers</td>
@@ -742,25 +742,24 @@ const BestTreadmillsHomeWeightLossPageContent = (
         <h2 className="text-2xl font-bold mt-8 mb-4">Final recommendations</h2>
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best treadmill overall:</strong>{' '}
-            <strong>NordicTrack Commercial 1750 at $1,799</strong> if you run regularly and want
-            gym-quality equipment at home.
+            <strong>Best treadmill overall:</strong> <strong>NordicTrack Commercial 1750</strong> if
+            you run regularly and want gym-quality equipment at home.
           </li>
           <li>
-            <strong>Best for durability:</strong> <strong>Sole F80 at $1,599</strong> for lifetime
-            warranty and no subscription fees.
+            <strong>Best for durability:</strong> <strong>Sole F80</strong> for lifetime warranty
+            and no subscription fees.
           </li>
           <li>
-            <strong>Best mid-range:</strong> <strong>ProForm Pro 2000 at $1,299</strong> if you want
-            incline/decline without spending $1,800.
+            <strong>Best mid-range:</strong> <strong>ProForm Pro 2000</strong> if you want
+            incline/decline without paying premium prices.
           </li>
           <li>
-            <strong>Best value:</strong> <strong>Horizon 7.0 AT at $999</strong> for walkers and
-            light joggers who do not need premium features.
+            <strong>Best value:</strong> <strong>Horizon 7.0 AT</strong> for walkers and light
+            joggers who do not need premium features.
           </li>
           <li>
-            <strong>Best budget:</strong> <strong>Sunny Health SF-T4400 at $349</strong> if you are
-            testing the waters and do not want to commit to an expensive machine yet.
+            <strong>Best budget:</strong> <strong>Sunny Health SF-T4400</strong> if you are testing
+            the waters and do not want to commit to an expensive machine yet.
           </li>
         </ul>
 

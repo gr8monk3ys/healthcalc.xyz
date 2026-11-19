@@ -1,4 +1,13 @@
 const DEFAULT_ADSENSE_PUBLISHER_ID = 'ca-pub-4505962980988232';
+/**
+ * Set NEXT_PUBLIC_ADSENSE_GOOGLE_CMP=1 once a consent message is published in
+ * AdSense (Privacy & messaging). Google's tag then asks for ad consent itself
+ * where the law requires it, so the site's own banner stops gating ads and
+ * visitors elsewhere are served without a prompt. Leave it unset until then:
+ * loading the ad tag with no consent tool in place is not lawful in the EEA.
+ */
+export const GOOGLE_CMP_MANAGES_AD_CONSENT = process.env.NEXT_PUBLIC_ADSENSE_GOOGLE_CMP === '1';
+
 const ADSENSE_PUBLISHER_ID_PATTERN = /^ca-pub-\d{16}$/;
 const AUTOMATED_BROWSER_PATTERN = /\b(?:HeadlessChrome|PhantomJS|Playwright|puppeteer)\b/i;
 // AdSense copies the page URL into every ad request. `r` is a shared result's

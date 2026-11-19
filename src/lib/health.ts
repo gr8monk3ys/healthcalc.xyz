@@ -35,7 +35,11 @@ export function createHealthCalcs(): HealthCalcs {
   const hasConvertKit = has(process.env.CONVERTKIT_API_KEY) && has(process.env.CONVERTKIT_FORM_ID);
   const hasResendAudience = has(process.env.RESEND_API_KEY) && has(process.env.RESEND_AUDIENCE_ID);
   const hasResend = has(process.env.RESEND_API_KEY);
-  const hasPostgres = has(process.env.DATABASE_URL) || has(process.env.SUBMISSIONS_POSTGRES_URL);
+  // POSTGRES_URL is the name Vercel's Postgres integrations provision.
+  const hasPostgres =
+    has(process.env.DATABASE_URL) ||
+    has(process.env.SUBMISSIONS_POSTGRES_URL) ||
+    has(process.env.POSTGRES_URL);
   const dbDriver = (process.env.SUBMISSIONS_DB_DRIVER ?? '').trim().toLowerCase();
   const clerkPublishable = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.trim();
   const clerkSecret = process.env.CLERK_SECRET_KEY?.trim();

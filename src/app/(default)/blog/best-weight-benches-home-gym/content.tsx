@@ -113,24 +113,24 @@ const BestWeightBenchesHomeGymPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> REP Fitness AB-3000 FID Bench ($349) - Commercial
-              quality, 1000 lb capacity, 7 back positions
+              <strong>Best Overall:</strong> REP Fitness AB-3000 FID Bench - Commercial quality,
+              1000 lb capacity, 7 back positions
             </li>
             <li>
-              <strong>Best Space-Saver:</strong> Bowflex 5.1S Stowable Bench ($349) - Folds upright
-              for storage, 6 positions, 600 lb capacity
+              <strong>Best Space-Saver:</strong> Bowflex 5.1S Stowable Bench - Folds upright for
+              storage, 6 positions, 600 lb capacity
             </li>
             <li>
-              <strong>Best Budget:</strong> Fitness Reality 1000 Super Max ($89) - 800 lb capacity,
-              12 positions, removable leg hold-down
+              <strong>Best Budget:</strong> Fitness Reality 1000 Super Max - 800 lb capacity, 12
+              positions, removable leg hold-down
             </li>
             <li>
-              <strong>Best Portable:</strong> FLYBIRD Adjustable Bench ($139) - Lightweight, folds
-              flat, 7 back positions, 620 lb capacity
+              <strong>Best Portable:</strong> FLYBIRD Adjustable Bench - Lightweight, folds flat, 7
+              back positions, 620 lb capacity
             </li>
             <li>
-              <strong>Best Premium:</strong> Rogue Adjustable Bench 3.0 ($695) - Tank-like build,
-              1000+ lb capacity, Thompson fat pad option
+              <strong>Best Premium:</strong> Rogue Adjustable Bench 3.0 - Tank-like build, 1000+ lb
+              capacity, Thompson fat pad option
             </li>
           </ul>
         </div>
@@ -191,8 +191,8 @@ const BestWeightBenchesHomeGymPageContent = (
         </p>
 
         <p>
-          I have tested five benches across a wide price range, from an $89 budget pick to a $695
-          premium option. Here is what I found and what I honestly think about each one.
+          I have tested five benches across a wide price range, from a budget pick to a premium
+          option. Here is what I found and what I honestly think about each one.
         </p>
 
         {/* Toolkit Box */}
@@ -311,7 +311,7 @@ const BestWeightBenchesHomeGymPageContent = (
               </span>
               <h3 className="text-xl font-semibold">REP Fitness AB-3000 FID Adjustable Bench</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -394,7 +394,7 @@ const BestWeightBenchesHomeGymPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Bowflex 5.1S Stowable Weight Bench</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.00</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -479,15 +479,15 @@ const BestWeightBenchesHomeGymPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Fitness Reality 1000 Super Max Weight Bench</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$89.00</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
-            At $89, you might expect a flimsy bench that wobbles the moment you load any real weight
-            on it. The Fitness Reality 1000 genuinely surprised me. Its 800 lb weight capacity is
-            not just a marketing number. The frame is solid steel, and the construction quality
-            punches well above its price point. I have recommended this bench to at least a dozen
-            people starting home gyms on a budget, and none of them have been disappointed.
+            At this price, you might expect a flimsy bench that wobbles the moment you load any real
+            weight on it. The Fitness Reality 1000 genuinely surprised me. Its 800 lb weight
+            capacity is not just a marketing number. The frame is solid steel, and the construction
+            quality punches well above its price point. I have recommended this bench to at least a
+            dozen people starting home gyms on a budget, and none of them have been disappointed.
           </p>
 
           <p className="mb-4">
@@ -511,18 +511,18 @@ const BestWeightBenchesHomeGymPageContent = (
           <h4 className="font-semibold mt-4 mb-2">Where it falls short:</h4>
           <p>
             The pad. It is the biggest weakness of this bench. The foam is thinner and less dense
-            than what you get on a $300+ bench. After about six months of regular use, you will feel
-            the steel frame through the cushion on heavier lifts. Some people add a separate bench
-            pad on top, which solves the problem for another $20 to $30. The vinyl also tends to get
-            slippery with sweat, so keep a towel handy.
+            than what you get on a pricier bench. After about six months of regular use, you will
+            feel the steel frame through the cushion on heavier lifts. Some people add a separate
+            bench pad on top, which solves the problem for another $20 to $30. The vinyl also tends
+            to get slippery with sweat, so keep a towel handy.
           </p>
 
           <p className="mt-2">
             The other trade-off is stability. At 35 lbs, this bench is less than half the weight of
             the REP Fitness. It does not slide on rubber mats, but on smooth floors, you will want
-            something under the feet. Despite these issues, for $89, it is absurdly good value. I
-            would rather someone buy this bench and actually start lifting than wait months to save
-            for a premium option.
+            something under the feet. Despite these issues, it is absurdly good value for the price.
+            I would rather someone buy this bench and actually start lifting than wait months to
+            save for a premium option.
           </p>
 
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
@@ -563,15 +563,15 @@ const BestWeightBenchesHomeGymPageContent = (
               </span>
               <h3 className="text-xl font-semibold">FLYBIRD Adjustable Weight Bench</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$139.00</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
             The FLYBIRD has become one of the most popular home gym benches on Amazon, and I think
-            the reason is simple. It folds completely flat, it weighs only 28 lbs, and it costs less
-            than $140. You can slide it under a bed, lean it against a closet wall, or toss it in
-            your car. For people who do not have a dedicated gym space, this portability is a huge
-            deal.
+            the reason is simple. It folds completely flat, it weighs only 28 lbs, and it sits in
+            the budget tier. You can slide it under a bed, lean it against a closet wall, or toss it
+            in your car. For people who do not have a dedicated gym space, this portability is a
+            huge deal.
           </p>
 
           <p className="mb-4">
@@ -647,15 +647,15 @@ const BestWeightBenchesHomeGymPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Rogue Adjustable Bench 3.0</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$695.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
-            Let me be upfront. $695 is a lot for a weight bench. I would not tell most people to
-            spend this much. But if you are serious about your home gym and want something that will
-            outlast you, the Rogue Adjustable Bench 3.0 is the answer to a question you never have
-            to ask again. It is built like industrial equipment. The 3x3 inch 11-gauge steel frame
-            does not flex, wobble, or creak. Ever.
+            Let me be upfront. This is a lot of money for a weight bench. I would not tell most
+            people to spend this much. But if you are serious about your home gym and want something
+            that will outlast you, the Rogue Adjustable Bench 3.0 is the answer to a question you
+            never have to ask again. It is built like industrial equipment. The 3x3 inch 11-gauge
+            steel frame does not flex, wobble, or creak. Ever.
           </p>
 
           <p className="mb-4">
@@ -700,9 +700,8 @@ const BestWeightBenchesHomeGymPageContent = (
               stability at 130 lbs, Thompson Fat Pad option, excellent resale value, made in the USA
             </p>
             <p className="text-sm mt-2">
-              <strong>Cons:</strong> $695 is a serious investment, weighs 130 lbs so it stays where
-              you put it, no decline position, Thompson Fat Pad costs extra, overkill for casual
-              lifters
+              <strong>Cons:</strong> A serious investment, weighs 130 lbs so it stays where you put
+              it, no decline position, Thompson Fat Pad costs extra, overkill for casual lifters
             </p>
           </div>
 
@@ -726,7 +725,7 @@ const BestWeightBenchesHomeGymPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Bench</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Capacity</th>
                 <th className="border p-3 text-center">Positions</th>
                 <th className="border p-3 text-center">Weight</th>
@@ -736,7 +735,7 @@ const BestWeightBenchesHomeGymPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">REP Fitness AB-3000</td>
-                <td className="border p-3 text-center">$349</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">1000 lbs</td>
                 <td className="border p-3 text-center">7 back + 3 seat</td>
                 <td className="border p-3 text-center">67 lbs</td>
@@ -744,7 +743,7 @@ const BestWeightBenchesHomeGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Bowflex 5.1S</td>
-                <td className="border p-3 text-center">$349</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">600 lbs</td>
                 <td className="border p-3 text-center">6 back</td>
                 <td className="border p-3 text-center">56 lbs</td>
@@ -752,7 +751,7 @@ const BestWeightBenchesHomeGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Fitness Reality 1000</td>
-                <td className="border p-3 text-center">$89</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">800 lbs</td>
                 <td className="border p-3 text-center">12 back</td>
                 <td className="border p-3 text-center">35 lbs</td>
@@ -760,7 +759,7 @@ const BestWeightBenchesHomeGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">FLYBIRD Adjustable</td>
-                <td className="border p-3 text-center">$139</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">620 lbs</td>
                 <td className="border p-3 text-center">7 back + 3 seat</td>
                 <td className="border p-3 text-center">28 lbs</td>
@@ -768,7 +767,7 @@ const BestWeightBenchesHomeGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Rogue Bench 3.0</td>
-                <td className="border p-3 text-center">$695</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">1000+ lbs</td>
                 <td className="border p-3 text-center">6 back</td>
                 <td className="border p-3 text-center">130 lbs</td>
@@ -783,36 +782,35 @@ const BestWeightBenchesHomeGymPageContent = (
 
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best for most home gym owners:</strong> The{' '}
-            <strong>REP Fitness AB-3000 at $349</strong> gives you commercial quality without the
-            commercial price tag. If you have a dedicated gym space and plan to lift seriously, this
-            is the one.
+            <strong>Best for most home gym owners:</strong> The <strong>REP Fitness AB-3000</strong>{' '}
+            gives you commercial quality without the commercial price tag. If you have a dedicated
+            gym space and plan to lift seriously, this is the one.
           </li>
           <li>
-            <strong>Best if space is tight:</strong> The <strong>Bowflex 5.1S at $349</strong> folds
-            out of the way and still handles real training. Apartment lifters and garage gym owners
-            sharing space will appreciate it.
+            <strong>Best if space is tight:</strong> The <strong>Bowflex 5.1S</strong> folds out of
+            the way and still handles real training. Apartment lifters and garage gym owners sharing
+            space will appreciate it.
           </li>
           <li>
-            <strong>Best on a budget:</strong> The <strong>Fitness Reality 1000 at $89</strong> is
+            <strong>Best on a budget:</strong> The <strong>Fitness Reality 1000</strong> is
             ridiculous value. Buy it, start lifting, and upgrade later if you outgrow it. The 800 lb
             capacity means most people never will.
           </li>
           <li>
-            <strong>Best for dumbbell training:</strong> The <strong>FLYBIRD at $139</strong> is
-            light, portable, and perfectly suited for dumbbell workouts. If you are not loading a
-            barbell with 300+ lbs, this bench does everything you need.
+            <strong>Best for dumbbell training:</strong> The <strong>FLYBIRD</strong> is light,
+            portable, and perfectly suited for dumbbell workouts. If you are not loading a barbell
+            with 300+ lbs, this bench does everything you need.
           </li>
           <li>
             <strong>Best buy-it-for-life option:</strong> The{' '}
-            <strong>Rogue Adjustable Bench 3.0 at $695</strong> is an investment. But it is the last
-            bench you will ever buy. If that matters to you, the math works out over time.
+            <strong>Rogue Adjustable Bench 3.0</strong> is an investment. But it is the last bench
+            you will ever buy. If that matters to you, the math works out over time.
           </li>
         </ul>
 
         <p>
           Here is what I tell everyone who asks: buy the Fitness Reality 1000 if you are just
-          starting out. Spend $89, start training, and figure out what you actually need from a
+          starting out. Spend a little, start training, and figure out what you actually need from a
           bench. If you know you are in it for the long haul, go straight to the REP Fitness
           AB-3000. It is the best balance of quality and price in the weight bench market right now.
         </p>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Pregnancy Health | HealthCalc',
   description: 'Key pregnancy calculators for due dates and weight gain guidance.',
 };

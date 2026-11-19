@@ -1,49 +1,116 @@
-/* Tailwind CSS v4 */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* ~/code/ui theme: warm paper, forest green, gallery language (tokens +
-   type scale + motion + paper grain). Dark mode is toggled via a `.dark`
-   class on <html> (see PreferencesContext); identity.css's own
-   `@custom-variant dark (&:is(.dark *));` covers that, so this file no
-   longer declares its own. Knobs set below the import, per the registry's
-   README: only --primary and --radius are ours to choose. */
-@import './identity.css';
+/* Dark mode is a `.dark` class on <html>, set before paint by the bootstrap
+   script in (default)/layout.tsx. */
+@custom-variant dark (&:is(.dark *));
 
-/* App knobs (the only two identity.css says a consumer may set). --primary
-   keeps healthcalc's existing indigo brand accent (#4d55e8 / #8b93ff dark) —
-   the color already used everywhere via --accent below — converted to HSL so
-   identity's `hsl(var(--primary))` utilities resolve correctly. --radius
-   matches the site's existing --radius-neumorph personality. */
+/* ---------------------------------------------------------------------------
+ * Tokens: white label stock, near-black ink, one highlighter yellow.
+ * --background / --foreground / --primary stay HSL triples because components
+ * read them as hsl(var(--x)).
+ * ------------------------------------------------------------------------ */
+
 :root {
-  --primary: 237 77% 61%; /* #4d55e8 */
-  --radius: 1rem;
-}
-.dark {
-  --primary: 236 100% 77%; /* #8b93ff */
+  --paper: #ffffff;
+  --paper-2: #f3f1ea;
+  --ink: #0b0b0b;
+  --ink-2: #45433d;
+  --mark: #ffd400;
+  --on-mark: #0b0b0b;
+  --rule-soft: rgba(11, 11, 11, 0.22);
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 4%;
+  --primary: 0 0% 4%;
+
+  --accent: var(--ink);
+  --accent-light: var(--ink-2);
+  --accent-dark: var(--ink);
+  --accent-alt: var(--ink);
+  --accent-alt-light: var(--mark);
+  --surface: var(--paper);
+  --surface-dark: var(--paper-2);
+  --surface-muted: rgba(11, 11, 11, 0.06);
+  --card-border: var(--ink);
+  --glass-fill: var(--paper);
+  --muted-ink: var(--ink-2);
+
+  --success: #0e7a44;
+  --warning: #8f5200;
+  --danger: #c81e1e;
+  --info: #1d4ed8;
 }
 
-/* Custom theme values for Tailwind v4 */
+.dark {
+  --paper: #0b0b0b;
+  --paper-2: #1b1a17;
+  --ink: #f6f3ea;
+  --ink-2: #bcb8ab;
+  --rule-soft: rgba(246, 243, 234, 0.28);
+
+  --background: 0 0% 4%;
+  --foreground: 45 40% 94%;
+  --primary: 45 40% 94%;
+
+  --surface-muted: rgba(246, 243, 234, 0.09);
+
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --info: #93b4ff;
+}
+
 @theme {
-  --radius-neumorph: 1rem;
-  /* --surface / --surface-dark: healthcalc's own near-white "raised panel"
-     fill. Was named --primary/--primary-dark pre-adoption, which collided
-     with identity.css's real, hsl()-wrapped --primary (the brand knob
-     above) — renamed so both concepts can coexist. */
-  --color-surface: var(--surface);
-  --color-surface-dark: var(--surface-dark);
-  --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-accent-dark: var(--accent-dark);
-  --color-accent-alt: var(--accent-alt);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
-  --color-info: var(--info);
-  --animate-fade-in: fadeIn 0.5s ease-in-out;
-  --animate-slide-in-up: slideInUp 0.5s ease-out;
-  --animate-pulse: pulse 2s infinite ease-in-out;
-  --animate-shimmer: shimmer 2s infinite;
+  --font-display: var(--site-font), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--site-font), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--site-font), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+
+  /* Square corners and no shadows are the system: zeroing the scales makes
+     every `rounded-*` / `shadow-*` utility in the codebase comply at once. */
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-4xl: 0;
+  --shadow-2xs: 0 0 #0000;
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-xl: 0 0 #0000;
+  --shadow-2xl: 0 0 #0000;
+
+  /* Tailwind's gray and slate are blue-tinted; the label is neutral ink. */
+  --color-gray-50: var(--color-stone-50);
+  --color-gray-100: var(--color-stone-100);
+  --color-gray-200: var(--color-stone-200);
+  --color-gray-300: var(--color-stone-300);
+  --color-gray-400: var(--color-stone-400);
+  --color-gray-500: var(--color-stone-500);
+  --color-gray-600: var(--color-stone-600);
+  --color-gray-700: var(--color-stone-700);
+  --color-gray-800: var(--color-stone-800);
+  --color-gray-900: var(--color-stone-900);
+  --color-gray-950: var(--color-stone-950);
+  --color-slate-50: var(--color-stone-50);
+  --color-slate-100: var(--color-stone-100);
+  --color-slate-200: var(--color-stone-200);
+  --color-slate-300: var(--color-stone-300);
+  --color-slate-400: var(--color-stone-400);
+  --color-slate-500: var(--color-stone-500);
+  --color-slate-600: var(--color-stone-600);
+  --color-slate-700: var(--color-stone-700);
+  --color-slate-800: var(--color-stone-800);
+  --color-slate-900: var(--color-stone-900);
+  --color-slate-950: var(--color-stone-950);
+
+  --animate-fade-in: fadeIn 0.25s ease-out;
+  --animate-slide-in-up: slideInUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
   @keyframes fadeIn {
     from {
@@ -56,468 +123,581 @@
   @keyframes slideInUp {
     from {
       opacity: 0;
-      transform: translateY(14px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  @keyframes shimmer {
-    0% {
-      background-position: -400px 0;
-    }
-    100% {
-      background-position: 400px 0;
-    }
-  }
 }
 
-/* Custom utility for neumorph border radius */
-@utility rounded-neumorph {
-  border-radius: var(--radius-neumorph);
+/* `inline` so utilities read the token at the element, not at :root: the
+   header re-scopes --ink and --paper and `text-ink` must follow. */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-mark: var(--mark);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-alt: var(--accent-alt);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
 }
 
-:root {
-  /* --font-body / --font-display / --font-mono come from ~/code/ui's
-     fonts.ts (fontVariables), set on <html> in (default)/layout.tsx. */
-  /* --background / --foreground now come from identity.css (warm paper /
-     near-black ink) — the theme's README says the paper and ink are the
-     identity, not a per-app knob, so healthcalc's old blue-tinted
-     --background: #eef0fc / --foreground: #14183a are dropped here. */
-  --surface: #f8f9ff;
-  --surface-dark: #e9ebfa;
-  --accent: #4d55e8;
-  --accent-light: #7b82ff;
-  --accent-dark: #3a41c9;
-  --accent-alt: #0d9488;
-  --accent-alt-light: #2dd4bf;
-  --success: #0e9f6e;
-  --warning: #d97706;
-  --danger: #dc2626;
-  --info: #4f7bff;
-  --muted-ink: #565d8f;
-  --neumorph-shadow-1: rgba(255, 255, 255, 0.9);
-  --neumorph-shadow-2: rgba(50, 55, 140, 0.14);
-  --focus-ring: rgba(77, 85, 232, 0.4);
-  --glass-stroke: rgba(255, 255, 255, 0.72);
-  --glass-fill: rgba(252, 252, 255, 0.72);
-  --glass-fill-strong: rgba(255, 255, 255, 0.82);
-  --surface-muted: rgba(95, 99, 167, 0.07);
-  --card-border: rgba(129, 136, 220, 0.2);
-  --shadow-ambient: 0 1px 2px rgba(30, 34, 90, 0.04), 0 10px 30px -12px rgba(48, 53, 140, 0.18);
-  --shadow-raised: 0 1px 2px rgba(30, 34, 90, 0.05), 0 18px 44px -16px rgba(48, 53, 140, 0.26);
-  --shadow-hover: 0 2px 4px rgba(30, 34, 90, 0.06), 0 24px 52px -18px rgba(58, 65, 201, 0.34);
-}
-
-/* Dark mode variables */
-.dark {
-  /* --background / --foreground: identity.css's slate-night dark mode. */
-  --surface: #161b3e;
-  --surface-dark: #111533;
-  --accent: #8b93ff;
-  --accent-light: #a6acff;
-  --accent-dark: #666dde;
-  --accent-alt: #2dd4bf;
-  --accent-alt-light: #5eead4;
-  --success: #34d399;
-  --warning: #fbbf24;
-  --danger: #f87171;
-  --info: #6da0ff;
-  --muted-ink: #a2a8d8;
-  --neumorph-shadow-1: rgba(40, 46, 96, 0.5);
-  --neumorph-shadow-2: rgba(3, 5, 18, 0.6);
-  --focus-ring: rgba(146, 152, 255, 0.45);
-  --glass-stroke: rgba(158, 166, 255, 0.16);
-  --glass-fill: rgba(23, 28, 63, 0.66);
-  --glass-fill-strong: rgba(22, 27, 62, 0.85);
-  --surface-muted: rgba(167, 176, 255, 0.09);
-  --card-border: rgba(158, 166, 255, 0.16);
-  --shadow-ambient: 0 1px 2px rgba(2, 4, 16, 0.4), 0 12px 32px -12px rgba(2, 4, 18, 0.55);
-  --shadow-raised: 0 1px 2px rgba(2, 4, 16, 0.45), 0 20px 48px -16px rgba(2, 4, 18, 0.68);
-  --shadow-hover: 0 2px 4px rgba(2, 4, 16, 0.5), 0 26px 56px -18px rgba(70, 78, 190, 0.4);
-}
-
-.dark body {
-  background-image:
-    radial-gradient(ellipse 60% 42% at 12% -4%, rgba(99, 108, 255, 0.2), transparent),
-    radial-gradient(ellipse 52% 38% at 88% 4%, rgba(45, 212, 191, 0.07), transparent),
-    radial-gradient(ellipse 70% 46% at 58% 104%, rgba(58, 65, 201, 0.16), transparent);
-}
-
-body {
-  background-color: hsl(var(--background));
-  background-image:
-    radial-gradient(ellipse 60% 42% at 12% -4%, rgba(123, 130, 255, 0.2), transparent),
-    radial-gradient(ellipse 52% 38% at 88% 4%, rgba(45, 212, 191, 0.09), transparent),
-    radial-gradient(ellipse 70% 46% at 58% 104%, rgba(123, 130, 255, 0.12), transparent);
-  color: hsl(var(--foreground));
-  font-family: var(--font-body);
-  line-height: 1.65;
-  letter-spacing: -0.002em;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-  letter-spacing: -0.028em;
-  line-height: 1.15;
-  text-wrap: balance;
-}
-
-p,
-li {
-  text-wrap: pretty;
-}
-
-html {
-  scroll-behavior: smooth;
-  /* Light paper by default; .dark (set before paint by the bootstrap script)
-     switches native scrollbars and form controls to their dark rendering. */
-  color-scheme: light;
-  /* The header is sticky (~5rem tall): keep anchor jumps and focus scrolling
-     clear of it so the focused element is never hidden underneath. */
-  scroll-padding-top: 6rem;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html.dark {
-  color-scheme: dark;
-}
-
-/* Remove the 300ms double-tap-zoom delay on controls without disabling
-   pinch zoom. */
-:where(a, button, input, select, textarea, label, summary, [role='button']) {
-  touch-action: manipulation;
-}
-
-:where(h1, h2, h3, h4, h5, h6)[id] {
-  scroll-margin-top: 6rem;
-}
-
-/* Native <select>: explicit colors so Windows dark mode does not render a
-   light dropdown on a dark page (or the reverse). */
 @layer base {
+  /* Tailwind v4 defaults borders to currentcolor; a bare `border` here is a
+     soft hairline, and the ink rule is opt-in through the panel classes. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--rule-soft);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    /* Keeps anchor jumps and focus scrolling clear of the sticky header. */
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-color: var(--ink) var(--paper);
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: clip;
+    caret-color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Google Translate injects `top` on <body>; keep the sticky header in place. */
+    top: 0 !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Native <select>: explicit colors so a dark OS theme does not render a
+     light dropdown on a dark page (or the reverse). */
   select,
   select option {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+
+  /* Removes the 300ms double-tap-zoom delay without disabling pinch zoom. */
+  :where(a, button, input, select, textarea, label, summary, [role='button']) {
+    touch-action: manipulation;
+  }
+
+  :where(button, input[type='button'], input[type='submit'], input[type='reset'], select) {
+    min-height: 2.75rem;
+  }
+
+  :where(table, [class*='tabular-nums']) {
+    font-variant-numeric: tabular-nums;
+  }
+
+  input[type='radio'],
+  input[type='checkbox'] {
+    accent-color: var(--ink);
+  }
+
+  ::selection {
+    background: var(--mark);
+    color: var(--on-mark);
+  }
+
+  :where(a, button, [role='button'], input, select, textarea, summary):focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--mark);
   }
 }
 
-/* Header units toggle: the active option follows <html data-units>, which the
-   pre-paint bootstrap script sets from stored preferences. */
-.unit-toggle-option {
-  color: rgb(100 116 139);
-}
-.dark .unit-toggle-option {
-  color: rgb(148 163 184);
-}
-html:not([data-units='imperial']) .unit-toggle-option[data-unit='metric'],
-html[data-units='imperial'] .unit-toggle-option[data-unit='imperial'] {
-  font-weight: 700;
-  color: var(--accent);
-}
+/* ---------------------------------------------------------------------------
+ * Legacy utility names the components still use, drawn in the label system.
+ * Unlayered on purpose: these must win over Tailwind utilities so one rule
+ * here governs every page.
+ * ------------------------------------------------------------------------ */
 
-/* Embed iframes (?embed=1): hide the full calculator layout until React swaps
-   in the embed layout, instead of flashing page chrome inside the iframe. */
+/* Embed iframes (?embed=1): hide the full layout until React swaps in the
+   embed layout, instead of flashing page chrome inside the iframe. */
 html[data-embed='1'] [data-calculator-page] {
   visibility: hidden;
 }
 
-/* Numbers in tables line up column by column. */
-:where(table) {
+/* A dark page inverts ink and paper, so white-on-accent would vanish. */
+.dark :is(.bg-accent, .bg-accent-dark, .bg-foreground).text-white {
+  color: var(--paper);
+}
+
+a.text-accent,
+.prose a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+}
+
+a.text-accent:hover,
+.prose a:hover {
+  background: var(--mark);
+  color: var(--on-mark);
+}
+
+/* Pills and chips are square here; spinners keep their circle. */
+.rounded-full:not(.animate-spin) {
+  border-radius: 0;
+}
+
+/* Panels: a 1px ink box. The leading title carries the label's heavy bar. */
+.neumorph,
+.neumorph-card,
+.neumorph-flat,
+.glass-panel,
+.glass-panel-strong,
+.hero-panel,
+.hero-search-shell {
+  background-color: var(--paper);
+  border: 1px solid var(--ink);
+}
+
+.neumorph-card {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+:is(.neumorph, .neumorph-card, .glass-panel, .glass-panel-strong) > :is(h2, h3):first-child {
+  font-size: 1.625rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 10px solid var(--ink);
+}
+
+/* Rows inside a panel: a hairline above, label left, figure right. */
+.neumorph-inset {
+  border: 0;
+  border-top: 1px solid var(--ink);
+  background-color: transparent;
+}
+
+.neumorph-inset :is(.text-2xl, .text-3xl, .text-4xl, .text-xl).font-bold {
+  font-weight: 900;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 
-::selection {
-  background: rgba(109, 116, 255, 0.25);
+/* A result set as label rows: bold label left, tabular figure right. */
+.facts-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--ink);
+  padding: 0.45rem 0;
 }
 
-:where(button, [role='button'], input, select, textarea):focus-visible {
-  outline: 2px solid transparent;
-  box-shadow:
-    0 0 0 2px hsl(var(--background)),
-    0 0 0 4px var(--focus-ring);
+.facts-row > :first-child {
+  font-weight: 800;
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], select) {
-  min-height: 2.75rem;
+.facts-row > :last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---------------------------------------------------------------------------
- * Section rhythm
- * ------------------------------------------------------------------------ */
+.facts-row--figure {
+  border-top: 0;
+  border-bottom: 4px solid var(--ink);
+}
 
-.section-eyebrow {
+.facts-row--figure > :first-child,
+.facts-row--figure > :last-child {
+  font-weight: 900;
+}
+
+.facts-row--figure > :last-child {
+  font-size: clamp(3rem, 8vw, 4.25rem);
+  line-height: 1;
+}
+
+/* The figure's 4px bar already separates it from the row below. */
+.facts-row--figure + .facts-row {
+  border-top: 0;
+}
+
+.facts-row--sub {
+  padding-left: 1rem;
+}
+
+.facts-row--sub > :first-child {
+  font-weight: 400;
+}
+
+.facts-mark {
+  background: var(--mark);
+  color: var(--on-mark);
+  padding: 0 0.3em;
+  font-weight: 800;
+}
+
+.facts-note {
+  border-top: 4px solid var(--ink);
+  font-size: 0.8125rem;
+  padding-top: 0.5rem;
+  color: var(--ink);
+}
+
+:where(input, select, textarea, button).neumorph-inset,
+.neumorph-input,
+.neumorph-select,
+.ui-input,
+.ui-select,
+.ui-textarea {
+  width: 100%;
+  border: 1px solid var(--ink);
+  background-color: var(--paper);
+  color: var(--ink);
+  transition: background-color 0.12s ease-out;
+}
+
+.ui-input,
+.ui-select,
+.neumorph-input,
+.neumorph-select {
+  min-height: 2.875rem;
+  padding: 0.625rem 0.875rem;
+}
+
+.ui-textarea {
+  padding: 0.75rem 0.875rem;
+}
+
+.neumorph-select {
+  appearance: none;
+}
+
+:is(.neumorph-inset, .neumorph-input, .ui-input, .ui-textarea)::placeholder {
+  color: var(--ink-2);
+  opacity: 0.8;
+}
+
+:where(input, select, textarea):is(
+    .neumorph-inset,
+    .neumorph-input,
+    .neumorph-select,
+    .ui-input,
+    .ui-select,
+    .ui-textarea
+  ):focus-visible {
+  background-color: color-mix(in srgb, var(--mark) 22%, var(--paper));
+}
+
+:is(.ui-input, .ui-select, .ui-textarea):disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Buttons: black fill is the primary action; yellow answers the pointer. */
+.ui-btn-primary,
+.ui-btn-soft,
+.neumorph-btn,
+.neumorph-button,
+.elevated-pill {
+  border: 1px solid var(--ink);
+  font-weight: 700;
+  transition:
+    background-color 0.12s ease-out,
+    color 0.12s ease-out;
+}
+
+.ui-btn-primary,
+.ui-btn-soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.875rem;
+  padding: 0.625rem 1.25rem;
+}
+
+.neumorph-btn,
+.neumorph-button {
+  padding: 0.5rem 1rem;
+}
+
+.ui-btn-primary {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.ui-btn-soft,
+.neumorph-btn,
+.neumorph-button,
+.elevated-pill {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+:is(.ui-btn-primary, .ui-btn-soft, .neumorph-btn, .neumorph-button):hover:not(:disabled),
+:is(a, button).elevated-pill:hover:not(:disabled) {
+  background-color: var(--mark);
+  color: var(--on-mark);
+}
+
+:is(.ui-btn-primary, .ui-btn-soft):active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+:is(.ui-btn-primary, .ui-btn-soft):disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Radio options: the checked one is highlighted, like a marked label. */
+.seg-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--ink);
+  background-color: var(--paper);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.12s ease-out;
 }
 
-.section-eyebrow::before {
-  content: '';
-  width: 1.25rem;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-alt-light));
+.seg-pill:hover {
+  background-color: var(--paper-2);
+}
+
+.seg-pill:has(input:checked) {
+  background-color: var(--mark);
+  color: var(--on-mark);
+  font-weight: 700;
+}
+
+.seg-pill:has(input:focus-visible) {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.seg-pill input[type='radio'] {
+  accent-color: #0b0b0b;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Header units switch: the active option follows <html data-units>, which the
+   pre-paint bootstrap script sets from stored preferences. */
+.unit-toggle-option {
+  color: var(--ink-2);
+}
+
+html:not([data-units='imperial']) .unit-toggle-option[data-unit='metric'],
+html[data-units='imperial'] .unit-toggle-option[data-unit='imperial'] {
+  font-weight: 800;
+  color: var(--ink);
+  box-shadow: inset 0 -0.45em 0 var(--mark);
+}
+
+.card-interactive {
+  transition: box-shadow 0.12s ease-out;
+}
+
+.card-interactive:hover {
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+/* Section label: a small bold caption over a 4px rule. */
+.section-eyebrow {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-bottom: 0.35rem;
+  border-bottom: 4px solid var(--ink);
 }
 
 .text-gradient {
-  background: linear-gradient(
-    92deg,
-    var(--accent) 4%,
-    var(--accent-light) 55%,
-    var(--accent-alt-light) 120%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: var(--mark);
+  color: var(--on-mark);
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
-/* ---------------------------------------------------------------------------
- * Long-form article typography
- *
- * All 66 blog posts already ship `class="prose prose-lg"` markup, but the
- * @tailwindcss/typography plugin was never installed — so those classes were
- * inert and Preflight's reset left bare <p> at margin 0 and <ul> without
- * markers. These rules implement `prose` against the design tokens.
- *
- * Declared in the `components` layer so any utility a post already sets on an
- * element (e.g. `<h2 className="text-xl">`) still wins over the default.
- * ------------------------------------------------------------------------ */
-
-@layer components {
-  .prose {
-    color: hsl(var(--foreground));
-    line-height: 1.75;
-  }
-
-  /* Comfortable reading measure (~75 characters) for running text only —
-     embedded cards, ad slots and related-link grids stay full width.
-     Expressed in rem rather than ch: Plus Jakarta Sans has unusually wide
-     figures, so 1ch is ~0.73em here and a ch-based measure runs far too long. */
-  .prose > p,
-  .prose > ul,
-  .prose > ol,
-  .prose > blockquote,
-  .prose > h2,
-  .prose > h3,
-  .prose > h4,
-  .prose > h5,
-  .prose > h6 {
-    max-width: 38rem;
-  }
-
-  .prose p {
-    margin-bottom: 1.25em;
-  }
-
-  .prose > :first-child {
-    margin-top: 0;
-  }
-
-  .prose > :last-child {
-    margin-bottom: 0;
-  }
-
-  .prose h2 {
-    font-family: var(--font-display);
-    font-size: 1.65em;
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.022em;
-    margin-top: 2em;
-    margin-bottom: 0.6em;
-    color: hsl(var(--foreground));
-  }
-
-  .prose h3 {
-    font-family: var(--font-display);
-    font-size: 1.28em;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: -0.018em;
-    margin-top: 1.7em;
-    margin-bottom: 0.5em;
-    color: hsl(var(--foreground));
-  }
-
-  .prose h4 {
-    font-family: var(--font-display);
-    font-size: 1.1em;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.4em;
-    color: hsl(var(--foreground));
-  }
-
-  .prose ul,
-  .prose ol {
-    margin-bottom: 1.25em;
-    padding-left: 1.5em;
-  }
-
-  .prose ul {
-    list-style-type: disc;
-  }
-
-  .prose ol {
-    list-style-type: decimal;
-  }
-
-  .prose li {
-    margin-bottom: 0.5em;
-    padding-left: 0.25em;
-  }
-
-  .prose li::marker {
-    color: var(--accent);
-  }
-
-  .prose li > ul,
-  .prose li > ol {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-
-  .prose a {
-    color: var(--accent);
-    font-weight: 500;
-    text-decoration: underline;
-    text-underline-offset: 0.18em;
-    text-decoration-thickness: 1px;
-    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
-    transition: text-decoration-color 0.15s ease;
-  }
-
-  .prose a:hover {
-    text-decoration-color: var(--accent);
-  }
-
-  .prose strong {
-    font-weight: 700;
-    color: hsl(var(--foreground));
-  }
-
-  .prose blockquote {
-    margin: 1.75em 0;
-    padding: 0.25em 0 0.25em 1.25em;
-    border-left: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
-    font-style: italic;
-    color: var(--muted-ink);
-  }
-
-  .prose code {
-    font-size: 0.9em;
-    padding: 0.15em 0.4em;
-    border-radius: 0.375rem;
-    background-color: var(--surface-muted);
-    border: 1px solid var(--card-border);
-  }
-
-  .prose pre {
-    margin: 1.5em 0;
-    padding: 1em 1.25em;
-    border-radius: 0.875rem;
-    overflow-x: auto;
-    background-color: var(--surface-muted);
-    border: 1px solid var(--card-border);
-  }
-
-  .prose pre code {
-    padding: 0;
-    border: 0;
-    background: none;
-  }
-
-  .prose hr {
-    margin: 2.5em 0;
-    border: 0;
-    border-top: 1px solid var(--card-border);
-  }
-
-  .prose img {
-    border-radius: 0.875rem;
-    margin: 1.75em 0;
-  }
-
-  /* Tables can exceed the measure — let them scroll rather than overflow. */
-  .prose table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    margin: 1.75em 0;
-    border-collapse: collapse;
-    font-size: 0.95em;
-  }
-
-  .prose :is(th, td) {
-    padding: 0.6em 0.85em;
-    border: 1px solid var(--card-border);
-    text-align: left;
-  }
-
-  .prose th {
-    font-weight: 700;
-    background-color: var(--surface-muted);
-  }
-
-  .prose-lg {
-    font-size: 1.0625rem;
-  }
-}
-
-/* Shared page intro used by CalculatorPageLayout — upgrades the h1/p that
-   individual calculator pages render inline, without editing every page. */
-.calc-hero h1 {
-  font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  transform: translateY(-220%);
+  background: var(--mark);
+  color: var(--on-mark);
+  border: 2px solid #0b0b0b;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Docked full-width bar: reads as page chrome, and the body reserves its
+   height so it never permanently covers the bottom of the page. */
+.consent-banner-shell {
+  background-color: var(--paper);
+  border-top: 4px solid var(--ink);
+}
+
+/* Results share (image export): brand the captured image. */
+.hc-share-target {
+  position: relative;
+}
+
+.hc-share-target[data-hc-capturing='1']::before,
+.hc-share-target[data-hc-capturing='1']::after {
+  position: absolute;
+  z-index: 10;
+  padding: 0.2rem 0.5rem;
+  background: var(--mark);
+  color: var(--on-mark);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.hc-share-target[data-hc-capturing='1']::before {
+  content: 'HealthCalc';
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.hc-share-target[data-hc-capturing='1']::after {
+  content: 'healthcalc.xyz';
+  bottom: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.hc-aspect-og {
+  aspect-ratio: 1200 / 630;
+}
+
+.neumorph-slider {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--paper-2);
+  border: 1px solid var(--ink);
+  appearance: none;
+  cursor: pointer;
+}
+
+.neumorph-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--ink);
+  background-color: var(--mark);
+}
+
+.neumorph-slider::-moz-range-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background-color: var(--mark);
+}
+
+.perf-defer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Calculator page intro, applied by CalculatorPageLayout to the h1/p each
+   calculator renders. */
+.calc-hero {
+  border-bottom: 10px solid var(--ink);
+  margin-bottom: 2rem;
+}
+
+.calc-hero h1 {
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  line-height: 1;
   margin-bottom: 0.625rem;
-  color: hsl(var(--foreground));
 }
 
 .calc-hero > p,
 .calc-hero h1 + p {
   font-size: 1.0625rem;
-  line-height: 1.6;
-  max-width: 46rem;
-  color: var(--muted-ink);
-  margin-bottom: 1.75rem;
+  line-height: 1.55;
+  max-width: 44rem;
+  color: var(--ink-2);
+  margin-bottom: 1rem;
 }
 
-.dark .calc-hero > p,
-.dark .calc-hero h1 + p {
-  color: var(--muted-ink);
-}
-
-/* Calculator grid weighting, applied by CalculatorPageLayout.
- *
- * Every calculator hands the layout two grid children: the form (col-span-1)
- * and a wide panel (col-span-2). Before a calculation exists that wide panel
- * holds explanatory prose, so the page shipped the thing the visitor came to
- * use as the smaller of the two elements, squeezed into a third of the width.
- *
- * While there is no result the grid collapses to a single column: the form
- * leads at a comfortable measure and the explainer follows underneath at full
- * width. The class is dropped the moment a result renders, which restores the
- * side-by-side form/result columns. Below lg the layout is already stacked. */
+/* Before a calculation exists the wide column only holds explanatory prose,
+   so the form leads at a comfortable measure and the prose follows below.
+   The class is dropped when a result renders, restoring form | result. */
 @media (min-width: 1024px) {
   .calc-grid--form-primary {
     grid-template-columns: minmax(0, 1fr);
@@ -535,379 +715,170 @@ html[data-embed='1'] [data-calculator-page] {
 }
 
 /* ---------------------------------------------------------------------------
- * Form controls
+ * Long-form article typography. Posts ship `class="prose prose-lg"` markup
+ * and no typography plugin is installed, so `prose` is implemented here.
+ * In the components layer so a utility a post sets on an element still wins.
  * ------------------------------------------------------------------------ */
 
-.ui-input,
-.ui-select,
-.ui-textarea {
+@layer components {
+  .prose {
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* Reading measure for running text only; embedded panels, ad slots and
+     link grids stay full width. */
+  .prose > :is(p, ul, ol, blockquote, h2, h3, h4, h5, h6) {
+    max-width: 40rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.25em;
+  }
+
+  .prose > :first-child {
+    margin-top: 0;
+  }
+
+  .prose > :last-child {
+    margin-bottom: 0;
+  }
+
+  .prose h2 {
+    font-size: 1.75em;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-top: 2.2em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.3em;
+    border-bottom: 4px solid var(--ink);
+  }
+
+  .prose h3 {
+    font-size: 1.3em;
+    line-height: 1.2;
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose h4 {
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    margin-bottom: 0.4em;
+  }
+
+  .prose :is(ul, ol) {
+    margin-bottom: 1.25em;
+    padding-left: 1.5em;
+  }
+
+  .prose ul {
+    list-style-type: square;
+  }
+
+  .prose ol {
+    list-style-type: decimal;
+  }
+
+  .prose li {
+    margin-bottom: 0.5em;
+    padding-left: 0.25em;
+  }
+
+  .prose li > :is(ul, ol) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose strong {
+    font-weight: 800;
+  }
+
+  .prose blockquote {
+    margin: 1.75em 0;
+    padding: 0.75em 0;
+    border-top: 4px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    font-weight: 600;
+  }
+
+  .prose code {
+    font-size: 0.9em;
+    padding: 0.1em 0.35em;
+    background-color: var(--paper-2);
+  }
+
+  .prose pre {
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    overflow-x: auto;
+    background-color: var(--paper-2);
+    border: 1px solid var(--ink);
+  }
+
+  .prose pre code {
+    padding: 0;
+    background: none;
+  }
+
+  .prose hr {
+    margin: 2.5em 0;
+    border: 0;
+    border-top: 4px solid var(--ink);
+  }
+
+  .prose img {
+    margin: 1.75em 0;
+    border: 1px solid var(--ink);
+  }
+
+  .prose-lg {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Tables read as label panels everywhere: heavy bar under the head, hairlines
+   between rows, no vertical rules. */
+:where(.prose, .neumorph, .neumorph-card, .glass-panel) table {
   width: 100%;
-  border: 1px solid var(--card-border);
-  border-radius: 0.75rem;
-  background-color: var(--glass-fill-strong);
-  color: hsl(var(--foreground));
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
+  border-collapse: collapse;
+  font-size: 0.95em;
 }
 
-.ui-input,
-.ui-select {
-  min-height: 2.875rem;
-  padding: 0.625rem 0.875rem;
+/* Tables can exceed the measure: scroll rather than overflow. */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  margin: 1.75em 0;
 }
 
-.ui-textarea {
-  padding: 0.75rem 0.875rem;
+:where(.prose, .neumorph, .neumorph-card, .glass-panel) :is(th, td) {
+  padding: 0.55em 0.85em 0.55em 0;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  text-align: left;
 }
 
-.ui-input::placeholder,
-.ui-textarea::placeholder {
-  color: rgba(86, 93, 143, 0.75);
-}
-
-.ui-input:hover:not(:disabled),
-.ui-select:hover:not(:disabled),
-.ui-textarea:hover:not(:disabled) {
-  border-color: rgba(123, 130, 255, 0.45);
-}
-
-.ui-input:disabled,
-.ui-select:disabled,
-.ui-textarea:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.dark .ui-input,
-.dark .ui-select,
-.dark .ui-textarea {
-  border-color: var(--card-border);
-  background-color: var(--glass-fill);
-}
-
-.dark .ui-input::placeholder,
-.dark .ui-textarea::placeholder {
-  color: rgba(178, 184, 226, 0.6);
-}
-
-.ui-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.875rem;
-  border-radius: 0.875rem;
-  padding: 0.625rem 1.25rem;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  background: linear-gradient(
-    135deg,
-    var(--accent-light) -20%,
-    var(--accent) 45%,
-    var(--accent-dark) 115%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 2px 6px rgba(58, 65, 201, 0.25),
-    0 12px 28px -8px rgba(58, 65, 201, 0.45);
-  transition:
-    transform 0.18s ease,
-    filter 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.ui-btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    0 3px 8px rgba(58, 65, 201, 0.28),
-    0 16px 34px -8px rgba(58, 65, 201, 0.55);
-}
-
-.ui-btn-primary:active:not(:disabled) {
-  transform: translateY(0) scale(0.985);
-}
-
-.dark .ui-btn-primary {
-  color: #0c102b;
-  background: linear-gradient(
-    135deg,
-    var(--accent-light) -10%,
-    var(--accent) 60%,
-    var(--accent-dark) 130%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    0 2px 6px rgba(3, 5, 18, 0.5),
-    0 14px 30px -8px rgba(107, 114, 255, 0.4);
-}
-
-.ui-btn-soft {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.875rem;
-  border-radius: 0.875rem;
-  padding: 0.5rem 1.125rem;
-  font-weight: 600;
-  color: var(--accent);
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-ambient);
-  transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-.ui-btn-soft:hover:not(:disabled) {
-  transform: translateY(-1px);
-  border-color: rgba(123, 130, 255, 0.5);
-  box-shadow: var(--shadow-hover);
-}
-
-.ui-btn-primary:disabled,
-.ui-btn-soft:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-/* Segmented pill option for radio groups (label wraps a visible radio input) */
-.seg-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.875rem;
-  border-radius: 0.75rem;
-  border: 1px solid var(--card-border);
-  background-color: var(--glass-fill);
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.seg-pill:hover {
-  border-color: rgba(123, 130, 255, 0.5);
-}
-
-.seg-pill:has(input:checked) {
-  border-color: var(--accent);
-  background-color: rgba(77, 85, 232, 0.09);
-  box-shadow: inset 0 0 0 1px var(--accent);
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.dark .seg-pill:has(input:checked) {
-  background-color: rgba(139, 147, 255, 0.13);
-}
-
-.seg-pill input[type='radio'] {
-  accent-color: var(--accent);
-  width: 1rem;
-  height: 1rem;
-}
-
-input[type='radio'],
-input[type='checkbox'] {
-  accent-color: var(--accent);
-}
-
-.skip-link {
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 1000;
-  transform: translateY(-220%);
-  background: var(--accent);
-  color: #fff;
-  border-radius: 0.5rem;
-  padding: 0.625rem 0.875rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus-visible {
-  transform: translateY(0);
-}
-
-/* Results share (image export) */
-.hc-share-target {
-  position: relative;
-}
-
-.hc-share-target[data-hc-capturing='1']::before {
-  content: 'HealthCalc';
-  position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 10;
-  padding: 0.3rem 0.65rem;
-  border-radius: 999px;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
+:where(.prose, .neumorph, .neumorph-card, .glass-panel) th {
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: rgba(15, 23, 42, 0.92);
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
+  border-bottom-width: 4px;
+  background: none;
 }
 
-.dark .hc-share-target[data-hc-capturing='1']::before {
-  color: rgba(226, 232, 240, 0.92);
-  background: rgba(15, 23, 42, 0.55);
-  border-color: rgba(148, 163, 184, 0.2);
-}
-
-.hc-share-target[data-hc-capturing='1']::after {
-  content: 'healthcalc.xyz';
-  position: absolute;
-  bottom: 0.75rem;
-  right: 0.75rem;
-  z-index: 10;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: rgba(51, 65, 85, 0.86);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-}
-
-.dark .hc-share-target[data-hc-capturing='1']::after {
-  color: rgba(203, 213, 225, 0.85);
-  background: rgba(15, 23, 42, 0.55);
-  border-color: rgba(148, 163, 184, 0.2);
-}
-
-/* Media framing helpers */
-.hc-aspect-og {
-  aspect-ratio: 1200 / 630;
-}
-
-/* ---------------------------------------------------------------------------
- * Surfaces
- * ------------------------------------------------------------------------ */
-
-.glass-panel {
-  background-color: var(--glass-fill);
-  border: 1px solid var(--glass-stroke);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-ambient);
-}
-
-.glass-panel-strong {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--glass-stroke);
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow-raised);
-}
-
-.elevated-pill {
-  border: 1px solid var(--card-border);
-  background-color: var(--glass-fill-strong);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-ambient);
-}
-
-/* Unified interactive-card hover treatment */
-.card-interactive {
-  transition:
-    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.card-interactive:hover {
-  transform: translateY(-4px);
-  border-color: rgba(123, 130, 255, 0.5);
-  box-shadow: var(--shadow-hover);
-}
-
-.hero-panel {
-  background:
-    radial-gradient(ellipse 48% 60% at 88% -10%, rgba(45, 212, 191, 0.13), transparent),
-    radial-gradient(ellipse 52% 70% at 4% 0%, rgba(123, 130, 255, 0.18), transparent),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 245, 255, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: var(--shadow-raised);
-}
-
-.dark .hero-panel {
-  background:
-    radial-gradient(ellipse 48% 60% at 88% -10%, rgba(45, 212, 191, 0.08), transparent),
-    radial-gradient(ellipse 52% 70% at 4% 0%, rgba(107, 114, 255, 0.16), transparent),
-    linear-gradient(180deg, rgba(24, 29, 66, 0.96), rgba(17, 21, 51, 0.95));
-  border-color: var(--card-border);
-}
-
-.hero-search-shell {
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.55);
-  box-shadow: var(--shadow-ambient);
-}
-
-.dark .hero-search-shell {
-  border-color: var(--card-border);
-  background: rgba(13, 17, 42, 0.35);
-}
-
-/* Floating metric cards in the home hero (decorative) */
-.hero-metric-card {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--glass-stroke);
-  border-radius: 1.25rem;
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-raised);
-}
-
-/* Decorative hero float: one gentle cycle, kept under 5s so there is no
-   endless background motion without a pause control. */
-.animate-float-slow {
-  animation: heroFloat 4.5s ease-in-out 1;
-}
-
-.animate-float-slower {
-  animation: heroFloat 4s ease-in-out 0.5s 1;
-}
-
-@keyframes heroFloat {
-  0%,
-  100% {
-    transform: translateY(0);
+@media (max-width: 768px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: wrap;
   }
-  50% {
-    transform: translateY(-9px);
+
+  p,
+  li {
+    text-wrap: auto;
   }
-}
-
-.hero-sparkline path {
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
-  animation: drawLine 2.2s ease-out 0.3s forwards;
-}
-
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.perf-defer-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 720px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -924,294 +895,58 @@ input[type='checkbox'] {
   }
 }
 
-/* Neumorph component styles - no @apply for custom classes in Tailwind v4 */
-.neumorph {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--glass-stroke);
-  border-radius: var(--radius-neumorph);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-ambient);
-}
-
-/* Docked full-width bar rather than a floating card: it reads as page chrome
-   instead of an overlay, and the body reserves its height (below) so it never
-   permanently covers the bottom of the page. */
-.consent-banner-shell {
-  background-color: color-mix(in srgb, var(--surface) 93%, transparent);
-  border-top: 1px solid var(--card-border);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 -8px 32px -12px rgba(37, 45, 122, 0.24);
-}
-
-.dark .consent-banner-shell {
-  background-color: color-mix(in srgb, var(--surface-dark) 95%, transparent);
-  box-shadow: 0 -8px 32px -12px rgba(2, 6, 23, 0.6);
-}
-
-.neumorph-inset {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--card-border);
-  border-radius: 0.875rem;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.neumorph-inset:hover {
-  border-color: rgba(123, 130, 255, 0.45);
-}
-
-.neumorph-inset::placeholder {
-  color: rgba(86, 93, 143, 0.7);
-}
-
-.dark .neumorph-inset {
-  background-color: rgba(13, 17, 42, 0.55);
-  border-color: var(--card-border);
-}
-
-.dark .neumorph-inset::placeholder {
-  color: rgba(178, 184, 226, 0.55);
-}
-
-.neumorph-flat {
-  background-color: var(--glass-fill);
-  border: 1px solid var(--glass-stroke);
-  border-radius: var(--radius-neumorph);
-  box-shadow: var(--shadow-ambient);
-}
-
-.neumorph-btn {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-neumorph);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-ambient);
-  padding: 0.5rem 1rem;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.neumorph-btn:hover,
-.neumorph-btn:active {
-  border-color: rgba(123, 130, 255, 0.5);
-  box-shadow: var(--shadow-hover);
-}
-
-@media (max-width: 768px) {
-  body {
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.97),
-      hsl(var(--background)) 38%
-    );
-    text-rendering: auto;
-    transition: none;
-  }
-
-  .dark body {
-    background-image: linear-gradient(180deg, rgba(10, 14, 36, 0.98), hsl(var(--background)) 38%);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-wrap: wrap;
-  }
-
-  p,
-  li {
-    text-wrap: auto;
-  }
-
-  /* Drop expensive blur on mobile but keep borders + a light shadow so cards
-     retain definition instead of washing out. */
-  .glass-panel,
-  .glass-panel-strong,
-  .neumorph,
-  .elevated-pill,
-  .neumorph-btn,
-  .ui-btn-soft,
-  .hero-metric-card {
-    backdrop-filter: none;
-  }
-
-  .glass-panel,
-  .glass-panel-strong,
-  .neumorph,
-  .hero-panel,
-  .hero-search-shell,
-  .elevated-pill,
-  .neumorph-btn,
-  .ui-btn-soft,
-  .hero-metric-card {
-    box-shadow: 0 1px 3px rgba(30, 34, 90, 0.07);
-  }
-
-  .dark .glass-panel,
-  .dark .glass-panel-strong,
-  .dark .neumorph,
-  .dark .hero-panel,
-  .dark .hero-search-shell,
-  .dark .elevated-pill,
-  .dark .neumorph-btn,
-  .dark .ui-btn-soft,
-  .dark .hero-metric-card {
-    box-shadow: 0 1px 3px rgba(2, 4, 16, 0.5);
-  }
-
-  .glass-panel,
-  .glass-panel-strong,
-  .neumorph {
-    background-color: rgba(255, 255, 255, 0.94);
-  }
-
-  .dark .glass-panel,
-  .dark .glass-panel-strong,
-  .dark .neumorph {
-    background-color: rgba(19, 24, 55, 0.96);
-  }
-
-  .neumorph-inset,
-  .neumorph-input,
-  .neumorph-select {
-    box-shadow: none;
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-
-  .dark .neumorph-inset,
-  .dark .neumorph-input,
-  .dark .neumorph-select {
-    background-color: rgba(13, 17, 42, 0.9);
-  }
-
-  .neumorph-input:focus-visible,
-  .neumorph-select:focus-visible,
-  .neumorph-inset:focus-visible {
-    box-shadow: 0 0 0 3px var(--focus-ring);
-  }
-}
-
-.neumorph-card {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--glass-stroke);
-  border-radius: var(--radius-neumorph);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-ambient);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.neumorph-input {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--card-border);
-  border-radius: 0.875rem;
-  padding: 0.625rem 1rem;
-  width: 100%;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.neumorph-input:focus-visible {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--focus-ring);
-}
-
-.dark .neumorph-input {
-  background-color: rgba(13, 17, 42, 0.55);
-}
-
-.neumorph-select {
-  background-color: var(--glass-fill-strong);
-  border: 1px solid var(--card-border);
-  border-radius: 0.875rem;
-  padding: 0.625rem 1rem;
-  width: 100%;
-  appearance: none;
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.neumorph-select:focus-visible {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--focus-ring);
-}
-
-.dark .neumorph-select {
-  background-color: rgba(13, 17, 42, 0.55);
-}
-
-.neumorph-slider {
-  width: 100%;
-  height: 0.5rem;
-  background-color: var(--surface-muted);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-neumorph);
-  appearance: none;
-  cursor: pointer;
-}
-
-.neumorph-slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  background-color: var(--accent);
-  box-shadow: 0 2px 6px rgba(30, 34, 90, 0.3);
-}
-
-.neumorph-slider::-moz-range-thumb {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  background-color: var(--accent);
-  box-shadow: 0 2px 6px rgba(30, 34, 90, 0.3);
-}
-
-/* Radio button styles */
-input[type='radio']:checked ~ div .radio-dot {
-  opacity: 1;
-  transform: scale(1);
-}
-
-input[type='radio']:focus-visible ~ div {
-  box-shadow: 0 0 0 2px var(--accent);
-}
-
-/* Animation classes */
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.slide-in-up {
-  animation: slideInUp 0.5s ease-out;
-}
-
-.pulse {
-  animation: pulse 2s infinite ease-in-out;
-}
-
-/* Google Translate integration */
-body {
-  top: 0 !important;
-}
-
+/* Google Translate chrome */
 .goog-te-banner-frame.skiptranslate,
 #goog-gt-tt,
 .goog-te-balloon-frame,
 .goog-te-gadget-icon,
 .goog-logo-link {
   display: none !important;
+}
+
+/* The header bar is black in both themes: inside it ink and paper swap, so
+   the shared pill and toggle styles invert without per-component overrides. */
+.site-header {
+  --paper: #0b0b0b;
+  --paper-2: #262521;
+  --ink: #ffffff;
+  --ink-2: #cfcabb;
+  background-color: #0b0b0b;
+  color: #ffffff;
+}
+
+.dark .site-header {
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+/* A panel inside a panel is a section of it, not a second box. */
+:is(.neumorph, .neumorph-card, .glass-panel, .glass-panel-strong)
+  :is(div, section, article, aside, details):is(
+    .neumorph,
+    .neumorph-card,
+    .neumorph-flat,
+    .glass-panel,
+    .glass-panel-strong
+  ) {
+  border-width: 4px 0 0;
+  padding-inline: 0;
+}
+
+/* Mid-gray text set without a dark variant is unreadable on the dark ground;
+   this makes that omission harmless instead of something to remember.
+   `~=` matches the exact utility only, not its hover: or placeholder: forms. */
+.dark
+  :is(
+    [class~='text-gray-500'],
+    [class~='text-gray-600'],
+    [class~='text-gray-700'],
+    [class~='text-gray-800'],
+    [class~='text-gray-900'],
+    [class~='text-slate-500'],
+    [class~='text-slate-600'],
+    [class~='text-slate-700'],
+    [class~='text-slate-800'],
+    [class~='text-slate-900']
+  ):not([class*='dark:text-']) {
+  color: var(--ink-2);
 }

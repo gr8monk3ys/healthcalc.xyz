@@ -127,24 +127,24 @@ const BestAbRollersPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Perfect Fitness Ab Carver Pro ($30) - Wider wheel and
+              <strong>Best Overall:</strong> Perfect Fitness Ab Carver Pro - Wider wheel and
               resistance for better form
             </li>
             <li>
-              <strong>Best Budget:</strong> Vinsguir Ab Roller Wheel ($15) - Solid basics at an
-              unbeatable price
+              <strong>Best Budget:</strong> Vinsguir Ab Roller Wheel - Solid basics at an unbeatable
+              price
             </li>
             <li>
-              <strong>Best with Elbow Support:</strong> FLYBIRD Ab Roller ($35) - Reduces wrist
-              strain for longer workouts
+              <strong>Best with Elbow Support:</strong> FLYBIRD Ab Roller - Reduces wrist strain for
+              longer workouts
             </li>
             <li>
-              <strong>Best Value:</strong> Fitnessery Ab Roller ($17) - Includes knee pad and
-              handles for multiple exercises
+              <strong>Best Value:</strong> Fitnessery Ab Roller - Includes knee pad and handles for
+              multiple exercises
             </li>
             <li>
-              <strong>Most Compact:</strong> N1Fit Ab Roller Wheel ($13) - Travel-friendly and
-              minimal storage space
+              <strong>Most Compact:</strong> N1Fit Ab Roller Wheel - Travel-friendly and minimal
+              storage space
             </li>
           </ul>
         </div>
@@ -266,7 +266,7 @@ const BestAbRollersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Perfect Fitness Ab Carver Pro</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$29.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -333,14 +333,14 @@ const BestAbRollersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Vinsguir Ab Roller Wheel</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$14.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
-            For $15, the Vinsguir delivers everything you need without the fancy features. Dual
-            wheels provide decent stability, the handles are comfortable enough, and it comes with a
-            knee pad. This is what I recommend when someone wants to try ab rolling without spending
-            $30.
+            For a budget price, the Vinsguir delivers everything you need without the fancy
+            features. Dual wheels provide decent stability, the handles are comfortable enough, and
+            it comes with a knee pad. This is what I recommend when someone wants to try ab rolling
+            without spending much.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -400,7 +400,7 @@ const BestAbRollersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">FLYBIRD Ab Roller</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$34.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -468,7 +468,7 @@ const BestAbRollersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Fitnessery Ab Roller</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$16.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -487,7 +487,7 @@ const BestAbRollersPageContent = (
             <li>Works on hardwood, carpet, and gym mats</li>
           </ul>
 
-          <h4 className="font-semibold mt-4 mb-2">What you get for $17:</h4>
+          <h4 className="font-semibold mt-4 mb-2">What you get for the price:</h4>
           <p>
             The roller itself is comparable to the Vinsguir. Simple dual-wheel design, foam handles,
             nothing fancy. Where Fitnessery adds value is the included workout guide. If you’re new
@@ -535,7 +535,7 @@ const BestAbRollersPageContent = (
               </span>
               <h3 className="text-xl font-semibold">N1Fit Ab Roller Wheel</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$12.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -635,7 +635,7 @@ const BestAbRollersPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Ab Roller</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Stability</th>
                 <th className="border p-3 text-center">Features</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -644,35 +644,35 @@ const BestAbRollersPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Perfect Fitness Ab Carver Pro</td>
-                <td className="border p-3 text-center">$30</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Excellent</td>
                 <td className="border p-3 text-center">Spring assist</td>
                 <td className="border p-3 text-center">Beginners</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Vinsguir Ab Roller</td>
-                <td className="border p-3 text-center">$15</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Good</td>
                 <td className="border p-3 text-center">Basic</td>
                 <td className="border p-3 text-center">Budget buyers</td>
               </tr>
               <tr>
                 <td className="border p-3">FLYBIRD Ab Roller</td>
-                <td className="border p-3 text-center">$35</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">Excellent</td>
                 <td className="border p-3 text-center">Elbow support</td>
                 <td className="border p-3 text-center">Wrist issues</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Fitnessery Ab Roller</td>
-                <td className="border p-3 text-center">$17</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Good</td>
                 <td className="border p-3 text-center">Workout guide</td>
                 <td className="border p-3 text-center">Complete package</td>
               </tr>
               <tr>
                 <td className="border p-3">N1Fit Ab Roller</td>
-                <td className="border p-3 text-center">$13</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">Fair</td>
                 <td className="border p-3 text-center">Detachable</td>
                 <td className="border p-3 text-center">Travel</td>
@@ -691,7 +691,8 @@ const BestAbRollersPageContent = (
           </li>
           <li>
             <strong>If you’re on a tight budget:</strong> The <strong>Vinsguir Ab Roller</strong>{' '}
-            does everything you need for $15. Skip the coffee shop twice and you’ve paid for it.
+            does everything you need at a budget price. Skip the coffee shop twice and you’ve paid
+            for it.
           </li>
           <li>
             <strong>If you have wrist problems:</strong> The <strong>FLYBIRD Ab Roller</strong> with

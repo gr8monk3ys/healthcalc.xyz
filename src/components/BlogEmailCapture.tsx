@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 
 interface BlogEmailCaptureProps {
@@ -22,7 +23,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * Smaller and less prominent than the calculator variant.
  * Designed to appear mid-article or at the bottom of blog content.
  */
-export function BlogEmailCapture({
+function BlogEmailCaptureForm({
   headline = 'Want more health insights like this?',
   className = '',
 }: BlogEmailCaptureProps): React.ReactElement {
@@ -198,4 +199,8 @@ export function BlogEmailCapture({
       </p>
     </div>
   );
+}
+
+export function BlogEmailCapture(props: BlogEmailCaptureProps): React.ReactElement | null {
+  return NEWSLETTER_ENABLED ? <BlogEmailCaptureForm {...props} /> : null;
 }

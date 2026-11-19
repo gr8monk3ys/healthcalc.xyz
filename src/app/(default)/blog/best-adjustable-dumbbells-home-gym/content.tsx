@@ -113,24 +113,24 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Bowflex SelectTech 552 ($349) - Dial-based, 5-52.5 lbs,
+              <strong>Best Overall:</strong> Bowflex SelectTech 552 - Dial-based, 5-52.5 lbs,
               replaces 15 pairs
             </li>
             <li>
-              <strong>Best for Durability:</strong> PowerBlock Elite EXP ($340) - Block design, 5-50
-              lbs, expandable to 90 lbs
+              <strong>Best for Durability:</strong> PowerBlock Elite EXP - Block design, 5-50 lbs,
+              expandable to 90 lbs
             </li>
             <li>
-              <strong>Best Feel:</strong> NordicTrack Select-A-Weight ($349) - Smooth dial, 10-55
-              lbs, compact shape
+              <strong>Best Feel:</strong> NordicTrack Select-A-Weight - Smooth dial, 10-55 lbs,
+              compact shape
             </li>
             <li>
-              <strong>Best Budget:</strong> FLYBIRD Adjustable Dumbbell Set ($150) - 5-25 lbs per
-              hand, fast handle adjustment
+              <strong>Best Budget:</strong> FLYBIRD Adjustable Dumbbell Set - 5-25 lbs per hand,
+              fast handle adjustment
             </li>
             <li>
-              <strong>Best Starter:</strong> Amazon Basics Neoprene Dumbbell Set ($35) - Fixed
-              weight, color-coded, beginner-friendly
+              <strong>Best Starter:</strong> Amazon Basics Neoprene Dumbbell Set - Fixed weight,
+              color-coded, beginner-friendly
             </li>
           </ul>
         </div>
@@ -191,8 +191,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
         </p>
 
         <p>
-          I have tested five different options across a range of price points, from a $35 neoprene
-          starter set to $349 premium adjustables. Here is what is actually worth buying.
+          I have tested five different options across a range of price points, from a budget
+          neoprene starter set to premium adjustables. Here is what is actually worth buying.
         </p>
 
         {/* Toolkit Box */}
@@ -324,7 +324,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -413,7 +413,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$340.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -471,8 +471,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             </p>
             <p className="text-sm mt-2">
               <strong>Cons:</strong> Block shape takes getting used to visually and ergonomically,
-              wrist can feel boxed in on some exercises, expansion kits are not cheap ($130-$160
-              each), pin adjustment is slower than a dial
+              wrist can feel boxed in on some exercises, expansion kits are not cheap, pin
+              adjustment is slower than a dial
             </p>
           </div>
 
@@ -504,7 +504,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.6 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$349.00</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -594,7 +594,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$149.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -602,7 +602,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             for less than half the price. The set covers 5 to 25 lbs per hand across five weight
             options, and you change settings by turning the handle. The adjustment is quick, maybe
             three seconds. The anti-slip metal handle feels secure, and the overall build quality is
-            better than I expected for a sub-$150 pair.
+            better than I expected for a budget pair.
           </p>
 
           <p className="mb-4">
@@ -610,8 +610,8 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             lateral raises, front raises, curls, and tricep work for most people. But you will
             outgrow it for presses and rows relatively quickly if you train consistently. I think of
             these as a great entry point, not a forever purchase. If you are testing whether you
-            actually enjoy dumbbell training at home before spending $350, the FLYBIRD makes a lot
-            of sense.
+            actually enjoy dumbbell training at home before spending on a premium set, the FLYBIRD
+            makes a lot of sense.
           </p>
 
           <h4 className="font-semibold mt-4 mb-2">Key Features:</h4>
@@ -685,15 +685,15 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$34.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
             This is not an adjustable dumbbell. I am including it because sometimes the right answer
-            is the simplest one. If you have never lifted a weight in your life, spending $350 on a
-            Bowflex before you know whether you will stick with it is a gamble. The Amazon Basics
-            neoprene set gives you three pairs of color-coded dumbbells on a small stand, and you
-            can start building the habit for under $40.
+            is the simplest one. If you have never lifted a weight in your life, spending premium
+            money on a Bowflex before you know whether you will stick with it is a gamble. The
+            Amazon Basics neoprene set gives you three pairs of color-coded dumbbells on a small
+            stand, and you can start building the habit at a budget price.
           </p>
 
           <p className="mb-4">
@@ -770,7 +770,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Weight Range</th>
                 <th className="border p-3 text-center">Increments</th>
                 <th className="border p-3 text-center">Rating</th>
@@ -780,7 +780,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Bowflex SelectTech 552</td>
-                <td className="border p-3 text-center">$349</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">5-52.5 lbs</td>
                 <td className="border p-3 text-center">2.5 / 5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.7</td>
@@ -788,7 +788,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">PowerBlock Elite EXP</td>
-                <td className="border p-3 text-center">$340</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">5-50 lbs*</td>
                 <td className="border p-3 text-center">2.5 / 5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
@@ -796,7 +796,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">NordicTrack Select-A-Weight</td>
-                <td className="border p-3 text-center">$349</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">10-55 lbs</td>
                 <td className="border p-3 text-center">5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.6</td>
@@ -804,7 +804,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">FLYBIRD Adjustable Set</td>
-                <td className="border p-3 text-center">$150</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">5-25 lbs</td>
                 <td className="border p-3 text-center">5 lbs</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
@@ -812,7 +812,7 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Amazon Basics Neoprene</td>
-                <td className="border p-3 text-center">$35</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">2-5 lbs</td>
                 <td className="border p-3 text-center">Fixed</td>
                 <td className="border p-3 text-center">&#9733;&#9733;&#9733;&#9733;&#9734; 4.5</td>
@@ -870,31 +870,30 @@ const BestAdjustableDumbbellsHomeGymPageContent = (
 
         <ul className="list-disc list-inside space-y-2 my-6">
           <li>
-            <strong>Best for most people:</strong> The{' '}
-            <strong>Bowflex SelectTech 552 at $349</strong> hits the sweet spot of weight range,
-            increment precision, and adjustment speed. It is the pair I recommend most often because
-            it works for beginners through intermediate lifters without compromise.
+            <strong>Best for most people:</strong> The <strong>Bowflex SelectTech 552</strong> hits
+            the sweet spot of weight range, increment precision, and adjustment speed. It is the
+            pair I recommend most often because it works for beginners through intermediate lifters
+            without compromise.
           </li>
           <li>
-            <strong>Best for long-term growth:</strong> The{' '}
-            <strong>PowerBlock Elite EXP at $340</strong> wins if you plan to get very strong. The
-            expansion to 90 lbs and all-steel construction means these could be the last dumbbells
-            you ever buy.
+            <strong>Best for long-term growth:</strong> The <strong>PowerBlock Elite EXP</strong>{' '}
+            wins if you plan to get very strong. The expansion to 90 lbs and all-steel construction
+            means these could be the last dumbbells you ever buy.
           </li>
           <li>
             <strong>Best if you miss the gym feel:</strong> The{' '}
-            <strong>NordicTrack Select-A-Weight at $349</strong> is the most traditional-feeling
-            option. If the clunky size of other adjustables bothers you, try these.
+            <strong>NordicTrack Select-A-Weight</strong> is the most traditional-feeling option. If
+            the clunky size of other adjustables bothers you, try these.
           </li>
           <li>
-            <strong>Best on a budget:</strong> The <strong>FLYBIRD set at $150</strong> is the right
-            call if you are not ready to spend $350 but want real adjustable dumbbells. Accept the
+            <strong>Best on a budget:</strong> The <strong>FLYBIRD set</strong> is the right call if
+            you are not ready to pay premium prices but want real adjustable dumbbells. Accept the
             25-lb cap and upgrade later if needed.
           </li>
           <li>
             <strong>Best for true beginners:</strong> The{' '}
-            <strong>Amazon Basics neoprene set at $35</strong> lets you start training this week
-            without overthinking it. Build the habit first, invest more later.
+            <strong>Amazon Basics neoprene set</strong> lets you start training this week without
+            overthinking it. Build the habit first, invest more later.
           </li>
         </ul>
 

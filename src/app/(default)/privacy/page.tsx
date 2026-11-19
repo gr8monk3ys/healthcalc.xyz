@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const metadata = {
+  alternates: { canonical: './' },
   title: 'Privacy Policy | HealthCalc',
   description: 'HealthCalc privacy policy - how we handle your data and protect your privacy.',
 };

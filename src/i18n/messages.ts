@@ -25,7 +25,6 @@ export type MessageKey =
   | 'footer.legal.terms'
   | 'footer.legal.disclaimer'
   | 'footer.legal.cookies'
-  | 'footer.trust.reviewed'
   | 'footer.trust.learnProcess'
   | 'footer.medicalDisclaimer'
   | 'footer.rightsReserved'
@@ -177,7 +176,6 @@ export const EN_MESSAGES: Record<MessageKey, string> = {
   'footer.legal.terms': 'Terms of Service',
   'footer.legal.disclaimer': 'Disclaimer',
   'footer.legal.cookies': 'Cookie Settings',
-  'footer.trust.reviewed': 'Content reviewed by certified health and fitness professionals',
   'footer.trust.learnProcess': 'Learn about our process',
   'footer.medicalDisclaimer':
     'HealthCalc provides general informational content and tools only. Nothing on this website constitutes medical advice. Always consult a qualified healthcare professional before making changes to your diet, exercise, or health regimen.',

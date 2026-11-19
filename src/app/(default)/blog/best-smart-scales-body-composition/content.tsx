@@ -119,20 +119,18 @@ const BestSmartScalesPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Withings Body Smart ($129.95) - Most accurate with
-              excellent app
+              <strong>Best Overall:</strong> Withings Body Smart - Most accurate with excellent app
             </li>
             <li>
-              <strong>Best Budget:</strong> RENPHO Smart Scale ($19.99-$34.99) - Incredible value
-              with 13 metrics
+              <strong>Best Budget:</strong> RENPHO Smart Scale - Incredible value with 13 metrics
             </li>
             <li>
-              <strong>Best Mid-Range:</strong> Eufy Smart Scale P2 Pro ($69.99) - 16 metrics with 3D
-              body model
+              <strong>Best Mid-Range:</strong> Eufy Smart Scale P2 Pro - 16 metrics with 3D body
+              model
             </li>
             <li>
-              <strong>Best for Beginners:</strong> Etekcity ESF-551 ($24.99) - Simple, reliable,
-              Amazon bestseller
+              <strong>Best for Beginners:</strong> Etekcity ESF-551 - Simple, reliable, Amazon
+              bestseller
             </li>
           </ul>
         </div>
@@ -291,7 +289,7 @@ const BestSmartScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Withings Body Smart</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$129.95</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -365,7 +363,7 @@ const BestSmartScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">RENPHO Smart Scale</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$19.99-$34.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -433,7 +431,7 @@ const BestSmartScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Eufy Smart Scale P2 Pro</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$69.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -504,7 +502,7 @@ const BestSmartScalesPageContent = (
               </span>
               <h3 className="text-xl font-semibold">Etekcity ESF-551</h3>
             </div>
-            <span className="text-2xl font-bold text-accent">$24.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -613,7 +611,7 @@ const BestSmartScalesPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Scale</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Metrics</th>
                 <th className="border p-3 text-center">Connectivity</th>
                 <th className="border p-3 text-center">Best For</th>
@@ -622,28 +620,28 @@ const BestSmartScalesPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Withings Body Smart</td>
-                <td className="border p-3 text-center">$129.95</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">8</td>
                 <td className="border p-3 text-center">Wi-Fi + BT</td>
                 <td className="border p-3 text-center">Serious trackers</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">RENPHO Smart Scale</td>
-                <td className="border p-3 text-center">$19.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">13</td>
                 <td className="border p-3 text-center">Bluetooth</td>
                 <td className="border p-3 text-center">Budget-conscious</td>
               </tr>
               <tr>
                 <td className="border p-3">Eufy P2 Pro</td>
-                <td className="border p-3 text-center">$69.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">16</td>
                 <td className="border p-3 text-center">Wi-Fi + BT</td>
                 <td className="border p-3 text-center">Feature seekers</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Etekcity ESF-551</td>
-                <td className="border p-3 text-center">$24.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">13</td>
                 <td className="border p-3 text-center">Bluetooth</td>
                 <td className="border p-3 text-center">Beginners</td>
@@ -662,8 +660,8 @@ const BestSmartScalesPageContent = (
             want the most reliable data and can afford the premium
           </li>
           <li>
-            <strong>Best bang for buck:</strong> The <strong>RENPHO Smart Scale</strong> at under
-            $25 is an incredible value that does 90% of what premium scales do
+            <strong>Best bang for buck:</strong> The <strong>RENPHO Smart Scale</strong> is an
+            incredible value that does 90% of what premium scales do
           </li>
           <li>
             <strong>Middle ground:</strong> The <strong>Eufy P2 Pro</strong> offers premium features

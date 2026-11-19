@@ -301,11 +301,10 @@ const EditorialProcessPageContent = (
             3
           </span>
           <div>
-            <strong>Professional Review</strong>
+            <strong>Editorial Review</strong>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              Content is reviewed by health and fitness professionals with credentials in exercise
-              science, nutrition, or related clinical fields. Reviewers check for factual accuracy,
-              appropriate disclaimers, and clarity.
+              The HealthCalc editorial team checks each page against its cited sources for factual
+              accuracy, appropriate disclaimers, and clarity.
             </p>
           </div>
         </li>

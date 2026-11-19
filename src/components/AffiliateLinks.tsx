@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
 import {
@@ -12,7 +12,6 @@ import {
   getProductsForCalculator,
   getGuidesForCalculator,
 } from '@/constants/affiliates';
-import { formatNumber } from '@/utils/formatNumber';
 
 interface AffiliateLinksProps {
   calculatorType: CalculatorType;
@@ -106,75 +105,6 @@ function CategoryIcon({ category }: { category: ProductCategory }) {
 }
 
 /**
- * Renders star rating display
- */
-function StarRating({ rating }: { rating: number }) {
-  // Unique per instance: several ratings render on one page.
-  const halfStarGradientId = `${useId()}-half-star`;
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 >= 0.5;
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-  const fullStarKeys = Array.from({ length: fullStars }, (_, starIndex) => `full-${starIndex + 1}`);
-  const emptyStarKeys = Array.from(
-    { length: emptyStars },
-    (_, starIndex) => `empty-${starIndex + 1}`
-  );
-
-  return (
-    <div
-      className="flex items-center gap-0.5"
-      role="img"
-      aria-label={`Rating: ${rating} out of 5 stars`}
-    >
-      {fullStarKeys.map(starKey => (
-        <svg
-          key={starKey}
-          className="w-4 h-4 text-warning"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-      {hasHalfStar && (
-        <svg
-          className="w-4 h-4 text-warning"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id={halfStarGradientId}>
-              <stop offset="50%" stopColor="currentColor" />
-              <stop offset="50%" stopColor="#d1d5db" />
-            </linearGradient>
-          </defs>
-          <path
-            fill={`url(#${halfStarGradientId})`}
-            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-          />
-        </svg>
-      )}
-      {emptyStarKeys.map(starKey => (
-        <svg
-          key={starKey}
-          className="w-4 h-4 text-gray-300 dark:text-gray-600"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-      <span className="ml-1 text-sm text-gray-600 dark:text-gray-400">
-        {formatNumber(rating, 1)}
-      </span>
-    </div>
-  );
-}
-
-/**
  * Individual product card component
  */
 function ProductCard({ product, calculatorType }: ProductCardProps) {
@@ -194,15 +124,15 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
         })
       }
       className="glass-panel-strong block rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-      aria-label={`View ${product.name} - ${product.price || 'Check price'}`}
+      aria-label={`View ${product.name} on Amazon`}
     >
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
           <CategoryIcon category={product.category} />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2">
-            <h4 className="font-semibold text-sm truncate">{product.name}</h4>
+          <div className="flex flex-col items-start gap-1">
+            <h4 className="text-sm font-semibold">{product.name}</h4>
             {product.badge && (
               <span className="flex-shrink-0 inline-block bg-accent/10 text-accent text-xs px-2 py-0.5 rounded-full">
                 {product.badge}
@@ -212,12 +142,6 @@ function ProductCard({ product, calculatorType }: ProductCardProps) {
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
             {product.description}
           </p>
-          <div className="flex items-center justify-between mt-2">
-            {product.rating != null ? <StarRating rating={product.rating} /> : null}
-            {product.price && (
-              <span className="text-sm font-medium text-accent">{product.price}</span>
-            )}
-          </div>
         </div>
       </div>
     </a>
@@ -301,9 +225,7 @@ export default function AffiliateLinks({
 
       {guides.length > 0 && (
         <div className="mb-6">
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
-            Top Guides
-          </h4>
+          <h4 className="mb-3 border-t-4 border-ink pt-2 text-base">Top Guides</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {guides.map(guide => (
               <GuideCard
@@ -319,7 +241,7 @@ export default function AffiliateLinks({
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {products.map(product => (
           <ProductCard key={product.id} product={product} calculatorType={calculatorType} />
         ))}

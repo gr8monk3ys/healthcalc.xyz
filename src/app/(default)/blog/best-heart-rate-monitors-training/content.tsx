@@ -127,23 +127,23 @@ const BestHeartRateMonitorsTrainingPageContent = (
           <h2 className="text-xl font-semibold mb-4">Quick Picks</h2>
           <ul className="space-y-2">
             <li>
-              <strong>Best Overall:</strong> Polar H10 ($89.95) - Gold standard chest strap accuracy
+              <strong>Best Overall:</strong> Polar H10 - Gold standard chest strap accuracy
             </li>
             <li>
-              <strong>Best for Runners:</strong> Garmin HRM-Pro Plus ($129.99) - Running dynamics
-              plus dual transmission
+              <strong>Best for Runners:</strong> Garmin HRM-Pro Plus - Running dynamics plus dual
+              transmission
             </li>
             <li>
-              <strong>Best for CrossFit:</strong> Wahoo TICKR X ($79.99) - Built-in motion analytics
-              and rep counting
+              <strong>Best for CrossFit:</strong> Wahoo TICKR X - Built-in motion analytics and rep
+              counting
             </li>
             <li>
-              <strong>Best Budget:</strong> COOSPO H808S ($35.99) - Reliable accuracy at a fraction
-              of the price
+              <strong>Best Budget:</strong> COOSPO H808S - Reliable accuracy at a fraction of the
+              price
             </li>
             <li>
-              <strong>Best Armband:</strong> Polar Verity Sense ($79.95) - Optical sensor you can
-              wear anywhere
+              <strong>Best Armband:</strong> Polar Verity Sense - Optical sensor you can wear
+              anywhere
             </li>
           </ul>
         </div>
@@ -353,7 +353,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9733; 4.7 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$89.95</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -441,7 +441,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$129.99</span>
+            <span className="text-2xl font-bold text-accent">Premium</span>
           </div>
 
           <p className="mb-4">
@@ -468,7 +468,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
           </p>
 
           <p className="mb-4">
-            The price is the main drawback. At $130, it costs $40 more than the Polar H10, and the
+            The price is the main drawback. It costs noticeably more than the Polar H10, and the
             heart rate accuracy is essentially the same. You are paying for running dynamics and the
             tighter Garmin integration. If you do not care about those things, save the money and
             get the H10.
@@ -537,7 +537,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.4 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$79.99</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -625,7 +625,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.3 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$35.99</span>
+            <span className="text-2xl font-bold text-accent">Budget</span>
           </div>
 
           <p className="mb-4">
@@ -662,9 +662,9 @@ const BestHeartRateMonitorsTrainingPageContent = (
 
           <h4 className="font-semibold mt-4 mb-2">Who it is best for:</h4>
           <p>
-            Anyone who wants chest strap accuracy but is not ready to spend $80-130. If you are just
-            starting to train with heart rate zones, or you want a second strap for travel, the
-            H808S is a smart buy. Plug your{' '}
+            Anyone who wants chest strap accuracy but is not ready to pay mid-range or premium
+            prices. If you are just starting to train with heart rate zones, or you want a second
+            strap for travel, the H808S is a smart buy. Plug your{' '}
             <Link href="/resting-heart-rate" className="text-accent hover:underline">
               resting heart rate
             </Link>{' '}
@@ -710,7 +710,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
                 &#9733;&#9733;&#9733;&#9733;&#9734; 4.5 out of 5
               </p>
             </div>
-            <span className="text-2xl font-bold text-accent">$79.95</span>
+            <span className="text-2xl font-bold text-accent">Mid-range</span>
           </div>
 
           <p className="mb-4">
@@ -800,7 +800,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left">Product</th>
-                <th className="border p-3 text-center">Price</th>
+                <th className="border p-3 text-center">Price tier</th>
                 <th className="border p-3 text-center">Rating</th>
                 <th className="border p-3 text-center">Type</th>
                 <th className="border p-3 text-center">Connectivity</th>
@@ -810,7 +810,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
             <tbody>
               <tr>
                 <td className="border p-3">Polar H10</td>
-                <td className="border p-3 text-center">$89.95</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.7/5</td>
                 <td className="border p-3 text-center">Chest Strap</td>
                 <td className="border p-3 text-center">BLE + ANT+ + 5 kHz</td>
@@ -818,7 +818,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">Garmin HRM-Pro Plus</td>
-                <td className="border p-3 text-center">$129.99</td>
+                <td className="border p-3 text-center">Premium</td>
                 <td className="border p-3 text-center">4.5/5</td>
                 <td className="border p-3 text-center">Chest Strap</td>
                 <td className="border p-3 text-center">BLE + ANT+</td>
@@ -826,7 +826,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Wahoo TICKR X</td>
-                <td className="border p-3 text-center">$79.99</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.4/5</td>
                 <td className="border p-3 text-center">Chest Strap</td>
                 <td className="border p-3 text-center">BLE + ANT+</td>
@@ -834,7 +834,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
               </tr>
               <tr className="bg-gray-50">
                 <td className="border p-3">COOSPO H808S</td>
-                <td className="border p-3 text-center">$35.99</td>
+                <td className="border p-3 text-center">Budget</td>
                 <td className="border p-3 text-center">4.3/5</td>
                 <td className="border p-3 text-center">Chest Strap</td>
                 <td className="border p-3 text-center">BLE + ANT+</td>
@@ -842,7 +842,7 @@ const BestHeartRateMonitorsTrainingPageContent = (
               </tr>
               <tr>
                 <td className="border p-3">Polar Verity Sense</td>
-                <td className="border p-3 text-center">$79.95</td>
+                <td className="border p-3 text-center">Mid-range</td>
                 <td className="border p-3 text-center">4.5/5</td>
                 <td className="border p-3 text-center">Optical Armband</td>
                 <td className="border p-3 text-center">BLE + ANT+ + 5 kHz</td>
@@ -925,8 +925,8 @@ const BestHeartRateMonitorsTrainingPageContent = (
           <li>
             <strong>For most athletes:</strong> The <strong>Polar H10</strong> is the best heart
             rate monitor you can buy. The accuracy is unmatched, the dual Bluetooth is genuinely
-            useful, and the swimming memory is a nice bonus. At $90, it is a fair price for
-            something that will last years.
+            useful, and the swimming memory is a nice bonus. It is fairly priced for something that
+            will last years.
           </li>
           <li>
             <strong>For serious runners in the Garmin ecosystem:</strong> The{' '}
@@ -939,10 +939,10 @@ const BestHeartRateMonitorsTrainingPageContent = (
             accuracy is close to the H10.
           </li>
           <li>
-            <strong>For budget-conscious buyers:</strong> The <strong>COOSPO H808S</strong> at $36
-            is the best deal in heart rate monitoring. Accuracy is surprisingly close to straps
-            costing two to three times as much. If the strap wears out in a year, buy another one
-            and you are still ahead financially.
+            <strong>For budget-conscious buyers:</strong> The <strong>COOSPO H808S</strong> is the
+            best deal in heart rate monitoring. Accuracy is surprisingly close to straps costing two
+            to three times as much. If the strap wears out in a year, buy another one and you are
+            still ahead financially.
           </li>
           <li>
             <strong>For chest strap avoiders:</strong> The <strong>Polar Verity Sense</strong> is
@@ -954,8 +954,8 @@ const BestHeartRateMonitorsTrainingPageContent = (
 
         <p>
           Whatever monitor you choose, the most important thing is to actually use it consistently
-          and train with the data. A $36 COOSPO worn every workout will give you better results than
-          a $130 Garmin sitting in a drawer.
+          and train with the data. A budget COOSPO worn every workout will give you better results
+          than a premium Garmin sitting in a drawer.
         </p>
 
         <div className="mt-8 pt-8 border-t">
