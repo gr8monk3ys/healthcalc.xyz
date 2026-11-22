@@ -6,7 +6,8 @@ export type ConversionCategoryKey = 'weight' | 'height' | 'volume' | 'temperatur
 
 export type ConversionCategoryConfig = {
   name: string;
-  units: string[];
+  /** A conversion needs a source and a target unit, so at least two. */
+  units: [string, string, ...string[]];
   labels: Record<string, string>;
 };
 
@@ -72,7 +73,7 @@ export type ConversionsPageCopy = {
   relatedArticles: ConversionsRelatedArticle[];
 };
 
-const CATEGORY_UNITS: Record<ConversionCategoryKey, string[]> = {
+const CATEGORY_UNITS: Record<ConversionCategoryKey, ConversionCategoryConfig['units']> = {
   weight: ['kg', 'lb', 'g', 'oz', 'stone'],
   height: ['cm', 'in', 'ft', 'm'],
   volume: ['ml', 'l', 'cup', 'tbsp', 'tsp', 'floz', 'gal'],

@@ -15,6 +15,7 @@ import {
   getWeightAtPercentage,
 } from './oneRepMax';
 import { OneRepMaxFormValues } from '@/types/oneRepMax';
+import { defined } from '@/test-utils/defined';
 
 describe('One Rep Max Calculation', () => {
   describe('calculateEpley', () => {
@@ -244,13 +245,14 @@ describe('One Rep Max Calculation', () => {
 
     it('should include 100% as the first entry', () => {
       const chart = generatePercentageChart(100);
-      expect(chart[0].percentage).toBe(100);
-      expect(chart[0].weight).toBe(100);
+      const first = defined(chart[0]);
+      expect(first.percentage).toBe(100);
+      expect(first.weight).toBe(100);
     });
 
     it('should include 50% as the last entry', () => {
       const chart = generatePercentageChart(100);
-      const lastEntry = chart[chart.length - 1];
+      const lastEntry = defined(chart.at(-1));
       expect(lastEntry.percentage).toBe(50);
       expect(lastEntry.weight).toBe(50);
     });
@@ -476,7 +478,7 @@ describe('One Rep Max Calculation', () => {
       const result = processOneRepMaxCalculation(values);
 
       expect(result.percentageChart).toHaveLength(11);
-      expect(result.percentageChart[0].percentage).toBe(100);
+      expect(defined(result.percentageChart[0]).percentage).toBe(100);
     });
   });
 
@@ -623,10 +625,10 @@ describe('One Rep Max Edge Cases', () => {
   it('should calculate training zones for edge case 1RMs', () => {
     // Very low 1RM
     const lowZones = calculateTrainingZones(20);
-    expect(lowZones[0].minWeight).toBe(16); // 80% of 20
+    expect(defined(lowZones[0]).minWeight).toBe(16); // 80% of 20
 
     // Very high 1RM
     const highZones = calculateTrainingZones(500);
-    expect(highZones[0].minWeight).toBe(400); // 80% of 500
+    expect(defined(highZones[0]).minWeight).toBe(400); // 80% of 500
   });
 });

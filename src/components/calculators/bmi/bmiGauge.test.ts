@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { BMI_GAUGE_SEGMENTS, getBMIGaugePosition } from './bmiGauge';
+import { defined } from '@/test-utils/defined';
 
 describe('getBMIGaugePosition', () => {
   it('places a BMI of 24.0 in the normal segment', () => {
@@ -51,7 +52,7 @@ describe('getBMIGaugePosition', () => {
 
     expect(widths.map(width => Number(width.toFixed(2)))).toEqual([28.33, 21.67, 16.67, 33.33]);
     BMI_GAUGE_SEGMENTS.slice(1).forEach((segment, index) => {
-      expect(segment.from).toBe(BMI_GAUGE_SEGMENTS[index].to);
+      expect(segment.from).toBe(defined(BMI_GAUGE_SEGMENTS[index]).to);
     });
   });
 });

@@ -18,6 +18,7 @@ import {
   CALORIES_PER_KG_FAT,
   PROJECTION_WEEKS,
 } from '@/constants/maximumFatLoss';
+import { defined } from '@/test-utils/defined';
 
 describe('calculateMaximumFatLoss', () => {
   const baseFormData: MaximumFatLossFormData = {
@@ -295,7 +296,7 @@ describe('calculateMaximumFatLoss', () => {
       const result = calculateMaximumFatLoss(baseFormData);
 
       expect(result.projections.length).toBeGreaterThan(0);
-      expect(result.projections[0].weeks).toBe(0);
+      expect(defined(result.projections[0]).weeks).toBe(0);
 
       // Check that projections don't exceed 12 weeks
       const maxWeeks = Math.max(...result.projections.map(p => p.weeks));
@@ -307,8 +308,8 @@ describe('calculateMaximumFatLoss', () => {
 
       // Weight should decrease over time (or at least not increase)
       for (let i = 1; i < result.projections.length; i++) {
-        expect(result.projections[i].projectedWeightKg).toBeLessThanOrEqual(
-          result.projections[i - 1].projectedWeightKg
+        expect(defined(result.projections[i]).projectedWeightKg).toBeLessThanOrEqual(
+          defined(result.projections[i - 1]).projectedWeightKg
         );
       }
     });
@@ -318,8 +319,8 @@ describe('calculateMaximumFatLoss', () => {
 
       // Body fat % should decrease over time
       for (let i = 1; i < result.projections.length; i++) {
-        expect(result.projections[i].projectedBodyFatPercentage).toBeLessThan(
-          result.projections[i - 1].projectedBodyFatPercentage + 0.1
+        expect(defined(result.projections[i]).projectedBodyFatPercentage).toBeLessThan(
+          defined(result.projections[i - 1]).projectedBodyFatPercentage + 0.1
         );
       }
     });
@@ -328,8 +329,10 @@ describe('calculateMaximumFatLoss', () => {
       const result = calculateMaximumFatLoss(baseFormData);
 
       // Deficit should generally decrease over time as fat mass decreases
-      const firstDeficit = result.projections[0].adjustedDeficit;
-      const lastDeficit = result.projections[result.projections.length - 1].adjustedDeficit;
+      const firstDeficit = defined(result.projections[0]).adjustedDeficit;
+      const lastDeficit = defined(
+        result.projections[result.projections.length - 1]
+      ).adjustedDeficit;
 
       expect(lastDeficit).toBeLessThanOrEqual(firstDeficit);
     });
@@ -479,7 +482,7 @@ describe('calculateMaximumFatLoss', () => {
 
       // TDEE should increase with activity level
       for (let i = 1; i < results.length; i++) {
-        expect(results[i].tdee).toBeGreaterThan(results[i - 1].tdee);
+        expect(defined(results[i]).tdee).toBeGreaterThan(defined(results[i - 1]).tdee);
       }
     });
   });

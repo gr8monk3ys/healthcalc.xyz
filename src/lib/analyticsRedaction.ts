@@ -50,7 +50,7 @@ function stripQueryFromField(match: string, lead: string, key: string, value: st
   if (!value) return match;
   const decoded = decodeOrEmpty(value);
   if (decoded && !/^https?:/i.test(decoded) && !HOLDS_SENSITIVE_PARAM.test(decoded)) return match;
-  return `${lead}${key}=${encodeURIComponent(decoded.split(QUERY_START)[0])}`;
+  return `${lead}${key}=${encodeURIComponent(decoded.split(QUERY_START)[0] ?? '')}`;
 }
 
 /** Rewrites a GA4 hit, either its URL or its newline-separated POST body. */

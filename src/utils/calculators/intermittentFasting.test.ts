@@ -5,6 +5,8 @@ import {
   getFormattedEatingWindow,
 } from './intermittentFasting';
 import { IFFormValues } from '@/types/intermittentFasting';
+import { defined } from '@/test-utils/defined';
+import { parseClockTime } from '@/utils/clockTime';
 
 describe('Intermittent Fasting Calculator', () => {
   const baseFormValues: IFFormValues = {
@@ -132,8 +134,8 @@ describe('Intermittent Fasting Calculator', () => {
     it('should end eating window 8 hours after start', () => {
       const result = processIFCalculation(baseFormValues);
 
-      const startHour = parseInt(result.eatingWindowStart.split(':')[0]);
-      const endHour = parseInt(result.eatingWindowEnd.split(':')[0]);
+      const startHour = parseClockTime(result.eatingWindowStart).hours;
+      const endHour = parseClockTime(result.eatingWindowEnd).hours;
       const duration = (endHour - startHour + 24) % 24;
 
       expect(duration).toBe(8);
@@ -296,8 +298,8 @@ describe('Intermittent Fasting Calculator', () => {
       const result = processIFCalculation(baseFormValues);
 
       if (result.weeklyProjections) {
-        const firstWeek = result.weeklyProjections[0].projectedWeight;
-        const lastWeek = result.weeklyProjections[11].projectedWeight;
+        const firstWeek = defined(result.weeklyProjections[0]).projectedWeight;
+        const lastWeek = defined(result.weeklyProjections[11]).projectedWeight;
 
         expect(lastWeek).toBeLessThan(firstWeek);
       }
@@ -307,8 +309,8 @@ describe('Intermittent Fasting Calculator', () => {
       const result = processIFCalculation(baseFormValues);
 
       if (result.weeklyProjections) {
-        const week1Loss = result.weeklyProjections[0].cumulativeWeightLoss;
-        const week12Loss = result.weeklyProjections[11].cumulativeWeightLoss;
+        const week1Loss = defined(result.weeklyProjections[0]).cumulativeWeightLoss;
+        const week12Loss = defined(result.weeklyProjections[11]).cumulativeWeightLoss;
 
         // Later weeks should show slower progress due to adaptation
         const week1Rate = week1Loss / 1;

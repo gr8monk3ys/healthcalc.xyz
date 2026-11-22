@@ -236,15 +236,16 @@ export function calculateProteinRequirement(
   }
 
   // Protein recommendations in g/kg based on activity level
+  const sedentary = { min: 0.8, max: 1.0 };
   const recommendations: Record<string, { min: number; max: number }> = {
-    sedentary: { min: 0.8, max: 1.0 },
+    sedentary,
     lightly_active: { min: 1.0, max: 1.2 },
     moderately_active: { min: 1.2, max: 1.6 },
     very_active: { min: 1.6, max: 2.0 },
     extremely_active: { min: 1.8, max: 2.2 },
   };
 
-  const rec = recommendations[activityLevel] || recommendations['sedentary'];
+  const rec = recommendations[activityLevel] ?? sedentary;
 
   return {
     min: Math.round(weightKg * rec.min),

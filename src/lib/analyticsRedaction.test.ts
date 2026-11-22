@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { installGaHitRedaction, pathOnlyUrl, redactGaPayload } from './analyticsRedaction';
+import { defined } from '@/test-utils/defined';
 
 const TOKEN = 'eyJ2IjoxLCJjIjoiYm1pIn0';
 const encoded = (path: string) => encodeURIComponent(`https://www.healthcalc.xyz${path}`);
@@ -116,7 +117,7 @@ describe('installGaHitRedaction', () => {
     xhr.send(`en=x&dr=${encoded(`/bmi?r=${TOKEN}`)}`);
 
     expect(openSpy).toHaveBeenCalledTimes(1);
-    expect(openSpy.mock.calls[0][2]).toBe(true);
+    expect(defined(openSpy.mock.calls[0])[2]).toBe(true);
     expect(sendSpy).toHaveBeenCalledTimes(1);
     expect(JSON.stringify([openSpy.mock.calls, sendSpy.mock.calls])).not.toContain(TOKEN);
   });

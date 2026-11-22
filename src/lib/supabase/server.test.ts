@@ -2,6 +2,7 @@
  * @vitest-environment node
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { defined } from '@/test-utils/defined';
 
 interface CookieMutation {
   name: string;
@@ -61,7 +62,7 @@ describe('supabase server client helpers', () => {
       key: 'anon-key',
     });
 
-    const options = createServerClient.mock.calls[0]?.[2];
+    const options = defined(createServerClient.mock.calls[0]?.[2], 'client options');
     expect(options.cookies.getAll()).toEqual([{ name: 'sb-access-token', value: 'token' }]);
     options.cookies.setAll([
       {
@@ -98,7 +99,7 @@ describe('supabase server client helpers', () => {
     const serverModule = await import('./server');
     await serverModule.getSupabaseServerClient();
 
-    const options = createServerClient.mock.calls[0]?.[2];
+    const options = defined(createServerClient.mock.calls[0]?.[2], 'client options');
     expect(() =>
       options.cookies.setAll([
         {

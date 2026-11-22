@@ -1,4 +1,5 @@
 import type { SleepMode, SleepResult, SleepTimeRecommendation } from '@/types/sleep';
+import { parseClockTime } from '@/utils/clockTime';
 
 const SLEEP_CYCLE_MINUTES = 90;
 const FALL_ASLEEP_BUFFER_MINUTES = 15;
@@ -6,7 +7,7 @@ const CYCLE_OPTIONS = [6, 5, 4, 3];
 
 function parseTime(value: string): number | null {
   if (!/^\d{2}:\d{2}$/.test(value)) return null;
-  const [hours, minutes] = value.split(':').map(Number);
+  const { hours, minutes } = parseClockTime(value);
   if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) return null;
   return hours * 60 + minutes;
 }

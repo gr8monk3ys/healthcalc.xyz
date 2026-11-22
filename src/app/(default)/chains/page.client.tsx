@@ -15,8 +15,9 @@ interface ChainsPageClientProps {
 function WorkflowStartCard({ chainId }: { chainId: string }) {
   const { startChain } = useChainState();
   const chain = getChainById(chainId);
+  const firstStep = chain?.steps[0];
 
-  if (!chain || chain.steps.length === 0) {
+  if (!chain || !firstStep) {
     return null;
   }
 
@@ -27,7 +28,7 @@ function WorkflowStartCard({ chainId }: { chainId: string }) {
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{chain.description}</p>
       <Link
         className="ui-btn-primary mt-4"
-        href={`/${chain.steps[0].slug}`}
+        href={`/${firstStep.slug}`}
         onClick={() => startChain(chainId)}
       >
         Start {chain.steps.length}-Step Workflow

@@ -1,6 +1,7 @@
 import type { CaloriesBurnedRunningResult } from '@/types/caloriesBurnedRunning';
+import { interpolateMET, type MetTable } from './metInterpolation';
 
-const RUNNING_MET_TABLE: Array<{ speed: number; met: number }> = [
+const RUNNING_MET_TABLE: MetTable = [
   { speed: 5.0, met: 8.3 },
   { speed: 6.0, met: 9.8 },
   { speed: 7.0, met: 11.5 },
@@ -11,23 +12,6 @@ const RUNNING_MET_TABLE: Array<{ speed: number; met: number }> = [
   { speed: 12.0, met: 19.0 },
 ];
 
-function interpolateMET(speedMph: number): number {
-  const sorted = RUNNING_MET_TABLE;
-  if (speedMph <= sorted[0].speed) return sorted[0].met;
-  if (speedMph >= sorted[sorted.length - 1].speed) return sorted[sorted.length - 1].met;
-
-  for (let i = 0; i < sorted.length - 1; i += 1) {
-    const current = sorted[i];
-    const next = sorted[i + 1];
-    if (speedMph >= current.speed && speedMph <= next.speed) {
-      const ratio = (speedMph - current.speed) / (next.speed - current.speed);
-      return current.met + ratio * (next.met - current.met);
-    }
-  }
-
-  return sorted[0].met;
-}
-
 export function calculateCaloriesBurnedRunning(
   weightKg: number,
   durationMinutes: number,
@@ -37,7 +21,7 @@ export function calculateCaloriesBurnedRunning(
     throw new Error('Inputs must be greater than 0');
   }
 
-  const met = interpolateMET(speedMph);
+  const met = interpolateMET(speedMph, RUNNING_MET_TABLE);
   const caloriesPerMinute = (met * 3.5 * weightKg) / 200;
   const calories = caloriesPerMinute * durationMinutes;
 

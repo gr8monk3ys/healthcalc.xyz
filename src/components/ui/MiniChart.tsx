@@ -81,7 +81,9 @@ export default function MiniChart({
     };
   }, [sorted, width, height]);
 
-  if (sorted.length === 0) return null;
+  const firstPoint = points[0];
+  const lastPoint = points[points.length - 1];
+  if (!firstPoint || !lastPoint) return null;
 
   const linePath = points
     .map((p, i) => `${i === 0 ? 'M' : 'L'} ${formatNumber(p.x, 1)} ${formatNumber(p.y, 1)}`)
@@ -89,8 +91,8 @@ export default function MiniChart({
 
   const areaPath =
     linePath +
-    ` L ${formatNumber(points[points.length - 1].x, 1)} ${formatNumber(PADDING_TOP + chartH, 1)}` +
-    ` L ${formatNumber(points[0].x, 1)} ${formatNumber(PADDING_TOP + chartH, 1)} Z`;
+    ` L ${formatNumber(lastPoint.x, 1)} ${formatNumber(PADDING_TOP + chartH, 1)}` +
+    ` L ${formatNumber(firstPoint.x, 1)} ${formatNumber(PADDING_TOP + chartH, 1)} Z`;
 
   const gradientId = `mini-chart-grad-${color.replace(/[^a-zA-Z0-9]/g, '')}`;
 
@@ -177,19 +179,21 @@ export default function MiniChart({
                 {formatDateShort(p.date)}
               </text>
             ))
-          : [0, Math.floor(points.length / 2), points.length - 1].map(i => (
-              <text
-                key={`summary-label-${points[i].date}-${points[i].x}`}
-                x={points[i].x}
-                y={height - 4}
-                textAnchor="middle"
-                fontSize="9"
-                fill="currentColor"
-                opacity="0.5"
-              >
-                {formatDateShort(points[i].date)}
-              </text>
-            ))}
+          : [firstPoint, points[Math.floor(points.length / 2)], lastPoint]
+              .filter(Boolean)
+              .map(p => (
+                <text
+                  key={`summary-label-${p.date}-${p.x}`}
+                  x={p.x}
+                  y={height - 4}
+                  textAnchor="middle"
+                  fontSize="9"
+                  fill="currentColor"
+                  opacity="0.5"
+                >
+                  {formatDateShort(p.date)}
+                </text>
+              ))}
 
         {/* Y-axis labels */}
         <text

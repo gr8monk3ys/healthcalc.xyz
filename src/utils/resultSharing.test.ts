@@ -10,6 +10,7 @@ import {
   type ShareResultContext,
   type SharedResultPayload,
 } from './resultSharing';
+import { defined } from '@/test-utils/defined';
 
 const BMI_PAYLOAD: SharedResultPayload<'bmi'> = {
   v: 1,
@@ -215,8 +216,14 @@ describe('resultSharing', () => {
   });
 
   it('builds summary metadata for every supported payload', () => {
-    const [bmi, tdee, calorieDeficit, bodyFat, macro, fitnessAge] =
-      SUPPORTED_PAYLOADS.map(buildSharedResultSummary);
+    const summaries = SUPPORTED_PAYLOADS.map(buildSharedResultSummary);
+    const summaryAt = (index: number) => defined(summaries[index], `summary ${index}`);
+    const bmi = summaryAt(0);
+    const tdee = summaryAt(1);
+    const calorieDeficit = summaryAt(2);
+    const bodyFat = summaryAt(3);
+    const macro = summaryAt(4);
+    const fitnessAge = summaryAt(5);
 
     expect(bmi.calculator).toBe('bmi');
     expect(bmi.title).toContain('BMI');

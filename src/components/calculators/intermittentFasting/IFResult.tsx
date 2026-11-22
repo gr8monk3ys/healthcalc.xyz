@@ -1,6 +1,7 @@
 import React from 'react';
 import { IFResult as IFResultType } from '@/types/intermittentFasting';
 import { formatNumber } from '@/utils/formatNumber';
+import { parseClockTime } from '@/utils/clockTime';
 
 interface IFResultProps {
   result: IFResultType;
@@ -9,7 +10,7 @@ interface IFResultProps {
 
 export default function IFResult({ result, weightUnit }: IFResultProps) {
   const formatTime12Hour = (time: string): string => {
-    const [hours, minutes] = time.split(':').map(Number);
+    const { hours, minutes } = parseClockTime(time);
     const period = hours >= 12 ? 'PM' : 'AM';
     const displayHours = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
     return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;

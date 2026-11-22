@@ -17,12 +17,19 @@ export interface BodyCompositionReference {
   bodyFatPercentage: number;
 }
 
+const OLDEST_ADULT_BAND: BodyCompositionReferenceBand = {
+  minAge: 60,
+  maxAge: 120,
+  bmi: 24.1,
+  bodyFat: { male: 22, female: 30 },
+};
+
 const ADULT_REFERENCE_BANDS: BodyCompositionReferenceBand[] = [
   { minAge: 18, maxAge: 29, bmi: 21.8, bodyFat: { male: 14, female: 22 } },
   { minAge: 30, maxAge: 39, bmi: 22.4, bodyFat: { male: 16, female: 24 } },
   { minAge: 40, maxAge: 49, bmi: 23.0, bodyFat: { male: 18, female: 26 } },
   { minAge: 50, maxAge: 59, bmi: 23.6, bodyFat: { male: 20, female: 28 } },
-  { minAge: 60, maxAge: 120, bmi: 24.1, bodyFat: { male: 22, female: 30 } },
+  OLDEST_ADULT_BAND,
 ];
 
 const FALLBACK_REFERENCE: BodyCompositionReference = {
@@ -37,7 +44,7 @@ function roundToOne(value: number): number {
 function findAdultBand(age: number): BodyCompositionReferenceBand {
   return (
     ADULT_REFERENCE_BANDS.find(band => age >= band.minAge && age <= band.maxAge) ??
-    ADULT_REFERENCE_BANDS[ADULT_REFERENCE_BANDS.length - 1]
+    OLDEST_ADULT_BAND
   );
 }
 

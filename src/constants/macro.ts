@@ -31,6 +31,15 @@ export const CALORIES_PER_GRAM = {
  * Macro ratio presets for different dietary goals
  * All percentages must sum to 100
  */
+const MAINTENANCE_PRESET: MacroRatioPreset = {
+  id: 'maintenance',
+  name: 'Maintenance',
+  description: 'Balanced macros for maintaining current weight and health',
+  proteinPercent: 30,
+  carbsPercent: 35,
+  fatPercent: 35,
+};
+
 export const MACRO_RATIO_PRESETS: MacroRatioPreset[] = [
   {
     id: 'weight_loss',
@@ -40,14 +49,7 @@ export const MACRO_RATIO_PRESETS: MacroRatioPreset[] = [
     carbsPercent: 40,
     fatPercent: 20,
   },
-  {
-    id: 'maintenance',
-    name: 'Maintenance',
-    description: 'Balanced macros for maintaining current weight and health',
-    proteinPercent: 30,
-    carbsPercent: 35,
-    fatPercent: 35,
-  },
+  MAINTENANCE_PRESET,
   {
     id: 'muscle_gain',
     name: 'Muscle Gain',
@@ -73,7 +75,7 @@ export const MACRO_RATIO_PRESETS: MacroRatioPreset[] = [
  */
 export function getMacroPreset(goal: MacroGoal): MacroRatioPreset {
   const preset = MACRO_RATIO_PRESETS.find(p => p.id === goal);
-  return preset || MACRO_RATIO_PRESETS[1]; // Default to maintenance
+  return preset ?? MAINTENANCE_PRESET;
 }
 
 /**

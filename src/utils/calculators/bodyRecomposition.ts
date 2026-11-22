@@ -81,12 +81,14 @@ export function generateRecommendation(
   experience: TrainingExperience,
   bodyFatPercentage: number
 ): string {
+  const loseFatBuildMuscle = `Focus on progressive strength training 3-4x/week. Prioritize compound movements like squats, deadlifts, and bench press. The calorie cycling approach allows muscle growth on training days while burning fat on rest days. ${
+    bodyFatPercentage > 25
+      ? 'With your current body fat, expect faster fat loss initially.'
+      : 'Your body fat level is optimal for recomposition.'
+  }`;
+
   const recommendations: Record<string, string> = {
-    'lose-fat-build-muscle': `Focus on progressive strength training 3-4x/week. Prioritize compound movements like squats, deadlifts, and bench press. The calorie cycling approach allows muscle growth on training days while burning fat on rest days. ${
-      bodyFatPercentage > 25
-        ? 'With your current body fat, expect faster fat loss initially.'
-        : 'Your body fat level is optimal for recomposition.'
-    }`,
+    'lose-fat-build-muscle': loseFatBuildMuscle,
     'maintain-build-muscle': `Maintain current body composition while building muscle steadily. Train 4-5x/week with emphasis on progressive overload. ${
       experience === 'beginner'
         ? 'As a beginner, you have great potential for muscle growth - focus on form and consistency.'
@@ -99,7 +101,7 @@ export function generateRecommendation(
     }`,
   };
 
-  return recommendations[goal] || recommendations['lose-fat-build-muscle'];
+  return recommendations[goal] ?? loseFatBuildMuscle;
 }
 
 /**

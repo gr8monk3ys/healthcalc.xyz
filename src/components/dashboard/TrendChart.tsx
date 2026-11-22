@@ -35,9 +35,10 @@ export default function TrendChart({
     return points.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }, [results, calculatorSlug]);
 
+  const latest = dataPoints.at(-1);
+
   // Not enough data for a chart — fall back to a card
-  if (dataPoints.length < 2) {
-    const latest = dataPoints[0];
+  if (!latest || dataPoints.length < 2) {
     return (
       <MetricCard
         metric={metric}
@@ -47,8 +48,6 @@ export default function TrendChart({
       />
     );
   }
-
-  const latest = dataPoints[dataPoints.length - 1];
 
   return (
     <div className="glass-panel rounded-xl p-4">

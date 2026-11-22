@@ -45,7 +45,10 @@ export const ABSI_RISK_CATEGORIES: ABSIRiskCategory[] = [
  * ABSI mean values by age and gender
  * Source: Krakauer & Krakauer (2012)
  */
-export const ABSI_MEAN = {
+export const ABSI_MEAN: Record<
+  'male' | 'female',
+  { ageRange: [number, number]; mean: number; sd: number }[]
+> = {
   male: [
     { ageRange: [2, 19], mean: 0.0785, sd: 0.0035 }, // Approximation for children
     { ageRange: [20, 29], mean: 0.0783, sd: 0.0037 },

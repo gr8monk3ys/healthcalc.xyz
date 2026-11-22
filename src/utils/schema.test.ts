@@ -7,6 +7,7 @@ import {
   createArticleSchema,
   createCalculatorSchema,
 } from './schema';
+import { defined } from '@/test-utils/defined';
 
 describe('createOrganizationSchema', () => {
   it('should create valid Organization schema', () => {
@@ -83,16 +84,16 @@ describe('createBreadcrumbSchema', () => {
       item: string;
     }>;
 
-    expect(elements[0].position).toBe(1);
-    expect(elements[1].position).toBe(2);
-    expect(elements[2].position).toBe(3);
+    expect(defined(elements[0]).position).toBe(1);
+    expect(defined(elements[1]).position).toBe(2);
+    expect(defined(elements[2]).position).toBe(3);
   });
 
   it('should include ListItem type for each element', () => {
     const items = [{ name: 'Home', url: '/' }];
     const schema = createBreadcrumbSchema(items);
     const elements = schema.itemListElement as Array<{ '@type': string }>;
-    expect(elements[0]['@type']).toBe('ListItem');
+    expect(defined(elements[0])['@type']).toBe('ListItem');
   });
 
   it('should handle empty items array', () => {
@@ -117,7 +118,7 @@ describe('createFAQSchema', () => {
   it('should format questions as Question/Answer pairs', () => {
     const questions = [{ question: 'Q?', answer: 'A.' }];
     const schema = createFAQSchema(questions);
-    const entity = (schema.mainEntity as Array<Record<string, unknown>>)[0];
+    const entity = defined((schema.mainEntity as Array<Record<string, unknown>>)[0]);
 
     expect(entity['@type']).toBe('Question');
     expect(entity.name).toBe('Q?');
