@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 function makeRequest(body: unknown): NextRequest {
   return new NextRequest('http://localhost/api/embed-request', {
@@ -62,7 +63,7 @@ describe('POST /api/embed-request provider integrations', () => {
         notes: 'Please send embed instructions.',
       })
     );
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
@@ -73,8 +74,9 @@ describe('POST /api/embed-request provider integrations', () => {
 
     const requestInit = fetchMock.mock.calls[0]?.[1];
     const payload = JSON.parse(String(requestInit?.body));
-    expect(payload.fields.source).toBe('embed-request');
-    expect(payload.fields.calculatorSlug).toBe('bmi');
+    expect(payload).toMatchObject({
+      fields: { source: 'embed-request', calculatorSlug: 'bmi' },
+    });
   });
 
   it('returns 502 when ConvertKit rejects request', async () => {
@@ -87,7 +89,7 @@ describe('POST /api/embed-request provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'jane@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(502);
     expect(data.success).toBe(false);

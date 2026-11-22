@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 function makeRequest(method: 'DELETE'): NextRequest {
   return new NextRequest('http://localhost/api/saved-results/bmi-abc', { method });
@@ -61,7 +62,7 @@ describe('DELETE /api/saved-results/[id]', () => {
     mocks.deleteSavedResult.mockResolvedValueOnce(true);
 
     const res = await DELETE(makeRequest('DELETE'), { params: Promise.resolve({ id: 'bmi-abc' }) });
-    const json = await res.json();
+    const json = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(json.success).toBe(true);

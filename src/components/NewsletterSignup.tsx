@@ -5,6 +5,7 @@ import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import React, { useId, useRef, useState } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
+import { readApiResponse } from '@/utils/apiResponse';
 
 interface NewsletterSignupProps {
   title?: string;
@@ -83,9 +84,9 @@ function NewsletterSignupForm({
           body: JSON.stringify({ email }),
         });
 
-        const result = await response.json();
+        const result = await readApiResponse(response);
         setMessage({
-          text: result.success ? result.message : result.error,
+          text: (result.success ? result.message : result.error) ?? '',
           type: result.success ? 'success' : 'error',
         });
 

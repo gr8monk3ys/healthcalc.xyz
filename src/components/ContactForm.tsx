@@ -3,6 +3,7 @@
 import React, { useRef, useState, FormEvent } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { useUnsavedChangesWarning } from '@/hooks/useUnsavedChangesWarning';
+import { readApiResponse } from '@/utils/apiResponse';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -60,14 +61,14 @@ export default function ContactForm() {
         body: JSON.stringify({ name, email, subject, message }),
       });
 
-      const data = await response.json();
+      const data = await readApiResponse(response);
 
       if (data.success) {
         setStatus('success');
         // The form is replaced by the confirmation; move focus there instead
         // of letting it drop to <body>.
         requestAnimationFrame(() => successHeadingRef.current?.focus());
-        setStatusMessage(data.message);
+        setStatusMessage(data.message ?? '');
         setName('');
         setEmail('');
         setSubject('');

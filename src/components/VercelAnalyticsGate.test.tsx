@@ -1,5 +1,6 @@
 import React from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { fromPartial } from '@total-typescript/shoehorn';
 import { render } from '@testing-library/react';
 import { buildSharedResultToken } from '@/utils/resultSharing';
 import VercelAnalyticsGate from './VercelAnalyticsGate';
@@ -43,10 +44,12 @@ describe('VercelAnalyticsGate', () => {
     consent.analytics = true;
     render(<VercelAnalyticsGate />);
 
-    const token = buildSharedResultToken({
-      calculator: 'bmi',
-      inputs: { age: 40, gender: 'male', heightCm: 180, weightKg: 90 },
-    } as Parameters<typeof buildSharedResultToken>[0]);
+    const token = buildSharedResultToken(
+      fromPartial({
+        calculator: 'bmi',
+        inputs: { age: 40, gender: 'male', heightCm: 180, weightKg: 90 },
+      })
+    );
     const beforeSend = analyticsStub.beforeSend as BeforeSend;
     const sent = beforeSend({
       type: 'pageview',

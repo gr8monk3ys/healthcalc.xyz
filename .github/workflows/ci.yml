@@ -40,6 +40,9 @@ jobs:
       - name: Run type checking
         run: bun run type-check
 
+      - name: Check dependency boundaries
+        run: bun run lint:boundaries
+
       - name: Run tests
         run: bun run test -- --run --coverage
 

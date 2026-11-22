@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 vi.mock('@/utils/csrf', () => ({
   verifyCsrf: vi.fn(() => true),
@@ -86,7 +87,7 @@ describe('POST /api/embed-request', () => {
         notes: 'I want to embed the BMI calculator.',
       })
     );
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
     expect(data.message).toBeDefined();
@@ -94,14 +95,14 @@ describe('POST /api/embed-request', () => {
 
   it('should accept submission with only email', async () => {
     const res = await POST(makeRequest({ email: 'jane@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
   });
 
   it('should reject invalid email with 400', async () => {
     const res = await POST(makeRequest({ email: 'not-valid' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
     expect(data.error).toBeDefined();
@@ -109,7 +110,7 @@ describe('POST /api/embed-request', () => {
 
   it('should reject missing email with 400', async () => {
     const res = await POST(makeRequest({ name: 'Jane' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
   });
@@ -137,7 +138,7 @@ describe('POST /api/embed-request', () => {
       body: '{invalid json',
     });
     const res = await POST(request);
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
@@ -150,7 +151,7 @@ describe('POST /api/embed-request', () => {
     });
 
     const res = await POST(makeRequest({ email: 'jane@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(500);
     expect(data.success).toBe(false);
@@ -166,7 +167,7 @@ describe('POST /api/embed-request', () => {
     });
 
     const res = await POST(makeRequest({ email: 'jane@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(503);
     expect(data.success).toBe(false);

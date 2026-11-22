@@ -260,7 +260,7 @@ export function getFromLocalStorage<T>(key: string, defaultValue: T): T {
 
   try {
     const item = window.localStorage.getItem(key);
-    return item ? JSON.parse(item) : defaultValue;
+    return item ? (JSON.parse(item) as T) : defaultValue;
   } catch (error) {
     logger.logError(`Error reading localStorage key "${key}"`, error);
     return defaultValue;

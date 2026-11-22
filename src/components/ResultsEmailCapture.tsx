@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
+import { readApiResponse } from '@/utils/apiResponse';
 
 interface ResultsEmailCaptureProps {
   /** Optional custom headline */
@@ -73,7 +74,7 @@ function ResultsEmailCaptureForm({
           body: JSON.stringify({ email: trimmedEmail, source }),
         });
 
-        const result = await response.json();
+        const result = await readApiResponse(response);
 
         if (result.success) {
           trackEvent('newsletter_subscribe', { source, placement: 'calculator_results' });

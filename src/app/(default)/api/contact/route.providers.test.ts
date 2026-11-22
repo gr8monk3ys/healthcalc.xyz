@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 const validBody = {
   name: 'Jane Doe',
@@ -67,7 +68,7 @@ describe('POST /api/contact provider integrations', () => {
         message: 'Line one\n<script>alert(1)</script>',
       })
     );
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
@@ -79,12 +80,16 @@ describe('POST /api/contact provider integrations', () => {
     const requestInit = fetchMock.mock.calls[0]?.[1];
     const payload = JSON.parse(String(requestInit?.body));
 
-    expect(payload.to).toBe('support@healthcalc.xyz');
-    expect(payload.from).toBe('HealthCalc Contact <noreply@healthcalc.xyz>');
-    expect(payload.subject).toContain('Bug Report');
-    expect(payload.subject).toContain(`Jane <script>alert('x')</script>`);
-    expect(payload.html).toContain('&lt;script&gt;alert(&#039;x&#039;)&lt;/script&gt;');
-    expect(payload.html).toContain('Line one<br />&lt;script&gt;alert(1)&lt;/script&gt;');
+    expect(payload).toMatchObject({
+      to: 'support@healthcalc.xyz',
+      from: 'HealthCalc Contact <noreply@healthcalc.xyz>',
+      subject: expect.stringContaining('Bug Report'),
+      html: expect.stringContaining('&lt;script&gt;alert(&#039;x&#039;)&lt;/script&gt;'),
+    });
+    expect(payload).toMatchObject({
+      subject: expect.stringContaining(`Jane <script>alert('x')</script>`),
+      html: expect.stringContaining('Line one<br />&lt;script&gt;alert(1)&lt;/script&gt;'),
+    });
   });
 
   it('uses RESEND_FROM_EMAIL when configured', async () => {
@@ -95,13 +100,13 @@ describe('POST /api/contact provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest(validBody));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
     const requestInit = fetchMock.mock.calls[0]?.[1];
     const payload = JSON.parse(String(requestInit?.body));
-    expect(payload.from).toBe('HealthCalc <hello@healthcalc.xyz>');
+    expect(payload).toMatchObject({ from: 'HealthCalc <hello@healthcalc.xyz>' });
   });
 
   it('returns 500 when Resend fails', async () => {
@@ -113,7 +118,7 @@ describe('POST /api/contact provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest(validBody));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(500);
     expect(data.success).toBe(false);
@@ -125,7 +130,7 @@ describe('POST /api/contact provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest(validBody));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(503);
     expect(data.success).toBe(false);
@@ -141,7 +146,7 @@ describe('POST /api/contact provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(malformed);
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(500);
     expect(data.success).toBe(false);

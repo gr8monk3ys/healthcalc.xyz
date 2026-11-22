@@ -47,11 +47,9 @@ describe('CalculatorPageLayout FAQ structured data', () => {
     const schemas = faqSchemas(container);
 
     expect(schemas).toHaveLength(1);
-    expect(
-      JSON.parse(schemas[0].textContent ?? '').mainEntity.map(
-        (entity: { name: string }) => entity.name
-      )
-    ).toEqual(FAQS.map(faq => faq.question));
+    expect(JSON.parse(schemas[0].textContent ?? '')).toMatchObject({
+      mainEntity: FAQS.map(faq => ({ name: faq.question })),
+    });
     for (const faq of FAQS) {
       expect(getByText(faq.question)).toBeInTheDocument();
     }

@@ -3,6 +3,7 @@
  */
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 function makeRequest(body: unknown): NextRequest {
   return new NextRequest('http://localhost/api/client-errors', {
@@ -80,7 +81,7 @@ describe('POST /api/client-errors', () => {
   it('rejects invalid payloads', async () => {
     const { POST, logger } = await loadRoute();
     const response = await POST(makeRequest({ message: '   ' }));
-    const body = await response.json();
+    const body = await readJson(response);
 
     expect(response.status).toBe(400);
     expect(body.success).toBe(false);
@@ -92,7 +93,7 @@ describe('POST /api/client-errors', () => {
     const response = await POST(
       makeRequest({ message: 123, url: { href: 'https://example.com' } })
     );
-    const body = await response.json();
+    const body = await readJson(response);
 
     expect(response.status).toBe(400);
     expect(body).toEqual({

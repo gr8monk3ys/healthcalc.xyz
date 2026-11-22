@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 vi.mock('@/utils/csrf', () => ({
   verifyCsrf: vi.fn(() => true),
@@ -82,7 +83,7 @@ describe('POST /api/contact', () => {
 
   it('should accept valid submission and return success', async () => {
     const res = await POST(makeRequest(validBody));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
     expect(data.message).toBeDefined();
@@ -91,14 +92,14 @@ describe('POST /api/contact', () => {
   it('should reject missing name with 400', async () => {
     const { name: _, ...noName } = validBody;
     const res = await POST(makeRequest(noName));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
   });
 
   it('should reject name too short with 400', async () => {
     const res = await POST(makeRequest({ ...validBody, name: 'A' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
     expect(data.error).toContain('2 characters');
@@ -106,14 +107,14 @@ describe('POST /api/contact', () => {
 
   it('should reject invalid email with 400', async () => {
     const res = await POST(makeRequest({ ...validBody, email: 'bad' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
   });
 
   it('should reject invalid subject with 400', async () => {
     const res = await POST(makeRequest({ ...validBody, subject: 'invalid' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
   });
@@ -121,14 +122,14 @@ describe('POST /api/contact', () => {
   it('should accept all valid subject values', async () => {
     for (const subject of ['question', 'feedback', 'bug', 'feature', 'other']) {
       const res = await POST(makeRequest({ ...validBody, subject }));
-      const data = await res.json();
+      const data = await readJson(res);
       expect(data.success).toBe(true);
     }
   });
 
   it('should reject message shorter than 10 characters', async () => {
     const res = await POST(makeRequest({ ...validBody, message: 'Short' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
     expect(data.error).toContain('10 characters');
@@ -159,7 +160,7 @@ describe('POST /api/contact', () => {
     });
 
     const res = await POST(makeRequest(validBody));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(503);
     expect(data.success).toBe(false);

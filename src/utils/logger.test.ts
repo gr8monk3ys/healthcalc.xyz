@@ -123,10 +123,12 @@ describe('Logger', () => {
 
       // Should be valid JSON
       const parsed = JSON.parse(call);
-      expect(parsed.level).toBe('info');
-      expect(parsed.message).toBe('Structured message');
-      expect(parsed.timestamp).toBeDefined();
-      expect(parsed.meta.component).toBe('Test');
+      expect(parsed).toMatchObject({
+        level: 'info',
+        message: 'Structured message',
+        timestamp: expect.anything(),
+        meta: { component: 'Test' },
+      });
     });
   });
 
@@ -215,9 +217,7 @@ describe('Logger', () => {
       const call = vi.mocked(console.info).mock.calls[0][0] as string;
       const parsed = JSON.parse(call);
 
-      expect(parsed.timestamp).toBeDefined();
-      // Check it's a valid ISO date string
-      expect(() => new Date(parsed.timestamp)).not.toThrow();
+      expect(parsed).toMatchObject({ timestamp: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/) });
     });
 
     it('should format level in uppercase for human-readable output', () => {
@@ -239,7 +239,7 @@ describe('Logger', () => {
       const call = vi.mocked(console.info).mock.calls[0][0] as string;
       const parsed = JSON.parse(call);
 
-      expect(parsed.meta).toBeUndefined();
+      expect(parsed).not.toHaveProperty('meta');
     });
   });
 });

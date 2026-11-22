@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 function makeRequest(method: 'GET' | 'POST' | 'DELETE', body?: unknown): NextRequest {
   type NextRequestInit = NonNullable<ConstructorParameters<typeof NextRequest>[1]>;
@@ -88,16 +89,18 @@ describe('GET /api/saved-results', () => {
     ]);
 
     const res = await GET(makeRequest('GET'));
-    const json = await res.json();
+    const json = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(json.success).toBe(true);
     expect(json.results).toHaveLength(1);
-    expect(json.results[0]).toMatchObject({
-      id: 'bmi-abc',
-      calculatorType: 'bmi',
-      calculatorName: 'BMI',
-    });
+    expect(json.results).toMatchObject([
+      {
+        id: 'bmi-abc',
+        calculatorType: 'bmi',
+        calculatorName: 'BMI',
+      },
+    ]);
   });
 });
 
@@ -143,7 +146,7 @@ describe('POST /api/saved-results', () => {
         data: { bmi: 25 },
       })
     );
-    const json = await res.json();
+    const json = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(json.success).toBe(true);
@@ -168,7 +171,7 @@ describe('DELETE /api/saved-results', () => {
     mocks.clearSavedResults.mockResolvedValueOnce(3);
 
     const res = await DELETE(makeRequest('DELETE'));
-    const json = await res.json();
+    const json = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(json.success).toBe(true);

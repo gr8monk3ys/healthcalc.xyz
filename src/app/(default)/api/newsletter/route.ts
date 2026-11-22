@@ -138,7 +138,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<Subscribe
         });
       }
 
-      const error = await response.json();
+      const error = (await response.json()) as { title?: unknown };
       if (error.title === 'Member Exists') {
         const strictFailureResponse = await persistSubmissionOrFail({
           email,

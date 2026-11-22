@@ -152,7 +152,14 @@ export function scrubSentryEvent<T>(event: T): T {
 export function hasAnalyticsConsent(): boolean {
   try {
     const stored = window.localStorage.getItem('cookie-consent');
-    return stored !== null && JSON.parse(stored)?.analytics === true;
+    if (stored === null) return false;
+    const consent = JSON.parse(stored);
+    return (
+      typeof consent === 'object' &&
+      consent !== null &&
+      'analytics' in consent &&
+      consent.analytics === true
+    );
   } catch {
     return false;
   }
