@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 import { buildLanguageAlternates } from '@/i18n/alternates';
 
 export const metadata: Metadata = {
+  // Shows only the visitor's own saved data, so crawlers see an empty page.
+  robots: { index: false, follow: true },
   title: 'Health Dashboard | HealthCalc',
   description: 'Track your saved health metrics, trends, and milestones in one dashboard.',
   alternates: {

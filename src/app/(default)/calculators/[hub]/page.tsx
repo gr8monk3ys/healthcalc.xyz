@@ -9,6 +9,7 @@ import {
   getCalculatorHub,
   getCalculatorsForHub,
 } from '@/constants/calculatorCatalog';
+import { CALCULATOR_HUB_GUIDES } from '@/constants/calculatorHubGuides';
 
 interface CalculatorHubPageProps {
   params: Promise<{
@@ -48,6 +49,7 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
   }
 
   const calculators = getCalculatorsForHub(hub.slug);
+  const guide = CALCULATOR_HUB_GUIDES[hub.slug];
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -95,6 +97,29 @@ export default async function CalculatorHubPage({ params }: CalculatorHubPagePro
           </Link>
         ))}
       </div>
+
+      {guide && (
+        <article className="mt-12 space-y-8">
+          {guide.sections.map(section => (
+            <section key={section.heading}>
+              <h2 className="text-2xl font-semibold mb-3">{section.heading}</h2>
+              {section.paragraphs.map(paragraph => (
+                <p key={paragraph.slice(0, 40)} className="text-gray-600 mb-3">
+                  {paragraph}
+                </p>
+              ))}
+            </section>
+          ))}
+          <section className="border-t pt-8">
+            <h2 className="text-xl font-semibold mb-4">References</h2>
+            <ul className="space-y-3 text-sm text-gray-600">
+              {guide.references.map(reference => (
+                <li key={reference}>{reference}</li>
+              ))}
+            </ul>
+          </section>
+        </article>
+      )}
 
       <div className="mt-10">
         <Link href="/calculators" className="text-accent hover:underline">

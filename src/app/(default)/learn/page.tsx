@@ -4,7 +4,8 @@ import Link from 'next/link';
 export const metadata = {
   alternates: { canonical: './' },
   title: 'Health Guides | HealthCalc',
-  description: 'Quick guides that explain key health metrics and link to the right calculators.',
+  description:
+    'Guides to calories, macros, body composition, heart rate training, walking and running energy, and pregnancy, with the formulas behind each calculator.',
 };
 
 const icons = {
@@ -176,6 +177,50 @@ export default function LearnIndexPage() {
           calculator that puts a number on it.
         </p>
       </header>
+
+      <section className="glass-panel mb-10 space-y-4 rounded-3xl p-6 text-slate-600 dark:text-slate-300">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+          What These Guides Cover
+        </h2>
+        <p>
+          Each guide takes one area of health and fitness, explains the measurements involved, and
+          shows the formulas our calculators use, with a worked example you can check by hand. The
+          calorie and macro guides cover energy balance, the Mifflin-St Jeor equation, activity
+          multipliers, and the accepted ranges for protein, carbohydrate, and fat. The body
+          composition guide compares BMI, body fat percentage, lean mass, and waist measurements.
+          The heart rate guide explains maximum heart rate formulas and training zones, the walking
+          and running guide covers MET-based calorie estimates and step counts, and the pregnancy
+          guide covers due dates and weight gain recommendations.
+        </p>
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+          How to Read a Calculator Result
+        </h2>
+        <p>
+          Every calculator on this site turns a few inputs into an estimate using a published
+          equation or guideline. Those equations describe averages from research groups, so a result
+          tells you where a typical person with your inputs would land, not exactly where you are. A
+          maintenance calorie estimate can be off by a few hundred calories for an individual, and a
+          maximum heart rate formula can miss by ten beats per minute or more. Treat it as a
+          starting point. Act on it, watch what actually happens over a few weeks, then adjust.
+        </p>
+        <p>
+          How you measure matters as much as which formula you use. Weigh yourself at the same time
+          of day, measure your waist the same way each time, and keep the same device or method when
+          you compare results over time. Small changes in technique often look like real progress or
+          setbacks.
+        </p>
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+          When to See a Clinician
+        </h2>
+        <p>
+          These guides are general education, not medical advice. Talk to a doctor, midwife, or
+          registered dietitian before acting on a result if you are pregnant, have a chronic
+          condition such as diabetes, heart disease, or kidney disease, take medication that affects
+          heart rate or blood sugar, or have a history of disordered eating. Seek prompt care for
+          symptoms such as chest pain, fainting, or unexplained weight change. Each guide ends with
+          the references it draws on, so you can read the original sources.
+        </p>
+      </section>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {guides.map(guide => (
