@@ -8,6 +8,7 @@ import {
   processCaffeineCalculation,
 } from './caffeineCalculator';
 import { CaffeineFormValues } from '@/types/caffeineCalculator';
+import { defined } from '@/test-utils/defined';
 
 describe('Caffeine Calculator', () => {
   describe('calculateTotalCaffeine', () => {
@@ -17,9 +18,9 @@ describe('Caffeine Calculator', () => {
 
       expect(result.total).toBe(190); // 95mg * 2
       expect(result.breakdown).toHaveLength(1);
-      expect(result.breakdown[0].source).toBe('Coffee');
-      expect(result.breakdown[0].caffeineMg).toBe(190);
-      expect(result.breakdown[0].servings).toBe(2);
+      expect(defined(result.breakdown[0]).source).toBe('Coffee');
+      expect(defined(result.breakdown[0]).caffeineMg).toBe(190);
+      expect(defined(result.breakdown[0]).servings).toBe(2);
     });
 
     it('should calculate total caffeine from multiple sources', () => {
@@ -41,7 +42,7 @@ describe('Caffeine Calculator', () => {
 
       expect(result.total).toBe(0);
       expect(result.breakdown).toHaveLength(1);
-      expect(result.breakdown[0].caffeineMg).toBe(0);
+      expect(defined(result.breakdown[0]).caffeineMg).toBe(0);
     });
 
     it('should handle all caffeine sources', () => {

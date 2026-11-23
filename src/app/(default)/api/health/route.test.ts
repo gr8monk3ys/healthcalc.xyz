@@ -2,6 +2,7 @@
  * @vitest-environment node
  */
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { readJson } from '@/test-utils/readJson';
 
 async function runHealthCalc() {
   vi.resetModules();
@@ -28,7 +29,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('CLERK_SECRET_KEY', '');
 
     const response = await runHealthCalc();
-    const body = await response.json();
+    const body = await readJson(response);
 
     expect(response.status).toBe(200);
     expect(body.status).toBe('ok');
@@ -50,7 +51,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('CONVERTKIT_FORM_ID', '');
 
     const response = await runHealthCalc();
-    const body = await response.json();
+    const body = await readJson(response);
 
     expect(response.status).toBe(503);
     expect(body.status).toBe('degraded');
@@ -67,7 +68,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('RESEND_AUDIENCE_ID', 'aud_123');
 
     const response = await runHealthCalc();
-    const body = await response.json();
+    const body = await readJson(response);
 
     expect(response.status).toBe(200);
     expect(body.status).toBe('ok');
@@ -79,7 +80,7 @@ describe('GET /api/health', () => {
     vi.stubEnv('DATABASE_URL', 'postgres://user:pass@localhost:5432/db');
 
     const response = await runHealthCalc();
-    const body = await response.json();
+    const body = await readJson(response);
 
     expect(body.checks).toBeUndefined();
     expect(body.warnings).toBeUndefined();

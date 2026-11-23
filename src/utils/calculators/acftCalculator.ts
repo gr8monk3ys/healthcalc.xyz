@@ -31,21 +31,24 @@ import {
   CATEGORY_THRESHOLDS,
   EVENT_NAMES,
 } from '@/constants/acftCalculator';
+import { lastOf, type NonEmptyArray } from '@/utils/nonEmpty';
 
 /**
  * Interpolate score from breakpoint table (higher raw = better)
  */
-function interpolateHigherBetter(raw: number, table: ScoreBreakpoint[]): number {
-  if (raw >= table[0].raw) return table[0].points;
-  if (raw <= table[table.length - 1].raw) return table[table.length - 1].points;
+function interpolateHigherBetter(raw: number, table: NonEmptyArray<ScoreBreakpoint>): number {
+  const [top, ...lowerRows] = table;
+  if (raw >= top.raw) return top.points;
+  const bottom = lastOf(table);
+  if (raw <= bottom.raw) return bottom.points;
 
-  for (let i = 0; i < table.length - 1; i++) {
-    const upper = table[i];
-    const lower = table[i + 1];
-    if (raw <= upper.raw && raw >= lower.raw) {
+  let upper = top;
+  for (const lower of lowerRows) {
+    if (raw >= lower.raw) {
       const ratio = (raw - lower.raw) / (upper.raw - lower.raw);
       return Math.round(lower.points + ratio * (upper.points - lower.points));
     }
+    upper = lower;
   }
   return 0;
 }
@@ -53,17 +56,19 @@ function interpolateHigherBetter(raw: number, table: ScoreBreakpoint[]): number 
 /**
  * Interpolate score from breakpoint table (lower raw = better, e.g. time events)
  */
-function interpolateLowerBetter(raw: number, table: ScoreBreakpoint[]): number {
-  if (raw <= table[0].raw) return table[0].points;
-  if (raw >= table[table.length - 1].raw) return table[table.length - 1].points;
+function interpolateLowerBetter(raw: number, table: NonEmptyArray<ScoreBreakpoint>): number {
+  const [best, ...slowerRows] = table;
+  if (raw <= best.raw) return best.points;
+  const slowest = lastOf(table);
+  if (raw >= slowest.raw) return slowest.points;
 
-  for (let i = 0; i < table.length - 1; i++) {
-    const better = table[i];
-    const worse = table[i + 1];
-    if (raw >= better.raw && raw <= worse.raw) {
+  let better = best;
+  for (const worse of slowerRows) {
+    if (raw <= worse.raw) {
       const ratio = (worse.raw - raw) / (worse.raw - better.raw);
       return Math.round(worse.points + ratio * (better.points - worse.points));
     }
+    better = worse;
   }
   return 0;
 }

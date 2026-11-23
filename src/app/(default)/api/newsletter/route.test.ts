@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 vi.mock('@/utils/csrf', () => ({
   verifyCsrf: vi.fn(() => true),
@@ -77,7 +78,7 @@ describe('POST /api/newsletter', () => {
 
   it('should accept valid email and return success', async () => {
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
     expect(data.message).toBeDefined();
@@ -85,14 +86,14 @@ describe('POST /api/newsletter', () => {
 
   it('should accept email with optional source field', async () => {
     const res = await POST(makeRequest({ email: 'test@example.com', source: 'blog' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
   });
 
   it('should reject invalid email with 400', async () => {
     const res = await POST(makeRequest({ email: 'not-an-email' }));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
     expect(data.error).toBeDefined();
@@ -100,7 +101,7 @@ describe('POST /api/newsletter', () => {
 
   it('should reject missing email with 400', async () => {
     const res = await POST(makeRequest({}));
-    const data = await res.json();
+    const data = await readJson(res);
     expect(res.status).toBe(400);
     expect(data.success).toBe(false);
   });
@@ -109,7 +110,7 @@ describe('POST /api/newsletter', () => {
     verifyCsrf.mockReturnValue(false);
     const res = await POST(makeRequest({ email: 'test@example.com' }));
     expect(res.status).toBe(403);
-    const data = await res.json();
+    const data = await readJson(res);
     expect(data.success).toBe(false);
   });
 
@@ -121,7 +122,7 @@ describe('POST /api/newsletter', () => {
     });
     const res = await POST(makeRequest({ email: 'test@example.com' }));
     expect(res.status).toBe(429);
-    const data = await res.json();
+    const data = await readJson(res);
     expect(data.success).toBe(false);
   });
 
@@ -134,7 +135,7 @@ describe('POST /api/newsletter', () => {
     });
 
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(503);
     expect(data.success).toBe(false);

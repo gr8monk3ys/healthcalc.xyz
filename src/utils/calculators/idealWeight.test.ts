@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { calculateIdealWeight } from './idealWeight';
+import { defined } from '@/test-utils/defined';
 
 describe('Ideal Weight Calculator', () => {
   it('matches all four published formulas for a 180cm male', () => {
@@ -10,12 +11,12 @@ describe('Ideal Weight Calculator', () => {
     // Miller:   56.2 + 1.41 × 10.866 = 71.52 → 71.5 kg
     const result = calculateIdealWeight(180, 'male');
     const bySlug = Object.fromEntries(result.formulas.map(f => [f.id, f]));
-    expect(bySlug.devine.weightKg).toBe(75);
-    expect(bySlug.hamwi.weightKg).toBe(77.3);
-    expect(bySlug.robinson.weightKg).toBe(72.6);
-    expect(bySlug.miller.weightKg).toBe(71.5);
+    expect(defined(bySlug.devine).weightKg).toBe(75);
+    expect(defined(bySlug.hamwi).weightKg).toBe(77.3);
+    expect(defined(bySlug.robinson).weightKg).toBe(72.6);
+    expect(defined(bySlug.miller).weightKg).toBe(71.5);
     // Devine lb = 74.992 × 2.20462 = 165.33 → 165.3
-    expect(bySlug.devine.weightLb).toBeCloseTo(165.3, 1);
+    expect(defined(bySlug.devine).weightLb).toBeCloseTo(165.3, 1);
   });
 
   it('computes average and range from the formula results (180cm male)', () => {
@@ -40,10 +41,10 @@ describe('Ideal Weight Calculator', () => {
     // Miller:   53.1 + 1.36 × 4.961 = 59.85 → 59.8 kg
     const result = calculateIdealWeight(165, 'female');
     const bySlug = Object.fromEntries(result.formulas.map(f => [f.id, f]));
-    expect(bySlug.devine.weightKg).toBe(56.9);
-    expect(bySlug.hamwi.weightKg).toBe(56.4);
-    expect(bySlug.robinson.weightKg).toBe(57.4);
-    expect(bySlug.miller.weightKg).toBe(59.8);
+    expect(defined(bySlug.devine).weightKg).toBe(56.9);
+    expect(defined(bySlug.hamwi).weightKg).toBe(56.4);
+    expect(defined(bySlug.robinson).weightKg).toBe(57.4);
+    expect(defined(bySlug.miller).weightKg).toBe(59.8);
     // average = (56.9 + 56.4 + 57.4 + 59.8) / 4 = 230.5 / 4 = 57.625 → 57.6 kg
     expect(result.averageKg).toBe(57.6);
     expect(result.heightIn).toBe(65);

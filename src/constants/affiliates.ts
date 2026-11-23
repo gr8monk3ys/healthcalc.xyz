@@ -730,7 +730,8 @@ export function getProductsForCalculator(
   const picked: AffiliateProduct[] = [];
   for (let rank = 0; rank < longest; rank += 1) {
     for (const products of byCategory) {
-      if (rank < products.length) picked.push(products[rank]);
+      const product = products[rank];
+      if (product) picked.push(product);
     }
   }
   return picked.slice(0, maxProducts);

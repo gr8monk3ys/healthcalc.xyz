@@ -364,6 +364,8 @@ function renderBlogIndexClientView({
   showSectioned,
   strings,
 }: BlogIndexClientViewProps) {
+  const [leadPost, secondPost, thirdPost] = featuredPosts;
+
   return (
     <>
       {/* Search */}
@@ -459,18 +461,18 @@ function renderBlogIndexClientView({
       </div>
 
       {/* Featured Section */}
-      {showFeatured && featuredPosts.length >= 3 && (
+      {showFeatured && leadPost && secondPost && thirdPost && (
         <section className="mb-10" aria-label={strings.featuredSectionAria}>
           <h2 className="text-lg font-bold mb-4 text-accent">{strings.featuredTitle}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="md:row-span-2">
-              <PostCard post={featuredPosts[0]} priority large />
+              <PostCard post={leadPost} priority large />
             </div>
             <div>
-              <PostCard post={featuredPosts[1]} priority />
+              <PostCard post={secondPost} priority />
             </div>
             <div>
-              <PostCard post={featuredPosts[2]} priority />
+              <PostCard post={thirdPost} priority />
             </div>
           </div>
         </section>

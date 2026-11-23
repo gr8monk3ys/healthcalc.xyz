@@ -6,6 +6,8 @@ export const BMI_GAUGE_SEGMENTS = [
   { key: 'obese', from: 30, to: 40 },
 ] as const;
 
+const HIGHEST_SEGMENT = BMI_GAUGE_SEGMENTS[3];
+
 export type BMIGaugeSegmentKey = (typeof BMI_GAUGE_SEGMENTS)[number]['key'];
 
 export interface BMIGaugePosition {
@@ -19,9 +21,7 @@ export interface BMIGaugePosition {
  * and values off either end pin to the nearest edge.
  */
 export function getBMIGaugePosition(bmi: number): BMIGaugePosition {
-  const segment =
-    BMI_GAUGE_SEGMENTS.find(candidate => bmi < candidate.to) ??
-    BMI_GAUGE_SEGMENTS[BMI_GAUGE_SEGMENTS.length - 1];
+  const segment = BMI_GAUGE_SEGMENTS.find(candidate => bmi < candidate.to) ?? HIGHEST_SEGMENT;
   const offset = ((bmi - segment.from) / (segment.to - segment.from)) * 100;
 
   return { segment: segment.key, offset: Math.min(Math.max(offset, 0), 100) };

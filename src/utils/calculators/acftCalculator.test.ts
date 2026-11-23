@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { calculateACFT } from './acftCalculator';
 import { ACFTFormValues } from '@/types/acftCalculator';
+import { defined } from '@/test-utils/defined';
 
 describe('ACFT Calculator', () => {
   const strongMaleValues: ACFTFormValues = {
@@ -43,7 +44,7 @@ describe('ACFT Calculator', () => {
       ...strongMaleValues,
       deadliftWeight: 80, // below minimum
     });
-    expect(result.eventScores[0].passing).toBe(false);
+    expect(defined(result.eventScores[0]).passing).toBe(false);
     expect(result.passing).toBe(false);
     expect(result.overallCategory).toBe('Fail');
   });

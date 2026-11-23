@@ -5,6 +5,7 @@ import { calculateCalorieDeficit } from '@/utils/calculators/calorieDeficit';
 import { calculateBMIMethodBodyFat, getBodyFatCategory } from '@/utils/calculators/bodyFat';
 import { calculateMacros } from '@/utils/calculators/macro';
 import { formatOrdinal } from '@/utils/formatNumber';
+import { lastOf, type NonEmptyArray } from '@/utils/nonEmpty';
 
 const LB_TO_KG = 0.45359237;
 const KG_TO_LB = 1 / LB_TO_KG;
@@ -44,7 +45,7 @@ const BMI_REFERENCE_BY_GENDER: Record<
 
 const TDEE_REFERENCE_WEIGHTS_BY_GENDER: Record<
   Gender,
-  Array<{ label: string; minAge: number; maxAge: number; averageWeightLb: number }>
+  NonEmptyArray<{ label: string; minAge: number; maxAge: number; averageWeightLb: number }>
 > = {
   male: [
     { label: '18-29', minAge: 18, maxAge: 29, averageWeightLb: 184 },
@@ -64,7 +65,7 @@ const TDEE_REFERENCE_WEIGHTS_BY_GENDER: Record<
 
 const BODY_FAT_REFERENCE_BY_GENDER: Record<
   Gender,
-  Array<{
+  NonEmptyArray<{
     label: string;
     minAge: number;
     maxAge: number;
@@ -94,7 +95,7 @@ interface ProgrammaticTdeeActivity {
   activityMultiplier: number;
 }
 
-const PROGRAMMATIC_TDEE_ACTIVITIES: ReadonlyArray<ProgrammaticTdeeActivity> = [
+const PROGRAMMATIC_TDEE_ACTIVITIES: NonEmptyArray<ProgrammaticTdeeActivity> = [
   { slug: 'sedentary', label: 'Sedentary', activityMultiplier: 1.2 },
   { slug: 'moderate', label: 'Moderately Active', activityMultiplier: 1.55 },
   { slug: 'active', label: 'Active', activityMultiplier: 1.725 },
@@ -106,7 +107,7 @@ interface ProgrammaticDeficitRate {
   weeklyLossLabel: string;
 }
 
-const PROGRAMMATIC_DEFICIT_RATES: ReadonlyArray<ProgrammaticDeficitRate> = [
+const PROGRAMMATIC_DEFICIT_RATES: NonEmptyArray<ProgrammaticDeficitRate> = [
   { slug: 'mild', label: 'Mild', weeklyLossLabel: '~0.8 lb/week' },
   { slug: 'moderate', label: 'Moderate', weeklyLossLabel: '~1.4 lb/week' },
   { slug: 'aggressive', label: 'Aggressive', weeklyLossLabel: '~1.9 lb/week' },
@@ -119,7 +120,7 @@ interface ProgrammaticMacroGoal {
   calorieSd: number;
 }
 
-const PROGRAMMATIC_MACRO_GOALS: ReadonlyArray<ProgrammaticMacroGoal> = [
+const PROGRAMMATIC_MACRO_GOALS: NonEmptyArray<ProgrammaticMacroGoal> = [
   { slug: 'weight-loss', label: 'Weight Loss', averageCalories: 1800, calorieSd: 250 },
   { slug: 'maintenance', label: 'Maintenance', averageCalories: 2200, calorieSd: 300 },
   { slug: 'muscle-gain', label: 'Muscle Gain', averageCalories: 2700, calorieSd: 350 },
@@ -134,7 +135,7 @@ interface ProgrammaticMacroDiet {
   description: string;
 }
 
-const PROGRAMMATIC_MACRO_DIETS: ReadonlyArray<ProgrammaticMacroDiet> = [
+const PROGRAMMATIC_MACRO_DIETS: NonEmptyArray<ProgrammaticMacroDiet> = [
   {
     slug: 'balanced',
     label: 'Balanced',
@@ -334,8 +335,8 @@ function formatSigned(value: number, digits = 1): string {
   return `${sign}${rounded.toFixed(digits)}`;
 }
 
-function parseInteger(input: string): number | null {
-  if (!/^\d+$/.test(input)) {
+function parseInteger(input: string | undefined): number | null {
+  if (input === undefined || !/^\d+$/.test(input)) {
     return null;
   }
 
@@ -355,10 +356,10 @@ function getAverage(values: number[]): number {
 
 function getAgeBand<T extends { minAge: number; maxAge: number }>(
   age: number,
-  bands: readonly T[]
+  bands: NonEmptyArray<T>
 ): T {
   const matched = bands.find(band => age >= band.minAge && age <= band.maxAge);
-  return matched ?? bands[bands.length - 1];
+  return matched ?? lastOf(bands);
 }
 
 function uniqueBy<T>(items: T[], keyFn: (item: T) => string): T[] {
@@ -800,7 +801,7 @@ export function buildTdeeProgrammaticPage(slug: string): ProgrammaticPageData | 
   const ageBands = TDEE_REFERENCE_WEIGHTS_BY_GENDER[gender];
   const currentAgeBand = getAgeBand(age, ageBands);
 
-  const comparisonRows = ageBands.map(reference => {
+  const averageTdeeFor = (reference: (typeof ageBands)[number]): number => {
     const midpointAge = Math.round((reference.minAge + reference.maxAge) / 2);
     const avgBmr = calculateBMR(
       gender,
@@ -808,7 +809,11 @@ export function buildTdeeProgrammaticPage(slug: string): ProgrammaticPageData | 
       toKg(reference.averageWeightLb),
       referenceHeightCm
     );
-    const avgTdee = Math.round(calculateTDEE(avgBmr, activityOption.activityMultiplier));
+    return Math.round(calculateTDEE(avgBmr, activityOption.activityMultiplier));
+  };
+
+  const comparisonRows = ageBands.map(reference => {
+    const avgTdee = averageTdeeFor(reference);
 
     return {
       ageGroup: reference.label,
@@ -818,9 +823,7 @@ export function buildTdeeProgrammaticPage(slug: string): ProgrammaticPageData | 
     };
   });
 
-  const currentRow =
-    comparisonRows.find(row => row.ageGroup === currentAgeBand.label) ?? comparisonRows[0];
-  const currentMeanTdee = Number.parseInt(currentRow.averageTdee.replace(/[^\d]/g, ''), 10);
+  const currentMeanTdee = averageTdeeFor(currentAgeBand);
   const percentile = toPercentile(tdee, currentMeanTdee, 260);
 
   const relatedCandidates: TdeeResultSlugParams[] = [
@@ -1012,9 +1015,8 @@ export function buildCalorieDeficitProgrammaticPage(slug: string): ProgrammaticP
     contextParagraphs: [
       `${rateOption.label} pacing (${rateOption.weeklyLossLabel}) balances speed and adherence for many people, but exact progress depends on sleep, protein intake, and activity consistency.`,
       `For this profile, recommended protein intake is about ${result.recommendations.proteinGrams} g/day with hydration near ${result.recommendations.waterLiters.toFixed(1)} L/day.`,
-      result.warnings.length > 0
-        ? result.warnings[0]
-        : 'No immediate safety flags were triggered for this profile, but calorie targets should still be adjusted from real-world progress trends.',
+      result.warnings[0] ??
+        'No immediate safety flags were triggered for this profile, but calorie targets should still be adjusted from real-world progress trends.',
     ],
     faq: [
       {

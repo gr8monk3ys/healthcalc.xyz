@@ -27,8 +27,7 @@ describe('Chain state sessionStorage logic', () => {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     expect(raw).toBeTruthy();
     const parsed = JSON.parse(raw!);
-    expect(parsed.chainId).toBe('weight-loss-journey');
-    expect(parsed.currentStepIndex).toBe(0);
+    expect(parsed).toMatchObject({ chainId: 'weight-loss-journey', currentStepIndex: 0 });
   });
 
   it('clears chain state on remove', () => {
@@ -47,9 +46,8 @@ describe('Chain state sessionStorage logic', () => {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
 
     // Simulate advance
-    const current = JSON.parse(sessionStorage.getItem(STORAGE_KEY)!);
     const updated = {
-      ...current,
+      ...initial,
       currentStepIndex: 1,
       completedSlugs: ['bmi'],
       sharedData: { age: 30, gender: 'male', height: 175, weight: 80 },
@@ -57,9 +55,11 @@ describe('Chain state sessionStorage logic', () => {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
 
     const result = JSON.parse(sessionStorage.getItem(STORAGE_KEY)!);
-    expect(result.currentStepIndex).toBe(1);
-    expect(result.completedSlugs).toContain('bmi');
-    expect(result.sharedData.age).toBe(30);
+    expect(result).toMatchObject({
+      currentStepIndex: 1,
+      completedSlugs: ['bmi'],
+      sharedData: { age: 30 },
+    });
   });
 
   it('merges shared data across steps', () => {
@@ -72,17 +72,15 @@ describe('Chain state sessionStorage logic', () => {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 
     // Add activity level from TDEE step
-    const current = JSON.parse(sessionStorage.getItem(STORAGE_KEY)!);
     const updated = {
-      ...current,
+      ...state,
       currentStepIndex: 3,
-      completedSlugs: [...current.completedSlugs, 'tdee'],
-      sharedData: { ...current.sharedData, activityLevel: 'moderate' },
+      completedSlugs: [...state.completedSlugs, 'tdee'],
+      sharedData: { ...state.sharedData, activityLevel: 'moderate' },
     };
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
 
     const result = JSON.parse(sessionStorage.getItem(STORAGE_KEY)!);
-    expect(result.sharedData.age).toBe(30);
-    expect(result.sharedData.activityLevel).toBe('moderate');
+    expect(result).toMatchObject({ sharedData: { age: 30, activityLevel: 'moderate' } });
   });
 });

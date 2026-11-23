@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { NEWSLETTER_ENABLED } from '@/lib/newsletter';
 import { useFunnelTracking } from '@/hooks/useFunnelTracking';
+import { readApiResponse } from '@/utils/apiResponse';
 
 interface BlogEmailCaptureProps {
   /** Optional custom headline */
@@ -66,7 +67,7 @@ function BlogEmailCaptureForm({
           body: JSON.stringify({ email: trimmedEmail, source: 'blog' }),
         });
 
-        const result = await response.json();
+        const result = await readApiResponse(response);
 
         if (result.success) {
           trackEvent('newsletter_subscribe', { source: 'blog', placement: 'blog_capture' });

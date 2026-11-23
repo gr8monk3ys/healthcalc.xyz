@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { createLogger, configureLogger, debug, info, warn, error, logError } from './logger';
+import { defined } from '@/test-utils/defined';
 
 describe('Logger', () => {
   beforeEach(() => {
@@ -24,7 +25,7 @@ describe('Logger', () => {
       logger.info('Test message');
 
       expect(console.info).toHaveBeenCalled();
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
       expect(call).toContain('Test message');
       expect(call).toContain('TestComponent');
     });
@@ -35,7 +36,7 @@ describe('Logger', () => {
       logger.info('Simple message');
 
       expect(console.info).toHaveBeenCalled();
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
       expect(call).toContain('Simple message');
     });
 
@@ -45,7 +46,7 @@ describe('Logger', () => {
       logger.info('Test message', { extra: 'data' });
 
       expect(console.info).toHaveBeenCalled();
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
       expect(call).toContain('extra');
       expect(call).toContain('data');
     });
@@ -119,14 +120,16 @@ describe('Logger', () => {
       logger.info('Structured message');
 
       expect(console.info).toHaveBeenCalled();
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
 
       // Should be valid JSON
       const parsed = JSON.parse(call);
-      expect(parsed.level).toBe('info');
-      expect(parsed.message).toBe('Structured message');
-      expect(parsed.timestamp).toBeDefined();
-      expect(parsed.meta.component).toBe('Test');
+      expect(parsed).toMatchObject({
+        level: 'info',
+        message: 'Structured message',
+        timestamp: expect.anything(),
+        meta: { component: 'Test' },
+      });
     });
   });
 
@@ -138,7 +141,7 @@ describe('Logger', () => {
       logger.logError('An error occurred', testError);
 
       expect(console.error).toHaveBeenCalled();
-      const call = vi.mocked(console.error).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.error).mock.calls[0])[0] as string;
       expect(call).toContain('An error occurred');
       expect(call).toContain('Test error message');
       expect(call).toContain('errorName');
@@ -150,7 +153,7 @@ describe('Logger', () => {
       logger.logError('An error occurred', 'string error');
 
       expect(console.error).toHaveBeenCalled();
-      const call = vi.mocked(console.error).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.error).mock.calls[0])[0] as string;
       expect(call).toContain('An error occurred');
       expect(call).toContain('string error');
     });
@@ -162,7 +165,7 @@ describe('Logger', () => {
       logger.logError('Error with meta', testError, { userId: '123' });
 
       expect(console.error).toHaveBeenCalled();
-      const call = vi.mocked(console.error).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.error).mock.calls[0])[0] as string;
       expect(call).toContain('userId');
       expect(call).toContain('123');
     });
@@ -212,12 +215,10 @@ describe('Logger', () => {
       const logger = createLogger();
       logger.info('Timestamped message');
 
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
       const parsed = JSON.parse(call);
 
-      expect(parsed.timestamp).toBeDefined();
-      // Check it's a valid ISO date string
-      expect(() => new Date(parsed.timestamp)).not.toThrow();
+      expect(parsed).toMatchObject({ timestamp: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/) });
     });
 
     it('should format level in uppercase for human-readable output', () => {
@@ -226,7 +227,7 @@ describe('Logger', () => {
       const logger = createLogger();
       logger.info('Test');
 
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
       expect(call).toContain('[INFO');
     });
 
@@ -236,10 +237,10 @@ describe('Logger', () => {
       const logger = createLogger();
       logger.info('No meta');
 
-      const call = vi.mocked(console.info).mock.calls[0][0] as string;
+      const call = defined(vi.mocked(console.info).mock.calls[0])[0] as string;
       const parsed = JSON.parse(call);
 
-      expect(parsed.meta).toBeUndefined();
+      expect(parsed).not.toHaveProperty('meta');
     });
   });
 });

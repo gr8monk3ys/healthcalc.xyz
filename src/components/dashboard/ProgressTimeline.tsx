@@ -45,25 +45,25 @@ export default function ProgressTimeline({
   savedResults,
 }: ProgressTimelineProps): React.JSX.Element | null {
   const computed = useMemo(() => {
-    if (savedResults.length === 0) return null;
-
     const sortedNewest = [...savedResults].sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
     const sortedOldest = [...sortedNewest].reverse();
     const first = sortedOldest[0];
     const latest = sortedNewest[0];
+    if (!first || !latest) return null;
 
     const uniqueDayKeys = Array.from(
       new Set(sortedNewest.map(r => toDayKey(r.date)).filter(Boolean))
     );
     let streak = uniqueDayKeys.length > 0 ? 1 : 0;
     for (let i = 1; i < uniqueDayKeys.length; i += 1) {
-      if (daysBetween(uniqueDayKeys[i - 1], uniqueDayKeys[i]) === 1) {
-        streak += 1;
-      } else {
+      const previousDay = uniqueDayKeys[i - 1];
+      const day = uniqueDayKeys[i];
+      if (previousDay === undefined || day === undefined || daysBetween(previousDay, day) !== 1) {
         break;
       }
+      streak += 1;
     }
 
     const uniqueCalculatorCount = new Set(savedResults.map(r => r.calculatorType)).size;
@@ -87,15 +87,16 @@ export default function ProgressTimeline({
       date: string;
     } | null = null;
 
-    const groupedEntries = Array.from(grouped.entries());
-    for (let index = 0; index < groupedEntries.length; index += 1) {
-      const [slug, points] = groupedEntries[index];
+    for (const [slug, points] of grouped) {
       const metric = CALCULATOR_METRICS[slug];
-      if (!metric || metric.higherIsBetter === undefined || points.length < 2) continue;
+      const [firstPoint] = points;
+      if (!metric || metric.higherIsBetter === undefined || !firstPoint || points.length < 2) {
+        continue;
+      }
 
       // Earliest and latest point in one pass; no need to sort the group.
-      let earliest = points[0];
-      let latestPoint = points[0];
+      let earliest = firstPoint;
+      let latestPoint = firstPoint;
       for (const point of points) {
         const time = new Date(point.date).getTime();
         if (time < new Date(earliest.date).getTime()) earliest = point;

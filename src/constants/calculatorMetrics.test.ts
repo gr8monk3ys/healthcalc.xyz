@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { CALCULATOR_METRICS, extractMetricValue } from './calculatorMetrics';
+import { defined } from '@/test-utils/defined';
 
 describe('CALCULATOR_METRICS', () => {
   it('defines metrics for common calculator types', () => {
@@ -18,7 +19,7 @@ describe('CALCULATOR_METRICS', () => {
   });
 
   it('BMI has a healthy range', () => {
-    const bmi = CALCULATOR_METRICS['bmi'];
+    const bmi = defined(CALCULATOR_METRICS['bmi']);
     expect(bmi.healthyRange).toEqual({ min: 18.5, max: 24.9 });
     expect(bmi.higherIsBetter).toBe(false);
   });

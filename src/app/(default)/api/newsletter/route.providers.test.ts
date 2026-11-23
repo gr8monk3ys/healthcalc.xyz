@@ -3,6 +3,7 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { NextRequest } from 'next/server';
+import { readJson } from '@/test-utils/readJson';
 
 function makeRequest(body: unknown): NextRequest {
   return new NextRequest('http://localhost/api/newsletter', {
@@ -61,7 +62,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com', source: 'blog' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
@@ -81,7 +82,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
@@ -98,7 +99,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(500);
     expect(data.success).toBe(false);
@@ -111,7 +112,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
@@ -131,7 +132,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(500);
     expect(data.success).toBe(false);
@@ -144,7 +145,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(200);
     expect(data.success).toBe(true);
@@ -164,7 +165,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(500);
     expect(data.success).toBe(false);
@@ -175,7 +176,7 @@ describe('POST /api/newsletter provider integrations', () => {
 
     const { POST } = await loadRoute();
     const res = await POST(makeRequest({ email: 'test@example.com' }));
-    const data = await res.json();
+    const data = await readJson(res);
 
     expect(res.status).toBe(503);
     expect(data.success).toBe(false);

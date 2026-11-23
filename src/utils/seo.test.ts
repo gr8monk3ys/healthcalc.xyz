@@ -12,6 +12,7 @@ import {
   generateFaqData,
   generateCalculatorData,
 } from './seo';
+import { defined } from '@/test-utils/defined';
 
 describe('getCanonicalUrl', () => {
   it('should return base URL for root path', () => {
@@ -219,9 +220,9 @@ describe('generateBreadcrumbData', () => {
     const result = generateBreadcrumbData(items);
     const elements = result.itemListElement as Array<{ position: number }>;
 
-    expect(elements[0].position).toBe(1);
-    expect(elements[1].position).toBe(2);
-    expect(elements[2].position).toBe(3);
+    expect(defined(elements[0]).position).toBe(1);
+    expect(defined(elements[1]).position).toBe(2);
+    expect(defined(elements[2]).position).toBe(3);
   });
 });
 
@@ -284,7 +285,7 @@ describe('generateFaqData', () => {
   it('should format each FAQ as Question with Answer', () => {
     const faqs = [{ question: 'Q?', answer: 'A.' }];
     const result = generateFaqData(faqs);
-    const entity = (result.mainEntity as Array<Record<string, unknown>>)[0];
+    const entity = defined((result.mainEntity as Array<Record<string, unknown>>)[0]);
 
     expect(entity['@type']).toBe('Question');
     expect(entity.name).toBe('Q?');

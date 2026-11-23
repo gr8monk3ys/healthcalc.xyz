@@ -7,6 +7,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ErrorBoundary, withErrorBoundary } from './ErrorBoundary';
+import { defined } from '@/test-utils/defined';
 
 // Component that throws an error for testing
 const ThrowingComponent = ({ shouldThrow = true }: { shouldThrow?: boolean }) => {
@@ -224,7 +225,7 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      const [error] = onError.mock.calls[0];
+      const [error] = defined(onError.mock.calls[0]);
       expect(error).toBeInstanceOf(Error);
       expect(error.message).toBe('Test error message');
     });
@@ -238,7 +239,7 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       );
 
-      const [, errorInfo] = onError.mock.calls[0];
+      const [, errorInfo] = defined(onError.mock.calls[0]);
       expect(errorInfo).toHaveProperty('componentStack');
     });
 

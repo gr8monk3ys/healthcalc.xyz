@@ -1,3 +1,4 @@
+import { fromPartial } from '@total-typescript/shoehorn';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   getAdSensePublisherId,
@@ -43,12 +44,14 @@ describe('adsense helpers', () => {
   it('skips loading AdSense in automated browsers and allows non-browser contexts', () => {
     expect(shouldLoadAdSense(undefined)).toBe(true);
     expect(
-      shouldLoadAdSense({
-        navigator: {
-          webdriver: true,
-          userAgent: 'Mozilla/5.0 Playwright',
-        },
-      } as Window)
+      shouldLoadAdSense(
+        fromPartial<Window>({
+          navigator: {
+            webdriver: true,
+            userAgent: 'Mozilla/5.0 Playwright',
+          },
+        })
+      )
     ).toBe(false);
   });
 
@@ -57,10 +60,12 @@ describe('adsense helpers', () => {
     search => {
       expect(hasSensitiveQuery(search)).toBe(true);
       expect(
-        shouldLoadAdSense({
-          navigator: { webdriver: false, userAgent: 'Chrome' },
-          location: { search },
-        } as Window)
+        shouldLoadAdSense(
+          fromPartial<Window>({
+            navigator: { webdriver: false, userAgent: 'Chrome' },
+            location: { search },
+          })
+        )
       ).toBe(false);
     }
   );
@@ -70,10 +75,12 @@ describe('adsense helpers', () => {
     search => {
       expect(hasSensitiveQuery(search)).toBe(false);
       expect(
-        shouldLoadAdSense({
-          navigator: { webdriver: false, userAgent: 'Chrome' },
-          location: { search },
-        } as Window)
+        shouldLoadAdSense(
+          fromPartial<Window>({
+            navigator: { webdriver: false, userAgent: 'Chrome' },
+            location: { search },
+          })
+        )
       ).toBe(true);
     }
   );

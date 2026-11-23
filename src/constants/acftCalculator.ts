@@ -7,7 +7,8 @@
  * - ACFT scoring tables effective April 2023
  */
 
-import { ACFTAgeGroup } from '@/types/acftCalculator';
+import { ACFTAgeGroup, ACFTEvent } from '@/types/acftCalculator';
+import type { NonEmptyArray } from '@/utils/nonEmpty';
 
 /**
  * Simplified ACFT scoring tables.
@@ -22,7 +23,7 @@ export interface ScoreBreakpoint {
 }
 
 /** Deadlift 3-Rep Max (lbs) */
-export const DEADLIFT_SCORES_MALE: ScoreBreakpoint[] = [
+export const DEADLIFT_SCORES_MALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 340, points: 100 },
   { raw: 300, points: 90 },
   { raw: 260, points: 80 },
@@ -35,7 +36,7 @@ export const DEADLIFT_SCORES_MALE: ScoreBreakpoint[] = [
   { raw: 80, points: 0 },
 ];
 
-export const DEADLIFT_SCORES_FEMALE: ScoreBreakpoint[] = [
+export const DEADLIFT_SCORES_FEMALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 210, points: 100 },
   { raw: 190, points: 90 },
   { raw: 170, points: 80 },
@@ -49,7 +50,7 @@ export const DEADLIFT_SCORES_FEMALE: ScoreBreakpoint[] = [
 ];
 
 /** Standing Power Throw (meters) */
-export const SPT_SCORES_MALE: ScoreBreakpoint[] = [
+export const SPT_SCORES_MALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 12.5, points: 100 },
   { raw: 11.0, points: 90 },
   { raw: 10.0, points: 80 },
@@ -62,7 +63,7 @@ export const SPT_SCORES_MALE: ScoreBreakpoint[] = [
   { raw: 3.0, points: 0 },
 ];
 
-export const SPT_SCORES_FEMALE: ScoreBreakpoint[] = [
+export const SPT_SCORES_FEMALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 8.5, points: 100 },
   { raw: 7.5, points: 90 },
   { raw: 6.5, points: 80 },
@@ -76,7 +77,7 @@ export const SPT_SCORES_FEMALE: ScoreBreakpoint[] = [
 ];
 
 /** Hand Release Push-Ups (reps) */
-export const HRP_SCORES_MALE: ScoreBreakpoint[] = [
+export const HRP_SCORES_MALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 60, points: 100 },
   { raw: 50, points: 90 },
   { raw: 40, points: 80 },
@@ -89,7 +90,7 @@ export const HRP_SCORES_MALE: ScoreBreakpoint[] = [
   { raw: 1, points: 0 },
 ];
 
-export const HRP_SCORES_FEMALE: ScoreBreakpoint[] = [
+export const HRP_SCORES_FEMALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 60, points: 100 },
   { raw: 45, points: 90 },
   { raw: 35, points: 80 },
@@ -103,7 +104,7 @@ export const HRP_SCORES_FEMALE: ScoreBreakpoint[] = [
 ];
 
 /** Sprint-Drag-Carry (seconds - lower is better) */
-export const SDC_SCORES_MALE: ScoreBreakpoint[] = [
+export const SDC_SCORES_MALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 93, points: 100 },
   { raw: 100, points: 90 },
   { raw: 110, points: 80 },
@@ -116,7 +117,7 @@ export const SDC_SCORES_MALE: ScoreBreakpoint[] = [
   { raw: 240, points: 0 },
 ];
 
-export const SDC_SCORES_FEMALE: ScoreBreakpoint[] = [
+export const SDC_SCORES_FEMALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 118, points: 100 },
   { raw: 130, points: 90 },
   { raw: 140, points: 80 },
@@ -130,7 +131,7 @@ export const SDC_SCORES_FEMALE: ScoreBreakpoint[] = [
 ];
 
 /** Plank (seconds - higher is better) */
-export const PLANK_SCORES_MALE: ScoreBreakpoint[] = [
+export const PLANK_SCORES_MALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 220, points: 100 },
   { raw: 200, points: 90 },
   { raw: 180, points: 80 },
@@ -143,7 +144,7 @@ export const PLANK_SCORES_MALE: ScoreBreakpoint[] = [
   { raw: 30, points: 0 },
 ];
 
-export const PLANK_SCORES_FEMALE: ScoreBreakpoint[] = [
+export const PLANK_SCORES_FEMALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 220, points: 100 },
   { raw: 200, points: 90 },
   { raw: 180, points: 80 },
@@ -157,7 +158,7 @@ export const PLANK_SCORES_FEMALE: ScoreBreakpoint[] = [
 ];
 
 /** Two-Mile Run (seconds - lower is better) */
-export const TMR_SCORES_MALE: ScoreBreakpoint[] = [
+export const TMR_SCORES_MALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 780, points: 100 }, // 13:00
   { raw: 840, points: 90 }, // 14:00
   { raw: 900, points: 80 }, // 15:00
@@ -170,7 +171,7 @@ export const TMR_SCORES_MALE: ScoreBreakpoint[] = [
   { raw: 1500, points: 0 }, // 25:00
 ];
 
-export const TMR_SCORES_FEMALE: ScoreBreakpoint[] = [
+export const TMR_SCORES_FEMALE: NonEmptyArray<ScoreBreakpoint> = [
   { raw: 900, points: 100 }, // 15:00
   { raw: 960, points: 90 }, // 16:00
   { raw: 1050, points: 80 }, // 17:30
@@ -210,7 +211,7 @@ export const AGE_GROUP_LABELS: Record<ACFTAgeGroup, string> = {
 };
 
 /** Event display names */
-export const EVENT_NAMES: Record<string, string> = {
+export const EVENT_NAMES: Record<ACFTEvent, string> = {
   deadlift: '3 Repetition Maximum Deadlift',
   standingPowerThrow: 'Standing Power Throw',
   handReleasePushups: 'Hand Release Push-Ups',

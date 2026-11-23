@@ -13,6 +13,7 @@ import {
   getWHRCategory,
   calculateABSI,
 } from './calculators';
+import { defined } from '@/test-utils/defined';
 
 describe('calculators utility functions', () => {
   describe('convertHeight', () => {
@@ -116,11 +117,11 @@ describe('calculators utility functions', () => {
     });
 
     it('should have correct multiplier values', () => {
-      expect(activityLevels[0].value).toBe(1.2);
-      expect(activityLevels[1].value).toBe(1.375);
-      expect(activityLevels[2].value).toBe(1.55);
-      expect(activityLevels[3].value).toBe(1.725);
-      expect(activityLevels[4].value).toBe(1.9);
+      expect(defined(activityLevels[0]).value).toBe(1.2);
+      expect(defined(activityLevels[1]).value).toBe(1.375);
+      expect(defined(activityLevels[2]).value).toBe(1.55);
+      expect(defined(activityLevels[3]).value).toBe(1.725);
+      expect(defined(activityLevels[4]).value).toBe(1.9);
     });
 
     it('should have labels and descriptions', () => {

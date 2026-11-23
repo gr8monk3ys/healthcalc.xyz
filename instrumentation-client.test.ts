@@ -2,6 +2,7 @@
  * @vitest-environment node
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { defined } from '@/test-utils/defined';
 
 function flushPromises(): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, 0));
@@ -112,7 +113,7 @@ describe('client instrumentation', () => {
       localStorage: { getItem: (key: string) => stored.get(key) ?? null },
     });
 
-    const options = init.mock.calls[0][0];
+    const options = defined(init.mock.calls[0])[0];
     expect(options).not.toHaveProperty('tracesSampleRate');
     expect(options.tracesSampler()).toBe(0);
 
@@ -133,7 +134,7 @@ describe('client instrumentation', () => {
     const instrumentationClient = await import('./instrumentation-client');
     await instrumentationClient.registerBrowserSentry();
 
-    const options = init.mock.calls[0][0];
+    const options = defined(init.mock.calls[0])[0];
     const event = { request: { url: 'https://www.healthcalc.xyz/search?q=zzcanaryterm7q' } };
 
     expect(options.dataCollection.urlQueryParams).toBe(false);

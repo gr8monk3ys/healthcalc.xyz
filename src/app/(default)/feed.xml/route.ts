@@ -417,8 +417,8 @@ export async function GET(): Promise<NextResponse> {
     )
     .join('');
 
-  const latestDate =
-    sortedPosts.length > 0 ? new Date(sortedPosts[0].date).toUTCString() : new Date().toUTCString();
+  const [newestPost] = sortedPosts;
+  const latestDate = (newestPost ? new Date(newestPost.date) : new Date()).toUTCString();
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

@@ -89,8 +89,9 @@ export default function ResultComparison({
   const rightResult = sorted[rightIndex];
 
   const chartData = useMemo(() => {
-    if (sorted.length < 2) return [];
-    const primaryKey = getPrimaryNumericKey(sorted[0].data);
+    const [first] = sorted;
+    if (!first || sorted.length < 2) return [];
+    const primaryKey = getPrimaryNumericKey(first.data);
     if (!primaryKey) return [];
 
     const label = formatKey(primaryKey);

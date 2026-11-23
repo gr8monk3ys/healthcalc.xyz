@@ -71,8 +71,9 @@ export function readChainPrefill(slug: string): Record<string, string | number> 
 
   const relevant: Record<string, string | number> = {};
   for (const field of step.sharedFields) {
-    if (field in current.sharedData) {
-      relevant[field] = current.sharedData[field];
+    const value = current.sharedData[field];
+    if (value !== undefined) {
+      relevant[field] = value;
     }
   }
 
@@ -108,8 +109,8 @@ export function useChainState(): UseChainStateReturn {
   }, []);
 
   const startChain = useCallback((chainId: string): string | null => {
-    const chain = getChainById(chainId);
-    if (!chain || chain.steps.length === 0) return null;
+    const firstStep = getChainById(chainId)?.steps[0];
+    if (!firstStep) return null;
 
     const initial: ChainState = {
       chainId,
@@ -119,7 +120,7 @@ export function useChainState(): UseChainStateReturn {
     };
     writeChainState(initial);
     setChainState(initial);
-    return chain.steps[0].slug;
+    return firstStep.slug;
   }, []);
 
   const advanceStep = useCallback(
@@ -140,10 +141,7 @@ export function useChainState(): UseChainStateReturn {
       writeChainState(updated);
       setChainState(updated);
 
-      if (nextIndex < chain.steps.length) {
-        return chain.steps[nextIndex].slug;
-      }
-      return null; // chain complete
+      return chain.steps[nextIndex]?.slug ?? null; // null once the chain is complete
     },
     []
   );

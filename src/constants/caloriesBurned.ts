@@ -1,3 +1,5 @@
+import type { NonEmptyArray } from '@/utils/nonEmpty';
+
 interface CaloriesBurnedActivity {
   value: string;
   label: string;
@@ -5,7 +7,7 @@ interface CaloriesBurnedActivity {
   description: string;
 }
 
-export const CALORIES_BURNED_ACTIVITIES: CaloriesBurnedActivity[] = [
+export const CALORIES_BURNED_ACTIVITIES: NonEmptyArray<CaloriesBurnedActivity> = [
   { value: 'walking_3', label: 'Walking (3.0 mph)', met: 3.3, description: 'Brisk walk pace' },
   { value: 'walking_4', label: 'Walking (4.0 mph)', met: 5.0, description: 'Very brisk walk' },
   { value: 'running_5', label: 'Running (5.0 mph)', met: 8.3, description: '12 min/mile' },

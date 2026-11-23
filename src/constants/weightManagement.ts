@@ -3,6 +3,7 @@
  */
 
 import { DietTypeOption } from '@/types/weightManagement';
+import type { NonEmptyArray } from '@/utils/nonEmpty';
 
 // Calorie constants
 export const CALORIES_PER_KG_FAT = 7700; // More accurate than old 3500 cal/lb
@@ -36,7 +37,7 @@ export const CALORIES_PER_GRAM = {
 };
 
 // Diet type configurations
-export const DIET_TYPES: DietTypeOption[] = [
+export const DIET_TYPES: NonEmptyArray<DietTypeOption> = [
   {
     type: 'balanced',
     label: 'Balanced Diet',

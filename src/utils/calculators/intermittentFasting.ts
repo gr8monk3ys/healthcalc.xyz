@@ -28,12 +28,13 @@ import {
   MEAL_TIMING_OFFSETS,
   WEIGHT_LOSS_PARAMS,
 } from '@/constants/intermittentFasting';
+import { parseClockTime } from '@/utils/clockTime';
 
 /**
  * Parse time string (HH:MM) to minutes since midnight
  */
 function timeToMinutes(time: string): number {
-  const [hours, minutes] = time.split(':').map(Number);
+  const { hours, minutes } = parseClockTime(time);
   return hours * 60 + minutes;
 }
 
@@ -51,7 +52,7 @@ function minutesToTime(minutes: number): string {
  * Format time to 12-hour format with AM/PM
  */
 function formatTime12Hour(time: string): string {
-  const [hours, minutes] = time.split(':').map(Number);
+  const { hours, minutes } = parseClockTime(time);
   const period = hours >= 12 ? 'PM' : 'AM';
   const displayHours = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
   return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;

@@ -11,6 +11,7 @@ import {
 } from './calorieDeficit';
 import type { CalorieDeficitFormData } from '@/types/calorieDeficit';
 import { MIN_CALORIES, CALORIES_PER_KG_FAT } from '@/constants/calorieDeficit';
+import { defined } from '@/test-utils/defined';
 
 describe('getDeficitOption', () => {
   it('should return mild deficit option', () => {
@@ -223,15 +224,16 @@ describe('calculateCalorieDeficit', () => {
 
       expect(result.weeklyProjections).toBeDefined();
       expect(result.weeklyProjections.length).toBeGreaterThan(0);
-      expect(result.weeklyProjections[0].week).toBe(0);
-      expect(result.weeklyProjections[0].projectedWeight).toBe(90);
-      expect(result.weeklyProjections[0].cumulativeWeightLoss).toBe(0);
+      const firstProjection = defined(result.weeklyProjections[0]);
+      expect(firstProjection.week).toBe(0);
+      expect(firstProjection.projectedWeight).toBe(90);
+      expect(firstProjection.cumulativeWeightLoss).toBe(0);
     });
 
     it('should project weight loss over time with metabolic adaptation', () => {
       const result = calculateCalorieDeficit(baseFormData);
 
-      const lastProjection = result.weeklyProjections[result.weeklyProjections.length - 1];
+      const lastProjection = defined(result.weeklyProjections.at(-1));
 
       expect(lastProjection.projectedWeight).toBeLessThan(90);
       expect(lastProjection.cumulativeWeightLoss).toBeGreaterThan(0);

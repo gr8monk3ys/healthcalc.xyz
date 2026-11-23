@@ -2,6 +2,7 @@
  * @vitest-environment node
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { defined } from '@/test-utils/defined';
 
 const TERM = 'zzcanaryterm7q';
 
@@ -30,7 +31,7 @@ describe('server instrumentation', () => {
     const { register } = await import('./instrumentation');
     await register();
 
-    const options = init.mock.calls[0][0];
+    const options = defined(init.mock.calls[0])[0];
     const event = { request: { url: `https://www.healthcalc.xyz/search?q=${TERM}` } };
 
     expect(options.dataCollection.urlQueryParams).toBe(false);

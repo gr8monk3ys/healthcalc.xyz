@@ -52,12 +52,12 @@ function useMeasurementConversionsClientState(copy: ConversionsPageCopy) {
     isConversionCategory
   );
   const [inputValue, setInputValue] = useState<string>('');
-  const [selectedFromUnit, setFromUnit] = useState<string>(copy.categories.weight.units[0] ?? 'kg');
-  const [selectedToUnit, setToUnit] = useState<string>(copy.categories.weight.units[1] ?? 'lb');
+  const [selectedFromUnit, setFromUnit] = useState<string>(copy.categories.weight.units[0]);
+  const [selectedToUnit, setToUnit] = useState<string>(copy.categories.weight.units[1]);
   // Derive units valid for the current category (e.g. when it came from the URL).
   const units = copy.categories[category].units;
   const fromUnit = units.includes(selectedFromUnit) ? selectedFromUnit : units[0];
-  const toUnit = units.includes(selectedToUnit) ? selectedToUnit : (units[1] ?? units[0]);
+  const toUnit = units.includes(selectedToUnit) ? selectedToUnit : units[1];
   const [result, setResult] = useState<number | null>(null);
   const [error, setError] = useState<string>('');
 

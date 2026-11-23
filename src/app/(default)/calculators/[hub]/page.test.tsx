@@ -3,10 +3,11 @@ import { describe, expect, it, vi } from 'vitest';
 import { CALCULATOR_HUBS, getCalculatorsForHub } from '@/constants/calculatorCatalog';
 import RelatedCalculatorLinks from '@/components/RelatedCalculatorLinks';
 import CalculatorHubPage from './page';
+import { defined } from '@/test-utils/defined';
 
 vi.mock('@/components/Breadcrumb', () => ({ default: () => null }));
 
-const hub = CALCULATOR_HUBS[0];
+const hub = defined(CALCULATOR_HUBS[0]);
 const calculators = getCalculatorsForHub(hub.slug);
 
 function calculatorHrefs(container: HTMLElement): string[] {
