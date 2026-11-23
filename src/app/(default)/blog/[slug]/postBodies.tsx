@@ -391,4 +391,10 @@ export const POST_BODIES: Record<string, React.ComponentType<Record<string, neve
       loading: () => <BlogLoadingFallback />,
     }
   ),
+  'body-surface-area-explained': dynamic(
+    () => import('@/app/blog/body-surface-area-explained/content'),
+    {
+      loading: () => <BlogLoadingFallback />,
+    }
+  ),
 };
