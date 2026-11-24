@@ -958,6 +958,20 @@ export const BLOG_REGISTRY: BlogPostEntry[] = [
       'VO2 max, VO2 max calculator, cardiorespiratory fitness, longevity biomarker, VO2 max training, Zone 2 training, HIIT VO2 max, VO2 max norms, Rockport walk test, cardiorespiratory fitness mortality',
     seoTitle: 'VO2 Max Explained: The Longevity Biomarker Everyone Is Tracking | HealthCalc',
   },
+  {
+    title: 'Body Surface Area Explained: The Mosteller Formula and Why Doses Use It',
+    description:
+      'How body surface area is estimated from height and weight, why the Mosteller and DuBois formulas disagree for larger bodies, and what clinicians use the number for.',
+    slug: 'body-surface-area-explained',
+    date: 'November 23, 2026',
+    readTime: '8 min read',
+    category: 'Health & Science',
+    image: '/images/blog/body-surface-area-explained.jpg',
+    keywords:
+      'body surface area, BSA, BSA calculator, Mosteller formula, DuBois formula, body surface area formula, chemotherapy dosing, mg/m2, eGFR 1.73 m2',
+    seoTitle:
+      'Body Surface Area Explained: The Mosteller Formula and Why Doses Use It | HealthCalc',
+  },
 ];
 
 // ── SEO Metadata generator ────────────────────────────────────────

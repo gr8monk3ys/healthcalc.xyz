@@ -43,6 +43,14 @@ const faqs = [
 
 const relatedArticles = [
   {
+    title: 'Body Surface Area Explained: The Mosteller Formula and Why Doses Use It',
+    description: 'How BSA is estimated, why formulas disagree, and what clinicians use it for.',
+    slug: 'body-surface-area-explained',
+    date: 'November 23, 2026',
+    readTime: '8 min read',
+    category: 'Health & Science',
+  },
+  {
     title: 'Understanding Body Fat Percentage: What Your Numbers Mean',
     description: 'Learn the difference between body metrics and when to use each.',
     slug: 'understanding-body-fat-percentage',
