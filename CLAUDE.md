@@ -2,6 +2,28 @@
 
 HealthCalc (healthcalc.xyz): Next.js 16 / React 19 / TypeScript / Tailwind v4 site with health calculators (counted from `CALCULATOR_CATALOG`; never hardcode the number in copy) and a blog. Package manager is Bun (`bun.lock`). Default branch: `master`.
 
+## How we work
+
+`.claude/settings.json` loads four plugins from the `lorenzos-claude-code`
+marketplace (gr8monk3ys/skills), in every clone and every cloud session. Use
+them every time, not only when one happens to trigger:
+
+- **Matt Pocock's skills** (`mattpocock-skills`) for the engineering process:
+  `grilling` before building something new, `tdd` for any behaviour change,
+  `diagnosing-bugs` for bugs, `code-review` before calling work done and `pr`
+  for the PR body. Prefer them over overlapping skills from other plugins.
+- **Impeccable** for any UI, layout, styling or on-screen copy: run
+  `/impeccable critique` or `/impeccable audit` on it before you're done.
+- **Ponytail** is always on: the simplest code that works, no unrequested
+  abstractions or dependencies. Run `ponytail-review` on the diff before
+  opening a PR and cut what the task didn't need.
+- **Tests:** `./scripts/verify` is the fast gate (`bun run check` with
+  coverage, as CI runs it: format check, lint, types, boundaries, Vitest; no
+  build, browser or deploy). A hook runs it before a session can finish and
+  won't let it end while it fails. Before a PR, still run `bun run build` and
+  `bun run smoke` (or `test:e2e`) for UI changes, as CI does. Never skip,
+  weaken or delete a test to get it green.
+
 ## Commands
 
 - `bun install`; `bun run dev` (localhost:3000); `bun run build` (`next build --webpack`); `bun run start`

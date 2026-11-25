@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Fast gate that Claude Code runs before a session can finish: CI's
+# `Code Quality & Testing` steps without the build, smoke, E2E and Lighthouse.
+# Before a PR, still run `bun run build` and `bun run smoke` (or `test:e2e`) for UI.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+bun install --frozen-lockfile
+bun run format:check
+bun run lint
+bun run type-check
+bun run lint:boundaries
+bun run test -- --run --coverage
